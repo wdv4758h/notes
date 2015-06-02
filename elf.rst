@@ -104,6 +104,7 @@ loader 把程式載到 memory 後，object file 會是 execution view
 Resource
 ========================================
 
+- `ELF101 <https://code.google.com/p/corkami/wiki/ELF101>`_
 - `Executable and Linkable Format - Wikipedia <http://en.wikipedia.org/wiki/Executable_and_Linkable_Format>`_
 - `Linux ELF Object File Format (and ELF Header Structure) Basics <http://www.thegeekstuff.com/2012/07/elf-object-file-format/>`_
 - ELF（Executable and Linking Format）格式教學文件
