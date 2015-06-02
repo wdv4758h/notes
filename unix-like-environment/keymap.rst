@@ -8,15 +8,12 @@ Control & CapsLock 互換
 
 .. code-block:: 
 
-    keycode      37 = Control_L
-    keycode      66 = Caps_Lock
-
-    clear   Lock
-    clear   Control
-    keysym  Control_L   = Caps_Lock
-    keysym  Caps_Lock   = Control_L
-    add     Lock        = Caps_Lock
-    add     Control     = Control_L
+    remove Lock = Caps_Lock
+    remove Control = Control_L
+    keysym Control_L = Caps_Lock
+    keysym Caps_Lock = Control_L
+    add Lock = Caps_Lock
+    add Control = Control_L
 
 Reverse Scrolling
 ------------------------------
