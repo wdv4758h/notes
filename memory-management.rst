@@ -5,7 +5,7 @@ Stack & Heap
 
 Linux process :
 
-.. image: /images/memory-management/Linux-Address-Layout.png
+.. image:: images/memory-management/Linux-Address-Layout.png
     :alt: Linux Address Layout
 
 其中 Stack 是 **local variables** 和 **function parameters** 的地方，
