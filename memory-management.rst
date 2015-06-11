@@ -25,6 +25,27 @@ Linux process :
 但是 Heap 的特別處就在於不會受限於特定的 scope 裡，
 就算 function 回傳還是可以正常使用，也常用動態決定資料大小的情況。
 
+Common Memory Problem
+=========================================
+
+管理
+
+* double free (清多次)
+* memory leak (沒清到)
+
+使用
+
+* use after free (清了還用)
+* dangling pointer (清了還用)
+* heap overflow (寫超過)
+* stack buffer overflow (寫超過)
+* buffer over-read (讀超過)
+* stack overflow (用太多)
+
+Debugger
+=========================================
+
+* Valgrind
 
 Reference
 =========================================
