@@ -47,6 +47,31 @@ Debugger
 
 * Valgrind
 
+RAII (Resource Acquisition Is Initialization)
+=============================================
+
+RAII 為在數個 OO 語言中使用的 programming idiom，
+為 C++ 於 1984 到 1989 年間發展出來，主要由 Bjarne Stroustrup 和 Andrew Koenig 來完成，
+後來也用於 D、Ada、Vala、Rust 等語言。
+
+主要概念為把資源和物件的 lifetime 綁在一起，
+當物件由 constructor 建立時，就做 resource allocation，
+當物件由 destructor 拆掉時，就做 resource deallocation，
+如此一來只要物件正常的拆掉，就不會有 resource leak 發生。
+
+Ownership
+=========================================
+
+Garbage Collection
+=========================================
+
+Cases
+=========================================
+
+* Python
+    - CPython : GC with reference counting
+    - PyPy : GC with incremental generational tracing (incminimark)
+
 Reference
 =========================================
 
