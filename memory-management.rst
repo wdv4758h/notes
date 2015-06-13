@@ -42,6 +42,249 @@ Common Memory Problem
 * buffer over-read (讀超過)
 * stack overflow (用太多)
 
+double free
+------------------------------
+
+.. code-block:: c
+
+    // C
+
+    #include <stdio.h>
+    #include <stdlib.h>     // malloc, free
+
+    int main() {
+        int *x = malloc(sizeof(int));
+        printf("origin : %d\n", *x);
+        *x = 10;
+        printf("assign : %d\n", *x);
+        free(x);
+        free(x);
+    }
+
+::
+
+    origin : 0
+    assign : 10
+    *** Error in `./a.out': double free or corruption (fasttop): 0x0000000001288010 ***
+    ======= Backtrace: =========
+    /usr/lib/libc.so.6(+0x71bad)[0x7f9fe836ebad]
+    /usr/lib/libc.so.6(+0x770fe)[0x7f9fe83740fe]
+    /usr/lib/libc.so.6(+0x778db)[0x7f9fe83748db]
+    ./a.out[0x4005fc]
+    /usr/lib/libc.so.6(__libc_start_main+0xf0)[0x7f9fe831d790]
+    ./a.out[0x4004c9]
+    ======= Memory map: ========
+    00400000-00401000 r-xp 00000000 08:02 1704311                            /home/dv/zone/a.out
+    00600000-00601000 rw-p 00000000 08:02 1704311                            /home/dv/zone/a.out
+    01288000-012a9000 rw-p 00000000 00:00 0                                  [heap]
+    7f9fe80e7000-7f9fe80fd000 r-xp 00000000 08:01 137661                     /usr/lib/libgcc_s.so.1
+    7f9fe80fd000-7f9fe82fc000 ---p 00016000 08:01 137661                     /usr/lib/libgcc_s.so.1
+    7f9fe82fc000-7f9fe82fd000 rw-p 00015000 08:01 137661                     /usr/lib/libgcc_s.so.1
+    7f9fe82fd000-7f9fe8496000 r-xp 00000000 08:01 134345                     /usr/lib/libc-2.21.so
+    7f9fe8496000-7f9fe8695000 ---p 00199000 08:01 134345                     /usr/lib/libc-2.21.so
+    7f9fe8695000-7f9fe8699000 r--p 00198000 08:01 134345                     /usr/lib/libc-2.21.so
+    7f9fe8699000-7f9fe869b000 rw-p 0019c000 08:01 134345                     /usr/lib/libc-2.21.so
+    7f9fe869b000-7f9fe869f000 rw-p 00000000 00:00 0
+    7f9fe869f000-7f9fe86c1000 r-xp 00000000 08:01 134444                     /usr/lib/ld-2.21.so
+    7f9fe887d000-7f9fe8880000 rw-p 00000000 00:00 0
+    7f9fe88be000-7f9fe88c0000 rw-p 00000000 00:00 0
+    7f9fe88c0000-7f9fe88c1000 r--p 00021000 08:01 134444                     /usr/lib/ld-2.21.so
+    7f9fe88c1000-7f9fe88c2000 rw-p 00022000 08:01 134444                     /usr/lib/ld-2.21.so
+    7f9fe88c2000-7f9fe88c3000 rw-p 00000000 00:00 0
+    7ffc6d416000-7ffc6d437000 rw-p 00000000 00:00 0                          [stack]
+    7ffc6d593000-7ffc6d595000 r--p 00000000 00:00 0                          [vvar]
+    7ffc6d595000-7ffc6d597000 r-xp 00000000 00:00 0                          [vdso]
+    ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+    Aborted (core dumped)
+
+memory leak
+------------------------------
+
+.. code-block:: c
+
+    // C
+
+    #include <stdio.h>
+    #include <stdlib.h>     // malloc
+    #include <unistd.h>     // getpid
+
+    int main() {
+        long long *x;
+
+        printf("pid : %d\n", getpid());
+        printf("per size %lu\n", sizeof(long long));
+
+        while (1) {
+            // malloc, no free
+            x = malloc(sizeof(long long) * 1000);
+            getchar();
+        }
+    }
+
+.. code-block:: sh
+
+    $ pmap -x $pid
+    30593:   ./a.out
+    Address           Kbytes     RSS   Dirty Mode  Mapping
+    0000000000400000       4       4       0 r-x-- a.out
+    0000000000600000       4       4       4 rw--- a.out
+    0000000002572000     136       8       8 rw---   [ anon ]
+    00007fe14389b000    1636    1044       0 r-x-- libc-2.21.so
+    00007fe143a34000    2044       0       0 ----- libc-2.21.so
+    00007fe143c33000      16      16      16 r---- libc-2.21.so
+    00007fe143c37000       8       8       8 rw--- libc-2.21.so
+    00007fe143c39000      16       8       8 rw---   [ anon ]
+    00007fe143c3d000     136     136       0 r-x-- ld-2.21.so
+    00007fe143e1b000      12      12      12 rw---   [ anon ]
+    00007fe143e5c000       8       4       4 rw---   [ anon ]
+    00007fe143e5e000       4       4       4 r---- ld-2.21.so
+    00007fe143e5f000       4       4       4 rw--- ld-2.21.so
+    00007fe143e60000       4       4       4 rw---   [ anon ]
+    00007fff33951000     132       8       8 rw---   [ stack ]
+    00007fff3397a000       8       0       0 r----   [ anon ]
+    00007fff3397c000       8       4       0 r-x--   [ anon ]
+    ffffffffff600000       4       0       0 r-x--   [ anon ]
+    ---------------- ------- ------- -------
+    total kB            4184    1268      80
+
+.. code-block:: sh
+
+    $ cat /proc/$pid/smaps | grep -A 15 heap
+    02572000-02594000 rw-p 00000000 00:00 0                                  [heap]
+    Size:                136 kB
+    Rss:                   8 kB
+    Pss:                   8 kB
+    Shared_Clean:          0 kB
+    Shared_Dirty:          0 kB
+    Private_Clean:         0 kB
+    Private_Dirty:         8 kB
+    Referenced:            8 kB
+    Anonymous:             8 kB
+    AnonHugePages:         0 kB
+    Swap:                  0 kB
+    KernelPageSize:        4 kB
+    MMUPageSize:           4 kB
+    Locked:                0 kB
+    VmFlags: rd wr mr mw me ac
+
+use after free
+------------------------------
+
+.. code-block:: c
+
+    // C
+
+    #include <stdio.h>
+    #include <stdlib.h>     // malloc
+
+    int main() {
+        int *x;
+
+        x = malloc(sizeof(int));
+        *x = 9;
+
+        printf("use before free : %d\n", *x);
+
+        free(x);
+
+        printf("use after free : %d\n", *x);
+
+        int *y = malloc(sizeof(int));
+        *y = 10;
+
+        printf("use after free : %d\n", *x);
+
+        return 0;
+    }
+
+.. code-block:: sh
+
+    $ ./a.out
+    use before free : 9
+    use after free : 0
+    use after free : 10
+
+stack buffer overflow
+------------------------------
+
+.. code-block:: c
+
+    // C
+
+    #include <stdio.h>
+
+    int main() {
+        int x = 0;
+        char c[1];
+        printf("%d\n", x);
+        scanf("%s", c);
+        printf("%d\n", x);
+        return 0;
+    }
+
+.. code-block:: sh
+
+    $ ./a.out
+    x : 0
+    test
+    x : 7631717
+
+buffer over-read
+------------------------------
+
+.. code-block:: c
+
+    // C
+
+    #include <stdio.h>
+
+    int main() {
+
+        int x = 'z';
+
+        char c[1];
+        c[0] = 'a';
+
+        printf("c[0] : %c\n", c[0]);
+        printf("c[1] : %c\n", c[1]);    // read x
+
+        return 0;
+    }
+
+.. code-block:: sh
+
+    $ ./a.out
+    c[0] : a
+    c[1] : z
+
+stack overflow
+------------------------------
+
+.. code-block:: c
+
+    // C
+
+    #include <stdio.h>
+
+    void stack_overflow() {
+        static int count = 0;
+
+        count++;
+
+        printf("count : %d\n", count);
+
+        stack_overflow();
+    }
+
+    int main() {
+        stack_overflow();
+        return 0;
+    }
+
+.. code-block:: sh
+
+    $ gcc -O0 stack-overflow.c  # avoid optimization
+
 Debugger
 =========================================
 
