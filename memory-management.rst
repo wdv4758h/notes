@@ -25,6 +25,96 @@ Linux process :
 但是 Heap 的特別處就在於不會受限於特定的 scope 裡，
 就算 function 回傳還是可以正常使用，也常用動態決定資料大小的情況。
 
+example :
+
+.. code-block:: c
+
+    // C
+
+    #include <stdio.h>
+    #include <stdlib.h>     // malloc, free, atoi
+
+    int main (int argc, char *argv[]) {
+
+        int *dynamic_array;
+
+        if (argc > 1) {
+
+            int size = atoi(argv[1]);
+
+            dynamic_array = (int*) malloc (sizeof(int) * size);
+
+            for (int i = 0; i < size; i++) {
+                printf("%d\n", dynamic_array[i]);
+            }
+
+            free(dynamic_array);
+
+        } else {
+
+            printf("Please give a number\n");
+
+        }
+
+        return 0;
+    }
+
+more example (新 malloc 的記憶體真的是新的嗎？) :
+
+.. code-block:: c
+
+    #include <stdio.h>
+    #include <stdlib.h>     // malloc, free, atoi
+
+    int main (int argc, char *argv[]) {
+
+        int *dynamic_array;
+
+        if (argc > 1) {
+
+            int size = atoi(argv[1]);
+
+
+
+            dynamic_array = (int*) malloc (sizeof(int) * size);
+
+            printf("first time\n");
+
+            for (int i = 0; i < size; i++) {
+                printf("%d\n", dynamic_array[i]);
+            }
+
+            for (int i = 0; i < size; i++) {
+                // modify
+                dynamic_array[i] = i * i;
+            }
+
+            free(dynamic_array);
+
+
+
+            // get some new memory
+            dynamic_array = (int*) malloc (sizeof(int) * size);
+
+            printf("second time\n");
+
+            for (int i = 0; i < size; i++) {
+                printf("%d\n", dynamic_array[i]);
+            }
+
+            free(dynamic_array);
+
+
+
+        } else {
+
+            printf("Please give a number\n");
+
+        }
+
+        return 0;
+    }
+
 Common Memory Problem
 =========================================
 
