@@ -358,6 +358,78 @@ compile :
     use after free : 0
     use after free : 10
 
+heap overflow
+------------------------------
+
+source code :
+
+.. code-block:: c
+
+    // C
+
+    #include <stdio.h>
+    #include <stdlib.h>     // malloc, free
+    #include <string.h>     // strlen
+
+    int main() {
+
+        const char s1[] = "This is a test.";
+        const char s2[] = "This is a test. This is a test.";
+
+        char *x = malloc(sizeof(char) * strlen(s1));
+
+        strcpy(x, s2);
+
+        free(x);
+
+        return 0;
+    }
+
+
+compile :
+
+.. code-block:: sh
+
+    $ gcc -Wall -std=c11 -g heap-overflow.c -o heap-overflow
+
+
+執行：
+
+.. code-block:: sh
+
+    $ ./heap-overflow
+    *** Error in `./heap-overflow': free(): invalid next size (fast): 0x000000000250e010 ***
+    ======= Backtrace: =========
+    /usr/lib/libc.so.6(+0x71bad)[0x7f38d091cbad]
+    /usr/lib/libc.so.6(+0x770fe)[0x7f38d09220fe]
+    /usr/lib/libc.so.6(+0x778db)[0x7f38d09228db]
+    ./heap-overflow[0x400669]
+    /usr/lib/libc.so.6(__libc_start_main+0xf0)[0x7f38d08cb790]
+    ./heap-overflow[0x400509]
+    ======= Memory map: ========
+    00400000-00401000 r-xp 00000000 00:1e 1894065                            /tmp/memory/heap-overflow
+    00600000-00601000 rw-p 00000000 00:1e 1894065                            /tmp/memory/heap-overflow
+    0250e000-0252f000 rw-p 00000000 00:00 0                                  [heap]
+    7f38d0695000-7f38d06ab000 r-xp 00000000 08:01 137661                     /usr/lib/libgcc_s.so.1
+    7f38d06ab000-7f38d08aa000 ---p 00016000 08:01 137661                     /usr/lib/libgcc_s.so.1
+    7f38d08aa000-7f38d08ab000 rw-p 00015000 08:01 137661                     /usr/lib/libgcc_s.so.1
+    7f38d08ab000-7f38d0a44000 r-xp 00000000 08:01 134345                     /usr/lib/libc-2.21.so
+    7f38d0a44000-7f38d0c43000 ---p 00199000 08:01 134345                     /usr/lib/libc-2.21.so
+    7f38d0c43000-7f38d0c47000 r--p 00198000 08:01 134345                     /usr/lib/libc-2.21.so
+    7f38d0c47000-7f38d0c49000 rw-p 0019c000 08:01 134345                     /usr/lib/libc-2.21.so
+    7f38d0c49000-7f38d0c4d000 rw-p 00000000 00:00 0
+    7f38d0c4d000-7f38d0c6f000 r-xp 00000000 08:01 134444                     /usr/lib/ld-2.21.so
+    7f38d0e2a000-7f38d0e2d000 rw-p 00000000 00:00 0
+    7f38d0e6d000-7f38d0e6e000 rw-p 00000000 00:00 0
+    7f38d0e6e000-7f38d0e6f000 r--p 00021000 08:01 134444                     /usr/lib/ld-2.21.so
+    7f38d0e6f000-7f38d0e70000 rw-p 00022000 08:01 134444                     /usr/lib/ld-2.21.so
+    7f38d0e70000-7f38d0e71000 rw-p 00000000 00:00 0
+    7fffdc083000-7fffdc0a4000 rw-p 00000000 00:00 0                          [stack]
+    7fffdc13b000-7fffdc13d000 r--p 00000000 00:00 0                          [vvar]
+    7fffdc13d000-7fffdc13f000 r-xp 00000000 00:00 0                          [vdso]
+    ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+    Aborted (core dumped)
+
 stack buffer overflow
 ------------------------------
 
@@ -459,78 +531,6 @@ stack overflow
 .. code-block:: sh
 
     $ gcc -Wall -O0 -std=c11 -g stack-overflow.c -o stack-overflow     # avoid optimization
-
-heap overflow
-------------------------------
-
-source code :
-
-.. code-block:: c
-
-    // C
-
-    #include <stdio.h>
-    #include <stdlib.h>     // malloc, free
-    #include <string.h>     // strlen
-
-    int main() {
-
-        const char s1[] = "This is a test.";
-        const char s2[] = "This is a test. This is a test.";
-
-        char *x = malloc(sizeof(char) * strlen(s1));
-
-        strcpy(x, s2);
-
-        free(x);
-
-        return 0;
-    }
-
-
-compile :
-
-.. code-block:: sh
-
-    $ gcc -Wall -std=c11 -g heap-overflow.c -o heap-overflow
-
-
-執行：
-
-.. code-block:: sh
-
-    $ ./heap-overflow
-    *** Error in `./heap-overflow': free(): invalid next size (fast): 0x000000000250e010 ***
-    ======= Backtrace: =========
-    /usr/lib/libc.so.6(+0x71bad)[0x7f38d091cbad]
-    /usr/lib/libc.so.6(+0x770fe)[0x7f38d09220fe]
-    /usr/lib/libc.so.6(+0x778db)[0x7f38d09228db]
-    ./heap-overflow[0x400669]
-    /usr/lib/libc.so.6(__libc_start_main+0xf0)[0x7f38d08cb790]
-    ./heap-overflow[0x400509]
-    ======= Memory map: ========
-    00400000-00401000 r-xp 00000000 00:1e 1894065                            /tmp/memory/heap-overflow
-    00600000-00601000 rw-p 00000000 00:1e 1894065                            /tmp/memory/heap-overflow
-    0250e000-0252f000 rw-p 00000000 00:00 0                                  [heap]
-    7f38d0695000-7f38d06ab000 r-xp 00000000 08:01 137661                     /usr/lib/libgcc_s.so.1
-    7f38d06ab000-7f38d08aa000 ---p 00016000 08:01 137661                     /usr/lib/libgcc_s.so.1
-    7f38d08aa000-7f38d08ab000 rw-p 00015000 08:01 137661                     /usr/lib/libgcc_s.so.1
-    7f38d08ab000-7f38d0a44000 r-xp 00000000 08:01 134345                     /usr/lib/libc-2.21.so
-    7f38d0a44000-7f38d0c43000 ---p 00199000 08:01 134345                     /usr/lib/libc-2.21.so
-    7f38d0c43000-7f38d0c47000 r--p 00198000 08:01 134345                     /usr/lib/libc-2.21.so
-    7f38d0c47000-7f38d0c49000 rw-p 0019c000 08:01 134345                     /usr/lib/libc-2.21.so
-    7f38d0c49000-7f38d0c4d000 rw-p 00000000 00:00 0
-    7f38d0c4d000-7f38d0c6f000 r-xp 00000000 08:01 134444                     /usr/lib/ld-2.21.so
-    7f38d0e2a000-7f38d0e2d000 rw-p 00000000 00:00 0
-    7f38d0e6d000-7f38d0e6e000 rw-p 00000000 00:00 0
-    7f38d0e6e000-7f38d0e6f000 r--p 00021000 08:01 134444                     /usr/lib/ld-2.21.so
-    7f38d0e6f000-7f38d0e70000 rw-p 00022000 08:01 134444                     /usr/lib/ld-2.21.so
-    7f38d0e70000-7f38d0e71000 rw-p 00000000 00:00 0
-    7fffdc083000-7fffdc0a4000 rw-p 00000000 00:00 0                          [stack]
-    7fffdc13b000-7fffdc13d000 r--p 00000000 00:00 0                          [vvar]
-    7fffdc13d000-7fffdc13f000 r-xp 00000000 00:00 0                          [vdso]
-    ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
-    Aborted (core dumped)
 
 
 Debugger
@@ -701,6 +701,47 @@ Valgrind output ::
     ==32017== For counts of detected and suppressed errors, rerun with: -v
     ==32017== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
 
+heap overflow
+++++++++++++++++++++
+
+執行：
+
+.. code-block:: sh
+
+    $ valgrind ./stack-overflow
+
+Valgrind output ::
+
+    ==31005== Memcheck, a memory error detector
+    ==31005== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+    ==31005== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+    ==31005== Command: ./heap-overflow
+    ==31005==
+    ==31005== Invalid write of size 1
+    ==31005==    at 0x4C2D610: strcpy (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+    ==31005==    by 0x40065C: main (heap-overflow.c:12)
+    ==31005==  Address 0x51d804f is 0 bytes after a block of size 15 alloc'd
+    ==31005==    at 0x4C29F90: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+    ==31005==    by 0x400645: main (heap-overflow.c:10)
+    ==31005==
+    ==31005== Invalid write of size 1
+    ==31005==    at 0x4C2D623: strcpy (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+    ==31005==    by 0x40065C: main (heap-overflow.c:12)
+    ==31005==  Address 0x51d805f is 16 bytes after a block of size 15 alloc'd
+    ==31005==    at 0x4C29F90: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+    ==31005==    by 0x400645: main (heap-overflow.c:10)
+    ==31005==
+    ==31005==
+    ==31005== HEAP SUMMARY:
+    ==31005==     in use at exit: 0 bytes in 0 blocks
+    ==31005==   total heap usage: 1 allocs, 1 frees, 15 bytes allocated
+    ==31005==
+    ==31005== All heap blocks were freed -- no leaks are possible
+    ==31005==
+    ==31005== For counts of detected and suppressed errors, rerun with: -v
+    ==31005== ERROR SUMMARY: 17 errors from 2 contexts (suppressed: 0 from 0)
+
+
 stack buffer overflow
 +++++++++++++++++++++
 
@@ -853,47 +894,6 @@ Valgrind output ::
     ==12380==
     ==12380== For counts of detected and suppressed errors, rerun with: -v
     ==12380== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-
-
-heap overflow
-++++++++++++++++++++
-
-執行：
-
-.. code-block:: sh
-
-    $ valgrind ./stack-overflow
-
-Valgrind output ::
-
-    ==31005== Memcheck, a memory error detector
-    ==31005== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
-    ==31005== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
-    ==31005== Command: ./heap-overflow
-    ==31005==
-    ==31005== Invalid write of size 1
-    ==31005==    at 0x4C2D610: strcpy (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-    ==31005==    by 0x40065C: main (heap-overflow.c:12)
-    ==31005==  Address 0x51d804f is 0 bytes after a block of size 15 alloc'd
-    ==31005==    at 0x4C29F90: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-    ==31005==    by 0x400645: main (heap-overflow.c:10)
-    ==31005==
-    ==31005== Invalid write of size 1
-    ==31005==    at 0x4C2D623: strcpy (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-    ==31005==    by 0x40065C: main (heap-overflow.c:12)
-    ==31005==  Address 0x51d805f is 16 bytes after a block of size 15 alloc'd
-    ==31005==    at 0x4C29F90: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-    ==31005==    by 0x400645: main (heap-overflow.c:10)
-    ==31005==
-    ==31005==
-    ==31005== HEAP SUMMARY:
-    ==31005==     in use at exit: 0 bytes in 0 blocks
-    ==31005==   total heap usage: 1 allocs, 1 frees, 15 bytes allocated
-    ==31005==
-    ==31005== All heap blocks were freed -- no leaks are possible
-    ==31005==
-    ==31005== For counts of detected and suppressed errors, rerun with: -v
-    ==31005== ERROR SUMMARY: 17 errors from 2 contexts (suppressed: 0 from 0)
 
 
 RAII (Resource Acquisition Is Initialization)
