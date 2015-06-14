@@ -359,6 +359,8 @@ compile :
 stack buffer overflow
 ------------------------------
 
+source code:
+
 .. code-block:: c
 
     // C
@@ -368,21 +370,32 @@ stack buffer overflow
     int main() {
         int x = 0;
         char c[1];
-        printf("%d\n", x);
+        printf("x : %d\n", x);
         scanf("%s", c);
-        printf("%d\n", x);
+        printf("x : %d\n", x);
         return 0;
     }
 
+compile :
+
 .. code-block:: sh
 
-    $ ./a.out
+    $ gcc -Wall -std=c11 -g stack-buffer-overflow.c -o stack-buffer-overflow
+
+執行：
+
+.. code-block:: sh
+
+    $ ./stack-buffer-overflow
     x : 0
     test
     x : 7631717
 
+
 buffer over-read
 ------------------------------
+
+source code :
 
 .. code-block:: c
 
@@ -403,9 +416,17 @@ buffer over-read
         return 0;
     }
 
+compile :
+
 .. code-block:: sh
 
-    $ ./a.out
+    $ gcc -Wall -std=c11 -g buffer-over-read.c -o buffer-over-read
+
+執行：
+
+.. code-block:: sh
+
+    $ ./buffer-over-read
     c[0] : a
     c[1] : z
 
@@ -435,7 +456,7 @@ stack overflow
 
 .. code-block:: sh
 
-    $ gcc -O0 stack-overflow.c  # avoid optimization
+    $ gcc -Wall -O0 -std=c11 stack-overflow.c -o stack-overflow     # avoid optimization
 
 Debugger
 =========================================
@@ -528,7 +549,7 @@ memory leak
 
 .. code-block:: sh
 
-    $ valgrind --leak-check=full ./memory-leak
+    $ valgrind --leak-check=full --show-leak-kinds=all ./memory-leak
 
 Valgrind output ::
 
@@ -560,9 +581,203 @@ Valgrind output ::
     ==27173== For counts of detected and suppressed errors, rerun with: -v
     ==27173== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 
+
 use after free
 ++++++++++++++++++++
 
+執行：
+
+.. code-block:: sh
+
+    $ valgrind ./use-after-free
+
+Valgrind output ::
+
+    ==32017== Memcheck, a memory error detector
+    ==32017== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+    ==32017== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+    ==32017== Command: ./use-after-free
+    ==32017==
+    ==32017== Invalid read of size 4
+    ==32017==    at 0x4005DD: main (use-after-free.c:16)
+    ==32017==  Address 0x51d8040 is 0 bytes inside a block of size 4 free'd
+    ==32017==    at 0x4C2B200: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+    ==32017==    by 0x4005D8: main (use-after-free.c:14)
+    ==32017==
+    ==32017== Invalid read of size 4
+    ==32017==    at 0x40060C: main (use-after-free.c:21)
+    ==32017==  Address 0x51d8040 is 0 bytes inside a block of size 4 free'd
+    ==32017==    at 0x4C2B200: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+    ==32017==    by 0x4005D8: main (use-after-free.c:14)
+    ==32017==
+    ==32017==
+    ==32017== HEAP SUMMARY:
+    ==32017==     in use at exit: 4 bytes in 1 blocks
+    ==32017==   total heap usage: 2 allocs, 1 frees, 8 bytes allocated
+    ==32017==
+    ==32017== LEAK SUMMARY:
+    ==32017==    definitely lost: 4 bytes in 1 blocks
+    ==32017==    indirectly lost: 0 bytes in 0 blocks
+    ==32017==      possibly lost: 0 bytes in 0 blocks
+    ==32017==    still reachable: 0 bytes in 0 blocks
+    ==32017==         suppressed: 0 bytes in 0 blocks
+    ==32017== Rerun with --leak-check=full to see details of leaked memory
+    ==32017==
+    ==32017== For counts of detected and suppressed errors, rerun with: -v
+    ==32017== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+
+stack buffer overflow
++++++++++++++++++++++
+
+Valgrind 的 Memcheck 目前沒有針對 global / stack array 的 bounds checking，
+但是有另外一個實驗的工具叫 "SGcheck" 可以偵測這類問題
+
+* `Why doesn't Memcheck find the array overruns in this program? <http://valgrind.org/docs/manual/faq.html#faq.overruns>`_
+
+執行：
+
+.. code-block:: sh
+
+    $ valgrind --tool=exp-sgcheck ./stack-buffer-overflow
+
+Valgrind output ::
+
+    ==6617== exp-sgcheck, a stack and global array overrun detector
+    ==6617== NOTE: This is an Experimental-Class Valgrind Tool
+    ==6617== Copyright (C) 2003-2013, and GNU GPL'd, by OpenWorks Ltd et al.
+    ==6617== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+    ==6617== Command: ./stack-buffer-overflow
+    ==6617==
+    ==6617== Invalid write of size 1
+    ==6617==    at 0x4E854A5: _IO_vfscanf (in /usr/lib/libc-2.21.so)
+    ==6617==    by 0x4E9571E: __isoc99_scanf (in /usr/lib/libc-2.21.so)
+    ==6617==    by 0x4005AE: main (stack-buffer-overflow.c:9)
+    ==6617==  Address 0xfff0000cc expected vs actual:
+    ==6617==  Expected: stack array "c" of size 1 in frame 2 back from here
+    ==6617==  Actual:   unknown
+    ==6617==  Actual:   is 0 after Expected
+    ==6617==
+    ==6617==
+    ==6617== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+
+
+buffer over-read
++++++++++++++++++++++
+
+暫時沒看到 Valgrind 上的解法 ...
+
+
+
+GCC 的話可以在 compile 時，加上 ``-fsanitize=address`` 參數來 check
+
+compile :
+
+.. code-block:: sh
+
+    $ gcc -Wall -std=c11 -fsanitize=address -g buffer-over-read.c -o buffer-over-read
+
+執行 :
+
+.. code-block:: sh
+
+    $ ./buffer-over-read
+
+output (terminal 上有上色) ::
+
+    =================================================================
+    ==10965==ERROR: AddressSanitizer: stack-buffer-overflow on address 0x7ffde2d80511 at pc 0x00000040095e bp 0x7ffde2d804d0 sp 0x7ffde2d804c0
+    READ of size 1 at 0x7ffde2d80511 thread T0
+        #0 0x40095d in main /tmp/memory/buffer-over-read.c:13
+        #1 0x7f43ee71a78f in __libc_start_main (/usr/lib/libc.so.6+0x2078f)
+        #2 0x4007b8 in _start (/tmp/memory/buffer-over-read+0x4007b8)
+
+    Address 0x7ffde2d80511 is located in stack of thread T0 at offset 33 in frame
+        #0 0x400895 in main /tmp/memory/buffer-over-read.c:5
+
+      This frame has 1 object(s):
+        [32, 33) 'c' <== Memory access at offset 33 overflows this variable
+    HINT: this may be a false positive if your program uses some custom stack unwind mechanism or swapcontext
+          (longjmp and C++ exceptions *are* supported)
+    SUMMARY: AddressSanitizer: stack-buffer-overflow /tmp/memory/buffer-over-read.c:13 main
+    Shadow bytes around the buggy address:
+      0x10003c5a8050: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+      0x10003c5a8060: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+      0x10003c5a8070: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+      0x10003c5a8080: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+      0x10003c5a8090: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 f1 f1
+    =>0x10003c5a80a0: f1 f1[01]f4 f4 f4 f3 f3 f3 f3 00 00 00 00 00 00
+      0x10003c5a80b0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+      0x10003c5a80c0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+      0x10003c5a80d0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+      0x10003c5a80e0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+      0x10003c5a80f0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+    Shadow byte legend (one shadow byte represents 8 application bytes):
+      Addressable:           00
+      Partially addressable: 01 02 03 04 05 06 07
+      Heap left redzone:       fa
+      Heap right redzone:      fb
+      Freed heap region:       fd
+      Stack left redzone:      f1
+      Stack mid redzone:       f2
+      Stack right redzone:     f3
+      Stack partial redzone:   f4
+      Stack after return:      f5
+      Stack use after scope:   f8
+      Global redzone:          f9
+      Global init order:       f6
+      Poisoned by user:        f7
+      Container overflow:      fc
+      Array cookie:            ac
+      Intra object redzone:    bb
+      ASan internal:           fe
+    ==10965==ABORTING
+
+
+stack overflow
++++++++++++++++++++++
+
+執行：
+
+.. code-block:: sh
+
+    $ valgrind ./stack-overflow
+
+Valgrind output ::
+
+    ==12380== Memcheck, a memory error detector
+    ==12380== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+    ==12380== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+    ==12380== Command: ./stack-overflow
+    ==12380==
+    ==12380== Stack overflow in thread 1: can't grow stack to 0xffe801ff8
+    ==12380==
+    ==12380== Process terminating with default action of signal 11 (SIGSEGV)
+    ==12380==  Access not within mapped region at address 0xFFE801FF8
+    ==12380==    at 0x4EA8E8A: _IO_file_write@@GLIBC_2.2.5 (in /usr/lib/libc-2.21.so)
+    ==12380==  If you believe this happened as a result of a stack
+    ==12380==  overflow in your program's main thread (unlikely but
+    ==12380==  possible), you can try to increase the size of the
+    ==12380==  main thread stack using the --main-stacksize= flag.
+    ==12380==  The main thread stack size used in this run was 8388608.
+    ==12380== Stack overflow in thread 1: can't grow stack to 0xffe801ff0
+    ==12380==
+    ==12380== Process terminating with default action of signal 11 (SIGSEGV)
+    ==12380==  Access not within mapped region at address 0xFFE801FF0
+    ==12380==    at 0x4A246D0: _vgnU_freeres (in /usr/lib/valgrind/vgpreload_core-amd64-linux.so)
+    ==12380==  If you believe this happened as a result of a stack
+    ==12380==  overflow in your program's main thread (unlikely but
+    ==12380==  possible), you can try to increase the size of the
+    ==12380==  main thread stack using the --main-stacksize= flag.
+    ==12380==  The main thread stack size used in this run was 8388608.
+    ==12380==
+    ==12380== HEAP SUMMARY:
+    ==12380==     in use at exit: 0 bytes in 0 blocks
+    ==12380==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
+    ==12380==
+    ==12380== All heap blocks were freed -- no leaks are possible
+    ==12380==
+    ==12380== For counts of detected and suppressed errors, rerun with: -v
+    ==12380== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 
 
 RAII (Resource Acquisition Is Initialization)
