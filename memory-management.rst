@@ -167,6 +167,8 @@ Common Memory Problem
 double free
 ------------------------------
 
+source code :
+
 .. code-block:: c
 
     // C
@@ -181,46 +183,55 @@ double free
         printf("assign : %d\n", *x);
         free(x);
         free(x);
+        return 0;
     }
 
-::
+compile :
+
+.. code-block:: sh
+
+    $ gcc -Wall -std=c11 -g double-free.c -o double-free
+
+執行 ::
 
     origin : 0
     assign : 10
-    *** Error in `./a.out': double free or corruption (fasttop): 0x0000000001288010 ***
+    *** Error in `./double-free': double free or corruption (fasttop): 0x00000000013e3010 ***
     ======= Backtrace: =========
-    /usr/lib/libc.so.6(+0x71bad)[0x7f9fe836ebad]
-    /usr/lib/libc.so.6(+0x770fe)[0x7f9fe83740fe]
-    /usr/lib/libc.so.6(+0x778db)[0x7f9fe83748db]
-    ./a.out[0x4005fc]
-    /usr/lib/libc.so.6(__libc_start_main+0xf0)[0x7f9fe831d790]
-    ./a.out[0x4004c9]
+    /usr/lib/libc.so.6(+0x71bad)[0x7ffb1c21cbad]
+    /usr/lib/libc.so.6(+0x770fe)[0x7ffb1c2220fe]
+    /usr/lib/libc.so.6(+0x778db)[0x7ffb1c2228db]
+    ./double-free[0x4005fc]
+    /usr/lib/libc.so.6(__libc_start_main+0xf0)[0x7ffb1c1cb790]
+    ./double-free[0x4004c9]
     ======= Memory map: ========
-    00400000-00401000 r-xp 00000000 08:02 1704311                            /home/dv/zone/a.out
-    00600000-00601000 rw-p 00000000 08:02 1704311                            /home/dv/zone/a.out
-    01288000-012a9000 rw-p 00000000 00:00 0                                  [heap]
-    7f9fe80e7000-7f9fe80fd000 r-xp 00000000 08:01 137661                     /usr/lib/libgcc_s.so.1
-    7f9fe80fd000-7f9fe82fc000 ---p 00016000 08:01 137661                     /usr/lib/libgcc_s.so.1
-    7f9fe82fc000-7f9fe82fd000 rw-p 00015000 08:01 137661                     /usr/lib/libgcc_s.so.1
-    7f9fe82fd000-7f9fe8496000 r-xp 00000000 08:01 134345                     /usr/lib/libc-2.21.so
-    7f9fe8496000-7f9fe8695000 ---p 00199000 08:01 134345                     /usr/lib/libc-2.21.so
-    7f9fe8695000-7f9fe8699000 r--p 00198000 08:01 134345                     /usr/lib/libc-2.21.so
-    7f9fe8699000-7f9fe869b000 rw-p 0019c000 08:01 134345                     /usr/lib/libc-2.21.so
-    7f9fe869b000-7f9fe869f000 rw-p 00000000 00:00 0
-    7f9fe869f000-7f9fe86c1000 r-xp 00000000 08:01 134444                     /usr/lib/ld-2.21.so
-    7f9fe887d000-7f9fe8880000 rw-p 00000000 00:00 0
-    7f9fe88be000-7f9fe88c0000 rw-p 00000000 00:00 0
-    7f9fe88c0000-7f9fe88c1000 r--p 00021000 08:01 134444                     /usr/lib/ld-2.21.so
-    7f9fe88c1000-7f9fe88c2000 rw-p 00022000 08:01 134444                     /usr/lib/ld-2.21.so
-    7f9fe88c2000-7f9fe88c3000 rw-p 00000000 00:00 0
-    7ffc6d416000-7ffc6d437000 rw-p 00000000 00:00 0                          [stack]
-    7ffc6d593000-7ffc6d595000 r--p 00000000 00:00 0                          [vvar]
-    7ffc6d595000-7ffc6d597000 r-xp 00000000 00:00 0                          [vdso]
+    00400000-00401000 r-xp 00000000 00:1e 1685697                            /tmp/memory/double-free
+    00600000-00601000 rw-p 00000000 00:1e 1685697                            /tmp/memory/double-free
+    013e3000-01404000 rw-p 00000000 00:00 0                                  [heap]
+    7ffb1bf95000-7ffb1bfab000 r-xp 00000000 08:01 137661                     /usr/lib/libgcc_s.so.1
+    7ffb1bfab000-7ffb1c1aa000 ---p 00016000 08:01 137661                     /usr/lib/libgcc_s.so.1
+    7ffb1c1aa000-7ffb1c1ab000 rw-p 00015000 08:01 137661                     /usr/lib/libgcc_s.so.1
+    7ffb1c1ab000-7ffb1c344000 r-xp 00000000 08:01 134345                     /usr/lib/libc-2.21.so
+    7ffb1c344000-7ffb1c543000 ---p 00199000 08:01 134345                     /usr/lib/libc-2.21.so
+    7ffb1c543000-7ffb1c547000 r--p 00198000 08:01 134345                     /usr/lib/libc-2.21.so
+    7ffb1c547000-7ffb1c549000 rw-p 0019c000 08:01 134345                     /usr/lib/libc-2.21.so
+    7ffb1c549000-7ffb1c54d000 rw-p 00000000 00:00 0
+    7ffb1c54d000-7ffb1c56f000 r-xp 00000000 08:01 134444                     /usr/lib/ld-2.21.so
+    7ffb1c72a000-7ffb1c72d000 rw-p 00000000 00:00 0
+    7ffb1c76c000-7ffb1c76e000 rw-p 00000000 00:00 0
+    7ffb1c76e000-7ffb1c76f000 r--p 00021000 08:01 134444                     /usr/lib/ld-2.21.so
+    7ffb1c76f000-7ffb1c770000 rw-p 00022000 08:01 134444                     /usr/lib/ld-2.21.so
+    7ffb1c770000-7ffb1c771000 rw-p 00000000 00:00 0
+    7ffe79fa4000-7ffe79fc5000 rw-p 00000000 00:00 0                          [stack]
+    7ffe79fdf000-7ffe79fe1000 r--p 00000000 00:00 0                          [vvar]
+    7ffe79fe1000-7ffe79fe3000 r-xp 00000000 00:00 0                          [vdso]
     ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
     Aborted (core dumped)
 
 memory leak
 ------------------------------
+
+source code :
 
 .. code-block:: c
 
@@ -241,7 +252,18 @@ memory leak
             x = malloc(sizeof(long long) * 1000);
             getchar();
         }
+
+        return 0;
     }
+
+compile :
+
+.. code-block:: sh
+
+    $ gcc -Wall -std=c11 -g memory-leak.c -o memory-leak
+
+
+觀看 Memory 使用：
 
 .. code-block:: sh
 
@@ -292,6 +314,8 @@ memory leak
 use after free
 ------------------------------
 
+source code :
+
 .. code-block:: c
 
     // C
@@ -319,9 +343,15 @@ use after free
         return 0;
     }
 
+compile :
+
 .. code-block:: sh
 
-    $ ./a.out
+    $ gcc -Wall -std=c11 -g use-after-free.c -o use-after-free
+
+.. code-block:: sh
+
+    $ ./use-after-free
     use before free : 9
     use after free : 0
     use after free : 10
@@ -412,6 +442,129 @@ Debugger
 
 * Valgrind
 
+Valgrind
+------------------------------
+
+double free
+++++++++++++++++++++
+
+執行：
+
+.. code-block:: sh
+
+    $ valgrind ./double-free
+
+Valgrind output ::
+
+    ==22811== Memcheck, a memory error detector
+    ==22811== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+    ==22811== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+    ==22811== Command: ./double-free
+    ==22811==
+    ==22811== Conditional jump or move depends on uninitialised value(s)
+    ==22811==    at 0x4E7D3DC: vfprintf (in /usr/lib/libc-2.21.so)
+    ==22811==    by 0x4E84E38: printf (in /usr/lib/libc-2.21.so)
+    ==22811==    by 0x4005C2: main (double-free.c:8)
+    ==22811==
+    ==22811== Use of uninitialised value of size 8
+    ==22811==    at 0x4E7A33B: _itoa_word (in /usr/lib/libc-2.21.so)
+    ==22811==    by 0x4E7D6BD: vfprintf (in /usr/lib/libc-2.21.so)
+    ==22811==    by 0x4E84E38: printf (in /usr/lib/libc-2.21.so)
+    ==22811==    by 0x4005C2: main (double-free.c:8)
+    ==22811==
+    ==22811== Conditional jump or move depends on uninitialised value(s)
+    ==22811==    at 0x4E7A345: _itoa_word (in /usr/lib/libc-2.21.so)
+    ==22811==    by 0x4E7D6BD: vfprintf (in /usr/lib/libc-2.21.so)
+    ==22811==    by 0x4E84E38: printf (in /usr/lib/libc-2.21.so)
+    ==22811==    by 0x4005C2: main (double-free.c:8)
+    ==22811==
+    ==22811== Conditional jump or move depends on uninitialised value(s)
+    ==22811==    at 0x4E7D730: vfprintf (in /usr/lib/libc-2.21.so)
+    ==22811==    by 0x4E84E38: printf (in /usr/lib/libc-2.21.so)
+    ==22811==    by 0x4005C2: main (double-free.c:8)
+    ==22811==
+    ==22811== Conditional jump or move depends on uninitialised value(s)
+    ==22811==    at 0x4E7D4AB: vfprintf (in /usr/lib/libc-2.21.so)
+    ==22811==    by 0x4E84E38: printf (in /usr/lib/libc-2.21.so)
+    ==22811==    by 0x4005C2: main (double-free.c:8)
+    ==22811==
+    ==22811== Conditional jump or move depends on uninitialised value(s)
+    ==22811==    at 0x4E7D837: vfprintf (in /usr/lib/libc-2.21.so)
+    ==22811==    by 0x4E84E38: printf (in /usr/lib/libc-2.21.so)
+    ==22811==    by 0x4005C2: main (double-free.c:8)
+    ==22811==
+    ==22811== Conditional jump or move depends on uninitialised value(s)
+    ==22811==    at 0x4E7D4FB: vfprintf (in /usr/lib/libc-2.21.so)
+    ==22811==    by 0x4E84E38: printf (in /usr/lib/libc-2.21.so)
+    ==22811==    by 0x4005C2: main (double-free.c:8)
+    ==22811==
+    ==22811== Conditional jump or move depends on uninitialised value(s)
+    ==22811==    at 0x4E7D53B: vfprintf (in /usr/lib/libc-2.21.so)
+    ==22811==    by 0x4E84E38: printf (in /usr/lib/libc-2.21.so)
+    ==22811==    by 0x4005C2: main (double-free.c:8)
+    ==22811==
+    ==22811== Invalid free() / delete / delete[] / realloc()
+    ==22811==    at 0x4C2B200: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+    ==22811==    by 0x4005FB: main (double-free.c:12)
+    ==22811==  Address 0x51d8040 is 0 bytes inside a block of size 4 free'd
+    ==22811==    at 0x4C2B200: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+    ==22811==    by 0x4005EF: main (double-free.c:11)
+    ==22811==
+    ==22811==
+    ==22811== HEAP SUMMARY:
+    ==22811==     in use at exit: 0 bytes in 0 blocks
+    ==22811==   total heap usage: 1 allocs, 2 frees, 4 bytes allocated
+    ==22811==
+    ==22811== All heap blocks were freed -- no leaks are possible
+    ==22811==
+    ==22811== For counts of detected and suppressed errors, rerun with: -v
+    ==22811== Use --track-origins=yes to see where uninitialised values come from
+    ==22811== ERROR SUMMARY: 9 errors from 9 contexts (suppressed: 0 from 0)
+
+memory leak
+++++++++++++++++++++
+
+執行：
+
+.. code-block:: sh
+
+    $ valgrind --leak-check=full ./memory-leak
+
+Valgrind output ::
+
+    ==27173== Memcheck, a memory error detector
+    ==27173== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+    ==27173== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+    ==27173== Command: ./memory-leak
+    ==27173==
+    ==27173==
+    ==27173== HEAP SUMMARY:
+    ==27173==     in use at exit: 32,000 bytes in 4 blocks
+    ==27173==   total heap usage: 4 allocs, 0 frees, 32,000 bytes allocated
+    ==27173==
+    ==27173== 8,000 bytes in 1 blocks are still reachable in loss record 1 of 2
+    ==27173==    at 0x4C29F90: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+    ==27173==    by 0x400621: main (memory-leak.c:15)
+    ==27173==
+    ==27173== 24,000 bytes in 3 blocks are definitely lost in loss record 2 of 2
+    ==27173==    at 0x4C29F90: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+    ==27173==    by 0x400621: main (memory-leak.c:15)
+    ==27173==
+    ==27173== LEAK SUMMARY:
+    ==27173==    definitely lost: 24,000 bytes in 3 blocks
+    ==27173==    indirectly lost: 0 bytes in 0 blocks
+    ==27173==      possibly lost: 0 bytes in 0 blocks
+    ==27173==    still reachable: 8,000 bytes in 1 blocks
+    ==27173==         suppressed: 0 bytes in 0 blocks
+    ==27173==
+    ==27173== For counts of detected and suppressed errors, rerun with: -v
+    ==27173== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+
+use after free
+++++++++++++++++++++
+
+
+
 RAII (Resource Acquisition Is Initialization)
 =============================================
 
@@ -446,6 +599,9 @@ More Allocator Implementations
 Reference
 =========================================
 
-* `Wikipedia - C dynamic memory allocation <https://en.wikipedia.org/wiki/C_dynamic_memory_allocation>`_
 * `[2009] Anatomy of a Program in Memory <http://duartes.org/gustavo/blog/post/anatomy-of-a-program-in-memory/>`_
 * `[2013] Using the Pointer Ownership Model to Secure Memory Management in C and C++ <http://blog.sei.cmu.edu/post.cfm/using-the-pointer-ownership-model-to-secure-memory-management-in-c-and-c>`_
+* `Wikipedia - C dynamic memory allocation <https://en.wikipedia.org/wiki/C_dynamic_memory_allocation>`_
+* `Wikipedia - Memory management unit <https://en.wikipedia.org/wiki/Memory_management_unit>`_
+* `Wikipedia - Virtual memory <https://en.wikipedia.org/wiki/Virtual_memory>`_
+* `Wikipedia - Memory management <https://en.wikipedia.org/wiki/Memory_management>`_
