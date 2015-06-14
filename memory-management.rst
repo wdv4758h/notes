@@ -914,6 +914,68 @@ Ownership
 Garbage Collection
 =========================================
 
+和前面提到自己管理記憶體的狀況相反的是自動管理記憶體，
+這邊所要提的 Gabrage Collection 就是自動管理的一個方式。
+Garbage Collection 不自己寫說要在什麼時候把記憶體回收，
+而是等程式發現沒人要用的時候再自動回收，
+缺點就是要多花點時間和記憶體，以及不確定回收的時間點，
+優點就是不自己經手那些管理，可以減少出現 double free、dangling pointer 之類的 bug。
+
+Garbage Collection 這樣的技術早在 1959 年就由 John McCarthy 發明，
+用來解決 Lisp 上的一些問題。
+至今使用 Garbage Collection 的程式語言很多，
+知名的 Java、Python、Ruby、Lua、Go 皆在這當中。
+
+Garbage Collection 主要分成兩大種類：
+
+* reference counting
+* tracing garbage collectors
+
+
+Reference Counting
+------------------------------
+
+reference counting 就是在每個 object 後附上一個計數器，
+有人用到就加一，不用了就減一，
+當變成 0 時就代表沒有人在用了，
+也就是說可以清掉，此時再自動做記憶體的回收。
+
+優點是好實作，缺點是每個 object 都需要一個計數器，
+會多消耗一些記憶體，
+另外如果有人互相使用的話就會形成 cycle，
+此時計數器就永遠不會變成 0，
+因此會需要額外的 cycle 偵測的演算法來處理。
+
+
+Tracing Garbage Collectors
+------------------------------
+
+tracing garbage collectors 的概念則是一段時間後去爬那些給出去的記憶體，
+看看有誰沒在用，沒在用的就清掉。
+
+tracing garbage collectors 有很多種實作方式，
+不同實作方式會有不同的優缺點以及適合的狀況。
+
+Basic Algorithm
+++++++++++++++++++++
+
+* mark-and-sweep
+
+最簡單的概念就是 mark-and-sweep，
+爬過使用清單上的 object 做標記，
+最後沒做到標記的 object 就是沒在用的，
+此時就可以清掉。
+
+Strategies
+++++++++++++++++++++
+
+由於 tracing garbage collectors 這邊依照實作的方式不同，
+結果會有極大的差異，
+所以當中又可以列出幾個實作的策略方向。
+
+* Generational
+* Incremental
+
 Cases
 =========================================
 
@@ -959,3 +1021,5 @@ Reference
 * `Wikipedia - Virtual memory <https://en.wikipedia.org/wiki/Virtual_memory>`_
 * `Wikipedia - Memory management <https://en.wikipedia.org/wiki/Memory_management>`_
 * `Wikipedia - Bounds checking <https://en.wikipedia.org/wiki/Bounds_checking>`_
+* `Wikipedia - Memory debugger <https://en.wikipedia.org/wiki/Memory_debugger>`_
+* `Wikipedia - Tracing garbage collection <https://en.wikipedia.org/wiki/Tracing_garbage_collection>`_
