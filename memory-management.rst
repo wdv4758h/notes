@@ -1,3 +1,33 @@
+========================================
+Memory Management
+========================================
+
+在現今流通的電腦架構中，要執行一個程式就會需要用到記憶體，
+而我們在撰寫程式時，依照不同的語言，會給程式設計師不同的記憶體操作程度。
+例如 C 會給你操控 pointer 來對記憶體做各式各樣的處理，
+但是像是 Python 這種相對高階的語言則會把記憶體相關的處理打包起來，
+讓程式設計師可以專注在計算的撰寫上而不是底層記憶體的掌控。
+這當然有好有壞，端看需求來做 tradeoff，
+一邊是可以對資源做細部的控制，來用少量的資源達到要做的事，
+一邊則是更注重在快速的把可以用的程式寫出來。
+
+在實際開始之前，我們需要先知道一些概念。
+在現代常見的電腦中，每隻程式所能看到的記憶體是受限的，
+大家會被區隔開來，每隻程式都會以為只有自己在執行，看不到其他人，
+這麼做可以保護程式，讓程式間不互相干擾。
+想像一下，假如在沒有區隔開的情況下，我寫了一個 C 程式，
+不小心沒寫好，裡面的 pointer 可能指向別的程式的資料，
+然後還不小心改到，這是多麼可怕的事。
+這樣的區隔機制稱為 "Virtual Memory"，
+其中的 Virtual 指的意思是分給程式的記憶體空間不是真的實體記憶體，
+而是做了一層控管，在存取時中間會把 Virtual Address 轉換成實際的 Physical Address，
+而各程式看到的都是同樣的一大塊空間，但其實底下對應到的是不同實體記憶體。
+(要做到這樣的機制需要 MMU (memory management unit) 的硬體支援)
+
+在 Virtual Memory 之上，每隻程式看到的記憶體又會依照不同的使用而分區塊，
+其中在程式執行時，變數常存在的地方為 Stack 和 Heap，
+接下來就來看看裡面在幹嘛。
+
 Stack & Heap
 =========================================
 
@@ -38,7 +68,11 @@ example :
 
         int *dynamic_array;
 
-        if (argc > 1) {
+        if (argc < 2) {
+
+            printf("Please give a number\n");
+
+        } else {
 
             int size = atoi(argv[1]);
 
@@ -50,10 +84,6 @@ example :
 
             free(dynamic_array);
 
-        } else {
-
-            printf("Please give a number\n");
-
         }
 
         return 0;
@@ -62,6 +92,8 @@ example :
 more example (新 malloc 的記憶體真的是新的嗎？) :
 
 .. code-block:: c
+
+    // C
 
     #include <stdio.h>
     #include <stdlib.h>     // malloc, free, atoi
@@ -405,8 +437,15 @@ Cases
     - CPython : GC with reference counting
     - PyPy : GC with incremental generational tracing (incminimark)
 
+More Allocator Implementations
+=========================================
+
+* jemalloc
+* tcmalloc
+
 Reference
 =========================================
 
+* `Wikipedia - C dynamic memory allocation <https://en.wikipedia.org/wiki/C_dynamic_memory_allocation>`_
 * `[2009] Anatomy of a Program in Memory <http://duartes.org/gustavo/blog/post/anatomy-of-a-program-in-memory/>`_
 * `[2013] Using the Pointer Ownership Model to Secure Memory Management in C and C++ <http://blog.sei.cmu.edu/post.cfm/using-the-pointer-ownership-model-to-secure-memory-management-in-c-and-c>`_
