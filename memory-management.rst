@@ -987,8 +987,14 @@ Allocator Implementations
 =========================================
 
 * ptmalloc
+    - glibc 內建使用的 malloc
 * jemalloc
+    - 從 FreeBSD 7.0 和 NetBSD 5.0 開始，兩個 OS 上的 malloc 使用 Jason Evans 寫的 jemalloc 取代舊有的 phkmalloc
 * tcmalloc
+    - thread-caching malloc
+    - Google 開發的 malloc
+* nedmalloc
+* hoard
 
 ptmalloc
 ------------------------------
@@ -1015,7 +1021,31 @@ Reference
 
 * `[2009] Anatomy of a Program in Memory <http://duartes.org/gustavo/blog/post/anatomy-of-a-program-in-memory/>`_
 * `[2013] Using the Pointer Ownership Model to Secure Memory Management in C and C++ <http://blog.sei.cmu.edu/post.cfm/using-the-pointer-ownership-model-to-secure-memory-management-in-c-and-c>`_
+
+Allocators
+------------------------------
+
 * `[GitHub] emeryberger/Malloc-Implementations <https://github.com/emeryberger/Malloc-Implementations>`_
+* `[2009] one malloc to rule them all <http://blog.reverberate.org/2009/02/one-malloc-to-rule-them-all.html>`_
+* `[2011] Scalable memory allocation using jemalloc <https://www.facebook.com/notes/facebook-engineering/scalable-memory-allocation-using-jemalloc/480222803919>`_
+    - algorithm behind jemalloc
+* `[2013] How tcmalloc Works <http://jamesgolick.com/2013/5/19/how-tcmalloc-works.html>`_
+* `[2013] Memory Allocators 101 <http://jamesgolick.com/2013/5/15/memory-allocators-101.html>`_
+* `Memory Allocator Benchmarks <http://locklessinc.com/benchmarks_allocator.shtml>`_
+* `Dynamic Memory Management for Embedded Real-Time Systems <http://www.gii.upv.es/tlsf/files/papers/tlsf_slides.pdf>`_
+* `Nah Lock: A Lock-Free Memory Allocator <http://www.andrew.cmu.edu/user/apodolsk/418/index.html>`_
+* `[2015] Malloc Microbenchmark <http://symas.com/mdb/inmem/malloc/>`_
+* `[2014] Allocators in Rust <http://smallcultfollowing.com/babysteps/blog/2014/11/14/allocators-in-rust/>`_
+* `Hoard <http://www.hoard.org/>`_
+* `[2010] A look at how malloc works on the Mac <http://www.cocoawithlove.com/2010/05/look-at-how-malloc-works-on-mac.html>`_
+* `OSDev wiki - Memory Allocation <http://wiki.osdev.org/Memory_Allocation>`_
+* `[2000] Hoard: A Scalable Memory Allocator for Multithreaded Applications <http://www.cs.umass.edu/~emery/pubs/berger-asplos2000.pdf>`_
+    - `Emery Berger <http://emeryberger.com/>`_
+* `[2011] An Experimental Study on Memory Allocators in Multicore and Multithreaded Applications <http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6118957>`_
+
+Wikipedia
+------------------------------
+
 * `Wikipedia - C dynamic memory allocation <https://en.wikipedia.org/wiki/C_dynamic_memory_allocation>`_
 * `Wikipedia - Memory management unit <https://en.wikipedia.org/wiki/Memory_management_unit>`_
 * `Wikipedia - Virtual memory <https://en.wikipedia.org/wiki/Virtual_memory>`_
@@ -1023,3 +1053,4 @@ Reference
 * `Wikipedia - Bounds checking <https://en.wikipedia.org/wiki/Bounds_checking>`_
 * `Wikipedia - Memory debugger <https://en.wikipedia.org/wiki/Memory_debugger>`_
 * `Wikipedia - Tracing garbage collection <https://en.wikipedia.org/wiki/Tracing_garbage_collection>`_
+* `Wikipedia - Hoard memory allocator <https://en.wikipedia.org/wiki/Hoard_memory_allocator>`_
