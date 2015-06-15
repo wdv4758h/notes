@@ -911,6 +911,41 @@ RAII 為在數個 OO 語言中使用的 programming idiom，
 Ownership
 =========================================
 
+Pointer Ownership Model 會把 pointer 分成好幾個種類來區分出哪些資源需要被回收，
+而這件事情會在編譯時期做處理，利用靜態分析來得知這些訊息，
+但是這個靜態分析需要程式設計師在程式中提供一些訊息，
+藉此才能提供強大的安全保證。
+
+
+C++ Smart Pointer
+------------------------------
+
+在 ``<memory>`` 裡有以下幾種 pointer：
+
+* unique_ptr
+    - 獨占的 ownership
+    - 不可複製
+    - 可以用 **std::move()** 轉移所有權
+* shared_ptr
+    - 共享的 ownership
+    - 使用 reference counting
+    - 當 counter 變成 0 時就做 deallocation
+* weak_ptr
+    - 類似 shared_ptr，但是沒有權利做 deallocation
+    - 不會增加 reference counter 的計算
+    - 不能用來做資料的存取，主要用來監控 shared_ptr 的狀況
+
+
+有了 ownership 後只要擁有者都不見了就代表可以清掉，
+其中 C++ 有好幾種 pointer 來指定 ownership，
+**unique_ptr** 可以指定說只有自己是擁有者，
+自己不用時就可以清掉，不用管其他人，
+**shared_ptr** 則是指定說會有多個人分享、使用，
+當大家都不用時才清掉，
+**weak_ptr** 則是和 shared_ptr 類似，
+但是沒有清除的權利，也不會被算進資源的使用者裡，當 shared_ptr 要清掉時，不用理 weak_ptr
+
+
 Garbage Collection
 =========================================
 
@@ -1022,6 +1057,14 @@ Reference
 * `[2009] Anatomy of a Program in Memory <http://duartes.org/gustavo/blog/post/anatomy-of-a-program-in-memory/>`_
 * `[2013] Using the Pointer Ownership Model to Secure Memory Management in C and C++ <http://blog.sei.cmu.edu/post.cfm/using-the-pointer-ownership-model-to-secure-memory-management-in-c-and-c>`_
 
+
+Ownership
+------------------------------
+
+* `[2012] 避免 memory leak：C++11 Smart Pointer（上） <https://kheresy.wordpress.com/2012/03/03/c11_smartpointer_p1/>`_
+* `[2012] 避免 memory leak：C++11 Smart Pointer（下） <https://kheresy.wordpress.com/2012/03/05/c11_smartpointer_p2/>`_
+
+
 Allocators
 ------------------------------
 
@@ -1043,6 +1086,7 @@ Allocators
     - `Emery Berger <http://emeryberger.com/>`_
 * `[2011] An Experimental Study on Memory Allocators in Multicore and Multithreaded Applications <http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6118957>`_
 
+
 Wikipedia
 ------------------------------
 
@@ -1054,3 +1098,4 @@ Wikipedia
 * `Wikipedia - Memory debugger <https://en.wikipedia.org/wiki/Memory_debugger>`_
 * `Wikipedia - Tracing garbage collection <https://en.wikipedia.org/wiki/Tracing_garbage_collection>`_
 * `Wikipedia - Hoard memory allocator <https://en.wikipedia.org/wiki/Hoard_memory_allocator>`_
+* `Wikipedia - Smart pointer <https://en.wikipedia.org/wiki/Smart_pointer>`_
