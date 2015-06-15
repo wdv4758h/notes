@@ -1070,6 +1070,7 @@ Ownership
 Allocators
 ------------------------------
 
+* `[2015] Understanding glibc malloc <https://sploitfun.wordpress.com/2015/02/10/understanding-glibc-malloc/>`_
 * `[GitHub] emeryberger/Malloc-Implementations <https://github.com/emeryberger/Malloc-Implementations>`_
 * `[2009] one malloc to rule them all <http://blog.reverberate.org/2009/02/one-malloc-to-rule-them-all.html>`_
 * `[2011] Scalable memory allocation using jemalloc <https://www.facebook.com/notes/facebook-engineering/scalable-memory-allocation-using-jemalloc/480222803919>`_
