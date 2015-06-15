@@ -1021,7 +1021,9 @@ Cases
 Allocator Implementations
 =========================================
 
+* dlmalloc
 * ptmalloc
+    - 改自 dlmalloc
     - glibc 內建使用的 malloc
 * jemalloc
     - 從 FreeBSD 7.0 和 NetBSD 5.0 開始，兩個 OS 上的 malloc 使用 Jason Evans 寫的 jemalloc 取代舊有的 phkmalloc
@@ -1085,6 +1087,8 @@ Allocators
 * `[2000] Hoard: A Scalable Memory Allocator for Multithreaded Applications <http://www.cs.umass.edu/~emery/pubs/berger-asplos2000.pdf>`_
     - `Emery Berger <http://emeryberger.com/>`_
 * `[2011] An Experimental Study on Memory Allocators in Multicore and Multithreaded Applications <http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6118957>`_
+* `dlmalloc - A Memory Allocator <http://g.oswego.edu/dl/html/malloc.html>`_
+* `Projects: Linux scalability: malloc() performance report <http://www.citi.umich.edu/projects/citi-netscape/reports/malloc.html>`_
 
 
 Wikipedia
