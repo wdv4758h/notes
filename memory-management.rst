@@ -1022,16 +1022,24 @@ Allocator Implementations
 =========================================
 
 * dlmalloc
-* ptmalloc
+    - general purpose allocator
+* ptmalloc2
     - 改自 dlmalloc
-    - glibc 內建使用的 malloc
+    - glibc 內建使用的 memory allocator
 * jemalloc
     - 從 FreeBSD 7.0 和 NetBSD 5.0 開始，兩個 OS 上的 malloc 使用 Jason Evans 寫的 jemalloc 取代舊有的 phkmalloc
+    - 用於 Firefox
 * tcmalloc
     - thread-caching malloc
     - Google 開發的 malloc
 * nedmalloc
 * hoard
+* libumem
+    - 用於 Solaris
+
+
+ptmalloc2 是在 2006 年從 dlmalloc fork 出去，並且加上 multithreading 支援的版本，
+後來取代 dlmalloc 成為 linux 上內建的 memory allocator。
 
 ptmalloc
 ------------------------------
@@ -1052,6 +1060,9 @@ ptmalloc
         struct malloc_chunk* fd_nextsize; /* double links -- used only if free. */
         struct malloc_chunk* bk_nextsize;
     };
+
+Debugging Data Format
+=========================================
 
 Reference
 =========================================
@@ -1092,6 +1103,16 @@ Allocators
 * `Projects: Linux scalability: malloc() performance report <http://www.citi.umich.edu/projects/citi-netscape/reports/malloc.html>`_
 
 
+DWARF
+------------------------------
+
+* `How debuggers work: Part 1 - Basics <http://eli.thegreenplace.net/2011/01/23/how-debuggers-work-part-1>`_
+* `How debuggers work: Part 2 - Breakpoints <http://eli.thegreenplace.net/2011/01/27/how-debuggers-work-part-2-breakpoints>`_
+* `How debuggers work: Part 3 - Debugging information <http://eli.thegreenplace.net/2011/02/07/how-debuggers-work-part-3-debugging-information>`_
+* `An interesting tree serialization algorithm from DWARF <http://eli.thegreenplace.net/2011/09/29/an-interesting-tree-serialization-algorithm-from-dwarf>`_
+* `The contents of DWARF sections <http://eli.thegreenplace.net/2011/12/26/the-contents-of-dwarf-sections>`_
+
+
 Wikipedia
 ------------------------------
 
@@ -1104,3 +1125,4 @@ Wikipedia
 * `Wikipedia - Tracing garbage collection <https://en.wikipedia.org/wiki/Tracing_garbage_collection>`_
 * `Wikipedia - Hoard memory allocator <https://en.wikipedia.org/wiki/Hoard_memory_allocator>`_
 * `Wikipedia - Smart pointer <https://en.wikipedia.org/wiki/Smart_pointer>`_
+* `Wikipedia - DWARF <https://en.wikipedia.org/wiki/DWARF>`_
