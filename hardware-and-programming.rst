@@ -3,6 +3,7 @@ Hardware & Programming
 ========================================
 
 * `What every programmer should know about memory <http://lwn.net/Articles/250967/>`_
+* `Huge pages <https://lwn.net/Articles/374424/>`_
 
 * `Scott Meyers - CPU Caches and Why You care <https://vimeo.com/97337258>`_
 
