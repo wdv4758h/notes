@@ -1,5 +1,8 @@
 Internal and External Linkage in C
 ==================================
+
+(copy from https://github.com/u1240976/mess_note/blob/master/talk/internal_and_external_linkage_in_C.rst)
+
 副標題: extern/static/inline variable/function
 
 .. contents:: Table of Contents
