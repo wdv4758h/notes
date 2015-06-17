@@ -1,9 +1,8 @@
-(copy from https://github.com/u1240976/mess_note/blob/master/talk/internal_and_external_linkage_in_C.rst)
-
 Internal and External Linkage in C
 ==================================
-
 副標題: extern/static/inline variable/function
+
+.. contents:: Table of Contents
 
 compiling, linking and forward declaration
 ------------------------------------------
@@ -12,15 +11,38 @@ C 在將 source code 轉化為 executable 時, 至少可分為 compile 跟 link 
 1. 在 compile 階段把單獨的 C source code translate 成 cpu instructions 組成的 object code.
 2. 在 link 階段把所有需要用到的 object code 連結組成一個執行檔 (除了 dynamic linking 以外)
 
-由於 source code 轉換的最重要階段 compiling 時, compiler 無法看到這個 C source file 依賴的其他 C source file 跟外部 library (source code and object code).
+示意圖::
 
-所以 C 語言需要在每個 C source file 中, 標註該檔案中每個會用到的變數與函式的型別(type), 包含外部變數及函式. 這樣 compiler 才能在 compiling 階段進行 type checking.
+    +----------------------------------------------------------------+
+    |                                                                |
+    |  source code              object code             executable   |
+    |                                                                |
+    |                                                                |
+    | +------------+           +------------+                        |
+    | |            |  compile  |            |                        |
+    | |   main.c   +----------->   main.o   +-+                      |
+    | |            |           |            | |        +-----------+ |
+    | +------------+           +------------+ |  link  |           | |
+    |                                         +-------->   a.out   | |
+    | +------------+           +------------+ |        |           | |
+    | |            |  compile  |            | |        +-----------+ |
+    | |    foo.c   +----------->    foo.o   +-+                      |
+    | |            |           |            |                        |
+    | +------------+           +------------+                        |
+    |                                                                |
+    +----------------------------------------------------------------+
+
+    (compiler 在把 main.c 轉換成 main.o 的過程, 並不知道 foo.c 的存在, 也看不到 foo.c 的內容.)
+
+由於在 compiling 階段, source code 轉換成執行檔的最重要階段, compiler 無法看到一個 C source file 依賴的其他 C source file 跟外部 library (source code and object code) 的內容.
+
+所以 C 語言的設計, 需要在每個 C source file 中, 標注該 source file 中每個會用到的變數與函式的型別(type), 包含外部變數及函式. 透過標注, compiler 才能在 compiling 階段進行 type checking.
 
 換句話說, 對於每個 C source file 來看, 如果要使用任何變數跟函式, 都需要使用處的前面有完整的定義(definition), 或者有僅包含型別(type)的宣告(declaration).
 
 也正是因為如此, C 語言甚至要使用 header file 跟額外的 preprocessor, 來幫助使用外部的 C source code 跟 library.
 
-補充, 常見疑惑:
+補充一些常見疑惑:
 
 1. 所有的 library 本質上都跟 object code 一樣由 cpu instructions 組成, 包含 static library 跟 dynamic library.
    除了 dynamic library 的 cpu instructions 要強制符合 relocable(position independent code) 的條件.
@@ -160,7 +182,7 @@ static variable in function
 - static variable in function, 使用效果是可以做出有狀態 (stateful) 的 function.
 
   - example: strtok (http://www.cplusplus.com/reference/cstring/strtok)
-  - 延伸思考: static variable in function 對 multithreading 的影響.
+  - 延伸思考: static variable in function 在 multithreading 環境下受到的影響.
 
 extern and static function
 --------------------------
@@ -414,3 +436,10 @@ gnu89 v.s. C99
 reference
 ---------
 - http://stackoverflow.com/questions/216510/extern-inline/216546#21654
+
+related article
+~~~~~~~~~~~~~~~
+- `Beginner's Guide to Linkers <http://www.lurklurk.org/linkers/linkers.html>`_
+- `良葛格學習筆記 - 變數、函式可視範圍 (static 與 extern) <http://openhome.cc/Gossip/CGossip/Scope.html>`_
+- `C 陷阱： extern ＆ static ＆ 多檔案、宣告、定義、變數、函式 <http://ashinzzz.blogspot.tw/2013/12/extern-static.html>`_
+- `[C_and_CPP] shyang55 - [語法] 作用範圍(scope) 與 生命期(lifetime) <https://www.ptt.cc/bbs/C_and_CPP/M.1176329014.A.EF2.html>`_
