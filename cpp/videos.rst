@@ -2,13 +2,11 @@
 C++ Videos
 ========================================
 
-* `Scott Meyers: Support for Embedded Programming in C++11 and C++14 <https://www.youtube.com/watch?v=J-tA17slViE>`_
-
+* [2014] `Scott Meyers: Support for Embedded Programming in C++11 and C++14 <https://www.youtube.com/watch?v=J-tA17slViE>`_
     - ``auto``
     - ``constexpr``
 
-* `Scott Meyers: Why C++ Sails When the Vasa Sank <https://events.yandex.ru/lib/talks/1954/>`_
-
+* [2014/06] `Scott Meyers: Why C++ Sails When the Vasa Sank <https://events.yandex.ru/lib/talks/1954/>`_
     - 講述 C++ 這一路走來，讓它持續有許多使用者的重要特色，以及近年來如何變得更好
     - 讓舊有的程式碼依然可以編譯，加入新 feature 讓同樣的 code 可以更簡單易懂
         + 20 年前的程式依然可以 compile
@@ -17,3 +15,21 @@ C++ Videos
     - C : Trust the programmer
     - 和 C 有一定的相似度，所以 C programmer 的一些知識在這邊也同樣用的上
     - C++ 有良好的效能，也適用於只能用較少的硬體和能源但同時也需要效能的情況 (embedded)
+
+* [2012/06] Scott Meyers: Adventures in Perfect Forwarding
+    - `Part1 <https://www.facebook.com/video/video.php?v=10151094464083109>`_
+    - `Part2 <https://www.facebook.com/video/video.php?v=10151094455928109>`_
+    - `PDF <http://www.aristeia.com/TalkNotes/Facebook2012_PerfectForwarding.pdf>`_
+    - 這場在 Facebook 的 talk 畫質比較差 ...，錄音還有問題 Orz
+    - perfect forwarding 可以避免 temporary object 的產生
+    - ``std::forward``
+    - type traits : ``std::remove_reference``, ``std::enable_if``
+    - ``std::make_shared``
+    - moving is not free, it's typically cheap, but it's not always cheap, and it more expensive then binding to a reference
+    - perfect forwarding is not perfect, but it's really really good
+    - something can't perfect forwarding
+        + 0 as null pointer constant
+        + Braced initializer lists
+        + Integral const static class members lacking a definiton
+        + Template names (e.g., std::endl)
+        + Non-const lvalue bitfields
