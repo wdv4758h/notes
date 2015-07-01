@@ -6,6 +6,17 @@ Memory Allocator - Under The Hood
 .. contents:: Table of Contents
 
 
+Memory Allocator in Different OS
+========================================
+
++---------+-----------+
+| Linux   | ptmalloc2 |
++---------+-----------+
+| FreeBSD | jemalloc  |
++---------+-----------+
+
+
+
 System Call for Malloc
 ========================================
 
@@ -85,6 +96,81 @@ sbrk
 
 sbrk 是 glibc 的 brk wrapper
 
+glibc
+========================================
+
+glibc/misc/sbrk.c :
+
+.. code-block:: c
+
+    /* Extend the process's data space by INCREMENT.
+       If INCREMENT is negative, shrink data space by - INCREMENT.
+       Return start of new space allocated, or -1 for errors.  */
+    void *
+    __sbrk (intptr_t increment)
+    {
+      void *oldbrk;
+
+      /* If this is not part of the dynamic library or the library is used
+         via dynamic loading in a statically linked program update
+         __curbrk from the kernel's brk value.  That way two separate
+         instances of __brk and __sbrk can share the heap, returning
+         interleaved pieces of it.  */
+      if (__curbrk == NULL || __libc_multiple_libcs)
+        if (__brk (0) < 0)		/* Initialize the break.  */
+          return (void *) -1;
+
+      if (increment == 0)
+        return __curbrk;
+
+      oldbrk = __curbrk;
+      if ((increment > 0
+           ? ((uintptr_t) oldbrk + (uintptr_t) increment < (uintptr_t) oldbrk)
+           : ((uintptr_t) oldbrk < (uintptr_t) -increment))
+          || __brk (oldbrk + increment) < 0)
+        return (void *) -1;
+
+      return oldbrk;
+    }
+
+
+glibc/sysdeps/unix/sysv/linux/generic/brk.c
+
+.. code-block:: c
+
+    int
+    __brk (void *addr)
+    {
+      INTERNAL_SYSCALL_DECL (err);
+
+      __curbrk = (void *) INTERNAL_SYSCALL (brk, err, 1, addr);
+      if (__curbrk < addr)
+        {
+          __set_errno (ENOMEM);
+          return -1;
+        }
+
+      return 0;
+    }
+
+
+glibc/sysdeps/unix/sysv/linux/x86_64/sysdep.h
+
+.. code-block:: c
+
+    # define INTERNAL_SYSCALL_NCS(name, err, nr, args...) \
+    ({									      \
+      unsigned long int resultvar;					      \
+      LOAD_ARGS_##nr (args)						      \
+      LOAD_REGS_##nr							      \
+      asm volatile (							      \
+      "syscall\n\t"							      \
+      : "=a" (resultvar)							      \
+      : "0" (name) ASM_ARGS_##nr : "memory", "cc", "r11", "cx");		      \
+      (long int) resultvar; })
+
+    # define INTERNAL_SYSCALL(name, err, nr, args...) \
+      INTERNAL_SYSCALL_NCS (__NR_##name, err, nr, ##args)
 
 
 Misc
