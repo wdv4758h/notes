@@ -41,5 +41,5 @@ Use
 Reference
 ========================================
 
-* `Wikipedia - pragma once <https://en.wikipedia.org/wiki/Pragma_once>`_
+* `Wikipedia - #pragma once <https://en.wikipedia.org/wiki/Pragma_once>`_
 * `Wikipedia - #include guard <https://en.wikipedia.org/wiki/Include_guard>`_
