@@ -31,6 +31,8 @@ Escape Analysis 的結果可以用於 Compiler Optimizations，
 * Rust 好像有支援？(不確定狀況)
     - `Rust - Escape analysis <https://github.com/rust-lang/rust/issues/240>`_
 * Java Hotspot 有支援 (從 Java SE 6u23 開始預設開啟)
+* Julia 也有 Escape Analysis
+
 
 Reference
 ========================================
@@ -48,3 +50,10 @@ Reference
 * `Go - esc.go <https://github.com/golang/go/blob/master/src/cmd/compile/internal/gc/esc.go>`_
 * `Go - lex.go <https://github.com/golang/go/blob/master/src/cmd/compile/internal/gc/lex.go>`_
 * `LuaJIT - Allocation Sinking Optimization <http://wiki.luajit.org/Allocation-Sinking-Optimization>`_
+* `Using LLVM For Program Transformation <http://www.cs.umd.edu/~awruef/LLVM_Tutorial.pdf>`_
+* `[LLVM][2014] Pyston: a Python JIT on LLVM <http://article.gmane.org/gmane.comp.compilers.llvm.devel/71870>`_
+* `Runa - escapes.py <https://github.com/djc/runa/blob/master/runac/escapes.py>`_
+* `Julia - codegen.cpp <https://github.com/JuliaLang/julia/blob/fd25bf9cf40bf6ecc97356cbe567c449059651c4/src/codegen.cpp#L1572>`_
+* `Detecting Data Races using Dynamic Escape Analysis based on Read Barrier <https://www.usenix.org/legacy/publications/library/proceedings/vm04/tech/full_papers/nishiyama/nishiyama_html/index.html>`_
+* `Patrick Lioi - Escape Analysis <http://patrick.lioi.net/2012/03/16/escape-analysis/>`_
+* `V8 - hydrogen-escape-analysis.cc <https://code.google.com/p/v8/source/browse/branches/bleeding_edge/src/hydrogen-escape-analysis.cc>`_
