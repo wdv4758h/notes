@@ -2,6 +2,8 @@
 Memory Profiling
 ========================================
 
+.. contents:: Table of Contents
+
 Introduction
 ========================================
 
