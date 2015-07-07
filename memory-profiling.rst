@@ -31,10 +31,28 @@ Valgrind
 架構
 ++++++++++++++++++++
 
-Valgrind 的 command 其實只是個 wrapper，
+Valgrind 的 command 其實只是個 wrapper (wrapper 的 source code 為 repo 裡的 ``coregrind/launcher-linux.c``)，
 每個 plugin 都是一個執行檔，
 plugin 都放在 ``/usr/lib/valgrind/`` 裡面 (on Arch Linux)，
 command 會猜一些環境變數後執行指定的 plugin。
+
+Valgrind 內部有 VEX IR，
+會先把要跑的 binary 轉成內部的 VEX IR，
+在這之上做處理，
+底下再用 Virtual Machine 轉回去 Host Machine 的指令集來執行。
+
+Valgrind 的每個 plugin 都是依照 Valgrind 提供的 framework 來撰寫，
+最後整個 link 成執行檔。
+
+
+執行的大概狀況 (待補資訊)：::
+
+        /usr/bin/valgrind --tool=XXX ./myprogram
+    =>  execve /usr/lib/valgrind/XXX-amd64-linux ...
+    =>  open myprogram
+    =>  load preload /usr/lib/valgrind/vgpreload_XXX-amd64-linux.so
+    =>  other tool's stuff
+
 
 Installation
 ++++++++++++++++++++++++++++++++++++++++
@@ -827,8 +845,15 @@ Reference
 ========================================
 
 * `Wikipedia - Valgrind <https://en.wikipedia.org/wiki/Valgrind>`_
+* `Wikipedia - Shadow memory <https://en.wikipedia.org/wiki/Shadow_memory>`_
 * `Valgrind - Massif: a heap profiler <http://valgrind.org/docs/manual/ms-manual.html>`_
 * `Chromium - Deep Memory Profiler <https://www.chromium.org/developers/deep-memory-profiler>`_
+* `Using and understanding the Valgrind core <http://valgrind.org/docs/manual/manual-core.html>`_
+* `The Design and Implementation of Valgrind <http://valgrind.org/docs/manual/mc-tech-docs.html>`_
+* `Valgrind Research Papers <http://www.valgrind.org/docs/pubs.html>`_
+* [2003] Valgrind: A Program Supervision Framework
+* `[2007] Valgrind: A Framework for Heavyweight Dynamic Binary Instrumentation <http://valgrind.org/docs/valgrind2007.pdf>`_
+* [2008] Optimizing Binary Code Produced by Valgrind
 
 Android
 ------------------------------
