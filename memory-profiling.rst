@@ -369,17 +369,263 @@ Massif 是一個 heap profiler，
 也可以測量 stack 的使用量 (預設沒開)，
 最後產生出 graph 來呈現 heap 在各個時間點的使用量，
 並且包含程式的哪部份用了最多的 memory allocations，
-圖的呈現可以是 text 或是 HTML，
-但是 Massif 會讓程式慢大約 20 倍。
+圖可以在 terminal 上直接呈現，
+但是執行 Massif 會讓程式慢大約 20 倍。
+
+每次 heap 做 allocation 或是 deallocation 的時候 Massif 就會做 snapshot，
+預設最多保留 100 個 snapshot，但是可以用 ``--max-snapshots`` 參數來調整，
+大部分的 snapshot 為 normal snapshot (只紀錄基本的資訊)，
+這種 snapshot 在圖上會用 ``:`` 來表示，
+少部份為 detailed snapshot (會包含更多資訊)，
+這種 snapshot 在圖上會用 ``@`` 來表示，
+最後還有一種叫作 peak snapshot，
+peak snapshot 是 detailed snapshot 的一種，
+但是是記憶體使用量最高的地方，
+這種 snapshot 在圖上會用 ``#`` 來表示。
+
+Massif 預設是紀錄透過 malloc、calloc、realloc、memalign、new、new[] 等等 function 來取得的記憶體，
+而不是更低階的 mmap、mremap、brk system call，
+也不會紀錄其他區塊的大小 (例如 code、data、BSS segments)，
+但是可以用 ``--pages-as-heap=yes`` 參數來把所有的 memory pages 都紀錄起來 (當然包含 stack)
+
 
 編譯你的程式的時候當然最好使用 ``-g`` 來加上 debug info 再來執行，
 這樣可以取得更多資訊。
+
+Massif 的執行結果預設會寫到叫作 ``massif.out.<pid>`` 的檔案，
+可以用 ``--massif-out-file`` 參數來更改。
 
 
 使用參數：
 
 * ``--tool=massif`` : 選擇使用 massif
+* ``--stacks=yes`` : 也紀錄 stack 的使用量
 
+
+生出的結果可以用 ``ms_print`` 指令來觀看，
+例如：
+
+.. code-block:: sh
+
+    $ ms_print massif.out.18904
+    --------------------------------------------------------------------------------
+    Command:            ./a.out
+    Massif arguments:   --time-unit=B
+    ms_print arguments: massif.out.18904
+    --------------------------------------------------------------------------------
+
+
+         B
+      120^                                    ###################################
+         |                                    #
+         |                                    #
+         |                                    #
+         |                                    #
+         |                                    #
+         |                                    #
+         |                                    #
+         |                                    #
+         |                                    #
+         |                                    #
+         |                                    #
+         |                                    #
+         |                                    #
+         |                                    #
+         |                                    #
+         |                                    #
+         |                                    #
+         |                                    #
+         |                                    #
+       0 +----------------------------------------------------------------------->B
+         0                                                                     240
+
+    Number of snapshots: 4
+     Detailed snapshots: [2 (peak)]
+
+    --------------------------------------------------------------------------------
+      n        time(B)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+    --------------------------------------------------------------------------------
+      0              0                0                0             0            0
+      1            120              120              100            20            0
+      2            120              120              100            20            0
+    83.33% (100B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+    ->83.33% (100B) 0x400556: main (single-heap-more-char.c:4)
+
+    --------------------------------------------------------------------------------
+      n        time(B)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+    --------------------------------------------------------------------------------
+      3            240                0                0             0            0
+
+
+
+.. code-block:: sh
+
+    $ ms_print massif.out.18829
+    --------------------------------------------------------------------------------
+    Command:            ./a.out
+    Massif arguments:   --stacks=yes
+    ms_print arguments: massif.out.18868
+    --------------------------------------------------------------------------------
+
+
+        KB
+    3.125^         ##
+         |         # @
+         |         # @
+         |      :  # @
+         |      :  # @
+         |    : : :# @
+         |    : : :# @
+         |    : : :# @
+         |    ::: :# @
+         |    ::: :# @
+         |    ::: :# @
+         |    ::: :# @             : :: ::::  : :   :            ::       ::    @
+         |    ::: :# @             : :: : ::  : :   :            ::  : :  ::    @
+         |    ::: :# @             : :::: ::: :::@ ::::::  :@ : ::: ::@:::::  : @
+         |    :::::# @             :::::: :::::::@::::::::::@:: ::: ::@:::::  : @
+         |    :::::# @ :         :::::::: :::::::@::::::::::@::::@::::@::::@  : @
+         |  : :::::# @::::::::::::::::::: :::::::@::::::::::@::::@::::@::::@::: @
+         | ::::::::# @:::        :::::::: :::::::@::::::::::@::::@::::@::::@::::@
+         |:::::::::# @:::        :::::::: :::::::@::::::::::@::::@::::@::::@::::@:
+         |:::::::::# @:::        :::::::: :::::::@::::::::::@::::@::::@::::@::::@:
+       0 +----------------------------------------------------------------------->ki
+         0                                                                   124.6
+
+    Number of snapshots: 92
+     Detailed snapshots: [12 (peak), 13, 14, 36, 47, 57, 67, 77, 87]
+
+    --------------------------------------------------------------------------------
+      n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+    --------------------------------------------------------------------------------
+      0              0                0                0             0            0
+      1          1,492              472                0             0          472
+      2          3,046              584                0             0          584
+      3          4,046              752                0             0          752
+      4          5,748              592                0             0          592
+      5          7,178            2,472                0             0        2,472
+      6          8,346              600                0             0          600
+      7         10,002            2,048                0             0        2,048
+      8         11,537            2,720                0             0        2,720
+      9         12,774            1,008                0             0        1,008
+     10         14,855            2,448                0             0        2,448
+     11         16,354            2,496                0             0        2,496
+     12         17,461            3,200                0             0        3,200
+    00.00% (0B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+
+    ...
+
+    --------------------------------------------------------------------------------
+      n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+    --------------------------------------------------------------------------------
+     78        117,027              280                0             0          280
+     79        117,910              280                0             0          280
+     80        118,710              744                0             0          744
+     81        119,512              400                0             0          400
+     82        120,315              704                0             0          704
+     83        121,182            1,160              100            20        1,040
+     84        121,999              664                0             0          664
+     85        122,815              456                0             0          456
+     86        123,628              520                0             0          520
+     87        124,428            1,440                0             0        1,440
+    00.00% (0B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+    ...
+
+
+.. code-block:: sh
+
+    $ ms_print massif.out.21469
+    --------------------------------------------------------------------------------
+    Command:            ./a.out
+    Massif arguments:   --time-unit=B --pages-as-heap=yes
+    ms_print arguments: massif.out.21469
+    --------------------------------------------------------------------------------
+
+
+        MB
+    5.996^                                                                       :
+         |                                                                    ::#:
+         |                                                                    ::#:
+         |                                                                    ::#:
+         |                                                                    ::#:
+         |                                                                    ::#:
+         |                                                                    ::#:
+         |                                                                    ::#:
+         |                                                                    ::#:
+         |                                                                    ::#:
+         |                                                                    ::#:
+         |                                                                    ::#:
+         |                                                                    ::#:
+         |                         :::::::::::::::::::::::::::::::::::::::::::::#:
+         |                         ::                                         ::#:
+         |                         ::                                         ::#:
+         |                         ::                                         ::#:
+         |                         ::                                         ::#:
+         |                         ::                                         ::#:
+         |                         ::                                         ::#:
+       0 +----------------------------------------------------------------------->MB
+         0                                                                   6.230
+
+    Number of snapshots: 21
+     Detailed snapshots: [9, 18 (peak)]
+
+    --------------------------------------------------------------------------------
+      n        time(B)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+    --------------------------------------------------------------------------------
+      0          4,096            4,096            4,096             0            0
+      1          8,192            8,192            8,192             0            0
+      2        147,456          147,456          147,456             0            0
+      3        155,648          155,648          155,648             0            0
+      4        159,744          159,744          159,744             0            0
+      5        163,840          163,840          163,840             0            0
+      6        167,936          167,936          167,936             0            0
+      7        176,128          176,128          176,128             0            0
+      8        180,224          180,224          180,224             0            0
+      9        180,224          180,224          180,224             0            0
+    100.00% (180,224B) (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+    ->100.00% (180,224B) 0xFFFFFFFFFFFFFFFF: ???
+
+    --------------------------------------------------------------------------------
+      n        time(B)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+    --------------------------------------------------------------------------------
+     10      2,285,568        2,285,568        2,285,568             0            0
+     11      2,293,760        2,293,760        2,293,760             0            0
+     12      2,416,640        2,416,640        2,416,640             0            0
+     13      2,420,736        2,420,736        2,420,736             0            0
+     14      6,230,016        6,230,016        6,230,016             0            0
+     15      6,254,592        6,254,592        6,254,592             0            0
+     16      6,270,976        6,270,976        6,270,976             0            0
+     17      6,275,072        6,275,072        6,275,072             0            0
+     18      6,393,856        6,156,288        6,156,288             0            0
+    100.00% (6,156,288B) (page allocation syscalls) mmap/mremap/brk, --alloc-fns, etc.
+    ->97.07% (5,976,064B) 0x40183A9: mmap (in /usr/lib/ld-2.21.so)
+    | ->96.07% (5,914,624B) 0x40065CE: _dl_map_object_from_fd (in /usr/lib/ld-2.21.so)
+    | | ->96.07% (5,914,624B) 0x4008544: _dl_map_object (in /usr/lib/ld-2.21.so)
+    | |   ->61.88% (3,809,280B) 0x400CA60: openaux (in /usr/lib/ld-2.21.so)
+    | |   | ->61.88% (3,809,280B) 0x400EF92: _dl_catch_error (in /usr/lib/ld-2.21.so)
+    | |   |   ->61.88% (3,809,280B) 0x400CCC2: _dl_map_object_deps (in /usr/lib/ld-2.21.so)
+    | |   |     ->61.88% (3,809,280B) 0x400304C: dl_main (in /usr/lib/ld-2.21.so)
+    | |   |       ->61.88% (3,809,280B) 0x401643E: _dl_sysdep_start (in /usr/lib/ld-2.21.so)
+    | |   |         ->61.88% (3,809,280B) 0x4004D88: _dl_start (in /usr/lib/ld-2.21.so)
+    | |   |           ->61.88% (3,809,280B) 0x4000D86: ??? (in /usr/lib/ld-2.21.so)
+    | |   |
+    | |   ->34.20% (2,105,344B) 0x4000F63: map_doit (in /usr/lib/ld-2.21.so)
+    | |     ->34.20% (2,105,344B) 0x400EF92: _dl_catch_error (in /usr/lib/ld-2.21.so)
+    | |       ->34.20% (2,105,344B) 0x4000BCD: do_preload (in /usr/lib/ld-2.21.so)
+    | |         ->34.20% (2,105,344B) 0x4003580: dl_main (in /usr/lib/ld-2.21.so)
+    | |           ->34.20% (2,105,344B) 0x401643E: _dl_sysdep_start (in /usr/lib/ld-2.21.so)
+    | |             ->34.20% (2,105,344B) 0x4004D88: _dl_start (in /usr/lib/ld-2.21.so)
+    | |               ->34.20% (2,105,344B) 0x4000D86: ??? (in /usr/lib/ld-2.21.so)
+    | |
+    | ->01.00% (61,440B) in 1+ places, all below ms_print's threshold (01.00%)
+    |
+    ->02.93% (180,224B) 0xFFFFFFFFFFFFFFFF: ???
+
+    --------------------------------------------------------------------------------
+      n        time(B)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+    --------------------------------------------------------------------------------
+     19      6,397,952        6,152,192        6,152,192             0            0
+     20      6,533,120        6,287,360        6,287,360             0            0
 
 
 Valgrind - DHAT
@@ -392,6 +638,185 @@ DHAT 是用來檢查程式如何使用 heap 的工具，
 使用參數：
 
 * ``--tool=exp-dhat`` : 選擇使用 massif
+
+
+
+Valgrind for Unix-like command
+========================================
+
+.. code-block:: sh
+
+    $ echo "hello" > test.txt
+    $ valgrind --tool=exp-dhat cat test.txt
+    ==18771== DHAT, a dynamic heap analysis tool
+    ==18771== NOTE: This is an Experimental-Class Valgrind Tool
+    ==18771== Copyright (C) 2010-2013, and GNU GPL'd, by Mozilla Inc
+    ==18771== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+    ==18771== Command: cat test.txt
+    ==18771==
+    ==18771==
+    ==18771== ======== SUMMARY STATISTICS ========
+    ==18771==
+    ==18771== guest_insns:  173,876
+    ==18771==
+    ==18771== max_live:     138,829 in 30 blocks
+    ==18771==
+    ==18771== tot_alloc:    138,834 in 31 blocks
+    ==18771==
+    ==18771== insns per allocated byte: 1
+    ==18771==
+    ==18771==
+    ==18771== ======== ORDERED BY decreasing "max-bytes-live": top 10 allocators ========
+    ==18771==
+    ==18771== -------------------- 1 of 10 --------------------
+    ==18771== max-live:    135,167 in 1 blocks
+    ==18771== tot-alloc:   135,167 in 1 blocks (avg size 135167.00)
+    ==18771== deaths:      1, at avg age 2,840 (1.63% of prog lifetime)
+    ==18771== acc-ratios:  0.00 rd, 0.00 wr  (6 b-read, 6 b-written)
+    ==18771==    at 0x4C280B0: malloc (in /usr/lib/valgrind/vgpreload_exp-dhat-amd64-linux.so)
+    ==18771==    by 0x405BE8: ??? (in /usr/bin/cat)
+    ==18771==    by 0x402436: ??? (in /usr/bin/cat)
+    ==18771==    by 0x4E4E78F: (below main) (in /usr/lib/libc-2.21.so)
+    ==18771==
+    ...
+    ==18771==
+    ==18771== -------------------- 4 of 10 --------------------
+    ==18771== max-live:    120 in 1 blocks
+    ==18771== tot-alloc:   120 in 1 blocks (avg size 120.00)
+    ==18771== deaths:      1, at avg age 41,012 (23.58% of prog lifetime)
+    ==18771== acc-ratios:  3.33 rd, 0.93 wr  (400 b-read, 112 b-written)
+    ==18771==    at 0x4C280B0: malloc (in /usr/lib/valgrind/vgpreload_exp-dhat-amd64-linux.so)
+    ==18771==    by 0x4E59202: _nl_load_locale_from_archive (in /usr/lib/libc-2.21.so)
+    ==18771==    by 0x4E5867A: _nl_find_locale (in /usr/lib/libc-2.21.so)
+    ==18771==    by 0x4E57EEE: setlocale (in /usr/lib/libc-2.21.so)
+    ==18771==    by 0x401AAB: ??? (in /usr/bin/cat)
+    ==18771==    by 0x4E4E78F: (below main) (in /usr/lib/libc-2.21.so)
+    ==18771==
+    ==18771== Aggregated access counts by offset:
+    ==18771==
+    ==18771== [   0]  2 2 2 2 2 2 2 2 26 26 26 26 26 26 26 26
+    ==18771== [  16]  3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+    ==18771== [  32]  3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+    ==18771== [  48]  3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+    ==18771== [  64]  0 0 0 0 0 0 0 0 3 3 3 3 3 3 3 3
+    ==18771== [  80]  3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+    ==18771== [  96]  3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+    ==18771== [ 112]  3 3 3 3 3 3 3 3
+    ==18771==
+    ...
+
+Valgrind for Scripting Language
+========================================
+
+Python：
+
+.. code-block:: python
+
+    # hello.py
+
+    print("Hello")
+
+
+Valgrind：
+
+.. code-block:: sh
+
+    $ valgrind python hello.py
+    ==17971== Memcheck, a memory error detector
+    ==17971== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+    ==17971== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+    ==17971== Command: python hello.py
+    ==17971==
+    ==17971== Invalid read of size 4
+    ==17971==    at 0x4EDE88B: _PyObject_Free (obmalloc.c:1346)
+    ==17971==    by 0x4EE7C25: tupledealloc (tupleobject.c:249)
+    ==17971==    by 0x4EAE73E: code_dealloc (codeobject.c:365)
+    ==17971==    by 0x4F5FA21: PyImport_ImportFrozenModuleObject (import.c:1275)
+    ==17971==    by 0x4F5FAF9: PyImport_ImportFrozenModule (import.c:1291)
+    ==17971==    by 0x4F6CE4D: import_init.isra.8 (pythonrun.c:283)
+    ==17971==    by 0x4F6DA2E: _Py_InitializeEx_Private (pythonrun.c:449)
+    ==17971==    by 0x4F82103: Py_Main (main.c:654)
+    ==17971==    by 0x108C05: main (in /usr/bin/python3.4)
+    ==17971==  Address 0x6030020 is 336 bytes inside a block of size 1,285 free'd
+    ==17971==    at 0x4C2B200: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+    ==17971==    by 0x4EAE6BE: code_dealloc (codeobject.c:364)
+    ==17971==    by 0x4F5FA21: PyImport_ImportFrozenModuleObject (import.c:1275)
+    ==17971==    by 0x4F5FAF9: PyImport_ImportFrozenModule (import.c:1291)
+    ==17971==    by 0x4F6CE4D: import_init.isra.8 (pythonrun.c:283)
+    ==17971==    by 0x4F6DA2E: _Py_InitializeEx_Private (pythonrun.c:449)
+    ==17971==    by 0x4F82103: Py_Main (main.c:654)
+    ==17971==    by 0x108C05: main (in /usr/bin/python3.4)
+    ...
+    ==17971==
+    ==17971==
+    ==17971== HEAP SUMMARY:
+    ==17971==     in use at exit: 434,136 bytes in 341 blocks
+    ==17971==   total heap usage: 7,684 allocs, 7,343 frees, 3,394,810 bytes allocated
+    ==17971==
+    ==17971== LEAK SUMMARY:
+    ==17971==    definitely lost: 0 bytes in 0 blocks
+    ==17971==    indirectly lost: 0 bytes in 0 blocks
+    ==17971==      possibly lost: 2,888 bytes in 5 blocks
+    ==17971==    still reachable: 431,248 bytes in 336 blocks
+    ==17971==         suppressed: 0 bytes in 0 blocks
+    ==17971== Rerun with --leak-check=full to see details of leaked memory
+    ==17971==
+    ==17971== For counts of detected and suppressed errors, rerun with: -v
+    ==17971== Use --track-origins=yes to see where uninitialised values come from
+    ==17971== ERROR SUMMARY: 631 errors from 56 contexts (suppressed: 0 from 0)
+
+
+.. code-block:: sh
+
+    $ valgrind --tool=exp-dhat python hello.py
+    ==18016== DHAT, a dynamic heap analysis tool
+    ==18016== NOTE: This is an Experimental-Class Valgrind Tool
+    ==18016== Copyright (C) 2010-2013, and GNU GPL'd, by Mozilla Inc
+    ==18016== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+    ==18016== Command: python hello.py
+    ==18016==
+    ==18016==
+    ==18016== ======== SUMMARY STATISTICS ========
+    ==18016==
+    ==18016== guest_insns:  55,485,582
+    ==18016==
+    ==18016== max_live:     1,165,986 in 3,409 blocks
+    ==18016==
+    ==18016== tot_alloc:    3,020,163 in 7,049 blocks
+    ==18016==
+    ==18016== insns per allocated byte: 18
+    ==18016==
+    ==18016==
+    ==18016== ======== ORDERED BY decreasing "max-bytes-live": top 10 allocators ========
+    ==18016==
+    ==18016== -------------------- 1 of 10 --------------------
+    ==18016== max-live:    196,640 in 1 blocks
+    ==18016== tot-alloc:   196,640 in 1 blocks (avg size 196640.00)
+    ==18016== deaths:      none (none of these blocks were freed)
+    ==18016== acc-ratios:  1.23 rd, 1.27 wr  (242,840 b-read, 251,368 b-written)
+    ==18016==    at 0x4C280B0: malloc (in /usr/lib/valgrind/vgpreload_exp-dhat-amd64-linux.so)
+    ==18016==    by 0x4EC776A: new_keys_object (dictobject.c:342)
+    ==18016==    by 0x4EC9394: dictresize (dictobject.c:928)
+    ==18016==    by 0x4EC9881: insertdict (dictobject.c:831)
+    ==18016==    by 0x4F18614: PyUnicode_InternInPlace (unicodeobject.c:15074)
+    ==18016==    by 0x4F5B8A9: r_object (marshal.c:1097)
+    ==18016==    by 0x4F5BCFC: r_object (marshal.c:1313)
+    ==18016==    by 0x4F5B27E: r_object (marshal.c:1123)
+    ==18016==    by 0x4F5BC38: r_object (marshal.c:1283)
+    ==18016==    by 0x4F5B27E: r_object (marshal.c:1123)
+    ==18016==    by 0x4F5BC38: r_object (marshal.c:1283)
+    ==18016==    by 0x4F5C22D: read_object (marshal.c:1381)
+    ...
+    ==18016==
+    ==18016== Aggregated access counts by offset:
+    ==18016==
+    ==18016== [   0]  1799 1799 1799 1799 1799 1799 1799 1799 561 561 561 561 561 561 561 561
+    ==18016== [  16]  6082 6082 6082 6082 6082 6082 6082 6082 13139 13139 13139 13139 13139 13139 13139 13139
+    ==18016== [  32]  7513 7513 7513 7513 7512 7512 7512 7512 1667 1667 1667 1667 1667 1667 1667 1667
+    ==18016== [  48]  211 211 211 211 211 211 211 211 693 693 693 693 693 693 693 693
+    ==18016== [  64]  1111 1111 1111 1111 1111 1111 1111 1111 1431 1431 1431 1431 1431 1431 1431 1431
+    ==18016== [  80]  106 106 106 106 106 106 106 106 383 383 383 383 383 383 383 383
+    ...
 
 
 實際專案測試
