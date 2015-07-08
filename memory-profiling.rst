@@ -967,6 +967,34 @@ Valgrind：
 Running Valgrind on Android
 ========================================
 
+* Android NDK (Native Development Kit)
+    - toolset 讓 programmer 可以用 native-code language (例如 C、C++) 來撰寫 Android 上的程式
+
+下載 android-ndk-r10e-linux-x86_64.bin 和 Valgrind source code 來編
+
+.. code-block:: sh
+
+    $ wget http://dl.google.com/android/ndk/android-ndk-r10e-linux-x86_64.bin
+    $ chmod u+x android-ndk-r10e-linux-x86_64.bin
+    $ ./android-ndk-r10e-linux-x86_64.bin
+    $ export NDKROOT=/path/to/android-ndk-r6    # modify your path
+
+    # build Valgrind
+    $ svn co svn://svn.valgrind.org/valgrind/trunk valgrind
+    $ cd valgrind
+    $ export AR=$NDKROOT/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/arm-linux-androideabi-ar
+    $ export LD=$NDKROOT/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/arm-linux-androideabi-ld
+    $ export CC=$NDKROOT/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/arm-linux-androideabi-gcc
+    $ ./autogen.sh
+    $ CPPFLAGS="--sysroot=$NDKROOT/platforms/android-21/arch-arm" \
+          CFLAGS="--sysroot=$NDKROOT/platforms/android-21/arch-arm" \
+          ./configure --prefix=/data/local/Inst \
+          --host=armv7-unknown-linux --target=armv7-unknown-linux \
+          --with-tmpdir=/sdcard
+    $ make -j8
+    $ make -j8 install DESTDIR=`pwd`/Inst
+
+
 Related Topics
 ========================================
 
@@ -996,5 +1024,7 @@ Android
 ------------------------------
 
 * `Valgrind - README.android <http://valgrind.org/docs/manual/dist.readme-android.html>`_
+* `Android NDK <https://developer.android.com/ndk/index.html>`_
 * `Android - Investigating Your RAM Usage <https://developer.android.com/tools/debugging/debugging-memory.html>`_
 * `Memory Analysis for Android Applications <http://android-developers.blogspot.tw/2011/03/memory-analysis-for-android.html>`_
+* `Arch Wiki - Android <https://wiki.archlinux.org/index.php/Android>`_
