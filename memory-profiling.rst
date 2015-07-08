@@ -972,6 +972,19 @@ Running Valgrind on Android
 
 下載 android-ndk-r10e-linux-x86_64.bin 和 Valgrind source code 來編
 
++-------------+-----------------------------------+
+| Valgrind    | r15403 (2015-07-08)               |
++-------------+-----------------------------------+
+| Android NDK | android-ndk-r10e-linux-x86_64.bin |
++-------------+-----------------------------------+
+| Platform    | Android 21 (ARM)                  |
++-------------+-----------------------------------+
+| Target CPU  | ARMv7                             |
++-------------+-----------------------------------+
+| Toolchain   | GCC 4.9 (ARM, Android EABI)       |
++-------------+-----------------------------------+
+
+
 .. code-block:: sh
 
     $ wget http://dl.google.com/android/ndk/android-ndk-r10e-linux-x86_64.bin
