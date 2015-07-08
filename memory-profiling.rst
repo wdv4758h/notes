@@ -980,11 +980,13 @@ Reference
 
 * `Wikipedia - Valgrind <https://en.wikipedia.org/wiki/Valgrind>`_
 * `Wikipedia - Shadow memory <https://en.wikipedia.org/wiki/Shadow_memory>`_
+* `Wikipedia - AddressSanitizer <https://en.wikipedia.org/wiki/AddressSanitizer>`_
 * `Valgrind - Massif: a heap profiler <http://valgrind.org/docs/manual/ms-manual.html>`_
 * `Chromium - Deep Memory Profiler <https://www.chromium.org/developers/deep-memory-profiler>`_
 * `Using and understanding the Valgrind core <http://valgrind.org/docs/manual/manual-core.html>`_
 * `The Design and Implementation of Valgrind <http://valgrind.org/docs/manual/mc-tech-docs.html>`_
 * `Writing a New Valgrind Tool <http://www.valgrind.org/docs/manual/writing-tools.html>`_
+* `[2015] Porting Valgrind to NetBSD and OpenBSD <http://www.slideshare.net/eurobsdcon/eurobsdcon2014-valgrindpresentation>`_
 * `Valgrind Research Papers <http://www.valgrind.org/docs/pubs.html>`_
 * [2003] Valgrind: A Program Supervision Framework
 * `[2007] Valgrind: A Framework for Heavyweight Dynamic Binary Instrumentation <http://valgrind.org/docs/valgrind2007.pdf>`_
