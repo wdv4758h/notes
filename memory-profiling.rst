@@ -36,7 +36,7 @@ Valgrind 的 command 其實只是個 wrapper (wrapper 的 source code 為 repo �
 plugin 都放在 ``/usr/lib/valgrind/`` 裡面 (on Arch Linux)，
 command 會猜一些環境變數後執行指定的 plugin。
 
-Valgrind 內部有 VEX IR，
+Valgrind 內部有 VEX IR (RISC-like)，
 會先把要跑的 binary 轉成內部的 VEX IR，
 在這之上做處理，
 底下再用 Virtual Machine 轉回去 Host Machine 的指令集來執行。
@@ -741,6 +741,46 @@ Valgrind：
     ==2607==   --num-callers=4 or some such, to reduce the spreading.
     ==2607==
 
+Valgrind - Plugin Structure
+========================================
+
+Valgrind Plugin Source Code Structure：
+
+::
+
+    .
+    └── MYPLUGIN
+        ├── docs
+        │   └── ...
+        ├── tests
+        │   └── ...
+        ├── Makefile.am
+        ├── PLUGIN_main.c
+        └── (maybe) other files
+
+
+最上層的 folder 是 plugin 的名稱 (可能有 ``exp-`` 作為 prefix 表示 experimental)，
+接著 folder 裡會有 ``PLUGIN_main.c``，
+裡面主要大概都會有以下 function (當然有另外的)：
+
+* ``PLUGIN_pre_clo_init``
+    - regist by VG_DETERMINE_INTERFACE_VERSION
+* ``PLUGIN_post_clo_init``
+    - regist by VG_(basic_tool_funcs) in PLUGIN_pre_clo_init
+* ``PLUGIN_instrument``
+    - regist by VG_(basic_tool_funcs) in PLUGIN_pre_clo_init
+* ``PLUGIN_fini``
+    - regist by VG_(basic_tool_funcs) in PLUGIN_pre_clo_init
+* ``PLUGIN_print_usage``
+    - regist by VG_(needs_command_line_options) in PLUGIN_pre_clo_init
+* ``PLUGIN_print_debug_usage``
+    - regist by VG_(needs_command_line_options) in PLUGIN_pre_clo_init
+* ``PLUGIN_process_cmd_line_option``
+    - regist by VG_(needs_command_line_options) in PLUGIN_pre_clo_init
+
+
+"clo" := "command line options"
+
 
 Valgrind for Unix-like command
 ========================================
@@ -944,6 +984,7 @@ Reference
 * `Chromium - Deep Memory Profiler <https://www.chromium.org/developers/deep-memory-profiler>`_
 * `Using and understanding the Valgrind core <http://valgrind.org/docs/manual/manual-core.html>`_
 * `The Design and Implementation of Valgrind <http://valgrind.org/docs/manual/mc-tech-docs.html>`_
+* `Writing a New Valgrind Tool <http://www.valgrind.org/docs/manual/writing-tools.html>`_
 * `Valgrind Research Papers <http://www.valgrind.org/docs/pubs.html>`_
 * [2003] Valgrind: A Program Supervision Framework
 * `[2007] Valgrind: A Framework for Heavyweight Dynamic Binary Instrumentation <http://valgrind.org/docs/valgrind2007.pdf>`_
