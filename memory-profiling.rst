@@ -927,6 +927,13 @@ Valgrind：
 Running Valgrind on Android
 ========================================
 
+Related Topics
+========================================
+
+* Valgrind 在 Linux 上的 launcher 會去讀 ``/proc/self/exe``，而 Linux 的 ``/proc/self/`` 會自動依照存取的 process 來 link 到 /proc/$(pid)/
+    - Linux fs/proc/base.c
+    - man pid_namespaces
+
 
 Reference
 ========================================
