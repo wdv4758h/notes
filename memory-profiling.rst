@@ -659,6 +659,89 @@ DHAT 是用來檢查程式如何使用 heap 的工具，
 
 
 
+code：
+
+.. code-block:: c
+
+    // C
+
+    #include <stdlib.h>
+
+    int main () {
+        // allocate a lot of heap memory, and then free without using it
+        // and here may pay some heap memory for memory allocator
+        char* c = malloc(sizeof(char) * 100);
+        c[0] = 'a';
+        c[7] = 'z';
+        free(c);
+        return 0;
+    }
+
+Valgrind：
+
+.. code-block:: sh
+
+    $ valgrind --tool=exp-dhat ./single-heap-more-char
+    ==2607== DHAT, a dynamic heap analysis tool
+    ==2607== NOTE: This is an Experimental-Class Valgrind Tool
+    ==2607== Copyright (C) 2010-2013, and GNU GPL'd, by Mozilla Inc
+    ==2607== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+    ==2607== Command: ./single-heap-more-char
+    ==2607==
+    ==2607==
+    ==2607== ======== SUMMARY STATISTICS ========
+    ==2607==
+    ==2607== guest_insns:  127,901
+    ==2607==
+    ==2607== max_live:     100 in 1 blocks
+    ==2607==
+    ==2607== tot_alloc:    100 in 1 blocks
+    ==2607==
+    ==2607== insns per allocated byte: 1,279
+    ==2607==
+    ==2607==
+    ==2607== ======== ORDERED BY decreasing "max-bytes-live": top 10 allocators ========
+    ==2607==
+    ==2607== -------------------- 1 of 10 --------------------
+    ==2607== max-live:    100 in 1 blocks
+    ==2607== tot-alloc:   100 in 1 blocks (avg size 100.00)
+    ==2607== deaths:      1, at avg age 912 (0.71% of prog lifetime)
+    ==2607== acc-ratios:  0.00 rd, 0.02 wr  (0 b-read, 2 b-written)
+    ==2607==    at 0x4C280B0: malloc (in /usr/lib/valgrind/vgpreload_exp-dhat-amd64-linux.so)
+    ==2607==    by 0x400557: main (single-heap-more-char.c:6)
+    ==2607==
+    ==2607== Aggregated access counts by offset:
+    ==2607==
+    ==2607== [   0]  1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0
+    ==2607== [  16]  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    ==2607== [  32]  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    ==2607== [  48]  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    ==2607== [  64]  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    ==2607== [  80]  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    ==2607== [  96]  0 0 0 0
+    ==2607==
+    ==2607==
+    ==2607==
+    ==2607== ==============================================================
+    ==2607==
+    ==2607== Some hints: (see --help for command line option details):
+    ==2607==
+    ==2607== * summary stats for whole program are at the top of this output
+    ==2607==
+    ==2607== * --show-top-n=  controls how many alloc points are shown.
+    ==2607==                  You probably want to set it much higher than
+    ==2607==                  the default value (10)
+    ==2607==
+    ==2607== * --sort-by=     specifies the sort key for output.
+    ==2607==                  See --help for details.
+    ==2607==
+    ==2607== * Each allocation stack, by default 12 frames, counts as
+    ==2607==   a separate alloc point.  This causes the data to be spread out
+    ==2607==   over far too many alloc points.  I strongly suggest using
+    ==2607==   --num-callers=4 or some such, to reduce the spreading.
+    ==2607==
+
+
 Valgrind for Unix-like command
 ========================================
 
