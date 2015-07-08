@@ -841,6 +841,10 @@ Valgrind：
 ========================================
 
 
+Running Valgrind on Android
+========================================
+
+
 Reference
 ========================================
 
@@ -858,5 +862,6 @@ Reference
 Android
 ------------------------------
 
+* `Valgrind - README.android <http://valgrind.org/docs/manual/dist.readme-android.html>`_
 * `Android - Investigating Your RAM Usage <https://developer.android.com/tools/debugging/debugging-memory.html>`_
 * `Memory Analysis for Android Applications <http://android-developers.blogspot.tw/2011/03/memory-analysis-for-android.html>`_
