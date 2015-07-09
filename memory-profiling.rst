@@ -28,6 +28,11 @@ Current Version
 Valgrind
 ------------------------------
 
+* `Bug Reports <https://bugs.kde.org/buglist.cgi?product=valgrind>`_
+    - KDE 讓 Valgrind 可以使用他們的 Bugzilla
+* irc : freenode #valgrind-dev
+
+
 架構
 ++++++++++++++++++++
 
@@ -967,10 +972,15 @@ Valgrind：
 Running Valgrind on Android
 ========================================
 
+* `Valgrind - README.android <http://valgrind.org/docs/manual/dist.readme-android.html>`_
 * Android NDK (Native Development Kit)
     - toolset 讓 programmer 可以用 native-code language (例如 C、C++) 來撰寫 Android 上的程式
 
 下載 android-ndk-r10e-linux-x86_64.bin 和 Valgrind source code 來編
+
+
+Valgrind SVN
+------------------------------
 
 +-------------+-----------------------------------+
 | Valgrind    | r15403 (2015-07-08)               |
@@ -1006,6 +1016,71 @@ Running Valgrind on Android
           --with-tmpdir=/sdcard
     $ make -j8
     $ make -j8 install DESTDIR=`pwd`/Inst
+    $ file Inst/data/local/Inst/bin/valgrind    # Check
+    Inst/data/local/Inst/bin/valgrind: ELF 32-bit LSB executable, ARM, EABI5 version 1 (SYSV), statically linked, not stripped
+
+
+這邊編譯時有遇到 ``conflicting types for 'Elf32_Nhdr'`` 的問題，
+後來去 ``coregrind/m_coredump/coredump-elf.c`` 裡面把那部份的 code 刪掉就可以了，
+與此同時發現有人送過 `bug report、patch <https://bugs.kde.org/show_bug.cgi?id=339861>`_ ，
+不過看來現在還沒 merge 進 Valgrind SVN，
+另外 AOSP 的 Valgrind 則是在 6 個禮拜前修了這個問題。
+
+
+AOSP Valgrind
+------------------------------
+
+* `AOSP - Valgrind - README.android <https://android.googlesource.com/platform/external/valgrind/+/master/README.android>`_
+
+AOSP 版的 Valgrind 有針對 Android 修正編譯問題以及其他的調整
+
+
++-------------+-----------------------------------+
+| Valgrind    | 721e6a4 (2015-06-16)              |
++-------------+-----------------------------------+
+| Android NDK | android-ndk-r10e-linux-x86_64.bin |
++-------------+-----------------------------------+
+| Platform    | Android 21 (ARM)                  |
++-------------+-----------------------------------+
+| Target CPU  | ARMv7                             |
++-------------+-----------------------------------+
+| Toolchain   | GCC 4.9 (ARM, Android EABI)       |
++-------------+-----------------------------------+
+
+
+.. code-block:: sh
+
+    $ wget http://dl.google.com/android/ndk/android-ndk-r10e-linux-x86_64.bin
+    $ chmod u+x android-ndk-r10e-linux-x86_64.bin
+    $ ./android-ndk-r10e-linux-x86_64.bin
+    $ export NDKROOT=/path/to/android-ndk-r6    # modify your path
+
+    # build Valgrind
+    $ git clone https://android.googlesource.com/platform/external/valgrind/
+    $ cd valgrind
+    $ export AR=$NDKROOT/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/arm-linux-androideabi-ar
+    $ export LD=$NDKROOT/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/arm-linux-androideabi-ld
+    $ export CC=$NDKROOT/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/arm-linux-androideabi-gcc
+    $ ./autogen.sh
+    $ CPPFLAGS="--sysroot=$NDKROOT/platforms/android-21/arch-arm" \
+          CFLAGS="--sysroot=$NDKROOT/platforms/android-21/arch-arm" \
+          ./configure --prefix=/data/local/Inst \
+          --host=armv7-unknown-linux --target=armv7-unknown-linux \
+          --with-tmpdir=/sdcard
+    $ make -j8
+    $ make -j8 install DESTDIR=`pwd`/Inst
+    $ file Inst/data/local/Inst/bin/valgrind    # Check
+    Inst/data/local/Inst/bin/valgrind: ELF 32-bit LSB executable, ARM, EABI5 version 1 (SYSV), statically linked, not stripped
+
+
+
+Contribute to AOSP Valgrind
+========================================
+
+* `Android Code Review <https://android-review.googlesource.com/>`_
+    - 註冊帳號的方法就是直接用 Google 帳號登入
+    - 註冊完去 setting 裡點 Contributor Agreement
+
 
 
 Related Topics
@@ -1036,7 +1111,8 @@ Reference
 Android
 ------------------------------
 
-* `Valgrind - README.android <http://valgrind.org/docs/manual/dist.readme-android.html>`_
+* `AOSP (Android Open Source Project) <https://source.android.com/>`_
+* `AOSP - Valgrind <https://android.googlesource.com/platform/external/valgrind/>`_
 * `Android NDK <https://developer.android.com/ndk/index.html>`_
 * `Android - Investigating Your RAM Usage <https://developer.android.com/tools/debugging/debugging-memory.html>`_
 * `Memory Analysis for Android Applications <http://android-developers.blogspot.tw/2011/03/memory-analysis-for-android.html>`_
