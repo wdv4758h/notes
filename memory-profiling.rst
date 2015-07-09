@@ -851,10 +851,170 @@ Valgrind for Unix-like command
     ==18771==
     ...
 
-Valgrind for Scripting Language
+Valgrind for Languages
 ========================================
 
-Python：
+Rust
+------------------------------
+
+把簡單的 Rust 程式 (空的 main) 丟下去跑，
+發現竟然有 heap allocation (而且看起來有用到 pthread)，
+後來知道是 Rust std 的 startup 做的，
+不過目前還不知道 std startup 會處理哪些事情 ...
+
+進入點在這檔案的 ``lang_start`` : `src/libstd/rt/mod.rs <https://github.com/rust-lang/rust/blob/master/src/libstd/rt/mod.rs>`_
+
+code：
+
+.. code-block:: rust
+
+    // compiling with "rustc -C opt-level=3 -C prefer-dynamic -g empty.rs"
+    fn main () {
+    }
+
+Valgrind：
+
+.. code-block:: sh
+
+    $ valgrind --tool=exp-dhat ./empty
+    ==12190== DHAT, a dynamic heap analysis tool
+    ==12190== NOTE: This is an Experimental-Class Valgrind Tool
+    ==12190== Copyright (C) 2010-2013, and GNU GPL'd, by Mozilla Inc
+    ==12190== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+    ==12190== Command: ./empty
+    ==12190==
+    ==12190==
+    ==12190== ======== SUMMARY STATISTICS ========
+    ==12190==
+    ==12190== guest_insns:  1,002,143
+    ==12190==
+    ==12190== max_live:     792 in 2 blocks
+    ==12190==
+    ==12190== tot_alloc:    856 in 4 blocks
+    ==12190==
+    ==12190== insns per allocated byte: 1,170
+    ==12190==
+    ==12190==
+    ==12190== ======== ORDERED BY decreasing "max-bytes-live": top 10 allocators ========
+    ==12190==
+    ==12190== -------------------- 1 of 10 --------------------
+    ==12190== max-live:    552 in 1 blocks
+    ==12190== tot-alloc:   552 in 1 blocks (avg size 552.00)
+    ==12190== deaths:      1, at avg age 133,882 (13.35% of prog lifetime)
+    ==12190== acc-ratios:  6.06 rd, 2.56 wr  (3,348 b-read, 1,414 b-written)
+    ==12190==    at 0x4C280B0: malloc (in /usr/lib/valgrind/vgpreload_exp-dhat-amd64-linux.so)
+    ==12190==    by 0x54A0B9C: __fopen_internal (in /usr/lib/libc-2.21.so)
+    ==12190==    by 0x59E6F79: pthread_getattr_np (in /usr/lib/libpthread-2.21.so)
+    ==12190==    by 0x4F1BC0E: rt::lang_start::hc2bc8270d37f18e3u3w (in /usr/lib/libstd-74fa456f.so)
+    ==12190==    by 0x545878F: (below main) (in /usr/lib/libc-2.21.so)
+    ==12190==
+    ==12190== Aggregated access counts by offset:
+    ==12190==
+    ==12190== [   0]  227 223 223 223 0 0 0 0 215 215 215 215 215 215 215 215
+    ==12190== [  16]  95 95 95 95 95 95 95 95 12 12 12 12 12 12 12 12
+    ==12190== [  32]  17 17 17 17 17 17 17 17 12 12 12 12 12 12 12 12
+    ==12190== [  48]  12 12 12 12 12 12 12 12 22 22 22 22 22 22 22 22
+    ==12190== [  64]  9 9 9 9 9 9 9 9 10 10 10 10 10 10 10 10
+    ==12190== [  80]  1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+    ==12190== [  96]  8 8 8 8 8 8 8 8 3 3 3 3 3 3 3 3
+    ==12190== [ 112]  14 14 14 14 13 5 5 5 0 0 0 0 0 0 0 0
+    ==12190== [ 128]  1 1 0 0 0 0 0 0 5 5 5 5 5 5 5 5
+    ==12190== [ 144]  7 7 7 7 7 7 7 7 0 0 0 0 0 0 0 0
+    ==12190== [ 160]  1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+    ==12190== [ 176]  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    ==12190== [ 192]  9 9 9 9 0 0 0 0 0 0 0 0 0 0 0 0
+    ==12190== [ 208]  0 0 0 0 0 0 0 0 15 15 15 15 15 15 15 15
+    ==12190== [ 224]  5 5 5 5 7 7 7 7 4 4 4 4 4 4 4 4
+    ==12190== [ 240]  1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+    ==12190== [ 256]  1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+    ==12190== [ 272]  1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+    ==12190== [ 288]  1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+    ==12190== [ 304]  1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+    ==12190== [ 320]  1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0
+    ==12190== [ 336]  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    ==12190== [ 352]  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    ==12190== [ 368]  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    ==12190== [ 384]  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    ==12190== [ 400]  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    ==12190== [ 416]  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    ==12190== [ 432]  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    ==12190== [ 448]  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    ==12190== [ 464]  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    ==12190== [ 480]  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    ==12190== [ 496]  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    ==12190== [ 512]  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    ==12190== [ 528]  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    ==12190== [ 544]  1 1 1 1 1 1 1 1
+    ==12190==
+    ==12190== -------------------- 2 of 10 --------------------
+    ==12190== max-live:    240 in 1 blocks
+    ==12190== tot-alloc:   240 in 1 blocks (avg size 240.00)
+    ==12190== deaths:      1, at avg age 128,384 (12.81% of prog lifetime)
+    ==12190== acc-ratios:  28.90 rd, 21.05 wr  (6,936 b-read, 5,053 b-written)
+    ==12190==    at 0x4C280B0: malloc (in /usr/lib/valgrind/vgpreload_exp-dhat-amd64-linux.so)
+    ==12190==    by 0x54A1837: getdelim (in /usr/lib/libc-2.21.so)
+    ==12190==    by 0x59E701E: pthread_getattr_np (in /usr/lib/libpthread-2.21.so)
+    ==12190==    by 0x4F1BC0E: rt::lang_start::hc2bc8270d37f18e3u3w (in /usr/lib/libstd-74fa456f.so)
+    ==12190==    by 0x545878F: (below main) (in /usr/lib/libc-2.21.so)
+    ==12190==
+    ==12190== -------------------- 3 of 10 --------------------
+    ==12190== max-live:    32 in 1 blocks
+    ==12190== tot-alloc:   32 in 1 blocks (avg size 32.00)
+    ==12190== deaths:      1, at avg age 4,949 (0.49% of prog lifetime)
+    ==12190== acc-ratios:  0.00 rd, 1.50 wr  (0 b-read, 48 b-written)
+    ==12190==    at 0x4C280B0: malloc (in /usr/lib/valgrind/vgpreload_exp-dhat-amd64-linux.so)
+    ==12190==    by 0x4C2A45F: realloc (in /usr/lib/valgrind/vgpreload_exp-dhat-amd64-linux.so)
+    ==12190==    by 0x59E6ED4: pthread_getattr_np (in /usr/lib/libpthread-2.21.so)
+    ==12190==    by 0x4F1BC0E: rt::lang_start::hc2bc8270d37f18e3u3w (in /usr/lib/libstd-74fa456f.so)
+    ==12190==    by 0x545878F: (below main) (in /usr/lib/libc-2.21.so)
+    ==12190==
+    ==12190== Aggregated access counts by offset:
+    ==12190==
+    ==12190== [   0]  1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+    ==12190== [  16]  2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+    ==12190==
+    ==12190== -------------------- 4 of 10 --------------------
+    ==12190== max-live:    32 in 1 blocks
+    ==12190== tot-alloc:   32 in 1 blocks (avg size 32.00)
+    ==12190== deaths:      1, at avg age 31,008 (3.09% of prog lifetime)
+    ==12190== acc-ratios:  1.00 rd, 1.00 wr  (32 b-read, 32 b-written)
+    ==12190==    at 0x4C2A1A0: calloc (in /usr/lib/valgrind/vgpreload_exp-dhat-amd64-linux.so)
+    ==12190==    by 0x546E2F1: __cxa_thread_atexit_impl (in /usr/lib/libc-2.21.so)
+    ==12190==    by 0x4F050AC: sys_common::thread_info::set::h411b7bc6f4e0436cEwr (in /usr/lib/libstd-74fa456f.so)
+    ==12190==    by 0x4F1BF32: rt::lang_start::hc2bc8270d37f18e3u3w (in /usr/lib/libstd-74fa456f.so)
+    ==12190==    by 0x545878F: (below main) (in /usr/lib/libc-2.21.so)
+    ==12190==
+    ==12190== Aggregated access counts by offset:
+    ==12190==
+    ==12190== [   0]  2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+    ==12190== [  16]  2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+    ==12190==
+    ==12190==
+    ==12190==
+    ==12190== ==============================================================
+    ==12190==
+    ==12190== Some hints: (see --help for command line option details):
+    ==12190==
+    ==12190== * summary stats for whole program are at the top of this output
+    ==12190==
+    ==12190== * --show-top-n=  controls how many alloc points are shown.
+    ==12190==                  You probably want to set it much higher than
+    ==12190==                  the default value (10)
+    ==12190==
+    ==12190== * --sort-by=     specifies the sort key for output.
+    ==12190==                  See --help for details.
+    ==12190==
+    ==12190== * Each allocation stack, by default 12 frames, counts as
+    ==12190==   a separate alloc point.  This causes the data to be spread out
+    ==12190==   over far too many alloc points.  I strongly suggest using
+    ==12190==   --num-callers=4 or some such, to reduce the spreading.
+    ==12190==
+
+
+Python
+------------------------------
+
+code：
 
 .. code-block:: python
 
