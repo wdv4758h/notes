@@ -1160,7 +1160,7 @@ Valgrind SVN
     $ wget http://dl.google.com/android/ndk/android-ndk-r10e-linux-x86_64.bin
     $ chmod u+x android-ndk-r10e-linux-x86_64.bin
     $ ./android-ndk-r10e-linux-x86_64.bin
-    $ export NDKROOT=/path/to/android-ndk-r6    # modify your path
+    $ export NDKROOT=/path/to/android-ndk-r10e  # modify your path
 
     # build Valgrind
     $ svn co svn://svn.valgrind.org/valgrind/trunk valgrind
@@ -1213,7 +1213,7 @@ AOSP 版的 Valgrind 有針對 Android 修正編譯問題以及其他的調整
     $ wget http://dl.google.com/android/ndk/android-ndk-r10e-linux-x86_64.bin
     $ chmod u+x android-ndk-r10e-linux-x86_64.bin
     $ ./android-ndk-r10e-linux-x86_64.bin
-    $ export NDKROOT=/path/to/android-ndk-r6    # modify your path
+    $ export NDKROOT=/path/to/android-ndk-r10e  # modify your path
 
     # build Valgrind
     $ git clone https://android.googlesource.com/platform/external/valgrind/
