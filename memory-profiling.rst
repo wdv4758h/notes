@@ -1243,6 +1243,17 @@ Contribute to AOSP Valgrind
 
 
 
+Valgrind 實際案例
+========================================
+
+CPython
+------------------------------
+
+* `CPython - README.valgrind <https://github.com/python/cpython/blob/master/Misc/README.valgrind>`_
+* `CPython - valgrind-python.supp <https://github.com/python/cpython/blob/master/Misc/valgrind-python.supp>`_
+* `CPython - runall-memorydebugger.sh <https://github.com/python/cpython/blob/master/Modules/_decimal/tests/runall-memorydebugger.sh>`_
+
+
 Related Topics
 ========================================
 
