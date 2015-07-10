@@ -33,3 +33,20 @@ C++ Videos
         + Integral const static class members lacking a definiton
         + Template names (e.g., std::endl)
         + Non-const lvalue bitfields
+
+* [2013/09] `C++ Seasoning <https://www.youtube.com/watch?v=qH6sSOr-yk8>`_
+    - `PDF <https://github.com/sean-parent/sean-parent.github.com/wiki/presentations/2013-09-11-cpp-seasoning/cpp-seasoning.pdf>`_
+    - `Sean Parent - Papers and Presentations <https://github.com/sean-parent/sean-parent.github.io/wiki/Papers-and-Presentations>`_
+    - no raw loops
+    - no raw synchronization primitives
+    - no raw pointers
+    - use STL or general function in libraries when available
+    - <algorithm>
+        + rotate
+        + stable_partition
+        + lower_bound
+    - keep the body short
+    - Amdahl's law
+    - <future>
+        + packaged_task
+    - make_shared
