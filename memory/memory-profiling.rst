@@ -13,6 +13,7 @@ Tools
 * Valgrind
     - Massif - Heap profiling
     - DHAT - Dynamic Heap Analysis Tool (experimental)
+* IgProf
 * Heaptrack
 * Deep Memory Profiler
 
@@ -1125,6 +1126,77 @@ Valgrind：
     ...
 
 
+
+
+IgProf
+========================================
+
+CERN (歐洲核子研究組織) 在跑 LHC (大型強子對撞機) 做研究時，
+也會需要寫大量的軟體來做運算，
+其中的 CMS (Compact Muon Solenoid) 是個粒子偵測器，
+用來觀察在 LHC 裡高能量碰撞下所產生的粒子和現象，
+而 CMSSW 則是 CMS 的軟體的簡稱。
+CMSSW 中大約有五百萬行自己寫的程式碼 (包含 C++、Python、Fortran)，
+這當中一個重要的問題就是記憶體，
+這樣大的程式會需要工具來幫忙找出記憶體相關的問題 (例如 memory leak)，
+在 2003 年認為等 Valgrind 完善不是一個好選擇 (Valgrind 當時為 1.9.x 版)，
+於是先花了一天寫了叫做 ``MemProfLib`` 的 prototype。
+
+MemProfLib 大概做到了這些事：
+
+* Malloc Hooks
+    - 用 ``__malloc_hook`` 來監控 allocation/deallocation，程式結束時還沒 deallocation 的資源就就回報說可能是 leak
+    - 用 LD_PRELOAD 把 code 塞進去
+    - 用 ``atexit`` 來 dump
+* Flat output
+    - 輸出成 xml，並用 XSLT 做分析
+* Instant gratification
+    - 在設計整套工具前，證實是可以 work 的
+
+
+在這後來產生了 IgProf (The Ignominious Profiler)，
+設計走向是要做 performance 和 memory 的 profiling (包含 backtrace)，
+而且不需要 kernel 支援、不需要 superuser 的權限，
+目標用戶當然是在 CMS 的人們，
+並且要支援多個平台 (x86、x86_64、ARM32、ARM64)。
+
+
+這時已經幾件事情要注意了：
+
+* 避免 platform specific API，
+    - 例如 glibc 的 ``__malloc_hook``
+* 彈性
+    - 預期不只 hook ``malloc`` (還會有例如 read/write 需要 hook)
+* 安全性
+    - 除了一般的 malloc 外，還需要 hook 可能會干擾 profiler 的 function (例如 fork)
+    - 可能還需要關掉一些東西 (例如 explicit call to signal)
+    - 最後可以放心的 hook 到 exit 和 _exit 來 dump 出 profile 結果
+
+
+IgProf 的內部大概有這些東西：
+
+* Dynamic instrumentation (IgHook)
+* Memory (by hooking into malloc) and performance profiler (via SIGPROF / SIGALRM)
+* Full backtrace information (via libunwind)
+* Analyser tool (igprof-analyse)
+* Simple web frontend (igprof-navigator)
+
+
+在找 backtrace 的時候，
+原本是用 ``backtrace()`` ，
+但後來為了 reliability 而改用 ``libunwind`` 。
+在使用過程中，
+因為要跑的程式每秒都有大量的 allocations，
+所以 memory profiling 會變得太慢 (因為很多 unwindings)，
+後來改進了 libunwind 裡的作法，
+不做完整的 DWARF unwind，
+只做簡單的 stack walk，
+行不通時才 fallback 回去做完整的 unwind。
+後來貢獻回 libunwind，
+分別有 x86_64 (by Lassi Tuura) 和 ARM32/ARM64 (by Filip Nybäck) 的實作，
+其中據說有人的程式 profiling 獲得了 30x 的加速 !?
+
+
 實際專案測試
 ========================================
 
@@ -1278,6 +1350,8 @@ Reference
 * [2003] Valgrind: A Program Supervision Framework
 * `[2007] Valgrind: A Framework for Heavyweight Dynamic Binary Instrumentation <http://valgrind.org/docs/valgrind2007.pdf>`_
 * [2008] Optimizing Binary Code Produced by Valgrind
+* `[FOSDEM] 2015 - IgProf The Ignominous Profiler <https://archive.fosdem.org/2015/schedule/event/igprof_the_ignominous_profiler/attachments/slides/625/export/events/attachments/igprof_the_ignominous_profiler/slides/625/fosdem_2015_igprof.pdf>`_
+
 
 Android
 ------------------------------
