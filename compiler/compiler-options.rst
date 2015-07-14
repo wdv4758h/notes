@@ -16,6 +16,7 @@ GCC
     - platform-dependent
     - may produce smaller code than `-fPIC`
     - may be a little bit faster
+* ``-march=native -Q --help=target`` : 輸出 GCC 在目前機器上使用 ``-march=native`` 參數會打開的優化選項
 
 
 Reference
