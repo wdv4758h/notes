@@ -1,6 +1,10 @@
-===========================================================================
-[2007] Valgrind: A Framework for Heavyweight Dynamic Binary Instrumentation
-===========================================================================
+====================================================================
+Valgrind: A Framework for Heavyweight Dynamic Binary Instrumentation
+====================================================================
+
+這邊的資訊主要來自於 2007 年發的 papaer "Valgrind: A Framework for Heavyweight Dynamic Binary Instrumentation"
+以及現在 Valgrind 的 source code 和 documentation。
+
 
 名詞解釋
 ========================================
@@ -16,6 +20,8 @@
 * Dynamic Binary Analysis (DBA)
 
     DBA，如字面上的意思，是針對 binary 在執行期間的分析
+
+* Intermediate Representation (IR)
 
 
 Introduction
@@ -77,8 +83,79 @@ shadow value tools 會維護一份程式的狀態，
 接著是執行的操作都要紀錄到，
 掌控所有的使用 (讀寫)。
 
+shadow value tool 為 heavyweight 的 DBA tools 可以滿足這九種需求，
+然而大部份的 DBA tools 都只做到了九種需求的 subset (通常都包含最後增加輔助資訊的需求)。
+
+Valgrind 運作方式
+========================================
+
+基本架構
+------------------------------
+
+Valgrind 會利用 dynamic binary re-compilation，
+先把 client 程式讀到和 Valgrind 同個 process，
+接著把 client machine code 分成一小塊一小塊，
+依 execution-driven 的方式用 just-in-time 得技術把 machine code block 轉成 VEX IR (RISC-like)。
+VEX IR 是 Valgrind 開發者設計來給 DBI 使用的 IR，
+目前這部份已經從 Valgrind 分離出去成 libVEX 了，
+libVEX 負責動態地把 machine code 轉換成 VEX IR，
+並且去 call 要做 IR instrumentation 的工具的 hooks，
+而轉換的結果會存在 code cache，再需要時會重新 run 過。
+
+Valgrind 的核心花費大部分的時間在製造、尋找、執行 machine code 和 VEX IR 的轉換，
+而 client program 原本的 machine code 都不會跑到。
+
+到這邊可以看到 Valgrind 的複雜來自於要把 client 和 tool 壓在同一個 process，
+需要用分享的資源 (例如 registers 和 memory)，
+而且 Valgrind 要小心地確保在 system call、signals、threads 參與的狀況下不會對 client 失去掌控。
+
+
+Valgrind 可以正常處理的程式有：
+
+* normal executable code
+* dynamically linked libraries
+* shared libraries
+* dynamically generated code
+
+只有 self-modifying code 會有問題，
+而執行過程中只有 system calls 裡面的狀況是 Valgrind 不能掌控的，
+但是 system call 的 side-effects 還是可以間接觀察到。
+
+::
+
+                                          +--------------------+     +-------------------------+
+                  +--------------+        |      libVEX        |     | IR instrumentation tool |
+                  |              |        |                    |     |                         |
+                  +--------------+        |                    |     |                         |
+                  |              |        |                    |     |                         |
+                  +--------------+        |                    |     |                         |
+                  |              |        |                    |     |                         |
+    x86/Linux     +--------------+        |      +--------+    |     |                         |
+    AMD64/Linux   | machine code | ------------> | VEX IR | -------->|                         |
+    ARM/Linux     +--------------+        |      +--------+    |     |                         |
+    x86/MacOSX    |              |        |                    |     |                         |
+    AMD64/MacOSX  +--------------+        |         -----------------|                         |
+    ....          |              |        |         |          |     |                         |
+                  +--------------+        |         |          |     |                         |
+                  |              |        +---------|----------+     +-------------------------+
+                  +--------------+                  |
+                                                    v
+                                             +--------------+
+                                             | machine code |
+                                             +--------------+
+
+Starting Up
+------------------------------
+
+
+VEX IR
+========================================
+
 
 Reference
 ========================================
 
 * `[2007] Valgrind: A Framework for Heavyweight Dynamic Binary Instrumentation <http://valgrind.org/docs/valgrind2007.pdf>`_
+* `[2008] Optimizing Binary Code Produced by Valgrind <http://web.ist.utl.pt/nuno.lopes/pubs/valgrind08.pdf>`_
+* svn://svn.valgrind.org/vex/trunk
+* `libVEX - /pub/libvex_ir.h <https://github.com/svn2github/valgrind-vex/blob/master/pub/libvex_ir.h>`_
