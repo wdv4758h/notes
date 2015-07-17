@@ -147,6 +147,60 @@ Valgrind 可以正常處理的程式有：
 Starting Up
 ------------------------------
 
+start up 這部份的目的是要把 Valgrind 的 core、tool、clent program 都 load 到同一個 process，
+共用 address space。
+Valgrind tool 都是包含 core code 的 statically-linked executable，
+每個 tool 都包含一份 core code 有一點點浪費空間 (2007 年的時候 core 大約 2.5 MB)，
+但是可以讓事情簡單一些。
+
+client 程式 (執行檔) 會被 load 到一個通常是可用的 non-standard address，
+在 x86/Linux 中這個位址是 0x38000000 (各平台的位址可以看 Valgrind 的 configure.ac)，
+0x38000000 在 1GB 之下 (1024 * 1024 * 1024 bytes => 0x40000000)，
+所以就算有個用 1:3 來切割 user:kernel address space 的 kernel 也可以 work，
+精確地位址是不固定的，重點是要避開一般預設的程式 load address，
+同時確保 loader 可以在 1GB 以下被 load。
+如果 Valgrind 要用的 address 不是可用的 (極少數特殊情況)，
+Valgrind 可以重新 compile 來使用不同的 address。
+
+使用者用的 ``valgrind`` command 其實只是個 wrapper (wrapper 的 source code 為 repo 裡的 ``coregrind/launcher-linux.c``)，
+這個 wrapper 會去爬 ``--tool`` 參數來決定要執行的 plugin，
+每個 plugin 都是一個靜態連結的執行檔，
+plugin 都放在 ``/usr/lib/valgrind/`` 裡面 (on Arch Linux)，
+wrapper 會設定一些環境變數後用 ``execve`` 執行指定的 plugin。
+
+Valgrind core 一開始會初始化一些 sub-systems (例如 address space manager、internal memory allocator)，
+接著才 load 進來 cliet 程式 (text、data)，
+client 程式可以是 ELF 執行檔或是 script (如果是 script 的話會讀入 interpreter)，
+接下來建立 client 的 stack 和 data segment。
+
+在這之後 Valgrind core 會要 tool 初始化自己，
+core 和 tool 的 command-line 參數會在這時被處理。
+core sub-system 初始化，
+包含 translation table、signal-handling machinery、thread scheduler、debug information。
+
+至此 Valgrind tool 已經取得所有的掌控權，
+所有東西都已經就定位可以開始轉換並執行 client 程式了。
+
+這個 Valgrind 架構和初始化方式其實是第三版了，
+是目前最 reliable 的方式。
+第一版為使用 dynamic linker 的 LD_PRELOAD 把 Valgrind core 和 tool (都是 shared object) inject 到 client，
+但是這對 statically compiled executables 不管用，
+也允許一部份的 client 程式在 Valgrind 掌控外先 native 地執行，
+在加上這作法也不 portable。
+第二版和現在的方式比較像，
+但是需要一大塊空的 memory mappings 來讓 components 放到對的位置，
+這作法比較 unreliable。
+大部分的 DBI frameworks 都是使用第一種 injection 的方式，
+而不是使用自己的 program loader。
+為了避免前面兩種作法的缺點，
+第三種作法有額外的兩種優點，
+一是讓 Valgrind 可以掌控 memory layout，
+二是讓避免對其他工具的依賴 (例如 dynamic linker)，
+這是增加 Valgrind 強健性的好方式。
+
+
+Guest and Host Registers
+------------------------------
 
 VEX IR
 ========================================
@@ -159,3 +213,6 @@ Reference
 * `[2008] Optimizing Binary Code Produced by Valgrind <http://web.ist.utl.pt/nuno.lopes/pubs/valgrind08.pdf>`_
 * svn://svn.valgrind.org/vex/trunk
 * `libVEX - /pub/libvex_ir.h <https://github.com/svn2github/valgrind-vex/blob/master/pub/libvex_ir.h>`_
+* `Valgrind - /configure.ac <https://github.com/svn2github/valgrind-master-mirror/blob/master/configure.ac>`_
+    - valt_load_address_pri_norml
+    - valt_load_address_pri_inner
