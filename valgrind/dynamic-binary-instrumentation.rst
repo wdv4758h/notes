@@ -202,6 +202,84 @@ core sub-system 初始化，
 Guest and Host Registers
 ------------------------------
 
+Valgrind 本身會直接跑在 host CPU，
+而 client 程式則是概念性地跑在 Valgrind 弄出來的 guest CPU，
+因為 dynamic binary recompilation 的關係 guest register 的值可能是在一個 host register 或是散佈在 memory 中，
+而每個 guest register 都會有 shadow register。
+
+Valgrind 會提供每個 client thread 一塊 memory (稱為 ThreadState)，
+每個 ThreadState 包含給 thread 的 guest 和 shadow registers 的空間，
+會在許多時間點維護這些值 (例如每個 code block 之間)。
+這樣儲存 guest registers 的話就會需要不斷地把值在 host registers 和 memory 中移來移去，
+效能顯然會在這邊降低，
+但是作為一個 heavyweight 的工具，
+這樣的作法卻是非常合理的。
+
+Representation of code: D&R vs. C&A
+-----------------------------------
+
+DBI framework 有兩種基本的方式可以表示 code 和進行的 instrumentation：
+
+* disassemble-and-resynthesise (D&R)
+    - Valgrind 使用這種
+    - 把 machine code 先轉成 IR
+    - IR 會經由加入更多 IR 來被 instrument
+    - IR 最後轉回 machine code 執行
+    - 原本的 code 對 guest state 的所有影響都必須明確地轉成 IR，因為最後執行的是純粹由 IR 轉成的 machine code
+* copy-and-annotate (C&A)
+    - instructions 會逐字地複製 (除了一些 control flow 改變)
+    - 每個 instruction 都加上註解描述影響 (annotate)，利用這些描述來幫助 instrumentation
+        + 經由 data structures (DynamoRIO)
+        + 經由 instruction-querying API (Pin)
+    - 加入的分析 code 必須和原 code 錯開，不能影響原本的行為
+
+基本上 DBI framework 可以分成這兩種，
+但是混用是可以做到的，
+早期的 Valgrind 對 interger instructions 使用 D&R，
+而對 floating point insturctions 和 SIMD 使用 C&A (paper 上寫說並非設計想往這邊走，而是意外)。
+另外，做一些變化也是可以的，例如 DynamoRIO 允許 instructions 在複製前 in-place 地修改，
+
+各個設計都有優缺點，而 D&R 的方式需要更多的實作和設計，
+而且最後從 IR 生出有效率地 machine code 也需要一些努力，
+Valgrind JIT 就用了很多編譯器的技術。相對地，C&A 的作法就可以比 D&R 少費些心力。
+
+D&R 對於需要 low-level 資訊的狀況來說比較不適合，
+例如每個 instruction 使用哪個 opcode 這樣的資訊可能會 lost，
+但是 IR 註解可以幫忙處理這樣的事情，
+例如 Valgrind 有 "marker" statement 可以標註原本 instruction 的 boundaries、addresses、length，
+而且 C&R 如果 annotations 能力不夠的話也會有同樣的問題。
+
+D&R 的威力會在需要加入複雜的 analysis code 的時候顯現，
+首先 D&R 的 client 和 analysis code 都會使用一樣的 IR，
+所以可以保證 analysis code 和 client code 有同樣的程度的能力，
+再來把所有 side-effect 都明確地表示出來可以讓 instrumentation 變簡單。
+接著是 JIT 可以讓 analysis code 和 client code 取得同樣好的優化，
+並且原生地把兩個 code 交錯開來，
+而 C&A 則需要提供個方式來描述 analysis code，
+C&A 的 analysis code 要能有效率且安全地放進去反而需要額外的功夫 (framework 和 tool)，
+例如 Pin 的 analysis code 是用 C 寫，
+用外部的 C compiler 編譯，
+Pin 則嘗試 inline 進去或是插入 function call。
+
+最後，D&R 比較容易驗證，
+任何 IR 轉換錯誤的行為都會很明顯，
+而 C&A 的 annotations 有錯的話只會造成不正確地分析。
+D&R 還允許 binary 從一個平台轉到另個平台 (雖然 Valgrind 沒有做)。
+
+總結就是 D&R 需要比較多的力氣來實作，
+支援 heavyweight instrumentation (需要 shadow value tools)，
+但對於 ightweight instrumentation 來說算是 overkill。
+
+Valgrind IR
+------------------------------
+
+在 Valgrind 3.0.0 之前 (2005 年 8 月)，
+Valgrind 有針對 x86 的部份 D&R、部份 C&A，
+以及像 assembly 的 IR (translation 單位為 basic block)。
+在那之後，Valgrind 有了完整的 D&R 和 SSA (single-static-assignment) IR (像是 compiler 在用的 IR)。
+IR blocks 也變成 superblocks (為 single-entry, multiple-exit)。
+
+
 VEX IR
 ========================================
 
