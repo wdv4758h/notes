@@ -1339,8 +1339,71 @@ Running Valgrind on Android
 透過 Activity Manager 把 Valgrind 跑起來，
 這樣就可以避開這個問題了。
 
+
+script 1 : ``start_valgrind.sh``
+
+.. code-block:: sh
+
+    #!/system/bin/sh
+
+    PACKAGE="com.android.browser"
+
+    export TMPDIR=/data/data/$PACKAGE
+
+    VGPARAMS="--log-file=$TMPDIR/valgrind.log.%p --error-limit=no --trace-children=yes"
+
+    # Memcheck tool
+    VGPLUGIN="--tool=memcheck --leak-check=full --show-reachable=yes"
+
+    echo "valgrind args: $*"
+    exec /data/local/Inst/bin/valgrind $VGPARAMS $VGPLUGIN
+
+
+stcript 2 : ``bootstrap_valgrind.sh``
+
+.. code-block:: sh
+
+    #!/usr/bin/env sh
+
+    #PACKAGE="com.android.calculator2"
+    #ACTIVITY=".Calculator"
+
+    PACKAGE="com.android.browser"
+    ACTIVITY=".BrowserActivity"
+
+
+    adb push start_valgrind.sh /data/local/Inst/bin/
+    adb shell chmod 777 /data/local/Inst/bin/start_valgrind.sh
+
+    adb root
+    adb shell setprop wrap.$PACKAGE "logwrapper /data/local/Inst/bin/start_valgrind.sh"
+
+    echo "wrap.$PACKAGE: $(adb shell getprop wrap.$PACKAGE)"
+
+    # -S: force stop the target app before starting the activity
+    # -D: enable debugging
+    # -a: <ACTION> Specify the intent action, such as "android.intent.action.VIEW". You can declare this only once.
+    # -n: <COMPONENT> Specify the component name with package name prefix to create an explicit intent, such as "com.example.app/.ExampleActivity".
+
+    adb shell am start -S -a android.intent.action.MAIN -n $PACKAGE/$ACTIVITY
+
+    adb logcat -c   # -c: clears (flushes) the entire log and exits.
+    adb logcat
+
+    #adb shell am clear-debug-app
+
+
+* `Can't run a Java Android program with Valgrind <http://stackoverflow.com/a/19235439>`_
+* `Android Developers - logcat <http://developer.android.com/tools/help/logcat.html>`_
+* `Android Developers - Using activity manager (am) <http://developer.android.com/tools/help/shell.html#am>`_
+* `[2011] Valgrind on Android - Current Status <https://blog.mozilla.org/jseward/2011/09/27/valgrind-on-android-current-status/>`_
+
+
 Problems
 ------------------------------
+
+Linker - Unsupported Flags
+++++++++++++++++++++++++++
 
 ::
 
@@ -1349,6 +1412,18 @@ Problems
 * https://bugs.kde.org/show_bug.cgi?id=344802
 * https://bugs.kde.org/show_bug.cgi?id=348325
 
+
+Unhandled Instruction
++++++++++++++++++++++
+
+::
+
+    disInstr(arm): unhandled instruction: 0xEC510F1E
+                    cond=14(0xE) 27:20=197(0xC5) 4:4=1 3:0=14(0xE)
+    ==1897== valgrind: Unrecognised instruction at address 0x4b27948.
+    ==1897==    at 0x4B27948: _armv7_tick (in /system/lib/libcrypto.so)
+
+* https://bugs.kde.org/show_bug.cgi?id=344802
 
 
 
@@ -1378,6 +1453,47 @@ Related Topics
 * Valgrind 在 Linux 上的 launcher 會去讀 ``/proc/self/exe``，而 Linux 的 ``/proc/self/`` 會自動依照存取的 process 來 link 到 /proc/$(pid)/
     - Linux fs/proc/base.c
     - man pid_namespaces
+
+* Android Watchdog
+    - Android 的 Watchdog 會在程式一段時間沒回應後，把程式 kill 掉，預設是 60 秒
+    - `AndroidXRef - /frameworks/base/services/core/java/com/android/server/Watchdog.java <http://androidxref.com/5.1.1_r6/xref/frameworks/base/services/core/java/com/android/server/Watchdog.java>`_
+
+
+
+Questions
+========================================
+
+對已經在執行的程式掛上 Valgrind ?
+---------------------------------
+
+不可行，Valgrind 內在執行程式的環境跟一般情況差很多 (例如 memory layout 不同)，
+所以 Valgrind 需要在一開始就取得所有的掌控權。
+
+* `Is it possible to attach Valgrind to a program that is already running? <http://valgrind.org/docs/manual/faq.html#faq.attach>`_
+
+讓 Valgrind 只對部份程式做 Instrumentation ?
+--------------------------------------------
+
+可以辦到的，但是要看 plugin 有沒有做，
+目前只有 Callgrind 支援 (``callgrind_control``)。
+
+* `It is possible to achieve something like this by running your program without any instrumentation (which involves a slow-down of about 5x, less than that of most tools), and then adding instrumentation once you get to a point of interest. <http://valgrind.org/docs/manual/faq.html#faq.attach>`_
+
+Kernel Memory Leak Detect ?
+------------------------------
+
+* `Kmemleak - Kernel Memory Leak Detector <https://www.kernel.org/doc/Documentation/kmemleak.txt>`_
+* `[2006] Detecting kernel memory leaks <https://lwn.net/Articles/187979/>`_
+* `[GitHub] KEDR <https://github.com/euspectre/kedr/wiki>`_
+    - KEDR is a framework for dynamic (runtime and post factum) analysis of Linux kernel modules
+    - `KEDR (LeakCheck) and Kmemleak <https://github.com/euspectre/kedr/wiki/KEDR_And_Kmemleak>`_
+
+
+Valgrind for Kernel ?
+------------------------------
+
+Valgrind instrument 的對象是 user-space 的程式，
+kernel 的話不太行，不知道要跟 QEMU 搭配使用來 instrument kernel 需要多大的修改？
 
 
 Reference
