@@ -397,8 +397,11 @@ Performance Monitoring Kernel Interface
 
 
 
-Valgrind - Massif
+Valgrind Plugins
 ========================================
+
+Valgrind - Massif
+------------------------------
 
 Massif 是一個 heap profiler，
 利用定期對程式的 heap 做 snapshots 來做 profiling，
@@ -666,7 +669,7 @@ Massif 的執行結果預設會寫到叫作 ``massif.out.<pid>`` 的檔案，
 
 
 Valgrind - DHAT
-========================================
+------------------------------
 
 DHAT 是用來檢查程式如何使用 heap 的工具，
 會紀錄 allocate 的記憶體、每個記憶體存取 (找哪一塊記憶體) 等等。
@@ -761,7 +764,7 @@ Valgrind：
     ==2607==
 
 Valgrind - Plugin Structure
-========================================
+------------------------------
 
 Valgrind Plugin Source Code Structure：
 
@@ -801,8 +804,11 @@ Valgrind Plugin Source Code Structure：
 "clo" := "command line options"
 
 
+實際專案測試
+------------------------------
+
 Valgrind for Unix-like command
-========================================
+------------------------------
 
 .. code-block:: sh
 
@@ -866,10 +872,10 @@ Valgrind for Unix-like command
     ...
 
 Valgrind for Languages
-========================================
+------------------------------
 
 Rust
-------------------------------
+++++++++++++++++++++
 
 把簡單的 Rust 程式 (空的 main) 丟下去跑，
 發現竟然有 heap allocation (而且看起來有用到 pthread)，
@@ -1026,7 +1032,7 @@ Valgrind：
 
 
 Python
-------------------------------
+++++++++++++++++++++
 
 code：
 
@@ -1210,9 +1216,6 @@ IgProf 的內部大概有這些東西：
 其中據說有人的程式 profiling 獲得了 30x 的加速 !?
 
 
-實際專案測試
-========================================
-
 
 Running Valgrind on Android
 ========================================
@@ -1321,8 +1324,23 @@ AOSP 版的 Valgrind 有針對 Android 修正編譯問題以及其他的調整
     # push to device
     $ adb push Inst /
 
+
+Running Valgrind on Android
+------------------------------
+
+一個成功 cross-compile 的 Valgrind 可以像一般使用一樣，
+直接用 ``$ valgrind COMMAND`` 就可以執行內部的指令，
+但是對於 Android 上的其他應用程式 (例如 browser) 則需做額外的處理，
+因為那些程式一般是用 Android 的 Activity Manager (``am``) 來開啟，
+如果是在 Valgrind 後面接 Activity Manager 的話會在開啟程式後就離開，
+無法對程式進行我們想要的 instrumentation，
+解法是依然使用 Activity Manager 開啟程式，
+但是把 Valgrind 設成該程式的 wrapper，
+透過 Activity Manager 把 Valgrind 跑起來，
+這樣就可以避開這個問題了。
+
 Problems
-++++++++++++++++++++
+------------------------------
 
 ::
 
