@@ -40,7 +40,7 @@ Valgrind
 Valgrind 的 command 其實只是個 wrapper (wrapper 的 source code 為 repo 裡的 ``coregrind/launcher-linux.c``)，
 每個 plugin 都是一個執行檔，
 plugin 都放在 ``/usr/lib/valgrind/`` 裡面 (on Arch Linux)，
-command 會猜一些環境變數後執行指定的 plugin。
+command 會設定一些環境變數後執行指定的 plugin。
 
 Valgrind 內部有 VEX IR (RISC-like)，
 會先把要跑的 binary 轉成內部的 VEX IR，
@@ -382,6 +382,19 @@ Valgrind's files (install on Arch Linux)： ::
     valgrind /usr/share/man/man1/valgrind-listener.1.gz
     valgrind /usr/share/man/man1/valgrind.1.gz
     valgrind /usr/share/man/man1/vgdb.1.gz
+
+
+
+Performance Monitoring Kernel Interface
+========================================
+
+[TODO]
+
+* perfctr
+* perfmon2
+* perf_events
+    - http://www.brendangregg.com/perf.html
+
 
 
 Valgrind - Massif
@@ -1263,6 +1276,7 @@ AOSP Valgrind
 ------------------------------
 
 * `AOSP - Valgrind - README.android <https://android.googlesource.com/platform/external/valgrind/+/master/README.android>`_
+* `Google Groups - Android Developers <https://groups.google.com/forum/#!forum/android-developers>`_
 
 AOSP 版的 Valgrind 有針對 Android 修正編譯問題以及其他的調整
 
@@ -1303,6 +1317,20 @@ AOSP 版的 Valgrind 有針對 Android 修正編譯問題以及其他的調整
     $ make -j8 install DESTDIR=`pwd`/Inst
     $ file Inst/data/local/Inst/bin/valgrind    # Check
     Inst/data/local/Inst/bin/valgrind: ELF 32-bit LSB executable, ARM, EABI5 version 1 (SYSV), statically linked, not stripped
+
+    # push to device
+    $ adb push Inst /
+
+Problems
+++++++++++++++++++++
+
+::
+
+    WARNING: linker: Unsupported flags DT_FLAGS_1=0x421
+
+* https://bugs.kde.org/show_bug.cgi?id=344802
+* https://bugs.kde.org/show_bug.cgi?id=348325
+
 
 
 
@@ -1351,6 +1379,7 @@ Reference
 * `[2007] Valgrind: A Framework for Heavyweight Dynamic Binary Instrumentation <http://valgrind.org/docs/valgrind2007.pdf>`_
 * [2008] Optimizing Binary Code Produced by Valgrind
 * `[FOSDEM] 2015 - IgProf The Ignominous Profiler <https://archive.fosdem.org/2015/schedule/event/igprof_the_ignominous_profiler/attachments/slides/625/export/events/attachments/igprof_the_ignominous_profiler/slides/625/fosdem_2015_igprof.pdf>`_
+* `Improving the support for ARM in the IgProf proiler <http://www.fillexen.fi/igprof/thesis-nyback.pdf>`_
 
 
 Android
