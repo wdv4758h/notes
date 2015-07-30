@@ -17,6 +17,9 @@ GCC
     - may produce smaller code than `-fPIC`
     - may be a little bit faster
 * ``-march=native -Q --help=target`` : 輸出 GCC 在目前機器上使用 ``-march=native`` 參數會打開的優化選項
+* ``-fdump-tree-original``
+* ``-D_FORTIFY_SOURCE``
+    - http://stackoverflow.com/questions/13517526/difference-between-gcc-d-fortify-source-1-and-d-fortify-source-2
 
 
 Reference
