@@ -1150,6 +1150,9 @@ Valgrind：
 IgProf
 ========================================
 
+Introduction
+------------------------------
+
 CERN (歐洲核子研究組織) 在跑 LHC (大型強子對撞機) 做研究時，
 也會需要寫大量的軟體來做運算，
 其中的 CMS (Compact Muon Solenoid) 是個粒子偵測器，
@@ -1215,6 +1218,35 @@ IgProf 的內部大概有這些東西：
 分別有 x86_64 (by Lassi Tuura) 和 ARM32/ARM64 (by Filip Nybäck) 的實作，
 其中據說有人的程式 profiling 獲得了 30x 的加速 !?
 
+使用
+------------------------------
+
+.. code-block:: sh
+
+    $ LD_PRELOAD=/tmp/lib/libigprof.so igprof -j -d -mp -z -o igprof.mp.gz ./hello
+    $ igprof-analyse --sqlite -d -v -g igprof.mp.gz | sqlite3 igprof.sqlite3
+    $ igprof-navigator igprof.sqlite3   # open web view
+
+    $ LD_PRELOAD=/tmp/lib/libigprof.so igtrace -tm bin/single-heap-vector
+    *** MALLOC 1048544 bytes => 0x7f270794a010, by bin/single-heap-vector [thread 139805608687424 pid 19071]
+    *** MALLOC 1048544 bytes => 0x7f2706094010, by bin/single-heap-vector [thread 139805608687424 pid 19071]
+    *** MALLOC 400 bytes => 0x11b1d20, by bin/single-heap-vector [thread 139805608687424 pid 19071]
+
+    $ LD_PRELOAD=/tmp/lib/libigprof.so igtrace -d  bin/single-heap-vector
+    *** IgProf(19149, 1436687497.170): tracing activated in bin/single-heap-vector
+    *** IgProf(19149, 1436687497.170): tracing options: throw
+    *** IgProf(19149, 1436687497.171): __cxa_throw (0x7ffaaeb49b90): instrumenting 6 bytes into 0x7ffaaf29d004
+    *** IgProf(19149, 1436687497.171): tracing exceptions thrown
+
+    $ LD_PRELOAD=/tmp/lib/libigprof.so igtrace -d -tm bin/single-heap-vector
+    *** IgProf(19136, 1436687479.637): tracing activated in bin/single-heap-vector
+    *** IgProf(19136, 1436687479.637): tracing options: mem
+    *** IgProf(19136, 1436687479.637): malloc (0x7fc0fa5d4850): instrumenting 6 bytes into 0x7fc0fb5f7004
+    *** IgProf(19136, 1436687479.637): malloc (0x7fc0fa5d4850): hook trampoline already installed, ignoring
+    *** IgProf(19136, 1436687479.638): tracing memory allocations
+    *** MALLOC 1048544 bytes => 0x7fc0fb6cc010, by bin/single-heap-vector [thread 140466829711168 pid 19136]
+    *** MALLOC 1048544 bytes => 0x7fc0f9e16010, by bin/single-heap-vector [thread 140466829711168 pid 19136]
+    *** MALLOC 400 bytes => 0xaefd20, by bin/single-heap-vector [thread 140466829711168 pid 19136
 
 
 Running Valgrind on Android
