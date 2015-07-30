@@ -10,6 +10,13 @@ Rust's Performance
 | Options  | -C opt-level-3                             |
 +----------+--------------------------------------------+
 
+Interesting Topic
+========================================
+
+* SIMD
+    - `Rust - Module std::simd <https://doc.rust-lang.org/std/simd/>`_
+
+
 
 Iterator
 ========================================
@@ -119,5 +126,15 @@ str::contains & pattern matching
 +-----------+------------------+--------+
 | tokenize2 | pattern matching | 0.80 s |
 +-----------+------------------+--------+
-| tokenize3 | str::contains    | 2.45   |
+| tokenize3 | str::contains    | 2.45 s |
 +-----------+------------------+--------+
+
+
+
+Benchmarks Game
+========================================
+
+* `[Bitbucket] ewanhiggs/csv-game <https://bitbucket.org/ewanhiggs/csv-game>`_
+    - Rust is the fastest now (almost the same as C)
+* `[GitHub] kostya/benchmarks <https://github.com/kostya/benchmarks>`_
+    - Rust still need some improvement
