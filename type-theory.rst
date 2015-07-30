@@ -21,8 +21,7 @@ type 上面有自己的各種操作，term 上面也有自己的，
 
 ----
 
-1. terms depending on types ： term 由 type 決定，也就是說當 type 不同時，會得到不同的 term 。在什麼情形下會這樣子呢？例如 ad hoc polymorphism ：
-假設有個語言有兩種數字的型別 Int 與 Float ，都可以做加法，而這加法底下實作起來的方式其實不一樣，但我們還是想用同一個 operator _+_ 去做這件事情。這時候就是 type （ Int , Float）去決定 term （ Int 的加法, Float 的加法）
+1. terms depending on types ： term 由 type 決定，也就是說當 type 不同時，會得到不同的 term 。在什麼情形下會這樣子呢？例如 ad hoc polymorphism ：假設有個語言有兩種數字的型別 Int 與 Float ，都可以做加法，而這加法底下實作起來的方式其實不一樣，但我們還是想用同一個 operator _+_ 去做這件事情。這時候就是 type （ Int , Float）去決定 term （ Int 的加法, Float 的加法）
 2. terms depending on terms ： 由 term 決定 term ，就隨便一個你想得到的普通函數
 3. types depending on types ： 由 type 決定 type ，跟上面那條類似，只不過這次這函數是作用在 type 的層級上。例如 Haskell 的 _->_ ，讓你可以把兩個 type A, B 組成一個新的 type A -> B
 4.  types depending on terms ： 由 term 決定 type ，這就是 dependent type 特別的地方了，例子待會舉
