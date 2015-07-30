@@ -14,6 +14,9 @@ Rust's Performance
 Iterator
 ========================================
 
+已知數字做 filter
+------------------------------
+
 這份 code 可以在優化的時候事先算出 "499999999500000000" 後直接放入：
 
 .. code-block:: rust
@@ -39,3 +42,69 @@ Iterator
 
 
 感覺應該要可以優化掉？
+
+
+str::contains & pattern matching
+--------------------------------
+
+.. code-block:: rust
+
+    fn tokenize1(text: &str) -> Vec<&str> {
+        let delims = [' ', ',', '.', '!', '?', ';', '\'', '"', ':', '\t', '\n', '(', ')', '-'];
+        text.split(|c| {
+                for &x in delims.iter() {
+                    if x == c {
+                        return true;
+                    }
+                }
+                return false;
+            })
+            .filter(|data| !data.is_empty())
+            .collect()
+    }
+
+    fn tokenize2(text: &str) -> Vec<&str> {
+        text.split(|c| {
+                match c {
+                    ' '  => true,
+                    ','  => true,
+                    '.'  => true,
+                    '!'  => true,
+                    '?'  => true,
+                    ';'  => true,
+                    '\'' => true,
+                    '"'  => true,
+                    ':'  => true,
+                    '\t' => true,
+                    '\n' => true,
+                    '('  => true,
+                    ')'  => true,
+                    '-'  => true,
+                    _    => false
+                }
+            })
+            .filter(|data| !data.is_empty())
+            .collect()
+    }
+
+    fn tokenize3(text: &str) -> Vec<&str> {
+        let delims = " ,.!?;'\":\t\n()-";
+        text.split(|c| str::contains(&delims, c))
+            .filter(|data| !data.is_empty())
+            .collect()
+    }
+
+隨便生一個 73 MB 的檔案下去測，
+結果發現 pattern matching 的版本最快，
+``str::contains`` 的版本最慢，
+覺得可以做優化 ...
+
++-----------+------------------+--------+
+| function  | type             | speed  |
++===========+==================+========+
+| tokenize1 | for loop         | 1.30 s |
++-----------+------------------+--------+
+| tokenize2 | pattern matching | 0.80 s |
++-----------+------------------+--------+
+| tokenize3 | str::contains    | 2.45   |
++-----------+------------------+--------+
