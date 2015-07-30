@@ -49,6 +49,10 @@ str::contains & pattern matching
 
 .. code-block:: rust
 
+    #![feature(convert)]
+
+    use std::io::Read;
+
     fn tokenize1(text: &str) -> Vec<&str> {
         let delims = [' ', ',', '.', '!', '?', ';', '\'', '"', ':', '\t', '\n', '(', ')', '-'];
         text.split(|c| {
@@ -92,6 +96,15 @@ str::contains & pattern matching
         text.split(|c| str::contains(&delims, c))
             .filter(|data| !data.is_empty())
             .collect()
+    }
+
+    fn main() {
+        let mut stdin = std::io::stdin();
+        let mut tmp = String::new();
+        stdin.read_to_string(&mut tmp);
+        let result1 = tokenize1(tmp.as_str());
+        let result2 = tokenize2(tmp.as_str());
+        let result3 = tokenize3(tmp.as_str());
     }
 
 隨便生一個 73 MB 的檔案下去測，
