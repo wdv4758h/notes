@@ -7,7 +7,8 @@ Podcast
 * `CppCast <http://cppcast.com/>`_
 * `rusty radio <http://rustyrad.io/>`_
 * `Podcast.__init__ : A podcast about Python and the people who make it great <http://podcastinit.com/>`_
-
+* `The Changelog - Open source moves fast. Keep up. <https://changelog.com/>`_
+* `PlyerFM - Programming <https://player.fm/featured/programming>`_
 
 Talk Python To Me
 ========================================
