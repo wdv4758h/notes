@@ -157,7 +157,7 @@ Unwind
 
 Build and Run :
 
-.. code-bolock:: sh
+.. code-block:: sh
 
     $ gcc -std=gnu11 -Wall -lunwind unwind.c
     $ ./unwind
