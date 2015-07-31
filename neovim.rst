@@ -62,11 +62,17 @@ Code Differences
 | Deprecated or removed               | Replacement |
 +=====================================+=============+
 | vim_free                            | xfree       |
++-------------------------------------+-------------+
 | malloc, alloc, lalloc               | xmalloc     |
++-------------------------------------+-------------+
 | calloc                              | xcalloc     |
++-------------------------------------+-------------+
 | realloc, vim_realloc                | xrealloc    |
++-------------------------------------+-------------+
 | mch_memmove                         | memmove     |
++-------------------------------------+-------------+
 | vim_memset, copy_chars, copy_spaces | memset      |
++-------------------------------------+-------------+
 | vim_strncpy, strncpy, strcpy        | xstrlcpy    |
 +-------------------------------------+-------------+
 
@@ -108,11 +114,11 @@ commit message 範例 :
 Example
 ------------------------------
 
+Example 1
+++++++++++++++++++++
 
-example
-
-    https://github.com/neovim/neovim/commit/1d5222985ccad4cd31c4b7498810ff2968dd33a2
-    https://code.google.com/p/vim/source/detail?r=v7-4-492
+* `原 patch <https://github.com/vim/vim/commit/v7-4-492>`_
+* `porting 後的 patch <https://github.com/neovim/neovim/commit/1d5222985ccad4cd31c4b7498810ff2968dd33a2>`_
 
 Patch 7.4.754 related
 ========================================
