@@ -254,6 +254,11 @@ x86_64
     }
 
 
+libunwind - test ptraace
+------------------------------
+
+* http://git.savannah.gnu.org/cgit/libunwind.git/plain/tests/test-ptrace.c
+
 
 Reference
 ========================================
@@ -268,8 +273,11 @@ Reference
 * 《Binary Hacks》 - #73
 * `Linaro Wiki - ZachWelch - libunwind <https://wiki.linaro.org/ZachWelch/Sandbox/libunwind>`_
 * `Linaro Wiki - KenWerner - libunwind <https://wiki.linaro.org/KenWerner/Sandbox/libunwind>`_
+* `Linaro - ARM32/64: perf: dwarf stack frame unwinding support <https://wiki.linaro.org/LEG/Engineering/TOOLS/perf-callstack-unwinding>`_
+* `Linaro - Git Hosting - libunwind.git <http://git.linaro.org/people/renato.golin/libunwind.git>`_
 * `[2011] Stack frame unwinding on ARM <https://wiki.linaro.org/KenWerner/Sandbox/libunwind?action=AttachFile&do=get&target=libunwind-LDS.pdf>`_
 * `libunwind - src/x86_64/getcontext.S <http://git.savannah.gnu.org/gitweb/?p=libunwind.git;a=blob;f=src/x86_64/getcontext.S;hb=HEAD>`_
 * `libunwind - src/x86_64/setcontext.S <http://git.savannah.gnu.org/gitweb/?p=libunwind.git;a=blob;f=src/x86_64/setcontext.S;hb=HEAD>`_
 * `stacktrace with libunwind and elfutils <https://gist.github.com/banthar/1343977>`_
 * `libdwarf and libunwind <http://cwndmiao.github.io/programming%20tools/2013/11/26/Dwarf/>`_
+* `[LLVM] New libunwind implementation in libc++abi <http://blog.llvm.org/2013/10/new-libunwind-implementation-in-libcabi.html>`_
