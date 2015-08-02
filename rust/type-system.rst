@@ -28,6 +28,7 @@ Type System & Set Theory
 
 * `你知道發明文氏圖的「文氏」是哪位高人嗎？ <http://tul.blog.ntu.edu.tw/archives/13313>`_
 * `Wikipedia - Set theory <https://en.wikipedia.org/wiki/Set_theory>`_
+* `Wikipedia - Venn diagram <https://en.wikipedia.org/wiki/Venn_diagram>`_
 
 
 
