@@ -66,10 +66,25 @@ Example 1
     >>> z.evalf(100, subs={x: pi, y: 1})
     4.141592653589793238462643383279502884197169399375105820974944592307816406286208998628034825342117068
 
+
+Example 2
+------------------------------
+
+.. code-block:: python
+
+    >>> from sympy import Symbol
+    >>> from sympy.solvers import solve
+    >>> x = Symbol('x')
+    >>> y = x**2 - 1
+    # 解出方程式 (x**2 - 1 = 0) 裡的 x
+    >>> solve(y, x)
+    [-1, 1]
+
 Reference
 ========================================
 
 * `SymPy <http://lidavidm.me/sympy/>`_
+* `SymPy Live <http://live.sympy.org/>`_
 * `[GitHub] sympy/sympy - A computer algebra system written in pure Python <https://github.com/sympy/sympy>`_
 * `[GitHub] sympy/symengine - SymEngine is a fast symbolic manipulation library, written in C++ <https://github.com/sympy/symengine>`_
 * `Wikipedia - SymPy <https://en.wikipedia.org/wiki/SymPy>`_
