@@ -40,7 +40,7 @@ Submit
 ``~/.ssh/config`` ::
 
     Host aur
-        HostName aur4.archlinux.org
+        HostName aur.archlinux.org
         User aur
         IdentityFile ~/.ssh/aur
 

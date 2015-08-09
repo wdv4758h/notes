@@ -24,7 +24,7 @@ musl 的目標就要寫出乾淨、有效率、符合標準的 libc 實作，
 例如 OpenWRT、Alpine Linux、Void (Linux) 等等。
 
 在 ArchLinux 上可以直接用 pacman 安裝，
-或是從 `AUR <https://aur4.archlinux.org/packages/musl-git>`_ 抓下來自己 build
+或是從 `AUR <https://aur.archlinux.org/packages/musl-git>`_ 抓下來自己 build
 
 .. code-block:: sh
 
