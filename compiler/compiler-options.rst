@@ -5,6 +5,9 @@ Compiler Options
 GCC
 ------------------------------
 
+Common
+++++++++++++++++++++
+
 * ``-Ofast`` : ``-O3`` + optimizations that are not valid for all standard-compliant programs
 * ``-march=native`` : 針對現在的 CPU 做優化，出來的程式不保證在其他 CPU 上會 work
 * ``-flto`` : Link Time Optimization
@@ -26,3 +29,6 @@ Reference
 ========================================
 
 * `What is the difference between '-fpic' and '-fPIC' gcc parameters? <http://stackoverflow.com/questions/3544035/what-is-the-difference-between-fpic-and-fpic-gcc-parameters>`_
+* `Neovim - Gradually introduce more compiler flags <https://github.com/neovim/neovim/issues/343>`_
+* `Hacker News - What Are Your GCC Flags? <https://news.ycombinator.com/item?id=7371806>`_
+* `What Are Your GCC Flags ? <http://blog.httrack.com/blog/2014/03/09/what-are-your-gcc-flags/>`_
