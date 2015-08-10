@@ -23,6 +23,10 @@ Projects with Valgrind
 * `Cython <https://github.com/cython/cython/wiki/UsingValgrindToDebug>`_
 * `scikit-learn <http://scikit-learn.org/stable/developers/debugging.html>`_
 * `Chromium <https://www.chromium.org/developers/how-tos/using-valgrind>`_
+* `Mono <http://www.mono-project.com/docs/debug+profile/debug/#using-valgrind-on-mono>`_
+* `Ecto <http://plasmodic.github.io/ecto/ecto/usage/external/valgrind.html>`_
+* `Neovim <https://github.com/neovim/neovim/blob/7dc241ac782e3a469d73d5f9a7baeba4e6107333/runtime/doc/debug.txt#L43>`_
+    - `Neovim - Travis CI setting <https://github.com/neovim/neovim/blob/master/.travis.yml>`_
 
 
 
@@ -37,6 +41,7 @@ Papers
 * `[2011] Practical Memory Checking with Dr. Memory <http://research.google.com/pubs/pub37274.html>`_
 * `[2011] Dynamic cache contention detection in multi-threaded applications <http://research.google.com/pubs/pub37659.html>`_
 * `[2011] Dynamic Race Detection with LLVM Compiler <http://research.google.com/pubs/pub37278.html>`_
+* `[2009] ThreadSanitizer – data race detection in practice <http://www.cs.columbia.edu/~junfeng/reliable-software/papers/thread-sanitizer.pdf>`_
 * `[2007] Flayer: Exposing Application Internals <http://research.google.com/pubs/archive/33253.pdf>`_
 
 
@@ -59,7 +64,7 @@ Related Projects
 Comparison Of Memory Tools
 ========================================
 
-Table Modify from `address-sanitizer - ComparisonOfMemoryTools <https://code.google.com/p/address-sanitizer/wiki/ComparisonOfMemoryTools>`_
+Table modify from `address-sanitizer - ComparisonOfMemoryTools <https://code.google.com/p/address-sanitizer/wiki/ComparisonOfMemoryTools>`_
 
 
 
@@ -93,7 +98,7 @@ Table Modify from `address-sanitizer - ComparisonOfMemoryTools <https://code.goo
 +------------+------------------+---------------------+--------------------+
 | UAF        | O                | O                   | X                  |
 +------------+------------------+---------------------+--------------------+
-| UAR        | O                | X                   | X                  |
+| UAR        | O                | O                   | X                  |
 +------------+------------------+---------------------+--------------------+
 | UMR        | X                | O                   | X                  |
 +------------+------------------+---------------------+--------------------+
