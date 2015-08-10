@@ -59,7 +59,7 @@ Related Projects
 Comparison Of Memory Tools
 ========================================
 
-Table Modify from `address-sanitizer - ComparisonOfMemoryTools <https://code.google.com/p/address-sanitizer/wiki/ComparisonOfMemoryTools>_
+Table Modify from `address-sanitizer - ComparisonOfMemoryTools <https://code.google.com/p/address-sanitizer/wiki/ComparisonOfMemoryTools>`_
 
 
 
