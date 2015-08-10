@@ -27,6 +27,20 @@ Neovim 是從 Vim 7.4.160 fork 出去的專案，
 其中一個目標是 `patch 7.4.754 <https://github.com/vim/vim/commit/v7-4-799>`_ ，
 Visual mode 的 control+a 來增加數字、control+x 減數字。
 
+Build From Source
+========================================
+
+Run Test
+------------------------------
+
+Run Test With Valgrind
+------------------------------
+
+.. code-block:: sh
+
+    $ VALGRIND=1 make test
+
+
 
 Porting Vim patches to Neovim
 ========================================
@@ -171,6 +185,41 @@ Patch 7.4.754 related
 * https://github.com/vim/vim/commit/v7-4-782
 
 
+
+NA Patches
+========================================
+
+* [.777](https://code.google.com/p/vim/source/detail?r=v7-4-777) (README)
+* [.778](https://code.google.com/p/vim/source/detail?r=v7-4-778) (Coverity warns)
+* [.779](https://code.google.com/p/vim/source/detail?r=v7-4-779) (CTRL-A bug) (not exist in neovim)
+* [.780](https://code.google.com/p/vim/source/detail?r=v7-4-780) (Compiler complains)
+* .781 : has PR now
+* .782 : CTRL-A and CTRL-X in Visual mode
+* [.783](https://code.google.com/p/vim/source/detail?r=v7-4-783) (copy_chars, copy_spaces, vim_memset)
+* .785 : On some systems automatically adding the missing EOL causes problems. [?]
+* .786 : It is not possible for a plugin to adjust to a changed setting.
+* .787 : snprintf() isn't available everywhere. Use vim_snprintf()
+* [.788](https://code.google.com/p/vim/source/detail?r=v7-4-788) (Can't build, #ifdef)
+* [.789](https://code.google.com/p/vim/source/detail?r=v7-4-789) (Using freed memory)
+* .790 : update .786 test
+* .791 : has PR now
+* .792 : Can only conceal text by defining syntax items. [?]
+* .793 : Can't specify when not to ring the bell. Add 'belloff'
+* [.794](https://code.google.com/p/vim/source/detail?r=v7-4-794) (Make_mvc.mak)
+* [.795](https://code.google.com/p/vim/source/detail?r=v7-4-795) (fixeol)
+* [.796](https://code.google.com/p/vim/source/detail?r=v7-4-796) (Compiler warns)
+* .797 : Crash when using more lines for the command line than 'maxcombine'.
+* .798 : Repeating a change in Visual mode does not work as expected.
+* .799 : Accessing memory before an allocated block. write PR !!!!
+    - https://github.com/vim/vim/commit/v7-4-799
+    - https://github.com/vim/vim/commit/9e6863be9717ab317dc2bac13b48a11b54384bb6
+* .800 : Using freed memory when triggering CmdUndefined autocommands. write PR !!!
+    - https://github.com/vim/vim/commit/f82470ea64e5117b626d105796ce341de9af439a
+* .801 : Test for ":diffoff" doesn't catch all potential problems. (seems not suit ?)
+* .802 : Using "A" in Visual mode while 'linebreak' is set is not tested.
+* .803 : C indent does not support C11 raw strings. [?]
+
+
 其他可能的項目
 ========================================
 
@@ -180,6 +229,18 @@ Patch 7.4.754 related
 
 * `Improve large files support <https://www.bountysource.com/issues/1832251-improve-large-files-support>`_
 * `Plugin Package Manager <https://www.bountysource.com/issues/1430941-plugin-package-manager>`_
+
+
+Plugin
+========================================
+
+* `VimAwesome <http://vimawesome.com/>`_
+
+Challenge
+========================================
+
+* `VimGolf - real Vim ninjas count every keystroke! <http://www.vimgolf.com/>`_
+
 
 Reference
 ========================================
@@ -192,3 +253,4 @@ Reference
 * `Vim Hall of WTF <http://geoff.greer.fm/vim/>`_
 * `Why Neovim is Better than Vim <http://geoff.greer.fm/2015/01/15/why-neovim-is-better-than-vim/>`_
 * `why does VimL suck? <http://www.reddit.com/r/vim/comments/1bf672/why_does_viml_suck/>`_
+* `Learn Vimscript the Hard Way <http://learnvimscriptthehardway.stevelosh.com/>`_
