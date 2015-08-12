@@ -1388,7 +1388,7 @@ script 1 : ``start_valgrind.sh``
     VGPLUGIN="--tool=memcheck --leak-check=full --show-reachable=yes"
 
     echo "valgrind args: $*"
-    exec /data/local/Inst/bin/valgrind $VGPARAMS $VGPLUGIN
+    exec /data/local/Inst/bin/valgrind $VGPARAMS $VGPLUGIN $*
 
 
 stcript 2 : ``bootstrap_valgrind.sh``
