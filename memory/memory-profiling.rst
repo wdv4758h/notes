@@ -1397,9 +1397,6 @@ stcript 2 : ``bootstrap_valgrind.sh``
 
     #!/usr/bin/env sh
 
-    #PACKAGE="com.android.calculator2"
-    #ACTIVITY=".Calculator"
-
     PACKAGE="com.android.browser"
     ACTIVITY=".BrowserActivity"
 
@@ -1421,8 +1418,6 @@ stcript 2 : ``bootstrap_valgrind.sh``
 
     adb logcat -c   # -c: clears (flushes) the entire log and exits.
     adb logcat
-
-    #adb shell am clear-debug-app
 
 
 * `Can't run a Java Android program with Valgrind <http://stackoverflow.com/a/19235439>`_
