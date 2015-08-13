@@ -51,19 +51,19 @@ compiler 的 sanitizer 這邊有些細部要注意，
 * LeakSanitizer 目前只可以和 AddressSanitizer 一起用 (或自己用)
 
 
-+---------------------------+----------------+------------------------------+----------------------+
-| Name                      | Slowdown       | Memory Overhead              | Option               |
-+===========================+================+==============================+======================+
-| AddressSanitizer_         | 2x             |                              | -fsanitize=address   |
-+---------------------------+----------------+------------------------------+----------------------+
-| ThreadSanitizer_          | 5x ~ 15x       | 5x ~ 10x                     | -fsanitize=thread    |
-+---------------------------+----------------+------------------------------+----------------------+
-| MemorySanitizer_          | 3x             | 2x (3x with origin tracking) | -fsanitize=memory    |
-+---------------------------+----------------+------------------------------+----------------------+
-| LeakSanitizer_            | 0x (with ASan) |                              | -fsanitize=leak      |
-+---------------------------+----------------+------------------------------+----------------------+
-| UndefinedBehaviorSanitier | 0x             |                              | -fsanitize=undefined |
-+---------------------------+----------------+------------------------------+----------------------+
++---------------------------+------------------------------+------------------------------+----------------------+
+| Name                      | Slowdown                     | Memory Overhead              | Option               |
++===========================+==============================+==============================+======================+
+| AddressSanitizer_         | 2x                           | 4x                           | -fsanitize=address   |
++---------------------------+------------------------------+------------------------------+----------------------+
+| ThreadSanitizer_          | 5x ~ 15x                     | 5x ~ 10x                     | -fsanitize=thread    |
++---------------------------+------------------------------+------------------------------+----------------------+
+| MemorySanitizer_          | 3x (4x with origin tracking) | 2x (3x with origin tracking) | -fsanitize=memory    |
++---------------------------+------------------------------+------------------------------+----------------------+
+| LeakSanitizer_            | 0x (with ASan)               |                              | -fsanitize=leak      |
++---------------------------+------------------------------+------------------------------+----------------------+
+| UndefinedBehaviorSanitier | 0x                           |                              | -fsanitize=undefined |
++---------------------------+------------------------------+------------------------------+----------------------+
 
 
 .. _AddressSanitizer: http://clang.llvm.org/docs/AddressSanitizer.html
@@ -112,6 +112,9 @@ compiler 的 sanitizer 這邊有些細部要注意，
                 v
     UndefinedBehaviorSanitier
 
+
+
+(目前提到的 Compiler Instrumentation 對於 JIT 這種 code 還不太適用)
 
 ----
 
@@ -517,3 +520,21 @@ Run :
 
     SUMMARY: MemorySanitizer: use-of-uninitialized-value /tmp/example.cpp:11 main
     Exiting
+
+
+Algorithm
+========================================
+
+* `AddressSanitizer algorithm <https://code.google.com/p/address-sanitizer/wiki/AddressSanitizerAlgorithm>`_
+
+
+Reference
+========================================
+
+* `Wikipedia - AddressSanitizer <https://en.wikipedia.org/wiki/AddressSanitizer>`_
+* `address-sanitizer - wiki <https://code.google.com/p/address-sanitizer/w/list>`_
+* `[2015] Address/Thread/Memory Sanitizer <http://www.slideshare.net/sermp/sanitizer-cppcon-russia>`_
+* `[2012] ThreadSanitizer, MemorySanitizer <http://llvm.org/devmtg/2012-11/Serebryany_TSan-MSan.pdf>`_
+* `[2011] Finding races and memory errors with LLVM instrumentation <http://llvm.org/devmtg/2011-11/Serebryany_FindingRacesMemoryErrors.pdf>`_
+* `Using clang's Address Sanitizer (without clang) <http://btorpey.github.io/blog/2014/03/27/using-clangs-address-sanitizer/>`_
+* `[2015] MemorySanitizer: fast detector of uninitialized memory use in C++ <http://research.google.com/pubs/pub43308.html>`_
