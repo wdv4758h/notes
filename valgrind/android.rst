@@ -19,5 +19,26 @@ Valgrind on Android Platform
 +-------------------+-------------------------------------+
 | CPU               | Qualcomm 1.5 GHz dual-core Scorpion |
 +-------------------+-------------------------------------+
-| Android (running) | 4.1.2                               |
+| Android (running) | 4.1.2, 5.1.1                        |
 +-------------------+-------------------------------------+
+
+.. code-block:: sh
+
+    $ cat /proc/cpuinfo
+    Processor   : ARMv7 Processor rev 4 (v7l)
+    processor   : 0
+    BogoMIPS    : 13.53
+
+    processor   : 1
+    BogoMIPS    : 13.53
+
+    Features    : swp half thumb fastmult vfp edsp neon vfpv3 tls
+    CPU implementer : 0x51
+    CPU architecture: 7
+    CPU variant : 0x0
+    CPU part    : 0x02d
+    CPU revision    : 4
+
+    Hardware    : fuji
+    Revision    : 0000
+    Serial      : 0000000000000000
