@@ -3,20 +3,22 @@ SurfaceFlinger
 ========================================
 
 
-Andoird 上的 Graphic 可以分成 2D 和 3D，
-2D 使用的是 android.graphics.Canvas API，
-為最常用的 graphics API，
-Canvas 還負責描繪出客制化的 android.view.View，
-在 Android 中會利用 OpenGLRenderer (libhwui) 這個 library 來把 Canvas 操作轉換成 OpenGL 操作，
-藉此可以利用 GPU 加速。
 
-Android 4.0 以後預設會開啟 Canvas 的硬體加速，
+一般來說 Graphic 相關事情會分成 2D 跟 3D，
+Android 上也是如此。
+Android 上 2D 使用的是一個叫作 ``android.graphics.Canvas`` 的 API，
+為最常用的 graphics API。
+在 Android 中 Canvas 會利用 OpenGLRenderer (libhwui) 這個 library 來把 Canvas 操作轉換成 OpenGL 操作，
+藉此可以利用 GPU 加速。
+(Canvas 負責的項目包含描繪出客制化的 ``android.view.View``)
+
+註：Android 4.0 以後預設會開啟 Canvas 的硬體加速，
 所以在這之後強制限定 Android devices 至少要支援 OpenGL ES 2.0。
 
 除了 Canvas 之外，
-要描繪東西就是使用 OpenGL ES，
-Android 的 ``android.opengl`` 有提供 OpenGL ES 的介面可以使用，
-開發者可以透過 Android SDK/NDK 使用。
+要描繪出東西就是使用 OpenGL ES，
+Android 的 ``android.opengl`` 就是負責提供 OpenGL ES 的介面來使用，
+開發者可以透過 Android SDK/NDK 來呼叫。
 
 2D rendering path :
 
