@@ -124,8 +124,21 @@ producer 在放完資料後用 ``queueBuffer`` 來放回去 BufferQueue，
 BufferQueue 有三種運作模式：
 
 * Synchronous-like mode
+    - 預設的模式
+    - 保證每個從 producer 進來的資料都會交給 consumer
+    - 不會有 buffer 被忽略
+    - producer 產生太快造成 buffer 放不下的話會被 block 住
 * Non-blocking mode
+    - 不會有 buffer 被忽略
+    - producer 產生太快造成 buffer 放不下的話會回傳 error，不會 block
+    - 可用於避免應用程式不了解 graphics framework 的 dependencies 所造成的 deadlock
 * Discard mode
+    - buffer 可以被忽略
+
+SurfaceFlinger 的行為是一個 OpenGL ES 的 client，
+所以 SurfaceFlinger 在運作時會使用 OpenGL ES。
+而 Hardware Composer HAL 則負責另一部份的工作，
+作為 Android graphics rendering 的中心。
 
 ----
 
