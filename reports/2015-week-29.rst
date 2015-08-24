@@ -1,0 +1,47 @@
+========================================
+Engineering Report <dv> - Week 29, 2015
+========================================
+
+Highlights
+========================================
+
+* `re2 - benchlog: Add gnuplot support <https://code-review.googlesource.com/#/c/3150/>`_
+    - 用 Python script 爬 re2 benchlog 生出需要的 gnuplot script 再畫出圖表
+* 把之前 cross-compile 的 Valgrind 丟到 Android Emulator 裡跑
+    - 成功 adb push 進去，也會 work
+    - 在自己筆電上跑 Android Emulator (x86_64 -> ARM)，跑起來感覺很慢，印象中把 cross-compile 的 Valgrind push 進去就花了 10 mins
+* 閱讀 `[2007] Valgrind: A Framework for Heavyweight Dynamic Binary Instrumentation <http://valgrind.org/docs/valgrind2007.pdf>`_
+    - Valgrind 把重點放在 shadow value 這個概念上
+    - DBI framework 對 client code 的 representation 有兩種方式 (D&R, C&A)
+        + D&R (disassemble-and-resynthesise) 為 Valgrind 現在使用的方式，會先把 machine code 轉成 IR (原本 client code 的所有影響都必須明確地轉成 IR)，加入 instrumentation 用的 IR，最後轉回 machine code
+        + C&A (copy-and-annotate) 的作法則是把 instructions 逐個複製，對每個 instruction 加上註解描述影響 (annotate)，利用這些描述來幫助 instrumentation
+            * 經由 data structures 來描述 (DynamoRIO)
+            * 經由 instruction-querying API (Pin)
+    - Valgrind 的架構有變動過 (三個版本)
+        + 第一版為使用 LD_PRELOAD 的方式把 Valgrind core 和 tool inject 到 client
+            * 對靜態連結不管用
+            * 較不 portable
+            * 也會有部份 client 程式在 Valgrind 掌控外事先執行過
+            * 大部份 DBI frameworks 使用這種方式
+        + 第二版和現在架構類似，但需要一大塊空的 memory mappings 來放 components，較不 reliable
+    - Valgrind 運作八步驟
+        + machine code -> tree IR (反組譯)
+        + tree IR -> flat IR (優化，刪 redundant copy)
+        + flat IR -> flat IR (加入 instrumentation 用的 IR)
+        + flat IR -> flat IR (優化，constant folding、dead code removal)
+        + flat IR -> tree IR (為 instruction list 準備)
+        + tree IR -> instruction list (top down tree matching algorithm)
+        + instruction list -> instruction list (register allocation，把 virtual register 換成 host register)
+        + instruction list -> machine code (組譯)
+
+
+Plans
+========================================
+
+* `/VEX/pub/libvex_ir.h <https://android.googlesource.com/platform/external/valgrind/+/master/VEX/pub/libvex_ir.h>`_
+    - 有很多 VEX IR 相關的資訊可以參看
+* 把 Valgrind 的結果生成 HTML report (原定要做到的目標)
+
+Issues
+========================================
+

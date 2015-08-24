@@ -1,0 +1,90 @@
+========================================
+Engineering Report <dv> - Week 30, 2015
+========================================
+
+Highlights
+========================================
+
+* 嘗試把 Andoird 內建的 browser 跑在 Valgrind 上，但是目前會因為 Watchdog 的關係把系統的程式都砍掉，造成現在跑下去後沒多久系統就會重開 (目前還沒解決)
+
+
+start_valgrind (shell script) :
+
+.. code-block:: sh
+
+    #!/system/bin/sh
+
+    PACKAGE="com.android.browser"
+
+    VGPARAMS='--error-limit=no --trace-children=yes --tool=memcheck --leak-check=full --show-reachable=yes'
+
+    export TMPDIR=/data/data/$PACKAGE
+
+    echo "valgrind args: $*"
+    exec /data/local/Inst/bin/valgrind $VGPARAMS $*
+
+
+(run script) :
+
+.. code-block:: sh
+
+    PACKAGE="com.android.browser"
+    ACTIVITY=".BrowserActivity"
+
+    adb push start_valgrind /data/local/Inst/bin/
+    adb shell chmod 777 /data/local/Inst/bin/start_valgrind
+
+    adb root
+    adb shell am set-debug-app -w --persistent $PACKAGE
+    adb shell setprop wrap.$PACKAGE "logwrapper /data/local/Inst/bin/start_valgrind"
+
+    echo "wrap.$PACKAGE: $(adb shell getprop wrap.$PACKAGE)"
+
+    adb shell am start -S -D -a android.intent.action.MAIN -n $PACKAGE/$ACTIVITY
+
+    adb logcat -c
+    adb logcat
+
+    adb shell am clear-debug-app
+
+    exit 0
+
+log ::
+
+    W/linker  ( 2537): Unsupported flags DT_FLAGS_1=0x421
+    I/start_valgrind( 2534): WARNING: linker: Unsupported flags DT_FLAGS_1=0x421
+    W/linker  ( 2537): Unsupported flags DT_FLAGS_1=0x421
+    I/start_valgrind( 2534): WARNING: linker: Unsupported flags DT_FLAGS_1=0x421
+    D/AndroidRuntime( 2537): >>>>>> START com.android.internal.os.RuntimeInit uid 10016 <<<<<<
+    D/AndroidRuntime( 2537): CheckJNI is ON
+    I/Process ( 1583): Sending signal. PID: 1583 SIG: 3
+    I/art     ( 1583): Thread[2,tid=1589,WaitingInMainSignalCatcherLoop,Thread*=0xb4827800,peer=0x12c020a0,"Signal Catcher"]: reacting to signal 3
+    ...
+    W/Watchdog( 1583): *** WATCHDOG KILLING SYSTEM PROCESS: Blocked in handler on foreground thread (android.fg), Blocked in handler on ActivityManager (ActivityManager)
+    ...
+    W/Watchdog( 1583): *** GOODBYE!
+    I/Process ( 1583): Sending signal. PID: 1583 SIG: 9
+    I/ServiceManager(   52): service 'telecom' died
+    I/ServiceManager(   52): service 'meminfo' died
+    I/ServiceManager(   52): service 'sensorservice' died
+    I/ServiceManager(   52): service 'batterystats' died
+    I/ServiceManager(   52): service 'appops' died
+    I/ServiceManager(   52): service 'power' died
+    ...
+
+* [2011] `Valgrind on Android — Current Status <https://blog.mozilla.org/jseward/2011/09/27/valgrind-on-android-current-status/>`_
+* Valgrind 的 Massif log 可以用 massif-visualizer，會用 GUI 顯示使用量的圖表
+
+
+Plans
+========================================
+
+* 解決 Android 上用 Valgrind 跑 application 會被 Watchdog kill 掉的問題
+* 補點 Android 相關知識 ...
+
+
+Issues
+========================================
+
+* Android 上用 Valgrind 跑 application 有問題
+
