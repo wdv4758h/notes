@@ -18,6 +18,22 @@ Example 1
 
 .. code-block:: python
 
+    # var(names, **args)
+    #     Create symbols and inject them into the global namespace.
+    #
+    #     This calls :func:`symbols` with the same arguments and puts the results
+    #     into the *global* namespace. It's recommended not to use :func:`var` in
+    #     library code, where :func:`symbols` has to be used::
+
+    >>> from sympy import var
+    >>> var('x y')
+    (x, y)
+    >>> z = x + y
+    >>> z
+    x + y
+
+.. code-block:: python
+
     >>> from sympy import symbols
     >>> x, y = symbols('x y')
     >>> z = x + y
