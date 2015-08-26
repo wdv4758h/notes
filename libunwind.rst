@@ -281,3 +281,4 @@ Reference
 * `stacktrace with libunwind and elfutils <https://gist.github.com/banthar/1343977>`_
 * `libdwarf and libunwind <http://cwndmiao.github.io/programming%20tools/2013/11/26/Dwarf/>`_
 * `[LLVM] New libunwind implementation in libc++abi <http://blog.llvm.org/2013/10/new-libunwind-implementation-in-libcabi.html>`_
+    - `[GitHub] llvm-mirror/libunwind <https://github.com/llvm-mirror/libunwind>`_
