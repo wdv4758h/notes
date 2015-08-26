@@ -17,9 +17,13 @@ Highlights
             * mrc 15, 0, r0, cr9, cr13, {0}
     - disInstr(thumb)
         + 0xDEFF 0xF8DF
+            * mrcle 8, 7, APSR_nzcv, cr15, cr15, {6}
         + 0xDEFF 0xF107
+            * nrmlee f7, f7
         + 0xDEFF 0x461F
+            * mrcle 6, 7, r4, cr15, cr15, {0}
         + 0xDEFF 0x4607
+            * cdple 6, 15, cr4, cr15, cr7, {0}
     - WARNING: linker: Unsupported flags DT_FLAGS_1=0x421
 * `Bug Status on Valgrind repo <https://github.com/svn2github/valgrind-master-mirror/blob/master/docs/internals/3_10_BUGSTATUS.txt>`_ :
 
