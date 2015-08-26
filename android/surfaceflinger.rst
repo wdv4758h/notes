@@ -146,9 +146,24 @@ SurfaceFlinger 的行為是一個 OpenGL ES 的 client，
 
 * sync framework
 
+Code
+========================================
+
+SurfaceFlinger.cpp
+------------------------------
+
+* EGL
+    - EGL 是 OpenGL 與 windowing system 銜接的 API
+* ALOGI
+    - log
+    - ALOGI/ALOGE/ALOGW
+    - Android Log
+    - information / error / warning ?
 
 Reference
 ========================================
 
 * `Android - Graphics <https://source.android.com/devices/graphics/>`_
 * `Android - Graphics architecture <https://source.android.com/devices/graphics/architecture.html>`_
+* `Wikipedia - EGL (API) <https://en.wikipedia.org/wiki/EGL_%28API%29>`_
+* `The Android graphics path in depth <http://events.linuxfoundation.org/sites/events/files/slides/android-graphics-abs-2014_0.pdf>`_
