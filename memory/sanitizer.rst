@@ -533,6 +533,11 @@ Reference
 
 * `Wikipedia - AddressSanitizer <https://en.wikipedia.org/wiki/AddressSanitizer>`_
 * `address-sanitizer - wiki <https://code.google.com/p/address-sanitizer/w/list>`_
+* `Leak Sanitizer Design Document <https://code.google.com/p/address-sanitizer/wiki/LeakSanitizerDesignDocument>`_
+* `Leak Sanitizer v.s. HeapChecker <https://code.google.com/p/address-sanitizer/wiki/LeakSanitizerVsHeapChecker>`_
+* `AOSP - compiler-rt <https://android.googlesource.com/platform/external/compiler-rt/>`_
+* `[GitHub] llvm-mirror/compiler-rt <https://github.com/llvm-mirror/compiler-rt>`_
+    - Supported Platform : ``ALL_{TOOL}_SUPPORTED_ARCH`` in `cmake/config-ix.cmake <https://github.com/llvm-mirror/compiler-rt/blob/master/cmake/config-ix.cmake>`_
 * `[2015] Address/Thread/Memory Sanitizer <http://www.slideshare.net/sermp/sanitizer-cppcon-russia>`_
 * `[2012] ThreadSanitizer, MemorySanitizer <http://llvm.org/devmtg/2012-11/Serebryany_TSan-MSan.pdf>`_
 * `[2011] Finding races and memory errors with LLVM instrumentation <http://llvm.org/devmtg/2011-11/Serebryany_FindingRacesMemoryErrors.pdf>`_
