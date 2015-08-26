@@ -21,12 +21,15 @@ Reference
 ========================================
 
 * `Kdbus Details <http://kroah.com/log/blog/2014/01/15/kdbus-details/>`_
-    - Greg Kroah-Hartman 寫的很好的一篇文章，簡單跨速地說明 D-Bus 和 Binder 的不同
+    - Greg Kroah-Hartman 寫的很好的一篇文章，簡單快速地說明 D-Bus 和 Binder 的不同
 * `The future that everyone forgot <https://medium.com/@chrisdesalvo/the-future-that-everyone-forgot-d823af31f7c>`_
 * `Wikipedia - Inter-process communication <https://en.wikipedia.org/wiki/Inter-process_communication>`_
 * `Wikipedia - OpenBinder <https://en.wikipedia.org/wiki/OpenBinder>`_
+* `Wikipedia - D-Bus <https://en.wikipedia.org/wiki/D-Bus>`_
 * `The unveiling of kdbus <https://lwn.net/Articles/580194/>`_
 * `Android Binder <http://elinux.org/Android_Binder>`_
+
+* `Wikipedia - User:ScotXW/kdbus <https://en.wikipedia.org/wiki/User:ScotXW/kdbus#D-Bus_in_the_kernel>`_
 
 * D-Bus with Python
     - `DBusBindings <http://www.freedesktop.org/wiki/Software/DBusBindings/>`_
