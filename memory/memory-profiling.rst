@@ -1307,6 +1307,23 @@ Valgrind SVN
 另外 AOSP 的 Valgrind 則是在 6 個禮拜前修了這個問題。
 
 
+Valgrind SVN (round 2)
+------------------------------
+
++-------------+-----------------------------------+
+| Valgrind    | r15574 (2015-08-21)               |
++-------------+-----------------------------------+
+| Android NDK | android-ndk-r10e-linux-x86_64.bin |
++-------------+-----------------------------------+
+| Platform    | Android 21 (ARM)                  |
++-------------+-----------------------------------+
+| Target CPU  | ARMv7                             |
++-------------+-----------------------------------+
+| Toolchain   | GCC 4.9 (ARM, Android EABI)       |
++-------------+-----------------------------------+
+
+
+
 AOSP Valgrind
 ------------------------------
 
@@ -1371,6 +1388,7 @@ Running Valgrind on Android
 透過 Activity Manager 把 Valgrind 跑起來，
 這樣就可以避開這個問題了。
 
+(Notice: 如果是在 Android Emulator 上面跑的話，可能會需要 ``--kernel-variant=android-emulator-no-hw-tls``)
 
 script 1 : ``start_valgrind.sh``
 
@@ -1532,6 +1550,7 @@ Reference
 * `Valgrind - Massif: a heap profiler <http://valgrind.org/docs/manual/ms-manual.html>`_
 * `Chromium - Deep Memory Profiler <https://www.chromium.org/developers/deep-memory-profiler>`_
 * `Using and understanding the Valgrind core <http://valgrind.org/docs/manual/manual-core.html>`_
+* `Using and understanding the Valgrind core: Advanced Topics <http://valgrind.org/docs/manual/manual-core-adv.html>`_
 * `The Design and Implementation of Valgrind <http://valgrind.org/docs/manual/mc-tech-docs.html>`_
 * `Writing a New Valgrind Tool <http://www.valgrind.org/docs/manual/writing-tools.html>`_
 * `[2015] Porting Valgrind to NetBSD and OpenBSD <http://www.slideshare.net/eurobsdcon/eurobsdcon2014-valgrindpresentation>`_
