@@ -527,6 +527,66 @@ Algorithm
 
 * `AddressSanitizer algorithm <https://code.google.com/p/address-sanitizer/wiki/AddressSanitizerAlgorithm>`_
 
+Status
+========================================
+
+.. image:: ../images/sanitizer-status.png
+
+
+ASan
+------------------------------
+
+目前支援：
+
+* i386
+* i686
+* x86_64
+* ARM 32
+* ARM 64
+* MIPS
+* MIPS64
+* ...
+
+
+LSan
+------------------------------
+
+目前支援：
+
+* x86_64
+* MIPS64
+* MIPS64EL
+
+``compiler-rt/lib/lsan/lsan_common.cc`` 裡的 ``ScanRangeForPointers()`` 負責 memory scan
+
+::
+
+    LSan on ARM only finds about 15% of leaks. The results are close to valgrind's on x86 so we decided to halt our work.
+
+
+* `Port LSan to arm <https://code.google.com/p/address-sanitizer/issues/detail?id=294>`_
+* `Leak sanitizer support for Android on arm64 <https://code.google.com/p/address-sanitizer/issues/detail?id=379>`_
+
+
+MSan
+------------------------------
+
+目前支援：
+
+* x86_64
+* MIPS64
+* MIPS64EL
+
+
+TSan
+------------------------------
+
+目前支援：
+
+* x86_64
+* MIPS64
+* MIPS64EL
+
 
 Reference
 ========================================
@@ -543,3 +603,4 @@ Reference
 * `[2011] Finding races and memory errors with LLVM instrumentation <http://llvm.org/devmtg/2011-11/Serebryany_FindingRacesMemoryErrors.pdf>`_
 * `Using clang's Address Sanitizer (without clang) <http://btorpey.github.io/blog/2014/03/27/using-clangs-address-sanitizer/>`_
 * `[2015] MemorySanitizer: fast detector of uninitialized memory use in C++ <http://research.google.com/pubs/pub43308.html>`_
+* `[2011] RFC: Why Memcheck can't see many leaks on large 32-bit C++ apps <https://code.google.com/p/valgrind-variant/wiki/LeakCheckingOn32bits>`_
