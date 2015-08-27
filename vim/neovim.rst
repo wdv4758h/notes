@@ -230,11 +230,20 @@ NA Patches
 * `Improve large files support <https://www.bountysource.com/issues/1832251-improve-large-files-support>`_
 * `Plugin Package Manager <https://www.bountysource.com/issues/1430941-plugin-package-manager>`_
 
+Plugin Manager
+========================================
+
+* `vim-plug <https://github.com/junegunn/vim-plug>`_
+
 
 Plugin
 ========================================
 
 * `VimAwesome <http://vimawesome.com/>`_
+
+* `Neomake <https://github.com/benekastah/neomake>`_
+    - A plugin for asynchronous :make using Neovim's job-control functionality. It is inspired by the excellent vim plugins Syntastic and Dispatch.
+    - https://jacky.wtf/weblog/moving-to-neovim/
 
 Challenge
 ========================================
