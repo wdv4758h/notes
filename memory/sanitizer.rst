@@ -530,7 +530,7 @@ Algorithm
 Status
 ========================================
 
-.. image:: ../images/sanitizer-status.png
+.. image:: ../images/memory/sanitizer-status.png
 
 
 ASan
