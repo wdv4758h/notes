@@ -1,0 +1,36 @@
+========================================
+Engineering Report <dv> - Week 35, 2015
+========================================
+
+Highlights
+========================================
+
+* 針對 Valgrind 的 `Bug 339861 - Remove Elf32_Nhdr definition for Android <https://bugs.kde.org/show_bug.cgi?id=339861#c6>`_ 送出 Patch
+* Valgrind `for Android Emulator 的 README <https://github.com/svn2github/valgrind-master-mirror/blob/master/README.android_emulator>`_ ，之前眼殘沒看到，但是測試後還是不能 work
+    - 裡面的敘述要改成 ``--kernel-variant=android-no-hw-tls``
+* Clang Sanitizer Status
+    - `Port LSan to arm <https://code.google.com/p/address-sanitizer/issues/detail?id=294>`_
+    - `Leak sanitizer support for Android on arm64 <https://code.google.com/p/address-sanitizer/issues/detail?id=379>`_
+    - 針對 Memory Leak 的 ``LSan`` 目前沒有打開 ARM32 或 ARM64 的 build option，但是似乎是成效問題不是不能完全使用？
+    - 針對未初始化值存取的 ``MSan`` 目前沒有 ARM32 和 ARM64 支援
+    - 針對其他多種 memory bug 的 ``ASan`` 已經有 ARM32 和 ARM64 支援
+        + out of bounds (heap, stack, global)
+        + use after free
+        + use after return
+    - 針對 Data Race 的 ``TSan`` 剛好正加入 ARM64 支援 (沒有 ARM32)
+        + `[compiler-rt] [tsan] Enable TSan for AArch64/42-bit VMA <https://github.com/llvm-mirror/compiler-rt/commit/3bd0141232dc951e418a170dbc29fc76b37f1742>`_
+
+
+Plan
+========================================
+
+* 打開 ``LSan`` for ARM 的 options 編來做測試
+    - `Port LSan to arm <https://code.google.com/p/address-sanitizer/issues/detail?id=294>`_
+    - 先跑 test case 確認現在還是都會過
+    - 假如 test case 真的都會過的話再來 build SurfaceFlinger 試看看
+* `Doxygen for Valgrind <http://fossies.org/dox/valgrind>`_
+    - 輔助後續理解 Valgrind 的 source code
+
+
+Issues
+========================================
