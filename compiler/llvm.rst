@@ -40,6 +40,25 @@ Autotools
 CMake & Ninja
 ------------------------------
 
+DragonEgg Plugin
+========================================
+
+* `DragonEgg - Using LLVM as a GCC backend <http://dragonegg.llvm.org/>`_
+
+Polly
+========================================
+
+polyhedral optimizer
+
+* `LLVM Framework for High-Level Loop and Data-Locality Optimizations <http://polly.llvm.org/changelog.html>`_
+* `[GitHub] llvm-mirror/polly <https://github.com/llvm-mirror/polly>`_
+* `Wikipedia - Polytope model <https://en.wikipedia.org/wiki/Polytope_model>`_
+
+
+LLVM Linker
+========================================
+
+lld
 
 
 Reference
