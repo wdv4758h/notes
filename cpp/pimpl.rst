@@ -86,3 +86,5 @@ Reference
 * `[2008] Dr.Dobb's - Making Pimpl Easy <http://www.drdobbs.com/cpp/making-pimpl-easy/205918714>`_
 * `Wikipedia - Opaque pointer <https://en.wikipedia.org/wiki/Opaque_pointer>`_
 * `Wikibooks - C++ Programming/Idioms <https://en.wikibooks.org/wiki/C++_Programming/Idioms#Pointer_To_Implementation_.28pImpl.29>`_
+* `Compiler aided optimization of the pimpl-idiom <http://llvm.org/devmtg/2015-04/slides/pimpl.pdf>`_
+    - ``[[clang::pimpl]]``
