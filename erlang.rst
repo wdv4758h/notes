@@ -27,5 +27,10 @@ Reference
 * `Wikipedia - Erlang (programming language) <https://en.wikipedia.org/wiki/Erlang_%28programming_language%29>`_
 * `Wikipedia - Guard (computer science) <https://en.wikipedia.org/wiki/Guard_%28computer_science%29>`_
 * `Learn You Some Erlang for Great Good! <http://learnyousomeerlang.com/>`_
+* `[2011] ErLLVM: An LLVM back-end for HiPE, the native code compiler of Erlang/OTP Design and Implementation <http://erllvm.softlab.ntua.gr/files/erllvm_pres-20111107.pdf>`_
+* `[2012] ErLLVM: An LLVM Backend for Erlang <http://erllvm.softlab.ntua.gr/files/erlang03-sagonas.pdf>`_
+    - ErLLVM 是 HiPE 把 backend 換成 LLVM 的版本
+* `[2012][Slide] ErLLVM: An LLVM Backend for Erlang <http://erllvm.softlab.ntua.gr/files/ErLLVM.pdf>`_
 * `[2012] Hitchhiker's Tour of the BEAM <http://www.erlang-factory.com/upload/presentations/708/HitchhikersTouroftheBEAM.pdf>`_
 * `[2014] BEAMJIT: An LLVM based just-in-time compiler for Erlang <http://llvm.org/devmtg/2014-04/PDFs/Talks/drejhammar.pdf>`_
+* `[2015] A Tracing JIT Compiler for Erlang using LLVM <http://lup.lub.lu.se/luur/download?func=downloadFile&recordOId=5470892&fileOId=5470933>`_
