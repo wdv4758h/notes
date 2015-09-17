@@ -179,3 +179,32 @@ More Options
     $ mkdir build
     $ cd build
     $ cmake ../
+
+
+換 Linker
+========================================
+
+預設狀況下，
+Linker 會去找 Compiler 來用，
+例如 C++ 的會設成這樣 :
+
+.. code-block:: cmake
+
+    if(NOT CMAKE_CXX_LINK_EXECUTABLE)
+      set(CMAKE_CXX_LINK_EXECUTABLE
+          "<CMAKE_CXX_COMPILER>  <FLAGS> <CMAKE_CXX_LINK_FLAGS> <LINK_FLAGS> <OBJECTS>  -o <TARGET> <LINK_LIBRARIES>")
+    endif()
+
+也就是說會去找 C++ Compiler 來用，
+如果自己要換 Linker 的話就要把這個值蓋掉，
+例如在下 ``cmake`` 指令時加上參數 :
+
+.. code-block:: sh
+
+    $ cmake \
+    -DCMAKE_LINKER=`which my_linker` \
+    -DCMAKE_CXX_LINK_EXECUTABLE='<CMAKE_LINKER> <FLAGS> <CMAKE_CXX_LINK_FLAGS> <LINK_FLAGS> <OBJECTS> -o <TARGET> <LINK_LIBRARIES>'
+
+
+* `[CMake] how to really change CMake linker <http://www.cmake.org/pipermail/cmake/2014-August/058271.html>`_
+* `CMake - CMAKE_CXX_LINK_EXECUTABLE <https://github.com/Kitware/CMake/blob/master/Modules/CMakeCXXInformation.cmake>`_
