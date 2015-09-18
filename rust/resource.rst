@@ -15,3 +15,5 @@ Resource
     - 涵蓋內容差不多在基礎到中等
 
 * `The Rustonomicon - The Dark Arts of Advanced and Unsafe Rust Programming <https://doc.rust-lang.org/nightly/nomicon/>`_
+
+* `The Rust Programming Language <http://doc.rust-lang.org/stable/book/>`_
