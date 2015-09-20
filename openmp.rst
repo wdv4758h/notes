@@ -431,6 +431,13 @@ Reference
 * `OpenMP Compilers <http://openmp.org/wp/openmp-compilers/>`_
 * `GCC - OpenMP <https://gcc.gnu.org/wiki/openmp>`_
 * `OpenMP (4.0) Application Program Interface <http://www.openmp.org/mp-documents/OpenMP4.0.0.pdf>`_
+* `LLVM Support for OpenMP 4.0 Target Regions on GPUs <http://openmp.org/sc14/Booth-Sam-IBM.pdf>`_
+* `[2014] Coordinating GPU Threads for OpenMP 4.0 in LLVM <http://dl.acm.org/citation.cfm?id=2688364>`_
+* `[2014] OpenMP 4.1 and 5.0 Progress <http://openmp.org/sc14/BoF_Bronis.pdf>`_
+* `[2015] Advanced OpenMP Tutorial Performance and 4.0 Features <https://sharepoint.campus.rwth-aachen.de/units/rz/HPC/public/Shared%20Documents/2015_isc_openmp/isc15-advanced-openmp.pdf>`_
+* Parallel For Loops In Rust
+    - `[Old] Feature Request: OpenMP/TBB like Parallel For Loops <https://github.com/rust-lang/rust/issues/12619>`_
+    - `[RFC][New] Feature Request: OpenMP/TBB like Parallel For Loops <https://github.com/rust-lang/rfcs/issues/859>`_
 
 * OpenMP 心得
     - `(一) <http://aaz-blogger.blogspot.tw/2011/03/openmp.html>`_
