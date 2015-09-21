@@ -160,6 +160,11 @@ SurfaceFlinger.cpp
     - Android Log
     - information / error / warning ?
 
+Choreographer
+========================================
+
+* https://source.android.com/devices/graphics/architecture.html#choreographer
+
 Reference
 ========================================
 
