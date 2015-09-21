@@ -34,3 +34,6 @@ Reference
 * D-Bus with Python
     - `DBusBindings <http://www.freedesktop.org/wiki/Software/DBusBindings/>`_
     - `Arch Packages - python-dbus <https://www.archlinux.org/packages/extra/x86_64/python-dbus/>`_
+        + code last update : 2013 ...
+        + build a CFFI version ?
+        + https://pypi.python.org/pypi?%3Aaction=search&term=dbus&submit=search
