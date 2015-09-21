@@ -18,6 +18,9 @@ Haskell
 * `Learn You a Haskell for Great Good! <http://learnyouahaskell.com/chapters>`_
 * `School of Haskell <https://www.fpcomplete.com/school>`_
 
+* `Translating Haskell to C++ metaprogramming <http://www.vandenoever.info/blog/2015/07/12/translating-haskell-to-c++.html>`_
+
+
 Julia
 ========================================
 
