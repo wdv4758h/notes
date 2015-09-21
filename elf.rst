@@ -118,3 +118,5 @@ Resource
     * `#8: loader v0.5 與結果輸出（改善與小討論） <http://www.jollen.org/blog/2006/12/_elfexecutable_and_linking_for.html>`_
 - jserv - 深入淺出 Hello World
 - `ELF - 陳鍾誠 <http://ccckmit.wikidot.com/lk:elf>`_
+* `ELF 之 Program Loading 教學文件, #2: Program Header Table <http://www.jollen.org/blog/2007/03/elf_program_loading_2_pht.html>`_
+* `ELF 之 Program Loading 教學文件, #1: Segment 的觀念 <http://www.jollen.org/blog/2007/03/>`_
