@@ -118,3 +118,14 @@ equalp
 
     (equalp "a" "A")
     => T
+
+
+Books
+========================================
+
+* `Practical Common Lisp <http://www.gigamonkeys.com/book/>`_
+
+Reference
+========================================
+
+* `Why We Hate Lisp <http://c2.com/cgi/wiki?WhyWeHateLisp>`_
