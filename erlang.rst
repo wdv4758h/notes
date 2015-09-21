@@ -21,6 +21,16 @@ Erlang 可以編成 BEAM bytecode 再丟到 VM 上執行，
 BEAM 包含 copying generational GC。
 
 
+NIF (Natively Implemented Function)
+========================================
+
+a shorthand for replacing Erlang code with C
+
+
+DS (Dirty Scheduler)
+========================================
+
+
 Reference
 ========================================
 
@@ -34,3 +44,4 @@ Reference
 * `[2012] Hitchhiker's Tour of the BEAM <http://www.erlang-factory.com/upload/presentations/708/HitchhikersTouroftheBEAM.pdf>`_
 * `[2014] BEAMJIT: An LLVM based just-in-time compiler for Erlang <http://llvm.org/devmtg/2014-04/PDFs/Talks/drejhammar.pdf>`_
 * `[2015] A Tracing JIT Compiler for Erlang using LLVM <http://lup.lub.lu.se/luur/download?func=downloadFile&recordOId=5470892&fileOId=5470933>`_
+* `Erlang Dirty Scheduler Overhead - Using DTrace to figure out what calls cost <https://medium.com/@jlouis666/erlang-dirty-scheduler-overhead-6e1219dcc7>`_
