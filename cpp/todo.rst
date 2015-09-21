@@ -7,6 +7,9 @@ Todo
 (還有順便補上以前小黃的講義內容)
 
 
+* `A Tutorial Introduction to C++11/14 <https://github.com/boostcon/cppnow_presentations_2014/blob/master/files/tutorial_intro_cpp_11_14.pdf>`_
+    - https://www.youtube.com/watch?v=TK_SfTfxaxc
+
 
 C++ Asynchronous
 ========================================
