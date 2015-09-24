@@ -111,3 +111,10 @@ Exam
 
 * `C++ Grandmaster Certification [CPPGM] <http://www.cppgm.org/index.html>`_
 * `[情報] C++大師認證 <https://www.ptt.cc/bbs/C_and_CPP/M.1359706258.A.4A9.html>`_
+
+
+Misc
+========================================
+
+* `C++ vs OCaml: Ray tracer comparison <http://www.ffconsultancy.com/languages/ray_tracer/comparison.html>`_
+* `Why are there so many string classes in the face of std::string? <http://programmers.stackexchange.com/questions/151619/why-are-there-so-many-string-classes-in-the-face-of-stdstring>`_
