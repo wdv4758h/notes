@@ -2,6 +2,12 @@
 Brain
 ========================================
 
+.. contents:: Table of Contents
+
+
+Brain - Basic
+========================================
+
 * 額葉 (Frontal Lobe)
     - 掌管動機、情緒、推理
     - Phineas Gage
@@ -28,8 +34,9 @@ Brain
 * [ 1] 嗅神經 (Olfactory)
 * [ 2] 視神經 (Optic)
 * [ 3] 動眼神經 (Oculomotor)
-* [ 4] 滑車神經
+* [ 4] 滑車神經 (Trochlear)
     - 控制 **上斜肌**
+    - 腦神經中最細的神經
 * [ 5] 三叉神經
     - 牙齒的神經
     - V1, V2, V3
@@ -98,7 +105,7 @@ Misc
     - 《沉重的蚱蜢》 (The Grasshopper Lies Heavy) 是小說內的小說，描述的雖然依然不完全符合史實，但卻比《高堡奇人》的歷史設定更接近史實，塑造出虛假和現實相連、交錯的現象
 * Psychohistory
 * 銀河英雄傳說
-* `Hard science fiction - <https://en.wikipedia.org/wiki/Hard_science_fiction>`_
+* `Hard science fiction <https://en.wikipedia.org/wiki/Hard_science_fiction>`_
 * 基地系列 (The Foundation Series)
 * 羅馬帝國衰亡史 (The History of the Decline and Fall of the Roman Empire)
 * 科幻小說黃金時代 (Golden Age of Science Fiction)
