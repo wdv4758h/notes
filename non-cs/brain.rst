@@ -60,3 +60,46 @@ Brain
 ========================================
 
 * 什麼是意識？如何定義意識？
+
+
+機器人 & 人類
+========================================
+
+機器人學三大法則 - Isaac Asimov
+-------------------------------
+
+* 第一法則：機器人不得傷害人類，也不得因為不採取行動而使人類受到傷害。
+* 第二法則：除非違背第一法則，否則機器人必須服從人類的命令。
+* 第三法則：在不違背第一法則及第二法則的情況下，機器人必須保護自身的存在。
+
+
+銀翼殺手 (Blade Runner) - 改編自 Philip K. Dick 的 《Do Androids Dream of Electric Sheep？》
+-------------------------------------------------------------------------------------------
+
+
+攻殼機動隊 - 士郎正宗
+------------------------------
+
+* `科科電子報 - No.3 (2000) - 從「攻殼機動隊」談起 <http://www.thinkerstar.com/sci-fi/critique/aitnog01.html>`_
+
+::
+
+    靈魂 -- Ghost -- AI
+    肉體 -- Shell -- 人造物
+    人   -- The Ghost in The Shell -- 機器人
+
+
+Misc
+========================================
+
+* 高堡奇人 (The Man in the High Castle) - Philip K. Dick
+    - 架空歷史小說
+    - 故事發生於 1962 年的美國，設定 15 年前軸心國在第二次世界大戰擊敗了同盟國，美國向納粹德國和大日本帝國投降
+    - 《沉重的蚱蜢》 (The Grasshopper Lies Heavy) 是小說內的小說，描述的雖然依然不完全符合史實，但卻比《高堡奇人》的歷史設定更接近史實，塑造出虛假和現實相連、交錯的現象
+* Psychohistory
+* 銀河英雄傳說
+* `Hard science fiction - <https://en.wikipedia.org/wiki/Hard_science_fiction>`_
+* 基地系列 (The Foundation Series)
+* 羅馬帝國衰亡史 (The History of the Decline and Fall of the Roman Empire)
+* 科幻小說黃金時代 (Golden Age of Science Fiction)
+* 雨果獎
