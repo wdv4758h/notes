@@ -257,3 +257,9 @@ Reference
 * `Robust Real-time Object Detection <http://lear.inrialpes.fr/people/triggs/student/vj/viola-ijcv04.pdf>`_
 * `StackOverflow - Viola-Jones' face detection claims 180k features <http://stackoverflow.com/questions/1707620/viola-jones-face-detection-claims-180k-features>`_
 * `OpenCV Face Detection: Visualized <https://vimeo.com/12774628>`_
+
+
+Fun
+========================================
+
+* `PyCON APC 2015 - Marsface Project: Detecting Pseudo-artificial Structures on Mars <https://www.youtube.com/watch?v=XsinyMyoZPU>`_
