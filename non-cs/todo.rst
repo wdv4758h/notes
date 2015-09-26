@@ -2,6 +2,9 @@
 Todo
 ========================================
 
+* `心理學概論筆記 <https://github.com/yufree/notes/blob/master/psychology.Rmd>`_
+* `自私的基因 <https://www.gitbook.com/book/leerita/-theselfishgene/details>`_
+
 Meme
 ========================================
 
@@ -11,3 +14,14 @@ Meme
 
 * `Wikipedia - Meme <https://en.wikipedia.org/wiki/Meme>`_
 * `Wikipedia - 文化基因 <https://zh.wikipedia.org/zh-tw/模因>`_
+
+
+Science
+========================================
+
+* `Wikipedia - Science <https://en.wikipedia.org/wiki/Science>`_
+
+健保
+========================================
+
+* `醫院恐怖故事 <https://imgur.com/a/58PMn>`_
