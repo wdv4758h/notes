@@ -86,6 +86,7 @@ shadow value tools 會維護一份程式的狀態，
 shadow value tool 為 heavyweight 的 DBA tools 可以滿足這九種需求，
 然而大部份的 DBA tools 都只做到了九種需求的 subset (通常都包含最後增加輔助資訊的需求)。
 
+
 Valgrind 運作方式
 ========================================
 
@@ -283,6 +284,19 @@ IR blocks 也變成 superblocks (為 single-entry, multiple-exit)。
 VEX IR
 ========================================
 
+* https://github.com/svn2github/valgrind-vex/blob/master/pub/libvex_ir.h
+* https://android.googlesource.com/platform/external/valgrind/+/master/VEX/pub/libvex_ir.h
+
+Suppression
+========================================
+
+Valgrind 裝起來後預設會拿到一個 ``default.supp`` 在 ``/usr/lib/valgrind/default.supp`` ，
+這類以 ``.supp`` 副檔名結尾的檔案稱為 "Suppression Files"，
+目的是要把 Valgrind 的 False Positive 的判斷給壓下來，
+讓輸出的結果更乾淨、好辨識問題。
+
+* `Servo - Debugging <https://github.com/servo/servo/wiki/Debugging>`_
+
 
 Reference
 ========================================
@@ -294,3 +308,17 @@ Reference
 * `Valgrind - /configure.ac <https://github.com/svn2github/valgrind-master-mirror/blob/master/configure.ac>`_
     - valt_load_address_pri_norml
     - valt_load_address_pri_inner
+* `How does valgrind work? <http://stackoverflow.com/a/27380829>`_
+* `[2002] The design and implementation of Valgrind <http://courses.cs.washington.edu/courses/cse326/05wi/valgrind-doc/mc_techdocs.html>`_
+* `Notes on Valgrind <http://publicclu2.blogspot.tw/2013/05/notes-on-valgrind.html>`_
+
+
+Idea
+========================================
+
+* Ahead-of-time Valgrind
+* LLVM IR to VEX IR
+* LLVM JIT for VEX
+* Multithread for Valgrind Tools
+* Valgrind with STM
+* https://archive.fosdem.org/2014/schedule/event/valgrind_bof/
