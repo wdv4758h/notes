@@ -62,6 +62,7 @@ SSO (Small/Short String Optimization)
 
 
 * `[GitHub] SSO-23 - Memory optimal Small String Optimization implementation for C++ <https://github.com/elliotgoodrich/SSO-23>`_
+* `Comparison of common small string optimisation implementation and suggestions for improvement <https://www.reddit.com/r/cpp/comments/2okoyo/comparison_of_common_small_string_optimisation/>`_
 
 
 CoW
