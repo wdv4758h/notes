@@ -12,7 +12,7 @@ Monomorphization 範例，假設我們寫了一個 generic function :
 .. code-block:: rust
 
     fn first<A, B>(pair: (A, B)) -> A {
-        let (a, b) = pair;
+        let (a, _) = pair;
         return a;
     }
 
