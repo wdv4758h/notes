@@ -30,8 +30,78 @@ The Offspring
 Fall Out Boy
 ------------------------------
 
-* `The Phoenix <https://www.youtube.com/watch?v=5hDZbroaQDc>`_
+* `The Young Blood Chronicles <https://en.wikipedia.org/wiki/The_Young_Blood_Chronicles>`_
+    - Fall Out Boy - The Young Blood Chronicles (Uncut Longform Video) : https://www.youtube.com/watch?v=zZyWxbojYH8
 
+* `The Phoenix <https://www.youtube.com/watch?v=5hDZbroaQDc>`_
+* Centuries
+* Immortals
+
+
+Oasis
+------------------------------
+
+* Wonderwall
+
+
+P.T.P (Pay money To my Pain)
+------------------------------
+
+日本團，英文歌 (日本人中算很標準的英文)
+
+
+One OK Rock
+------------------------------
+
+* The Beginning
+    - 《神劍闖江湖》電影版主題曲
+* カゲロウ
+* Notes'n'Words
+* Simple Plan - SUMMER PARADISE
+* Re:make
+
+
+Avenged Sevenfold
+------------------------------
+
+Imagine Dragons
+------------------------------
+
+Skillet
+------------------------------
+
+* Hero
+
+凜冽時雨 (凛として時雨)
+------------------------------
+
+* unravel
+    - 《東京喰種》片頭曲
+    - `German FanCover <https://www.youtube.com/watch?v=05uUXURvLAA>`_
+
+AKG (ASIAN KUNG-FU GENERATION) (亞細亞的功夫世代)
+-------------------------------------------------
+
+* 遙遠的彼方 (遙か彼方)
+    - 《火影忍者》的片頭曲
+
+UVERworld
+------------------------------
+
+* 白晝夢
+* Colors of the Heart
+
+Stereopony
+------------------------------
+
+* Hitohira no Hanabira
+    - 《死神》片尾曲
+* Namida no Mukou
+    - 《機動戰士鋼彈00》片頭曲
+* Stand By Me
+    - 《交響詩篇AO》片尾曲
+* Tsukiakari no Michishirube
+    - 《DARKER THAN BLACK - 流星之雙子》片頭曲
 
 
 Violin
