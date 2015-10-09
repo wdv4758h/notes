@@ -50,7 +50,7 @@ P.T.P (Pay money To my Pain)
 日本團，英文歌 (日本人中算很標準的英文)
 
 
-One OK Rock
+ONE OK ROCK
 ------------------------------
 
 * The Beginning
@@ -66,6 +66,9 @@ Avenged Sevenfold
 
 Imagine Dragons
 ------------------------------
+
+* Radioactive
+* Demons
 
 Skillet
 ------------------------------
@@ -103,6 +106,11 @@ Stereopony
 * Tsukiakari no Michishirube
     - 《DARKER THAN BLACK - 流星之雙子》片頭曲
 
+OK GO
+------------------------------
+
+* I Won't Let You Down
+
 
 Violin
 ========================================
@@ -119,3 +127,94 @@ David Garrett
 * He's a Pirate
     - 神鬼奇航
 * Paganini Rhapsody
+
+
+Piano Boys
+------------------------------
+
+
+Country
+========================================
+
+The Band Perry
+------------------------------
+
+* If I Die Young
+
+
+Guitar
+========================================
+
+DEPAPEPE
+------------------------------
+
+
+
+Uncategory
+========================================
+
+ゆず
+------------------------------
+
+* 表裏一体
+    - 《獵人》第二季片尾曲
+
+
+amazarashi (あまざらし)
+------------------------------
+
+Codeplay
+------------------------------
+
+Ed Sheeran
+------------------------------
+
++
+++++++++++++++++++++
+
+* Lego House
+* The A Team
+* Grade 8
+
+x
+++++++++++++++++++++
+
+* One
+* I'm A Mess
+* Sing
+* Don't
+* Nina
+* Photograph
+* Bloodstream
+* Tenerife Sea
+* Runaway
+* The Man
+* Thinking Out Loud
+* Afire Love
+* Shirtsleeves
+* I See Fire
+
+
+Maroon 5
+------------------------------
+
+* Moves Like Jagger
+* Payphone
+
+
+OneRepublic
+------------------------------
+
+* Counting Stars
+
+
+Passenger
+------------------------------
+
+* Let Her Go
+
+
+Wiz Khalifa
+------------------------------
+
+* See You Again
