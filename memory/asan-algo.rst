@@ -2,6 +2,8 @@
 AddressSanitizer Algorithm
 ========================================
 
+.. contents:: Table of Contents
+
 把程式使用的 memory 每 8 bytes 對應到 1 byte 的 shadow memory
 
 ::
@@ -63,3 +65,64 @@ AddressSanitizer Algorithm
         return ((uintptr_t) ptr & 7 + kAccessSize - 1) >= shadow_value;
     }
 
+
+
+mprotect
+========================================
+
+設定某段記憶體的權限
+
+.. code-block:: c
+
+    #include <sys/mman.h>
+
+    int mprotect(void *addr, size_t len, int prot);
+
+
+``prot`` 的值為 ``PROT_NONE`` 或是由其他權限經過 bitwise-or 出來的結果
+
+* PROT_NONE
+    - 完全不能被存取
+* PROT_READ
+    - 可以被讀
+* PROT_WRITE
+    - 可以被寫
+* PROT_EXEC
+    - 可以被執行
+
+如果程式的記憶體存取違反這邊的權限的話，
+kernel 會送 ``SIGSEGV`` 給程式。
+
+
+指定某 function 不要加入 Sanitizer 檢查
+========================================
+
+程式撰寫上：
+
+.. code-block:: c
+
+    #if defined(__clang__) || defined (__GNUC__)
+    # define ATTRIBUTE_NO_SANITIZE_ADDRESS __attribute__((no_sanitize_address))
+    #else
+    # define ATTRIBUTE_NO_SANITIZE_ADDRESS
+    #endif
+
+
+或是編譯時， ``-fsanitize-blacklist=my_ignores.txt``
+
+``my_ignores.txt`` ::
+
+    # Ignore exactly this function (the names are mangled)
+    fun:MyFooBar
+    # Ignore MyFooBar(void) if it is in C++:
+    fun:_Z8MyFooBarv
+    # Ignore all function containing MyFooBar
+    fun:*MyFooBar*
+
+
+
+Reference
+========================================
+
+* `AddressSanitizer - Compile Time Optimizations <https://github.com/google/sanitizers/wiki/AddressSanitizerCompileTimeOptimizations>`_
+* `AddressSanitizer - Algorithm <https://github.com/google/sanitizers/wiki/AddressSanitizerAlgorithm>`_
