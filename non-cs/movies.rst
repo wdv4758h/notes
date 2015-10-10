@@ -57,11 +57,11 @@ Movies
     - Health Care
     - microrobot
 
-* [2012](1) The Hunger Games (飢餓遊戲) (1)
+* [2012] The Hunger Games (飢餓遊戲) (1)
     - 觀賞
         + 2015/02/18
 
-* [2013](2) The Hunger Games: Catching Fire (2)
+* [2013] The Hunger Games: Catching Fire (2)
     - 觀賞
         + 2015/02/19
     - Deep In The Meadow
