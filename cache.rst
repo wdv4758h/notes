@@ -15,3 +15,8 @@ O* nuances
 | Linked List | O(N)      | O(N)                      |
 +-------------+-----------+---------------------------+
 
+
+Reference
+========================================
+
+* `Why Intel Added Cache Allocation Technology in Broadwell <http://danluu.com/intel-cat/>`_
