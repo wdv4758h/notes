@@ -143,6 +143,15 @@ The Band Perry
 ------------------------------
 
 * If I Die Young
+* Better Dig Two
+* Gentle On My Mind
+* Don't Let Me Be Lonely
+* Double Heart
+
+* You Lie
+* Hip To My Heart
+* Independence
+* Quittin' You
 
 
 Guitar
@@ -156,6 +165,67 @@ DEPAPEPE
 Uncategory
 ========================================
 
+Nightwish
+------------------------------
+
+* The Islander
+* She Is My Sin
+* I Want My Tears Back
+
+Christina Perri
+------------------------------
+
+* A Thousand Years
+
+
+Kodaline
+------------------------------
+
+* High Hopes
+
+Maddie & Tae
+------------------------------
+
+MONKEY MAJIK
+------------------------------
+
+* Headlight
+* If
+
+SECONDWALL
+------------------------------
+
+* アイデンティティ
+* 君の世界を
+
+NOISEMAKER
+------------------------------
+
+* Oblivion
+
+Eir Aoi
+------------------------------
+
+* GENESIS
+
+The Winking Owl
+------------------------------
+
+* Precious
+* Star
+* Change Your Destiny
+* The Ocean Floor
+
+SWANKY DANK
+------------------------------
+
+* Sink Like a Stone
+
+yonige
+------------------------------
+
+* さよならアイデンティティー
+
 ゆず
 ------------------------------
 
@@ -168,6 +238,8 @@ amazarashi (あまざらし)
 
 Codeplay
 ------------------------------
+
+* Yellow
 
 Ed Sheeran
 ------------------------------
@@ -203,7 +275,19 @@ Maroon 5
 
 * Moves Like Jagger
 * Payphone
+* Sunday Morning
+* Sugar
+* One More Night
+* Maps
+* She Will Be Loved
+* Love Sombody
+* It Was Always You
+* Wipe Your Eyes
 
+David Guetta
+------------------------------
+
+* Titanium
 
 OneRepublic
 ------------------------------
