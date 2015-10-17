@@ -24,6 +24,40 @@ Brain - Basic
 * `Wikipedia - Frontal lobe <https://en.wikipedia.org/wiki/Frontal_lobe>`_
 
 
+Uncategory
+========================================
+
+腦神經組成
+------------------------------
+
+簡表
+++++++++++++++++++++
+
+* 神經元 (neuron) : 佔腦內細胞 1/10 ~ 1/2
+* 膠細胞 (glia) : 佔大部分的腦內細胞
+    - 許旺細胞 (Schwann cell)
+    - 星狀細胞 (Astrocytes)
+    - 微膠細胞 (Microglia)
+    - 寡突細胞 (Oligodendrocyte)
+
+
+介紹
+++++++++++++++++++++
+
+* 星狀細胞 (Astrocytes)
+    - 血腦障壁 (Blood-Brain-Barrier)(BBB)
+
+
+
+PNS (Peripheral Nervous System)
+-------------------------------
+
+
+
+CNS (Central Nervous System)
+-------------------------------
+
+
 
 Misc
 ========================================
@@ -120,3 +154,12 @@ Misc
 * 羅馬帝國衰亡史 (The History of the Decline and Fall of the Roman Empire)
 * 科幻小說黃金時代 (Golden Age of Science Fiction)
 * 雨果獎
+
+
+Reference
+========================================
+
+* `高瞻自然科學 - 迷走神經反射 (Baroreceptor reflex) <http://highscope.ch.ntu.edu.tw/wordpress/?p=48357>`_
+* `高瞻自然科學 - 調控睡眠的血清素 <http://highscope.ch.ntu.edu.tw/wordpress/?p=43544>`_
+* `腦中「暗物質」現形記：《另一個腦》導讀 <https://www.facebook.com/notes/衛城出版/腦中暗物質現形記另一個腦導讀/647513951935034/>`_
+* [Book] 另一個腦：開啟思考、記憶、健康與疾病的未知領域
