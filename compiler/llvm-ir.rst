@@ -12,8 +12,19 @@ Introduction
 LLVM 對 code 的表示有三種，三種格式是等價的
 
 * in-memory compiler IR
-* on-disk bitcode representation (suitable for fast loading by a Just-In-Time compiler)
-* human readable assembly language representation
+* on-disk bitcode representation (suitable for fast loading by a Just-In-Time compiler) (``.bc``)
+* human readable assembly language representation (``.ll``)
+
+::
+
+    +--------------------+                  +---------------------+
+    |                    |     llvm-dis     |                     |
+    |                    | ---------------> |                     |
+    | LLVM Bitcode (.bc) |                  | LLVM Assembly (.ll) |
+    |                    | <--------------- |                     |
+    |                    |     llvm-as      |                     |
+    +--------------------+                  +---------------------+
+
 
 ----
 
@@ -149,6 +160,29 @@ SSA (Static single assignment form)
 
 * `LLVM: llvm::PHINode Class Reference <http://llvm.org/doxygen/classllvm_1_1PHINode.html>`_
 
+
+
+LLVM IR Type
+========================================
+
+First Class Types
+------------------------------
+
+Single Value Types
+++++++++++++++++++++
+
+Vector Type
+~~~~~~~~~~~
+
+SIMD
+
+Syntax ::
+
+    < <# elements> x <elementtype> >
+
+Example ::
+
+    <8 x float>     ; Vector of 8 32-bit floating-point values.
 
 
 LLVM IR Generated Example
