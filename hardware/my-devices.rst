@@ -13,6 +13,7 @@ Acer Aspire V3-571G (2012-08 ~ )
 * 15.6" HD LED LCD
 * 2 GB DDR3 (upgrade to 6 GB)
 * 500 GB HDD
+* 2.6 kg
 
 
 Mobile
