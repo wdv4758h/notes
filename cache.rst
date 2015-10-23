@@ -20,3 +20,4 @@ Reference
 ========================================
 
 * `Why Intel Added Cache Allocation Technology in Broadwell <http://danluu.com/intel-cat/>`_
+* `Cache is the new RAM <http://carlos.bueno.org/2014/11/cache.html>`_
