@@ -178,6 +178,7 @@ LLVM
 * [Book] Getting Started with LLVM Core Libraries
 * `AOSA - LLVM <http://www.aosabook.org/en/llvm.html>`_
 * `LLVM: Implementing a Language <https://www.gitbook.com/book/landersbenjamin/llvm-implementing-a-language/details>`_
+* [2014] `LLVM: A Compilation Framework for Lifelong Program Analysis & Transformation <http://llvm.org/pubs/2004-01-30-CGO-LLVM.pdf>`_
 
 Ninja
 ------------------------------
