@@ -22,7 +22,8 @@ Scott Meyers 在 2014 年 NDC Conference 分享了 CPU 的重要性，
 keyword: data cache, instruction cache, TLB, cache coherency, false sharing
 
 * `Scott Meyers - CPU Caches and Why You care <https://vimeo.com/97337258>`_
-
     - Eliminate False Sharing
     - `Dr.Dobb's - Eliminate False Sharing <http://www.drdobbs.com/parallel/eliminate-false-sharing/217500206>`_
 
+* `Optimisation Lesson 3: The Memory Bottleneck <http://overbyte.com.au/index.php/overbyte-blog/entry/optimisation-lesson-3-the-memory-bottleneck>`_
+    - `L1/L2/Memory 差異視覺化 <http://overbyte.com.au/misc/Lesson3/CacheFun.html>`_
