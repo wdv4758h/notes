@@ -521,3 +521,5 @@ Reference
 ========================================
 
 * `LLVM Language Reference Manual <http://llvm.org/docs/LangRef.html>`_
+* `Implementing a JIT Compiled Language with Haskell and LLVM <http://www.stephendiehl.com/llvm/>`_
+* `The Architecture of Open Source Applications: LLVM <http://www.aosabook.org/en/llvm.html>`_
