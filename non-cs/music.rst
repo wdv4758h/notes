@@ -165,6 +165,61 @@ DEPAPEPE
 Uncategory
 ========================================
 
+麋先生Mixer
+------------------------------
+
+* 麋途
+* 馬戲團運動
+* 麋語
+
+The Paper Kites
+------------------------------
+
+* Bloom
+
+John Legend
+------------------------------
+
+* All of Me
+
+Fun
+------------------------------
+
+* We Are Young
+
+MEGADETH
+------------------------------
+
+* Go Go Power Ranger
+
+Vanattica
+------------------------------
+
+HOBART OCEAN
+------------------------------
+
+All The Right Moves
+------------------------------
+
+* Choke
+
+One Republic
+------------------------------
+
+* Apologize
+
+Birdy
+------------------------------
+
+* Skinny Love
+* People Help The People
+
+Ellie Goulding
+------------------------------
+
+* Love Me Like You Do
+
+
 Nightwish
 ------------------------------
 
@@ -283,6 +338,8 @@ Maroon 5
 * Love Sombody
 * It Was Always You
 * Wipe Your Eyes
+
+* Beautiful Goodbye
 
 David Guetta
 ------------------------------
