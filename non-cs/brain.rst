@@ -59,6 +59,26 @@ CNS (Central Nervous System)
 
 
 
+胼胝體 (Corpus Callosum)
+------------------------------
+
+* `認識胼胝體 <http://highscope.ch.ntu.edu.tw/wordpress/?p=31437>`_
+* 左右腦的 IPC (Inter-process Communication)
+
+大腦皮質
+------------------------------
+
+* `大腦皮質具有大量神經細胞的原因 <http://highscope.ch.ntu.edu.tw/wordpress/?p=62332>`_
+
+GABA
+------------------------------
+
+杏仁核
+------------------------------
+
+* `認識主導情緒產生的杏仁核（Amygdala）-上 <http://highscope.ch.ntu.edu.tw/wordpress/?p=6908>`_
+
+
 Misc
 ========================================
 
