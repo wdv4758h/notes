@@ -66,6 +66,32 @@ AddressSanitizer Algorithm
     }
 
 
+Address
+------------------------------
+
+64-bit
+++++++++++++++++++++
+
+``Shadow = (Mem >> 3) + 0x7fff8000;``
+
+[0x10007fff8000, 0x7fffffffffff] 	HighMem
+[0x02008fff7000, 0x10007fff7fff] 	HighShadow
+[0x00008fff7000, 0x02008fff6fff] 	ShadowGap
+[0x00007fff8000, 0x00008fff6fff] 	LowShadow
+[0x000000000000, 0x00007fff7fff] 	LowMem
+
+
+32 bit
+++++++++++++++++++++
+
+``Shadow = (Mem >> 3) + 0x20000000;``
+
+[0x40000000, 0xffffffff] 	HighMem
+[0x28000000, 0x3fffffff] 	HighShadow
+[0x24000000, 0x27ffffff] 	ShadowGap
+[0x20000000, 0x23ffffff] 	LowShadow
+[0x00000000, 0x1fffffff] 	LowMem
+
 
 mprotect
 ========================================
