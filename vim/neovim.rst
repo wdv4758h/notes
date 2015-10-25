@@ -250,6 +250,16 @@ Challenge
 
 * `VimGolf - real Vim ninjas count every keystroke! <http://www.vimgolf.com/>`_
 
+Funny
+========================================
+
+* `Vim on a Mechanical Typewriter <http://qqrs.github.io/blog/2013/05/03/vim-on-a-mechanical-typewriter/>`_
+
+
+Idea
+========================================
+
+* use Pygement to do syntax hightlight
 
 Reference
 ========================================
