@@ -2,6 +2,8 @@
 Git Tips
 ========================================
 
+git add -p
+
 Checkout GitHub pull requests locally
 ========================================
 
@@ -68,3 +70,50 @@ global 設定
     From git://github.com/USERNAME/REPO
     - [new ref]         refs/pull/1/head -> pr/1
     $ git checkout pr/1
+
+
+
+Merge Two Different Repo Into One
+========================================
+
+.. code-block:: sh
+
+    # Project Old
+    mkdir projold
+    cd projold
+    git init
+    touch test-projold
+    git add test-projold
+    git commit -m "Initial Commit (in projold)"
+    cd ..
+
+    # Project New
+    mkdir projnew
+    cd projnew
+    git init
+    touch test-projnew
+    git add test-projnew
+    git commit -m "Initial Commit (in projnew)"
+
+    # Merge Project Old Into Project New
+    git remote add -f projold ../projold
+    git merge -s ours --no-commit projold/master        # use merge strategy ``ours``
+    git read-tree --prefix=projold/ -u projold/master
+    git ci -m "Merge projold into subdir"
+    ls -lR
+    # .:
+    # total 0
+    # drwxr-xr-x 2 dv users 60 Oct 26 12:47 projold
+    # -rw-r--r-- 1 dv users  0 Oct 26 12:47 test-projnew
+    #
+    # ./projold:
+    # total 0
+    # -rw-r--r-- 1 dv users 0 Oct 26 12:47 test-projold
+
+
+    #
+    #   *   c073b17 - (4 seconds ago) Merge projold into subdir - XXX (HEAD -> master)
+    #   |\
+    #   | * fcfe4fc - (5 seconds ago) Initial Commit (in projold) - XXX (projold/master)
+    #   * c56a13f - (4 seconds ago) Initial Commit (in projnew) - XXX
+    #
