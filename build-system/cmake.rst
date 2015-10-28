@@ -208,3 +208,49 @@ Linker 會去找 Compiler 來用，
 
 * `[CMake] how to really change CMake linker <http://www.cmake.org/pipermail/cmake/2014-August/058271.html>`_
 * `CMake - CMAKE_CXX_LINK_EXECUTABLE <https://github.com/Kitware/CMake/blob/master/Modules/CMakeCXXInformation.cmake>`_
+
+
+偵測 Compiler Options
+========================================
+
+.. code-block:: cmake
+
+    include(CheckCCompilerFlag)
+
+    check_c_compiler_flag(-fno-sanitize-recover=all SANITIZE_RECOVER_ALL)
+
+    if(SANITIZE_RECOVER_ALL)
+        set(SANITIZE_RECOVER -fno-sanitize-recover=all)     # Clang 3.6+
+    else()
+        set(SANITIZE_RECOVER -fno-sanitize-recover)         # Clang 3.5-
+    endif()
+
+    message("Result : " ${SANITIZE_RECOVER})
+
+
+.. code-block:: sh
+
+    $ ls CMakeLists.txt
+    $ mkdir build
+    $ cd build
+    $ CC=clang cmake ../
+    -- The C compiler identification is Clang 3.7.0
+    -- The CXX compiler identification is GNU 5.2.0
+    -- Check for working C compiler: /usr/bin/clang
+    -- Check for working C compiler: /usr/bin/clang -- works
+    -- Detecting C compiler ABI info
+    -- Detecting C compiler ABI info - done
+    -- Detecting C compile features
+    -- Detecting C compile features - done
+    -- Check for working CXX compiler: /usr/bin/c++
+    -- Check for working CXX compiler: /usr/bin/c++ -- works
+    -- Detecting CXX compiler ABI info
+    -- Detecting CXX compiler ABI info - done
+    -- Detecting CXX compile features
+    -- Detecting CXX compile features - done
+    -- Performing Test SANITIZE_RECOVER_ALL
+    -- Performing Test SANITIZE_RECOVER_ALL - Success
+    Result : -fno-sanitize-recover=all
+    -- Configuring done
+    -- Generating done
+    -- Build files have been written to: /tmp/build
