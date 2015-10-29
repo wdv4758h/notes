@@ -9,14 +9,21 @@ Neovim 是從 Vim 7.4.160 fork 出去的專案，
 一些改善：
 
 * source code 整理
-* 清除一些老系統的支援 (已經根本沒有人會用到的)
 * 改用 CMake
 * 把原本的 C code porting 前往 C99 (不知道以後可否變 C11 XD?)
 * 使用 libuv 取代原本一些針對特定 OS 的 code
 * 支援使用新的 msgpack API 來做 RPC (remote procedure call)
 * 清除大量的 memory 相關問題
+* 接上 Continuous Integration 為每次 commit 做測試
+* 加上 AddressSanitizer & Memory Sanitizer 幫助測試
 * ...
 
+----
+
+Neovim 裡的 runtime files (例如 syntax highlight) 還是使用跟 Vim 一樣的內容，
+目前沒有要另外維護一份，
+所以要更動的話直接送到 upstream Vim，
+Neovim 會定期 update 過來。
 
 ----
 
@@ -27,8 +34,17 @@ Neovim 是從 Vim 7.4.160 fork 出去的專案，
 其中一個目標是 `patch 7.4.754 <https://github.com/vim/vim/commit/v7-4-799>`_ ，
 Visual mode 的 control+a 來增加數字、control+x 減數字。
 
+
 Build From Source
 ========================================
+
+Build with Sanitizer
+------------------------------
+
+.. code-block:: sh
+
+    $ CC=clang cmake .. -DCLANG_ASAN_UBSAN=ON
+
 
 Run Test
 ------------------------------
@@ -138,86 +154,6 @@ Example 2
 ++++++++++++++++++++
 
 * `幫忙為 Vim patches 標上 NA <https://github.com/neovim/neovim/pull/2832>`_
-
-Patch 7.4.754 related
-========================================
-
-注意，從這個 patch 之後，後面還有好幾個 patch 是修這個 patch 引進的問題。
-
-+----------------+--------+--------------------------------+
-| port to neovim | Status | File                           |
-+================+========+================================+
-|                | Modify | /src/normal.c                  |
-+----------------+--------+--------------------------------+
-|                | Modify | /src/ops.c                     |
-+----------------+--------+--------------------------------+
-|                | Modify | /src/proto/ops.pro             |
-+----------------+--------+--------------------------------+
-|                | Modify | /src/testdir/Make_amiga.mak    |
-+----------------+--------+--------------------------------+
-|                | Modify | /src/testdir/Make_dos.mak      |
-+----------------+--------+--------------------------------+
-|                | Modify | /src/testdir/Make_ming.mak     |
-+----------------+--------+--------------------------------+
-|                | Modify | /src/testdir/Make_os2.mak      |
-+----------------+--------+--------------------------------+
-|                | Modify | /src/testdir/Make_vms.mms      |
-+----------------+--------+--------------------------------+
-|                | Modify | /src/testdir/Makefile          |
-+----------------+--------+--------------------------------+
-|                | Add    | /src/testdir/test_increment.in |
-+----------------+--------+--------------------------------+
-|                | Add    | /src/testdir/test_increment.ok |
-+----------------+--------+--------------------------------+
-|                | Modify | /src/version.c                 |
-+----------------+--------+--------------------------------+
-
-
-
-::
-
-    patch 7.4.754 -> patch 7.4.764 -> patch 7.4.765 -> patch 7.4.782
-
-
-* https://github.com/vim/vim/commit/v7-4-754
-* https://github.com/vim/vim/commit/v7-4-764
-* https://github.com/vim/vim/commit/v7-4-765
-* https://github.com/vim/vim/commit/v7-4-782
-
-
-
-NA Patches
-========================================
-
-* [.777](https://code.google.com/p/vim/source/detail?r=v7-4-777) (README)
-* [.778](https://code.google.com/p/vim/source/detail?r=v7-4-778) (Coverity warns)
-* [.779](https://code.google.com/p/vim/source/detail?r=v7-4-779) (CTRL-A bug) (not exist in neovim)
-* [.780](https://code.google.com/p/vim/source/detail?r=v7-4-780) (Compiler complains)
-* .781 : has PR now
-* .782 : CTRL-A and CTRL-X in Visual mode
-* [.783](https://code.google.com/p/vim/source/detail?r=v7-4-783) (copy_chars, copy_spaces, vim_memset)
-* .785 : On some systems automatically adding the missing EOL causes problems. [?]
-* .786 : It is not possible for a plugin to adjust to a changed setting.
-* .787 : snprintf() isn't available everywhere. Use vim_snprintf()
-* [.788](https://code.google.com/p/vim/source/detail?r=v7-4-788) (Can't build, #ifdef)
-* [.789](https://code.google.com/p/vim/source/detail?r=v7-4-789) (Using freed memory)
-* .790 : update .786 test
-* .791 : has PR now
-* .792 : Can only conceal text by defining syntax items. [?]
-* .793 : Can't specify when not to ring the bell. Add 'belloff'
-* [.794](https://code.google.com/p/vim/source/detail?r=v7-4-794) (Make_mvc.mak)
-* [.795](https://code.google.com/p/vim/source/detail?r=v7-4-795) (fixeol)
-* [.796](https://code.google.com/p/vim/source/detail?r=v7-4-796) (Compiler warns)
-* .797 : Crash when using more lines for the command line than 'maxcombine'.
-* .798 : Repeating a change in Visual mode does not work as expected.
-* .799 : Accessing memory before an allocated block. write PR !!!!
-    - https://github.com/vim/vim/commit/v7-4-799
-    - https://github.com/vim/vim/commit/9e6863be9717ab317dc2bac13b48a11b54384bb6
-* .800 : Using freed memory when triggering CmdUndefined autocommands. write PR !!!
-    - https://github.com/vim/vim/commit/f82470ea64e5117b626d105796ce341de9af439a
-* .801 : Test for ":diffoff" doesn't catch all potential problems. (seems not suit ?)
-* .802 : Using "A" in Visual mode while 'linebreak' is set is not tested.
-* .803 : C indent does not support C11 raw strings. [?]
 
 
 其他可能的項目
