@@ -29,6 +29,16 @@ Module
 Example
 ========================================
 
+``async`` keyword 用來把 function 變成 coroutine，
+在 coroutine 內可以使用 ``await`` 來暫停執行，
+等待其他事情完成。
+
+* ``async`` function 回傳的是 ``coroutine`` object
+* ``await`` 只能用於 ``async`` function 內
+* ``await with`` 後的 context manager 需要 ``__aenter__`` 和 ``__aexit__``
+* ``await for`` 後的 iterable variable 需要 ``__aiter__`` 和 ``__anext__``
+
+
 .. code-block:: python
 
     >>> async def f():
@@ -82,7 +92,7 @@ Example
     ...     return 'O w O'
     ...
     >>> async def foo():
-    ...     return await bar()
+    ...     return await bar()  # await 只能用在 async function 裡
     ...
     >>> loop = asyncio.get_event_loop()
     >>> loop.run_until_complete(foo())
@@ -92,6 +102,10 @@ Example
 
 
 ``async with`` :
+
+(``async with`` 後面會在進 block 前先去 call ``__aenter__`` ，
+接著在離開 block 時 call ``__aexit__`` 來做善後，
+藉此可以在 method 中使用 ``await`` 來接其他 asynchronous function)
 
 .. code-block:: python
 
@@ -115,6 +129,10 @@ Example
 
 
 ``async for`` :
+
+(``async for`` 後面會先去 call ``__aiter__`` 來拿 iterator，
+接著用 ``__anext__`` 來取下一個值，
+藉此可以在 method 中使用 ``await`` 來接其他 asynchronous function)
 
 .. code-block:: python
 
@@ -144,6 +162,33 @@ Example
     42
     42
     42
+
+
+
+``asyncio.wait`` :
+
+(``asyncio.wait`` 可以一次吃很多 coroutine 下去執行、等待)
+
+.. code-block:: python
+
+    >>> import asyncio
+    >>> async def f(time, *args):
+    ...     await asyncio.sleep(time)
+    ...     print('O w O : {}'.format(args))
+    >>> async def main():
+    ...     result = await asyncio.wait([
+    ...             f(0.5, 124124, 'asd'),
+    ...             f(0.3, 423434343434343434343434343434343434343434343434, 'asd'),
+    ...             f(0.1, 412124, 'das'),
+    ...         ])
+    ...     print(result)
+    >>> loop = asyncio.get_event_loop()
+    >>> loop.run_until_complete(main())
+    O w O : (412124, 'das')
+    O w O : (423434343434343434343434343434343434343434343434, 'asd')
+    O w O : (124124, 'asd')
+    ({<Task finished coro=<f() done, defined at <stdin>:1> result=None>, <Task finished coro=<f() done, defined at <stdin>:1> result=None>, <Task finished coro=<f() done, defined at <stdin>:1> result=None>}, set())
+
 
 
 Reference
