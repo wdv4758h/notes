@@ -20,6 +20,11 @@ History
     - asynchronous context managers (提供 ``__aenter__()`` 和 ``__aexit__()``)
 
 
+Module
+========================================
+
+* ``asynchat`` module 現在還保留是為了 backwards compatibility，現在建議使用 ``asyncio``
+
 
 Example
 ========================================
@@ -85,6 +90,60 @@ Example
     >>> loop.close()
 
 
+
+``async with`` :
+
+.. code-block:: python
+
+    >>> class Manager:
+    ...     async def __aenter__(self):
+    ...         print('__aenter__')
+    ...         return self
+    ...     async def __aexit__(self, *args):
+    ...         print('__aexit__')
+    ...         return True
+    >>> async def foo():
+    ...     async with Manager() as a:
+    ...         print(42)
+    >>> import asyncio
+    >>> loop = asyncio.get_event_loop()
+    >>> loop.run_until_complete(foo())
+    __aenter__
+    42
+    __aexit__
+
+
+
+``async for`` :
+
+.. code-block:: python
+
+    >>> class AsyncIter:
+    ...     def __init__(self):
+    ...         self.iteration = 0
+    ...     async def __aiter__(self):
+    ...         print('__aiter__')
+    ...         return self
+    ...     async def __anext__(self):
+    ...         self.iteration += 1
+    ...         if self.iteration > 10:
+    ...             raise StopAsyncIteration
+    ...         return 42
+    >>> async def bar():
+    ...     async for i in AsyncIter():
+    ...         print(i)
+    >>> loop.run_until_complete(bar())
+    __aiter__
+    42
+    42
+    42
+    42
+    42
+    42
+    42
+    42
+    42
+    42
 
 
 Reference
