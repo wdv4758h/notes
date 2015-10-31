@@ -30,3 +30,24 @@ Clang 3.7 - Sanitizer on Ubuntu
 實際測試在 Ubuntu 上安裝 Clang 3.7，
 發現只能找到 ``libclang_rt.builtins-x86_64.a`` 和 ``libclang_rt.profile-x86_64.a`` ，
 其他的就沒有了 ...
+
+
+
+2015-10-31
+========================================
+
+Neovim - jump to last position on reopen doesn't work
+-----------------------------------------------------
+
+``viminfo`` 的新名字為 ``shada``
+
+* `jump to last position on reopen doesn't work anymore <https://github.com/neovim/neovim/issues/3472>`_
+* `[RDY] Fix local marks saving/restoring with ShaDa <https://github.com/neovim/neovim/pull/3490/files>`_
+
+
+Neovim - Latest neovim not using .nvimrc
+-----------------------------------------------------
+
+新路徑： ``$HOME/.config/nvim/``
+
+* `Latest neovim not using .nvimrc <https://github.com/neovim/neovim/issues/3530>`_
