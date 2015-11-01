@@ -165,6 +165,46 @@ DEPAPEPE
 Uncategory
 ========================================
 
+James Blunt
+------------------------------
+
+* You're Beautiful
+* Bonfire Heart
+* Goodbye My Lover
+* Postcards
+* I'll Be Your Man
+* If Time Is All I Have
+* Stay The Night
+* Wisemen
+* 1973
+
+
+A Great Big World
+------------------------------
+
+* Say Something
+
+
+Bruno Mars
+------------------------------
+
+* Just The Way You Are
+* Grenade
+
+
+Adele
+------------------------------
+
+* Someone Like You
+* Rolling in the Deep
+
+
+The Beatles
+------------------------------
+
+* Hey Jude
+* Let It Be
+
 麋先生Mixer
 ------------------------------
 
