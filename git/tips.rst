@@ -99,7 +99,7 @@ Merge Two Different Repo Into One
     git remote add -f projold ../projold
     git merge -s ours --no-commit projold/master        # use merge strategy ``ours``
     git read-tree --prefix=projold/ -u projold/master
-    git ci -m "Merge projold into subdir"
+    git commit -m "Merge projold into subdir"
     ls -lR
     # .:
     # total 0
