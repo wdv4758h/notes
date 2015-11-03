@@ -117,3 +117,31 @@ Merge Two Different Repo Into One
     #   | * fcfe4fc - (5 seconds ago) Initial Commit (in projold) - XXX (projold/master)
     #   * c56a13f - (4 seconds ago) Initial Commit (in projnew) - XXX
     #
+
+
+Squash commits into one
+========================================
+
+.. code-block:: sh
+
+    git rebase -i <不變動的commit的SHA-1>
+
+    ########################################
+    # 接下會進入編輯模式
+
+    pick 056eef4 a
+    pick da39a8a b  # 把要 squash 的改成 "squash"
+
+    # Rebase 49687a0..d426a8a onto 49687a0
+    #
+    # Commands:
+    #  p, pick = use commit
+    #  r, reword = use commit, but edit the commit message
+    #  e, edit = use commit, but stop for amending
+    #  s, squash = use commit, but meld into previous commit
+    #  f, fixup = like "squash", but discard this commit's log message
+    #  x, exec = run command (the rest of the line) using shell
+    #
+    # If you remove a line here THAT COMMIT WILL BE LOST.
+    # However, if you remove everything, the rebase will be aborted.
+    #
