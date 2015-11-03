@@ -37,6 +37,15 @@ Python 的 bool 可以拿來做運算
     [(0, 1, 2), (3, 4, 5), (6, 7, 8)]
 
 
+.. code-block:: python
+
+    >>> x = range(9)
+    >>> list(zip(*[iter(x), iter(x[1:])]*2))
+    [(0, 1, 1, 2), (2, 3, 3, 4), (4, 5, 5, 6), (6, 7, 7, 8)]
+
+
+* `Python zip( ) Fu <http://pavdmyt.com/python-zip-fu/>`_
+
 
 Others
 ========================================
