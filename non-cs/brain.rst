@@ -4,24 +4,76 @@ Brain
 
 .. contents:: Table of Contents
 
+Exam
+========================================
+
+1. [Gross Anatomy and Function] 腦袋構造名稱、位置、功能，十二對腦神經
+2. [Glia Cell and Function] 膠細胞功能、髓鞘
+3. [Electrophysiology]
+    - Action Potential
+        + 去極化，K+、Na+
+        + 再極化
+        + 問題
+            * 什麼是 Action Potential
+            * 其他問答
+    - Application (工具、用途)
+        + EP
+        + EEG : 腦電圖
+4. [Neurotransmitters]
+    - [興奮性] EPSP : 更負 (Cl¯)
+        + 乙醯膽鹼 (Acetylcholine)
+    - IPSP
+        + Glycine
+        + GABA
 
 Brain - Basic
 ========================================
 
+Lobe ::
+
+          _________________
+         /       /         \
+        /       |  Parietal \
+       | Frontal|          / \
+       |        |---------/  |
+       \       /         /   /   <--- Occipital
+        ------/         :----
+             | Temporal |
+              \________/
+
+
 * 額葉 (Frontal Lobe)
     - 掌管動機、情緒、推理
+    - 長期記憶
     - Phineas Gage
 
 * 頂葉 (Parietal Lobe)
     - 觸覺、壓力、溫度、疼痛
+    - 結構、空間
 
 * 顳葉 (Temporal Lobe)
     - 知覺、聽覺刺激辨識、記憶 (hippocampus)
+    - 海馬迴
+        + 短暫記憶
 
 * 枕葉 (Occipital Lobe)
     - 視覺
 
+(大部份人的語言中心在左腦)
+
+
 * `Wikipedia - Frontal lobe <https://en.wikipedia.org/wiki/Frontal_lobe>`_
+
+----
+
+* 小腦
+    - 平衡及運動協調中心
+    - 學習技巧性功能的中心 (騎腳踏車、溜冰)
+    - 疾病
+        + 失去平衡 (小腦萎縮症 -> 企鵝家族、一公升的眼淚)
+
+* 腦幹 (中腦、橋腦、延髓)
+    - 喚醒及生命中樞
 
 
 Uncategory
