@@ -165,6 +165,84 @@ DEPAPEPE
 Uncategory
 ========================================
 
+Gym Class Heroes
+------------------------------
+
+* Stereo Hearts
+
+Alicia Keys
+------------------------------
+
+* Empire State Of Mind
+
+Gabrielle Aplin
+------------------------------
+
+* More Than Friends
+* Please Don't Say You Love Me
+* Panic Cord
+* The Power of Love
+* Ghosts
+* Lying to the mirror
+
+Creed
+------------------------------
+
+* My Sacrifice
+
+Carly Rae Jepsen
+------------------------------
+
+* Call Me Maybe
+
+David Guetta
+------------------------------
+
+* Titanium
+
+Avril Lavigne
+------------------------------
+
+* My Happy Ending
+
+Jason Mraz
+------------------------------
+
+* I'm Yours
+* I Won't Give Up
+* Make It Mine
+
+The Last Goodnight
+------------------------------
+
+* Pictures of you
+
+Elton John
+------------------------------
+
+* Can You Feel The Love Tonight
+
+Mika
+------------------------------
+
+* Happy Ending
+
+The Calling
+------------------------------
+
+* Wherever You Will Go
+
+Ylvis
+------------------------------
+
+* The Fox
+
+
+Sam Smith
+------------------------------
+
+* Stay With Me
+
 James Blunt
 ------------------------------
 
@@ -177,6 +255,7 @@ James Blunt
 * Stay The Night
 * Wisemen
 * 1973
+* Dangerous
 
 
 A Great Big World
@@ -310,6 +389,7 @@ The Winking Owl
 * Star
 * Change Your Destiny
 * The Ocean Floor
+* Deep River
 
 SWANKY DANK
 ------------------------------
@@ -364,6 +444,11 @@ x
 * Shirtsleeves
 * I See Fire
 
+Other
+++++++++++++++++++++
+
+* You Need Me, I Don't Need You
+
 
 Maroon 5
 ------------------------------
@@ -402,3 +487,12 @@ Wiz Khalifa
 ------------------------------
 
 * See You Again
+
+
+Japanese
+========================================
+
+Nano
+------------------------------
+
+* Nevereverland
