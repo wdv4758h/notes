@@ -13,16 +13,20 @@ Exam
     - Action Potential
         + 去極化，K+、Na+
         + 再極化
-        + 問題
-            * 什麼是 Action Potential
-            * 其他問答
     - Application (工具、用途)
         + EP
         + EEG : 腦電圖
 4. [Neurotransmitters]
-    - [興奮性] EPSP : 更負 (Cl¯)
+    - [興奮性][Excitatory] EPSP : 更負 (Cl¯)
         + 乙醯膽鹼 (Acetylcholine)
-    - IPSP
+        + Aspartate
+        + Dopamine
+        + Histamine
+        + Norepinephrine
+        + Epinephrine
+        + Glutamate
+        + Serotonin
+    - [Inhibitory] IPSP
         + Glycine
         + GABA
 
@@ -31,15 +35,15 @@ Brain - Basic
 
 Lobe ::
 
-          _________________
-         /       /         \
-        /       |  Parietal \
-       | Frontal|          / \
-       |        |---------/  |
-       \       /         /   /   <--- Occipital
-        ------/         :----
-             | Temporal |
-              \________/
+     　 _________________
+       /       /         \
+      /       |  Parietal \
+     | Frontal|          / \
+     |        |---------/  |
+     \       /         /   /   <--- Occipital
+      ------/         :----
+           | Temporal |
+            \________/
 
 
 * 額葉 (Frontal Lobe)
@@ -75,6 +79,45 @@ Lobe ::
 * 腦幹 (中腦、橋腦、延髓)
     - 喚醒及生命中樞
 
+----
+
+
+* 多巴胺 (Dopamine)
+    - 快樂物質
+    - 傳遞快樂、興奮情緒
+    - [不足] 帕金森氏症 (Parkinson's disease)
+        + 當多巴胺數量不足時，乙醯膽鹼數量就會過多
+    - [過多] 思覺失調 (Psychoses) (例如濫用安非他命)
+* 正腎上腺素 (Norepinephrine)
+    - 應付壓力的荷爾蒙
+    - 幫助大腦學更有效、更自覺地呼吸
+    - 在清醒時最多
+    - 快速動眼期會停止分泌
+* 乙醯膽鹼 (Acetylcholine)
+    - 快速動眼期會被激發
+    - 在心臟組織中的乙醯膽鹼具有抑制神經傳遞的效果，從而降低心臟速率
+    - 在骨骼肌神經肌肉接頭處，乙醯膽鹼為一種興奮性神經遞質
+* 血清素 (Serotonin)
+    - Non-REM sleep
+* 天門冬胺酸 (Aspartate)
+* 組織胺 (Histamine)
+* 腎上腺素 (Epinephrine)
+* 麩胺酸 (Glutamate)
+* GABA (γ-Aminobutyric acid)
+    - 參與多種代謝活動，具有很高的生理活性
+    - 為大腦中的一個抑制突觸的神經遞質
+
+
+----
+
+* Central Nervous System:
+    1. EEG (electroencephalogram) (腦電圖)
+    2. Evoked potential (誘發電位檢查) : VEP, BAEP, SSEP, MEP
+    3. Carotid duplex, TCD,
+* Peripheral Nervous System:
+    1. NCV, EMG.....
+
+
 
 Uncategory
 ========================================
@@ -87,18 +130,36 @@ Uncategory
 
 * 神經元 (neuron) : 佔腦內細胞 1/10 ~ 1/2
 * 膠細胞 (glia) : 佔大部分的腦內細胞
-    - 許旺細胞 (Schwann cell)
     - 星狀細胞 (Astrocytes)
-    - 微膠細胞 (Microglia)
     - 寡突細胞 (Oligodendrocyte)
+    - 微膠細胞 (Microglia)
+    - 放射狀膠細胞 (Radial glia)
+    - 許旺細胞 (Schwann cell) (Peripheral glia)
 
 
 介紹
 ++++++++++++++++++++
 
 * 星狀細胞 (Astrocytes)
-    - 血腦障壁 (Blood-Brain-Barrier)(BBB)
-
+    - 血腦障壁 (Blood-Brain-Barrier) (BBB)
+        + 保護腦部不受血液中「外來物質」的傷害
+        + 避免腦部受到身體其他部位的荷爾蒙與神經傳導物質影響
+        + 維持腦中環境的衡定
+    - 代謝神經傳遞素以及調節突觸效率
+* 寡突細胞 (Oligodendrocyte)
+    - CNS (Central Nerve System) myelination
+    - 中樞神經的髓鞘
+* 許旺細胞 (Schwann cell) (Peripheral glia)
+    - PNS myelination
+    - 周圍神經的髓鞘
+* 微膠細胞 (Microglia)
+    - 最小、最少的膠細胞
+    - 有異物時，具吞噬的功能
+    - 與免疫系統有關
+    - 可以分解死亡的神經元
+* 放射狀膠細胞 (Radial glia)
+    - 引導神經元遷移
+    - 神經新生中主要的前驅細胞
 
 
 PNS (Peripheral Nervous System)
