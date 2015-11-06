@@ -366,21 +366,10 @@ MONKEY MAJIK
 * Headlight
 * If
 
-SECONDWALL
-------------------------------
-
-* アイデンティティ
-* 君の世界を
-
 NOISEMAKER
 ------------------------------
 
 * Oblivion
-
-Eir Aoi
-------------------------------
-
-* GENESIS
 
 The Winking Owl
 ------------------------------
@@ -396,21 +385,6 @@ SWANKY DANK
 
 * Sink Like a Stone
 
-yonige
-------------------------------
-
-* さよならアイデンティティー
-
-ゆず
-------------------------------
-
-* 表裏一体
-    - 《獵人》第二季片尾曲
-
-
-amazarashi (あまざらし)
-------------------------------
-
 Codeplay
 ------------------------------
 
@@ -419,7 +393,7 @@ Codeplay
 Ed Sheeran
 ------------------------------
 
-+
+`+`
 ++++++++++++++++++++
 
 * Lego House
@@ -489,10 +463,74 @@ Wiz Khalifa
 * See You Again
 
 
-Japanese
+Uncategory - Japanese
 ========================================
 
 Nano
 ------------------------------
 
 * Nevereverland
+
+SECONDWALL
+------------------------------
+
+* アイデンティティ
+* 君の世界を
+
+Eir Aoi
+------------------------------
+
+* GENESIS
+
+yonige
+------------------------------
+
+* さよならアイデンティティー
+
+ゆず
+------------------------------
+
+* 表裏一体
+    - 《獵人》第二季片尾曲
+
+
+amazarashi (あまざらし)
+------------------------------
+
+Luna Haruna
+------------------------------
+
+* Overfly
+
+Endless Tears
+------------------------------
+
+* Love is a Beautiful Pain
+
+LiSA
+------------------------------
+
+* Rising Hope
+
+SCANDAL
+------------------------------
+
+* HARUKAZE
+    - 《死神》片頭曲
+* Awanaitsumorino, Genkidene
+* Shunkan Sentimental
+* Runners High
+* Departure
+
+supercell
+------------------------------
+
+* 君の知らない物語
+
+GARNiDELiA
+------------------------------
+
+* Mirai
+* Ambiguous
+* Blazing
+    - 《鋼彈 Reconguista in G》片頭曲
