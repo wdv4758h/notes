@@ -109,3 +109,21 @@ index 從 0 開始 (所以第五小的值會在 index 4)
     array([ 6, 13,  2,  3,  4,  5,  0,  7,  8,  9, 10, 11, 12,  1])
     >>> data.flat[np.argpartition(data.flat, 1)[1]]
     0
+
+
+Assign with condition
+========================================
+
+.. code-block:: python
+
+    >>> import numpy as np
+    >>> data = np.array(range(10))
+    >>> data
+    array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+    >>> data > 5
+    array([False, False, False, False, False, False,  True,  True,  True,  True], dtype=bool)
+    >>> data[data > 5]
+    array([6, 7, 8, 9])
+    >>> data[data > 5] = -1
+    >>> data
+    array([ 0,  1,  2,  3,  4,  5, -1, -1, -1, -1])
