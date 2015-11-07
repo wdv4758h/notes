@@ -2,6 +2,14 @@
 Math
 ========================================
 
+Elliptic Curve
+========================================
+
+* `Elliptic Curve Cryptography: a gentle introduction <http://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/>`_
+* `ECCHacks - A gentle introduction to elliptic-curve cryptography <https://www.youtube.com/watch?v=l6jTFxQaUJA>`_
+
+
+
 Spline
 ========================================
 
