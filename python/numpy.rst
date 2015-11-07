@@ -91,3 +91,21 @@ index 從 0 開始 (所以第五小的值會在 index 4)
     matrix([[1],
             [4],
             [7]])
+
+    >>> data = np.array([[7, 8, 1, 2, 5, 9, 0], [7, 8, 1, 2, 5, 9, 0]])
+    >>> data
+    array([[7, 8, 1, 2, 5, 9, 0],
+           [7, 8, 1, 2, 5, 9, 0]])
+    >>> np.argpartition(data, 0)
+    array([[6, 1, 2, 3, 4, 5, 0],
+           [6, 1, 2, 3, 4, 5, 0]])
+    >>> data.flat   # flat iterator
+    <numpy.flatiter object at 0x13c04b0>
+    >>> np.argpartition(data.flat, 0)
+    array([ 6,  1,  2,  3,  4,  5,  0,  7,  8,  9, 10, 11, 12, 13])
+    >>> data.flat[np.argpartition(data.flat, 0)[0]]
+    0
+    >>> np.argpartition(data.flat, 1)
+    array([ 6, 13,  2,  3,  4,  5,  0,  7,  8,  9, 10, 11, 12,  1])
+    >>> data.flat[np.argpartition(data.flat, 1)[1]]
+    0
