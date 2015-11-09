@@ -2,6 +2,10 @@
 Resource
 ========================================
 
+* `The Periodic Table of Rust Types <http://cosmic.mearie.org/2014/01/periodic-table-of-rust-types/>`_
+* `rust-learning <https://github.com/ctjhoa/rust-learning>`_
+* `Rust Iterator Cheat Sheet <https://danielkeep.github.io/itercheat_baked.html>`_
+
 * `O'Reilly - Why Rust? <http://www.oreilly.com/programming/free/files/why-rust.pdf>`_
     - 共 62 頁
     - 適合有 C 或 C++ 經驗的人
