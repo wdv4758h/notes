@@ -2,6 +2,56 @@
 Rust - Misc
 ========================================
 
+Overhead of Option
+=========================================================
+
+.. code-block:: rust
+
+    use std::mem::size_of;
+
+    macro_rules! show_size {
+        (header) => (
+            println!("{:<22} {:>4}    {}", "Type", "T", "Option<T>");
+        );
+        ($t:ty) => (
+            println!("{:<22} {:4} {:4}", stringify!($t), size_of::<$t>(), size_of::<Option<$t>>())
+        )
+    }
+
+    fn main() {
+        show_size!(header);
+        show_size!(i32);
+        show_size!(&i32);
+        show_size!(Box<i32>);
+        show_size!(&[i32]);
+        show_size!(Vec<i32>);
+        show_size!(Result<(), Box<i32>>);
+    }
+
+
+
+64-bit (pointers are 8 bytes) :
+
++----------------------+----+-----------+
+| Type                 | T  | Option<T> |
++======================+====+===========+
+| i32                  | 4  | 8         |
++----------------------+----+-----------+
+| &i32                 | 8  | 8         |
++----------------------+----+-----------+
+| Box<i32>             | 8  | 8         |
++----------------------+----+-----------+
+| &[i32]               | 16 | 16        |
++----------------------+----+-----------+
+| Vec<i32>             | 24 | 24        |
++----------------------+----+-----------+
+| Result<(), Box<i32>> | 8  | 16        |
++----------------------+----+-----------+
+
+((大部分的狀況下) Compiler 會把 Option<ptr> 優化成單一一個 pointer，這對於所有 "Option-like" 的 enums 都適用，包含 user 自己定義的 Option)
+
+
+
 RFC 1242 - Rust Lang Crates (Policy For Rust Lang Crates)
 =========================================================
 
