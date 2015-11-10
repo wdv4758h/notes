@@ -2,6 +2,105 @@
 Rust - Misc
 ========================================
 
+Iterator
+========================================
+
+.. code-block:: rust
+
+    let x = vec![vec![1, 2, 3], vec![4, 5, 6], vec![7, 8, 9]];
+
+    println!("{:?}", x);    // [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+
+    ////////////////////////////////////////
+    // transpose
+    ////////////////////////////////////////
+
+    let y : Vec<_> = x[0].iter()
+                         .zip(&x[1])
+                         .zip(&x[2])
+                         .map(|((&a, &b), &c)| (a, b, c))
+                         .collect();
+
+    println!("{:?}", y);    // [(1, 4, 7), (2, 5, 8), (3, 6, 9)]
+
+    ////////////////////////////////////////
+    // column
+    ////////////////////////////////////////
+
+    let y = x[0].iter()
+                .zip(&x[1])
+                .zip(&x[2])
+                .map(|((&a, &b), &c)| (a, b, c))
+                .nth(2)        // last column
+                .unwrap();
+
+    println!("{:?}", y);    // (3, 6, 9)
+
+    ////////////////////////////////////////
+    // column (inspect)
+    ////////////////////////////////////////
+
+    let y = x[0].iter()
+                .inspect(|&x| println!("stage 0 :\t{:?}", x))
+                .zip(&x[1])
+                .inspect(|&x| println!("stage 1 :\t{:?}", x))
+                .zip(&x[2])
+                .inspect(|&x| println!("stage 2 :\t{:?}", x))
+                .map(|((&a, &b), &c)| (a, b, c))
+                .inspect(|&x| println!("stage 3 :\t{:?}", x))
+                .nth(2)     // last column
+                .unwrap();
+
+    // stage 0 :       1
+    // stage 1 :       (1, 4)
+    // stage 2 :       ((1, 4), 7)
+    // stage 3 :       (1, 4, 7)
+    // stage 0 :       2
+    // stage 1 :       (2, 5)
+    // stage 2 :       ((2, 5), 8)
+    // stage 3 :       (2, 5, 8)
+    // stage 0 :       3
+    // stage 1 :       (3, 6)
+    // stage 2 :       ((3, 6), 9)
+    // stage 3 :       (3, 6, 9)
+    // (3, 6, 9)
+
+    println!("{:?}", y);    // (3, 6, 9)
+
+    ////////////////////////////////////////
+    // flat
+    ////////////////////////////////////////
+
+    let x = vec![vec![1, 2, 3], vec![4, 5, 6], vec![7, 8, 9]];
+    let y : Vec<_> = x[0].iter()
+                         .chain(&x[1])
+                         .chain(&x[2])
+                         .collect();
+
+    println!("{:?}", y);    // [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+
+
+Cargo
+=========================================================
+
+.. code-block:: sh
+
+    $ cargo search python
+        Updating registry `https://github.com/rust-lang/crates.io-index`
+    python_mixin (0.0.2)               Deprecated in favour of `external_mixin`. Use Python to generate your Rust, right in your Rust.
+    external_mixin (0.0.1)             Use your favourite interpreted language to generate your Rust, right in your Rust. Supports Python, Ruby and shell (`sh`) out o…
+    python_rub (0.0.3)                 Rust Builder for Python
+    rust_mixin (0.0.1)                 Yo dawg, use Rust to generate Rust, right in your Rust. (See `external_mixin` to use scripting languages.)
+    external_mixin_umbrella (0.0.2)    Backing library for `rust_mixin` and `external_mixin` to keep them DRY.
+    cpython (0.0.4)                    Bindings to Python
+    python3-sys (0.1.1)                FFI Declarations for Python 3
+    python27-sys (0.1.0)               FFI Declarations for Python 2.7
+    adorn (0.1.1)                      A plugin to provide python-style decorators in Rust
+    lonlat_bng (0.1.3)                 Convert longitude and latitude coordinates to BNG coordinates, and vice versa
+
+
+
 Overhead of Option
 =========================================================
 
