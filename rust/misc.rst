@@ -2,6 +2,38 @@
 Rust - Misc
 ========================================
 
+Get Data Type
+========================================
+
+* `Module std::intrinsics <https://doc.rust-lang.org/std/intrinsics/index.html>`_
+
+.. code-block:: rust
+
+    #![feature(core_intrinsics)]
+
+    fn print_type_of<T>(_: &T) -> () {
+        let type_name =
+            unsafe {
+                std::intrinsics::type_name::<T>()
+            };
+        println!("{}", type_name);
+    }
+
+    fn main() -> () {
+        print_type_of(&32.90);           // prints "f64"
+        print_type_of(&(vec!(1, 2, 4))); // prints "collections::vec::Vec<i32>"
+    }
+
+
+
+Rust's Traits v.s. Haskell's Type class
+========================================
+
+Rust 的 Traits 和 Haskell 的 Type class 基本上相似
+
+* `What is the difference between traits in Rust and typeclasses in Haskell? <http://stackoverflow.com/questions/28123453/what-is-the-difference-between-traits-in-rust-and-typeclasses-in-haskell>`_
+
+
 function static variable
 ========================================
 
@@ -113,6 +145,49 @@ Iterator
                          .collect();
 
     println!("{:?}", y);    // [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+
+    let y : Vec<_> = x.iter()
+                      .flat_map(|tmp| tmp.iter())
+                      .collect();
+
+    println!("{:?}", y);    // [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+    ////////////////////////////////////////
+    // sum each row
+    ////////////////////////////////////////
+
+    #![feature(iter_arith)]
+
+    fn main() {
+
+        let x = vec![vec![1, 2, 3], vec![4, 5, 6], vec![7, 8, 9]];
+
+        let y : Vec<i32> = x.iter()
+                            .map(|x| x.iter().sum())
+                            .collect();
+
+        println!("{:?}", y);    // [6, 15, 24]
+    }
+
+    ////////////////////////////////////////
+    // scalar
+    ////////////////////////////////////////
+
+    let n = 10;
+    let y : Vec<i32> = (0..10).map(|x| x * n)
+                              .collect();
+
+    println!("{:?}", y);    // [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
+
+    ////////////////////////////////////////
+    // factorial
+    ////////////////////////////////////////
+
+    let n = 10;
+    let y = (1..).take_while(|&i| i <= n).product()
+
+    println!("{:?}", y);    // 3628800
 
 
 
