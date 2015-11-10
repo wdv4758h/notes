@@ -2,6 +2,42 @@
 Rust - Misc
 ========================================
 
+function static variable
+========================================
+
+* `"const" and "static" <https://doc.rust-lang.org/book/const-and-static.html>`_
+* use of mutable static requires unsafe function or block
+* 在 multithread 的情況下，一個 thread 在改值時，另外一個 thread 可能還在讀，所以需要加上 unsafe
+
+.. code-block:: rust
+
+    fn f(n: i32) {
+        static mut x: i32 = 0;
+        unsafe {
+            println!("before: {}", x);
+            x = n;
+            println!("after:  {}", x);
+        }
+    }
+
+    fn main() {
+        f(1);
+        f(2);
+    }
+
+    // before: 0
+    // after:  1
+    // before: 1
+    // after:  2
+
+
+Lint
+========================================
+
+* `rust-clippy <https://github.com/Manishearth/rust-clippy>`_
+* `Wikipedia - Lint (software) <https://en.wikipedia.org/wiki/Lint_%28software%29>`_
+
+
 Iterator
 ========================================
 
@@ -71,7 +107,6 @@ Iterator
     // flat
     ////////////////////////////////////////
 
-    let x = vec![vec![1, 2, 3], vec![4, 5, 6], vec![7, 8, 9]];
     let y : Vec<_> = x[0].iter()
                          .chain(&x[1])
                          .chain(&x[2])
