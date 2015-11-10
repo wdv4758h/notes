@@ -2,6 +2,9 @@
 Rust - Misc
 ========================================
 
+.. contents:: Table of Contents
+
+
 Get Data Type
 ========================================
 
@@ -11,7 +14,7 @@ Get Data Type
 
     #![feature(core_intrinsics)]
 
-    fn print_type_of<T>(_: &T) -> () {
+    fn print_type_of<T>(_: &T) {
         let type_name =
             unsafe {
                 std::intrinsics::type_name::<T>()
@@ -19,7 +22,7 @@ Get Data Type
         println!("{}", type_name);
     }
 
-    fn main() -> () {
+    fn main() {
         print_type_of(&32.90);           // prints "f64"
         print_type_of(&(vec!(1, 2, 4))); // prints "collections::vec::Vec<i32>"
     }
@@ -213,6 +216,9 @@ Cargo
 
 Overhead of Option
 =========================================================
+
+* `std::stringify! <https://doc.rust-lang.org/std/macro.stringify!.html>`_
+    - 把傳入的 tokens 轉成字串
 
 .. code-block:: rust
 
