@@ -76,6 +76,8 @@ Lint
 Iterator
 ========================================
 
+* `Itertools <https://github.com/bluss/rust-itertools>`_
+
 .. code-block:: rust
 
     let x = vec![vec![1, 2, 3], vec![4, 5, 6], vec![7, 8, 9]];
@@ -86,11 +88,11 @@ Iterator
     // transpose
     ////////////////////////////////////////
 
-    let y : Vec<_> = x[0].iter()
-                         .zip(&x[1])
-                         .zip(&x[2])
-                         .map(|((&a, &b), &c)| (a, b, c))
-                         .collect();
+    let y: Vec<_> = x[0].iter()
+                        .zip(&x[1])
+                        .zip(&x[2])
+                        .map(|((&a, &b), &c)| (a, b, c))
+                        .collect();
 
     println!("{:?}", y);    // [(1, 4, 7), (2, 5, 8), (3, 6, 9)]
 
@@ -142,17 +144,17 @@ Iterator
     // flat
     ////////////////////////////////////////
 
-    let y : Vec<_> = x[0].iter()
-                         .chain(&x[1])
-                         .chain(&x[2])
-                         .collect();
+    let y: Vec<_> = x[0].iter()
+                        .chain(&x[1])
+                        .chain(&x[2])
+                        .collect();
 
     println!("{:?}", y);    // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 
-    let y : Vec<_> = x.iter()
-                      .flat_map(|tmp| tmp.iter())
-                      .collect();
+    let y: Vec<_> = x.iter()
+                     .flat_map(|tmp| tmp.iter())
+                     .collect();
 
     println!("{:?}", y);    // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
@@ -166,9 +168,9 @@ Iterator
 
         let x = vec![vec![1, 2, 3], vec![4, 5, 6], vec![7, 8, 9]];
 
-        let y : Vec<i32> = x.iter()
-                            .map(|x| x.iter().sum())
-                            .collect();
+        let y:Vec<i32> = x.iter()
+                          .map(|x| x.iter().sum())
+                          .collect();
 
         println!("{:?}", y);    // [6, 15, 24]
     }
@@ -178,8 +180,8 @@ Iterator
     ////////////////////////////////////////
 
     let n = 10;
-    let y : Vec<i32> = (0..10).map(|x| x * n)
-                              .collect();
+    let y:Vec<i32> = (0..10).map(|x| x * n)
+                            .collect();
 
     println!("{:?}", y);    // [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
 
@@ -191,6 +193,154 @@ Iterator
     let y = (1..).take_while(|&i| i <= n).product()
 
     println!("{:?}", y);    // 3628800
+
+    ////////////////////////////////////////
+    // diagonal
+    ////////////////////////////////////////
+
+    let y: Vec<i32> = x.iter()
+                       .enumerate()
+                       .map(|(i, values)| values[i])
+                       .collect();
+
+    println!("{:?}", y);    // [1, 5, 9]
+
+    ////////////////////////////////////////
+    // specific two cols
+    ////////////////////////////////////////
+
+    let cols = vec![0, 2];
+    let y: Vec<_> = x.iter()    // Vec<&Vec<i32>>
+                     .enumerate()
+                     .filter_map(|(i, value)| if cols.contains(&i) { Some(value) } else { None })
+                     .collect();
+
+    println!("{:?}", y);    // [[1, 2, 3], [7, 8, 9]]
+
+
+
+.. code-block:: rust
+
+    let fibonacci_iter = (0..).map(|_| {
+                                    static mut m: i32 = 0;
+                                    static mut n: i32 = 1;
+                                    unsafe {
+                                        let tmp = m;
+                                        m = n;
+                                        n += tmp;
+                                        n
+                                    }
+                                });
+
+    for i in fibonacci_iter {
+        println!("{}", i);
+    }
+
+
+    // 1
+    // 2
+    // 3
+    // 5
+    // 8
+    // 13
+    // 21
+    // 34
+    // 55
+    // 89
+    // 144
+    // 233
+    // 377
+    // 610
+    // 987
+    // 1597
+    // 2584
+    // 4181
+    // 6765
+    // 10946
+    // 17711
+    // 28657
+    // 46368
+    // 75025
+    // 121393
+    // 196418
+    // 317811
+    // 514229
+    // 832040
+    // 1346269
+    // 2178309
+    // 3524578
+    // 5702887
+    // 9227465
+    // 14930352
+    // 24157817
+    // 39088169
+    // 63245986
+    // 102334155
+    // 165580141
+    // 267914296
+    // 433494437
+    // 701408733
+    // 1134903170
+    // 1836311903
+    // thread '<main>' panicked at 'arithmetic operation overflowed', transpose.rs:8
+
+
+    let fibonacci_iter = (0..).scan((0, 1), |state, _| {
+                                                *state = (state.1, state.0 + state.1);
+                                                Some(state.1)
+                                            });
+
+    for i in fibonacci_iter {
+        println!("{}", i);
+    }
+
+    // 1
+    // 2
+    // 3
+    // 5
+    // 8
+    // 13
+    // 21
+    // 34
+    // 55
+    // 89
+    // 144
+    // 233
+    // 377
+    // 610
+    // 987
+    // 1597
+    // 2584
+    // 4181
+    // 6765
+    // 10946
+    // 17711
+    // 28657
+    // 46368
+    // 75025
+    // 121393
+    // 196418
+    // 317811
+    // 514229
+    // 832040
+    // 1346269
+    // 2178309
+    // 3524578
+    // 5702887
+    // 9227465
+    // 14930352
+    // 24157817
+    // 39088169
+    // 63245986
+    // 102334155
+    // 165580141
+    // 267914296
+    // 433494437
+    // 701408733
+    // 1134903170
+    // 1836311903
+    // thread '<main>' panicked at 'arithmetic operation overflowed', transpose.rs:3
+
 
 
 
