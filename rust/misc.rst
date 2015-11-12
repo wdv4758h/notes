@@ -4,6 +4,20 @@ Rust - Misc
 
 .. contents:: Table of Contents
 
+Rust Macro
+========================================
+
+* `Macros <http://www.ncameron.org/blog/macros/>`_
+* `Macros in Rust pt1 <http://ncameron.org/blog/macros-in-rust-pt1/>`_
+* `Macros in Rust pt2 <http://www.ncameron.org/blog/macros-in-rust-pt2/>`_
+* `Macros in Rust pt3 <http://www.ncameron.org/blog/macros-in-rust-pt3/>`_
+* `Macros in Rust pt4 <http://www.ncameron.org/blog/macros-in-rust-pt4/>`_
+* `Macros in Rust pt5 <http://www.ncameron.org/blog/macros-in-rust-pt5/>`_
+
+* `Rust Books - Macros <https://doc.rust-lang.org/nightly/book/macros.html>`_
+* `The Little Book of Rust Macros <https://danielkeep.github.io/tlborm/book/index.html>`_
+
+
 
 Get Data Type
 ========================================
@@ -340,6 +354,13 @@ Iterator
     // 1134903170
     // 1836311903
     // thread '<main>' panicked at 'arithmetic operation overflowed', transpose.rs:3
+
+
+
+rustc
+========================================
+
+* `A tutorial on creating a drop-in replacement for rustc. <https://github.com/nrc/stupid-stats>`_
 
 
 
