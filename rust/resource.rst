@@ -6,6 +6,8 @@ Resource
 * `rust-learning <https://github.com/ctjhoa/rust-learning>`_
 * `Rust Iterator Cheat Sheet <https://danielkeep.github.io/itercheat_baked.html>`_
 
+* `Rust For C++ Programmers <https://github.com/nrc/r4cppp>`_
+
 * `O'Reilly - Why Rust? <http://www.oreilly.com/programming/free/files/why-rust.pdf>`_
     - 共 62 頁
     - 適合有 C 或 C++ 經驗的人
