@@ -198,6 +198,9 @@ Reference
 * `Python - types module - types.coroutine <https://docs.python.org/3/library/types.html#types.coroutine>`_
     - transforms a generator function into a coroutine function which returns a generator-based coroutine
     - @types.coroutine
+* `Python - Develop with asyncio <https://docs.python.org/3/library/asyncio-dev.html>`_
+* `Python - Tasks and coroutines <https://docs.python.org/3/library/asyncio-task.html>`_
+* `Python - Streams (high-level API) <https://docs.python.org/3/library/asyncio-stream.html>`_
 * `Wikipedia - Coroutine <https://en.wikipedia.org/wiki/Coroutine>`_
 * `CPython - Lib/test/test_asyncio/test_pep492.py <https://github.com/python/cpython/blob/master/Lib/test/test_asyncio/test_pep492.py>`_
 * `Nick Coghlan's Python Notes - Some Thoughts on Asynchronous Programming <http://python-notes.curiousefficiency.org/en/latest/pep_ideas/async_programming.html>`_
