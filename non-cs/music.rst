@@ -106,6 +106,21 @@ Stereopony
 * Tsukiakari no Michishirube
     - 《DARKER THAN BLACK - 流星之雙子》片頭曲
 
+Paramore
+------------------------------
+
+這個樂團的歌基本上我都能接受
+
+* That's What You Get
+* crushcrushcrush
+* Ignorance
+* Monster
+* Last Hope
+* Playing God
+* Now
+* Decode
+
+
 OK GO
 ------------------------------
 
@@ -127,6 +142,13 @@ David Garrett
 * He's a Pirate
     - 神鬼奇航
 * Paganini Rhapsody
+
+
+Taylor Davis
+------------------------------
+
+* He's a Pirate
+    - 神鬼奇航
 
 
 Piano
@@ -461,6 +483,31 @@ Wiz Khalifa
 ------------------------------
 
 * See You Again
+
+
+
+
+
+Boyce Avenue
+------------------------------
+
+翻唱
+
+* [Wiz Khalifa]     See You Again
+* [Ed Sheeran]      Photograh
+* [Ed Sheeran]      Thinking Out Loud
+* [Jesse & Joy]     ¡Corre!
+* [Colbie Caillat]  Realize
+* [OneRepublic]     Apologize
+* [Jesse McCartney] Beautiful Soul
+* [Craig David]     7 Days
+* [Ellie Goulding]  Love Me Like You Do
+* [Sam Smith]       Stay With Me
+* [Calvin Harris]   Blame
+* [John Legend]     All of Me
+* [Adele]           Someone Like You
+* [Creed]           My Sacrifice
+
 
 
 Uncategory - Japanese
