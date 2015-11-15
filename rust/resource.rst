@@ -23,3 +23,5 @@ Resource
 * `The Rustonomicon - The Dark Arts of Advanced and Unsafe Rust Programming <https://doc.rust-lang.org/nightly/nomicon/>`_
 
 * `The Rust Programming Language <http://doc.rust-lang.org/stable/book/>`_
+
+* `Rust in Detail: Writing Scalable Chat Service from Scratch <http://nbaksalyar.github.io/2015/07/10/writing-chat-in-rust.html>`_
