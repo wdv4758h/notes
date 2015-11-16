@@ -1,1 +1,1 @@
-iterator.rst
+../python/iterator.rst
