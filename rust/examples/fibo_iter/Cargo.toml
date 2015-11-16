@@ -1,0 +1,35 @@
+[package]
+name = "fibo_iter"
+version = "0.0.1"
+authors = [""]
+keywords = [""]
+license = ""
+homepage = ""
+repository = ""
+documentation = ""
+description = ""
+readme = ""
+
+[dependencies]
+num = "*"
+
+[profile.dev]
+
+opt-level = 0
+debug = true
+rpath = false
+lto = false
+debug-assertions = true
+
+[profile.release]
+
+opt-level = 3
+debug = false
+rpath = false
+lto = true
+debug-assertions = false
+
+[[bin]]
+name = "fibo_iter"
+test = false
+doc = false
