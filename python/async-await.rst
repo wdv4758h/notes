@@ -204,3 +204,4 @@ Reference
 * `Wikipedia - Coroutine <https://en.wikipedia.org/wiki/Coroutine>`_
 * `CPython - Lib/test/test_asyncio/test_pep492.py <https://github.com/python/cpython/blob/master/Lib/test/test_asyncio/test_pep492.py>`_
 * `Nick Coghlan's Python Notes - Some Thoughts on Asynchronous Programming <http://python-notes.curiousefficiency.org/en/latest/pep_ideas/async_programming.html>`_
+* `Python Async IO Resources <http://asyncio.org/>`_
