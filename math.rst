@@ -7,6 +7,7 @@ Elliptic Curve
 
 * `Elliptic Curve Cryptography: a gentle introduction <http://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/>`_
 * `ECCHacks - A gentle introduction to elliptic-curve cryptography <https://www.youtube.com/watch?v=l6jTFxQaUJA>`_
+* `Elliptic Curve Cryptography <http://www.embeddedrelated.com/showarticle/857/elliptic-curve-cryptography>`_
 
 
 
@@ -73,7 +74,7 @@ T-Spline 是由 T-Spline 公司開發的建模技術，T-Spline 為 NURBS 的一
 * `Non-Uniform Rational B-Splines (NURBS) <http://nbviewer.ipython.org/github/PaulSalden/notebooks/blob/master/Non-Uniform%20Rational%20B-Splines%20%28NURBS%29.ipynb>`_
 * `The Good/Bad Old Days of Hand Drafting <http://perryboat.sail2live.com/yacht_design_according_to_perry/2011/11/the-goodbad-old-days-of-hand-drafting-1.html>`_
 * `The Good/Bad Old Days of Hand Drafting Part II <http://perryboat.sail2live.com/yacht_design_according_to_perry/2011/11/my-last-blog-entry-on.html>`_
-
+* `From Spiral to Spline: Optimal Techniques in Interactive Curve Design <http://www.levien.com/phd/phd.html>`_
 
 
 Misc
