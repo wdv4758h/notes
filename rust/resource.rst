@@ -5,6 +5,10 @@ Resource
 * `The Periodic Table of Rust Types <http://cosmic.mearie.org/2014/01/periodic-table-of-rust-types/>`_
 * `rust-learning <https://github.com/ctjhoa/rust-learning>`_
 * `Rust Iterator Cheat Sheet <https://danielkeep.github.io/itercheat_baked.html>`_
+* `A Journey into Iterators <http://hoverbear.org/2015/05/02/a-journey-into-iterators/>`_
+* `Effectively Using Iterators In Rust <http://hermanradtke.com/2015/06/22/effectively-using-iterators-in-rust.html>`_
+* `Awesome documentation links for Rust <http://diveintodata.org/2015/10/11/rust-awesome-documentation-links/>`_
+* `Rust for Python Programmers <http://lucumr.pocoo.org/2015/5/27/rust-for-pythonistas/>`_
 
 * `Rust For C++ Programmers <https://github.com/nrc/r4cppp>`_
 
