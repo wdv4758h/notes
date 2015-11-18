@@ -77,6 +77,12 @@ T-Spline 是由 T-Spline 公司開發的建模技術，T-Spline 為 NURBS 的一
 * `From Spiral to Spline: Optimal Techniques in Interactive Curve Design <http://www.levien.com/phd/phd.html>`_
 
 
+Euler's identity
+========================================
+
+* `Wikipedia - Euler's identity <https://en.wikipedia.org/wiki/Euler's_identity>`_
+
+
 Misc
 ========================================
 
