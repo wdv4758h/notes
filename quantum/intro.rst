@@ -27,3 +27,4 @@ Reference
 * `活生生的量子世界 <http://sa.ylib.com/MagCont.aspx?Unit=featurearticles&id=1804>`_
 * `Orbitals: Crash Course Chemistry #25 <https://www.youtube.com/watch?v=cPDptc0wUYI>`_
 * `BBC 影片之量子力學：什麼是「纏結」？ <https://www.youtube.com/watch?v=eqFZF7VuXbw>`_
+* `The quantum source of space-time <http://www.nature.com/news/the-quantum-source-of-space-time-1.18797>`_
