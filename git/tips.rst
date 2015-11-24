@@ -145,3 +145,18 @@ Squash commits into one
     # If you remove a line here THAT COMMIT WILL BE LOST.
     # However, if you remove everything, the rebase will be aborted.
     #
+
+diff
+========================================
+
+.. code-block:: sh
+
+    # working v.s. commits
+    $ git diff                  # working & HEAD
+    $ git diff bc5eda9          # working & specific commit
+    # staging v.s. working
+    $ git diff --staged         # staging & HEAD
+    # staging v.s. commits
+    $ git diff --staged bc5eda9 # staging & specific commit
+    # commits v.s. commits
+    $ git diff bc5eda9 39e01d0  # specific commit & specific commit
