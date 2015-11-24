@@ -51,3 +51,85 @@ Neovim - Latest neovim not using .nvimrc
 新路徑： ``$HOME/.config/nvim/``
 
 * `Latest neovim not using .nvimrc <https://github.com/neovim/neovim/issues/3530>`_
+
+
+2015-11-24
+========================================
+
+gcc - ICE (internal compiler error)
+-----------------------------------
+
+.. code-block:: sh
+
+    $ gcc -v
+    Using built-in specs.
+    COLLECT_GCC=gcc
+    COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/lto-wrapper
+    Target: x86_64-unknown-linux-gnu
+    Configured with: /build/gcc-multilib/src/gcc-5.2.0/configure --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://bugs.archlinux.org/ --enable-languages=c,c++,ada,fortran,go,lto,objc,obj-c++ --enable-shared --enable-threads=posix --enable-libmpx --with-system-zlib --with-isl --enable-__cxa_atexit --disable-libunwind-exceptions --enable-clocale=gnu --disable-libstdcxx-pch --disable-libssp --enable-gnu-unique-object --enable-linker-build-id --enable-lto --enable-plugin --enable-install-libiberty --with-linker-hash-style=gnu --enable-gnu-indirect-function --enable-multilib --disable-werror --enable-checking=release --with-default-libstdcxx-abi=gcc4-compatible
+    Thread model: posix
+    gcc version 5.2.0 (GCC)
+
+
+
+``test1.c`` :
+
+.. code-block:: c
+
+    int a[100];
+
+    int main()
+    {
+        #pragma omp simd collapse(2)
+        for (int i = 0; i < 10; i++) {
+            for (int k = a[i]; k < 0; k++) {
+                a[i] = a[i] - 1;
+            }
+        }
+
+        return 0;
+    }
+
+
+
+``test2.c`` :
+
+.. code-block:: c
+
+    int a[100];
+
+    int main()
+    {
+        #pragma omp for simd collapse(2)
+        for (int i = 0; i < 10; i++) {
+            for (int k = a[i]; k < 0; k++) {
+                a[i] = a[i] - 1;
+            }
+        }
+
+        return 0;
+    }
+
+
+.. code-block:: sh
+
+    $ gcc -O3 -fopenmp test1.c
+    test1.c: In function ‘main’:
+    test1.c:7:23: warning: ‘i’ is used uninitialized in this function [-Wuninitialized]
+            for (int k = a[i]; k < 0; k++) {
+                        ^
+    test1.c:3:5: internal compiler error: in expand_one_var, at cfgexpand.c:1339
+    int main()
+        ^
+    Please submit a full bug report,
+    with preprocessed source if appropriate.
+    See <https://bugs.archlinux.org/> for instructions.
+
+    $ gcc -O3 -fopenmp test2.c
+    test2.c: In function ‘main’:
+    test2.c:7:23: internal compiler error: in gimplify_var_or_parm_decl, at gimplify.c:1801
+            for (int k = a[i]; k < 0; k++) {
+                        ^
+    Please submit a full bug report,
+    with preprocessed source if appropriate.
+    See <https://bugs.archlinux.org/> for instructions.
