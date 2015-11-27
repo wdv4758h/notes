@@ -133,3 +133,21 @@ gcc - ICE (internal compiler error)
     Please submit a full bug report,
     with preprocessed source if appropriate.
     See <https://bugs.archlinux.org/> for instructions.
+
+
+
+2015-11-26
+========================================
+
+Build OpenCV - '_Atomic' does not name a type
+---------------------------------------------
+
+在抓最新版的 OpenCV code 來編譯時，
+碰到了 ``'_Atomic' does not name a type`` 的錯誤，
+後來發現這個問題其實已經解決掉了，
+是自己很久之前裝了自己編譯的 Python，
+OpenCV 在編譯給 Python 的 module 時吃到了問題解決前的 code，
+被自己雷到 ...
+
+* [CPython] `g++ module compile fails with 『_Atomic' does not name a type <https://bugs.python.org/issue23644>`_
+* [gcc] `make stdatomic.h compatible with C++ <https://gcc.gnu.org/bugzilla/show_bug.cgi?id=60932>`_
