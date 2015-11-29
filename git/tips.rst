@@ -237,3 +237,15 @@ git 會把 SHA1 hash 結果的前 2 個字元當作資料夾名稱，
 
 * `Git Internals - Git Objects <https://git-scm.com/book/en/v2/Git-Internals-Git-Objects>`_
 * `Advantages of categorizing objects into folders named as the first 2 characters of SHA-1 string? <http://stackoverflow.com/questions/30662521/advantages-of-categorizing-objects-into-folders-named-as-the-first-2-characters>`_
+
+
+git describe
+========================================
+
+.. code-block:: sh
+
+    $ git describe --long
+    v0.1.0-136-g538a57c
+    # finds the most recent tag that is reachable from a commit
+    # (136th commit since tag v0.1.0 that points at object 538a57c)
+    # ${TAG}-${COMMITS_SINCE_TAG}-g${FIRST_7_CHARS_OF_HASH}
