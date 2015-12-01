@@ -49,5 +49,5 @@ Developer (with other people, not just myself)
 
 * `staff.sitcon.org - SITCON staff system <https://github.com/sitcon-tw/staff.sitcon.org>`_
     - `my commits <https://github.com/sitcon-tw/staff.sitcon.org/commits?author=wdv4758h>`_
-* `zdict - a CLI dictionay framework <https://github.com/M157q/zdict>`_
-    - `my commits <https://github.com/M157q/zdict/commits?author=wdv4758h>`_
+* `zdict - a CLI dictionay framework <https://github.com/zdict/zdict>`_
+    - `my commits <https://github.com/zdict/zdict/commits?author=wdv4758h>`_
