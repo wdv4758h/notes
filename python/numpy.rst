@@ -127,3 +127,22 @@ Assign with condition
     >>> data[data > 5] = -1
     >>> data
     array([ 0,  1,  2,  3,  4,  5, -1, -1, -1, -1])
+
+
+Extend Numpy Array With Values
+========================================
+
+.. code-block:: python
+
+    >>> import numpy as np
+    >>> data = np.array([range(5)]*3)
+    >>> print(data)
+    array([[0, 1, 2, 3, 4],
+           [0, 1, 2, 3, 4],
+           [0, 1, 2, 3, 4]])
+    >>> np.pad(data, ((0, 2), (2, 0)), 'constant', constant_values=9)
+    array([[9, 9, 0, 1, 2, 3, 4],
+           [9, 9, 0, 1, 2, 3, 4],
+           [9, 9, 0, 1, 2, 3, 4],
+           [9, 9, 9, 9, 9, 9, 9],
+           [9, 9, 9, 9, 9, 9, 9]])
