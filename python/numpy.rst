@@ -146,3 +146,37 @@ Extend Numpy Array With Values
            [9, 9, 0, 1, 2, 3, 4],
            [9, 9, 9, 9, 9, 9, 9],
            [9, 9, 9, 9, 9, 9, 9]])
+
+
+Print The Full Numpy Array
+========================================
+
+.. code-block:: python
+
+    >>> import numpy
+    >>> data = numpy.array(range(10000))
+    >>> print(data)
+    [   0    1    2 ..., 9997 9998 9999]
+    >>> numpy.set_printoptions(threshold=numpy.inf)
+    >>> print(data)     # print all the data
+
+
+Generate An Array By Specific Function And Index
+================================================
+
+.. code-block:: python
+
+    >>> import numpy
+    >>> numpy.fromfunction(lambda x, y: x+y, (3, 3), dtype=int)
+    array([[0, 1, 2],
+           [1, 2, 3],
+           [2, 3, 4]])
+    >>> numpy.fromfunction(lambda x, y: (-1)**(x+y), (3, 3), dtype=int)
+    array([[ 1, -1,  1],
+           [-1,  1, -1],
+           [ 1, -1,  1]])
+    #
+    # numpy.fromfunction
+    #
+    #     function accept coordinate
+    #     shape of array you want
