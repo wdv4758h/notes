@@ -18,6 +18,8 @@ code 也相對複雜許多，
 這些考量到了現今是否有更好更乾淨的作法？
 
 * `KLEE: Unassisted and Automatic Generation of High-Coverage Tests for Complex Systems Programs <http://llvm.org/pubs/2008-12-OSDI-KLEE.pdf>`_
+* `Coreutils Gotchas <http://www.pixelbeat.org/docs/coreutils-gotchas.html>`_
+* `uutils/coreutils - Cross-platform Rust rewrite of the GNU coreutils <https://github.com/uutils/coreutils>`_
 
 findutils
 ========================================
