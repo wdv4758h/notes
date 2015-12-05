@@ -34,6 +34,8 @@ PR
     - `Fix local variable 'mpv' & 'mplayer' referenced before assignment <https://github.com/mps-youtube/mps-youtube/commit/419e922da23f7d542fe83f4314761f86c3c39156>`_
 * kaleidoscope - Haskell LLVM Kaleidoscope Tutorial
     - `Fix typo <https://github.com/sdiehl/kaleidoscope/pull/23>`_
+* mpitutorial - MPI programming lessons in C and executable code examples
+    - `Fix typo <https://github.com/wesleykendall/mpitutorial/pull/17>`_
 
 
 Issue Only
@@ -42,6 +44,8 @@ Issue Only
 * readthedocs.org
     - `wrong link for "Edit on GitHub" of README.rst (if index.rst does not exist) #1550 <https://github.com/rtfd/readthedocs.org/issues/1550>`_
 
+* gcc
+    - `ICE: OpenMP with simd collapse <https://gcc.gnu.org/bugzilla/show_bug.cgi?id=68516>`_
 
 
 Developer (with other people, not just myself)
