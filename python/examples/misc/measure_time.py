@@ -4,6 +4,7 @@
 import timeit
 import time
 import cProfile
+import profile
 from functools import partial
 from contextlib import contextmanager
 
@@ -80,3 +81,4 @@ if __name__ == '__main__':
     cProfile.run('f2(42)')
     cProfile.run('[f2(42) for i in range(1000000)]')
     cProfile.run('[f2(42) for i in range(1000000)]', sort='tottime')
+    profile.run('[f2(42) for i in range(1000000)]', sort='tottime')
