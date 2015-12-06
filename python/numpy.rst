@@ -2,6 +2,9 @@
 Numpy
 ========================================
 
+.. contents:: Table of Contents
+
+
 Numpy Slicing
 ========================================
 
@@ -13,21 +16,46 @@ Numpy Slicing
     matrix([[1, 2, 3],
             [4, 5, 6],
             [7, 8, 9]])
-    >>> data[:, 0]   # row : all, col : 0
+
+
+    >>> data[0, 1]      # data[0][1]
+    2
+
+    >>> data[:, 0]      # row : all, col : 0
     matrix([[1],
             [4],
             [7]])
+    >>> data[1:, 1:]
+    matrix([[5, 6],
+            [8, 9]])
     >>> data[:, (0, 2)]         # row : all, col : (0, 2)
     matrix([[1, 3],
             [4, 6],
             [7, 9]])
+    >>> data[1:-1, 1:-1]
+    matrix([[5]])
+
+
     >>> data[(0, 2), (1, 1)]    # parameters : rows & cols, access (0, 1) & (2, 1)
     matrix([[2, 8]])
     >>> data[(0, 2),
     ...      (1, 1)]
     matrix([[2, 8]])
-    >>> data[((0, 0), (1, 2)),
-    ...      ((2, 1), (2, 1))]
+
+
+    >>> data[[1, 0]]
+    matrix([[4, 5, 6],
+            [1, 2, 3]])
+    >>> data[[[1, 0]]]          # the same
+    matrix([[4, 5, 6],
+            [1, 2, 3]])
+    >>> data[[[[1, 0]]]]
+    matrix([[[4, 5, 6],
+             [1, 2, 3]]])
+
+
+    >>> data[((0, 0), (1, 2)),  # rows
+    ...      ((2, 1), (2, 1))]  # cols
     matrix([[3, 2],
             [6, 8]])
     >>> data[(((0, 0), (1, 2)), ((0, 0), (1, 2))),
@@ -37,6 +65,8 @@ Numpy Slicing
 
             [[3, 2],
             [6, 8]]])
+
+
     >>> data[ np.mat('0 0; 1 2') ]
     matrix([[[1, 2, 3],
             [1, 2, 3]],
@@ -180,3 +210,11 @@ Generate An Array By Specific Function And Index
     #
     #     function accept coordinate
     #     shape of array you want
+
+
+Reference
+========================================
+
+* `NumPy Reference <http://docs.scipy.org/doc/numpy-dev/reference/>`_
+* `scipy array tip sheet <http://pages.physics.cornell.edu/~myers/teaching/ComputationalMethods/python/arrays.html>`_
+* `Wikipedia - NumPy <https://en.wikipedia.org/wiki/NumPy>`_
