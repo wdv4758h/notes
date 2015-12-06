@@ -2,6 +2,23 @@
 CPython
 ========================================
 
+Build From Source
+========================================
+
+.. code-block:: sh
+
+    $ hg clone https://hg.python.org/cpython
+    $ cd cpython
+    $ ./configure --with-pydebug
+    $ make -j8
+    $ ./python -m test -j8
+
+* `Python Developer's Guide <https://docs.python.org/devguide/index.html>`_
+* `BuildBot: Python - Waterfall <http://buildbot.python.org/all/waterfall>`_
+* `Mercurial for git developers <https://docs.python.org/devguide/gitdevs.html>`_
+* `CPython - Code Review <https://bugs.python.org/review/>`_
+
+
 decimal
 ========================================
 
