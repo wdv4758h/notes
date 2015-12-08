@@ -212,6 +212,21 @@ Generate An Array By Specific Function And Index
     #     shape of array you want
 
 
+"Complex" Numpy Array To "Real" Numpy Array
+===========================================
+
+.. code-block:: python
+
+    >>> data = np.array([i+i*2j for i in range(10)])
+    >>> data
+    array([ 0. +0.j,  1. +2.j,  2. +4.j,  3. +6.j,  4. +8.j,  5.+10.j,
+            6.+12.j,  7.+14.j,  8.+16.j,  9.+18.j])
+    >>> data.real
+    array([ 0.,  1.,  2.,  3.,  4.,  5.,  6.,  7.,  8.,  9.])
+    >>> data.imag
+    array([  0.,   2.,   4.,   6.,   8.,  10.,  12.,  14.,  16.,  18.])
+
+
 Reference
 ========================================
 
