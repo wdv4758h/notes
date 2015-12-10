@@ -31,7 +31,7 @@ static PyModuleDef moduledef = {
     NULL        // deallocation function
 };
 
-PyObject* PyInit_hello(void) {
+PyMODINIT_FUNC PyInit_hello(void) {
     return PyModule_Create(&moduledef);
 }
 
