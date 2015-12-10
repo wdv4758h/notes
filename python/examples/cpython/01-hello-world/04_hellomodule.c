@@ -157,6 +157,8 @@ PyMODINIT_FUNC PyInit_hello(void) {
 ////////////////////////////////////////
 
 // >>> import hello
+// >>> hello.hello_world()
+// 'Hello World'
 // >>> hello.Life
 // <class 'hello.Life'>
 // >>> hello.Life().life
