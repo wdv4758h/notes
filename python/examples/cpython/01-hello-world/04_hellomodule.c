@@ -153,3 +153,13 @@ PyMODINIT_FUNC PyInit_hello(void) {
 }
 
 ////////////////////////////////////////
+// Examples
+////////////////////////////////////////
+
+// >>> import hello
+// >>> hello.Life
+// <class 'hello.Life'>
+// >>> hello.Life().life
+// 42
+// >>> hello.Life(10).life
+// 10
