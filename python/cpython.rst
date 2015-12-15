@@ -36,3 +36,29 @@ decimal
 * `CPython - decimal.py <https://github.com/python/cpython/blob/master/Lib/decimal.py>`_
 * `CPython - _decimal <https://github.com/python/cpython/tree/master/Modules/_decimal>`_
 * `CPython - _pydecimal.py <https://github.com/python/cpython/blob/master/Lib/_pydecimal.py>`_
+
+
+Articles
+========================================
+
+* [2010] `Python internals: Symbol tables, part 1 <http://eli.thegreenplace.net/2010/09/18/python-internals-symbol-tables-part-1/>`_
+* [2010] `Python internals: Symbol tables, part 2 <http://eli.thegreenplace.net/2010/09/20/python-internals-symbol-tables-part-2>`_
+* [2011] `Python list implementation <http://www.laurentluce.com/posts/python-list-implementation/>`_
+* [2014] `CPython internals: A ten-hour codewalk through the Python interpreter source code <http://pgbovine.net/cpython-internals.htm>`_
+
+* `CPython - Execution model <https://docs.python.org/3/reference/executionmodel.html>`_
+
+* [GitHub] `Notes on making CPython faster <https://github.com/haypo/faster_cpython>`_
+
+
+Other Python Implementations
+========================================
+
+* `Pyston <https://github.com/dropbox/pyston>`_
+    - performance-oriented Python implementation built using LLVM and modern JIT techniques
+* PyPy
+    - Python implementation written in RPython framework with JIT and modern GC
+* Jython
+    - Python implementation written in Java to integrate with JVM
+* IronPython
+    - Python implementation written in C# to integrate with .NET framework
