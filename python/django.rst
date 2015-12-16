@@ -6,6 +6,12 @@ Django
 * `Django Vanilla Views <http://django-vanilla-views.org/>`_
 * `Django - Built-in class-based views API <https://docs.djangoproject.com/en/dev/ref/class-based-views/>`_
 
+Performance
+========================================
+
+* `Optimizing slow Django REST Framework performance <https://ses4j.github.io/2015/11/23/optimizing-slow-django-rest-framework-performance/>`_
+
+
 Celery
 ========================================
 
