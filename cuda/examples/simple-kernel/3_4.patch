@@ -1,0 +1,23 @@
+3c3
+< // (多區塊, 多執行緒) 不使用迴圈，用網格與區塊設定代替
+---
+> // (多區塊, 多執行緒) 使用迴圈，較為一般性
+19c19,22
+<     c[j] = a[j]+b[j];
+---
+>     int m = gridDim.x*blockDim.x;
+>     for (int k=j; k<n; k+=m) {
+>         c[k]=a[k]+b[k];
+>     }
+65,66c68,69
+<     int block = 512;        // blockDim (每個區塊具有的執行緒數)
+<     int grid  = n/block;    // gridDim  (每個網格具有的區塊數)
+---
+>     int block = 256;    // blockDim (每個區塊具有的執行緒數)
+>     int grid  = 30;     // gridDim  (每個網格具有的區塊數)
+156,157c159,160
+< // host time: 3.37028 ms
+< // gpu  time: 0.51496 ms
+---
+> // host time: 3.41955 ms
+> // gpu  time: 0.53648 ms

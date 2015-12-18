@@ -1,0 +1,20 @@
+3c3
+< // (單一區塊, 單一執行緒)
+---
+> // (單一區塊, 多執行緒)
+18c18
+<     for (int k=0; k<n; k++) {
+---
+>     for (int k=threadIdx.x; k<n; k+=blockDim.x) {
+66,67c66,67
+<     int grid  = 1;  // gridDim  (每個網格具有的區塊數)
+<     int block = 1;  // blockDim (每個區塊具有的執行緒數)
+---
+>     int grid  = 1;      // gridDim  (每個網格具有的區塊數)
+>     int block = 512;    // blockDim (每個區塊具有的執行緒數)
+157,158c157,158
+< // host time: 3.4024 ms
+< // gpu  time: 120.62 ms
+---
+> // host time: 3.41618 ms
+> // gpu  time: 1.32161 ms
