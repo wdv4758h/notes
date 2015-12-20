@@ -8,6 +8,14 @@ nvcc
 gpucc
 ========================================
 
+Usage :
+
+.. code-block:: sh
+
+    $ clang++ -Wall -Wextra -O3 --cuda-path=/opt/cuda -I/opt/cuda/samples/common/inc -L/opt/cuda/lib64 -lcudart test.cu -o test.out
+
+
+
 Open Source GPGPU compiler built on top of LLVM
 
 * Straight-line scalar optimizations
