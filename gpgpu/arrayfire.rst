@@ -27,6 +27,7 @@ Prepare
     # Intel
 
     $ sudo yaourt -S intel-opencl-runtime   # official
+    $ sudo yaourt -S beignet                # for integrated graphics hardware
 
     # NVIDIA
 
@@ -55,6 +56,9 @@ Check :
 
     $ cat /etc/OpenCL/vendors/intel.icd
     /opt/intel/opencl-sdk/lib64/libintelocl.so
+
+    $ cat /etc/OpenCL/vendors/intel-beignet.icd
+    /usr/lib/beignet/libcl.so
 
     # NVIDIA
 
@@ -118,10 +122,16 @@ Usage
     ArrayFire v3.2.0 (CPU, 64-bit Linux, build )
     [0] Intel:        Intel(R) Core(TM) i5-3210M CPU @ 2.50GHz Max threads(4)
     ====================
-    Device[1] has no support for OpenGL Interoperation
+    Failed to release test userptr object! (9) i915 kernel driver may not be sane!
+    Failed to release test userptr object! (9) i915 kernel driver may not be sane!
+    Failed to release test userptr object! (9) i915 kernel driver may not be sane!
+    Failed to release test userptr object! (9) i915 kernel driver may not be sane!
+    Device[0] has no support for OpenGL Interoperation
+    Device[2] has no support for OpenGL Interoperation
     ArrayFire v3.2.0 (OpenCL, 64-bit Linux, build )
-    [0] NVIDIA  : GeForce GT 630M
-    -1- INTEL   : Intel(R) Core(TM) i5-3210M CPU @ 2.50GHz
+    [0] BEIGNET : Intel(R) HD Graphics IvyBridge M GT2
+    -1- NVIDIA  : GeForce GT 630M
+    -2- INTEL   : Intel(R) Core(TM) i5-3210M CPU @ 2.50GHz
     ====================
     ArrayFire v3.2.0 (CUDA, 64-bit Linux, build )
     Platform: CUDA Toolkit 7.5, Driver: 358.16
