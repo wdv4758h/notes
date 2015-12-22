@@ -191,6 +191,16 @@ Example
 
 
 
+.. code-block:: python
+
+    >>> import asyncio
+    >>> tmp = asyncio.create_subprocess_shell('echo "yo"')
+    >>> loop.run_until_complete(a)
+    <Process 4037>
+    yo
+
+
+
 Reference
 ========================================
 
@@ -201,7 +211,11 @@ Reference
 * `Python - Develop with asyncio <https://docs.python.org/3/library/asyncio-dev.html>`_
 * `Python - Tasks and coroutines <https://docs.python.org/3/library/asyncio-task.html>`_
 * `Python - Streams (high-level API) <https://docs.python.org/3/library/asyncio-stream.html>`_
+* `Python - Asyncio Subprocess <https://docs.python.org/3/library/asyncio-subprocess.html>`_
+* `PEP 3145 -- Asynchronous I/O For subprocess.Popen <https://www.python.org/dev/peps/pep-3145/>`_
 * `Wikipedia - Coroutine <https://en.wikipedia.org/wiki/Coroutine>`_
 * `CPython - Lib/test/test_asyncio/test_pep492.py <https://github.com/python/cpython/blob/master/Lib/test/test_asyncio/test_pep492.py>`_
+* `CPython - Lib/asyncio/subprocess.py <https://github.com/python/cpython/blob/master/Lib/asyncio/subprocess.py>`_
+* `CPython - Lib/test/test_asyncio/test_subprocess.py <https://github.com/python/cpython/blob/master/Lib/test/test_asyncio/test_subprocess.py>`_
 * `Nick Coghlan's Python Notes - Some Thoughts on Asynchronous Programming <http://python-notes.curiousefficiency.org/en/latest/pep_ideas/async_programming.html>`_
 * `Python Async IO Resources <http://asyncio.org/>`_
