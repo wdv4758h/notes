@@ -50,3 +50,7 @@ C++ Videos
     - <future>
         + packaged_task
     - make_shared
+
+* [2015] `Understanding Compiler Optimization - Chandler Carruth <https://www.youtube.com/watch?v=FnGCDLhaxKU>`_
+* [2015] `Mind the cache <https://www.youtube.com/watch?v=TipTVUGBFtY>`_
+    - `Slide <https://github.com/joaquintides/usingstdcpp2015/blob/master/Mind%20the%20cache.pdf>`_
