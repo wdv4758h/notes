@@ -2,7 +2,7 @@
 Valgrind: A Framework for Heavyweight Dynamic Binary Instrumentation
 ====================================================================
 
-這邊的資訊主要來自於 2007 年發的 papaer "Valgrind: A Framework for Heavyweight Dynamic Binary Instrumentation"
+這邊的資訊主要來自於 2007 年發的 paper "Valgrind: A Framework for Heavyweight Dynamic Binary Instrumentation"
 以及現在 Valgrind 的 source code 和 documentation。
 
 
