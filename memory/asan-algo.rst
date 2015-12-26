@@ -15,8 +15,8 @@ AddressSanitizer Algorithm
 
                     unpoisoned      0   0   0   0   0   0   0   0   (值為零)
 
-    前 k bytes 是 poisoned                        k                 (值為 k)
-    (後 8-k bytes 是 unpoisoned)
+    前 k bytes 是 unpoisoned                      k                 (值為 k)
+    (後 8-k bytes 是 poisoned)
 
                    完全 poisoned    1                               (值為負)
 
