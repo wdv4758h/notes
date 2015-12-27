@@ -227,6 +227,20 @@ Generate An Array By Specific Function And Index
     array([  0.,   2.,   4.,   6.,   8.,  10.,  12.,  14.,  16.,  18.])
 
 
+Insert Numpy Array
+========================================
+
+.. code-block:: python
+
+    >>> data = np.array([range(5), range(5)])
+    >>> data
+    array([[0, 1, 2, 3, 4],
+           [0, 1, 2, 3, 4]])
+    >>> np.insert(data, slice(None, None), 42, axis=1)
+    array([[42,  0, 42,  1, 42,  2, 42,  3, 42,  4],
+           [42,  0, 42,  1, 42,  2, 42,  3, 42,  4]])
+
+
 Reference
 ========================================
 
