@@ -3,6 +3,7 @@
 #include <CL/cl.hpp>
 
 #include <iostream>
+#include <fstream>  // need by ifstream
 #include <vector>
 
 // pick up device type from compiler command line or from the default type
@@ -10,14 +11,16 @@
     #define DEVICE CL_DEVICE_TYPE_DEFAULT
 #endif
 
-const char* opencl_source = "\
-__kernel void cl_add(__global int *a,\
-                     __global int *b,\
-                     __global int *c) {\
-    int i = get_global_id(0);\
-    c[i] = a[i] + b[i];\
-}\
-";
+std::string loadProgram(std::string input) {
+    std::ifstream stream(input.c_str());
+    if (!stream.is_open()) {
+        std::cout << "Cannot open file: " << input << std::endl;
+        exit(1);
+    }
+
+    return std::string(std::istreambuf_iterator<char>(stream),
+                       std::istreambuf_iterator<char>());
+}
 
 int main(int argc, char *argv[]) {
 
@@ -33,7 +36,7 @@ int main(int argc, char *argv[]) {
     cl::Context context(DEVICE);
 
     // Load in kernel source, creating a program object for the context
-    cl::Program program(context, opencl_source, true);     // true to build ...
+    cl::Program program(context, loadProgram("cl_add.cl"), true);     // true to build ...
 
     // Create the kernel functor
     cl::make_kernel<cl::Buffer, cl::Buffer, cl::Buffer> cl_add(program, "cl_add");
