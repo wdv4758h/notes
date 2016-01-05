@@ -16,6 +16,9 @@ Reference
 * `Wikipedia - W^X <https://en.wikipedia.org/wiki/W%5EX>`_
 * `Wikipedia - Exec Shield <https://en.wikipedia.org/wiki/Exec_Shield>`_
 * `Wikipedia - NX bit <https://en.wikipedia.org/wiki/NX_bit>`_
+* `W^X JIT-code enabled in Firefox <http://jandemooij.nl/blog/2015/12/29/wx-jit-code-enabled-in-firefox/>`_
+    - mprotect
+    - AutoWritableJitCode (RAII)
 
 * kernels
     - OpenBSD 3.3
