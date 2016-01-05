@@ -2,6 +2,7 @@
 Blowfish
 ========================================
 
+* `How To Safely Store A Password <http://codahale.com/how-to-safely-store-a-password/>`_
 * `OpenCL Cryptographic Library <https://is.muni.cz/th/430616/fi_m/thesis.pdf>`_
 * `Crypto++ - Benchmarks <https://www.cryptopp.com/benchmarks.html>`_
     - [GitHub] `Cryto++ <https://github.com/weidai11/cryptopp>`_
