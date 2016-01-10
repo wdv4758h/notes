@@ -145,3 +145,39 @@
 [copy assign ] operator=(const MyClass&)
 [dtor        ] ~MyClass()
 [dtor        ] ~MyClass()
+
+========== Case 27 | [RVO] return prvalue
+[default ctor] MyClass()
+[dtor        ] ~MyClass()
+
+========== Case 28 | [NRVO] return local lvalue
+[default ctor] MyClass()
+returned local variable address: 0x7fff84c589f0
+normal   local variable address: 0x7fff84c58878
+caller         variable address: 0x7fff84c589f0
+[dtor        ] ~MyClass()
+
+========== Case 29 | [NRVO] return local const lvalue
+[default ctor] MyClass()
+returned local variable address: 0x7fff84c589e8
+normal   local variable address: 0x7fff84c58878
+caller         variable address: 0x7fff84c589e8
+[dtor        ] ~MyClass()
+
+========== Case 30 | return move local lvalue, don't do this
+[default ctor] MyClass()
+returned local variable address: 0x7fff84c58878
+normal   local variable address: 0x7fff84c58874
+[move ctor   ] MyClass(MyClass&&)
+[dtor        ] ~MyClass()
+caller         variable address: 0x7fff84c589e0
+[dtor        ] ~MyClass()
+
+========== Case 31 | return move local const lvalue, move const won't effect, don't do this
+[default ctor] MyClass()
+returned local variable address: 0x7fff84c58878
+normal   local variable address: 0x7fff84c58874
+[copy ctor c ] MyClass(const MyClass&)
+[dtor        ] ~MyClass()
+caller         variable address: 0x7fff84c589d8
+[dtor        ] ~MyClass()

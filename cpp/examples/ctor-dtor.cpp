@@ -49,6 +49,41 @@ MyClass::~MyClass() {
     std::cout << "[dtor        ] ~MyClass()" << std::endl;
 }
 
+auto f1() {
+    return MyClass();
+}
+
+auto f2() {
+    auto x = MyClass();
+    int y = 0;
+    std::cout << "returned local variable address: " << &x << std::endl;
+    std::cout << "normal   local variable address: " << &y << std::endl;
+    return x;
+}
+
+auto f3() {
+    const auto x = MyClass();
+    int y = 0;
+    std::cout << "returned local variable address: " << &x << std::endl;
+    std::cout << "normal   local variable address: " << &y << std::endl;
+    return x;
+}
+
+auto f4() {
+    auto x = MyClass();
+    int y = 0;
+    std::cout << "returned local variable address: " << &x << std::endl;
+    std::cout << "normal   local variable address: " << &y << std::endl;
+    return std::move(x);
+}
+
+auto f5() {
+    const auto x = MyClass();
+    int y = 0;
+    std::cout << "returned local variable address: " << &x << std::endl;
+    std::cout << "normal   local variable address: " << &y << std::endl;
+    return std::move(x);
+}
 
 void line(const char* data = "") {
     static unsigned int counter = 0;
@@ -245,6 +280,42 @@ int main(int argc, char *argv[]) {
         const auto x = MyClass();
         auto y = MyClass();
         y = std::move(x);
+    }
+
+    ////////////////////////////////////////
+
+    line("[RVO] return prvalue");
+
+    {
+        const auto x = f1();
+    }
+
+    line("[NRVO] return local lvalue");
+
+    {
+        const auto x = f2();
+        std::cout << "caller         variable address: " << &x << std::endl;
+    }
+
+    line("[NRVO] return local const lvalue");
+
+    {
+        const auto x = f3();
+        std::cout << "caller         variable address: " << &x << std::endl;
+    }
+
+    line("return move local lvalue, don't do this");
+
+    {
+        const auto x = f4();
+        std::cout << "caller         variable address: " << &x << std::endl;
+    }
+
+    line("return move local const lvalue, move const won't effect, don't do this");
+
+    {
+        const auto x = f5();
+        std::cout << "caller         variable address: " << &x << std::endl;
     }
 
     ////////////////////////////////////////
