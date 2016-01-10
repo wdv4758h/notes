@@ -1,0 +1,147 @@
+
+========== Case 1 | nothing
+[default ctor] MyClass()
+[dtor        ] ~MyClass()
+
+========== Case 2 | prvalue
+[default ctor] MyClass()
+[dtor        ] ~MyClass()
+
+========== Case 3 | prvalue
+[default ctor] MyClass()
+[dtor        ] ~MyClass()
+
+========== Case 4 | prvalue
+[default ctor] MyClass()
+[dtor        ] ~MyClass()
+
+========== Case 5 | prvalue
+[default ctor] MyClass()
+[dtor        ] ~MyClass()
+
+========== Case 6 | lvalue
+[default ctor] MyClass()
+[copy ctor c ] MyClass(const MyClass&)
+[dtor        ] ~MyClass()
+[dtor        ] ~MyClass()
+
+========== Case 7 | lvalue
+[default ctor] MyClass()
+[copy ctor c ] MyClass(const MyClass&)
+[dtor        ] ~MyClass()
+[dtor        ] ~MyClass()
+
+========== Case 8 | lvalue
+[default ctor] MyClass()
+[copy ctor c ] MyClass(const MyClass&)
+[dtor        ] ~MyClass()
+[dtor        ] ~MyClass()
+
+========== Case 9 | lvalue
+[default ctor] MyClass()
+[copy ctor c ] MyClass(const MyClass&)
+[dtor        ] ~MyClass()
+[dtor        ] ~MyClass()
+
+========== Case 10 | lvalue, move const won't effect
+[default ctor] MyClass()
+[copy ctor c ] MyClass(const MyClass&)
+[dtor        ] ~MyClass()
+[dtor        ] ~MyClass()
+
+========== Case 11 | lvalue, move const won't effect
+[default ctor] MyClass()
+[copy ctor c ] MyClass(const MyClass&)
+[dtor        ] ~MyClass()
+[dtor        ] ~MyClass()
+
+========== Case 12 | prvalue
+[default ctor] MyClass()
+[dtor        ] ~MyClass()
+
+========== Case 13 | lvalue
+[default ctor] MyClass()
+[copy ctor   ] MyClass(MyClass&)
+[dtor        ] ~MyClass()
+[dtor        ] ~MyClass()
+
+========== Case 14 | lvalue
+[default ctor] MyClass()
+[copy ctor   ] MyClass(MyClass&)
+[dtor        ] ~MyClass()
+[dtor        ] ~MyClass()
+
+========== Case 15 | lvalue
+[default ctor] MyClass()
+[copy ctor   ] MyClass(MyClass&)
+[dtor        ] ~MyClass()
+[dtor        ] ~MyClass()
+
+========== Case 16 | lvalue
+[default ctor] MyClass()
+[copy ctor   ] MyClass(MyClass&)
+[dtor        ] ~MyClass()
+[dtor        ] ~MyClass()
+
+========== Case 17 | lvalue to xvalue
+[default ctor] MyClass()
+[move ctor   ] MyClass(MyClass&&)
+[dtor        ] ~MyClass()
+[dtor        ] ~MyClass()
+
+========== Case 18 | lvalue to xvalue
+[default ctor] MyClass()
+[move ctor   ] MyClass(MyClass&&)
+[dtor        ] ~MyClass()
+[dtor        ] ~MyClass()
+
+========== Case 19 | prvalue
+[default ctor] MyClass()
+[dtor        ] ~MyClass()
+
+========== Case 20 | lvalue to xvalue
+[default ctor] MyClass()
+[move ctor   ] MyClass(MyClass&&)
+[dtor        ] ~MyClass()
+[dtor        ] ~MyClass()
+
+========== Case 21 | lvalue
+[default ctor] MyClass()
+[copy ctor   ] MyClass(MyClass&)
+[dtor        ] ~MyClass()
+[dtor        ] ~MyClass()
+
+========== Case 22 | lvalue
+[default ctor] MyClass()
+[default ctor] MyClass()
+[copy assign ] operator=(MyClass&)
+[dtor        ] ~MyClass()
+[dtor        ] ~MyClass()
+
+========== Case 23 | prvalue
+[default ctor] MyClass()
+[default ctor] MyClass()
+[move assign ] operator=(MyClass&&)
+[dtor        ] ~MyClass()
+[dtor        ] ~MyClass()
+
+========== Case 24 | lvalue to xvalue
+[default ctor] MyClass()
+[default ctor] MyClass()
+[move assign ] operator=(MyClass&&)
+[dtor        ] ~MyClass()
+[dtor        ] ~MyClass()
+
+========== Case 25 | lvalue
+[default ctor] MyClass()
+[default ctor] MyClass()
+[copy assign ] operator=(const MyClass&)
+[dtor        ] ~MyClass()
+[dtor        ] ~MyClass()
+
+========== Case 26 | lvalue, move const won't effect
+[default ctor] MyClass()
+[default ctor] MyClass()
+[copy assign ] operator=(const MyClass&)
+[dtor        ] ~MyClass()
+[dtor        ] ~MyClass()
