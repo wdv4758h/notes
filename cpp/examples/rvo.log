@@ -1,0 +1,34 @@
+===== f2 start =====
+===== f1 start =====
+[default ctor] MyClass() [0x7fff47f1bc00] 5
+===== f1 start =====
+[default ctor] MyClass() [0x7fff47f1bbb8] 4
+===== f1 start =====
+[default ctor] MyClass() [0x7fff47f1bb88] 3
+===== f1 start =====
+[default ctor] MyClass() [0x7fff47f1bb58] 2
+===== f1 start =====
+[default ctor] MyClass() [0x7fff47f1bb28] 1
+===== f1 start =====
+[default ctor] MyClass() [0x7fff47f1baf8] 0
+===== f1 end   =====
+[operator add] operator+=(const MyClass&) [0x7fff47f1bb28] 1 + [0x7fff47f1baf8] 0
+[dtor        ] ~MyClass() [0x7fff47f1baf8] 0 | 0
+===== f1 end   =====
+[operator add] operator+=(const MyClass&) [0x7fff47f1bb58] 2 + [0x7fff47f1bb28] 1
+[dtor        ] ~MyClass() [0x7fff47f1bb28] 1 | 1
+===== f1 end   =====
+[operator add] operator+=(const MyClass&) [0x7fff47f1bb88] 3 + [0x7fff47f1bb58] 3
+[dtor        ] ~MyClass() [0x7fff47f1bb58] 2 | 3
+===== f1 end   =====
+[operator add] operator+=(const MyClass&) [0x7fff47f1bbb8] 4 + [0x7fff47f1bb88] 6
+[dtor        ] ~MyClass() [0x7fff47f1bb88] 3 | 6
+===== f1 end   =====
+[operator add] operator+=(const MyClass&) [0x7fff47f1bc00] 5 + [0x7fff47f1bbb8] 10
+[dtor        ] ~MyClass() [0x7fff47f1bbb8] 4 | 10
+===== f1 end   =====
+[operator add] operator+=(const MyClass&) [0x7fff47f1bc00] 15 + [0x7fff47f1bc00] 15
+===== f2 end   =====
+[0x7fff47f1bc00]
+30
+[dtor        ] ~MyClass() [0x7fff47f1bc00] 5 | 30
