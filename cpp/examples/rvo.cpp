@@ -79,13 +79,32 @@ MyClass& MyClass::operator+=(const MyClass& rhs) {
 auto f1(int n) {
     std::cout << "===== f1 start =====" << std::endl;
     if (n < 1) {
-        auto tmp = MyClass(n);
+        ////////////////////////////////////////
+        // version 1, NRVO
+        //
+        // auto tmp = MyClass(n);
+        //
+        ////////////////////////////////////////
+        // version 2, NRVO for const local
+
+        const  auto tmp = MyClass(n);
+
+        ////////////////////////////////////////
         std::cout << "===== f1 end   =====" << std::endl;
         return tmp;
     } else {
+        ////////////////////////////////////////
+        // version 1, default ctor
+        //
         // auto tmp = MyClass(n) + f1(n-1);   // will call "default ctor" here, and "dtor" later
+        //
+        ////////////////////////////////////////
+        // version 2, NRVO
+
         auto tmp = MyClass(n);
         tmp += f1(n-1);
+
+        ////////////////////////////////////////
         std::cout << "===== f1 end   =====" << std::endl;
         return tmp;
     }
