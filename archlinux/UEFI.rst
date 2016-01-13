@@ -148,6 +148,21 @@ chroot 進去剛準備好的基本版系統：
     $ reboot
 
 
+Misc
+========================================
+
+如果中間有碰到問題導致不能正常啟動的話，
+可以再次使用 CD/USB 開機，
+進入後再把先前的分割區掛上去，
+接著在找出問題處理掉：
+
+.. code-block:: sh
+
+    $ mount /dev/sdx1 /mnt
+    $ mount /dev/sdx2 /mnt/boot
+    $ arch-chroot /mnt /bin/bash
+
+
 Reference
 ========================================
 
