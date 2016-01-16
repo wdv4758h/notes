@@ -241,6 +241,21 @@ Insert Numpy Array
            [42,  0, 42,  1, 42,  2, 42,  3, 42,  4]])
 
 
+檢查使用狀況
+========================================
+
+.. code-block:: python
+
+    >>> a = np.array((range(10),range(10)))
+    >>> np.who()
+    Name            Shape            Bytes            Type
+    ===========================================================
+
+    a               2 x 10           160              int64
+
+    Upper bound on total bytes  =       160
+
+
 Reference
 ========================================
 
