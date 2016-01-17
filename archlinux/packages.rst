@@ -2,6 +2,19 @@
 Packages
 ========================================
 
+Install .deb
+========================================
+
+* `debtap - A script for converting .deb packages into Arch Linux packages, focused on accuracy <https://github.com/helixarch/debtap>`_
+
+.. code-block:: sh
+
+    $ debtap -u     # create/update pkgfile and debtap database
+    $ debtap XXX.deb
+    $ ls -l XXX.pkg.tar.xz
+    $ pacman -U XXX.pkg.tar.xz
+
+
 pkgfile
 ========================================
 
