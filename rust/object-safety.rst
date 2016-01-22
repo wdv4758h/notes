@@ -34,6 +34,36 @@ programmers 可以把 type 的部份做保留，
 也可以針對特定的 type 自己實作客製化版本來 function overloading。
 
 
+Variance
+------------------------------
+
+假設有個 type 叫作 ``Animal`` ，
+另外有個繼承自 ``Animal`` 的 type 叫 ``Cat`` ，
+那對於他們的 array 分別可以有幾種不同的關係：
+
+* Covariant: ``Cat[]`` 是 ``Animal[]``
+* Contravariant: ``Animal[]`` 是 ``Cat[]``
+* Invariant:  ``Animal[]`` 不是 ``Cat[]`` ， ``Cat[]`` 不是 ``Animal[]``
+
+
++---------------------+---------------+-------------+
+|                     | Argument Type | Return Type |
++=====================+===============+=============+
+| C++, Java, Scala, D | Invariant     | Covariant   |
++---------------------+---------------+-------------+
+| C#                  | Invariant     | Invariant   |
++---------------------+---------------+-------------+
+| Sather              | Contravariant | Covariant   |
++---------------------+---------------+-------------+
+| Eiffel              | Covariant     | Covariant   |
++---------------------+---------------+-------------+
+
+
+Bounded Quantification
+------------------------------
+
+
+
 Polymorphism in Rust
 ------------------------------
 
@@ -76,28 +106,37 @@ Traits v.s. Interface v.s. Mixin
 Reference
 ========================================
 
-* `Rust - Frequently Asked Questions <https://www.rust-lang.org/faq.html>`_
+* Rust
+    - `Rust - Frequently Asked Questions <https://www.rust-lang.org/faq.html>`_
 
-* `Rust Book - Generics <https://doc.rust-lang.org/book/generics.html>`_
-* `Rust Book - Traits <https://doc.rust-lang.org/book/traits.html>`_
-* `Rust Book - Trait Objects <https://doc.rust-lang.org/book/trait-objects.html>`_
+    - `Rust Book - Generics <https://doc.rust-lang.org/book/generics.html>`_
+    - `Rust Book - Traits <https://doc.rust-lang.org/book/traits.html>`_
+    - `Rust Book - Trait Objects <https://doc.rust-lang.org/book/trait-objects.html>`_
 
-* `Rust RFCs - 0255 - Object Safety <https://github.com/rust-lang/rfcs/blob/master/text/0255-object-safety.md>`_
+    - `Rust RFCs - 0255 - Object Safety <https://github.com/rust-lang/rfcs/blob/master/text/0255-object-safety.md>`_
 
-* `Wikipedia - Object-oriented programming <https://en.wikipedia.org/wiki/Object-oriented_programming>`_
-* `Wikipedia - Polymorphism (computer science) <https://en.wikipedia.org/wiki/Polymorphism_%28computer_science%29>`_
-* `Wikipedia - Mixin <https://en.wikipedia.org/wiki/Mixin>`_
-* `Wikipedia - Trait (computer programming) <https://en.wikipedia.org/wiki/Trait_%28computer_programming%29>`_
-* `Wikipedia - Protocol (a.k.a Interface) (object-oriented programming) <https://en.wikipedia.org/wiki/Protocol_%28object-oriented_programming%29>`_
-* `Wikipedia - Parametric polymorphism <https://en.wikipedia.org/wiki/Parametric_polymorphism>`_
-* `Wikipedia - Generic programming <https://en.wikipedia.org/wiki/Generic_programming>`_
-* `Wikipedia - Julia (programming language) <https://en.wikipedia.org/wiki/Julia_%28programming_language%29>`_
+    - [Rust] `Peeking inside Trait Objects <http://huonw.github.io/blog/2015/01/peeking-inside-trait-objects/>`_
 
-* [Swift] `Mixins and Traits in Swift 2.0 <http://matthijshollemans.com/2015/07/22/mixins-and-traits-in-swift-2/>`_
-* [Rust] `Peeking inside Trait Objects <http://huonw.github.io/blog/2015/01/peeking-inside-trait-objects/>`_
-* [Julia] `Julia - Types <http://docs.julialang.org/en/latest/manual/types/>`_
-* [Julia] `Julia: A Fast Dynamic Language for Technical Computing <http://arxiv.org/pdf/1209.5145.pdf>`_
+* Wikipedia
+    - `Wikipedia - Object-oriented programming <https://en.wikipedia.org/wiki/Object-oriented_programming>`_
+    - `Wikipedia - Polymorphism (computer science) <https://en.wikipedia.org/wiki/Polymorphism_%28computer_science%29>`_
+    - `Wikipedia - Mixin <https://en.wikipedia.org/wiki/Mixin>`_
+    - `Wikipedia - Trait (computer programming) <https://en.wikipedia.org/wiki/Trait_%28computer_programming%29>`_
+    - `Wikipedia - Protocol (a.k.a Interface) (object-oriented programming) <https://en.wikipedia.org/wiki/Protocol_%28object-oriented_programming%29>`_
+    - `Wikipedia - Parametric polymorphism <https://en.wikipedia.org/wiki/Parametric_polymorphism>`_
+    - `Wikipedia - Covariance and contravariance (computer science) <https://en.wikipedia.org/wiki/Covariance_and_contravariance_%28computer_science%29>`_
+    - `Wikipedia - Bounded quantification <https://en.wikipedia.org/wiki/Bounded_quantification>`_
+    - `Wikipedia - System F (a.k.a Polymorphic Lambda Calculus) <https://en.wikipedia.org/wiki/System_F>`_
+    - `Wikipedia - Lambda cube <https://en.wikipedia.org/wiki/Lambda_cube>`_
+    - `Wikipedia - System F-sub <https://en.wikipedia.org/wiki/System_F-sub>`_
+    - `Wikipedia - Generic programming <https://en.wikipedia.org/wiki/Generic_programming>`_
+    - `Wikipedia - Julia (programming language) <https://en.wikipedia.org/wiki/Julia_%28programming_language%29>`_
 
-* `Rosetta Code - Parametric polymorphism <http://rosettacode.org/wiki/Parametric_polymorphism>`_
+* Others
+    - [Swift] `Mixins and Traits in Swift 2.0 <http://matthijshollemans.com/2015/07/22/mixins-and-traits-in-swift-2/>`_
+    - [Julia] `Julia - Types <http://docs.julialang.org/en/latest/manual/types/>`_
+    - [Julia] `Julia: A Fast Dynamic Language for Technical Computing <http://arxiv.org/pdf/1209.5145.pdf>`_
 
-* [GitHub] `traits - Optional type-checking, data dependencies, and event notifications for Python <https://github.com/enthought/traits>`_
+    - `Rosetta Code - Parametric polymorphism <http://rosettacode.org/wiki/Parametric_polymorphism>`_
+
+    - [GitHub] `traits - Optional type-checking, data dependencies, and event notifications for Python <https://github.com/enthought/traits>`_
