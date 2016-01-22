@@ -12,11 +12,14 @@ public:
     }
 
     void h() {
+        // simulated dynamic binding
+        // use this instead of virtual function to avoid the cost of dynamic polymorphism
+        // no virtual table is needed for this function
         static_cast<T*>(this)->g();
     }
 };
 
-class Derived : public Base<Derived> {
+class Derived : public Base<Derived> {  // CRTP (curiously recurring template pattern) (F-bound polymorphism)
 public:
     void f() {
         std::cout << "Derived (Virtual)" << std::endl;
