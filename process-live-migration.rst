@@ -29,3 +29,8 @@ Others
 ========================================
 
 * `Proactive Process-Level Live Migration in HPC Environments <http://moss.csc.ncsu.edu/~mueller/ftp/pub/mueller/papers/sc08.pdf>`_
+
+* `DMTCP: Distributed MultiThreaded CheckPointing <http://dmtcp.sourceforge.net/>`_
+* `BLCR - Berkeley Lab Checkpoint/Restart <http://crd.lbl.gov/departments/computer-science/CLaSS/research/BLCR/>`_
+* `Linux Checkpoint/Restart <https://ckpt.wiki.kernel.org/index.php/Main_Page>`_
+* Condor
