@@ -59,8 +59,31 @@ Variance
 +---------------------+---------------+-------------+
 
 
-Bounded Quantification
-------------------------------
+Bounded Quantification (Bounded Polymorphism)
+---------------------------------------------
+
+Bounded Quantification 是要利用 subtyping
+來對原本沒有限制 type 的 parametric polymorphism 做一些限制，
+藉此保留可以使用任意 type 的彈性又確保該 type 含有特定的性質。
+
+
+C++ CRTP
+++++++++++++++++++++
+
+C++ 中使用到的 CRTP 技巧即是 Bounded Quantification，
+其稱為 F-bounded quantification 或是 recursively bounded quantification，
+範例：
+
+.. code-block:: cpp
+
+    // The Curiously Recurring Template Pattern (CRTP)
+    template<class T>
+    class Base {
+        // methods within Base can use template to access members of Derived
+    };
+    class Derived : public Base<Derived> {  // Here !!!
+        // ...
+    };
 
 
 
