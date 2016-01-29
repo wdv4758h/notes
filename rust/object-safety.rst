@@ -62,9 +62,41 @@ Variance
 Bounded Quantification (Bounded Polymorphism)
 ---------------------------------------------
 
-Bounded Quantification 是要利用 subtyping
+在原先沒有 polymorphism 的狀況下，
+一個 function 名稱只能吃固定的 type 當參數並回傳固定的 type。
+有了 polymorphism 後可以吃各種不同的 type 當參數並回傳各種不同的 type。
+但是其中又想在這樣的彈性中加上一些限制來確保 code 在使用時一定有特定的實作可以用呢？
+
+Bounded Quantification 就是要利用 subtyping
 來對原本沒有限制 type 的 parametric polymorphism 做一些限制，
 藉此保留可以使用任意 type 的彈性又確保該 type 含有特定的性質。
+
+
+Rust - Bounds (trait restrictions)
+++++++++++++++++++++++++++++++++++
+
+.. code-block:: rust
+
+    trait MyTrait {
+        fn func(&self, i32) -> i32;
+    }
+
+    impl MyTrait for i32 {
+        fn func(&self, data: i32) -> i32 {
+            return self + data;
+        }
+    }
+
+    // Bounds, type "T" must have implmentation of "MyTrait"
+    fn f<T: MyTrait>(data: T) {
+        println!("{}", data.func(100));
+    }
+
+    fn main() {
+        f(30_i32);   // pass, 130
+        f(30_i64);   // fail, "MyTrait" is not implemented for the type "i64", can not call "f"
+    }
+
 
 
 C++ CRTP
@@ -135,6 +167,9 @@ Reference
     - `Rust Book - Generics <https://doc.rust-lang.org/book/generics.html>`_
     - `Rust Book - Traits <https://doc.rust-lang.org/book/traits.html>`_
     - `Rust Book - Trait Objects <https://doc.rust-lang.org/book/trait-objects.html>`_
+    - `Rust Book - Trait bounds on generic functions <https://doc.rust-lang.org/book/traits.html#trait-bounds-on-generic-functions>`_
+    - `Rust by Example - Bounds <http://rustbyexample.com/trait/bounds.html>`_
+    - `Visualizing Rust's type-system <http://jadpole.github.io/rust/type-system/>`_
 
     - `Rust RFCs - 0255 - Object Safety <https://github.com/rust-lang/rfcs/blob/master/text/0255-object-safety.md>`_
 
