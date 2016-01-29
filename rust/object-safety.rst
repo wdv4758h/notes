@@ -120,6 +120,29 @@ C++ 中使用到的 CRTP 技巧即是 Bounded Quantification，
     };
 
 
+Julia - ``<:`` operator
++++++++++++++++++++++++
+
+.. code-block:: julia
+
+    type X
+        data::Int32
+        func::Function
+
+        function X()
+            instance = new()
+            instance.data = 42
+            instance.func = function ()
+                return instance.data + 42
+            end
+            return instance
+        end
+    end
+
+    function f{T<:X}(data::T)   # T must be subtype of X
+        return data.func()
+    end
+
 
 Polymorphism in Rust
 ------------------------------
@@ -177,6 +200,14 @@ Reference
 
     - [Rust] `Peeking inside Trait Objects <http://huonw.github.io/blog/2015/01/peeking-inside-trait-objects/>`_
 
+* Julia
+    - `Julia - Types <http://docs.julialang.org/en/latest/manual/types/>`_
+    - `Julia: A Fast Dynamic Language for Technical Computing <http://arxiv.org/pdf/1209.5145.pdf>`_
+    - `Wikibooks - Introducing Julia/Types <https://en.wikibooks.org/wiki/Introducing_Julia/Types>`_
+    - `Learn Julia in Y Minutes <https://learnxinyminutes.com/docs/julia/>`_
+    - `Julia By Example <http://samuelcolvin.github.io/JuliaByExample/>`_
+    - `Wikipedia - Julia (programming language) <https://en.wikipedia.org/wiki/Julia_%28programming_language%29>`_
+
 * Wikipedia
     - `Wikipedia - Object-oriented programming <https://en.wikipedia.org/wiki/Object-oriented_programming>`_
     - `Wikipedia - Polymorphism (computer science) <https://en.wikipedia.org/wiki/Polymorphism_%28computer_science%29>`_
@@ -191,11 +222,10 @@ Reference
     - `Wikipedia - System F-sub <https://en.wikipedia.org/wiki/System_F-sub>`_
     - `Wikipedia - Generic programming <https://en.wikipedia.org/wiki/Generic_programming>`_
     - `Wikipedia - Julia (programming language) <https://en.wikipedia.org/wiki/Julia_%28programming_language%29>`_
+    - `Wikipedia - Late binding <https://en.wikipedia.org/wiki/Late_binding>`_
 
 * Others
     - [Swift] `Mixins and Traits in Swift 2.0 <http://matthijshollemans.com/2015/07/22/mixins-and-traits-in-swift-2/>`_
-    - [Julia] `Julia - Types <http://docs.julialang.org/en/latest/manual/types/>`_
-    - [Julia] `Julia: A Fast Dynamic Language for Technical Computing <http://arxiv.org/pdf/1209.5145.pdf>`_
 
     - `Rosetta Code - Parametric polymorphism <http://rosettacode.org/wiki/Parametric_polymorphism>`_
 
