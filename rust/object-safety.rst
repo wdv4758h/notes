@@ -179,6 +179,105 @@ Trait Objects
 * 不會有許多特製化的版本
 
 
+Static and Dynamic Polymorphism
+========================================
+
+Static Polymorphism 和 Dynamic Polymorphism 是從實作面來做的區分，
+可以在 Compile Time 決定執行到的 code 版本就稱為 Static，
+必須在 run time 才能決定執行到的 code 版本就稱為 Dynamic (通常利用 virtual function)。
+
+
+Static Binding (Name Binding) (Early Binding)
+---------------------------------------------
+
+在程式執行之前就把 name 都 binding 完
+
+
+direct C function call
+++++++++++++++++++++++
+
+Static Binding 的簡單範例：
+
+.. code-block:: c
+
+    // C
+
+    #include <math.h>   // -lm
+
+    int main() {
+        double result = sin(0.7);
+        return 0;
+    }
+
+
+Late Static Binding
+---------------------------------------------
+
+介於 Static Binding 和 Dynamic Binding 之間的機制，
+跟單純的 Static Binding 不同，
+但是依然會在程式執行前決定好內容，
+卻又可以在後續的 code 裡影響到前面的行為。
+
+
+PHP 5.3+ - Late Static Binding
+++++++++++++++++++++++++++++++
+
+.. code-block:: php
+
+    <?php
+
+    class A {
+        static $data = "static\n";
+        static function f1() { print(self::$data); }
+        static function f2() { print(static::$data); }
+    }
+
+    class B extends A {
+        static $data = "late static\n";
+    }
+
+    B::f1();    // static
+    B::f2();    // late static
+
+
+Dynamic Binding (Late Binding) (Virtual Binding)
+------------------------------------------------
+
+在程式執行期間才把 name 都 binding 好，
+例如 Dynamic Dispatch (e.g. C++ Virtual Method Call)
+
+
+C++ - Virtual Table
+++++++++++++++++++++
+
+.. code-block:: cpp
+
+    class Base
+    {
+    public:
+        FunctionPointer *__vptr;
+        virtual void function1() {};
+        virtual void function2() {};
+    };
+
+    class D1: public Base
+    {
+    public:
+        virtual void function1() {};
+    };
+
+    class D2: public Base
+    {
+    public:
+        virtual void function2() {};
+    };
+
+
+.. image:: /images/cpp/vtable.gif
+    :alt: http://www.learncpp.com/cpp-tutorial/125-the-virtual-table/
+
+
+
 Traits v.s. Interface v.s. Mixin
 ========================================
 
@@ -197,6 +296,7 @@ Reference
     - `Visualizing Rust's type-system <http://jadpole.github.io/rust/type-system/>`_
 
     - `Rust RFCs - 0255 - Object Safety <https://github.com/rust-lang/rfcs/blob/master/text/0255-object-safety.md>`_
+    - [2015] `Rust - Object Safety <http://huonw.github.io/blog/2015/01/object-safety/>`_
 
     - [Rust] `Peeking inside Trait Objects <http://huonw.github.io/blog/2015/01/peeking-inside-trait-objects/>`_
 
@@ -223,9 +323,11 @@ Reference
     - `Wikipedia - Generic programming <https://en.wikipedia.org/wiki/Generic_programming>`_
     - `Wikipedia - Julia (programming language) <https://en.wikipedia.org/wiki/Julia_%28programming_language%29>`_
     - `Wikipedia - Late binding <https://en.wikipedia.org/wiki/Late_binding>`_
+    - `Wikipedia - Name binding <https://en.wikipedia.org/wiki/Name_binding>`_
 
 * Others
     - [Swift] `Mixins and Traits in Swift 2.0 <http://matthijshollemans.com/2015/07/22/mixins-and-traits-in-swift-2/>`_
+    - [C++][2006] `Multiple Inheritance Considered Useful <http://www.drdobbs.com/cpp/multiple-inheritance-considered-useful/184402074>`_
 
     - `Rosetta Code - Parametric polymorphism <http://rosettacode.org/wiki/Parametric_polymorphism>`_
 
