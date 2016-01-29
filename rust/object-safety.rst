@@ -24,7 +24,8 @@ Polymorphism 的概念是「為不同的 type 提供單一的介面」。
     - 在 OOP 社群中通常被稱為 generics 或 generic programming
     - 在 functional programming 社群中通常直接被稱為 polymorphism
 * Subtyping (subtype polymorphism, inclusion polymorphism)
-    - code 在撰寫時告知由許多不同的 class 來組成
+    - code 在撰寫時告知傳入的 type 必須屬於特定的 type
+    - 在 class-based 的語言中通常使用繼承
     - 在 OOP 社群中通常直接被稱為 polymorphism
 * Polytypism
 
@@ -34,6 +35,33 @@ parametric polymorphism 和 subtyping 之間的互動會產生出 **variance** �
 C++ Template 是 Parametric 跟 Ad hoc 並行，
 programmers 可以把 type 的部份做保留，
 也可以針對特定的 type 自己實作客製化版本來 function overloading。
+
+----
+
+在沒有 Polymorphism 的情況下，只能吃固定的 type 回傳固定的 type
+
+例如：加法，傳入兩個整數，回傳一個整數 ::
+
+    Int → Int → Int
+
+Parametric Polymorphism 的情況下可以傳入任意的 type，
+先傳入 type，接著傳入兩筆資料，回傳一筆資料 ::
+
+    (A: Type) → A → A → A
+
+Ad hoc Polymorphism 的情況下會連 programmer 自己實作的版本也傳進來 (function overloading)，
+所以會變成先傳入 type，接著傳入特定的實作，再傳入兩筆資料，最後回傳一筆資料 ::
+
+    (A : Type) → Implemantation for A → A → A → A
+
+Subtyping 的話就再對傳入的 type 做限制，
+先傳入資料的 type 跟想限制的 type，接著確保 type 屬於其中，
+最後看是 Parametric Polymorphism 還是 Ad hoc Polymorphism 來做後續的處理：
+
+::
+
+    (A : Type) → (Sup : Type) → A ∈ Sup → A → A → A
+    (A : Type) → (Sup : Type) → A ∈ Sup → Implemantation for A → A → A → A
 
 
 Variance
