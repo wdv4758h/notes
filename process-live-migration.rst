@@ -17,6 +17,8 @@ CRIU
     - Kernel Upgrade w/o Reboot
     - Periodic Snapshots
     - Advanced Debugging and Testing
+* `FOSDEM 2015 - Live migration for containers is around the corner <https://archive.fosdem.org/2015/schedule/event/livemigration/>`_
+* `FOSDEM 2016 - New horizons for the CRIU project - Things worth doing in the checkpoint-restore project <https://fosdem.org/2016/schedule/event/criu/>`_
 
 
 DragonflyBSD
