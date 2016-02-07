@@ -83,7 +83,7 @@ Example 1
     4.141592653589793238462643383279502884197169399375105820974944592307816406286208998628034825342117068
 
 
-Example 2
+Example 2 - solve
 ------------------------------
 
 .. code-block:: python
@@ -95,6 +95,30 @@ Example 2
     # 解出方程式 (x**2 - 1 = 0) 裡的 x
     >>> solve(y, x)
     [-1, 1]
+
+
+Example 3 - plot
+------------------------------
+
+.. code-block:: python
+
+    from sympy import var
+    from sympy.plotting import plot
+
+    fac = sympy.factorial
+    sin = sympy.sin
+    cos = sympy.cos
+
+    var('x')
+
+    error = abs(sin(x) - (x-x**3/fac(3)+x**5/fac(5)-x**7/fac(7)+x**9/fac(9)-x**11/fac(11)+x**13/fac(13)))
+
+    plot(error, (x, 0, sympy.pi))
+
+    error = abs(cos(x) - (1-x**2/fac(2)+x**4/fac(4)-x**6/fac(6)+x**8/fac(8)-x**10/fac(10)+x**12/fac(12)))
+    plot(error, (x, 0, sympy.pi))
+
+
 
 Reference
 ========================================
