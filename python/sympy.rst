@@ -119,8 +119,27 @@ Example 3 - plot (繪圖)
     plot(error, (x, 0, sympy.pi))
 
 
-Example 4 - lambdify (轉成 lambda function)
--------------------------------------------
+Example 4 - lambdify/ufuncify/... (轉成 lambda function)
+--------------------------------------------------------
+
+在 SymPy 的 `Numeric Computation <http://docs.sympy.org/dev/modules/numeric-computation.html>`_
+裡有列出了許多計算實際值的方式，
+目前有以下幾種作法：
+
++----------------+----------------------------+--------------+
+| Tool           | Qualities                  | Dependencies |
++================+============================+==============+
+| subs/evalf     | Simple                     | None         |
++----------------+----------------------------+--------------+
+| lambdify       | Scalar functions           | math         |
++----------------+----------------------------+--------------+
+| lambdify-numpy | Vector functions           | numpy        |
++----------------+----------------------------+--------------+
+| ufuncify       | Complex vector expressions | f2py, Cython |
++----------------+----------------------------+--------------+
+| Theano         | Many outputs, CSE, GPUs    | Theano       |
++----------------+----------------------------+--------------+
+
 
 .. code-block:: python
 
@@ -133,6 +152,22 @@ Example 4 - lambdify (轉成 lambda function)
     f = lambdify(x, y)
 
     print(f(3))     # 27
+
+
+.. code-block:: python
+
+    # Generates a binary function that supports broadcasting on numpy arrays
+
+    from sympy import var
+    from sympy.utilities.autowrap import ufuncify
+
+    var('x')
+
+    y = x**x
+    f = ufuncify(x, y)  # function 'f' can accept iterable parameter and return NumPy array
+
+    print(f(3))             # 27.0
+    print(f([1, 3, 5]))     # [  1.00000000e+00   2.70000000e+01   3.12500000e+03]
 
 
 
