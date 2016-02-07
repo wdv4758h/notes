@@ -61,6 +61,8 @@ David E. Rumelhart 和 James McClelland 在 1986 年提供了利用 connectionis
 後來類神經在 machine learning 的領域上逐漸被 SVM (support vector machines)
 和其他較簡單的方式 (例如 linear classifiers) 取代。
 直到 2000 年代末期 deep learning 的到來才讓類神經又逐漸受到更多的注目。
+(2000 年代中，Geoffrey Hinton 發佈了有效率地訓練多層 feedforward neural network 的作法，至此之後 "Deep Learning" 這個詞成為類神經網路的時髦術語)
+
 
 2009 年到 2012 年間，
 來自 Swiss AI Lab IDSIA 的 Jürgen Schmidhuber 的研究團隊開發了
