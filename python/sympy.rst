@@ -97,7 +97,7 @@ Example 2 - solve
     [-1, 1]
 
 
-Example 3 - plot
+Example 3 - plot (繪圖)
 ------------------------------
 
 .. code-block:: python
@@ -117,6 +117,22 @@ Example 3 - plot
 
     error = abs(cos(x) - (1-x**2/fac(2)+x**4/fac(4)-x**6/fac(6)+x**8/fac(8)-x**10/fac(10)+x**12/fac(12)))
     plot(error, (x, 0, sympy.pi))
+
+
+Example 4 - lambdify (轉成 lambda function)
+-------------------------------------------
+
+.. code-block:: python
+
+    from sympy import var
+    from sympy.utilities.lambdify import lambdify
+
+    var('x')
+
+    y = x**x
+    f = lambdify(x, y)
+
+    print(f(3))     # 27
 
 
 
