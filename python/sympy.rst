@@ -2,6 +2,14 @@
 SymPy
 ========================================
 
+Online
+========================================
+
+* `SymPy Gamma <http://www.sympygamma.com/>`_
+* `SymPy Live <http://live.sympy.org/>`_
+* `Try Jupyter! <http://try.jupyter.org/>`_ - ``import sympy``
+
+
 Installation
 ========================================
 
