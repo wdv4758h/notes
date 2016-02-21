@@ -178,6 +178,12 @@ Example 4 - lambdify/ufuncify/... (轉成 lambda function)
     print(f([1, 3, 5]))     # [  1.00000000e+00   2.70000000e+01   3.12500000e+03]
 
 
+Other CAS
+========================================
+
+* `Maxima (software) <https://en.wikipedia.org/wiki/Maxima_%28software%29>`_
+* `SageMath <http://www.sagemath.org/index.html>`_
+
 
 Reference
 ========================================
@@ -187,3 +193,7 @@ Reference
 * `[GitHub] sympy/sympy - A computer algebra system written in pure Python <https://github.com/sympy/sympy>`_
 * `[GitHub] sympy/symengine - SymEngine is a fast symbolic manipulation library, written in C++ <https://github.com/sympy/symengine>`_
 * `Wikipedia - SymPy <https://en.wikipedia.org/wiki/SymPy>`_
+* `Wikipedia - Computer algebra system <https://en.wikipedia.org/wiki/Computer_algebra_system>`_
+* `SageMathCloud <http://www.sagemath.com>`_
+    - `SageMathCloud - FAQ <https://github.com/sagemathinc/smc/wiki/FAQ>`_
+    - `SageMathCloud - Teaching <https://github.com/sagemathinc/smc/wiki/Teaching>`_
