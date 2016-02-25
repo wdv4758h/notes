@@ -2,6 +2,7 @@
 Resource
 ========================================
 
+* `The Rust Reference <https://doc.rust-lang.org/reference.html>`_
 * `The Periodic Table of Rust Types <http://cosmic.mearie.org/2014/01/periodic-table-of-rust-types/>`_
 * `rust-learning <https://github.com/ctjhoa/rust-learning>`_
 * `Rust Iterator Cheat Sheet <https://danielkeep.github.io/itercheat_baked.html>`_
@@ -23,6 +24,7 @@ Resource
 * `Rust-101 <https://www.ralfj.de/projects/rust-101/main.html>`_
     - 用 Literate Programming 的方式介紹 Rust 裡的許多特色
     - 涵蓋內容差不多在基礎到中等
+* `Rust Compiler Error Index <https://doc.rust-lang.org/error-index.html>`_
 
 * `The Rustonomicon - The Dark Arts of Advanced and Unsafe Rust Programming <https://doc.rust-lang.org/nightly/nomicon/>`_
 
