@@ -249,3 +249,19 @@ git describe
     # finds the most recent tag that is reachable from a commit
     # (136th commit since tag v0.1.0 that points at object 538a57c)
     # ${TAG}-${COMMITS_SINCE_TAG}-g${FIRST_7_CHARS_OF_HASH}
+
+
+cherry-pick 別的地方的 branch
+========================================
+
+1. 先 fetch
+
+.. code-block:: sh
+
+    $ git fetch REMOTE_BRANCH_PATH
+
+2. cherry-pick
+
+.. code-block:: sh
+
+    $ git cherry-pick <commit>
