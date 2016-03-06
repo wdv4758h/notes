@@ -30,8 +30,10 @@ ${KERNEL_MODULE}-objs := src/module.o ${rust-target}    # let them link together
 
 all:
 	$(CARGO) rustc --release --verbose $(CARGOFLAGS) --target="$(TRIPLE)" -- --emit obj -o $(rust-target)
-	$(MAKE) -C $(KERNEL_BUILD_PATH) M=$(PWD) modules
+	$(MAKE) -C $(KERNEL_BUILD_PATH) M=$(CURDIR) modules
+	cp "$(KERNEL_MODULE).ko" "$(KERNEL_MODULE).stripped.ko" && strip "$(KERNEL_MODULE).stripped.ko"
 
 clean:
-	$(MAKE) -C $(KERNEL_BUILD_PATH) M=$(PWD) clean
+	$(MAKE) -C $(KERNEL_BUILD_PATH) M=$(CURDIR) clean
 	$(CARGO) clean
+	rm -f *.d *.rlib
