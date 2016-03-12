@@ -2,6 +2,8 @@
 Polymorphism (多型)
 ========================================
 
+.. contents:: Table of Contents
+
 Introduction
 ------------------------------
 

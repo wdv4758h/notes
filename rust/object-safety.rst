@@ -5,30 +5,6 @@ Object Safety
 .. contents:: Table of Contents
 
 
-
-
-
-
-
-
-
-
-
-.. code-block:: rust
-
-    }
-
-        }
-    }
-
-    }
-
-    fn main() {
-    }
-
-
-
-
 Traits v.s. Interface v.s. Mixin
 ========================================
 
@@ -66,6 +42,7 @@ Reference
 * Others
     - [Swift] `Mixins and Traits in Swift 2.0 <http://matthijshollemans.com/2015/07/22/mixins-and-traits-in-swift-2/>`_
     - [C++][2006] `Multiple Inheritance Considered Useful <http://www.drdobbs.com/cpp/multiple-inheritance-considered-useful/184402074>`_
+    - [C++] `Visions of generics and templates: How parametrics are compiled <http://mortoray.com/2015/03/06/visions-of-generics-and-templates-how-parametrics-are-compiled/>`_
 
     - `Rosetta Code - Parametric polymorphism <http://rosettacode.org/wiki/Parametric_polymorphism>`_
 
