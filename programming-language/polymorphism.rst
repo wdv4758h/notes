@@ -5,7 +5,7 @@ Polymorphism (多型)
 .. contents:: Table of Contents
 
 Introduction
-------------------------------
+========================================
 
 Polymorphism 的概念是「為不同的 type 提供單一的介面」。
 
@@ -169,7 +169,7 @@ Julia - ``<:`` operator
 
 
 Polymorphism in Rust
-------------------------------
+========================================
 
 trait 有兩種方式來達到 polymorphic，
 分別是：
@@ -178,7 +178,7 @@ trait 有兩種方式來達到 polymorphic，
 * trait objects
 
 Monomorphisation
-++++++++++++++++++++
+------------------------------
 
 Monomorphisation 為最常使用的作法，
 compiler 為不同 type 生出 generic function 的特製版，
@@ -195,7 +195,7 @@ compiler 為不同 type 生出 generic function 的特製版，
 * binary size 會因許多特製化而變大
 
 Trait Objects
-++++++++++++++++++++
+------------------------------
 
 特點：
 
