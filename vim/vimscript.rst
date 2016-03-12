@@ -46,6 +46,15 @@ Vimscript
 +-------------------------------------+-------------------------------------------+
 
 
+Tools
+========================================
+
+* [GitHub] `vimdoc - Helpfile generation for vim <https://github.com/google/vimdoc>`_
+    - 為 Vimscript 提供 docstring
+* [GitHub] `Vroom - Launch vim tests <https://github.com/google/vroom>`_
+    - 為 Vimscript 提供 testing 的方式
+
+
 Reference
 ========================================
 
