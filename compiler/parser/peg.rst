@@ -79,7 +79,71 @@ Introduction
     -rwxr-xr-x 1 user users 24064 Mar 13 15:04 add*
     $ ./add "41+1"
     42
+    $ ./add "41+1a"
+    terminate called after throwing an instance of 'pegtl::parse_error'
+      what():  argv[1]:1:4: parse error matching pegtl::eof
+    Aborted (core dumped)
 
+
+對應表
+------------------------------
+
+namespace : ``::pegtl::ascii``
+
+下面只有粗略的對應，完整的請看
+`Rule Reference <https://github.com/ColinH/PEGTL/wiki/Rule-Reference>`_
+
++------------------+---------------------------+--------------+
+| pegtl            | regex                     |              |
++==================+===========================+==============+
+| digit            | ``\d``, ``[0-9]``         |              |
++------------------+---------------------------+--------------+
+| eol              | $                         |              |
++------------------+---------------------------+--------------+
+| blank            | ``[ \t]``                 |              |
++------------------+---------------------------+--------------+
+| space            | ``\s``, ``[ \t\n\r\f\v]`` |              |
++------------------+---------------------------+--------------+
+| alnum            | ``[0-9a-zA-Z]``           |              |
++------------------+---------------------------+--------------+
+| alpha            | ``[a-zA-Z]``              |              |
++------------------+---------------------------+--------------+
+| any              | .                         |              |
++------------------+---------------------------+--------------+
+| eolf             |                           |              |
++------------------+---------------------------+--------------+
+| identifier_first | ``[a-zA-Z_]``             | C identifier |
++------------------+---------------------------+--------------+
+| identifier_other | ``[a-zA-Z0-9_]``          | C identifier |
++------------------+---------------------------+--------------+
+| identifier       |                           |              |
++------------------+---------------------------+--------------+
+| istring          |                           |              |
++------------------+---------------------------+--------------+
+| lower            | ``[a-z]``                 |              |
++------------------+---------------------------+--------------+
+| not_one<C, ...>  |                           |              |
++------------------+---------------------------+--------------+
+| not_range<C, D>  |                           |              |
++------------------+---------------------------+--------------+
+| nul              | 0                         |              |
++------------------+---------------------------+--------------+
+
+
+Basic Calculator (support ``+-*/``)
+-----------------------------------
+
+S-Expression
+------------------------------
+
+JSON pretty printer
+------------------------------
+
+ABNF
+------------------------------
+
+benchmark
+------------------------------
 
 
 Reference
@@ -87,4 +151,5 @@ Reference
 
 * `Wikipedia - Parsing expression grammar (PEG) <https://en.wikipedia.org/wiki/Parsing_expression_grammar>`_
 * `The Packrat Parsing and Parsing Expression Grammars Page <http://bford.info/packrat/>`_
+* `Parsing: The Solved Problem That Isn't <http://tratt.net/laurie/blog/entries/parsing_the_solved_problem_that_isnt>`_
 * [GitHub] `PEGTL - Parsing Expression Grammar Template Library <https://github.com/colinh/pegtl>`_
