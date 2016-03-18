@@ -31,8 +31,8 @@ C++ 的 expression 會用兩種性質來做區分，
 一個是 identity，
 另一個是可不可以被 move。
 
-has identity: i.e. an address, a pointer, the user can determine whether two copies are identical, etc.
-can be moved from: i.e. we are allowed to leave to source of a "copy" in some indeterminate, but valid state
+* has identity: i.e. an address, a pointer, the user can determine whether two copies are identical, etc.
+* can be moved from: i.e. we are allowed to leave to source of a "copy" in some indeterminate, but valid state
 
 +----------+----------+------+----+-------------------+
 |          | Identity | Move |    |                   |
@@ -54,7 +54,7 @@ can be moved from: i.e. we are allowed to leave to source of a "copy" in some in
 
     　lvalue   xvalue    prvalue
 
-    　  \        /\        /
+        \        /\        /
      iM  \      /  \      / Im
           \    / im \    /
            \  /      \  /
@@ -70,7 +70,7 @@ can be moved from: i.e. we are allowed to leave to source of a "copy" in some in
         |         v
       lvalue   xvalue    prvalue
 
-    　  \        /\        /
+        \        /\        /
      iM  \      /  \      / Im
           \    / im \    /
            \  /      \  /
