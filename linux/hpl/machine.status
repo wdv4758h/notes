@@ -1,0 +1,402 @@
+SELinux status:                 disabled
+UNIT                         LOAD   ACTIVE SUB     DESCRIPTION
+session-12.scope             loaded active running Session 12 of user wdv4758h
+atd.service                  loaded active running Job spooling tools
+dbus.service                 loaded active running D-Bus System Message Bus
+getty@tty1.service           loaded active running Getty on tty1
+irqbalance.service           loaded active running irqbalance daemon
+lvm2-lvmetad.service         loaded active running LVM2 metadata daemon
+polkit.service               loaded active running Authorization Manager
+sshd.service                 loaded active running OpenSSH server daemon
+systemd-journald.service     loaded active running Journal Service
+systemd-logind.service       loaded active running Login Service
+systemd-udevd.service        loaded active running udev Kernel Device Manager
+dbus.socket                  loaded active running D-Bus System Message Bus Socket
+lvm2-lvmetad.socket          loaded active running LVM2 metadata daemon socket
+systemd-journald.socket      loaded active running Journal Socket
+systemd-udevd-control.socket loaded active running udev Control Socket
+systemd-udevd-kernel.socket  loaded active running udev Kernel Socket
+
+LOAD   = Reflects whether the unit definition was properly loaded.
+ACTIVE = The high-level unit activation state, i.e. generalization of SUB.
+SUB    = The low-level unit activation state, values depend on unit type.
+
+16 loaded units listed. Pass --all to see loaded but inactive units, too.
+To show all installed unit files use 'systemctl list-unit-files'.
+          3.251s network.service
+          2.893s dev-mapper-scientific_tscc\x2droot.device
+          1.442s systemd-udevd.service
+           732ms lvm2-pvscan@8:2.service
+           621ms boot.mount
+           441ms systemd-fsck-root.service
+           401ms sys-kernel-debug.mount
+           401ms dev-hugepages.mount
+           368ms systemd-tmpfiles-clean.service
+           367ms dev-mqueue.mount
+           359ms systemd-remount-fs.service
+           356ms polkit.service
+           251ms systemd-journald.service
+           247ms systemd-tmpfiles-setup-dev.service
+           161ms kmod-static-nodes.service
+           154ms home.mount
+           148ms tuned.service
+           126ms systemd-udev-trigger.service
+           124ms microcode.service
+           120ms plymouth-read-write.service
+           103ms systemd-sysctl.service
+            88ms rhel-import-state.service
+            83ms systemd-tmpfiles-setup.service
+            82ms systemd-logind.service
+            62ms cpupower.service
+            55ms systemd-vconsole-setup.service
+            52ms systemd-journal-flush.service
+            45ms rhel-readonly.service
+            41ms rhel-dmesg.service
+            39ms systemd-readahead-replay.service
+            38ms systemd-random-seed.service
+            36ms plymouth-quit.service
+            35ms plymouth-quit-wait.service
+            16ms systemd-update-utmp.service
+            13ms plymouth-start.service
+             9ms dev-mapper-scientific_tscc\x2dswap.swap
+             3ms systemd-update-utmp-runlevel.service
+             2ms systemd-readahead-collect.service
+             2ms sys-kernel-config.mount
+             2ms systemd-readahead-done.service
+             1ms systemd-user-sessions.service
+[1;31mDMIDECODE[0;0m
+[1;35m  BIOS:[0;0m
+    [1;34mVend:[0;0m Hewlett-Packard
+    [1;34mVers:[0;0m 786F4 v01.46
+    [1;34mDate:[0;0m 09/20/2012
+    [1;34mBIOS Rev:[0;0m 1.46
+    [1;34mFW Rev:[0;0m  
+[1;35m  System:[0;0m
+    [1;34mMfr:[0;0m  Hewlett-Packard
+    [1;34mProd:[0;0m HP xw6600 Workstation
+    [1;34mVers:[0;0m 
+    [1;34mSer:[0;0m  SGH82206QF
+    [1;34mUUID:[0;0m 6500ADD9-5C2D-DD11-BBDA-290069E1001F
+[1;35m  CPU:[0;0m
+    [0;0m[1;1m2 of 2 CPU sockets populated, 4 cores/4 threads per CPU
+    8 total cores, 8 total threads
+    [1;34mMfr:[0;0m  Intel
+    [1;34mFam:[0;0m  Xeon
+    [1;34mFreq:[0;0m 2667 MHz
+    [1;34mVers:[0;0m Intel(R) Xeon(R) CPU E5430 @ 2.66GHz
+[1;35m  Memory:[0;0m
+    17408 MB (17 GB) total
+    5 of 18 DIMMs populated (system max capacity 1 MB)
+
+[1;31mOS[0;0m
+  [1;35mHostname:[0;0m tscc
+  [1;35mDistro:[0;0m   [0;0m[1;1m[redhat-release][0;0m [40m[1;31mRed Hat Enterprise Linux release 7[0;0m
+            [0;0m[1;1m[sl-release][0;0m Red Hat Enterprise Linux release 7
+            [0;0m[1;1m[os-release][0;0m Scientific Linux 7.2 (Nitrogen) 7.2 (Nitrogen)
+  [1;35mRHN:[0;0m      [0;31m(missing)[0;0m
+  [1;35mRHSM:[0;0m     [0;31m(missing)[0;0m
+  [1;35mYUM:[0;0m      2 enabled plugins: fastestmirror, langpacks
+  [1;35mRunlevel:[0;0m N 3  (default multi-user)
+  [1;35mSELinux:[0;0m  disabled  (default disabled)
+  [1;35mArch:[0;0m     mach=x86_64  cpu=x86_64  platform=x86_64
+  [1;35mKernel:[0;0m
+    [1;34mBooted kernel:[0;0m  4.5.0
+    [1;34mGRUB default:[0;0m   4.5.0  
+    [1;34mBuild version:[0;0m
+[0;33m      Linux version 4.5.0 (root@tscc) (gcc version 4.8.5 20150623 (Red Hat 4.8.5-4) (GCC) ) #1 SMP Thu Mar 17 21:10:05 
+      CST 2016[0;0m
+    [1;34mBooted kernel cmdline:[0;0m
+      root=/dev/mapper/scientific_tscc-root ro rd.lvm.lv=scientific_tscc/root rd.lvm.lv=scientific_tscc/swap rhgb quiet
+    [1;34mGRUB default kernel cmdline:[0;0m  
+      root=/dev/mapper/scientific_tscc-root ro rd.lvm.lv=scientific_tscc/root rd.lvm.lv=scientific_tscc/swap rhgb quiet 
+    [1;34mTaint-check:[0;0m 512[0;0m  (see https://access.redhat.com/solutions/40594)
+       9  WARN: Taint on warning
+    [1;30m- - - - - - - - - - - - - - - - - - -[0;0m
+  [1;35mSys time:[0;0m  Sat Mar 19 00:16:19 [0;0m[1;1mCST[0;0m 2016
+  [1;35mBoot time:[0;0m Thu Mar 17 21:17:27 [0;0m[1;1mCST[0;0m 2016  (epoch: 1458220647)
+  [1;35mUptime:[0;0m    1 day,  2:58,  1 user
+  [1;35mLoadAvg:[0;0m   [0;0m[1;1m[8 CPU][0;0m 0.00 ([0;32m0%[0;0m), 0.72 ([0;32m9%[0;0m), 3.06 ([0;32m38%[0;0m)
+  [1;35m/proc/stat:[0;0m
+    [1;34mprocs_running:[0;0m 1   [1;34mprocs_blocked:[0;0m 0    [1;34mprocesses [Since boot]:[0;0m 8347
+    [1;34mcpu [Utilization since boot]:[0;0m
+      us 6%, ni 0%, sys 0%, idle 92%, iowait 1%, irq 0%, sftirq 0%, steal 0%
+
+[1;31mKDUMP CONFIG[0;0m
+  [1;35mkexec-tools rpm version:[0;0m
+    kexec-tools-2.0.7-38.el7_2.1.x86_64
+  [1;35mService enablement:[0;0m
+    UNIT           STATE
+    [0;33mkdump.service  disabled[0;0m
+  [1;35mkdump initrd/initramfs:[0;0m
+    [0;33mmissing '/boot/initr*kdump.img'[0;0m
+  [1;35mMemory reservation config:[0;0m
+    [1;34m/proc/cmdline {[0;0m [0;33mcrashkernel param not present[0;0m [1;34m}[0;0m
+    [1;34mGRUB default  {[0;0m [0;33mcrashkernel param not present[0;0m [1;34m}[0;0m
+  [1;35mActual memory reservation per /proc/iomem:[0;0m
+    [0;33mMemory IS NOT reserved, according to /proc/iomem[0;0m
+  [1;35mkdump.conf:[0;0m
+    path /var/crash
+    core_collector makedumpfile -l --message-level 1 -d 31
+  [1;35mkdump.conf "path" available space:[0;0m
+    [1;34mSystem MemTotal (uncompressed core size) {[0;0m 15.67 GiB [1;34m}[0;0m
+    [1;34mAvailable free space on target path's fs {[0;0m [0;32m30.64 GiB [1;34m}[0;0m  (fs=/)
+  [1;35mPanic sysctls:[0;0m
+    [1;34mkernel.sysrq [0;0m[bitmask] [1;34m=  "16"[0;0m  (see proc man page)[0;0m
+    [1;34mkernel.panic [0;0m[secs] [1;34m=  [0;32m0[0;0m  (no autoreboot on panic)[0;0m
+    [1;34mkernel.hung_task_panic =  [0;33m0[0;0m
+    [1;34mkernel.panic_on_oops =  [0;32m1[0;0m
+    [1;34mkernel.panic_on_io_nmi =  [0;33m0[0;0m
+    [1;34mkernel.panic_on_unrecovered_nmi =  [0;33m0[0;0m
+    [1;34mkernel.panic_on_stackoverflow =  [0;33m0[0;0m
+    [1;34mkernel.softlockup_panic =  [0;33m0[0;0m
+    [1;34mkernel.unknown_nmi_panic =  [0;33m0[0;0m
+    [1;34mkernel.nmi_watchdog =  [0;32m1[0;0m
+    [1;34mvm.panic_on_oom [0;0m[0-2] [1;34m=  [0;33m0[0;0m  (no panic)[0;0m
+
+[1;31mCPU[0;0m
+  [0;0m[1;1m8 logical processors[0;0m (8 CPU cores)
+  2 Intel Xeon CPU E5430 @ 2.66GHz (flags: constant_tsc,ht,lm,pae,vmx) 
+  └─4 threads / 4 cores each
+
+[1;31mINTERRUPTS[0;0m
+    0: ▊....... IO-APIC 2-edge timer
+    1: .▊...▊.. IO-APIC 1-edge i8042
+    6: ▊....▊.▊ IO-APIC 6-edge floppy
+    8: ....▊... IO-APIC 8-edge rtc0
+    9: ........ IO-APIC 9-fasteoi acpi
+   12: ...▊.▊▊▊ IO-APIC 12-edge i8042
+   14: ........ IO-APIC 14-edge ata_piix
+   15: ........ IO-APIC 15-edge ata_piix
+   16: ........ IO-APIC 16-fasteoi ehci_hcd:usb1, uhci_hcd:usb2
+   18: ........ IO-APIC 18-fasteoi uhci_hcd:usb4
+   19: ▊▊▊▊▊▊▊▊ IO-APIC 19-fasteoi ahci[0000:00:1f.2], uhci_hcd:usb3
+   22: ........ IO-APIC 22-fasteoi uhci_hcd:usb5
+   29: .▊▊▊▊.▊. PCI-MSI 50331648-edge nvkm
+   30: ▊▊▊▊▊▊▊▊ PCI-MSI 442368-edge snd_hda_intel:card0
+   31: .▊▊▊▊▊▊▊ PCI-MSI 7340032-edge enp14s0
+  NMI: ▊....... Non-maskable interrupts
+  LOC: ▊▊▊▊▊▊▊▊ Local timer interrupts
+  SPU: ........ Spurious interrupts
+  PMI: ▊....... Performance monitoring interrupts
+  IWI: ▊....▊.. IRQ work interrupts
+  RTR: ........ APIC ICR read retries
+  RES: ▊▊▊▊▊▊▊▊ Rescheduling interrupts
+  CAL: ▊▊▊▊▊▊▊▊ Function call interrupts
+  TLB: ▊▊▊▊▊▊▊▊ TLB shootdowns
+  TRM: ........ Thermal event interrupts
+  THR: ........ Threshold APIC interrupts
+  DFR: ........ Deferred Error APIC interrupts
+  MCE: ........ Machine check exceptions
+  MCP: ▊▊▊▊▊▊▊▊ Machine check polls
+  ERR: .
+  MIS: .
+  PIN: ........ Posted-interrupt notification event
+  PIW: ........ Posted-interrupt wakeup event
+
+[1;31mMEMORY[0;0m
+  [1;35mStats graphed as percent of MemTotal:[0;0m
+    [0;32mMemUsed    ▊▊[0;0m................................................   [0;32m4.5%[0;0m
+    [0;35mBuffers    [0;0m..................................................   [0;35m0.0%[0;0m
+    [0;34mCached     ▊▊[0;0m................................................   [0;34m3.7%[0;0m
+    [0;36mHugePages  [0;0m..................................................   [0;36m0.0%[0;0m
+    [0;31mDirty      [0;0m..................................................   [0;31m0.0%[0;0m
+  [1;35mRAM:[0;0m
+    [0;0m[1;1m15.7 GiB total ram[0;0m
+    0.7 GiB (5%) used
+    [0;0m[1;1m0.1 GiB (1%) used excluding Buffers/Cached[0;0m
+    0 GiB (0%) dirty
+  [1;35mHugePages:[0;0m
+    No ram pre-allocated to HugePages
+  [1;35mLowMem/Slab/PageTables/Shmem:[0;0m
+    0.04 GiB (0%) of total ram used for Slab
+    0 GiB (0%) of total ram used for PageTables
+    0 GiB (0%) of total ram used for Shmem
+  [1;35mSwap:[0;0m
+    0 GiB (0%) used of 7.9 GiB total
+
+[1;31mSTORAGE[0;0m
+  [1;35mWhole Disks from /proc/partitions:[0;0m
+    [0;0m[1;1m1 disks, totaling 466 GiB (0.45 TiB)[0;0m
+    [1;30m- - - - - - - - - - - - - - - - - - - - -[0;0m
+    [1;34mDisk 	Size in GiB
+    ----	-----------[0;0m
+    sda 	466
+
+[1;31mLSPCI[0;0m
+[1;35m  Net:[0;0m
+   [0;0m[1;1m (1)[0;0m Broadcom Corporation NetXtreme BCM5755 Gigabit Ethernet PCI Express (rev 02)
+[1;35m  Storage:[0;0m
+   [0;0m[1;1m (1)[0;0m Intel Corporation 631xESB/632xESB SATA RAID Controller (rev 09)
+[1;35m  VGA:[0;0m
+    NVIDIA Corporation G92GL [Quadro FX 3700] (rev a2)
+
+[1;31mETHTOOL[0;0m
+[1;35m  Interface Status:[0;0m
+[0;32m    enp14s0  0000:0e:00.0  link=up 1000Mb/s full (autoneg=Y)  rx ring 200/511  drv tg3 v3.137 / fw 5755-v3.29[0;0m
+[1;35m  Interface Errors:[0;0m
+[0;33m    [1;30m[None]
+[0;0m
+[1;31mSOFTIRQ[0;0m
+  Backlog max is sufficient[0;0m (Current value: net.core.netdev_max_backlog = 1000)
+  Budget is sufficient[0;0m (Current value: net.core.netdev_budget = 300)
+  (see https://access.redhat.com/solutions/1241943)
+
+[1;31mNETDEV[0;0m
+[1;35m  Interface  RxMiBytes  RxPackets  RxErrs  RxDrop  RxFifo  RxComp  RxFrame  RxMultCast[0;0m
+[1;35m  =========  =========  =========  ======  ======  ======  ======  =======  ==========[0;0m
+[1;34m  enp14s0 [0;0m   3          39 k       0       0       0       0       0        0 
+[1;30m  - - - - - - - - - - - - - - - - -[0;0m
+[1;35m  Interface  TxMiBytes  TxPackets  TxErrs  TxDrop  TxFifo  TxComp  TxColls  TxCarrier [0;0m
+[1;35m  =========  =========  =========  ======  ======  ======  ======  =======  ==========[0;0m
+[1;34m  enp14s0 [0;0m   2          13 k       0       0       0       0       0        0 
+
+[1;31mSOCKSTAT[0;0m
+  [1;34msockets:[0;0m used 92
+  [1;34mTCP:[0;0m inuse 2 orphan 0 tw 0 alloc 3 mem 0
+  [1;34mUDP:[0;0m inuse 0 mem 0
+  [1;34mUDPLITE:[0;0m inuse 0
+  [1;34mRAW:[0;0m inuse 0
+  [1;34mFRAG:[0;0m inuse 0 memory 0
+
+[1;31mIP4[0;0m
+[1;35m  Interface  Master IF  MAC Address        MTU     State  IPv4 Address[0;0m
+[1;35m  =========  =========  =================  ======  =====  ==================[0;0m
+[1;34m  lo [0;32m        -          -                  65536   up     127.0.0.1/8[0;0m
+[1;34m  enp14s0 [0;32m   -          00:1f:29:00:69:e1  1500    up     192.168.27.39/24[0;0m
+
+[1;31mIP6[0;0m
+[1;35m  Interface  Master IF  MAC Address        MTU     State  IPv6 Address                                 Scope[0;0m
+[1;35m  =========  =========  =================  ======  =====  ===========================================  =====[0;0m
+[1;34m  lo [0;32m        -          -                  65536   up     ::1/128                                      host[0;0m
+[1;34m  enp14s0 [0;32m   -          00:1f:29:00:69:e1  1500    up     fe80::21f:29ff:fe00:69e1/64                  link[0;0m
+
+[1;31mSYSCTLS[0;0m
+  [1;35mkernel.[0;0m
+    [1;34mhostname [0;0m[1;34m=[0;0m[1;1m  "tscc"[0;0m
+    [1;34mosrelease [0;0m[1;34m=[0;0m[1;1m  "4.5.0"[0;0m
+    [1;34mtainted =[0;0m[1;1m  "512"[0;0m  (see https://access.redhat.com/solutions/40594)
+       9  WARN: Taint on warning
+    [1;34mrandom.boot_id [0;0m[1;34m=[0;0m[1;1m  "a01de51d-e9bf-4ae2-bb99-51fc57c5768f"[0;0m
+    [1;34mrandom.entropy_avail [0;0m[bits] [1;34m=[0;0m[1;1m  "188"[0;0m
+    [1;34mhung_task_panic [0;0m[bool] [1;34m=[0;0m[1;1m  "0"[0;0m
+    [1;34mhung_task_timeout_secs [0;0m[1;34m=[0;0m[1;1m  "120"[0;0m  (secs task must be D-state to trigger)[0;0m
+    [1;34mmsgmax [0;0m[bytes] [1;34m=[0;0m[1;1m  "8192"[0;0m
+    [1;34mmsgmnb [0;0m[bytes] [1;34m=[0;0m[1;1m  "16384"[0;0m
+    [1;34mmsgmni [0;0m[msg queues] [1;34m=[0;0m[1;1m  "32000"[0;0m
+    [1;34mpanic [0;0m[secs] [1;34m=[0;0m[1;1m  "0"[0;0m  (no autoreboot on panic)[0;0m
+    [1;34mpanic_on_oops [0;0m[bool] [1;34m=[0;0m[1;1m  "1"[0;0m
+    [1;34mnmi_watchdog [0;0m[bool] [1;34m=[0;0m[1;1m  "1"[0;0m
+    [1;34mpanic_on_io_nmi [0;0m[bool] [1;34m=[0;0m[1;1m  "0"[0;0m
+    [1;34mpanic_on_unrecovered_nmi [0;0m[bool] [1;34m=[0;0m[1;1m  "0"[0;0m
+    [1;34munknown_nmi_panic [0;0m[bool] [1;34m=[0;0m[1;1m  "0"[0;0m
+    [1;34mpanic_on_stackoverflow [0;0m[bool] [1;34m=[0;0m[1;1m  "0"[0;0m
+    [1;34msoftlockup_panic [0;0m[bool] [1;34m=[0;0m[1;1m  "0"[0;0m
+    [1;34msoftlockup_thresh [0;0m[secs] [1;34m=[0;0m[1;1m  [0;33m{sysctl not present}[0;0m
+    [1;34mpid_max [0;0m[1;34m=[0;0m[1;1m  "32768"[0;0m
+    [1;34mthreads-max [0;0m[1;34m=[0;0m[1;1m  "128195"[0;0m
+    [1;34msem [0;0m[array] [1;34m=[0;0m[1;1m  "32000  1024000000  500  32000"[0;0m
+      SEMMSL (max semaphores per array) =  32000
+      SEMMNS (max sems system-wide)     =  1024000000
+      SEMOPM (max ops per semop call)   =  500
+      SEMMNI (max number of sem arrays) =  32000[0;0m
+    [1;34mshmall [0;0m[4-KiB pages] [1;34m=[0;0m[1;1m  "18446744073692774399"[0;0m  (70368744177600.0 GiB max total shared memory)[0;0m
+    [1;34mshmmax [0;0m[bytes] [1;34m=[0;0m[1;1m  "18446744073692774399"[0;0m  (17179869183.98 GiB max segment size)[0;0m
+    [1;34mshmmni [0;0m[segments] [1;34m=[0;0m[1;1m  "4096"[0;0m  (max number of segs)[0;0m
+    [1;34msysrq [0;0m[bitmask] [1;34m=[0;0m[1;1m  "16"[0;0m  (see proc man page)[0;0m
+    [1;34msched_min_granularity_ns [0;0m[nanosecs] [1;34m=[0;0m[1;1m  "3000000"[0;0m  (0.00300 sec)[0;0m
+    [1;34msched_latency_ns [0;0m[nanosecs] [1;34m=[0;0m[1;1m  "24000000"[0;0m  (0.02400 sec)[0;0m
+  [1;35mfs.[0;0m
+    [1;34mfile-max [0;0m[fds] [1;34m=[0;0m[1;1m  "1637060"[0;0m  (system-wide limit for num open files [file descriptors])[0;0m
+    [1;34mnr_open [0;0m[fds] [1;34m=[0;0m[1;1m  "1048576"[0;0m  (per-process limit for num open files [see also RLIMIT_NOFILE])[0;0m
+    [1;34mfile-nr [0;0m[fds] [1;34m=[0;0m[1;1m  "544  0  1637060"[0;0m  (num allocated fds, N/A, num free fds)[0;0m
+    [1;34minode-nr [0;0m[inodes] [1;34m=[0;0m[1;1m  "15979  104"[0;0m  (nr_inodes allocated, nr_free_inodes)[0;0m
+  [1;35mnet.[0;0m
+    [1;34mcore.busy_read [0;0m[microsec] [1;34m=[0;0m[1;1m  "0"[0;0m  (off)[0;0m
+    [1;34mcore.busy_poll [0;0m[microsec] [1;34m=[0;0m[1;1m  "0"[0;0m  (off)[0;0m
+    [1;34mcore.netdev_budget [0;0m[packets] [1;34m=[0;0m[1;1m  "300"[0;0m
+    [1;34mcore.netdev_max_backlog [0;0m[packets] [1;34m=[0;0m[1;1m  "1000"[0;0m
+    [1;34mcore.rmem_default [0;0m[bytes] [1;34m=[0;0m[1;1m  "212992"[0;0m  (208 KiB)[0;0m
+    [1;34mcore.wmem_default [0;0m[bytes] [1;34m=[0;0m[1;1m  "212992"[0;0m  (208 KiB)[0;0m
+    [1;34mcore.rmem_max [0;0m[bytes] [1;34m=[0;0m[1;1m  "212992"[0;0m  (208 KiB)[0;0m
+    [1;34mcore.wmem_max [0;0m[bytes] [1;34m=[0;0m[1;1m  "212992"[0;0m  (208 KiB)[0;0m
+    [1;34mipv4.icmp_echo_ignore_all [0;0m[bool] [1;34m=[0;0m[1;1m  "0"[0;0m
+    [1;34mipv4.ip_forward [0;0m[bool] [1;34m=[0;0m[1;1m  "0"[0;0m
+    [1;34mipv4.ip_local_port_range [0;0m[ports] [1;34m=[0;0m[1;1m  "32768  60999"[0;0m  (defines ephemeral port range used by TCP/UDP)[0;0m
+    [1;34mipv4.ip_local_reserved_ports [0;0m[ports] [1;34m=[0;0m[1;1m  ""[0;0m  (comma-separated ports/ranges to exclude from automatic port assignments)[0;0m
+    [1;34mipv4.tcp_max_orphans [0;0m[sockets] [1;34m=[0;0m[1;1m  "65536"[0;0m  (4096 MiB @ max 64 KiB per orphan)[0;0m
+    [1;34mipv4.tcp_mem [0;0m[4-KiB pages] [1;34m=[0;0m[1;1m  "191106  254808  382212"[0;0m  (0.73 GiB, 0.97 GiB, 1.46 GiB)[0;0m
+    [1;34mipv4.udp_mem [0;0m[4-KiB pages] [1;34m=[0;0m[1;1m  "382212  509616  764424"[0;0m  (1.46 GiB, 1.94 GiB, 2.92 GiB)[0;0m
+    [1;34mipv4.tcp_window_scaling [0;0m[bool] [1;34m=[0;0m[1;1m  "1"[0;0m
+    [1;34mipv4.tcp_rmem [0;0m[bytes] [1;34m=[0;0m[1;1m  "4096  87380  6291456"[0;0m  (4 KiB, 85 KiB, 6144 KiB)[0;0m
+    [1;34mipv4.tcp_wmem [0;0m[bytes] [1;34m=[0;0m[1;1m  "4096  16384  4194304"[0;0m  (4 KiB, 16 KiB, 4096 KiB)[0;0m
+    [1;34mipv4.udp_rmem_min [0;0m[bytes] [1;34m=[0;0m[1;1m  "4096"[0;0m  (4 KiB)[0;0m
+    [1;34mipv4.udp_wmem_min [0;0m[bytes] [1;34m=[0;0m[1;1m  "4096"[0;0m  (4 KiB)[0;0m
+    [1;34mipv4.tcp_sack [0;0m[bool] [1;34m=[0;0m[1;1m  "1"[0;0m
+    [1;34mipv4.tcp_timestamps [0;0m[bool] [1;34m=[0;0m[1;1m  "1"[0;0m
+    [1;34mipv4.tcp_fastopen [0;0m[bitmap] [1;34m=[0;0m[1;1m  "1"[0;0m  (enable send; see ip-sysctl.txt)[0;0m
+    [1;34mipv4.ipfrag_high_thresh [0;0m[bytes] [1;34m=[0;0m[1;1m  "4194304"[0;0m  (4096 KiB)[0;0m
+    [1;34mipv4.ipfrag_low_thresh [0;0m[bytes] [1;34m=[0;0m[1;1m  "3145728"[0;0m  (3072 KiB)[0;0m
+    [1;34mipv6.ip6frag_high_thresh [0;0m[bytes] [1;34m=[0;0m[1;1m  "4194304"[0;0m  (4096 KiB)[0;0m
+    [1;34mipv6.ip6frag_low_thresh [0;0m[bytes] [1;34m=[0;0m[1;1m  "3145728"[0;0m  (3072 KiB)[0;0m
+  [1;35mvm.[0;0m
+    [1;34mdirty_ratio [0;0m[1;34m=[0;0m[1;1m  "20"[0;0m  (% of total system memory)[0;0m
+    [1;34mdirty_bytes [0;0m[1;34m=[0;0m[1;1m  "0"[0;0m  (disabled -- check dirty_ratio)[0;0m
+    [1;34mdirty_background_ratio [0;0m[1;34m=[0;0m[1;1m  "10"[0;0m  (% of total system memory)[0;0m
+    [1;34mdirty_background_bytes [0;0m[1;34m=[0;0m[1;1m  "0"[0;0m  (disabled -- check dirty_background_ratio)[0;0m
+    [1;34mdirty_expire_centisecs [0;0m[1;34m=[0;0m[1;1m  "3000"[0;0m
+    [1;34mdirty_writeback_centisecs [0;0m[1;34m=[0;0m[1;1m  "500"[0;0m
+    [1;34mnr_hugepages [0;0m[2-MiB pages] [1;34m=[0;0m[1;1m  "0"[0;0m[0;0m
+    [1;34mnr_overcommit_hugepages [0;0m[2-MiB pages] [1;34m=[0;0m[1;1m  "0"[0;0m[0;0m
+    [1;34movercommit_memory [0;0m[0-2] [1;34m=[0;0m[1;1m  "0"[0;0m  (heuristic overcommit)[0;0m
+    [1;34movercommit_ratio [0;0m[1;34m=[0;0m[1;1m  "50"[0;0m
+    [1;34moom_kill_allocating_task [0;0m[bool] [1;34m=[0;0m[1;1m  "0"[0;0m  (scan tasklist)[0;0m
+    [1;34mpanic_on_oom [0;0m[0-2] [1;34m=[0;0m[1;1m  "0"[0;0m  (no panic)[0;0m
+    [1;34mswappiness [0;0m[0-100] [1;34m=[0;0m[1;1m  "60"[0;0m
+
+[1;31mPS CHECK[0;0m
+  [1;35mTotal number of threads/processes:[0;0m 
+    [0;0m[1;1m375 / 185[0;0m
+  [1;35mTop users of CPU & MEM:[0;0m 
+[1;34m    USER  %CPU  %MEM  RSS[0;0m 
+    root  7.3%  0.0%  0.05 GiB
+  [1;35mUninteruptible sleep threads/processes (0/0):[0;0m 
+    [1;30m[None][0;0m
+  [1;35mDefunct zombie threads/processes (0/0):[0;0m 
+    [1;30m[None][0;0m
+  [1;35mTop CPU-using processes:[0;0m 
+[1;34m    USER      PID   %CPU  %MEM  VSZ-MiB  RSS-MiB  TTY    STAT  START  TIME  COMMAND [0;0m 
+    root      8221  6.0   0.0   111      3        pts/0  S+    00:16  0:00  /bin/bash xsos/xsos -a 
+    root      8214  1.0   0.0   111      3        pts/0  S+    00:16  0:00  /bin/bash xsos/xsos -a 
+    root      8198  0.1   0.0   197      5        pts/0  S     00:16  0:00  su 
+    root      8197  0.1   0.0   205      6        pts/0  S     00:16  0:00  sudo su 
+    root      8168  0.1   0.0   142      9        ?      Ss    00:15  0:00  sshd: wdv4758h [priv] 
+    wdv4758h  8171  0.0   0.0   113      3        pts/0  Ss    00:15  0:00  -bash 
+    wdv4758h  8170  0.0   0.0   142      4        ?      S     00:15  0:00  sshd: wdv4758h@pts/0 
+    root      957   0.0   0.0   0        0        ?      S<    Mar17  0:00  [kworker/2:1H] 
+    root      956   0.0   0.0   0        0        ?      S<    Mar17  0:00  [kworker/6:1H] 
+    root      926   0.0   0.0   81       1        ?      Ss    Mar17  0:00  /usr/sbin/sshd -D 
+  [1;35mTop MEM-using processes:[0;0m 
+[1;34m    USER      PID   %CPU  %MEM  VSZ-MiB  RSS-MiB  TTY    STAT  START  TIME  COMMAND [0;0m 
+    polkitd   2791  0.0   0.1   617      17       ?      Ssl   Mar18  0:00  /usr/lib/polkit-1/polkitd --no-debug 
+    root      8168  0.1   0.0   142      9        ?      Ss    00:15  0:00  sshd: wdv4758h [priv] 
+    root      8197  0.1   0.0   205      6        pts/0  S     00:16  0:00  sudo su 
+    root      8198  0.1   0.0   197      5        pts/0  S     00:16  0:00  su 
+    root      580   0.0   0.0   36       5        ?      Ss    Mar17  0:00  /usr/lib/systemd/systemd-journald 
+    wdv4758h  8170  0.0   0.0   142      4        ?      S     00:15  0:00  sshd: wdv4758h@pts/0 
+    root      8761  0.0   0.0   148      4        pts/0  R+    00:16  0:00  ps aux 
+    wdv4758h  8171  0.0   0.0   113      3        pts/0  Ss    00:15  0:00  -bash 
+    root      8221  6.0   0.0   111      3        pts/0  S+    00:16  0:00  /bin/bash xsos/xsos -a 
+    root      8214  1.0   0.0   111      3        pts/0  S+    00:16  0:00  /bin/bash xsos/xsos -a 
+  [1;35mTop thread-spawning processes:[0;0m 
+[1;34m    #  USER      PID   %CPU  %MEM  VSZ-MiB  RSS-MiB  TTY    STAT  START  TIME  COMMAND [0;0m
+    6  polkitd   2791  0.0   0.1   617      17       ?      -     Mar18  0:00  /usr/lib/polkit-1/polkitd --no-debug 
+    1  wdv4758h  8171  0.0   0.0   113      3        pts/0  -     00:15  0:00  -bash 
+    1  wdv4758h  8170  0.0   0.0   142      4        ?      -     00:15  0:00  sshd: wdv4758h@pts/0 
+    1  root      957   0.0   0.0   0        0        ?      -     Mar17  0:00  [kworker/2:1H] 
+    1  root      956   0.0   0.0   0        0        ?      -     Mar17  0:00  [kworker/6:1H] 
+    1  root      926   0.0   0.0   81       1        ?      -     Mar17  0:00  /usr/sbin/sshd -D 
+    1  root      9     0.0   0.0   0        0        ?      -     Mar17  0:00  [rcuos/0] 
+    1  root      90    0.0   0.0   0        0        ?      -     Mar17  0:00  [xfs_mru_cache] 
+    1  root      89    0.0   0.0   0        0        ?      -     Mar17  0:00  [xfsalloc] 
+    1  root      88    0.0   0.0   0        0        ?      -     Mar17  0:00  [vmstat] 
+
