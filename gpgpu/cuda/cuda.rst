@@ -110,6 +110,8 @@ Optimization
 Reference
 ========================================
 
+* `Modern GPU <http://nvlabs.github.io/moderngpu/>`_
+
 * `Wikipedia - CUDA <https://en.wikipedia.org/wiki/CUDA>`_
 * `Wikipedia - Single instruction, multiple threads <https://en.wikipedia.org/wiki/Single_instruction,_multiple_threads>`_
 * ptt.cc
