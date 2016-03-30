@@ -58,3 +58,11 @@ Output :
 (VM on ESXi)
 
 .. image:: /images/archlinux/lstopo-esxi.png
+
+
+dmidecode
+========================================
+
+.. code-block:: sh
+
+    $ sudo pacman -S dmidecode
