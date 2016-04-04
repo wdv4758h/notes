@@ -36,6 +36,8 @@ PR
     - `Fix typo <https://github.com/sdiehl/kaleidoscope/pull/23>`_
 * mpitutorial - MPI programming lessons in C and executable code examples
     - `Fix typo <https://github.com/wesleykendall/mpitutorial/pull/17>`_
+* Ravi - a derivative of Lua 5.3 with limited optional static typing and LLVM and libgccjit based JIT compilers
+    - `fix typo of LLVM <https://github.com/dibyendumajumdar/ravi/pull/81>`_
 
 
 Issue Only
