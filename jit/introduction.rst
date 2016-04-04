@@ -108,6 +108,11 @@ Implementation
 * `AsmJit <https://github.com/kobalicek/asmjit>`_
 * `LibJIT <https://www.gnu.org/software/libjit/>`_
 
+Bindings
+========================================
+
+* `Python bindings for libgccjit <https://github.com/davidmalcolm/pygccjit>`_
+
 
 Reference
 ========================================
