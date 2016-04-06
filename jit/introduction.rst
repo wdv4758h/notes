@@ -114,6 +114,167 @@ Bindings
 * `Python bindings for libgccjit <https://github.com/davidmalcolm/pygccjit>`_
 
 
+FAQ
+========================================
+
+「什麼是 JIT ？ JIT 的目的是什麼？」
+
+    JIT 指的是動態編譯的技術，也就是在程式執行期間去產生出新的程式碼來執行。
+    而 JIT 的目的是要透過執行時期的資訊來編出優化品質更好的程式碼來提升效能。
+
+
+
+「JIT 可以哪些額外的資訊？」
+
+    JIT 可以透過執行時的 profiling 獲得的資訊包含：
+
+    * 函數是否被大量使用
+    * 函數的參數是否一直都是同一個值
+
+
+
+「為什麼 JIT 可以提升效能？」
+
+    這邊提升效能的重點是程式編譯出來的品質。
+
+    對動態語言來說，
+    JIT 可以針對型別做優化，例如原本 ``add(x, y)`` 可以接受各式的資料，
+    每次執行時判斷 x 和 y 的型別來決定操作，
+    假設現在執行過程中 x 和 y 都一直是整數，
+    那這時 JIT 可以編成 ``add_int_int(x: int, y: int)`` 的形式，
+    如此一來就可以達到效能的提升。
+
+
+
+「JIT 常見的優點和缺點各是什麼？」
+
+    優點
+
+    * 實作良好的話可以大幅提升效能
+
+    缺點
+
+    * 複雜度比單純的直譯器高，還需要對不同的平台實作 JIT 後端，需要更多的人力 (財力) 投入
+
+
+
+「JIT 和 AOT 的比較？」
+
+    編譯器 (AOT)：
+
+        準備：
+
+            +------------+    +------------+    +--------+    +-----------------+
+            | 撰寫程式碼 | -> | 輸入程式碼 | -> | 編譯器 | -> | 執行檔 (Binary) |
+            +------------+    +------------+    +--------+    +-----------------+
+
+        使用：
+
+            +------------+    +------+    +----------+
+            | 輸入執行檔 | -> | 執行 | -> | 執行結果 |
+            +------------+    +------+    +----------+
+
+    普通直譯器：
+
+        準備：
+
+            +------------+
+            | 撰寫程式碼 |
+            +------------+
+
+        使用：
+
+            +------------+    +---------------------+    +----------+
+            | 輸入程式碼 | -> | 直譯器 (轉譯且執行) | -> | 執行結果 |
+            +------------+    +---------------------+    +----------+
+
+    有 JIT 的直譯器：
+
+        準備：
+
+            +------------+
+            | 撰寫程式碼 |
+            +------------+
+
+        使用：
+
+            +------------+    +---------------------+    +----------+
+            | 輸入程式碼 | -> | 直譯器 (轉譯且執行) | -> | 執行結果 |
+            +------------+    +---------------------+    +----------+
+                                        |                      ^
+                                        v                      |
+                                    +--------+                 |
+                                    | 編譯器 |                 |
+                                    +--------+                 |
+                                        |                      |
+                                        v                      |
+                                    +--------+                 |
+                                    | 機械碼 | ----------------+
+                                    +--------+
+
+
+
+「為什麼 JIT 可以提升效能但是很多語言一開始卻不實作 JIT ？」
+
+    相比 JIT，一般直譯器的實作比較容易，
+    在時間跟金錢成本的衡量下可能會先選擇不實作 JIT。
+
+
+
+「JIT 現今的實作種類有哪些？」
+
+    1. Tracing-based JIT
+
+        * [Lua] LuaJIT
+        * [Python] PyPy
+        * [Erlang] BEAMJIT
+        * ...
+
+    2. Method-based JIT
+
+        * [JavaScript] V8
+        * [JavaScript] SpiderMonkey
+        * ...
+
+
+
+「現今有哪些可以重複利用的 JIT Framework？」
+
+    * Truffle/Graal
+    * RPython Toolchain
+
+
+Papers
+========================================
+
+* [2015] `A Tracing JIT Compiler for Erlang Using LLVM <https://lup.lub.lu.se/student-papers/search/publication/5470892>`_
+* [2015] `The Impact of Meta-Tracing on VM Design and Implementation <http://tratt.net/laurie/research/pubs/papers/bolz_tratt__the_impact_of_metatracing_on_vm_design_and_implementation.pdf>`_
+* [2015] `Pycket: A Tracing JIT For a Functional Language <http://homes.soic.indiana.edu/samth/pycket-draft.pdf>`_
+* [2010] `High performance implementation of Python for CLI/.NET with JIT compiler generation for dynamic languages <http://buildbot.pypy.org/misc/antocuni-thesis.pdf>`_
+* [2003] `A Brief History of Just-In-Time <http://dl.acm.org/citation.cfm?id=857077>`_
+
+
+Blogs & Sites & Slides
+========================================
+
+Blogs
+
+* `Carl Friedrich Bolz <http://cfbolz.de/>`_
+* `Laurence Tratt <http://tratt.net/laurie/>`_
+* `Cristian Esquivias - Writing a Language in Truffle <https://cesquivias.github.io/tags/truffle.html>`_
+* `Hello, JIT World: The Joy of Simple JITs <http://blog.reverberate.org/2012/12/hello-jit-world-joy-of-simple-jits.html>`_
+
+
+Sites
+
+* `Software Developer Team <http://soft-dev.org/>`_
+
+
+Slides
+
+* `BEAMJIT: An LLVM based just-in-time compiler for Erlang <http://llvm.org/devmtg/2014-04/PDFs/Talks/drejhammar.pdf>`_
+
+
 Reference
 ========================================
 
