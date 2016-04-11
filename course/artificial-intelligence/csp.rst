@@ -193,10 +193,10 @@ Path-Consistency (3-Consistency)
     且 (b, c) 滿足 (Xj, Xk) 間所有的 Binary Constraints，
     則稱 Xi 和 Xj 為與 Xk 滿足 Path Consistency
 
-(i, j)-Consistency
-(1, 1)-Consistency => Arc Consistency
-(2, 1)-Consistency => Path Consistency
-(1, 2)-Consistency => Path Inverse Consistency
+* (i, j)-Consistency
+* (1, 1)-Consistency => Arc Consistency
+* (2, 1)-Consistency => Path Consistency
+* (1, 2)-Consistency => Path Inverse Consistency
 
 ----
 
@@ -256,7 +256,9 @@ The 4‐Queen Problem
 Boolean Satisfiability Problem
 
 a.k.a Propositional Satisfiability Problem
+
 a.k.a SATISFIABILITY
+
 a.k.a SAT
 
 ----
