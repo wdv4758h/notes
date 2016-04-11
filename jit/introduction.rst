@@ -238,6 +238,77 @@ FAQ
     * RPython Toolchain
 
 
+「實作 JIT 會需要的功能？」
+
+    取得記憶體空間 (mmap)
+
+        .. code-block:: cpp
+
+            #include <sys/mman.h>
+
+            // $ man 2 mmap
+            //
+            // void *mmap(void *addr, size_t length,
+            //            int prot, int flags,
+            //            int fd, off_t offset);
+            //
+            // int munmap(void *addr, size_t length);
+            //
+            // If addr is not NULL, then the kernel takes it as a hint about where  to place the mapping
+
+            ptr = mmap(addr,
+                       len,
+                       PROT_READ | PROT_WRITE,      // protection
+                       MAP_PRIVATE | MAP_ANONYMOUS, // flags
+                       -1,  // fd
+                       0);  // offset
+
+        * `POSIX - mmap <http://pubs.opengroup.org/onlinepubs/9699919799/functions/mmap.html>`_
+        * `Linux 實作 - /mm/mmap.c <http://lxr.free-electrons.com/source/mm/mmap.c>`_
+        * `FreeBSD 實作 - /contrib/netbsd-tests/lib/libc/sys/t_mmap.c <https://github.com/freebsd/freebsd/blob/master/contrib/netbsd-tests/lib/libc/sys/t_mmap.c>`_
+
+    更改記憶體屬性 (mprotect)
+
+        .. code-block:: cpp
+
+            #include <sys/mman.h>
+
+            // int mprotect(void *addr, size_t len, int prot);
+
+            mprotect(addr, len, PROT_READ | PROT_EXEC);     // 可讀可執行
+            mprotect(addr, len, PROT_READ | PROT_WRITE);    // 可讀可寫
+
+        * `POSIX - mprotect <http://pubs.opengroup.org/onlinepubs/9699919799/functions/mprotect.html>`_
+        * `Linux 實作 - /mm/mprotect.c <http://lxr.free-electrons.com/source/mm/mprotect.c>`_
+        * `FreeBSD 實作 - /contrib/netbsd-tests/lib/libc/sys/t_mprotect.c <https://github.com/freebsd/freebsd/blob/master/contrib/netbsd-tests/lib/libc/sys/t_mprotect.c>`_
+
+
+
+「為什麼使用 mmap 而不是用 malloc ?」
+
+    malloc 提供的的確是 RW 的記憶體，
+    我們也的確可以拿來使用於 JIT，
+    不過記憶體的 protection bits 只能在 virtual memory page 的邊界設定，
+    所以如果我們使用 malloc 的話，
+    我們要自己手動確認分配到的記憶體有對齊到 page boundary，
+    否則 mprotect 可能因為無法正確地更改記憶體屬性而產生不預期的行為，
+    然而 mmap 保證只會分配到 page boundary (mmap 會拿整個 page)。
+
+
+
+「有用到 JIT 技術的知名專案？」
+
+    * [VEX IR] Valgrind
+    * [Python] PyPy
+    * [Lua] LuaJIT
+    * [JavaScript] V8
+    * [JavaScript] SpiderMonkey
+    * [PCRE] sljit
+    * ...
+
+
+
+
 Papers
 ========================================
 
