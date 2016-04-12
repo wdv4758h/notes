@@ -373,6 +373,35 @@ Brainfuck
 DynASM
 ------------------------------
 
+編譯 & 連結
+++++++++++++++++++++
+
+.. code-block:: sh
+
+    # Write Your Code
+    mkdir src
+    wget https://github.com/corsix/dynasm-doc/raw/gh-pages/bf_dynasm.c -O src/myprogram.c
+
+    # Get DynASM
+    git clone http://luajit.org/git/luajit-2.0.git
+
+    mkdir -p build
+    cd build
+
+    # Build minimal Lua interpreter
+    clang -std=c11 -lm ../luajit-2.0/src/host/minilua.c -o minilua
+
+    # run the DynASM preprocessor
+    ./minilua ../luajit-2.0/dynasm/dynasm.lua -D X64 -o myprogram.posix64.c ../src/myprogram.c
+
+	# use -D_DEFAULT_SOURCE for "MAP_ANONYMOUS"
+    clang -std=c11 -D_DEFAULT_SOURCE -I ../ myprogram.posix64.c -o myprogram
+
+    # Run !!!
+	wget https://github.com/corsix/dynasm-doc/raw/gh-pages/mandelbrot.bf
+    ./myprogram mandelbrot.bf
+
+
 
 asmjit
 ------------------------------
@@ -383,7 +412,6 @@ asmjit
 .. code-block:: sh
 
     # Build asmjit
-
     git clone https://github.com/kobalicek/asmjit/
     mkdir -p asmjit/build/
     cd asmjit/build
@@ -394,17 +422,14 @@ asmjit
     cp asmjit/build/libasmjit.so build/lib/
 
     # Write Your Program
-
     mkdir -p src
     edit src/myprogram.cpp  # write your code here !
 
     # Build Your Program
-
     cd build
-    clang++ ../src/myprogram.cpp -I ../asmjit/src/ -L ./lib/ -l asmjit -o myprogram
+    clang++ -std=c++14 ../src/myprogram.cpp -I ../asmjit/src/ -L ./lib/ -l asmjit -o myprogram
 
     # Run !!!
-
     LD_PRELOAD=./lib/libasmjit.so ./myprogram
 
 
