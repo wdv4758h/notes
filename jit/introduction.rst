@@ -2,6 +2,9 @@
 JIT
 ========================================
 
+.. contents:: 目錄
+
+
 Case Study
 ========================================
 
@@ -283,6 +286,22 @@ FAQ
         * `FreeBSD 實作 - /contrib/netbsd-tests/lib/libc/sys/t_mprotect.c <https://github.com/freebsd/freebsd/blob/master/contrib/netbsd-tests/lib/libc/sys/t_mprotect.c>`_
 
 
+        * `Linux 實作 - /include/linux/mm_types.h <http://lxr.free-electrons.com/source/include/linux/mm_types.h>`_
+
+            .. code-block:: c
+
+                struct vm_area_struct {
+
+                    ...
+
+                    pgprot_t vm_page_prot;      /* Access permissions of this VMA. */
+                    unsigned long vm_flags;     /* Flags, see mm.h. */
+
+                    ...
+
+                }
+
+
 
 「為什麼使用 mmap 而不是用 malloc ?」
 
@@ -304,8 +323,109 @@ FAQ
     * [JavaScript] V8
     * [JavaScript] SpiderMonkey
     * [PCRE] sljit
+    * [Octave] GNU Octave (JIT 基於 LLVM)
+
+        https://www.gnu.org/software/octave/doc/v4.0.1/JIT-Compiler.html#JIT-Compiler
+
+        JIT works by converting Octave's AST to the LLVM Internal Representation (IR)
+
+    * [Julia] Julia (JIT 基於 LLVM)
+
+    * Ravi
     * ...
 
+
+
+「用於 PyPy 的 RPython Toolchain 實作了些什麼？」
+
+    RPython Toolchain 是一個動態語言的直譯器 Framework，
+    使用叫作 RPython (Restricted Python) 的語言 (Python 的子集合) 來實作直譯器，
+    Toolchain 會在分析後幫忙產生 JIT 以及 GC，
+    目前主要在使用的 backend 是 GenC，
+    用於產生 C code 後再交給 GCC 或 Clang 編譯程執行檔。
+
+    * `RPython's documentation <https://rpython.readthedocs.org/en/latest/index.html>`_
+
+
+
+「RPython Toolchain 的優點和缺點？」
+
+    優點：
+
+    * 和使用 C 或 C++ 相比，用 RPython 開發寫起來比較輕鬆
+    * 可以簡單地獲得 JIT 支援
+    * 可以簡單地獲得 incremental generational mark-and-sweep GC 支援
+    * 未來只要更新 RPython Toolchain 即可獲得新功能或效能提升
+    * RPython Toolchain 有支援的 backend 就可以在其之上產生直譯器 (例如 JVM)
+
+    缺點：
+
+    * 要注意 RPython 的限制，雖然有文件，但還是可能碰到文件沒寫的問題
+    * RPython Toolchain 在分析、產生 JIT 的過程過於緩慢、消耗資源
+    * 支援平台受到 Toolchain 限制
+    * Debug 方式會變得複雜一些
+
+
+
+Brainfuck
+========================================
+
+DynASM
+------------------------------
+
+
+asmjit
+------------------------------
+
+編譯 & 連結
+++++++++++++++++++++
+
+.. code-block:: sh
+
+    # Build asmjit
+
+    git clone https://github.com/kobalicek/asmjit/
+    mkdir -p asmjit/build/
+    cd asmjit/build
+    cmake ../
+    make -j
+    cd ../../
+    mkdir -p build/lib
+    cp asmjit/build/libasmjit.so build/lib/
+
+    # Write Your Program
+
+    mkdir -p src
+    edit src/myprogram.cpp  # write your code here !
+
+    # Build Your Program
+
+    cd build
+    clang++ ../src/myprogram.cpp -I ../asmjit/src/ -L ./lib/ -l asmjit -o myprogram
+
+    # Run !!!
+
+    LD_PRELOAD=./lib/libasmjit.so ./myprogram
+
+
+LLVM - MCJIT
+------------------------------
+
+
+LLVM - ORC (On Request Compilation) JIT
+---------------------------------------
+
+
+libgccjit
+------------------------------
+
+
+B3 JIT
+------------------------------
+
+
+libjit
+------------------------------
 
 
 
@@ -348,3 +468,10 @@ Reference
 * [2003] A Brief History of Just-In-Time
 * [1968] Ken Thompson - Programming Techniques: Regular expression search algorithm
 * [1987] Rob Pike - Structural Regular Expressions
+
+
+Mailing List
+========================================
+
+* `libgccjit - mailing list archives <https://gcc.gnu.org/ml/jit/>`_
+* `LLVM - llvm-dev archives <http://lists.llvm.org/pipermail/llvm-dev/>`_
