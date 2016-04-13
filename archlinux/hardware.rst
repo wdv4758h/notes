@@ -66,3 +66,16 @@ dmidecode
 .. code-block:: sh
 
     $ sudo pacman -S dmidecode
+
+
+Devices Specific
+========================================
+
+* `Arch Wiki - Dell XPS 13 (2016) <https://wiki.archlinux.org/index.php/Dell_XPS_13_%282016%29>`_
+
+    systemd-boot
+
+        .. code-block:: sh
+
+            # /boot/loader/entries/arch.conf
+            options root=/dev/sda2 add_efi_memmap i915.enable_psr=1

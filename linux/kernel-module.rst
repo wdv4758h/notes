@@ -45,3 +45,6 @@ Kernel Module
     $ depmod --dry-run
     # analysis current kernel module and write to modules.dep
     $ sudo depmod
+
+
+* `Arch Wiki - Kernel parameters <https://wiki.archlinux.org/index.php/Kernel_parameters>`_
