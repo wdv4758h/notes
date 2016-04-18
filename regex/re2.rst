@@ -2,6 +2,26 @@
 RE2 - fast, safe, thread-friendly alternative to backtracking regular expression engines
 ========================================================================================
 
+.. contents:: 目錄
+
+
+Todo
+========================================
+
+* RE2 流程圖 (何時使用 NFA、DFA？中間的轉換機制？)
+* 為 RE2 實作 backreference fallback (給需要 backreference 的地方有機會使用，雖然效能不佳)
+* 基於 RE2 實作 grep (然後跟 GNU grep 做效能比較)
+* Regular Expression Engine 功能比較表 (PCRE, PCRE-DFA, Oniguruma, TRE, RE2, PCRE-sljit, sregex)
+* Regular Expression Engine 效能比較表 (速度和記憶體使用量)
+* 嘗試把 RE2 接上 Neovim 作為 Regular Expression 後端
+* 完善 Python 的 RE2 wrapper (https://github.com/axiak/pyre2/)
+* 研究 C++ STL 內的 <regex> (libstdc++, libc++) 以及 Boost.Regex
+* 研究 CPython 內的 "Secret Labs' Regular Expression Engine"
+* 嘗試使用 RPython 實作有 JIT 的 Regular Expressiohn Engine (http://morepypy.blogspot.tw/2010/05/efficient-and-elegant-regular.html, http://morepypy.blogspot.tw/2010/06/jit-for-regular-expression-matching.html, http://sebfisch.github.io/haskell-regexp/regexp-play.pdf, http://sebfisch.github.io/haskell-regexp/, https://mail.python.org/pipermail/python-dev/2012-June/119820.html)
+* 研究且改進 Rust 的 regex library (https://github.com/rust-lang-nursery/regex)
+
+
+
 使用
 ========================================
 
@@ -45,7 +65,7 @@ RE2 - fast, safe, thread-friendly alternative to backtracking regular expression
 
 可以從 ``re2/re2.h`` 中找到 RE2 提供的 C++ 介面，
 大致翻過裡面的程式碼後可以發現有數個功能可以使用（都在 RE2 namespace 底下），
-其中主要的是 FullMatch、PartialMatch、Consume、FindAndConsume 這幾項。
+其中主要的是 ``FullMatch`` 、``PartialMatch`` 、``Consume`` 、``FindAndConsume`` 這幾項。
 
 關係 ::
 
@@ -64,11 +84,18 @@ RE2 - fast, safe, thread-friendly alternative to backtracking regular expression
     +--------------------------------------------------------------------+
     |                              DoMatch                               |
     +--------------------------------------------------------------------+
+                                     ^
+                                     |                                      Wrapper
+                                     |
+    +--------------------------------------------------------------------+
+    |                              Match                                 |
+    +--------------------------------------------------------------------+
 
-FullMatch 是 FullMatchN 的 Special Case，
+
+``FullMatch`` 是 ``FullMatchN`` 的 Special Case，
 用 ``VariadicFunction2`` Template 包裝而成 (在 ``re2/variadic_function.h`` )，
-而 FullMatchN 則是 RE2::RE2::DoMatch 的包裝。
-同樣的 PartialMatchN、ConsumeN、FindAndConsumeN 也都是 RE2::RE2::DoMatch 的包裝。
+而 ``FullMatchN`` 則是 ``RE2::RE2::DoMatch`` 的包裝。
+同樣的 ``PartialMatchN`` 、``ConsumeN`` 、``FindAndConsumeN`` 也都是 ``RE2::RE2::DoMatch`` 的包裝。
 
 
 +----------------+----------------------------------------+--------------+
@@ -166,7 +193,7 @@ FullMatch、PartialMatch、Consume、FindAndConsume 感覺就像是 sscanf 那�
 
     int main() {
         int i;
-        string s;
+        std::string s;
         RE2::FullMatch("iamstring:1234", "(\\w+):(\\d+)", &s, &i);
         return 0;
     }
