@@ -68,3 +68,10 @@ Incremental
 ========================================
 
 拆散整個 GC 過程，把每次暫停的時間縮短
+
+
+
+Reference
+========================================
+
+* `Garbage collection thoughts <http://sebastiansylvan.com/post/garbage-collection-thoughts/>`_
