@@ -2,7 +2,22 @@
 Git Tips
 ========================================
 
-git add -p
+Misc
+========================================
+
+只加部份檔案：
+
+.. code-block:: sh
+
+    $ git add -p
+
+
+把特定檔案回復到特定版本：
+
+.. code-block:: sh
+
+    $ git checkout hash-id path-to-file
+
 
 Checkout GitHub pull requests locally
 ========================================
