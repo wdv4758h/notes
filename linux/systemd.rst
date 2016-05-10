@@ -15,3 +15,9 @@ Reference
     - 速度不是 systemd 的主要目標，但是是 systemd 把事情最對的一大副作用 (?)
     - 可以用任何語言來撰寫 systemd 的 service
 * `[2011] Why systemd? <http://0pointer.de/blog/projects/why.html>`_
+* `Arch Wiki - systemd <https://wiki.archlinux.org/index.php/systemd>`_
+
+* `Systemd Essentials: Working with Services, Units, and the Journal <https://www.digitalocean.com/community/tutorials/systemd-essentials-working-with-services-units-and-the-journal>`_
+* `How To Use Systemctl to Manage Systemd Services and Units <https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units>`_
+* `How To Use Journalctl to View and Manipulate Systemd Logs <https://www.digitalocean.com/community/tutorials/how-to-use-journalctl-to-view-and-manipulate-systemd-logs>`_
+* `Understanding Systemd Units and Unit Files <https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files>`_
