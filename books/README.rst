@@ -18,6 +18,11 @@
 * `Code: The Hidden Language of Computer Hardware and Software <http://www.amazon.com/Code-Language-Computer-Hardware-Software/dp/0735611319/>`_
 
 
+* `C++ Primer <http://www.amazon.com/Primer-5th-Stanley-B-Lippman/dp/0321714113>`_
+* `Effective Modern C++: 42 Specific Ways to Improve Your Use of C++11 and C++14 <http://www.amazon.com/Effective-Modern-Specific-Ways-Improve/dp/1491903996/>`_
+* `The C++ Programming Language <http://www.amazon.com/C-Programming-Language-4th/dp/0321563840/>`_
+* `API Design for C++ <http://www.apibook.com/blog/>`_
+
 
 已購買
 ========================================
