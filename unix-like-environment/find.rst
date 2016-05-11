@@ -36,3 +36,11 @@ execute command for specific file :
 
     $ find . -type f -exec ls -al {} \;
     $ find . -type f -exec chmod 644 {} \;
+
+mv :
+
+.. code-block:: sh
+
+    # files that create in last 30 minutes
+    # move to tmpdir/
+    $ find . -cmin -30 -type f -exec mv -t tmpdir/ {} +
