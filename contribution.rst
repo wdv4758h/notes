@@ -30,6 +30,7 @@ PR
 * Neovim - Vim-fork focused on extensibility and agility
     - `porting Vim Patch 7.4.799 <https://github.com/neovim/neovim/commit/54973477e7a7cc8f955d1755d3243e7f89461e34>`_
     - `version.c mark patches NA <https://github.com/neovim/neovim/commit/56fe0c956f6f446ea40a8ccb8be640b000b875e2>`_
+    - `build: fix '-fno-sanitize-recover' warning in Clang 3.7 <https://github.com/neovim/neovim/commit/33ba27b0026aef9f854de0d63b6c486d99c2d795>`_
 * mps-youtube - Terminal based YouTube player and downloader
     - `Fix local variable 'mpv' & 'mplayer' referenced before assignment <https://github.com/mps-youtube/mps-youtube/commit/419e922da23f7d542fe83f4314761f86c3c39156>`_
 * kaleidoscope - Haskell LLVM Kaleidoscope Tutorial
