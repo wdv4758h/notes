@@ -256,6 +256,38 @@ Insert Numpy Array
     Upper bound on total bytes  =       160
 
 
+自己為 NumPy Array 加額外 Attributes
+========================================
+
+.. code-block:: python
+
+    # 測試資料
+    old_array = np.array([1, 2, 3])
+
+    # 客制化 class
+    # 用於增加 Attributes
+    class MyNumpyClass(np.ndarray):
+        myattribute = 42
+
+    # 直接利用原本的 NumPy Array （用同一塊記憶體）
+    new_array = MyNumpyClass(old_array.shape,
+                            buffer=old_array,
+                            dtype=old_array.dtype)
+
+    new_array[0] = 42
+    print(new_array)
+    print(old_array)    # 發現跟著一起變動
+
+    old_array[1] = 5566
+    print(new_array)    # 發現跟著一起變動
+    print(old_array)
+
+    print(new_array.myattribute)    # 42
+
+    # 以下可以把 new_array 傳給任何 NumPy 內的 Function 做操作
+
+
+
 Reference
 ========================================
 
