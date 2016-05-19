@@ -264,7 +264,7 @@ Insert Numpy Array
     # 測試資料
     old_array = np.array([1, 2, 3])
 
-    # 客制化 class
+    # 客製化 class
     # 用於增加 Attributes
     class MyNumpyClass(np.ndarray):
         myattribute = 42
