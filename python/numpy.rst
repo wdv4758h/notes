@@ -271,8 +271,8 @@ Insert Numpy Array
 
     # 直接利用原本的 NumPy Array （用同一塊記憶體）
     new_array = MyNumpyClass(old_array.shape,
-                            buffer=old_array,
-                            dtype=old_array.dtype)
+                             buffer=old_array,
+                             dtype=old_array.dtype)
 
     new_array[0] = 42
     print(new_array)
