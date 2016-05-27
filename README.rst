@@ -59,6 +59,19 @@ JIT 相關的文件則在 `RPython JIT <https://rpython.readthedocs.io/en/latest
 做紀錄，需要的話歡迎自行取用。
 
 
+版本控制
+------------------------------
+
+個人在版本控制上習慣使用 Git （純粹個人習慣），
+Git 在 `官網 <https://git-scm.com/doc>`_ 就有很好的說明和教學，
+另外 GitHub 也有做 `Tutorial <https://try.github.io>`_ ，
+除此之外這邊還有一張
+`Cheatsheet <http://www.ndpsoftware.com/git-cheatsheet.html>`_
+可以看。
+如果想要了解更深入的話可以看
+`Git Magic <http://www-cs-students.stanford.edu/~blynn/gitmagic/>`_ 。
+
+
 大致結構
 ========================================
 
