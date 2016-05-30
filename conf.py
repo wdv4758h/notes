@@ -3,12 +3,12 @@
 
 # This conf.py is modified from readthedocs
 
-from recommonmark.parser import CommonMarkParser
+# from recommonmark.parser import CommonMarkParser
 
 extensions = []
 templates_path = ['templates', '_templates', '.templates']
-source_suffix = ['.rst', '.md']
-source_parsers = { '.md': CommonMarkParser, }
+source_suffix = ['.rst']
+# source_parsers = { '.md': CommonMarkParser, }
 master_doc = 'index'
 project = u'wdv4758h-notes'
 copyright = u'2016'
@@ -133,7 +133,7 @@ context = {
     'new_theme': (html_theme == "sphinx_rtd_theme"),
     'source_suffix': SUFFIX,
     'user_analytics_code': '',
-    'global_analytics_code': 'UA-17997319-1',
+    'global_analytics_code': '',
 }
 
 if 'html_context' in globals():

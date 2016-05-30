@@ -24,7 +24,7 @@
               - master  # 我把 reStructuredText 的原始檔放在 master branch
 
         install:
-          - pip install sphinx recommonmark readthedocs-sphinx-ext sphinx_rtd_theme ghp-import
+          - pip install sphinx readthedocs-sphinx-ext sphinx_rtd_theme ghp-import
 
         script:
           - make travis  # 需要在 Makefile 新增 travis 的 label
@@ -73,12 +73,12 @@
 
         # This conf.py is modified from readthedocs
 
-        from recommonmark.parser import CommonMarkParser
+        # from recommonmark.parser import CommonMarkParser
 
         extensions = []
         templates_path = ['templates', '_templates', '.templates']
-        source_suffix = ['.rst', '.md']
-        source_parsers = { '.md': CommonMarkParser, }
+        source_suffix = ['.rst']
+        # source_parsers = { '.md': CommonMarkParser, }
         master_doc = 'index'
         project = u'wdv4758h-notes'
         copyright = u'2016'
@@ -203,7 +203,7 @@
             'new_theme': (html_theme == "sphinx_rtd_theme"),
             'source_suffix': SUFFIX,
             'user_analytics_code': '',
-            'global_analytics_code': 'UA-17997319-1',
+            'global_analytics_code': '',
         }
 
         if 'html_context' in globals():
@@ -229,3 +229,13 @@
     在 Name 欄位填上 ``GH_TOKEN`` ，
     在 Value 欄位貼上剛剛複製的 Token，
     然後點選 Add 即可。
+
+
+----
+
+#Python
+#reStructuredText #rst #Sphinx
+#GitHub #GitHub_Pages
+#Travis
+#readthedocs
+#ghp-import
