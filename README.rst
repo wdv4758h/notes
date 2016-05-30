@@ -46,6 +46,15 @@ I'm trying my best to increase the CS information in Traditional Chinese.)
 推薦
 ========================================
 
+Vim
+------------------------------
+
+（老王賣瓜）
+我以前曾經講過一場 Vim 的使用教學，
+有興趣的可以參考：
+`《Vim 手指健康操》 <https://speakerdeck.com/wdv4758h/vim-shou-zhi-jian-kang-cao>`_
+
+
 Regular Expression Engine
 ------------------------------
 
