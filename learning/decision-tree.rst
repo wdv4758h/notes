@@ -31,7 +31,7 @@
 * Bagging
 * Random Forest
 * Boosted Trees
-* Rotation forest
+* Rotation Forest
 
 
 度量 （Metrics）
@@ -42,6 +42,7 @@
 
 * Shannon Entropy
 * Gini Impurity
+* Chi-Square Test
 
 
 Shannon Entropy
@@ -150,7 +151,10 @@ Shannon Entropy
 資訊獲利
 ++++++++++++++++++++
 
-::
+（以 Entropy 作為亂度的度量方式，Entropy 愈低，亂度愈低，分辨的愈好）
+
+
+資訊獲利（選擇資訊獲利高的路） ::
 
     IG(T, a) = H(T) - H(T|a)
 
@@ -242,6 +246,13 @@ Shannon Entropy
     # y = f(x[1:])      # fine
 
 
+獲利比率
+++++++++++++++++++++
+
+::
+
+    GainRatio(A) = Gain(S, A) / SplitInfo(S, A)
+
 
 Gini Impurity
 ------------------------------
@@ -313,9 +324,9 @@ Gini Impurity
         positive = class1[0] + class2[0]
         negative = class1[1] + class2[1]
         total = positive + negative
-        old_entropy = gini_of_bool(Fraction(positive, total), laplace)
-        new_entropy = gini_of_split(class1, class2, laplace)
-        return new_entropy - old_entropy
+        old_gini = gini_of_bool(Fraction(positive, total), laplace)
+        new_gini = gini_of_split(class1, class2, laplace)
+        return new_gini - old_gini
 
     def laplace_correction(number: Fraction):
         return Fraction(number.numerator+1,
@@ -333,6 +344,18 @@ Gini Impurity
     此時 Gini 的值為 ``1 - M * (1/M)**2 = 1 - 1/M`` ，
     當 M 愈大時，Gini 就愈大，
     當 M 趨近無限大時，M 就趨近於 ``1``
+
+
+Laplace Correction (Laplace Estimate)
++++++++++++++++++++++++++++++++++++++
+
+「機率理論可用於衡量一句話的可信度」
+
+連續法則（Rule of Succession）
+
+如果成功了 m 次，失敗了 n 次，
+那下次成功的機率為 ``(m+1)/(m+n+2)``
+
 
 
 範例
@@ -468,6 +491,9 @@ Gini Impurity
 根據建完的決策樹，第六個病患會被判斷為「正常」。
 
 
+Chi-Square Test
+++++++++++++++++++++
+
 
 建立決策樹的演算法
 ========================================
@@ -516,12 +542,71 @@ Pseudocode ： （重點在 ``PickBestFeature`` ）
 
 
 
+Ensemble Methods
+========================================
+
+Ensemble Methods 的目標是把多個基本的估計合起來使用，
+以增加功能性。
+
+Ensemble Methods 大致可以分成兩種：
+
+* 平均：把數個各自建立的估計方式平均起來使用，以獲得比單一估計方式要好的結果或減少偏差。
+    - Bagging
+    - Random Forests
+* 加速：把數個依序建立的估計方式和起來使用，以結合數個弱方法產生較好的結果。
+    - AdaBoost
+    - Gradient Tree Boosting
+
+
+Bagging
+------------------------------
+
+選出訓練資料的數個任意子集合來建立數個估計方法，
+最後結合各估計方法的結果。
+此作法常用來減少單一估計方法的偏差（減少 overfitting 的影響）。
+此方法通常適合使用在強而複雜的模型，
+另一方面加速類型的 Ensemble Methods 則通常適合使用在弱的模型。
+
+
+Random Forests
+------------------------------
+
+
 決策樹的優點
 ========================================
 
 決策樹的缺點
 ========================================
 
+
+混用
+========================================
+
+Decision Tree + Naive Bayes
+------------------------------
+
+
+
+實作現況
+========================================
+
+Library 現況：
+
++--------------+--------------+
+| Library      | 實作的演算法 |
++==============+==============+
+| Orange       | C4.5         |
++--------------+--------------+
+| scikit-learn | CART         |
++--------------+--------------+
+
+
+* `SciPy - scipy.stats.entropy <https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.entropy.html>`_
+
+
+
+使用範例
+========================================
 
 
 參考
@@ -530,8 +615,17 @@ Pseudocode ： （重點在 ``PickBestFeature`` ）
 * `Wikipedia - Decision tree learning <https://en.wikipedia.org/wiki/Decision_tree_learning>`_
 * `Wikipedia - Information gain in decision trees <https://en.wikipedia.org/wiki/Information_gain_in_decision_trees>`_
 * `Wikipedia - Information gain ratio <https://en.wikipedia.org/wiki/Information_gain_ratio>`_
+* `Wikipedia - Rule of succession <https://en.wikipedia.org/wiki/Rule_of_succession>`_
+* `Wikipedia - Additive smoothing <https://en.wikipedia.org/wiki/Additive_smoothing>`_
+* `Wikipedia - Sunrise problem <https://en.wikipedia.org/wiki/Sunrise_problem>`_
+* `Building Decision Trees in Python <http://www.onlamp.com/pub/a/python/2006/02/09/ai_decision_trees.html>`_
 * `scikit-learn - Decision Trees <http://scikit-learn.org/stable/modules/tree.html>`_
+* `scikit-learn - Ensemble methods <http://scikit-learn.org/stable/modules/ensemble.html>`_
 * `Different decision tree algorithms with comparison of complexity or performance <http://stackoverflow.com/a/9996741>`_
 * `熵 (Entropy) <http://episte.math.ntu.edu.tw/articles/mm/mm_13_3_01/>`_
 * `What are the differences between ID3, C4.5 and CART? <https://www.quora.com/What-are-the-differences-between-ID3-C4-5-and-CART>`_
 * `Machine Learning by Pedro Domingos <https://class.coursera.org/machlearning-001/lecture>`_
+
+* `拉普拉斯 Pierre-Simon Laplace <http://highscope.ch.ntu.edu.tw/wordpress/?p=34550>`_
+* `【科學史上的今天】3/23 - 拉普拉斯誕辰（Pierre-Simon Laplace, 1749－1827） <http://history.pansci.asia/post/114321504880/科學史上的今天323拉普拉斯誕辰pierre-simon-laplace>`_
+* `機率歷史 (The History of Probability) <http://highscope.ch.ntu.edu.tw/wordpress/?p=39287>`_
