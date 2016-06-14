@@ -492,7 +492,7 @@ Laplace Correction (Laplace Estimate)
 
 
 Chi-Square Test
-++++++++++++++++++++
+------------------------------
 
 
 建立決策樹的演算法
@@ -542,6 +542,19 @@ Pseudocode ： （重點在 ``PickBestFeature`` ）
 
 
 
+ID3
+------------------------------
+
+C4.5
+------------------------------
+
+CART
+------------------------------
+
+CHAID
+------------------------------
+
+
 Ensemble Methods
 ========================================
 
@@ -570,6 +583,50 @@ Bagging
 
 Random Forests
 ------------------------------
+
+從所有的特徵中隨機選取一部份來建立估計，
+建立好數個估計方法後和起來使用，
+最後的出綜合的結論。
+和 Bagging 很大的差異就是 Random Forests 不會用所有的特徵去建立模型，
+所以除了和 Bagging 一樣去指定要建多少個模型外，
+還會指定每次要用多少特徵去建模型。
+
+使用案例：Microsoft 在 2011 年發的論文
+「Real-Time Human Pose Recognition in Parts from Single Depth Images」中，
+就有描述到在 Kinect 中使用 Randome Forests 來幫忙判斷人體的姿勢，
+而該篇論文則被 CVPR 選為該年年度最佳論文。
+
+
+AdaBoost
+------------------------------
+
+AdaBoost 為 1995 年由 Freund 和 Schapire 發表的作法。
+AdaBoost 的概念為把一系列的弱分類器（只比亂猜好一點點，例如很小的決策樹）
+利用權重和投票機制組起來，
+形成最後的決定。
+各弱分類器的權重一開始是平均的，
+在經過一連串的訓練後會得到不一樣的權重分佈，
+最後重要特徵的弱分類器就會拿到比較高的權重。
+
+
+使用案例：在電腦視覺領域有使用 AdaBoost 的知名例子，
+就是於 2001 年發表的「Viola–Jones object detection framework」，
+其利用 AdaBoost 來把數個弱分類器組起來形成強分類器，
+藉此在分類品質跟執行速度間取得了不錯的平衡。
+該篇在即時物件偵測是一個極為重要的貢獻，
+現在可以在 OpenCV 之類的專案看到基於該作法的實作，
+可應用在人臉偵測之類的地方。
+（之前修電腦視覺課程時，我跟朋友的期末專題剛好就在看這個 XD）
+
+
+Gradient Tree Boosting (Gradient Boosted Regression Trees) (GBRT)
+-----------------------------------------------------------------
+
+GBRT 會利用 Gradient Descent 的方式降低給定 cost function 的值，
+因此選用不同的 cost function 可以產生初步同的結果。
+GBRT 常用於像是網頁搜尋排名之類的領域。
+
+
 
 
 決策樹的優點
