@@ -141,6 +141,87 @@ Example 1
         print('The result is', res)
 
 
+Numba
+========================================
+
+Continuum 的 NumbaPro 已經被官方 Deprecated 了，
+其中 Code Generation 的部份都被移進 Open Source 的 Numba，
+而 CUDA library function 則被移進 Accelerate （也包含 Intel MKL 的一些功能）。
+
+
+
+.. code-block:: python
+
+    from numba import jit
+
+    @jit
+    def f(a, b):
+        return a + b
+
+    print(f)
+    print(f.signatures)
+    print(f.nopython_signatures)
+
+    f(1, 2)
+
+    print(f.signatures)
+    print(f.nopython_signatures)
+
+    f(0.1, 2)
+
+    print(f.signatures)
+    print(f.nopython_signatures)
+
+    f(0.1, 0.2)
+
+    print(f.signatures)
+    print(f.nopython_signatures)
+
+    f.inspect_types()
+
+::
+
+    CPUDispatcher(<function f at 0x7f3e3df17048>)
+    []
+    []
+
+    [(int64, int64)]
+    [(int64, int64) -> int64]
+
+    [(int64, int64), (float64, int64)]
+    [(int64, int64) -> int64, (float64, int64) -> float64]
+
+    [(int64, int64), (float64, int64), (float64, float64)]
+    [(int64, int64) -> int64, (float64, int64) -> float64, (float64, float64) -> float64]
+
+
+    ...
+    f (float64, float64)
+    --------------------------------------------------------------------------------
+    # File: simple.py
+    # --- LINE 6 ---
+
+    @jit
+
+    # --- LINE 7 ---
+
+    def f(a, b):
+
+        # --- LINE 8 ---
+        # label 0
+        #   a = arg(0, name=a)  :: float64
+        #   b = arg(1, name=b)  :: float64
+        #   $0.3 = a + b  :: float64
+        #   del b
+        #   del a
+        #   $0.4 = cast(value=$0.3)  :: float64
+        #   del $0.3
+        #   return $0.4
+
+        return a + b
+
+
+
 Reference
 ========================================
 
