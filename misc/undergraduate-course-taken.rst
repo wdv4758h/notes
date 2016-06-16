@@ -108,3 +108,157 @@
 +------------------------+------------+------------------+------+--------------+----------------------+
 | 微積分（一）           | 微積分小組 | 余啟哲           | 1012 | X            |                      |
 +------------------------+------------+------------------+------+--------------+----------------------+
+
+
+
+從課程學習到的知識
+========================================
+
+人工智慧，資科工碩，胡毓志
+------------------------------
+
+* 搜尋（Search）
+    - 非啟發式搜尋（Uninformed）
+        + 廣度優先搜尋 （Breadth-first search）
+        + 深度優先搜尋 （Depth-firth search）
+        + Depth-limited search
+        + Iterative Deepening search
+        + Bidirectional search
+        + Uniform cost search
+    - 啟發式搜尋（Informed）
+        + Greedy Best‐first search
+        + A* search
+        + Iterative‐deepening A* (IDA*) search
+    - 區域搜尋（Local）
+        + Hill‐climbing Search (Greedy local search)
+        + Stochastic hill‐climbing
+        + Random‐restart hill‐climbing
+        + Local Beam Search
+        + Simulated Annealing
+    - 遊戲搜尋（Game）
+        + Minimax Search
+        + α-β pruning
+        + Cutting Off Search
+        + Quiescent Search
+* CSP
+* 邏輯（Logic）
+* 機器學習種類
+    - 監督式學習（Supervised learning）
+    - 非監督式學習（Unsupervised learning）（Clustering）
+    - Reinforcement learning
+* 訓練資料的處理
+    - 小量資料
+        + cross-validation
+            * k-fold cross-validation
+            * stratified
+    - 大量資料
+        + 2/3 訓練、1/3 測試
+* 其他觀念
+    - Ockham's Razor （Principle of Parsimony）
+    - No Free Lunch Theorem
+* 決策樹（Decision Tree）
+    - 演算法
+        + ID3
+        + C4.5
+        + CART
+        + CHAID
+    - 度量（Metrics）
+        + Shannon Entropy
+        + Gini Impurity
+        + Chi-Square Test
+    - 輔助
+        + Pre-pruning
+        + Post-pruning
+    - 決策樹建立技巧（Ensemble Methods）
+        + Bagging
+        + Random Forest
+        + Boosted Trees
+        + Rotation Forest
+    - 問題
+        + Overfitting
+        + Under Sampling
+        + Over Sampling
+* 樸素貝葉斯分類器（Naive Bayesian Classifier）
+    - Conditional Probabilities
+    - Bayes' theorem
+    - Naive Bayes Algorithm
+    - Laplace Correction （Rule of Succession）
+* 類神經網路（Artificial Neural Network）
+    - Perceptron
+    - Gradient Descent
+    - Batch mode
+    - Incremental mode
+    - Multilayer Networks
+    - Sigmoid Unit
+    - Incremental/Stochastic Backpropagation
+
+
+資料結構，資訊共同，荊宇泰
+------------------------------
+
+* Linked List
+    - Singly-linked List
+    - Doubly-linked List
+    - Circular-linked List
+* Tree
+    - Binary Tree
+        + Inorder Traversal
+        + Preorder Traversal
+        + Postorder Traversal
+        + Iterative Inorder Traversal
+        + Level-order Traversal
+    - Threaded Binary Tree
+    - Binary Search Trees
+    - Selection Trees
+        + Winner Tree
+        + Loser Tree
+    - 基本操作
+        + Insertion
+        + Deletion
+        + Join
+            * Two-way Join
+            * Three-way Join
+        + Split
+* Sorting
+    - Insertion Sort
+    - Quick Sort
+    - Merge Sort
+        + Iterated Merge Sort
+        + Recrusive Merge Sort
+    - Heap Sort
+* Hashing
+    - Static Hashing
+    - Division
+    - Mid-Square
+    - Folding
+    - Overflow Handling
+    - Open Addressing
+    - Secure Hashing Function
+* Priority Queue
+    - Min Priority Queue
+    - Max Priority Queue
+    - Double-Ended Priority Queue
+    - Leftist Tree
+    - Weight-Biased Leftist Tree
+    - Symmetric Min-Max Heap
+* Mergeable Heap
+    - Binary Heap
+    - Binomial Heap
+    - Fibonacci Heap
+* Optimal BST
+* Balance Tree
+    - AVL Tree
+    - Multiway Search Tree
+    - B-Tree
+    - Rebalance Rotation
+        + LL
+        + RR
+        + LR
+        + RL
+* Binomial Heap
+* Graphs
+    - Breadth-First Search
+    - Depth-First Search
+    - Spanning Tree
+    - Minimum Spanning Tree
+    - Kruskal's Algorithm
