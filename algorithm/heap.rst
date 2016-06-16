@@ -59,13 +59,29 @@ Heap 在一些圖論的演算法中扮演極其重要的地位，例如 Dijkstra
 Binary Heap
 ========================================
 
++--------------+------------+
+| 操作         | 時間複雜度 |
++==============+============+
+| find-min     | Θ(1)       |
++--------------+------------+
+| delete-min   | Θ(log n)   |
++--------------+------------+
+| insert       | Θ(log n)   |
++--------------+------------+
+| decrease-key | Θ(log n)   |
++--------------+------------+
+| merge        | Θ(n)       |
++--------------+------------+
+
+
+
 Binomial Heap
 ========================================
 
 Binomial Heap 是和 Binary Heap 相似的結構，
 但是支援快速合併兩個 Heap （時間複雜度為 O(log n)）。
 
-一個 order k 的 Binomail Heap 會擁有 2^k 個節點和高度 k。
+一個 order k 的 Binomial Heap 會擁有 2^k 個節點和高度 k。
 而 Binomial Heap 的名稱就來自於
 「在 order n 時，在深度 d 會擁有 C(n; k) 個節點。」（Binomial coefficient）。
 
@@ -94,7 +110,7 @@ Binomial Heap 是和 Binary Heap 相似的結構，
 +==============+==================================================+
 | find-min     | Θ(1)                                             |
 +--------------+--------------------------------------------------+
-| delete-min   | Θ(log n )                                        |
+| delete-min   | Θ(log n)                                         |
 +--------------+--------------------------------------------------+
 | insert       | O(log n) （同 merge 一個點）, Θ(1) （Amortized） |
 +--------------+--------------------------------------------------+
@@ -107,6 +123,19 @@ Binomial Heap 是和 Binary Heap 相似的結構，
 
 Fibonacci Heap
 ========================================
+
+Fibonacci Heap 是由 Michael L. Fredman 和 Robert E. Tarjan
+在 1984 年發明的資料結構，
+並在 1987 年發佈在一個科學期刊上。
+Fibonacci Heap 的名稱源自該資料結構內部使用的 Fibonacci 數字。
+Fibonacci Heap 跟其他 Heap 資料結構（例如 Binary Heap、Binomial Heap）比起來，
+有較好的 Amortized 執行時間。
+
+
+理論的執行時間和在實務上的狀況並不完全一樣，
+實務上 Binary Heap 常因為 Array-based 的實作
+而比 Fibonacci Heap 有更好的效能，
+所以 Fibonacci Heap 其實沒有很常被使用。
 
 
 
@@ -163,3 +192,5 @@ Python
 ========================================
 
 * `Wikipedia - Heap (data structure) <https://en.wikipedia.org/wiki/Heap_(data_structure)>`_
+* `Wikipedia - Fibonacci heap <https://en.wikipedia.org/wiki/Fibonacci_heap>`_
+* `Wikipedia - Binomial heap <https://en.wikipedia.org/wiki/Binomial_heap>`_
