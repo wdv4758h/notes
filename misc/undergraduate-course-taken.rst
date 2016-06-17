@@ -193,6 +193,93 @@
     - Incremental/Stochastic Backpropagation
 
 
+演算法概論，資訊共同，蔡錫鈞
+------------------------------
+
+* Insertion Sort
+* Divide and Conquer
+    - Merge Sort
+    - Maximum subarray problem
+    - Binary search
+    - Recursive Squaring
+    - Matrix multiplication
+    - Strassen's Algorithm
+* Asymptotic notation
+    - Θ-notation, =
+    - O-notation, ≦
+    - Ω-notation, ≧
+    - o-notation, <
+    - ω-notation, >
+* Recurrence
+* Master theorem
+* Heap Sort
+* Quick Sort
+    - Randomized Partition
+* Sorting in Linear Time
+    - Stirling's approximation
+    - Decision-Tree Model
+    - Heapsort 與 Mergesort 是 asymptotically optimal 之比較排序法
+    - Counting Sort
+    - Radix Sort
+    - Bucket Sort
+* Median and Order Statistics
+    - 找最小值
+        + 只記最小的：O(n)
+    - 找出第 i 小的元素
+        + 全部排序：O(n log n)
+        + 重複用找最小值的方法：O(i n) => 中位數：O(n^2)
+    - 找中位數
+    - Randomized-Select
+    - Worst case linear-time order statistics
+* Hash Tables
+    - simple uniform hashing (SUH)
+    - Open addressing
+    - Linear probing
+    - Double hashing
+    - Perfect Hashing
+* Bloom filters
+* Dynamic Programming
+    - Longest Common Subsequence
+    - Optimal Polygon Triangulation
+    - Optimal binary search trees
+* Greedy Algorithms
+    - Knapsack Problem
+        + 0-1 knapsack problem
+        + Fractional knapsack problem
+    - Huffman Codes
+* Disjoint Sets
+* Minimum Spanning Trees
+    - Kruskal's Algorithm
+    - Prim's Algorithm
+* Single-Source Shortest Paths
+    - Relaxation
+    - Bellman-Ford
+    - Dijkstra
+* All-Pairs Shortest Paths
+    - Floyd-Warshall
+    - Johnson's algorithm
+* Amortized Analysis
+* B-Tree
+* Fibonacci Heap
+* Elementary Graph Algorithms
+    - undirected graph
+        + Adjacency-list
+        + Adjacency-array
+    - Directed graph
+        + Adjacency-list
+        + Adjacency-array
+    - Breadth-first search
+    - Depth-first search
+    - Topological sort
+    - Strongly connected components
+* Maximum Flow
+    - Residue Network
+    - Augmenting Path
+    - Ford-Fulkerson
+    - Edmonds-Karp
+* Fast Fourier Transform
+
+
 資料結構，資訊共同，荊宇泰
 ------------------------------
 
