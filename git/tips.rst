@@ -280,3 +280,25 @@ cherry-pick 別的地方的 branch
 .. code-block:: sh
 
     $ git cherry-pick <commit>
+
+
+
+想修改數個 commit 的 Author 資訊
+========================================
+
+.. code-block:: sh
+
+    git rebase -i -p <some HEAD before all of your bad commits>
+
+
+接著不斷進行：
+
+.. code-block:: sh
+
+    git commit --amend --author "New Author Name <email@address.com>" --no-edit
+    git rebase --continue
+
+
+另外 GitHub 有 script 可以幫忙這件事：
+
+* https://help.github.com/articles/changing-author-info/
