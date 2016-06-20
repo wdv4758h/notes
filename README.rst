@@ -112,6 +112,35 @@ Git 在 `官網 <https://git-scm.com/doc>`_ 就有很好的說明和教學，
 `Git Magic <http://www-cs-students.stanford.edu/~blynn/gitmagic/>`_ 。
 
 
+Python
+------------------------------
+
+初學者的話建議直接從 **Python 3** 開始學起。
+
+Python 的 Coding Style 可以參考 PEP8，
+這裡有 `好讀版 <http://pep8.org/>`_ 。
+
+檢查方面建議在定義 Functions 時，
+就使用 `PEP484 <https://www.python.org/dev/peps/pep-0484/>`_ 所加入的 Type Hints，
+並且使用 `mypy <https://github.com/python/mypy>`_ 做靜態檢查，
+以盡早避免某些 Bugs 發生。
+
+測試部份建議使用 `pytest <https://pytest.org/>` ，
+使用 pytest 的話可以直接寫普通的 Function 和使用 ``assert`` 就可以了！
+
+如果覺得內建的 Python Interactive Shell 不夠好用的話，
+可以使用 `IPython <https://ipython.org/>`_
+或者基於 IPython 之上做的
+`ptpython <https://github.com/jonathanslenders/ptpython>`_ 。
+
+
+JIT
+------------------------------
+
+JIT 的歷史可以看 2003 年發的 Paper 「A Brief History of Just-In-Time」，
+裡面涵蓋從 Lisp、Thompson's regex engine 到 Self、JVM 等等的演進過程，
+做了分類、比較。
+
 大致結構
 ========================================
 
@@ -186,6 +215,16 @@ License
 
 所以若網友在看完此聲明之後，近期或將來發現此帳號不再上線，
 請幫我討回公道，謝謝。
+
+
+
+提問的智慧
+========================================
+
+How To Ask Questions The Smart Way
+
+* `原文 <http://www.catb.org/~esr/faqs/smart-questions.html>`_
+* `繁體中文翻譯 <https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way>`_
 
 
 
