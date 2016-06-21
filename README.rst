@@ -54,6 +54,12 @@ Vim
 有興趣的可以參考：
 `《Vim 手指健康操》 <https://speakerdeck.com/wdv4758h/vim-shou-zhi-jian-kang-cao>`_
 
+Plugin 管理的部份個人喜歡 `vim-plug <https://github.com/junegunn/vim-plug>`_ ，
+安裝 Plugins 很快，管理也很有彈性。
+(多個 Plugins 的更新和安裝可以同步進行、
+可以指定要使用的 branch、
+可以設定更新後要進行的額外操作）
+
 
 Regular Expression Engine
 ------------------------------
@@ -125,13 +131,30 @@ Python 的 Coding Style 可以參考 PEP8，
 並且使用 `mypy <https://github.com/python/mypy>`_ 做靜態檢查，
 以盡早避免某些 Bugs 發生。
 
-測試部份建議使用 `pytest <https://pytest.org/>` ，
+測試部份建議使用 `pytest <https://pytest.org/>`_ ，
 使用 pytest 的話可以直接寫普通的 Function 和使用 ``assert`` 就可以了！
 
 如果覺得內建的 Python Interactive Shell 不夠好用的話，
 可以使用 `IPython <https://ipython.org/>`_
 或者基於 IPython 之上做的
 `ptpython <https://github.com/jonathanslenders/ptpython>`_ 。
+
+要使用 Python 做科學相關研究的話，
+可以先參考 `Scipy Lecture Notes <http://www.scipy-lectures.org/>`_
+和以下專案：
+
+* NumPy
+* SciPy
+* Pandas
+* Matplotlib
+* scikit-learn
+* ...
+
+
+想要更多 Python 的建議可以參考
+`The Hitchhiker's Guide to Python <http://docs.python-guide.org/en/latest/>`_
+
+
 
 
 JIT
