@@ -18,12 +18,16 @@ racer 是一個提供 Rust 程式碼補完功能給各式編輯器和 IDE 的工
 安裝
 ------------------------------
 
-安裝 racer ： .. code-block:: sh
+安裝 racer ：
+
+.. code-block:: sh
 
     rustup run stable cargo install racer
 
 
-下載 Rust Source Code ： .. code-block:: sh
+下載 Rust Source Code ：
+
+.. code-block:: sh
 
     mkdir -p ~/.multirust/src/
     cd ~/.multirust/src/
@@ -32,7 +36,9 @@ racer 是一個提供 Rust 程式碼補完功能給各式編輯器和 IDE 的工
     ln -s rustc-1.8.0 stable
 
 
-設定環境變數： .. code-block:: sh
+設定環境變數：
+
+.. code-block:: sh
 
     set -g -x RUST_SRC_PATH "$HOME/.multirust/src/stable/src"
     set -g -x CARGO_HOME "$HOME/.cargo"
