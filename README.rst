@@ -164,6 +164,32 @@ JIT 的歷史可以看 2003 年發的 Paper 「A Brief History of Just-In-Time�
 裡面涵蓋從 Lisp、Thompson's regex engine 到 Self、JVM 等等的演進過程，
 做了分類、比較。
 
+
+Rust
+------------------------------
+
+Rust 的安裝和管理可以使用 `rustup <https://www.rustup.rs/>`_ ，
+能夠方便地管理 toolchain 版本跟平台。
+第三方套件則使用 `Cargo <http://doc.crates.io/guide.html>`_ ，
+由官方提供統一的 Build System 和套件格式，
+在第三套件的管理和利用上會比 C 或 C++ 方便許多。
+
+如果是有些經驗的程式設計師，
+可以先看 `Rust by Example <http://rustbyexample.com/>`_ 來了解 Rust 寫起來會是什麼樣子。
+要進一步了解背後的設計哲學可以先看
+`Why Rust <http://www.oreilly.com/programming/free/files/why-rust.pdf>`_ 這本書。
+接著可以看官方的 `The Rust Programming Language <https://doc.rust-lang.org/book/>`_ 仔細學習每個部份，
+另外搭配 `Frequently Asked Questions <https://www.rust-lang.org/faq.html>`_ 釐清其他觀念。
+然後看 `The Rustonomicon <https://doc.rust-lang.org/nomicon/>`_ 補充更多知識。
+
+Rust 作為一個年輕的程式語言，
+雖然語言本身已經進入穩定釋出了，
+但是生態圈（基礎建設）還不夠完整，
+這是個麻煩也是個機會，
+麻煩的地方在於有時會找不到合適的第三方套件使用，
+機會在於還有很多地方是很容易貢獻的！
+
+
 大致結構
 ========================================
 
