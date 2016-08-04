@@ -21,6 +21,10 @@ I'm trying my best to increase the CS information in Traditional Chinese.)
 (Feel free to open issues or send mails.)
 
 
+.. contents:: 目錄
+
+
+
 行為準則
 ========================================
 
@@ -156,13 +160,13 @@ Python 的 Coding Style 可以參考 PEP8，
 
 
 
-
 JIT
 ------------------------------
 
 JIT 的歷史可以看 2003 年發的 Paper 「A Brief History of Just-In-Time」，
 裡面涵蓋從 Lisp、Thompson's regex engine 到 Self、JVM 等等的演進過程，
 做了分類、比較。
+
 
 
 Rust
@@ -182,6 +186,13 @@ Rust 的安裝和管理可以使用 `rustup <https://www.rustup.rs/>`_ ，
 另外搭配 `Frequently Asked Questions <https://www.rust-lang.org/faq.html>`_ 釐清其他觀念。
 然後看 `The Rustonomicon <https://doc.rust-lang.org/nomicon/>`_ 補充更多知識。
 
+語言設計可以參考：
+
+* `You Can't Spell Trust Without Rust <https://raw.githubusercontent.com/Gankro/thesis/master/thesis.pdf>`_
+
+要更多資源可以到 `rust-learning <https://github.com/ctjhoa/rust-learning>`_
+和 `awesome-rust <https://github.com/kud1ing/awesome-rust>`_ 尋找。
+
 Rust 作為一個年輕的程式語言，
 雖然語言本身已經進入穩定釋出了，
 但是生態圈（基礎建設）還不夠完整，
@@ -189,6 +200,21 @@ Rust 作為一個年輕的程式語言，
 麻煩的地方在於有時會找不到合適的第三方套件使用，
 機會在於還有很多地方是很容易貢獻的！
 
+Rust 的 Build System - Cargo - 內建就有許多方便的 subcommands 可以使用，
+內建的 subcommands 可以在 `這裡 <https://github.com/rust-lang/cargo/tree/master/src/bin>` 找到。
+除此之外，大家也可以為 Cargo 寫 subcommands
+（內建的 `subcommands <https://github.com/rust-lang/cargo/tree/master/src/bin>`_ 可以在這裡找到），
+目前也已經有不少不錯的第三方 subcommands。
+例如，只想單純作檢查而不生執行檔可以使用
+`cargo-check <https://github.com/rsolomo/cargo-check>`_ ，
+想檢查相依套件的新版本可以用 `cargo-outdated <https://github.com/kbknapp/cargo-outdated>`_ ，
+
+其他資源：
+
+* `Rust for functional programmers <http://science.raphael.poss.name/rust-for-functional-programmers.html>`_
+* `Rust-101 <https://www.ralfj.de/projects/rust-101/main.html>`_
+* `Learning Rust With Entirely Too Many Linked Lists <http://cglab.ca/~abeinges/blah/too-many-lists/book/>`_
+* `Rust Iterator Cheat Sheet <https://danielkeep.github.io/itercheat_baked.html>`_
 
 大致結構
 ========================================
