@@ -201,7 +201,7 @@ Rust 作為一個年輕的程式語言，
 機會在於還有很多地方是很容易貢獻的！
 
 Rust 的 Build System - Cargo - 內建就有許多方便的 subcommands 可以使用，
-內建的 subcommands 可以在 `這裡 <https://github.com/rust-lang/cargo/tree/master/src/bin>` 找到。
+內建的 subcommands 可以在 `這裡 <https://github.com/rust-lang/cargo/tree/master/src/bin>`_ 找到。
 除此之外，大家也可以為 Cargo 寫 subcommands
 （內建的 `subcommands <https://github.com/rust-lang/cargo/tree/master/src/bin>`_ 可以在這裡找到），
 目前也已經有不少不錯的第三方 subcommands。
