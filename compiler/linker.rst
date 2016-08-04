@@ -43,3 +43,8 @@ Reference
 * [1999][Book] `Linkers and Loaders <http://www.amazon.com/Linkers-Kaufmann-Software-Engineering-Programming/dp/1558604960/>`_
 * `Wikipedia - Linker (computing) <https://en.wikipedia.org/wiki/Linker_%28computing%29#Linkage_editor>`_
 * `Wikipedia - gold (linker) <https://en.wikipedia.org/wiki/Gold_%28linker%29>`_
+
+
+* `Acronyms relevant to Executable and Linkable Format (ELF) <https://web.archive.org/web/20120922073347/http://www.acsu.buffalo.edu/~charngda/elf.html>`_
+* `StackOverflow - What do 'statically linked' and 'dynamically linked' mean? <https://stackoverflow.com/a/311889>`_
+* `musl FAQ <https://www.musl-libc.org/faq.html>`_
