@@ -302,3 +302,11 @@ cherry-pick 別的地方的 branch
 另外 GitHub 有 script 可以幫忙這件事：
 
 * https://help.github.com/articles/changing-author-info/
+
+
+更新所有 submodules
+========================================
+
+.. code-block:: sh
+
+    git submodule foreach --recursive git pull origin master
