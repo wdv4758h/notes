@@ -63,3 +63,31 @@ overhead 非常小。
 * info!
 * debug!
 * trace!
+
+如果想要在 release build 可以完全沒有 overhead 的話可以用 ``release_max_level_off`` feature，
+如此一來 ``log`` 相關的功能都會被編譯器優化掉，
+產生的執行檔會跟沒有使用 ``log`` 相同。
+除此之外還有其他層級可選擇：
+
+* release_max_level_off
+* release_max_level_error
+* release_max_level_warn
+* release_max_level_info
+* release_max_level_debug
+* release_max_level_trace
+
+另外也有適用於所有 build 的選項
+（release build 以 ``release_max_level_*`` 為優先）：
+
+* max_level_off
+* max_level_error
+* max_level_warn
+* max_level_info
+* max_level_debug
+* max_level_trace
+
+而對於不使用 ``std`` 的專案，
+``log`` 也提供了解決方案，
+預設是會開啟 ``use_std`` 這 feature，
+但是可以在 ``Cargo.toml`` 使用 ``default-features = false`` 來關閉，
+如此一來就不需依賴於 ``std`` 。
