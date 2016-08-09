@@ -71,4 +71,12 @@ Pacman
 
 ----
 
-* `Arch Wiki - PKGBUILD <https://wiki.archlinux.org/index.php/PKGBUILD>`)
+* `Arch Wiki - PKGBUILD <https://wiki.archlinux.org/index.php/PKGBUILD>`_
+
+
+Yaourt
+========================================
+
+``/etc/yaourtrc`` :
+
+    EXPORT=2    # save to pacman cache
