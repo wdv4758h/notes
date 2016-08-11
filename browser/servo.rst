@@ -22,13 +22,13 @@ Servo
 
 要跑起 Servo 需要的是：
 
-* 編譯完的 `servo` 執行檔（會在 `target/release/servo` ）
-* resources 資料夾（在 `https://github.com/servo/servo/tree/master/resources/` ）
+* 編譯完的 ``servo`` 執行檔（會在 ``target/release/servo`` ）
+* resources 資料夾（在 ``https://github.com/servo/servo/tree/master/resources/`` ）
 
 有這兩項資料就可以跑起 Servo，
-但是如果要跑 `Browser.html` 的話還需要額外的資料：
+但是如果要跑 ``Browser.html`` 的話還需要額外的資料：
 
-* 一些 `HTML/CSS/JavaScript/PNG/...` （在 `target/release/build/browserhtml-*/out/` ）
+* 一些 ``HTML/CSS/JavaScript/PNG/...`` （在 ``target/release/build/browserhtml-*/out/`` ）
 
 
 .. code-block:: sh
@@ -44,20 +44,20 @@ Servo
 執行
 ========================================
 
-一般（非 `Browser.html` ）：
+一般（非 ``Browser.html`` ）：
 
 .. code-block:: sh
 
     ./servo URL_or_HTML
 
 
-`Browser.html` ：
+``Browser.html`` ：
 
     ./servo ./browserhtml/index.html
 
 
 Servo 還有許多參數可以選擇，
-自行去 `./servo --help` 中尋找、選用。
+自行去 ``./servo --help`` 中尋找、選用。
 
 
 
