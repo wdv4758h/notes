@@ -53,6 +53,8 @@ Servo
 
 ``Browser.html`` ：
 
+.. code-block:: sh
+
     ./servo ./browserhtml/index.html
 
 
@@ -64,6 +66,17 @@ Servo 還有許多參數可以選擇，
 參考
 ========================================
 
+官方資料
+------------------------------
+
+* `Hacking Servo - Quickstart <https://github.com/servo/servo/blob/master/docs/HACKING_QUICKSTART.md#hacking-servo---quickstart>`_
+* `Servo's directory structure <https://github.com/servo/servo/blob/master/docs/ORGANIZATION.md>`_
+* `Servo Starters - a list of easy tasks that are good for beginners to rust or servo <https://starters.servo.org/>`_
+* [2015] `Experience Report: Developing the Servo Web Browser Engine using Rust <https://arxiv.org/abs/1505.07383>`_
+
+
+其他
+------------------------------
+
 * `Experience Report: Developing the Servo Web Browser Engine using Rust <https://kmcallister.github.io/papers/2015-servo-experience-report-draft1.pdf>`_
 * `Servo 中文開發者社群 <https://www.facebook.com/groups/608787195932135/>`_
-* `Hacking Servo for noobs. <https://gist.github.com/paulrouget/2f00941e6e82aeecad23>`_
