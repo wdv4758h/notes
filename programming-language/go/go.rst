@@ -9,6 +9,11 @@ Go 的 GC 在 1.5 後又會修正一些 latency 的問題，
 待之後研究。
 
 
+* `Go 1.7 <https://blog.golang.org/go1.7>`_
+    - SSA (Static single assignment form)
+    - Bounds-checking elimination
+    - CSE (Common subexpression elimination)
+
 
 Reference
 ========================================
