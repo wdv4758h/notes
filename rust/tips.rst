@@ -54,3 +54,14 @@ trait，
     let data = ["hello", "world"];
     assert_eq!(data.join(" "), "hello world");
     assert_eq!(data.concat(), "helloworld");
+
+
+字串轉特定型別
+========================================
+
+只要型別 T 有實做 ``std::str::FromStr`` ，
+那就可以使用 ``.parse::<T>()`` 來轉換：
+
+.. code-block:: rust
+
+    let foo: T = "text".parse::<T>();
