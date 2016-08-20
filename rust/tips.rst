@@ -65,3 +65,52 @@ trait，
 .. code-block:: rust
 
     let foo: T = "text".parse::<T>();
+
+
+把相依套件抓下來
+========================================
+
+要裝專案的相依套件可以使用 ``cargo fetch`` ，
+這指令會把需要的檔案抓到 ``$CARGO_HOME`` ，
+在該資料夾下建立一個叫做 ``registry`` 的資料夾，
+相關檔案都在裡面。
+
+.. code-block:: sh
+
+    $ env CARGO_HOME="." cargo fetch
+
+.. code-block:: sh
+
+    $ tree ./registry/
+    ├── cache
+    │   └── github.com-1ecc6299db9ec823
+    │       └── log-0.3.6.crate
+    ├── index
+    │   └── github.com-1ecc6299db9ec823
+    │       ├── 1
+    │       │   ├── a
+    │       │   ├── c
+    │       │   ├── j
+    │       │   ├── q
+    │       │   ├── r
+    ...
+    │       ├── zs
+    │       │   └── td
+    │       │       └── zstd
+    │       └── zw
+    │           └── av
+    │               └── zwave
+    └── src
+        └── github.com-1ecc6299db9ec823
+            └── log-0.3.6
+                ├── appveyor.yml
+                ├── Cargo.toml
+                ├── LICENSE-APACHE
+                ├── LICENSE-MIT
+                ├── README.md
+                ├── src
+                │   ├── lib.rs
+                │   └── macros.rs
+                └── tests
+                    └── filters.rs
+
