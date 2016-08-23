@@ -116,6 +116,27 @@ trait，
 
 
 
+Conditional Attribute
+========================================
+
+``#[cfg_attr(<p>, <attr>)]``
+
+當 ``<p>`` 成立時，就加上後面的 ``<attr>`` ，
+範例：
+
+.. code-block:: rust
+
+    #[cfg_attr(all(not(target_os = "linux"), target_endian = "big"), ignore)]
+    fn test_broken_thing() { ... }
+
+    #[cfg_attr(target_os = "linux", link(name="mylib"))]
+    extern {}
+
+
+* `RFC - 0194 - cfg syntax <https://github.com/rust-lang/rfcs/blob/master/text/0194-cfg-syntax.md>`_
+
+
+
 指定連結的 Libraries
 ========================================
 
