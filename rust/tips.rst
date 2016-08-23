@@ -114,3 +114,28 @@ trait，
                 └── tests
                     └── filters.rs
 
+
+
+指定連結的 Libraries
+========================================
+
+要指定額外要連結 Libraries 可以使用 ``link`` attribute，
+並且可以指定如何連結：
+
+.. code-bloc:: rust
+
+    #[link(name = "lzma")]
+    #[link(name = "mylib", kind = "static")]
+    extern {}
+
+目前 ``link`` 可以指定兩項資訊，
+一個是要連結的 Library 名稱。
+另一個是如何連結，
+沒指定的時候就是動態連結，
+``static`` 就是靜態連結，
+OSX 上還可以選擇 ``framework`` 。
+
+* `官方文件 <https://doc.rust-lang.org/book/ffi.html>`_
+
+
+
