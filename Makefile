@@ -13,7 +13,7 @@ sphinx:
 	# 用 Sphinx 編出網頁
 	sphinx-build -T -E -b readthedocs -d _build/doctrees-readthedocs -D language=zh_TW . _build/html
 
-push: sphinx
+push:
 	# 為 Travis CI 設定 git 的 user.name 和 user.email
 	# 沒設定 email 的話，GitHub 上面看到的 Author 會是 Unknown
 	git config --global user.name "wdv4758h - Travis"
@@ -28,4 +28,4 @@ push: sphinx
 	@git push -fq https://${GH_TOKEN}@github.com/$(GITHUB_REPO_SLUG).git $(GITHUB_PAGES_BRANCH):$(GITHUB_PAGES_BRANCH) > /dev/null
 	# 用 @ 可以讓 Travis CI 不要顯示這行在 log 上，這樣別人就不會看到你的 GitHub Personal Access Token 了，也就是這裡用的 GH_TOKEN
 
-travis: push
+travis: sphinx push
