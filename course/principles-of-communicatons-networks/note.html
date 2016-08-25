@@ -1,0 +1,1969 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Principles of Communications Networks &mdash; wdv4758h-notes latest 說明文件</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+
+  
+    <link rel="stylesheet" href="https://media.readthedocs.org/css/sphinx_rtd_theme.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="wdv4758h-notes latest 說明文件" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> wdv4758h-notes
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/big-o-notation.html">Big O Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/books.html">Books</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/dict.html">Dict</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/heap.html">Heap （堆）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/inverse-square-root.html">Inverse Square Root</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/misc.html">Misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/substring-searching.html">Substring Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../android/android.html">Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../android/android-emulator.html">Android Emulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../android/android-images.html">Android Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../android/binder.html">Android&#8217;s Binder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../android/busybox-mv.html">BysyBox 的 mv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../android/cheat-sheet.html">Android Cheat Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../android/cts.html">Android CTS (Compatibility Test Suite)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../android/google-project-butter.html">Google Project Butter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../android/init.html">Android - init</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../android/install.html">安裝新 Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../android/misc.html">Android - Misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../android/ndk.html">Android NDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../android/surfaceflinger.html">SurfaceFlinger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../archlinux/UEFI.html">UEFI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../archlinux/abs.html">Arch Build System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../archlinux/arch-in-ubuntu-lxc.html">Arch Linux in Ubuntu LXC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../archlinux/arch-install-script.html">Arch Install Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../archlinux/aur.html">Arch Linux Arch User Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../archlinux/hardware.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../archlinux/packages.html">Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../archlinux/pacman.html">Pacman</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../archlinux/performance.html">Performance Tuning For Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../archlinux/printer.html">Printer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../archlinux/video-player.html">Video Player</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../archlinux/x11-forwarding.html">X11 Forwarding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../archlinux/xdg-settings.html">xdg-settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../arm/intro.html">ARM Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../articles/python-need-for-speed.html">Python - Need For Speed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../articles/travis-ci-sphinx-github-pages.html">用 Travis CI 自動化發佈 reStructuredText 到 GitHub Pages 上</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../assembly/cheat-sheet.html">Assembly Cheat Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../assembly/sha-extension.html">SHA Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../assembly/x86.html">x86 Assembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../books/ISBN-13|978-1-59327-385-9|A Bug Hunter's Diary.html">A Bug Hunter&#8217;s Diary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../books/README.html">書籍紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../browser/cdm.html">CDM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../browser/css.html">CSS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../browser/design.html">How Browser Work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../browser/extensions.html">WebExtensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../browser/service-worker.html">Service Worker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../browser/servo.html">Servo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../browser/webassembly.html">WebAssembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../build-system/cmake.html">CMake</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../build-system/gyp.html">GYP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../c/c.html">C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../c/cheat-sheet.html">C Cheat Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../c/exception.html">Exceptions in C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../c/features.html">Some C&#8217;s features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../c/gnu-extension.html">GNU Extension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../c/internal_and_external_linkage_in_C.html">Internal and External Linkage in C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../c/mmap.html">mmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../c/pragma-once.html">pragma once</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../c/pragma-weak.html">pragma weak</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../c/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../c/undefine-behavior.html">Undefined Behavior</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compiler/branch-prediction-hint.html">Branch Prediction Hint</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compiler/clang-tools.html">Clang Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compiler/code-gen.html">Code Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compiler/compiler-and-learning.html">Compiler and Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compiler/compiler-options.html">Compiler Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compiler/compiler-rt.html">LLVM - compiler-rt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compiler/computed-goto.html">Computed goto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compiler/cross-compile.html">Cross Compile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compiler/crt.html">crt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compiler/environment.html">Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compiler/gcc-plugins.html">GCC Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compiler/gpgpu.html">GPGPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compiler/jump-threading.html">Jump Threading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compiler/linker.html">Linker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compiler/llvm.html">LLVM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compiler/llvm-android.html">Android With LLVM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compiler/llvm-cuda.html">LLVM &amp; CUDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compiler/llvm-ir.html">LLVM IR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compiler/llvm-python.html">LLVM &amp; Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compiler/lto.html">LTO - Link Time Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compiler/obfuscator.html">Obfuscator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compiler/optimizations.html">Optimizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compiler/porting.html">Use Compiler To Help Porting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compiler/resource.html">Compiler Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compiler/ssa.html">SSA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compression/jpeg.html">JPEG Compression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compression/png.html">PNG Compression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computer-vision/SIFT.html">SIFT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computer-vision/object-detection.html">Object Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computer-vision/panaorma.html">Panorama (Image Stitching)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/64bits-problem.html">64 Bits Problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/SFINAE.html">SFINAE (Substitution Failure Is Not An Error)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/assembly.html">C++ &amp; Assembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/bit-field.html">C++ Bit Field</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/c++17.html">C++17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/concepts.html">C++ Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/const.html">C++ const</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/coroutine.html">C++ Coroutine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/crtp.html">CRTP (Curiously recurring template pattern)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/ctor-dtor.html">C++ Constructors &amp; Destructors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/experimental.html">Experimental</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/expression-templates.html">Expression Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/history.html">C++ History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/initialization.html">Initialization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/macro.html">Macro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/misc.html">C++ Misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/oop.html">C++ 繼承</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/oop.html#virutal-function">Virutal Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/oop.html#c-11-override-final">C++11 - override &amp; final</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/optimizations.html">C++ Optimizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/optional.html">Optional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/parallel.html">C++ - Parallel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/pimpl.html">Pimpl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/qt.html">Qt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/repl.html">C++ REPL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/resource.html">C++ Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/rvo.html">Return Value Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/size_t-ptrdiff_t.html">About size_t and ptrdiff_t</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/standard-library-implementation.html">Standard Library Implementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/stl.html">C++ STL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/string-optimization.html">String Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/temporary-objects.html">Temporary Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/thread.html">C++ Thread</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/todo.html">Todo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/value-category.html">C++ Value Category</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/videos.html">C++ Videos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../crypto/blowfish.html">Blowfish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../crypto/elliptic-curve.html">Elliptic Curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../crypto/sha.html">SHA (Secure Hash Algorithm)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../database/postgresql.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debug/kernel.html">Debugging a Kernel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debug/record-replay.html">Record Replay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debug/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docker/docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../embedded/stm32.html">STM32</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fonts/README.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fonts/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../freebsd/freebsd.html">FreeBSD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../functional/monad.html">Monad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../functional/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game/real-time-strategy.html">Real-time Strategy Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game/rpg.html">Role-playing Games (RPG)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../garbage-collection/garbage-collection.html">Garbage Collection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../garbage-collection/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../git/cheat-sheet.html">Git Cheat Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../git/format-patch.html">Git Format Patch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../git/resource.html">Git Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../git/tips.html">Git Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gpgpu/arrayfire.html">ArrayFire</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gpgpu/boost.html">Boost.Compute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gpgpu/kernel.html">GPGPU with Kernel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gpgpu/spir-v.html">SPIR-V</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/README.html">Linux Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/dri.html">DRI (Direct Rendering Infrastructure)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/introduction.html">Linux Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/mesa.html">Mesa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware/hardware-and-programming.html">Hardware &amp; Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware/history.html">Hardware&#8217;s History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware/intel-mic.html">Intel MIC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware/my-devices.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jit/asmjit.html">asmjit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jit/introduction.html">JIT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../language-virtual-machines/resource.html">資源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../learning/ann-history.html">Artificial Neural Network History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../learning/artificial-neural-network.html">Artificial Neural Network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../learning/clustering.html">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../learning/decision-tree.html">決策樹學習 （Decision Tree）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../learning/deep-learning.html">Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../learning/dimensionality-reduction.html">Dimensionality Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../learning/instance-based.html">Instance Based</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../learning/learning.html">Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../learning/naive-bayes-classifier.html">樸素貝葉斯分類器 （Naïve Bayesian Classifier）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../learning/regression.html">Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../learning/regularization.html">Regularization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../learning/rule-system.html">Rule System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../learning/svm.html">SVM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../learning/t-SNE.html">t-SNE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../learning/todo.html">Todo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../linux/bfq.html">BFQ - Budget Fair Queueing Storage-I/O Scheduler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../linux/clear-linux.html">Intel Clear Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../linux/dd.html">dd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../linux/file-system.html">File System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../linux/firmware.html">Firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../linux/gimp.html">Gimp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../linux/hotplug-cpu.html">Hotplug CPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../linux/kernel-module.html">Kernel Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../linux/nmcli.html">nmcli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../linux/sendfile.html">sendfile - transfer data between file descriptors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../linux/start-up.html">Linux Program Start Up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../linux/systemd.html">systemd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../linux/tickless.html">Tickless</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../linux/ubuntu.html">Ubuntu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../math/math.html">Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../memory/W^X.html">W^X (Write XOR Execute)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../memory/allocator.html">Allocator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../memory/kernel-memory-management.html">Kernel Memory Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../memory/memory.html">Memory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../memory/memory-allocators-under-the-hood.html">Memory Allocator - Under The Hood</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../memory/memory-hardware.html">Memory Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../memory/memory-management.html">Memory Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../memory/memory-profiling.html">Memory Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../memory/sanitizer.html">Sanitizer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../memory/stack-protection.html">Stack Protection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/archive.html">Archive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/bandwidth.html">頻寬成本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/dot-language.html">DOT Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/floating-point.html">Floating Point</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/funny-sites.html">Funny Sites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/http-history.html">HTTP History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/images.html">Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/jargons.html">Jargons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/keyboard.html">Keyboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/misc.html">Misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/origin.html">緣由</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/papers.html">Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/pdf-viewers-history.html">PDF Viewer History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/podcast.html">Podcast</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/reStructuredText.html">reStructuredText</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/repo.html">Interesting Repo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/sites.html">Sites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/statifier.html">Statifier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/todo-projects.html">想做的專案</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/typesetting.html">Typesetting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/undergraduate-course-taken.html">大學修過的課程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/unicode.html">Unicode 解說</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/video.html">Video</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/vulkan.html">Vulkan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mpi/mpi.html">MPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../multimedia/ffmpeg.html">ffmpeg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../non-cs/brain.html">Brain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../non-cs/crosstalk.html">相聲</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../non-cs/disease.html">Disease (疾病)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../non-cs/drama.html">Drama</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../non-cs/english.html">英文</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../non-cs/english-checker.html">English Checker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../non-cs/game-of-throne.html">Game of Throne</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../non-cs/gender-equality.html">Gender Equality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../non-cs/japanese.html">日本相關作品</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../non-cs/legend.html">傳說</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../non-cs/movies.html">Movies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../non-cs/music.html">音樂</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../non-cs/non-cs-books.html">Non CS Books</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../non-cs/novel.html">Novel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../non-cs/skateboard.html">滑板</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../non-cs/taiwan-education.html">臺灣教育與國族認同</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../non-cs/taiwan-opendata.html">臺灣開放資料（Taiwan&#8217;s Open Data）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../non-cs/taiwan-rocket.html">臺灣的火箭 - ARRC (前瞻火箭研究中心)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../non-cs/todo.html">Todo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../non-cs/visa-bitcon.html">VISA &amp; Bitcoin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../non-cs/外宿準備項目.html">外宿準備項目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming-language/curry-howard.html">Curry-Howard correspondence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming-language/higher-kinded-types.html">Higher-Kinded Type (HKT)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming-language/hindley-milner.html">Hindley-Milner Type Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming-language/multiple-dispatch.html">Multiple Dispatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming-language/my-status.html">個人各程式語言接觸狀況</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming-language/polymorphism.html">Polymorphism (多型)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming-language/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming-language/type-inference.html">Type Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming-language/type-system.html">Type System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pypy/brief.html">簡單介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/ast.html">Python AST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/async-await.html">Python - async &amp; await</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/benchmark.html">Benchmark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/best-practice.html">Best Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/concurrency.html">Python&#8217;s Concurrency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/contextlib.html">contextlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/cpython.html">CPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/cpython-equality.html">CPython Equality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/deprecated.html">Some Deprecated Things</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/django.html">Django</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/gil.html">CPython GIL (Global Interpreter Lock)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/hardware.html">Python &amp; Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/install-packages.html">Python - Install Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/iterator.html">Iterator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/matplotlib.html">matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/numpy.html">Numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/operator.html">Operator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/packages.html">Some Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/porting.html">遷移至 Python 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/power-operator-vs-math-pow.html">** operator v.s. math.pow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/pypi.html">PyPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/python-3.5.html">Python 3.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/qt.html">Qt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/scipy.html">SciPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/standard-library.html">Standard Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/sympy.html">SymPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/testing.html">Python Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/tips.html">Python Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/virtualenv.html">virtualenv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/yield-with-list-comprehension.html">yield with list comprehension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum/intro.html">量子電腦</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../regex/re2.html">RE2 - fast, safe, thread-friendly alternative to backtracking regular expression engines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../regex/regex.html">Regular Expression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../regex/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reports/2015-week-28.html">Engineering Report &lt;dv&gt; - Week 28, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reports/2015-week-29.html">Engineering Report &lt;dv&gt; - Week 29, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reports/2015-week-30.html">Engineering Report &lt;dv&gt; - Week 30, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reports/2015-week-31.html">Engineering Report &lt;dv&gt; - Week 31, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reports/2015-week-32.html">Engineering Report &lt;dv&gt; - Week 32, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reports/2015-week-33.html">Engineering Report &lt;dv&gt; - Week 33, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reports/2015-week-34.html">Engineering Report &lt;dv&gt; - Week 34, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reports/2015-week-35.html">Engineering Report &lt;dv&gt; - Week 35, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reports/2015-week-36.html">Engineering Report &lt;dv&gt; - Week 36, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reports/2015-week-37.html">Engineering Report &lt;dv&gt; - Week 37, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reports/2015-week-53.html">Self Report &lt;dv&gt; - Week 53, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reports/2015-week-54.html">Self Report &lt;dv&gt; - Week 54, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reports/2015-week-55.html">Self Report &lt;dv&gt; - Week 55, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reports/2015-week-56.html">Self Report &lt;dv&gt; - Week 56, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reports/2016-week-19.html">Self Report &lt;dv&gt; - Week 19, 2016</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reports/2016-week-20.html">Self Report &lt;dv&gt; - Week 20, 2016</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reports/2016-week-21.html">Self Report &lt;dv&gt; - Week 21, 2016</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reports/2016-week-22.html">Self Report &lt;dv&gt; - Week 22, 2016</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reports/info.html">Information For Your Report</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reports/template.html">Engineering Report &lt;dv&gt; - Week #, 2016</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ruby/symbol.html">Ruby Symbol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust/README.html">Rust Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust/any.html">Rust&#8217;s runtime reflection - &#8220;Any&#8221; type trait</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust/articles.html">文章閱讀（Articles）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust/cargo.html">Cargo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust/features-basic.html">Rust&#8217;s Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust/index.html">My Rust Articles Collection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust/iterator.html">Iterator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust/kernel.html">Rust Kernel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust/libraries.html">Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust/make-parity-work-on-freebsd.html">Make Parity work on FreeBSD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust/mir.html">MIR (Mid-level Intermediate Representation)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust/misc.html">Rust - Misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust/monomorphization.html">Monomorphization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust/multirust.html">multirust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust/object-safety.html">Object Safety</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust/orm.html">ORM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust/os.html">Rust in OS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust/packages.html">Some Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust/performance.html">Rust&#8217;s Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust/rfcs.html">Rust RFCs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust/rust.html">Rust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust/rust-vim-plugin.html">Rust Vim Plugin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust/tips.html">Rust Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust/todo.html">Todo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust/type-system.html">Rust&#8217;s Type System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust/use.html">use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust/videos.html">Rust Videos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust/web.html">Rust &amp; Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../simd/status.html">SIMD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../systemd/networkctl.html">networkctl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unix-like-environment/256-color.html">256 color</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unix-like-environment/find.html">find</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unix-like-environment/input-method.html">Input Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unix-like-environment/installer.html">Installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unix-like-environment/intro.html">Some Basic Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unix-like-environment/irc.html">IRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unix-like-environment/keymap.html">xmodmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unix-like-environment/keymap.html#setxkbmap">setxkbmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unix-like-environment/sway.html">Sway</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../valgrind/android.html">Valgrind on Android Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../valgrind/collection.html">Valgrind Resource Collection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../valgrind/dynamic-binary-instrumentation.html">Valgrind: A Framework for Heavyweight Dynamic Binary Instrumentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../valgrind/firefox.html">Valgrind &amp; Firefox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../valgrind/new-plugin.html">Writeing a New Valgrind Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../valgrind/tips.html">Valgrind Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../valgrind/valgrind-talks.html">Valgrind Talks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vim/history.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vim/neovim.html">Neovim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vim/registers.html">Vim Registers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vim/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vim/session.html">Session</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vim/vimscript.html">Vimscript</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../virtualization/bhyve.html">bhyve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../arm-server.html">ARM Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basic-system-utils.html">Basic System Utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bugs.html">踩 Bug 紀錄 (從 2015-10-26 開始)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../busybox.html">BusyBox - 人人都該備一個在身邊的執行檔</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cache.html">Cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ci.html">Continuous Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common-lisp.html">Common Lisp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concurrency.html">Concurrency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribution.html">Open Source 專案貢獻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coredump.html">coredump</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-science.html">Data Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dsl.html">DSL (Domain-Specific Languages)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../elf.html">ELF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../emacs.html">Emacs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../erlang.html">Erlang</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ffmpeg.html">FFmpeg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../file.html">file command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fortran.html">Fortran</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../free-software-in-taiwan.html">臺灣自由軟體界</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../google-on-hub.html">Google OnHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../graphic.html">Graphic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../init-system.html">init systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../intel.html">Intel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interpreter-for-compiled-language.html">Interpreter For Compiled Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jit-for-processors.html">JIT For Processors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kvm.html">KVM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../languages.html">Languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libc.html">那些 libc 們</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../librt.html">librt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libunwind.html">libunwind</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libuv.html">libuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../linker.html">Linker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../linux-laptop-gpu.html">Linux Laptop GPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../linux-porting.html">Linux Porting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lua.html">Lua</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lxc.html">Linux Containers (LXC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../make-an-interpreter.html">Make An Interpreter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modemmanager.html">ModemManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../multicall-binary.html">Multicall Binary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../multithread-concurrency-parallelism.html">名詞釐清</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../name-mangling.html">Name Mangling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../netbsd.html">NetBSD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../objdump.html">Objdump</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../openhmpp.html">OpenHMPP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../openhouse.html">Open House</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../openmp.html">OpenMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../opensource-projects-i-love.html">Open Source Porjects I Love</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parallel.html">Parallel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plan-9.html">Plan 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../posix.html">POSIX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../process-live-migration.html">Process Live Migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../project-measurement.html">Project Measurement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../realtime.html">Real Time Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../regex-lib.html">Regular Expression Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sandbox.html">Sandbox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../security.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../signal.html">Signal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software-updates.html">Software Updates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spark.html">Spark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../strace.html">strace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../system-programming.html">System Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tcg-ir.html">TCG IR - Tiny Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tcpdump.html">tcpdump</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tensorflow.html">TensorFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thread-stack.html">Thread Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../todo.html">Todo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../transactional-memory.html">Transactional Memory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../trash-talk.html">技術屁話</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../travis-ci.html">Travis CI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../turing-complete.html">Turing Compilete</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../type-theory.html">Type Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unicode.html">Unicode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usenix.html">USENIX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../virtualgl.html">VirtualGL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vlc.html">VLC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vulkan.html">Vulkan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../wayland.html">Wayland</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../wm.html">Window Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../yocto.html">Yocto Project - 建立自己的嵌入式 Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../zram.html">zram</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">wdv4758h-notes</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+    <li>Principles of Communications Networks</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="https://github.com/wdv4758h/notes/blob/master/./course/principles-of-communicatons-networks/note.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="principles-of-communications-networks">
+<h1>Principles of Communications Networks<a class="headerlink" href="#principles-of-communications-networks" title="本標題的永久連結">¶</a></h1>
+<hr class="docutils" />
+<ul>
+<li><dl class="first docutils">
+<dt>Fast fading</dt>
+<dd><ul class="first last simple">
+<li>High Doppler spread, symbol time &gt; Coherence time, delay spread, multipath</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Slow fading</dt>
+<dd><ul class="first last simple">
+<li>Low Doppler spread,  symbol time &lt; Coherence time, shadowing</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<hr class="docutils" />
+<ul>
+<li><p class="first">checksum 可以偵測奇數個錯誤，但不知道錯在哪，也不能偵測偶數個錯誤</p>
+</li>
+<li><dl class="first docutils">
+<dt>CRC 可以知道錯在哪</dt>
+<dd><ul class="first last simple">
+<li>the common use of a CRC or better integrity check at layer 2, below both TCP and IP, such as is used in PPP or the Ethernet frame.</li>
+<li>有硬體支援，比較快</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<hr class="docutils" />
+<p>TCP checksum (weak check) (不是 TCP CRC)</p>
+<p>The TCP checksum is fairly weak, but considered good enough for a reliable stream protocol. Often, there are more robust checksums being performed at the data link layer - i.e., ethernet (IIRC) uses CRC-32.</p>
+<p>TCP contains a checksum and the TCP/IP stack will detect broken packets. So you don&#8217;t need to implement any error detection algorithms on your own unless you want to.</p>
+<ul class="simple">
+<li><a class="reference external" href="http://stackoverflow.com/questions/8269693/crc-checking-done-automatically-on-tcp-ip">http://stackoverflow.com/questions/8269693/crc-checking-done-automatically-on-tcp-ip</a></li>
+<li><a class="reference external" href="http://noahdavids.org/self_published/CRC_and_checksum.html">http://noahdavids.org/self_published/CRC_and_checksum.html</a></li>
+</ul>
+<hr class="docutils" />
+<p>convulutional codes</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">00</span> <span class="o">=&gt;</span> <span class="n">輸入</span> <span class="mi">1</span> <span class="o">=&gt;</span> <span class="mi">10</span>
+
+<span class="o">+----+</span> <span class="mi">1</span><span class="o">/</span><span class="mi">11</span> <span class="o">+----+</span> <span class="mi">1</span><span class="o">/</span><span class="mi">01</span> <span class="o">+----+</span>
+<span class="o">|</span> <span class="mi">00</span> <span class="o">|</span> <span class="o">---&gt;</span> <span class="o">|</span> <span class="mi">10</span> <span class="o">|</span> <span class="o">---&gt;</span> <span class="o">|</span> <span class="mi">11</span> <span class="o">|</span>
+<span class="o">+----+</span>      <span class="o">+----+</span>      <span class="o">+----+</span>
+
+              <span class="o">|</span> <span class="mi">0</span><span class="o">/</span><span class="mi">10</span>
+              <span class="n">v</span>
+
+            <span class="o">+----+</span>
+            <span class="o">|</span> <span class="mi">01</span> <span class="o">|</span>
+            <span class="o">+----+</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="cyclic-redundancy-check-crc">
+<h2>Cyclic Redundancy Check (CRC)<a class="headerlink" href="#cyclic-redundancy-check-crc" title="本標題的永久連結">¶</a></h2>
+<p>802.11 用 CRC-32 (32 bits)</p>
+</div>
+<div class="section" id="interleaver">
+<h2>Interleaver<a class="headerlink" href="#interleaver" title="本標題的永久連結">¶</a></h2>
+<p>克服 burst errors (一瞬間干擾很大) (不連續地錯很多 bits)</p>
+<p>6 bits + 2 parity bits =&gt; 8 =&gt; 16 = 8 * 2 =&gt; 2 blocks</p>
+<p>interleaving 會把連續的錯誤分到不同 block，可以利用各 block 的 parity bit 做 correction</p>
+<ul class="simple">
+<li>不用更多 redundant bit</li>
+<li>需要一點 interleaving 時間</li>
+<li>error rate 不高時不需要做 interleaving</li>
+<li>有線的 error rate 允許 : 1/10^5</li>
+<li>無線的 error rate 允許 : 1/10^12</li>
+</ul>
+</div>
+<div class="section" id="turbo-code">
+<h2>Turbo Code<a class="headerlink" href="#turbo-code" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li>0 =&gt; 000</li>
+<li>1 =&gt; 111</li>
+<li>hard decision : 一個 range 算 1，多數決</li>
+<li>soft decision : 加起來，看是大於還小於 0，把 error 平衡掉</li>
+</ul>
+<p>電壓 : -1.5, -1.5, -1.5 =&gt; 多數決 =&gt; -1.5, 0.2, 1.3</p>
+</div>
+<div class="section" id="unit-1-background-and-preview">
+<h2>Unit 1 - Background and Preview<a class="headerlink" href="#unit-1-background-and-preview" title="本標題的永久連結">¶</a></h2>
+<p>通訊是由三個基本元件和兩個基本的溝通方式而組成</p>
+<p>基本元件 :</p>
+<ul class="simple">
+<li>Transmitter</li>
+<li>Receiver</li>
+<li>Channel</li>
+</ul>
+<p>溝通方式 :</p>
+<ul class="simple">
+<li>Broadcast (radio、TV)</li>
+<li>Point-to-Point (telephone)</li>
+</ul>
+<img alt="Baisc Communication" src="../../_images/communication.png" />
+<p>而溝通中含有兩大資源 :</p>
+<ul class="simple">
+<li>Transmitted power</li>
+<li>Channel bandwidth</li>
+</ul>
+<hr class="docutils" />
+<p>Signal to noise ratio (SNR)</p>
+<ul class="simple">
+<li>received signal 的 power 除以 noise 的 power</li>
+<li>通常用 <code class="docutils literal"><span class="pre">dB</span></code> 為單位</li>
+<li>SNR=1000 等同於 30 dB (1000 = 10 的 3 次方，3 * 10 = 30 dB)</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">log</span>
+
+<span class="k">def</span> <span class="nf">SNR_to_dB</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">log</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">dB_to_SNR</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">10</span> <span class="o">**</span> <span class="p">(</span><span class="n">number</span> <span class="o">/</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<p>設計 Communication System 的目的是要能夠有效率且可靠地在 noisy 的 channel 傳送 signal，
+因此會有以下限制 :</p>
+<ul class="simple">
+<li>允許的 transmit power</li>
+<li>可用的 channel bandwidth</li>
+<li>負擔得起的建構花費</li>
+</ul>
+<hr class="docutils" />
+<p>Communication Network</p>
+<ul>
+<li><dl class="first docutils">
+<dt>Circuit switching (telephone)</dt>
+<dd><ul class="first last simple">
+<li>會形成專線佔用</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Packet switching (IP)</dt>
+<dd><ul class="first last simple">
+<li>資料送出來時才取得路線權，路線可能會變動</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<hr class="docutils" />
+<p>Internet</p>
+<p>把 Communication Network 延伸，形成 <a class="reference external" href="http://en.wikipedia.org/wiki/Heterogeneous_network">Heterogeneous network</a> (HetNet)</p>
+<ul class="simple">
+<li>OSI</li>
+<li>TCP/IP</li>
+</ul>
+<hr class="docutils" />
+<p>Communication Channel</p>
+<ul>
+<li><dl class="first docutils">
+<dt>Guided-propagation channel</dt>
+<dd><ul class="first last simple">
+<li>Telephone channels</li>
+<li><a class="reference external" href="http://en.wikipedia.org/wiki/Coaxial_cable">Coaxial cables</a> (同軸電纜)</li>
+<li><a class="reference external" href="http://en.wikipedia.org/wiki/Optical_fiber">Optical fibers</a> (光纖)</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Free-propagation channel</dt>
+<dd><ul class="first last simple">
+<li>Wireless broadcast channels</li>
+<li>Mobile radio channels</li>
+<li>Satellite channels</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<hr class="docutils" />
+<p>Modulation</p>
+<p>要把我們的資料傳遞到另一個地方需要一個載體，
+而我們把資料放到載體上就能傳送。
+在我們接下來要探討的通訊中，我們用電磁波作為載體，
+而把資料放到波上的技術我們稱為 Modulation (調變)，
+而從波裡取出資料的技術則稱為 Demodulation (解調)。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">資料</span> <span class="o">-&gt;</span> <span class="n">Modulation</span> <span class="o">-&gt;</span> <span class="n">波</span> <span class="o">-&gt;</span> <span class="n">傳送</span> <span class="o">-&gt;</span> <span class="n">接收</span> <span class="o">-&gt;</span> <span class="n">Demodulation</span> <span class="o">-&gt;</span> <span class="n">資料</span>
+</pre></div>
+</div>
+<p>這邊回憶一下波的性質，
+波有三個屬性 :</p>
+<ul class="simple">
+<li>Amplitude (振幅)</li>
+<li>Frequency (頻率)</li>
+<li>Phase (相位)</li>
+</ul>
+<p>這代表說我們在把資料放到波上的時候有三個地方可以動手腳，
+調振幅的稱為 AM (Amplitude Modulation)，調頻率的稱為 FM，調相位的稱為 PM。</p>
+<a class="reference internal image-reference" href="../../_images/am.jpg"><img alt="AM" src="../../_images/am.jpg" style="width: 30%;" /></a>
+<a class="reference internal image-reference" href="../../_images/fm.jpg"><img alt="FM" src="../../_images/fm.jpg" style="width: 30%;" /></a>
+<a class="reference internal image-reference" href="../../_images/pm.jpg"><img alt="PM" src="../../_images/pm.jpg" style="width: 30%;" /></a>
+<img alt="PAM, PDM, PPM, PCM" src="../../_images/pulse.png" />
+<ul>
+<li><dl class="first docutils">
+<dt>Continuous-wave modulation</dt>
+<dd><ul class="first last simple">
+<li>用 <code class="docutils literal"><span class="pre">sine</span> <span class="pre">波</span></code> 當作載體</li>
+<li>Varying amplitude: amplitude modulation (AM)</li>
+<li>Varying frequency: frequency modulation (FM)</li>
+<li>Varying phase: phase modulation (PM)</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Pulse modulation</dt>
+<dd><ul class="first last">
+<li><p class="first">用 <code class="docutils literal"><span class="pre">方波</span></code> 當作載體</p>
+</li>
+<li><p class="first">Periodic sequence of rectangular pulses is adopted as the carrier</p>
+</li>
+<li><dl class="first docutils">
+<dt>Analog modulation</dt>
+<dd><ul class="first last simple">
+<li>Varying amplitude: pulse-amplitude modulation (PAM)</li>
+<li>Varying duration: pulse-duration modulation (PDM)</li>
+<li>Varying position: pulse-position modulation (PPM)</li>
+<li>An example of PAM</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Digital modulation</dt>
+<dd><ul class="first last simple">
+<li>Difference to analog modulation: quantization</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<hr class="docutils" />
+<p>Multiplexing</p>
+<ul class="simple">
+<li>Frequency-division multiplexing (FDM)</li>
+<li>Time-division multiplexing (TDM)</li>
+<li>Code-division multiplexing (CDM)</li>
+</ul>
+<hr class="docutils" />
+<p>Analog Communication</p>
+<img alt="Analog" src="../../_images/analog.png" />
+<p>(modulation &amp; demodulation)</p>
+<hr class="docutils" />
+<p>Digital Communication</p>
+<img alt="Digital" src="../../_images/digital.png" />
+<p>(encoder -&gt; modulation -&gt; demodulation -&gt; decoder)</p>
+<ul>
+<li><dl class="first docutils">
+<dt>Source encoder</dt>
+<dd><ul class="first last simple">
+<li>Remove redundant information from the message signal to form <strong>source code word</strong></li>
+<li>Actually it’s data compression, e.g. Zip</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Channel encoder</dt>
+<dd><ul class="first last simple">
+<li>Some redundant bits to make detection or correction at receiver side possible</li>
+<li>The formed signal is named <strong>channel code word</strong></li>
+<li>Examples: Turbo code and LDPC code</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Modulator</dt>
+<dd><ul class="first last simple">
+<li>Varying one or more properties of a periodic waveform (called carrier signal) with a modulating signal (typically contains information to be transmitted)</li>
+<li>The sequence of analog symbols produced by the modulator is called a waveform</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<hr class="docutils" />
+<p>Shannon&#8217;s Information Capacity Theorem</p>
+<p>reliability 通常用 bit error rate (BER) 來衡量</p>
+<p>理想的 Zero BER</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">B</span> <span class="n">ln</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">SNR</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>C : information capacity of the channel in bits/sec</li>
+<li>B : channel bandwidth in Hz</li>
+<li>SNR : signal to noise ratio</li>
+</ul>
+<p>雖然理想值當然是辦不到的，但是我們可以拿來衡量效率</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">η</span> <span class="o">=</span> <span class="n">R</span><span class="o">/</span><span class="n">C</span>
+<span class="n">η</span> <span class="p">:</span> <span class="n">efficiency</span>
+<span class="n">R</span> <span class="p">:</span> <span class="n">actual</span> <span class="n">signal</span> <span class="n">rate</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>A basis for the trade-off between B and SNR</li>
+<li>Comparison of noise performance for different modulation schemes</li>
+</ul>
+</div>
+<div class="section" id="unit-2-channel-coding-and-error-control">
+<h2>Unit 2 - Channel coding and error control<a class="headerlink" href="#unit-2-channel-coding-and-error-control" title="本標題的永久連結">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt>Errors</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>Single bit</dt>
+<dd><ul class="first last simple">
+<li>serial data transmission 中不常發生</li>
+<li>parallel data transmission 較常發生</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">Burst errors</p>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>redundancy check</dt>
+<dd><ul class="first last">
+<li><p class="first">VRC (垂直) : parity check, 多 1 個 bit</p>
+</li>
+<li><p class="first">LRC (縱向) : 不同區塊的 data 的同個位元拿去生 parity bits，形成新的 data</p>
+</li>
+<li><dl class="first docutils">
+<dt>CRC (循環)</dt>
+ <span class="classifier-delimiter">:</span> <span class="classifier">基於二進位除法，附加 parity bits 上去，讓結果可以被事先準備的數字整除</span><dd><ul class="first last simple">
+<li>CRC-X 可以偵測奇數個的所有錯誤、長度小於等於 X 的所有錯誤、絕大多數 長度大於等於 X 的所有錯誤</li>
+<li>CRC-12 可以偵測奇數個的所有錯誤、長度小於等於 12 的所有錯誤、99.97 % 長度大於等於 12 的所有錯誤</li>
+<li>CRC-32 用於 Ethernet 和 Token Ring</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>redundancy check</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>Parity check</dt>
+<dd><ul class="first last simple">
+<li>有 two dimensinoal 的 parity check</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">Cyclic redundancy check (CRC)</p>
+</li>
+<li><p class="first">Checksum</p>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>error correction</dt>
+<dd><ul class="first last simple">
+<li>發現後重傳</li>
+<li>接收端自己修正</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>error correction</dt>
+<dd><ul class="first last simple">
+<li>Hamming code : 流行的方式之一，可修正一個 bit</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Data Link Layer</dt>
+<dd><ul class="first last simple">
+<li>Packetizing</li>
+<li>Addressing</li>
+<li>Error Control</li>
+<li>Flow Control</li>
+<li>Access Control</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>[Coursera] coding theory</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://www.coursera.org/course/informationtheory">https://www.coursera.org/course/informationtheory</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<hr class="docutils" />
+<p>[流程]</p>
+<p>data -&gt; source coding -&gt; channel coding -&gt; modulation -&gt; transmitter</p>
+<p>data &lt;- source decoding &lt;- channel decoding &lt;- demodulation &lt;- receiver</p>
+<hr class="docutils" />
+<p>Forward Error Correction (FEC)</p>
+<p>FEC 想做的是多傳些救援資料，如果發生錯誤時接收端可以自己修正，不需要重傳</p>
+<ul class="simple">
+<li>Block codes</li>
+<li>Cyclic codes</li>
+<li>Reed-Solomon codes (Not covered here)</li>
+<li>Convolutional codes</li>
+<li>Turbo codes</li>
+</ul>
+<hr class="docutils" />
+<p>Hamming Distance : 計算兩個資料相差多少修改量</p>
+<hr class="docutils" />
+<p>Error Correction</p>
+<p>minimum‐distance decoder 可以更正 e 個 errors，e 不超過 1/2 (d_m -1)，d_m 是 minimum distance</p>
+<ul class="simple">
+<li>d_m 是奇數 : error correction</li>
+<li>d_m 是偶數 : error detection</li>
+</ul>
+<hr class="docutils" />
+<p>Linear Block Codes</p>
+<p>如果一個 block code 裡的任兩個 code 可以用 modulo-2 來產生第三個裡面的 code 的話就稱為 linear</p>
+<p>k 個位元的資料進來後，加上 n-k 個位元的檢查，形成 n 個位元的資料 (parity bits 會放在前面)</p>
+<p>[transmitter] m (m_1 ... m_k) (message vector) -&gt; G (generator matrix) -&gt; c (code vector)</p>
+<p>[receiver] c (code vector) -&gt; H (parity check matrix) -&gt; 0 (null vector)</p>
+<p>C = mG</p>
+<ul>
+<li><p class="first">表示 : (n, k)</p>
+</li>
+<li><p class="first">資訊會被切割放進長度是 k 的 block</p>
+</li>
+<li><p class="first">有 n-k 個 parity bits</p>
+</li>
+<li><p class="first">code rate 為 k/n</p>
+</li>
+<li><dl class="first docutils">
+<dt>G</dt>
+ <span class="classifier-delimiter">:</span> <span class="classifier">generator matrix</span><dd><ul class="first last simple">
+<li>dimension : k x n</li>
+<li>G = [I_k | P]</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">P = rem[x^{n-k+i-1} / g(x)]</p>
+</li>
+</ul>
+<p>[?] 補計算的圖片</p>
+<p>G = [I_k | P]</p>
+<p>H = [P^T | I_{n-k}]</p>
+<p>[流程]</p>
+<p>先需要知道資料有 k 個 bits，加 parity bits 後想傳 n 個 bits 出去，
+接著需要一個 g(x) 多項式，藉此可算出 G 這個把 k 個 bits 轉換成 n 個 bits 的矩陣，
+同時也可以得知 H 這個檢查矩陣，收到後乘上 H 產生出 n-k 個 bits，
+假如都是 0 的話代表沒有錯誤，若有錯誤則去找看看結果是在 H^T 的第 i 列，
+代表著收到的資料的第 i 個 bit 出現錯誤，把該 bit 轉換後更正。</p>
+<p>Hamming code 的 d_min 是 3 (minimum hamming weight)，
+代表可發現的錯誤範圍為 3-1 = 2 個 bits，
+可更正的範圍為 (3-1)/2 = 1 個 bits。</p>
+<p>[另]</p>
+<p>另外的算法，當取得 g(x) 後，要計算 G 時，可以使用矩陣列運算，
+例如在 (7, 4) 的狀況中，當 g(x) = 1 + x + x^3，也就是 [1 1 0 1]
+則計算為 : (利用 shift 的方式，每次向右 shift 一位)</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>[ 1 1 0 1 ] 0 0 0
+0 [ 1 1 0 1 ] 0 0
+0 0 [ 1 1 0 1 ] 0
+0 0 0 [ 1 1 0 1 ]
+
+=&gt; 整理成左邊為單位矩陣 (或是右邊)
+(多出來非單位矩陣的部份，和原資料乘起來後就是 parity bits)
+
+1 0 0 0   1 1 0             1 1 0   1 0 0 0
+0 1 0 0   0 1 1             0 1 1   0 1 0 0
+0 0 1 0   1 1 1     or      1 1 1   0 0 1 0
+0 0 0 1   1 0 1             1 0 1   0 0 0 1
+
+=&gt; 這就是矩陣 G 啦
+</pre></div>
+</div>
+<hr class="docutils" />
+<p>Hamming Code</p>
+<p><strong>single‐error correcting</strong></p>
+<ul class="simple">
+<li>block length : n = 2^m - 1</li>
+<li>parity bits : m = n - k</li>
+<li>message bits : k = 2^m - m - 1</li>
+<li>m &gt;= 3</li>
+<li>撰寫時為 [低位 ... 高位]</li>
+</ul>
+<p>Hamming Weight</p>
+<p>定義：一串符號中非零符號的總數</p>
+<p>在二進位中，整個二進位串中有幾個「1」就表示其 Hamming Weight 為多少</p>
+<hr class="docutils" />
+<p>Cyclic Codes</p>
+<ul>
+<li><p class="first">可以修正 single/double error 和 burst error</p>
+</li>
+<li><p class="first">linear block codes 的子類別</p>
+</li>
+<li><p class="first">易於 encode/decode</p>
+</li>
+<li><p class="first">利用一個 shift register</p>
+</li>
+<li><dl class="first docutils">
+<dt>cyclic code 需要符合兩個條件</dt>
+<dd><ul class="first last simple">
+<li>[Linearity property] 兩個 code words 相加出來的是另一個 code word</li>
+<li>[Cyclic property] 一個 code word 的 cyclic shift 還是一個 code word</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<hr class="docutils" />
+<p>Cyclic Redundancy Check (CRC)</p>
+<ul class="simple">
+<li>有硬體支援</li>
+<li>用於 Ethernet</li>
+<li>802.11 用 CRC-32 (32 bits)</li>
+<li>CRC 很常用</li>
+<li>被加入的 bit sequence 稱為 frame check sequence (FCS)</li>
+</ul>
+<p>[多項式的性質]</p>
+<ul class="simple">
+<li>不可以被 x 整除 : 保證當 burst errors 的長度和多項式的 degree 相同時可以被偵測</li>
+<li>可以被 x + 1 整除 : 保證 burst errors 影響了奇數個 bits 時能被偵測</li>
+</ul>
+<hr class="docutils" />
+<p>Convolutional Codes</p>
+<p>在 GSM 中實際最常用到的 channel codes</p>
+<ul class="simple">
+<li>Decoding strategy: Viterbi algorithm</li>
+</ul>
+<hr class="docutils" />
+<p>Interleaver</p>
+<ul>
+<li><p class="first">Protect data from burst errors</p>
+</li>
+<li><dl class="first docutils">
+<dt>Interleaver</dt>
+<dd><ul class="first last simple">
+<li>Block interleaver: most commonly used.</li>
+<li>Random interleaver</li>
+<li>Circular interleaver</li>
+<li>Semirandom interlever</li>
+<li>Odd‐even interleaver</li>
+<li>Optimal interleaver</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">分散 burst errors，不是修正</p>
+</li>
+<li><p class="first">不需要額外的 redundancy bits 或頻寬</p>
+</li>
+<li><p class="first">delay 會增加</p>
+</li>
+</ul>
+<p>把原本要傳送的資料排列後改變順序，收到後再排回去</p>
+<hr class="docutils" />
+<p>Turbo Code</p>
+<ul>
+<li><p class="first">效率比其他 channel code 都還接近 Shannon limit 理論值</p>
+</li>
+<li><p class="first">利用兩個相同的 RSC (recursive systematic convolutional)，parallel 地接起來</p>
+</li>
+<li><dl class="first docutils">
+<dt>example of turbo code encoder</dt>
+<dd><ul class="first last simple">
+<li>第一個 RSC encoder 直接用進來的 bit stream</li>
+<li>第二個 RSC encoder 用 interleaver 過的</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>example of turbo code decoder</dt>
+<dd><ul class="first last simple">
+<li>decode 一個來取得初步的資訊</li>
+<li>基於前面的資訊，第二個 RSC decoder 取得更精確的資料</li>
+<li>回饋給第一個 RSC 來增加正確率</li>
+<li>使用 soft-decision</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<hr class="docutils" />
+<p>ARQ</p>
+<ul>
+<li><dl class="first docutils">
+<dt>Stop-and-Wait</dt>
+<dd><ul class="first last simple">
+<li>確定都回 ACK 正確送到後才送下一個封包</li>
+<li>有 Error 回 NAK</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Go-Back-N</dt>
+<dd><ul class="first last simple">
+<li>收到 NAK 發現 Error 後把那之後的封包都重傳</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Selective Repeat</dt>
+<dd><ul class="first last simple">
+<li>收到 NAK 後只把錯誤的封包重傳，但是封包順序會亂，需要多 Buffer 來排好</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">GBN 不會比 SR 好</p>
+</li>
+</ul>
+</div>
+<div class="section" id="unit-3-modulation">
+<h2>Unit 3 - Modulation<a class="headerlink" href="#unit-3-modulation" title="本標題的永久連結">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt>Analog modulation</dt>
+<dd><ul class="first last simple">
+<li>AM (Amplitude)</li>
+<li>FM (Frequency)</li>
+<li>PM</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Digital modulation</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>ASK (Amplitude Shift Keying)</dt>
+<dd><ul class="first last simple">
+<li>疊方波</li>
+<li>屬於 1 的那段 baud 的振福會比較大</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>FSK (Frequency Shift Keying)</dt>
+<dd><ul class="first last simple">
+<li>屬於 1 的那段 baud 的頻率會比較高</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>PSK</dt>
+<dd><ul class="first last simple">
+<li>波型會變</li>
+<li>0、1 轉換時波型也會直接轉換</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>QPSK (Quadrature Phase Shift Keying)</dt>
+<dd><ul class="first last simple">
+<li>BPSK 的話在圓上只有兩個點，QPSK 的話有四個點</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>QAM (Quadrature Amplitude Modulation)</dt>
+<dd><ul class="first last">
+<li><p class="first">AM + PSK</p>
+</li>
+<li><dl class="first docutils">
+<dt>xQAM</dt>
+<dd><ul class="first last simple">
+<li>畫出 x 個點排成的圖型，以中心為原點，出去的距離為 AM 所調的，出去的角度為 PSK 所調的</li>
+<li>64QAM 的每個 symbol 會傳 6 bits (2^6 = 64)，baud rate 是 1200 Hz 的話，每秒 6 * 1200 = 7200 bits</li>
+<li>x 不能無限提高，x 是和 transmission rate 相關的變數，提高的話在相同能量下，每個點之間的距離會減小，造成不好區分，使得錯誤率上升，要增加距離的話就要增加輸出能量</li>
+<li>x 通常等於 2 的整數次方</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="unit-4-mobile-radio-propagation">
+<h2>Unit 4 - Mobile Radio Propagation<a class="headerlink" href="#unit-4-mobile-radio-propagation" title="本標題的永久連結">¶</a></h2>
+<p>無線網路跟有線網路比起來狀況更差，有許多問題需要處理，
+其中一大問題就使 BER (Bit Error Rate) 相對高很多 (會到達 10^-3)，
+BER 如此高的原因有 atmospheric noise (大氣中的噪音)、multipath propagation (多個傳送路徑)、interference (干涉) 等等。
+除此之外還需要 spectrum licensing (頻譜使用許可)，而後還需要處理 Dynamic topologies 產生的 hidden terminals problem，以及 energy 造成的限制。</p>
+<p>無線網路中的 bit errors 會突然爆發 (bursts)，
+markov chain model 的模擬已經充份的顯示出無線網路的 bit error modeling。
+此 model 包含兩個 state，一個 Good，一個 Bad，兩個變數定義其中個轉換，
+下一個 state 只跟現在的 state 有關，跟以前的 state 無關 (memoryless)。</p>
+<p>無線網路中造成接收端出現錯誤的因素有很多，
+其中一般空曠處的傳送就會有 loss，
+再來由於可能會有移動的狀況，所以會有都卜勒效應 (Droppler Shift)，
+實際傳送中也會碰到反射 (reflection)、繞射 (diffraction)、散射 (scattering)，
+造成多重路徑的傳送。</p>
+<p>對於電磁波頻譜的選擇也有好有壞，
+高頻段的話能量較高，但是覆蓋範圍較小，
+低頻段的話能量較小，但是覆蓋範圍較大。</p>
+<hr class="docutils" />
+<p>[Shannon&#8217;s Formula]</p>
+<p>Shannon&#8217;s Formula 是用來推測頻道之可用容量，
+重點在於針對已知頻寬及頻道之訊號雜訊比 (也就是受雜訊干擾之情況) 進行推測</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">W</span> <span class="o">=</span> <span class="n">B</span> <span class="n">log_2</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">r</span><span class="p">)</span>
+
+<span class="n">W</span> <span class="n">是</span> <span class="n">bit</span> <span class="n">rate</span> <span class="n">的上界</span>
+<span class="n">B</span> <span class="n">是</span> <span class="n">channel</span> <span class="n">寬度</span> <span class="p">(</span><span class="n">Hz</span><span class="p">)</span>
+<span class="n">r</span> <span class="n">是</span> <span class="n">SNR</span> <span class="p">(</span><span class="n">Signal</span> <span class="n">to</span> <span class="n">noise</span> <span class="n">ratio</span><span class="p">)</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<p>無線電波的種類</p>
+<ul>
+<li><dl class="first docutils">
+<dt>Ground</dt>
+<dd><ul class="first last simple">
+<li>依照地表的起伏，用於長程導航，低於 2 MHz</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Space</dt>
+<dd><ul class="first last simple">
+<li>只直線進行，用於手機、Two-way radio、雷達，30 MHz ~ 3000 GHz</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Sky</dt>
+<dd><ul class="first last simple">
+<li>發送到游離層後會反射回來，常用於業餘無線電和長程飛機、船隻溝通， 20 ~ 30 MHz</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<hr class="docutils" />
+<p>Propagation effect</p>
+<ul>
+<li><dl class="first docutils">
+<dt>Reflection (反射)</dt>
+<dd><ul class="first last simple">
+<li>發生於電磁波碰到和波長相比大很多的物體</li>
+<li>fast fading 成因</li>
+<li>coherence time</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Scattering (散射)</dt>
+<dd><ul class="first last simple">
+<li>發生於訊號被相似大小級數的物體阻礙，訊號會轉向不同方向</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Diffraction (繞射)</dt>
+<dd><ul class="first last simple">
+<li>發生於電磁波碰到 impenetrable object (堅硬物體？)，其後會產生另外一個波</li>
+<li>又稱為 Shadowing</li>
+<li>低頻率較容易發生</li>
+<li>shadow 的區域通常很大，會讓訊號衰弱的速度變慢，故稱為 slow fading</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<hr class="docutils" />
+<ul>
+<li><dl class="first docutils">
+<dt>Free space path loss</dt>
+<dd><ul class="first last simple">
+<li>收到的能量根距離平方成反比</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Multipath propagation</dt>
+<dd><ul class="first last simple">
+<li>前面提到的 reflection</li>
+<li>會造成訊號失真 (small‐scale fluctuations)</li>
+<li>接收端第一次收到和最後一次收到間的時間差稱為 channel&#8217;s delay spread</li>
+<li>被稱為 fast fading 或是 small-sacle fading</li>
+<li>如果 Line-of-sight (直射信號) 存在的話，稱為 Rician fading</li>
+<li>如果 Line-of-sight (直射信號) 不存在的話，稱為 Rayleigh fading</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<hr class="docutils" />
+<ul>
+<li><dl class="first docutils">
+<dt>Large‐scale propagation model</dt>
+<dd><ul class="first last simple">
+<li>Path loss</li>
+<li>Free space propagation model</li>
+<li>Propagation mechanism</li>
+<li>Indoor propagation model</li>
+<li>Outdoor propagation model</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<hr class="docutils" />
+<ul>
+<li><dl class="first docutils">
+<dt>Small‐scale propagation</dt>
+<dd><ul class="first last simple">
+<li>訊號在各個性質上有小幅的變化</li>
+<li>Multipath : 時間</li>
+<li>Doppler : 頻率</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<hr class="docutils" />
+<p>Intersymbol Interference (ISI)</p>
+<p>當 multipath 的情形發生時，接收端會率陸續收到多個訊號，除了第一個直接傳到的訊號外，
+後面的訊號就像是雜訊一樣，會讓辨識變困難，稱為 Inter Symbol Interference</p>
+<hr class="docutils" />
+<p>Slow v.s. fast fading (coherence time)</p>
+<p>Coherence time is the time duration over which the channel impulse response is considered to be not varying</p>
+<hr class="docutils" />
+<p>Flat fading v.s. selective fading (coherence bandwidth)</p>
+<p>The coherence bandwidth measures the separation in frequency after which two signals will experience uncorrelated fading.</p>
+<hr class="docutils" />
+<p>Free Space Propagation</p>
+<hr class="docutils" />
+<p>Path Loss</p>
+<hr class="docutils" />
+<p>Signal bandwidth &gt; coherence bandwidth (wideband): frequency‐selected fading</p>
+<p>Signal bandwidth &lt; coherence bandwidth (narrowband): flat fading</p>
+<hr class="docutils" />
+<ul>
+<li><dl class="first docutils">
+<dt>mutltipath time delay spread (小規模的漸弱)</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>Flat fading</dt>
+<dd><ul class="first last simple">
+<li>Signal bandwidth &lt; channel bandwidth</li>
+<li>Delay spread &lt; symbol period</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Frequency selective fading</dt>
+<dd><ul class="first last simple">
+<li>Signal bandwidth &gt; channel bandwidth</li>
+<li>Delay spread &gt; symbol period</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>droppler spread (小規模的漸弱)</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>Fast fading</dt>
+<dd><ul class="first last simple">
+<li>High Doppler spread</li>
+<li>Coherence time &lt; symbol time</li>
+<li>Channel variations 比 baseband signal variations 快</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Slow fading</dt>
+<dd><ul class="first last simple">
+<li>Low Doppler spread</li>
+<li>Coherence time &gt; symbol time</li>
+<li>Channel variations 比 baseband signal variations 慢</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Fast fading: High Doppler spread, symbol time &gt; Coherence time, delay spread, multipath
+Slow fading: Low Doppler spread,  symbol time &lt; Coherence time, shadowing</p>
+<hr class="docutils" />
+<p>[Question]</p>
+<ul>
+<li><p class="first">What cause fast fading ?</p>
+<blockquote>
+<div><p>fast fading 是由於 multipath 和 Doppler effect 所造成訊號強度快速變化</p>
+</div></blockquote>
+</li>
+<li><p class="first">What cause slow fading ?</p>
+<blockquote>
+<div><p>slow fading 是在路途中有高低不一的障礙物遮檔，使得移動期間訊號緩慢變化</p>
+<p>slow fading 是因為 diffraction 造成的</p>
+<p>fast fading 是因為 reflection 造成的</p>
+<p>slow fading : 長距離的移動期間訊號平均值等級的變化</p>
+<blockquote>
+<div><p>由於行動使用者活動距離超過波長許多，當使用者通過不同高度的建築物、空地、十字路口等等，相當於城市環境在改變，在這長距離的移動期間，接收訊號平均功率準位會有一平緩的變化，顯示此慢速改變的波形</p>
+<p>coherence time &gt; delay constraint</p>
+</div></blockquote>
+<p>fast fading : 在短距離內的移動造成訊號強度變化的現象</p>
+<blockquote>
+<div><p>coherence time &lt; delay constraint</p>
+</div></blockquote>
+</div></blockquote>
+</li>
+<li><p class="first">萊斯衰減(Ricean Fading)和瑞雷衰減(Rayleigh Fading)</p>
+</li>
+<li><p class="first">path loss, delay spread, fast fading</p>
+<blockquote>
+<div><p>path loss 會造成訊號衰減</p>
+<p>delay spread 是一段時間內先後收到來自不同路徑的訊號，會產生 fast fading</p>
+<p>fading 會造成訊號失真，故都會讓收到的訊號出問題</p>
+</div></blockquote>
+</li>
+<li><p class="first">ISI (Intersymbol Interference)</p>
+<blockquote>
+<div><p>symbol 間有來自不同路徑所產生的不同強度的子 symbol，對於一開始收到的 symbol 而言，後面收到的子 symbol 就像是雜訊，會影響到整個傳輸品質</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="unit-5-cellular-concept">
+<h2>Unit 5 - Cellular Concept<a class="headerlink" href="#unit-5-cellular-concept" title="本標題的永久連結">¶</a></h2>
+<p>Cell Area : 基地台訊號涵蓋的範圍</p>
+<p>理想是圓形，但現實中不可能，計算上可能會用六角形、正方形、三角形代替</p>
+<ul class="simple">
+<li>訊號強度在出了天線後就會急速下降</li>
+</ul>
+<p>Handoff area : 在兩個基地台間，訊號強度夠強，可以互相切換的區域</p>
+<p>Ping-pong effect : 對某基地台的訊號強度已經超過另一個基地台一定的量，可以正式切換過去，可作為不斷在基地台間來回時的切換門檻</p>
+<p>[cellular mobile networks] 由於 frequency reuse，在一地區就會有多個 cells 使用相同的頻帶組，
+這些 cells 稱為 co-channel cells，而這些 cells 間互相干擾的訊號就稱為 co-channel interference。
+要減少這種情況發生，其中一種解法是做 Cell Splitting，把大 Cell 切成小 Cell，並且調整 power，
+另一種是做 Cell Sectoring</p>
+<div class="section" id="queueing-model">
+<h3>Queueing model<a class="headerlink" href="#queueing-model" title="本標題的永久連結">¶</a></h3>
+<p>M/M/S/S</p>
+<ul>
+<li><dl class="first docutils">
+<dt>M = Exponential Arrival Pattern</dt>
+<dd><ul class="first last simple">
+<li>Poisson 分布，參數為 λ</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>M = Exponential Service Pattern</dt>
+<dd><ul class="first last simple">
+<li>Exponential 分布，參數為 μ</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">S = Server Number</p>
+</li>
+<li><p class="first">S = Serving People</p>
+</li>
+<li><p class="first">= Waiting People (無限制的話可省略)</p>
+</li>
+<li><p class="first">Poisson</p>
+</li>
+<li><p class="first">Exponential</p>
+</li>
+<li><p class="first">Server num</p>
+</li>
+<li><p class="first">Serving people</p>
+</li>
+</ul>
+</div>
+<div class="section" id="erlang">
+<h3>Erlang<a class="headerlink" href="#erlang" title="本標題的永久連結">¶</a></h3>
+<p>一個 channel 忙碌一個小時稱為一 Erlang</p>
+<ul class="simple">
+<li>Erlang B : 不要有 waiting，狀態只到 s</li>
+<li>Erlang C : 無限制</li>
+</ul>
+</div>
+</div>
+<div class="section" id="unit-6">
+<h2>Unit 6<a class="headerlink" href="#unit-6" title="本標題的永久連結">¶</a></h2>
+<p>Transmit Opportunity (TXOP)</p>
+<ul>
+<li><p class="first">DCF (Distributed Coordination Function) (分散式協調功能)</p>
+</li>
+<li><p class="first">PCF (Point Coordination Function) (集中式協調功能)</p>
+</li>
+<li><dl class="first docutils">
+<dt>Mutiple Access</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>Contention (爭奪)</dt>
+<dd><ul class="first last simple">
+<li>ALOHA</li>
+<li>CSMA</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Conflict Free</dt>
+<dd><ul class="first last simple">
+<li>FDMA</li>
+<li>TDMA</li>
+<li>CDMA</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="section" id="pure-aloha">
+<h3>Pure ALOHA<a class="headerlink" href="#pure-aloha" title="本標題的永久連結">¶</a></h3>
+<p>最早的 random access 方法，1968 年在美國夏威夷大學開發，1971 年成功建立。</p>
+<ol class="arabic simple">
+<li>有資料 (frame) 就直接送</li>
+<li>送完等 ACK，等待時間的上限為兩倍的最大 propagation delay，等不到就重傳</li>
+<li>碰撞時，雙方都等一個 random time</li>
+</ol>
+<ul class="simple">
+<li>通道使用率 : 18.4 %</li>
+</ul>
+</div>
+<div class="section" id="slotted-aloha">
+<h3>Slotted ALOHA<a class="headerlink" href="#slotted-aloha" title="本標題的永久連結">¶</a></h3>
+<ul>
+<li><dl class="first docutils">
+<dt>把頻段在時間上切割，每次只能分段的開始處傳送，傳送的資料只能小於等於一個分段，以減少衝突的發生</dt>
+<dd><ul class="first last simple">
+<li>可確保成功送出後不會有人來碰撞</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">需要一個同步機制</p>
+</li>
+<li><p class="first">通道使用率 : 36.8 %</p>
+</li>
+</ul>
+</div>
+<div class="section" id="csma-carrier-sense-multiple-access">
+<h3>CSMA (Carrier Sense Multiple Access)<a class="headerlink" href="#csma-carrier-sense-multiple-access" title="本標題的永久連結">¶</a></h3>
+<p>和 ALOHA 相比，在傳送前會先去看通道的狀況</p>
+<ul>
+<li><dl class="first docutils">
+<dt>Nonpersistent</dt>
+ <span class="classifier-delimiter">:</span> <span class="classifier">機率性等一段時間</span><dd><ul class="first last simple">
+<li>降低碰撞機率</li>
+<li>浪費空間</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">Persistent : 一直聽</p>
+</li>
+<li><p class="first">p-Persistent : idle 時，有 p 的機率會傳送，接著有 (1-p) 的機率會 delay 一段時間。busy 的話就繼續聽。</p>
+</li>
+<li><dl class="first docutils">
+<dt>CSMA</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>Non-presistent</dt>
+<dd><ul class="first last simple">
+<li>Unslotted</li>
+<li>Slotted</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Presistent (1-persistent, p-persistent)</dt>
+<dd><ul class="first last simple">
+<li>Unslotted</li>
+<li>Slotted</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<ol class="arabic">
+<li><dl class="first docutils">
+<dt>有資料 (frame) 就 <strong>先聽通道狀況</strong></dt>
+<dd><ol class="first last loweralpha simple">
+<li>busy =&gt; 一定等</li>
+<li>idle =&gt; 可能送出</li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><p class="first">送完等 ACK，等待一段時間，等不到就重傳</p>
+</li>
+<li><p class="first">碰撞時，雙方都等一個 random time</p>
+</li>
+</ol>
+<ul class="simple">
+<li>使用率取決於 frame 的長度和 propagation time</li>
+</ul>
+</div>
+<div class="section" id="nonpersistent-csma">
+<h3>Nonpersistent CSMA<a class="headerlink" href="#nonpersistent-csma" title="本標題的永久連結">¶</a></h3>
+<ol class="arabic">
+<li><dl class="first docutils">
+<dt>有資料 (frame) 就 <strong>先聽通道狀況</strong></dt>
+<dd><ol class="first last loweralpha simple">
+<li>busy =&gt; <strong>等一段時間</strong></li>
+<li>idle =&gt; <strong>送出</strong></li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><p class="first">送完等 ACK，等待一段時間，等不到就重傳</p>
+</li>
+<li><p class="first">碰撞時，雙方都等一個 random time</p>
+</li>
+</ol>
+</div>
+<div class="section" id="persistent-csma">
+<h3>1-Persistent CSMA<a class="headerlink" href="#persistent-csma" title="本標題的永久連結">¶</a></h3>
+<ol class="arabic">
+<li><dl class="first docutils">
+<dt>有資料 (frame) 就 <strong>先聽通道狀況</strong></dt>
+<dd><ol class="first last loweralpha simple">
+<li>busy =&gt; <strong>繼續聽</strong></li>
+<li>idle =&gt; <strong>送出</strong></li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><p class="first">送完等 ACK，等待一段時間，等不到就重傳</p>
+</li>
+<li><p class="first">碰撞時，雙方都等一個 random time</p>
+</li>
+</ol>
+<p>[-] 多個人在聽的時候一定碰撞</p>
+</div>
+<div class="section" id="p-persistent-csma">
+<h3>p-Persistent CSMA<a class="headerlink" href="#p-persistent-csma" title="本標題的永久連結">¶</a></h3>
+<ol class="arabic">
+<li><dl class="first docutils">
+<dt>有資料 (frame) 就 <strong>先聽通道狀況</strong></dt>
+<dd><ol class="first last loweralpha simple">
+<li>busy =&gt; <strong>繼續聽</strong></li>
+<li>idle =&gt; <strong>有 p 的機率會送出</strong> ， <strong>接著有 (1-p) 的機率會等待一段時間</strong> (通常是最大的 propagation delay)</li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><p class="first">送完等 ACK，等待一段時間，等不到就重傳</p>
+</li>
+<li><p class="first">碰撞時，雙方都等一個 random time</p>
+</li>
+</ol>
+</div>
+<div class="section" id="csma-cd">
+<h3>CSMA/CD<a class="headerlink" href="#csma-cd" title="本標題的永久連結">¶</a></h3>
+<p>發現碰撞後發出 jamming signal 通知，用於 Ethernet</p>
+<ol class="arabic">
+<li><dl class="first docutils">
+<dt>有資料 (frame) 就 <strong>先聽通道狀況</strong></dt>
+<dd><ol class="first last loweralpha simple">
+<li>busy =&gt; <strong>繼續聽</strong></li>
+<li>idle =&gt; <strong>送出</strong></li>
+</ol>
+</dd>
+</dl>
+</li>
+</ol>
+<p>2. 如果碰撞發生的話就發出 <strong>jamming signal</strong> 通知大家，叫大家不要再送了
+2. 送完等 ACK，等待一段時間，等不到就重傳
+3. 碰撞時，雙方都等一個 random time</p>
+</div>
+<div class="section" id="csma-ca">
+<h3>CSMA/CA<a class="headerlink" href="#csma-ca" title="本標題的永久連結">¶</a></h3>
+<ul>
+<li><p class="first">IEEE 802.11</p>
+</li>
+<li><p class="first">no collision</p>
+</li>
+<li><p class="first">SIFS (Short Interframe Space) : wireless interface 收到 frame 後處理完再回傳，這過程所需的時間，差不多需要 1x μs</p>
+</li>
+<li><dl class="first docutils">
+<dt>[DCF protocol] DIFS = SIFS + (2 * Slot time)</dt>
+<dd><ul class="first last simple">
+<li>DCF Interframe Space</li>
+<li>差不多需要 3x μs</li>
+<li>在 DIFS 期間偵測到都是 idle 的話才可以傳送</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Contention window</dt>
+<dd><ul class="first last simple">
+<li>以 Slot Time 為單位，隨機取 n 個 Slot Time 形成 Contention Window 進行退讓，預降低可以開始傳時的碰撞機會</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>在無線網路的狀況下，發生碰撞的成本太高了</p>
+<div class="section" id="hidden-terminal-problem">
+<h4>Hidden Terminal Problem<a class="headerlink" href="#hidden-terminal-problem" title="本標題的永久連結">¶</a></h4>
+<p>在兩個基地台的交界處就算都判斷為 idle，但此時兩個基地台都對中間某個 client 送資料時會發上碰撞，
+這稱為 Hidden Terminal Problem，會造成效率損失和需要碰撞恢復的機制。</p>
+<p>這個問題可以用 RTS/CTS (Request to Send / Clear to Send) 來解決，
+基地台先向中間的 client 發送 RTS，
+client 收到 RTS 後回送 CTS 給大家，
+此時除了第一個收到的 RTS 的原基地台可以發送資料外，
+其他基地台都進入等待，
+接著原基地台可以安心發送資料。</p>
+<p>這種作法讓碰撞只發生在 RTS 的時候，
+如碰撞後將收不到 client 發出的 CTS 訊息，
+退回去使用 DCF 的競爭機制，
+隨機等待時間，
+等到下次空出來的 DIFS 後再次發出 RTS。</p>
+<hr class="docutils" />
+<ul>
+<li><dl class="first docutils">
+<dt>Inter v.s. Intra</dt>
+<dd><ul class="first last simple">
+<li>Inter : 在 ... 之間、互相</li>
+<li>Intra : 在 ... 之內、內部</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; 版權所有 2016.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="/zh_TW/latest/">latest</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="//readthedocs.org/projects/wdv4758h-notes/downloads/htmlzip/latest/">htmlzip</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="//readthedocs.org/projects/wdv4758h-notes/?fromdocs=wdv4758h-notes">Project Home</a>
+          </dd>
+          <dd>
+            <a href="//readthedocs.org/builds/wdv4758h-notes/?fromdocs=wdv4758h-notes">Builds</a>
+          </dd>
+      </dl>
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'latest',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-2.0.3.min.js"></script>
+      <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-migrate-1.2.1.min.js"></script>
+      <script type="text/javascript" src="https://media.readthedocs.org/javascript/underscore.js"></script>
+      <script type="text/javascript" src="https://media.readthedocs.org/javascript/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://media.readthedocs.org/javascript/readthedocs-doc-embed.js"></script>
+
+  
+
+  
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

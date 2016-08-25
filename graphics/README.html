@@ -1,0 +1,1101 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Linux Graphics &mdash; wdv4758h-notes latest 說明文件</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+
+  
+    <link rel="stylesheet" href="https://media.readthedocs.org/css/sphinx_rtd_theme.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="wdv4758h-notes latest 說明文件" href="../index.html"/>
+        <link rel="next" title="DRI (Direct Rendering Infrastructure)" href="dri.html"/>
+        <link rel="prev" title="SPIR-V" href="../gpgpu/spir-v.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> wdv4758h-notes
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/big-o-notation.html">Big O Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/books.html">Books</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/dict.html">Dict</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/heap.html">Heap （堆）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/inverse-square-root.html">Inverse Square Root</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/misc.html">Misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/substring-searching.html">Substring Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../android/android.html">Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../android/android-emulator.html">Android Emulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../android/android-images.html">Android Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../android/binder.html">Android&#8217;s Binder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../android/busybox-mv.html">BysyBox 的 mv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../android/cheat-sheet.html">Android Cheat Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../android/cts.html">Android CTS (Compatibility Test Suite)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../android/google-project-butter.html">Google Project Butter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../android/init.html">Android - init</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../android/install.html">安裝新 Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../android/misc.html">Android - Misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../android/ndk.html">Android NDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../android/surfaceflinger.html">SurfaceFlinger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archlinux/UEFI.html">UEFI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archlinux/abs.html">Arch Build System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archlinux/arch-in-ubuntu-lxc.html">Arch Linux in Ubuntu LXC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archlinux/arch-install-script.html">Arch Install Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archlinux/aur.html">Arch Linux Arch User Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archlinux/hardware.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archlinux/packages.html">Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archlinux/pacman.html">Pacman</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archlinux/performance.html">Performance Tuning For Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archlinux/printer.html">Printer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archlinux/video-player.html">Video Player</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archlinux/x11-forwarding.html">X11 Forwarding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archlinux/xdg-settings.html">xdg-settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../arm/intro.html">ARM Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../articles/python-need-for-speed.html">Python - Need For Speed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../articles/travis-ci-sphinx-github-pages.html">用 Travis CI 自動化發佈 reStructuredText 到 GitHub Pages 上</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assembly/cheat-sheet.html">Assembly Cheat Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assembly/sha-extension.html">SHA Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assembly/x86.html">x86 Assembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../books/ISBN-13|978-1-59327-385-9|A Bug Hunter's Diary.html">A Bug Hunter&#8217;s Diary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../books/README.html">書籍紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../browser/cdm.html">CDM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../browser/css.html">CSS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../browser/design.html">How Browser Work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../browser/extensions.html">WebExtensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../browser/service-worker.html">Service Worker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../browser/servo.html">Servo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../browser/webassembly.html">WebAssembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../build-system/cmake.html">CMake</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../build-system/gyp.html">GYP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c/c.html">C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c/cheat-sheet.html">C Cheat Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c/exception.html">Exceptions in C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c/features.html">Some C&#8217;s features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c/gnu-extension.html">GNU Extension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c/internal_and_external_linkage_in_C.html">Internal and External Linkage in C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c/mmap.html">mmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c/pragma-once.html">pragma once</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c/pragma-weak.html">pragma weak</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c/undefine-behavior.html">Undefined Behavior</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/branch-prediction-hint.html">Branch Prediction Hint</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/clang-tools.html">Clang Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/code-gen.html">Code Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/compiler-and-learning.html">Compiler and Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/compiler-options.html">Compiler Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/compiler-rt.html">LLVM - compiler-rt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/computed-goto.html">Computed goto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/cross-compile.html">Cross Compile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/crt.html">crt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/environment.html">Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/gcc-plugins.html">GCC Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/gpgpu.html">GPGPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/jump-threading.html">Jump Threading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/linker.html">Linker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/llvm.html">LLVM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/llvm-android.html">Android With LLVM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/llvm-cuda.html">LLVM &amp; CUDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/llvm-ir.html">LLVM IR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/llvm-python.html">LLVM &amp; Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/lto.html">LTO - Link Time Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/obfuscator.html">Obfuscator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/optimizations.html">Optimizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/porting.html">Use Compiler To Help Porting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/resource.html">Compiler Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/ssa.html">SSA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compression/jpeg.html">JPEG Compression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compression/png.html">PNG Compression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computer-vision/SIFT.html">SIFT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computer-vision/object-detection.html">Object Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computer-vision/panaorma.html">Panorama (Image Stitching)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/64bits-problem.html">64 Bits Problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/SFINAE.html">SFINAE (Substitution Failure Is Not An Error)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/assembly.html">C++ &amp; Assembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/bit-field.html">C++ Bit Field</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/c++17.html">C++17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/concepts.html">C++ Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/const.html">C++ const</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/coroutine.html">C++ Coroutine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/crtp.html">CRTP (Curiously recurring template pattern)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/ctor-dtor.html">C++ Constructors &amp; Destructors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/experimental.html">Experimental</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/expression-templates.html">Expression Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/history.html">C++ History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/initialization.html">Initialization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/macro.html">Macro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/misc.html">C++ Misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/oop.html">C++ 繼承</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/oop.html#virutal-function">Virutal Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/oop.html#c-11-override-final">C++11 - override &amp; final</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/optimizations.html">C++ Optimizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/optional.html">Optional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/parallel.html">C++ - Parallel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/pimpl.html">Pimpl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/qt.html">Qt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/repl.html">C++ REPL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/resource.html">C++ Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/rvo.html">Return Value Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/size_t-ptrdiff_t.html">About size_t and ptrdiff_t</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/standard-library-implementation.html">Standard Library Implementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/stl.html">C++ STL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/string-optimization.html">String Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/temporary-objects.html">Temporary Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/thread.html">C++ Thread</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/todo.html">Todo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/value-category.html">C++ Value Category</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/videos.html">C++ Videos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../crypto/blowfish.html">Blowfish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../crypto/elliptic-curve.html">Elliptic Curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../crypto/sha.html">SHA (Secure Hash Algorithm)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/postgresql.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debug/kernel.html">Debugging a Kernel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debug/record-replay.html">Record Replay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debug/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docker/docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../embedded/stm32.html">STM32</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fonts/README.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fonts/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../freebsd/freebsd.html">FreeBSD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional/monad.html">Monad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../game/real-time-strategy.html">Real-time Strategy Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../game/rpg.html">Role-playing Games (RPG)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../garbage-collection/garbage-collection.html">Garbage Collection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../garbage-collection/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git/cheat-sheet.html">Git Cheat Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git/format-patch.html">Git Format Patch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git/resource.html">Git Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git/tips.html">Git Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gpgpu/arrayfire.html">ArrayFire</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gpgpu/boost.html">Boost.Compute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gpgpu/kernel.html">GPGPU with Kernel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gpgpu/spir-v.html">SPIR-V</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Linux Graphics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">歷史發展</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#console-and-frame-buffer">Console and Frame Buffer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#x-window-system">X Window System</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">X Window System</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#x-clients-and-servers">X Clients and Servers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#x-extensions">X Extensions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#d-acceleration-in-x">2D Acceleration in X</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#opengl">OpenGL</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">OpenGL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#indirect-v-s-direct-rendering">Indirect v.s. Direct Rendering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mesa">Mesa</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gallium3d">Gallium3D</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opengl-driver-stacks">OpenGL Driver Stacks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">參考</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dri.html">DRI (Direct Rendering Infrastructure)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Linux Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mesa.html">Mesa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hardware/hardware-and-programming.html">Hardware &amp; Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hardware/history.html">Hardware&#8217;s History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hardware/intel-mic.html">Intel MIC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hardware/my-devices.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jit/asmjit.html">asmjit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jit/introduction.html">JIT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language-virtual-machines/resource.html">資源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/ann-history.html">Artificial Neural Network History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/artificial-neural-network.html">Artificial Neural Network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/clustering.html">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/decision-tree.html">決策樹學習 （Decision Tree）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/deep-learning.html">Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/dimensionality-reduction.html">Dimensionality Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/instance-based.html">Instance Based</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/learning.html">Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/naive-bayes-classifier.html">樸素貝葉斯分類器 （Naïve Bayesian Classifier）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/regression.html">Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/regularization.html">Regularization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/rule-system.html">Rule System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/svm.html">SVM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/t-SNE.html">t-SNE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../learning/todo.html">Todo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/bfq.html">BFQ - Budget Fair Queueing Storage-I/O Scheduler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/clear-linux.html">Intel Clear Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/dd.html">dd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/file-system.html">File System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/firmware.html">Firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/gimp.html">Gimp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/hotplug-cpu.html">Hotplug CPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/kernel-module.html">Kernel Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/nmcli.html">nmcli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/sendfile.html">sendfile - transfer data between file descriptors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/start-up.html">Linux Program Start Up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/systemd.html">systemd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/tickless.html">Tickless</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/ubuntu.html">Ubuntu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/math.html">Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../memory/W^X.html">W^X (Write XOR Execute)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../memory/allocator.html">Allocator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../memory/kernel-memory-management.html">Kernel Memory Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../memory/memory.html">Memory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../memory/memory-allocators-under-the-hood.html">Memory Allocator - Under The Hood</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../memory/memory-hardware.html">Memory Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../memory/memory-management.html">Memory Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../memory/memory-profiling.html">Memory Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../memory/sanitizer.html">Sanitizer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../memory/stack-protection.html">Stack Protection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/archive.html">Archive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/bandwidth.html">頻寬成本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/dot-language.html">DOT Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/floating-point.html">Floating Point</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/funny-sites.html">Funny Sites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/http-history.html">HTTP History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/images.html">Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/jargons.html">Jargons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/keyboard.html">Keyboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/misc.html">Misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/origin.html">緣由</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/papers.html">Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/pdf-viewers-history.html">PDF Viewer History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/podcast.html">Podcast</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/reStructuredText.html">reStructuredText</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/repo.html">Interesting Repo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/sites.html">Sites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/statifier.html">Statifier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/todo-projects.html">想做的專案</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/typesetting.html">Typesetting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/undergraduate-course-taken.html">大學修過的課程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/unicode.html">Unicode 解說</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/video.html">Video</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/vulkan.html">Vulkan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mpi/mpi.html">MPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../multimedia/ffmpeg.html">ffmpeg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../non-cs/brain.html">Brain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../non-cs/crosstalk.html">相聲</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../non-cs/disease.html">Disease (疾病)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../non-cs/drama.html">Drama</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../non-cs/english.html">英文</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../non-cs/english-checker.html">English Checker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../non-cs/game-of-throne.html">Game of Throne</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../non-cs/gender-equality.html">Gender Equality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../non-cs/japanese.html">日本相關作品</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../non-cs/legend.html">傳說</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../non-cs/movies.html">Movies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../non-cs/music.html">音樂</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../non-cs/non-cs-books.html">Non CS Books</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../non-cs/novel.html">Novel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../non-cs/skateboard.html">滑板</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../non-cs/taiwan-education.html">臺灣教育與國族認同</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../non-cs/taiwan-opendata.html">臺灣開放資料（Taiwan&#8217;s Open Data）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../non-cs/taiwan-rocket.html">臺灣的火箭 - ARRC (前瞻火箭研究中心)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../non-cs/todo.html">Todo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../non-cs/visa-bitcon.html">VISA &amp; Bitcoin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../non-cs/外宿準備項目.html">外宿準備項目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../programming-language/curry-howard.html">Curry-Howard correspondence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../programming-language/higher-kinded-types.html">Higher-Kinded Type (HKT)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../programming-language/hindley-milner.html">Hindley-Milner Type Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../programming-language/multiple-dispatch.html">Multiple Dispatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../programming-language/my-status.html">個人各程式語言接觸狀況</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../programming-language/polymorphism.html">Polymorphism (多型)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../programming-language/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../programming-language/type-inference.html">Type Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../programming-language/type-system.html">Type System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pypy/brief.html">簡單介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/ast.html">Python AST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/async-await.html">Python - async &amp; await</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/benchmark.html">Benchmark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/best-practice.html">Best Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/concurrency.html">Python&#8217;s Concurrency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/contextlib.html">contextlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/cpython.html">CPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/cpython-equality.html">CPython Equality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/deprecated.html">Some Deprecated Things</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/django.html">Django</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/gil.html">CPython GIL (Global Interpreter Lock)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/hardware.html">Python &amp; Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/install-packages.html">Python - Install Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/iterator.html">Iterator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/matplotlib.html">matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/numpy.html">Numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/operator.html">Operator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/packages.html">Some Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/porting.html">遷移至 Python 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/power-operator-vs-math-pow.html">** operator v.s. math.pow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/pypi.html">PyPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/python-3.5.html">Python 3.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/qt.html">Qt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/scipy.html">SciPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/standard-library.html">Standard Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/sympy.html">SymPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/testing.html">Python Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/tips.html">Python Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/virtualenv.html">virtualenv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/yield-with-list-comprehension.html">yield with list comprehension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum/intro.html">量子電腦</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../regex/re2.html">RE2 - fast, safe, thread-friendly alternative to backtracking regular expression engines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../regex/regex.html">Regular Expression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../regex/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reports/2015-week-28.html">Engineering Report &lt;dv&gt; - Week 28, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reports/2015-week-29.html">Engineering Report &lt;dv&gt; - Week 29, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reports/2015-week-30.html">Engineering Report &lt;dv&gt; - Week 30, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reports/2015-week-31.html">Engineering Report &lt;dv&gt; - Week 31, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reports/2015-week-32.html">Engineering Report &lt;dv&gt; - Week 32, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reports/2015-week-33.html">Engineering Report &lt;dv&gt; - Week 33, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reports/2015-week-34.html">Engineering Report &lt;dv&gt; - Week 34, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reports/2015-week-35.html">Engineering Report &lt;dv&gt; - Week 35, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reports/2015-week-36.html">Engineering Report &lt;dv&gt; - Week 36, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reports/2015-week-37.html">Engineering Report &lt;dv&gt; - Week 37, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reports/2015-week-53.html">Self Report &lt;dv&gt; - Week 53, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reports/2015-week-54.html">Self Report &lt;dv&gt; - Week 54, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reports/2015-week-55.html">Self Report &lt;dv&gt; - Week 55, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reports/2015-week-56.html">Self Report &lt;dv&gt; - Week 56, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reports/2016-week-19.html">Self Report &lt;dv&gt; - Week 19, 2016</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reports/2016-week-20.html">Self Report &lt;dv&gt; - Week 20, 2016</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reports/2016-week-21.html">Self Report &lt;dv&gt; - Week 21, 2016</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reports/2016-week-22.html">Self Report &lt;dv&gt; - Week 22, 2016</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reports/info.html">Information For Your Report</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reports/template.html">Engineering Report &lt;dv&gt; - Week #, 2016</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ruby/symbol.html">Ruby Symbol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/README.html">Rust Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/any.html">Rust&#8217;s runtime reflection - &#8220;Any&#8221; type trait</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/articles.html">文章閱讀（Articles）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/cargo.html">Cargo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/features-basic.html">Rust&#8217;s Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/index.html">My Rust Articles Collection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/iterator.html">Iterator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/kernel.html">Rust Kernel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/libraries.html">Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/make-parity-work-on-freebsd.html">Make Parity work on FreeBSD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/mir.html">MIR (Mid-level Intermediate Representation)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/misc.html">Rust - Misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/monomorphization.html">Monomorphization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/multirust.html">multirust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/object-safety.html">Object Safety</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/orm.html">ORM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/os.html">Rust in OS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/packages.html">Some Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/performance.html">Rust&#8217;s Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/rfcs.html">Rust RFCs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/rust.html">Rust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/rust-vim-plugin.html">Rust Vim Plugin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/tips.html">Rust Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/todo.html">Todo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/type-system.html">Rust&#8217;s Type System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/use.html">use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/videos.html">Rust Videos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/web.html">Rust &amp; Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simd/status.html">SIMD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../systemd/networkctl.html">networkctl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/256-color.html">256 color</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/find.html">find</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/input-method.html">Input Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/installer.html">Installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/intro.html">Some Basic Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/irc.html">IRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/keymap.html">xmodmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/keymap.html#setxkbmap">setxkbmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/sway.html">Sway</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../valgrind/android.html">Valgrind on Android Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../valgrind/collection.html">Valgrind Resource Collection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../valgrind/dynamic-binary-instrumentation.html">Valgrind: A Framework for Heavyweight Dynamic Binary Instrumentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../valgrind/firefox.html">Valgrind &amp; Firefox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../valgrind/new-plugin.html">Writeing a New Valgrind Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../valgrind/tips.html">Valgrind Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../valgrind/valgrind-talks.html">Valgrind Talks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vim/history.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vim/neovim.html">Neovim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vim/registers.html">Vim Registers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vim/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vim/session.html">Session</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vim/vimscript.html">Vimscript</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../virtualization/bhyve.html">bhyve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../arm-server.html">ARM Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic-system-utils.html">Basic System Utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bugs.html">踩 Bug 紀錄 (從 2015-10-26 開始)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../busybox.html">BusyBox - 人人都該備一個在身邊的執行檔</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cache.html">Cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ci.html">Continuous Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common-lisp.html">Common Lisp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concurrency.html">Concurrency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribution.html">Open Source 專案貢獻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../coredump.html">coredump</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data-science.html">Data Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dsl.html">DSL (Domain-Specific Languages)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../elf.html">ELF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../emacs.html">Emacs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../erlang.html">Erlang</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ffmpeg.html">FFmpeg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../file.html">file command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fortran.html">Fortran</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../free-software-in-taiwan.html">臺灣自由軟體界</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../google-on-hub.html">Google OnHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphic.html">Graphic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../init-system.html">init systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intel.html">Intel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interpreter-for-compiled-language.html">Interpreter For Compiled Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jit-for-processors.html">JIT For Processors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kvm.html">KVM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../languages.html">Languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libc.html">那些 libc 們</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../librt.html">librt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libunwind.html">libunwind</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libuv.html">libuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linker.html">Linker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux-laptop-gpu.html">Linux Laptop GPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux-porting.html">Linux Porting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lua.html">Lua</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lxc.html">Linux Containers (LXC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../make-an-interpreter.html">Make An Interpreter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modemmanager.html">ModemManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../multicall-binary.html">Multicall Binary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../multithread-concurrency-parallelism.html">名詞釐清</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../name-mangling.html">Name Mangling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../netbsd.html">NetBSD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../objdump.html">Objdump</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../openhmpp.html">OpenHMPP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../openhouse.html">Open House</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../openmp.html">OpenMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../opensource-projects-i-love.html">Open Source Porjects I Love</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parallel.html">Parallel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plan-9.html">Plan 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../posix.html">POSIX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../process-live-migration.html">Process Live Migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-measurement.html">Project Measurement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../realtime.html">Real Time Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../regex-lib.html">Regular Expression Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sandbox.html">Sandbox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signal.html">Signal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software-updates.html">Software Updates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spark.html">Spark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../strace.html">strace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-programming.html">System Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tcg-ir.html">TCG IR - Tiny Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tcpdump.html">tcpdump</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensorflow.html">TensorFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thread-stack.html">Thread Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todo.html">Todo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transactional-memory.html">Transactional Memory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../trash-talk.html">技術屁話</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../travis-ci.html">Travis CI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../turing-complete.html">Turing Compilete</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../type-theory.html">Type Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unicode.html">Unicode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usenix.html">USENIX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../virtualgl.html">VirtualGL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vlc.html">VLC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vulkan.html">Vulkan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wayland.html">Wayland</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wm.html">Window Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yocto.html">Yocto Project - 建立自己的嵌入式 Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zram.html">zram</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">wdv4758h-notes</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Linux Graphics</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="https://github.com/wdv4758h/notes/blob/master/./graphics/README.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="linux-graphics">
+<h1><a class="toc-backref" href="#id6">Linux Graphics</a><a class="headerlink" href="#linux-graphics" title="本標題的永久連結">¶</a></h1>
+<div class="contents topic" id="id1">
+<p class="topic-title first">目錄</p>
+<ul class="simple">
+<li><a class="reference internal" href="#linux-graphics" id="id6">Linux Graphics</a><ul>
+<li><a class="reference internal" href="#id2" id="id7">歷史發展</a><ul>
+<li><a class="reference internal" href="#console-and-frame-buffer" id="id8">Console and Frame Buffer</a></li>
+<li><a class="reference internal" href="#x-window-system" id="id9">X Window System</a><ul>
+<li><a class="reference internal" href="#id3" id="id10">X Window System</a></li>
+<li><a class="reference internal" href="#x-clients-and-servers" id="id11">X Clients and Servers</a></li>
+<li><a class="reference internal" href="#x-extensions" id="id12">X Extensions</a></li>
+<li><a class="reference internal" href="#d-acceleration-in-x" id="id13">2D Acceleration in X</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#opengl" id="id14">OpenGL</a><ul>
+<li><a class="reference internal" href="#id4" id="id15">OpenGL</a></li>
+<li><a class="reference internal" href="#indirect-v-s-direct-rendering" id="id16">Indirect v.s. Direct Rendering</a></li>
+<li><a class="reference internal" href="#mesa" id="id17">Mesa</a></li>
+<li><a class="reference internal" href="#gallium3d" id="id18">Gallium3D</a></li>
+<li><a class="reference internal" href="#opengl-driver-stacks" id="id19">OpenGL Driver Stacks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id5" id="id20">參考</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id7">歷史發展</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="console-and-frame-buffer">
+<h3><a class="toc-backref" href="#id8">Console and Frame Buffer</a><a class="headerlink" href="#console-and-frame-buffer" title="本標題的永久連結">¶</a></h3>
+<p>當出 Linux 被寫出來的時候，
+其 console 是直接使用 VGA 硬體的（text mode）。
+剛開始時，
+第一批有繪圖的應用程式都會自帶驅動程式，
+後來第一批繪圖 Library 出現（例如 SVGALib）。
+當時的應用程式必須維持繪圖硬體的狀態，
+開始執行時儲存狀態，
+結束執行後還原狀態，
+而這樣的模式仍適用於現在的 X Server。</p>
+<p>接著第一個 Kernel 內的繪圖 framework 『Framebuffer Devices』 出現了，
+通常會被簡稱為『fbdev』，</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>　<span class="o">+---------------------+</span>
+  <span class="o">|</span> <span class="n">Console</span> <span class="n">Application</span> <span class="o">|</span>
+  <span class="o">+---------------------+</span>
+            <span class="o">|</span>
+            <span class="n">v</span>
+       <span class="o">+-----------+</span>
+<span class="o">+------|</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">tty1</span> <span class="o">|------+</span>
+<span class="o">|</span>      <span class="o">+-----------+</span>      <span class="o">|</span>
+<span class="o">|</span> <span class="n">Linux</span> <span class="n">Console</span> <span class="n">Subsystem</span> <span class="o">|</span>
+<span class="o">+-------------------------+</span>
+            <span class="o">|</span>
+            <span class="n">v</span>
+    <span class="o">+---------------+</span>   <span class="o">+-----------------------+</span>
+    <span class="o">|</span> <span class="n">fbcon</span>         <span class="o">|</span>   <span class="o">|</span> <span class="n">Graphical</span> <span class="n">Application</span> <span class="o">|</span>
+    <span class="o">+---------------+</span>   <span class="o">+-----------------------+</span>
+              <span class="o">|</span>             <span class="o">|</span>
+              <span class="n">v</span>             <span class="n">v</span>
+            <span class="o">+-----------------+</span>
+          <span class="o">+-|</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">fb0</span>        <span class="o">|-+</span>
+          <span class="o">|</span> <span class="o">+-----------------+</span> <span class="o">|</span>
+          <span class="o">|</span> <span class="n">Framebuffer</span> <span class="n">Driver</span>  <span class="o">|</span>
+          <span class="o">+---------------------+</span>
+                     <span class="o">|</span>
+                     <span class="n">v</span>
+          <span class="o">+---------------------+</span>
+          <span class="o">|</span> <span class="n">Hardware</span>            <span class="o">|</span>
+          <span class="o">+---------------------+</span>
+</pre></div>
+</div>
+<ul>
+<li><p class="first">移植需求：很多平台不支援 text mode</p>
+</li>
+<li><dl class="first docutils">
+<dt>針對不同硬體而做的驅動程式，卻有通用的 API</dt>
+<dd><ul class="first last simple">
+<li>z.B. intelfb, atifb</li>
+<li>vesafb：不依賴特定硬體，使用繪圖卡的 VESA BIOS</li>
+<li>efifb：類似 vesafb，但適用於 UEFI</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">userspace 存取： /dev/fbX</p>
+</li>
+<li><p class="first">簡單的 API</p>
+</li>
+<li><p class="first">fbcon：text console 模擬，有 bitmapped fonts 和企鵝，在 kernel 內完成，而非 userspace</p>
+</li>
+</ul>
+</div>
+<div class="section" id="x-window-system">
+<h3><a class="toc-backref" href="#id9">X Window System</a><a class="headerlink" href="#x-window-system" title="本標題的永久連結">¶</a></h3>
+<div class="section" id="id3">
+<h4><a class="toc-backref" href="#id10">X Window System</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h4>
+<p>X Window System 是 Linux 上最通用的繪圖架構，
+也在所有 Unix-like 的平台上流行，
+常被簡稱為『X11』、『X』。
+其為 client/server 架構，
+client 是應用程式，
+server 則負責輸入輸出。
+這個 client/server 架構具有 Network Transparent 的特性，
+不限定兩邊要跑在同一臺機器上，
+中間可以利用 TCP/IP 傳輸，
+或者在本地端使用 Unix Domain Sockets 溝通。</p>
+<p>X11 是它的 protocol 名稱。</p>
+<p>X Server 會管理整個視窗層級</p>
+<ul class="simple">
+<li>root window：桌面背景</li>
+<li>top-level window：應用程式的視窗</li>
+<li>subwindows：控制（例如按鈕之類的）</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">+-------------+</span>     <span class="o">+-------------+</span>
+<span class="o">|</span> <span class="n">Application</span> <span class="o">|</span>     <span class="o">|</span> <span class="n">Application</span> <span class="o">|</span>
+<span class="o">|</span> <span class="p">(</span><span class="n">X</span> <span class="n">Client</span><span class="p">)</span>  <span class="o">|</span>     <span class="o">|</span> <span class="p">(</span><span class="n">X</span> <span class="n">Client</span><span class="p">)</span>  <span class="o">|</span>
+<span class="o">+-------------+</span>     <span class="o">+-------------+</span>
+     <span class="o">^</span>  <span class="o">|</span>                 <span class="o">^</span>  <span class="o">|</span>
+     <span class="o">|</span>  <span class="o">|</span> <span class="n">X11</span> <span class="n">protocol</span>    <span class="o">|</span>  <span class="o">|</span> <span class="n">X11</span> <span class="n">protocol</span>
+     <span class="o">|</span>  <span class="n">v</span>                 <span class="o">|</span>  <span class="n">v</span>
+<span class="o">+---------------------------------+</span>
+<span class="o">|</span> <span class="n">X</span> <span class="n">Server</span>                        <span class="o">|</span>
+<span class="o">|</span>                                 <span class="o">|</span>
+<span class="o">|</span>  <span class="o">+--------+</span>       <span class="o">+--------+</span>    <span class="o">|</span>
+<span class="o">+--|</span> <span class="n">Driver</span> <span class="o">|-------|</span> <span class="n">Driver</span> <span class="o">|----+</span>
+   <span class="o">+--------+</span>       <span class="o">+--------+</span>
+       <span class="o">^</span>                <span class="o">|</span>
+       <span class="o">|</span>                <span class="n">v</span>
+<span class="o">+---------------+</span>  <span class="o">+-----------------+</span>
+<span class="o">|</span> <span class="n">Input</span> <span class="n">Devices</span> <span class="o">|</span>  <span class="o">|</span> <span class="n">Display</span> <span class="n">Devices</span> <span class="o">|</span>
+<span class="o">+---------------+</span>  <span class="o">+-----------------+</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="x-clients-and-servers">
+<h4><a class="toc-backref" href="#id11">X Clients and Servers</a><a class="headerlink" href="#x-clients-and-servers" title="本標題的永久連結">¶</a></h4>
+<p>X Client 不直接實做 X11 protocol，
+它們會使用 Libraries：</p>
+<ul class="simple">
+<li>傳統的 Xlib</li>
+<li>較新、較輕量的 XCB （X11 C Bindings）</li>
+<li>其他工具包內部也是使用 Xlib 或 XCB，例如 Motif、GTK、Qt 。</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">+------+</span> <span class="o">+----+</span> <span class="o">+------+</span> <span class="o">+--------+</span> <span class="o">+-------+</span> <span class="o">+-----------+</span>
+<span class="o">|</span>      <span class="o">|</span> <span class="o">|</span>    <span class="o">|</span> <span class="o">|</span>      <span class="o">|</span> <span class="o">|</span> <span class="n">Athena</span> <span class="o">|</span> <span class="o">|</span> <span class="n">Motif</span> <span class="o">|</span> <span class="o">|</span> <span class="n">Open</span> <span class="n">Look</span> <span class="o">|</span>
+<span class="o">|</span>      <span class="o">|</span> <span class="o">|</span>    <span class="o">|</span> <span class="o">|</span>      <span class="o">|</span> <span class="o">|</span> <span class="p">(</span><span class="n">Xaw</span><span class="p">)</span>  <span class="o">|</span> <span class="o">|</span> <span class="p">(</span><span class="n">Xm</span><span class="p">)</span>  <span class="o">|</span> <span class="o">|</span> <span class="p">(</span><span class="n">Xview</span><span class="p">)</span>   <span class="o">|</span>
+<span class="o">|</span>      <span class="o">|</span> <span class="o">|</span>    <span class="o">|</span> <span class="o">|</span>      <span class="o">|</span> <span class="o">+--------+</span> <span class="o">+-------+</span> <span class="o">+-----------+</span>
+<span class="o">|</span>      <span class="o">|</span> <span class="o">|</span>    <span class="o">|</span> <span class="o">|</span>      <span class="o">|</span>     <span class="o">|</span>          <span class="o">|</span>          <span class="o">|</span>
+<span class="o">|</span>      <span class="o">|</span> <span class="o">|</span>    <span class="o">|</span> <span class="o">|</span>      <span class="o">|</span>     <span class="n">v</span>          <span class="n">v</span>          <span class="n">v</span>
+<span class="o">|</span> <span class="n">GTK</span><span class="o">+</span> <span class="o">|</span> <span class="o">|</span> <span class="n">Qt</span> <span class="o">|</span> <span class="o">|</span> <span class="n">FLTK</span> <span class="o">|</span> <span class="o">+----------------------------+</span>
+<span class="o">|</span>      <span class="o">|</span> <span class="o">|</span>    <span class="o">|</span> <span class="o">|</span>      <span class="o">|</span> <span class="o">|</span> <span class="n">X</span><span class="o">-</span><span class="n">Toolkit</span> <span class="p">(</span><span class="n">Xt</span><span class="p">)</span>             <span class="o">|</span>
+<span class="o">+------+</span> <span class="o">+----+</span> <span class="o">+------+</span> <span class="o">+----------------------------+</span>
+   <span class="o">|</span>       <span class="o">|</span>        <span class="o">|</span>                <span class="o">|</span>
+   <span class="n">v</span>       <span class="n">v</span>        <span class="n">v</span>                <span class="n">v</span>
+<span class="o">+-----------------------------------------------------+</span>
+<span class="o">|</span> <span class="n">Client</span> <span class="n">Libraries</span>                                    <span class="o">|</span>
+<span class="o">|</span> <span class="p">(</span><span class="n">Xlib</span><span class="p">,</span> <span class="n">XCB</span><span class="p">)</span>                                         <span class="o">|</span>
+<span class="o">+-----------------------------------------------------+</span>
+
+
+  <span class="n">Display</span> <span class="n">Server</span>            <span class="n">Window</span> <span class="n">Manager</span>
+</pre></div>
+</div>
+<p>Window Manager 是特別的 X Client，
+負責管理 top-level 視窗和畫出視窗的外框（frames）（decorations）。</p>
+<p>X Server 要負責管理輸入（鍵盤、滑鼠等）和輸出（只有圖像）：</p>
+<ul>
+<li><p class="first">通用的部份：DIX （Device Independent X）</p>
+</li>
+<li><dl class="first docutils">
+<dt>針對特殊硬體的部份：DDX （Device Dependent X）</dt>
+<dd><ul class="first last simple">
+<li>包含輸入、輸出裝置的驅動程式</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>大多數流行的 X Server 實做（XFree86 和現今的 X.Org）：</p>
+<ul class="simple">
+<li>DDX 部份是模組化的，驅動程式為獨立的模組</li>
+<li>DDX 的界面會隨著 Server 版本更動</li>
+</ul>
+</div>
+<div class="section" id="x-extensions">
+<h4><a class="toc-backref" href="#id12">X Extensions</a><a class="headerlink" href="#x-extensions" title="本標題的永久連結">¶</a></h4>
+<p>X protocol 可以利用 Extensions 擴充能力，
+例如：</p>
+<ul>
+<li><p class="first">XSHM （X Shared Memory）：針對 bitmap 的更快速本地端顯示</p>
+</li>
+<li><p class="first">Xv （X Video）：硬體加速的影像顯示</p>
+</li>
+<li><p class="first">GLX：X 上的 OpenGL</p>
+</li>
+<li><p class="first">Xinerama：多螢幕支援</p>
+</li>
+<li><p class="first">XRandR （Resize and Rotate）：不用重開 X Server 的繪圖模式設定</p>
+</li>
+<li><dl class="first docutils">
+<dt>XRendr：現代化的反鋸齒（平滑化）、透明度混合（alpha-blended）的 2D 圖像</dt>
+<dd><ul class="first last simple">
+<li>現今用於幾乎每個 2D 的圖像程式</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="d-acceleration-in-x">
+<h4><a class="toc-backref" href="#id13">2D Acceleration in X</a><a class="headerlink" href="#d-acceleration-in-x" title="本標題的永久連結">¶</a></h4>
+<p>在 XFree86 或 X.Org 中，
+要使用硬體加速的 2D 繪圖有好幾種方式：</p>
+<ul class="simple">
+<li>XAA （XFree86 Acceleration Architecture，1996）：簡單地加速線段繪製和填滿操作</li>
+<li>EXA （2005）：從 KAA （Kdrive Acceleration Architecture，2004）衍生而來，專門針對 XRendr 的加速</li>
+<li>UXA （Unified Memory Acceleration Acceleration，2008）：由 Intel 開發，設計要來取代 EXA，不被非 Intel 的驅動程式採用</li>
+<li>SNA （Sandy Bridge New Acceleration，2011）：完全針對 Intel 需求特製的，但也因此非常快</li>
+<li>Glamor （2011）：用 OpenGL 實做所有的 2D 加速功能，因此不依賴特定廠商的硬體</li>
+</ul>
+</div>
+</div>
+<div class="section" id="opengl">
+<h3><a class="toc-backref" href="#id14">OpenGL</a><a class="headerlink" href="#opengl" title="本標題的永久連結">¶</a></h3>
+<div class="section" id="id4">
+<h4><a class="toc-backref" href="#id15">OpenGL</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h4>
+<p>OpenGL （Open Graphics Language）是針對 3D 繪圖的工業標準，
+由 Khronos Group 管理，
+功能為硬體加速地繪製三角形結構。</p>
+<p>OpenGL ES （OpenGL for Embedded Systems）大致上是 OpenGL 的子集合，
+有大約 90% 的相容度。</p>
+<p>OpenGL 2.0 後加入了可程式化的 Shader，
+為一個 C-like 的語言稱為 GLSL （OpenGL Shading Language）。</p>
+<p>OpenGL 具有擴充的機制，
+類似 X11。</p>
+<p>OpenGL 需要額外的一些 API 作為和視窗系統間的膠水：</p>
+<ul>
+<li><p class="first">GLX：針對 X 視窗系統</p>
+</li>
+<li><p class="first">WGL：針對 Windows</p>
+</li>
+<li><p class="first">AGL：針對 Mac OS X</p>
+</li>
+<li><dl class="first docutils">
+<dt>EGL：使用 OpenGL ES 的版本（Embedded Linux、Android、iOS 等）</dt>
+<dd><ul class="first last simple">
+<li>在各系統皆可取得，最後會取代 GLX</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="indirect-v-s-direct-rendering">
+<h4><a class="toc-backref" href="#id16">Indirect v.s. Direct Rendering</a><a class="headerlink" href="#indirect-v-s-direct-rendering" title="本標題的永久連結">¶</a></h4>
+<p>OpenGL 在 Linux 上的 X.Org 會以以下方式運作，</p>
+<p>X.Org 會把 GLX 作為 X protocol 的一部分，</p>
+<p>Indirect Rendering 的狀況會把 OpenGL 指令透過 GLX protocol 傳輸。
+在早期的一段時間，這樣的作法不能使用到硬體加速。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">+-------------+</span>
+<span class="o">|</span> <span class="n">Application</span> <span class="o">|</span>
+<span class="o">+-------------+</span>
+      <span class="o">|</span> <span class="n">X11</span> <span class="o">+</span> <span class="n">GLX</span>
+      <span class="n">v</span>
+<span class="o">+-------------+</span>
+<span class="o">|</span> <span class="n">X</span> <span class="n">Server</span>  <span class="o">+--------+</span>
+<span class="o">+-----------|</span> <span class="n">OpenGL</span> <span class="o">|</span>
+            <span class="o">+--------+</span>
+</pre></div>
+</div>
+<p>Direct Rendering 只能用於本地端，
+不能透過網路傳輸，
+client 會連結到 libGL.so 並直接使用。
+libGL.so 會包含 OpenGL 實做（可能是針對某個硬體的）。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">+-------------+</span> <span class="n">direct</span> <span class="n">function</span> <span class="n">calls</span>
+<span class="o">|</span> <span class="n">Application</span> <span class="o">|-----------------------+</span>
+<span class="o">+-------------+</span>                       <span class="o">|</span>
+       <span class="o">|</span> <span class="n">X11</span> <span class="o">+</span> <span class="n">GLX</span>                    <span class="o">|</span>
+       <span class="n">v</span>                              <span class="n">v</span>
+<span class="o">+-------------+</span>                   <span class="o">+--------+</span>
+<span class="o">|</span> <span class="n">X</span> <span class="n">Server</span>    <span class="o">|&lt;~~~~~~~~~~~~~~~~~&gt;|</span> <span class="n">OpenGL</span> <span class="o">|</span>
+<span class="o">+-------------+</span>      <span class="n">GLX</span>          <span class="o">+--------+</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mesa">
+<h4><a class="toc-backref" href="#id17">Mesa</a><a class="headerlink" href="#mesa" title="本標題的永久連結">¶</a></h4>
+<p>Linux 上的 OpenGL 實做有兩種，
+一種是私有的驅動程式（例如 nVidia 和 AMD），
+另一種是開源的 Mesa。
+Mesa 的實做也包含 GLX、EGL、OpenGL ES，
+起初只有軟體渲染的功能，
+而現今為各開源 3D 驅動程式的基礎。</p>
+</div>
+<div class="section" id="gallium3d">
+<h4><a class="toc-backref" href="#id18">Gallium3D</a><a class="headerlink" href="#gallium3d" title="本標題的永久連結">¶</a></h4>
+<p>Gallium3D 是不依賴特定 OS 的 GPU 驅動程式 framework，
+其中一部份依賴 Mesa，
+包含的功能不只 3D 渲染，
+還包括 GPU 運算、硬體影像解碼。</p>
+<p>三個基本的部份：</p>
+<ul>
+<li><dl class="first docutils">
+<dt>State Tracker ：client API 的實做</dt>
+<dd><ul class="first last simple">
+<li>OpenGL （利用 Mesa）</li>
+<li>OpenCL （計算用）</li>
+<li>VDPAU （影像）</li>
+<li>OpenMAX （影像）</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">WinSys Driver ：實做 GLX 或 EGL</p>
+</li>
+<li><dl class="first docutils">
+<dt>Pipe Driver ：特定 GPU 的後端</dt>
+<dd><ul class="first last simple">
+<li>llvmpipe ：較快地軟體渲染</li>
+<li>nVidia GPU ： nv30, nv50, nvc0, nve0</li>
+<li>AMD GPU ： radeonsi</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Gallium3D 使用 TGSI （Tungsten Graphics Shader Infrastructure）作為 shader 的表示方式，
+某些後端內部會使用 LLVM。</p>
+</div>
+<div class="section" id="opengl-driver-stacks">
+<h4><a class="toc-backref" href="#id19">OpenGL Driver Stacks</a><a class="headerlink" href="#opengl-driver-stacks" title="本標題的永久連結">¶</a></h4>
+<p>把不同實做搭配起來，
+OpenGL 可能會有四種驅動程式運作的架構：</p>
+<ul class="simple">
+<li>私有的驅動程式：取代 libGL.so</li>
+<li>典型的 Mesa ：通用的 libGL.so，搭配 Mesa 內針對某些硬體的後端</li>
+<li>Mesa + Gallium3D ：使用 Mesa 作為 State Tracker，Gallium3D 作為後端（TGSI）</li>
+<li>Mesa + Gallium3D + LLVM ：使用 Mesa 作為 State Tracker，Gallium3D 作為後端（LLV）</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">+-------------+</span>     <span class="o">+-------------+</span>         <span class="o">+-------------+</span>     <span class="o">+-------------+</span>
+<span class="o">|</span> <span class="n">Application</span> <span class="o">|</span>     <span class="o">|</span> <span class="n">Application</span> <span class="o">|</span>         <span class="o">|</span> <span class="n">Application</span> <span class="o">|</span>     <span class="o">|</span> <span class="n">Application</span> <span class="o">|</span>
+<span class="o">+-------------+</span>     <span class="o">+-------------+</span>         <span class="o">+-------------+</span>     <span class="o">+-------------+</span>
+      <span class="o">|</span> <span class="n">OpenGL</span>            <span class="o">|</span> <span class="n">OpenGL</span>                <span class="o">|</span> <span class="n">OpenGL</span>            <span class="o">|</span> <span class="n">OpenGL</span>
+      <span class="n">v</span>                   <span class="n">v</span>                       <span class="n">v</span>                   <span class="n">v</span>
+<span class="o">+---------------+</span>   <span class="o">+-------------------+</span>   <span class="o">+---------------+</span>   <span class="o">+---------------+</span>
+<span class="o">|</span> <span class="n">proprietary</span>   <span class="o">|</span>   <span class="o">|</span> <span class="n">Mesa</span>              <span class="o">|</span>   <span class="o">|</span> <span class="n">Mesa</span>          <span class="o">|</span>   <span class="o">|</span> <span class="n">Mesa</span>          <span class="o">|</span>
+<span class="o">|</span> <span class="n">OpenGL</span> <span class="n">driver</span> <span class="o">|</span>   <span class="o">+-------------------+</span>   <span class="o">+---------------+</span>   <span class="o">+---------------+</span>
+<span class="o">+---------------+</span>   <span class="o">|</span> <span class="n">hardware</span><span class="o">-</span><span class="n">specific</span> <span class="o">|</span>   <span class="o">|</span> <span class="n">Gallium3D</span>     <span class="o">|</span>   <span class="o">|</span> <span class="n">Gallium3D</span>     <span class="o">|</span>
+      <span class="o">|</span>             <span class="o">|</span> <span class="n">driver</span> <span class="n">backend</span>    <span class="o">|</span>   <span class="o">|</span> <span class="n">State</span> <span class="n">Tracker</span> <span class="o">|</span>   <span class="o">|</span> <span class="n">State</span> <span class="n">Tracker</span> <span class="o">|</span>
+      <span class="o">|</span>             <span class="o">+-------------------+</span>   <span class="o">+---------------+</span>   <span class="o">+---------------+</span>
+      <span class="o">|</span>                   <span class="o">|</span>                       <span class="o">|</span> <span class="n">Gallium3D</span>         <span class="o">|</span> <span class="n">Gallium3D</span>
+      <span class="o">|</span>                   <span class="o">|</span>                       <span class="o">|</span> <span class="p">(</span><span class="n">TGSI</span><span class="p">)</span>            <span class="o">|</span> <span class="p">(</span><span class="n">TGSI</span><span class="p">)</span>
+      <span class="o">|</span>                   <span class="o">|</span>                       <span class="n">v</span>                   <span class="o">|</span>
+      <span class="o">|</span>                   <span class="o">|</span>                 <span class="o">+-------------+</span>     <span class="o">+-----|---------------+</span>
+      <span class="o">|</span>                   <span class="o">|</span>                 <span class="o">|</span> <span class="n">Gallium3D</span>   <span class="o">|</span>     <span class="o">|</span>     <span class="n">v</span>   <span class="n">Pipe</span> <span class="n">Driver</span> <span class="o">|</span>
+      <span class="o">|</span>                   <span class="o">|</span>                 <span class="o">|</span> <span class="n">Pipe</span> <span class="n">Driver</span> <span class="o">|</span>     <span class="o">|</span> <span class="o">+---------+</span>         <span class="o">|</span>
+      <span class="o">|</span>                   <span class="o">|</span>                 <span class="o">+-------------+</span>     <span class="o">|</span> <span class="o">|</span> <span class="n">gallivm</span> <span class="o">|</span>         <span class="o">|</span>
+      <span class="o">|</span>                   <span class="o">|</span>                       <span class="o">|</span>             <span class="o">|</span> <span class="o">+---------+</span>         <span class="o">|</span>
+      <span class="o">|</span>                   <span class="o">|</span>                       <span class="o">|</span>             <span class="o">|</span>     <span class="o">|</span> <span class="n">LLVM</span> <span class="n">IR</span>       <span class="o">|</span>
+      <span class="o">|</span>                   <span class="o">|</span>                       <span class="o">|</span>             <span class="o">|</span>     <span class="n">v</span>               <span class="o">|</span>
+      <span class="o">|</span>                   <span class="o">|</span>                       <span class="o">|</span>             <span class="o">|</span> <span class="o">+---------+</span>         <span class="o">|</span>
+      <span class="o">|</span>                   <span class="o">|</span>                       <span class="o">|</span>             <span class="o">|</span> <span class="o">|</span> <span class="n">LLVM</span>    <span class="o">|</span>         <span class="o">|</span>
+      <span class="o">|</span>                   <span class="o">|</span>                       <span class="o">|</span>             <span class="o">|</span> <span class="o">+---------+</span>         <span class="o">|</span>
+      <span class="o">|</span>                   <span class="o">|</span>                       <span class="o">|</span>             <span class="o">|</span> <span class="o">|</span> <span class="n">Backend</span> <span class="o">|</span>         <span class="o">|</span>
+      <span class="o">|</span>                   <span class="o">|</span>                       <span class="o">|</span>             <span class="o">|</span> <span class="o">+---------+</span>         <span class="o">|</span>
+      <span class="o">|</span>                   <span class="o">|</span>                       <span class="o">|</span>             <span class="o">+---------------------+</span>
+      <span class="o">|</span>                   <span class="o">|</span>                       <span class="o">|</span>                   <span class="o">|</span>
+      <span class="n">v</span>                   <span class="n">v</span>                       <span class="n">v</span>                   <span class="n">v</span>
+<span class="o">+-------------+</span>     <span class="o">+-------------+</span>         <span class="o">+-------------+</span>     <span class="o">+-------------+</span>
+<span class="o">|</span> <span class="n">GPU</span>         <span class="o">|</span>     <span class="o">|</span> <span class="n">GPU</span>         <span class="o">|</span>         <span class="o">|</span> <span class="n">GPU</span>         <span class="o">|</span>     <span class="o">|</span> <span class="n">GPU</span>         <span class="o">|</span>
+<span class="o">+-------------+</span>     <span class="o">+-------------+</span>         <span class="o">+-------------+</span>     <span class="o">+-------------+</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2><a class="toc-backref" href="#id20">參考</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://keyj.emphy.de/files/linuxgraphics_en.pdf">Linux Graphics Demystified</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="dri.html" class="btn btn-neutral float-right" title="DRI (Direct Rendering Infrastructure)" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../gpgpu/spir-v.html" class="btn btn-neutral" title="SPIR-V" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; 版權所有 2016.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="/zh_TW/latest/">latest</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="//readthedocs.org/projects/wdv4758h-notes/downloads/htmlzip/latest/">htmlzip</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="//readthedocs.org/projects/wdv4758h-notes/?fromdocs=wdv4758h-notes">Project Home</a>
+          </dd>
+          <dd>
+            <a href="//readthedocs.org/builds/wdv4758h-notes/?fromdocs=wdv4758h-notes">Builds</a>
+          </dd>
+      </dl>
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'latest',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-2.0.3.min.js"></script>
+      <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-migrate-1.2.1.min.js"></script>
+      <script type="text/javascript" src="https://media.readthedocs.org/javascript/underscore.js"></script>
+      <script type="text/javascript" src="https://media.readthedocs.org/javascript/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://media.readthedocs.org/javascript/readthedocs-doc-embed.js"></script>
+
+  
+
+  
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

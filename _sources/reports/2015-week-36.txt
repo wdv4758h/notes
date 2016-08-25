@@ -1,0 +1,22 @@
+========================================
+Engineering Report <dv> - Week 36, 2015
+========================================
+
+Highlights
+========================================
+
+* Dynamic Binary Instrumentation Framework using LLVM Backend
+    - `[2014] DBILL: an efficient and retargetable dynamic binary instrumentation framework using llvm backend <http://dl.acm.org/citation.cfm?id=2576213>`_
+    - `Poster <http://llvm.org/devmtg/2014-04/PDFs/Posters/DBILL_poster.pdf>`_
+    - `[LLVMdev] Publication: DBILL: an efficient and retargetable dynamic binary instrumentation framework using llvm backend <http://lists.cs.uiuc.edu/pipermail/llvmdev/2014-July/074793.html>`_
+    - 2014 年 3 月由徐慰中老師帶的學生所發的 paper
+    - 架構基本上跟 Valgrind 類似
+    - 支援 Cross ISA Instrumentation
+    - 先例用 QEMU 把 Binary 轉成 TCG IR，接著把 TCG IR 轉成 LLVM IR (並加上 Annotatation)，再加入 Instrumentation LLVM IR (例如 ASan)，最後 JIT 轉成 Host 的 ISA 執行
+    - 貌似沒有釋出 code ???
+
+Plan
+========================================
+
+Issues
+========================================

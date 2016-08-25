@@ -1,0 +1,41 @@
+========================================
+Engineering Report <dv> - Week 28, 2015
+========================================
+
+Highlights
+========================================
+
+* 研究 Valgrind 的 memory profiling
+    - Massif plugin 會定期對程式的 memory 做 snapshot，最後生出 heap memory 使用的改變圖，以及各時期的 heap 使用情形，區分 useful-heap 和 extra-heap，extra-heap 為 memory allocator 維護用或是 alignment 的耗費
+    - DHAT plugin 會紀錄 memory access，最後回報 allocate 出去的 memory 的 access 狀況，以及當初 allocate 的 call stack
+* 研究 Valgrind 的運作方式以及 plugin 架構
+* cross-compile Valgrind for Android
+* 讀 IgProf 相關資訊
+    - IgProf 為 CERN 的 LHC 的軟體當中負責 memory profiling 的工具，目前支援的平台為 x86、x86_64、ARM32、ARM64，使用 GPLv2 釋出
+    - 讀 IgProf 作為增加 memory profiling 相關知識的途徑之一
+    - `[FOSDEM] 2015 - IgProf The Ignominous Profiler <https://archive.fosdem.org/2015/schedule/event/igprof_the_ignominous_profiler/attachments/slides/625/export/events/attachments/igprof_the_ignominous_profiler/slides/625/fosdem_2015_igprof.pdf>`_
+    - `[2014] Improving the support for ARM in the IgProf profiler <http://www.fillexen.fi/igprof/thesis-nyback.pdf>`_
+    - 以 IgProf 生成的 `HTML report <http://eulisse.web.cern.ch/eulisse/performance/navigator/performance-report/self>`_  作為參考
+
+
+Plans
+========================================
+
+* 在 Android 環境下跑 Valgrind 分析程式
+* 把 Valgrind 的結果生成 HTML report
+* 研讀 Valgrind source code
+* 閱讀更多相關資訊，例如 :
+    - Valgrind Research Papers
+
+
+Issues
+========================================
+
+* 在 cross-compile 時原本使用 Valgind SVN 的 source code，編譯時會有 error，經過修正後才可以編譯，後來使用 AOSP 的 Valgrind 則無此問題
+* 手邊無 Android device 可以實際測試 cross-compile 出來的 Valgrind，替代方案 :`
+    - 使用模擬器
+    - 在手邊的 Raspberry Pi 2 上裝 Android
+* 編譯 IgProf 來做參考時，碰到編譯不會過的問題，需要修改後才可編譯，以及某個 commit 後會造成 profiling 出來的東西是空的，改回那部份的程式碼後才能正常生出 HTML report
+    - 皆已在 GitHub 上做回報
+        + 編譯問題
+        + 輸出問題  (後來發現使用 master branch 的 libunwind 才會正常，系統上的是 version 1.1，這當中行為有改過，還沒研究 libunwind 到底改了什麼)

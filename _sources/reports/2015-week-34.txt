@@ -1,0 +1,103 @@
+========================================
+Engineering Report <dv> - Week 34, 2015
+========================================
+
+Highlights
+========================================
+
+* 回報問題
+    - `Bug 339861 - Remove Elf32_Nhdr definition for Android <https://bugs.kde.org/show_bug.cgi?id=339861#c4>`_
+    - `Bug 344802 - disInstr(arm): unhandled instruction: 0xEC510F1E <https://bugs.kde.org/show_bug.cgi?id=344802#c7>`_
+        + bug report 裡面也有人拿來跑 SurfaceFlinger
+* 待修正 Bug List
+    - disInstr(arm)
+        + [#344802] 0xEC510F1E (cond=14(0xE) 27:20=197(0xC5) 4:4=1 3:0=14(0xE))
+            * mrrc 15, 1, r0, r1, cr14
+        + [#331178] 0xEE190F1D (cond=14(0xE) 27:20=225(0xE1) 4:4=1 3:0=13(0xD))
+            * mrc 15, 0, r0, cr9, cr13, {0}
+    - disInstr(thumb)
+        + 0xDEFF 0xF8DF
+            * mrcle 8, 7, APSR_nzcv, cr15, cr15, {6}
+        + 0xDEFF 0xF107
+            * nrmlee f7, f7
+        + 0xDEFF 0x461F
+            * mrcle 6, 7, r4, cr15, cr15, {0}
+        + 0xDEFF 0x4607
+            * cdple 6, 15, cr4, cr15, cr7, {0}
+    - WARNING: linker: Unsupported flags DT_FLAGS_1=0x421
+* `Bug Status on Valgrind repo <https://github.com/svn2github/valgrind-master-mirror/blob/master/docs/internals/3_10_BUGSTATUS.txt>`_ :
+
+.. image:: ../images/reports/Valgrind-Android-bugs-status-2015-08.png
+.. image:: ../images/reports/VEX-ARM-bugs-status-2015-08.png
+
+* From Valgrind IRC (2015-05) (看起來前面提到的兩個 unhandled ARM instruction 可以先忽略 ?) ::
+
+    17:48 < jaeckel> disInstr(arm): unhandled instruction: 0xEE190F1D
+    17:48 < jaeckel> does that count as error?
+    17:49 < tomhughes> well that's a fatal, termingating your application now error
+    17:49 < tomhughes> that means your code is executing an instruction we don't know how to emulate
+    17:49 < tomhughes> I mean unless you catch the SIGILL and handle it somehow anyway
+    17:51 < jaeckel> yeah, that's handled
+    17:51 < jaeckel> so my application run afterwards
+    17:52 < jaeckel> btw. is there a chance this gets fixed someday?
+    17:52 < jaeckel> because it's marked as 'Probably WONTFIX or CANTFIX '
+    17:53 < tomhughes> well how do you "handle" it? it's generally hard unless there's some other instruction you can use instead
+    17:53 < jaeckel> TBH I don't know
+    17:54 < tomhughes> according to https://bugs.kde.org/show_bug.cgi?id=331178 it's expected
+    17:54 < tomhughes> that instruction is priviliged so crypto libraries that use it in userspace just ignore the failure
+    17:56 < jaeckel> okay, that would explain why it continues
+    17:58 < jaeckel> so I suppose we can also ignore that this happens?
+    17:58 < tomhughes> sounds like it
+
+
+Plan
+========================================
+
+* 補上 Elf32_Nhdr 的 condition 判斷，讓 issue #339861 可以 close
+* 發現原來有 `for Android Emulator 的 README <https://github.com/svn2github/valgrind-master-mirror/blob/master/README.android_emulator>`_ ，之前眼殘沒看到，接下來嘗試它能不能 work
+* Build 現在新版的 Android (開 Debug 相關 info)，而不是使用現在我手機上的 Android 5.1
+    - 至少要有的 compile 參數 : ``-g -fno-omit-frame-pointer -fno-stack-check`` (for better stack trace information)
+
+
+Issues
+========================================
+
+* 有些 stack trace 只顯示了 ``???``
+    - 根據 FAQ 裡的敘述，share objects 如果被 unloaded 的話會讓 Valgrind 的 error message 變成 ``???`` ，workaround 為避免這些 share objects 去呼叫 ``dlclose``
+    - 範例
+        + 有 debug info 而且 unstripped (最好的情況) ::
+
+
+            Invalid write of size 1
+                at 0x80483BF: really (malloc1.c:20)
+                by 0x8048370: main (malloc1.c:9)
+
+        + 沒有 debug info 而且 unstripped ::
+
+            Invalid write of size 1
+                at 0x80483BF: really (in /auto/homes/njn25/grind/head5/a.out)
+                by 0x8048370: main (in /auto/homes/njn25/grind/head5/a.out)
+
+        + 沒有 debug info 而且 stripped ::
+
+            Invalid write of size 1
+                at 0x80483BF: (within /auto/homes/njn25/grind/head5/a.out)
+                by 0x8048370: (within /auto/homes/njn25/grind/head5/a.out)
+                by 0x42015703: __libc_start_main (in /lib/tls/libc-2.3.2.so)
+                by 0x80482CC: (within /auto/homes/njn25/grind/head5/a.out)
+
+        + 有 debug info 而且加了 ``-fomit-frame-pointer`` ::
+
+            Invalid write of size 1
+                at 0x80483C4: really (malloc1.c:20)
+                by 0x42015703: __libc_start_main (in /lib/tls/libc-2.3.2.so)
+                by 0x80482CC: ??? (start.S:81)
+
+        + unloaded shared object ::
+
+            84 bytes in 1 blocks are possibly lost in loss record 488 of 713
+                at 0x1B9036DA: operator new(unsigned) (vg_replace_malloc.c:132)
+                by 0x1DB63EEB: ???
+                by 0x1DB4B800: ???
+                by 0x1D65E007: ???
+                by 0x8049EE6: main (main.cpp:24)
