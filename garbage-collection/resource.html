@@ -131,6 +131,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../browser/css.html">CSS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../browser/design.html">How Browser Work</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../browser/extensions.html">WebExtensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../browser/firefox-settings.html">Firefox 設定</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../browser/service-worker.html">Service Worker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../browser/servo.html">Servo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../browser/webassembly.html">WebAssembly</a></li>
@@ -231,7 +232,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../game/real-time-strategy.html">Real-time Strategy Games</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../game/rpg.html">Role-playing Games (RPG)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="garbage-collection.html">Garbage Collection</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Resource</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Resource</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">論文</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">實做</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">其他資源</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../git/cheat-sheet.html">Git Cheat Sheet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../git/format-patch.html">Git Format Patch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../git/resource.html">Git Resource</a></li>
@@ -587,20 +593,45 @@
             
   <div class="section" id="resource">
 <h1>Resource<a class="headerlink" href="#resource" title="本標題的永久連結">¶</a></h1>
+<div class="section" id="id1">
+<h2>論文<a class="headerlink" href="#id1" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li>[2016] <a class="reference external" href="https://people.eecs.berkeley.edu/~maas/papers/maas-asbd16-hwgc.pdf">Grail Quest: A New Proposal for Hardware-assisted Garbage Collection</a></li>
+<li>[2001] <a class="reference external" href="http://researcher.watson.ibm.com/researcher/files/us-bacon/Bacon01Concurrent.pdf">Concurrent Cycle Collection in Reference Counted Systems</a></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>實做<a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
 <ul>
-<li><p class="first"><a class="reference external" href="https://github.com/pliniker/mo-gc">A pauseless concurrent garbage collector in Rust</a></p>
-</li>
-<li><p class="first"><a class="reference external" href="https://github.com/manishearth/rust-gc">Simple tracing (mark and sweep) garbage collector for Rust</a></p>
-</li>
 <li><dl class="first docutils">
-<dt><a class="reference external" href="https://github.com/fitzgen/bacon-rajan-cc">bacon_rajan_cc - A reference counted type with cycle collection for Rust</a></dt>
+<dt>[GitHub] <a class="reference external" href="https://github.com/ivmai/bdwgc">Boehm-Demers-Weiser Garbage Collector</a></dt>
 <dd><ul class="first last simple">
-<li><a class="reference external" href="http://researcher.watson.ibm.com/researcher/files/us-bacon/Bacon01Concurrent.pdf">Concurrent Cycle Collection in Reference Counted Systems</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Boehm_garbage_collector">Wikipedia - Boehm garbage collector</a></li>
+<li><a class="reference external" href="http://www.hboehm.info/gc/">Boehm GC - A garbage collector for C and C++</a></li>
 </ul>
 </dd>
 </dl>
 </li>
+<li><p class="first"><a class="reference external" href="http://tinygc.sourceforge.net/">TinyGC - an independent implementation of the API of the well-known Boehm-Demers-Weiser Conservative GC</a></p>
+</li>
+<li><p class="first"><a class="reference external" href="http://www.ravenbrook.com/project/mps/">Memory Pool System</a></p>
+</li>
+<li><p class="first">[GitHub] <a class="reference external" href="https://github.com/pliniker/mo-gc">mo-gc - A pauseless concurrent garbage collector in Rust</a></p>
+</li>
+<li><p class="first">[GitHub] <a class="reference external" href="https://github.com/manishearth/rust-gc">rust-gc - Simple tracing (mark and sweep) garbage collector for Rust</a></p>
+</li>
+<li><p class="first">[GitHub] <a class="reference external" href="https://github.com/fitzgen/bacon-rajan-cc">bacon-rajan-cc - A reference counted type with cycle collection for Rust</a></p>
+</li>
 </ul>
+</div>
+<div class="section" id="id3">
+<h2>其他資源<a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://basen.oru.se/kurser/koi/2008-2009-p1/texter/gc/index.html">The Very Basics of Garbage Collection</a></li>
+<li><a class="reference external" href="http://www.memorymanagement.org/">Memory Management Reference</a></li>
+<li><a class="reference external" href="http://wiki.luajit.org/New-Garbage-Collector">LuaJIT - New Garbage Collector</a></li>
+</ul>
+</div>
 </div>
 
 
