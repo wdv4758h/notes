@@ -137,9 +137,11 @@
 <li class="toctree-l2"><a class="reference internal" href="#id2">編譯</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id3">打包編譯結果</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id4">執行</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id5">參考</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id6">官方資料</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id7">其他</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">測試</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">架構</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">參考</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id8">官方資料</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">其他</a></li>
 </ul>
 </li>
 </ul>
@@ -597,17 +599,19 @@
            <div itemprop="articleBody">
             
   <div class="section" id="servo">
-<h1><a class="toc-backref" href="#id9">Servo</a><a class="headerlink" href="#servo" title="本標題的永久連結">¶</a></h1>
+<h1><a class="toc-backref" href="#id11">Servo</a><a class="headerlink" href="#servo" title="本標題的永久連結">¶</a></h1>
 <div class="contents topic" id="id1">
 <p class="topic-title first">目錄</p>
 <ul class="simple">
-<li><a class="reference internal" href="#servo" id="id9">Servo</a><ul>
-<li><a class="reference internal" href="#id2" id="id10">編譯</a></li>
-<li><a class="reference internal" href="#id3" id="id11">打包編譯結果</a></li>
-<li><a class="reference internal" href="#id4" id="id12">執行</a></li>
-<li><a class="reference internal" href="#id5" id="id13">參考</a><ul>
-<li><a class="reference internal" href="#id6" id="id14">官方資料</a></li>
-<li><a class="reference internal" href="#id7" id="id15">其他</a></li>
+<li><a class="reference internal" href="#servo" id="id11">Servo</a><ul>
+<li><a class="reference internal" href="#id2" id="id12">編譯</a></li>
+<li><a class="reference internal" href="#id3" id="id13">打包編譯結果</a></li>
+<li><a class="reference internal" href="#id4" id="id14">執行</a></li>
+<li><a class="reference internal" href="#id5" id="id15">測試</a></li>
+<li><a class="reference internal" href="#id6" id="id16">架構</a></li>
+<li><a class="reference internal" href="#id7" id="id17">參考</a><ul>
+<li><a class="reference internal" href="#id8" id="id18">官方資料</a></li>
+<li><a class="reference internal" href="#id9" id="id19">其他</a></li>
 </ul>
 </li>
 </ul>
@@ -615,15 +619,16 @@
 </ul>
 </div>
 <div class="section" id="id2">
-<h2><a class="toc-backref" href="#id10">編譯</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id12">編譯</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
 <div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># 依需求選擇編 release 或 debug</span>
-./mach build -r     <span class="c1"># release</span>
-./mach build -d     <span class="c1"># debug</span>
+<span class="c1"># 可以加上 -j &lt;NUM&gt; 參數來使用多核心編譯</span>
+./mach build -r -j4     <span class="c1"># release</span>
+./mach build -d -j4     <span class="c1"># debug</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id3">
-<h2><a class="toc-backref" href="#id11">打包編譯結果</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id13">打包編譯結果</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
 <p>要跑起 Servo 需要的是：</p>
 <ul class="simple">
 <li>編譯完的 <code class="docutils literal"><span class="pre">servo</span></code> 執行檔（會在 <code class="docutils literal"><span class="pre">target/release/servo</span></code> ）</li>
@@ -643,7 +648,7 @@ cp -r ../target/release/build/browserhtml-*/out/ ./browserhtml
 </div>
 </div>
 <div class="section" id="id4">
-<h2><a class="toc-backref" href="#id12">執行</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id14">執行</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h2>
 <p>一般（非 <code class="docutils literal"><span class="pre">Browser.html</span></code> ）：</p>
 <div class="highlight-sh"><div class="highlight"><pre><span></span>./servo URL_or_HTML
 </pre></div>
@@ -656,9 +661,63 @@ cp -r ../target/release/build/browserhtml-*/out/ ./browserhtml
 自行去 <code class="docutils literal"><span class="pre">./servo</span> <span class="pre">--help</span></code> 中尋找、選用。</p>
 </div>
 <div class="section" id="id5">
-<h2><a class="toc-backref" href="#id13">參考</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id15">測試</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h2>
+<p>所有更動都需要跑的程式風格檢查：</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>./mach test-tidy
+</pre></div>
+</div>
+<p>指定特定的 unit （以 <code class="docutils literal"><span class="pre">components/net/</span></code> 為例）：</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>./mach test-unit -p net
+</pre></div>
+</div>
+<p>W3C 的 Web Platform Tests ：</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># 全部的 WPT</span>
+./mach test-wpt
+
+<span class="c1"># XMLHttpRequest 內的 WPT</span>
+./mach test-wpt tests/wpt/web-platform-tests/XMLHttpRequest/
+
+<span class="c1"># 單一一個 WPT</span>
+./mach test-wpt tests/wpt/web-platform-tests/XMLHttpRequest/formdata-foreach.html
+</pre></div>
+</div>
+<p>要加入新的 WPT 需要更改 <code class="docutils literal"><span class="pre">tests/wpt/metadata/MANIFEST.json</span></code> ，
+如果要標明特定測試為「預期會失敗」的話，
+須在底下對應的地方加上設定檔，
+例如： <code class="docutils literal"><span class="pre">tests/wpt/metadata/XMLHttpRequest/formdata-foreach.ini</span></code> ，
+內容範例：</p>
+<div class="highlight-ini"><div class="highlight"><pre><span></span>[formdata-foreach.html]
+  type: testharness
+        [Default iterator should see duplicate keys]
+          expected: FAIL
+
+        [Default iterator should see non-deleted values]
+          expected: FAIL
+
+        [entries() iterator should see duplicate keys]
+          expected: FAIL
+
+        [entries() iterator should see non-deleted values]
+          expected: FAIL
+
+        [keys() iterator should see duplicate keys]
+          expected: FAIL
+
+        [values() iterator should see non-deleted values]
+          expected: FAIL
+</pre></div>
+</div>
+</div>
 <div class="section" id="id6">
-<h3><a class="toc-backref" href="#id14">官方資料</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h3>
+<h2><a class="toc-backref" href="#id16">架構</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h2>
+<p>瀏覽器提供給 JavaScript 使用的 methods 會用 <code class="docutils literal"><span class="pre">WebIDL</span></code> 定義，
+Servo 中視放在 <code class="docutils literal"><span class="pre">components/script/dom/webidls/</span></code> 內，
+裡面的 <code class="docutils literal"><span class="pre">WebIDL</span></code> 幾乎都來自 W3C 的規範。</p>
+</div>
+<div class="section" id="id7">
+<h2><a class="toc-backref" href="#id17">參考</a><a class="headerlink" href="#id7" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="id8">
+<h3><a class="toc-backref" href="#id18">官方資料</a><a class="headerlink" href="#id8" title="本標題的永久連結">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/servo/servo/blob/master/docs/HACKING_QUICKSTART.md#hacking-servo---quickstart">Hacking Servo - Quickstart</a></li>
 <li><a class="reference external" href="https://github.com/servo/servo/blob/master/docs/ORGANIZATION.md">Servo&#8217;s directory structure</a></li>
@@ -666,8 +725,8 @@ cp -r ../target/release/build/browserhtml-*/out/ ./browserhtml
 <li>[2015] <a class="reference external" href="https://arxiv.org/abs/1505.07383">Experience Report: Developing the Servo Web Browser Engine using Rust</a></li>
 </ul>
 </div>
-<div class="section" id="id7">
-<h3><a class="toc-backref" href="#id15">其他</a><a class="headerlink" href="#id7" title="本標題的永久連結">¶</a></h3>
+<div class="section" id="id9">
+<h3><a class="toc-backref" href="#id19">其他</a><a class="headerlink" href="#id9" title="本標題的永久連結">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="https://www.facebook.com/groups/608787195932135/">Servo 中文開發者社群</a></li>
 </ul>
