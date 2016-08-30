@@ -11,10 +11,10 @@ Servo
 
 .. code-block:: sh
 
-    # 依需求選擇編 release 或 debug
+    # 依需求選擇編 release 或 dev
     # 可以加上 -j <NUM> 參數來使用多核心編譯
     ./mach build -r -j4     # release
-    ./mach build -d -j4     # debug
+    ./mach build -d -j4     # dev
 
 
 打包編譯結果
@@ -33,12 +33,22 @@ Servo
 
 .. code-block:: sh
 
+    rm -rf servo-prebuilt
     mkdir servo-prebuilt
     cd servo-prebuilt
     cp ../target/release/servo ./
     cp -r ../resources/ ./
     cp -r ../target/release/build/browserhtml-*/out/ ./browserhtml
+    cd ../
+    tar Jcvf servo-prebuilt.tar.xz servo-prebuilt/
 
+
+直接使用 Servo 專案內建的指令：
+
+.. code-block:: sh
+
+    ./mach package -r   # release
+    ./mach package -d   # dev
 
 
 執行
@@ -131,6 +141,35 @@ W3C 的 Web Platform Tests ：
 瀏覽器提供給 JavaScript 使用的 methods 會用 ``WebIDL`` 定義，
 Servo 中視放在 ``components/script/dom/webidls/`` 內，
 裡面的 ``WebIDL`` 幾乎都來自 W3C 的規範。
+
+
+DOM (Document Object Model)
+------------------------------
+
+DOM 是由 WebIDL 定義成的界面，
+在 Servo 中以 Rust struct 的方式實做。
+
+Servo 的 DOM 會含有兩個不同但相關連的資料：
+
+* DOM object：標有 ``#[dom_struct]`` 的 Rust struct instance，在 Heap 上
+* reflector：由 SpiderMonkey 控管的 ``JSObject`` ，其為 DOM object 的擁有者
+
+相關結構：
+
+* ``Root`` smart pointer
+* ``JS`` 、 ``MutNullableHeap`` 、 ``MutHeap`` smart pointers
+* ``trace`` 實做
+* ``Trusted`` smart pointer
+
+
+WebGL
+------------------------------
+
+資料
+
+* `Fully implement WebGL 1.0 <https://github.com/servo/servo/issues/10209>`_
+* WebGL 1.0 spec
+* GLES 2.0 spec
 
 
 

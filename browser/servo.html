@@ -138,7 +138,11 @@
 <li class="toctree-l2"><a class="reference internal" href="#id3">打包編譯結果</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id4">執行</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id5">測試</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id6">架構</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">架構</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dom-document-object-model">DOM (Document Object Model)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#webgl">WebGL</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#id7">參考</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id8">官方資料</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id9">其他</a></li>
@@ -608,10 +612,14 @@
 <li><a class="reference internal" href="#id3" id="id13">打包編譯結果</a></li>
 <li><a class="reference internal" href="#id4" id="id14">執行</a></li>
 <li><a class="reference internal" href="#id5" id="id15">測試</a></li>
-<li><a class="reference internal" href="#id6" id="id16">架構</a></li>
-<li><a class="reference internal" href="#id7" id="id17">參考</a><ul>
-<li><a class="reference internal" href="#id8" id="id18">官方資料</a></li>
-<li><a class="reference internal" href="#id9" id="id19">其他</a></li>
+<li><a class="reference internal" href="#id6" id="id16">架構</a><ul>
+<li><a class="reference internal" href="#dom-document-object-model" id="id17">DOM (Document Object Model)</a></li>
+<li><a class="reference internal" href="#webgl" id="id18">WebGL</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id7" id="id19">參考</a><ul>
+<li><a class="reference internal" href="#id8" id="id20">官方資料</a></li>
+<li><a class="reference internal" href="#id9" id="id21">其他</a></li>
 </ul>
 </li>
 </ul>
@@ -620,10 +628,10 @@
 </div>
 <div class="section" id="id2">
 <h2><a class="toc-backref" href="#id12">編譯</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
-<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># 依需求選擇編 release 或 debug</span>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># 依需求選擇編 release 或 dev</span>
 <span class="c1"># 可以加上 -j &lt;NUM&gt; 參數來使用多核心編譯</span>
 ./mach build -r -j4     <span class="c1"># release</span>
-./mach build -d -j4     <span class="c1"># debug</span>
+./mach build -d -j4     <span class="c1"># dev</span>
 </pre></div>
 </div>
 </div>
@@ -639,11 +647,19 @@
 <ul class="simple">
 <li>一些 <code class="docutils literal"><span class="pre">HTML/CSS/JavaScript/PNG/...</span></code> （在 <code class="docutils literal"><span class="pre">target/release/build/browserhtml-*/out/</span></code> ）</li>
 </ul>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>mkdir servo-prebuilt
+<div class="highlight-sh"><div class="highlight"><pre><span></span>rm -rf servo-prebuilt
+mkdir servo-prebuilt
 <span class="nb">cd</span> servo-prebuilt
 cp ../target/release/servo ./
 cp -r ../resources/ ./
 cp -r ../target/release/build/browserhtml-*/out/ ./browserhtml
+<span class="nb">cd</span> ../
+tar Jcvf servo-prebuilt.tar.xz servo-prebuilt/
+</pre></div>
+</div>
+<p>直接使用 Servo 專案內建的指令：</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>./mach package -r   <span class="c1"># release</span>
+./mach package -d   <span class="c1"># dev</span>
 </pre></div>
 </div>
 </div>
@@ -713,11 +729,37 @@ cp -r ../target/release/build/browserhtml-*/out/ ./browserhtml
 <p>瀏覽器提供給 JavaScript 使用的 methods 會用 <code class="docutils literal"><span class="pre">WebIDL</span></code> 定義，
 Servo 中視放在 <code class="docutils literal"><span class="pre">components/script/dom/webidls/</span></code> 內，
 裡面的 <code class="docutils literal"><span class="pre">WebIDL</span></code> 幾乎都來自 W3C 的規範。</p>
+<div class="section" id="dom-document-object-model">
+<h3><a class="toc-backref" href="#id17">DOM (Document Object Model)</a><a class="headerlink" href="#dom-document-object-model" title="本標題的永久連結">¶</a></h3>
+<p>DOM 是由 WebIDL 定義成的界面，
+在 Servo 中以 Rust struct 的方式實做。</p>
+<p>Servo 的 DOM 會含有兩個不同但相關連的資料：</p>
+<ul class="simple">
+<li>DOM object：標有 <code class="docutils literal"><span class="pre">#[dom_struct]</span></code> 的 Rust struct instance，在 Heap 上</li>
+<li>reflector：由 SpiderMonkey 控管的 <code class="docutils literal"><span class="pre">JSObject</span></code> ，其為 DOM object 的擁有者</li>
+</ul>
+<p>相關結構：</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">Root</span></code> smart pointer</li>
+<li><code class="docutils literal"><span class="pre">JS</span></code> 、 <code class="docutils literal"><span class="pre">MutNullableHeap</span></code> 、 <code class="docutils literal"><span class="pre">MutHeap</span></code> smart pointers</li>
+<li><code class="docutils literal"><span class="pre">trace</span></code> 實做</li>
+<li><code class="docutils literal"><span class="pre">Trusted</span></code> smart pointer</li>
+</ul>
+</div>
+<div class="section" id="webgl">
+<h3><a class="toc-backref" href="#id18">WebGL</a><a class="headerlink" href="#webgl" title="本標題的永久連結">¶</a></h3>
+<p>資料</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/servo/servo/issues/10209">Fully implement WebGL 1.0</a></li>
+<li>WebGL 1.0 spec</li>
+<li>GLES 2.0 spec</li>
+</ul>
+</div>
 </div>
 <div class="section" id="id7">
-<h2><a class="toc-backref" href="#id17">參考</a><a class="headerlink" href="#id7" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id19">參考</a><a class="headerlink" href="#id7" title="本標題的永久連結">¶</a></h2>
 <div class="section" id="id8">
-<h3><a class="toc-backref" href="#id18">官方資料</a><a class="headerlink" href="#id8" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id20">官方資料</a><a class="headerlink" href="#id8" title="本標題的永久連結">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/servo/servo/blob/master/docs/HACKING_QUICKSTART.md#hacking-servo---quickstart">Hacking Servo - Quickstart</a></li>
 <li><a class="reference external" href="https://github.com/servo/servo/blob/master/docs/ORGANIZATION.md">Servo&#8217;s directory structure</a></li>
@@ -726,7 +768,7 @@ Servo 中視放在 <code class="docutils literal"><span class="pre">components/s
 </ul>
 </div>
 <div class="section" id="id9">
-<h3><a class="toc-backref" href="#id19">其他</a><a class="headerlink" href="#id9" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id21">其他</a><a class="headerlink" href="#id9" title="本標題的永久連結">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="https://www.facebook.com/groups/608787195932135/">Servo 中文開發者社群</a></li>
 </ul>
