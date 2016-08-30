@@ -143,6 +143,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#webgl">WebGL</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#bots">Bots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id7">參考</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id8">官方資料</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id9">其他</a></li>
@@ -617,9 +618,10 @@
 <li><a class="reference internal" href="#webgl" id="id18">WebGL</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id7" id="id19">參考</a><ul>
-<li><a class="reference internal" href="#id8" id="id20">官方資料</a></li>
-<li><a class="reference internal" href="#id9" id="id21">其他</a></li>
+<li><a class="reference internal" href="#bots" id="id19">Bots</a></li>
+<li><a class="reference internal" href="#id7" id="id20">參考</a><ul>
+<li><a class="reference internal" href="#id8" id="id21">官方資料</a></li>
+<li><a class="reference internal" href="#id9" id="id22">其他</a></li>
 </ul>
 </li>
 </ul>
@@ -704,23 +706,23 @@ tar Jcvf servo-prebuilt.tar.xz servo-prebuilt/
 內容範例：</p>
 <div class="highlight-ini"><div class="highlight"><pre><span></span>[formdata-foreach.html]
   type: testharness
-        [Default iterator should see duplicate keys]
-          expected: FAIL
+    [Default iterator should see duplicate keys]
+      expected: FAIL
 
-        [Default iterator should see non-deleted values]
-          expected: FAIL
+    [Default iterator should see non-deleted values]
+      expected: FAIL
 
-        [entries() iterator should see duplicate keys]
-          expected: FAIL
+    [entries() iterator should see duplicate keys]
+      expected: FAIL
 
-        [entries() iterator should see non-deleted values]
-          expected: FAIL
+    [entries() iterator should see non-deleted values]
+      expected: FAIL
 
-        [keys() iterator should see duplicate keys]
-          expected: FAIL
+    [keys() iterator should see duplicate keys]
+      expected: FAIL
 
-        [values() iterator should see non-deleted values]
-          expected: FAIL
+    [values() iterator should see non-deleted values]
+      expected: FAIL
 </pre></div>
 </div>
 </div>
@@ -756,10 +758,46 @@ Servo 中視放在 <code class="docutils literal"><span class="pre">components/s
 </ul>
 </div>
 </div>
+<div class="section" id="bots">
+<h2><a class="toc-backref" href="#id19">Bots</a><a class="headerlink" href="#bots" title="本標題的永久連結">¶</a></h2>
+<p>Servo 無論在 GitHub 還是在 IRC 上都有使用機器人，
+以下是相關列表：</p>
+<ul>
+<li><dl class="first docutils">
+<dt><a class="reference external" href="https://github.com/servo/crowbot">crowbot</a></dt>
+<dd><ul class="first last simple">
+<li>在 <code class="docutils literal"><span class="pre">#servo</span></code> IRC 上（ <code class="docutils literal"><span class="pre">irc.mozilla.org</span></code> ）</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><a class="reference external" href="https://github.com/servo/highfive">highfive</a></dt>
+<dd><ul class="first last simple">
+<li>在 GitHub 上</li>
+<li>會指定 reviewer</li>
+<li>會更新 PR 的 label</li>
+<li>會對新發的 PR 做檢查來標出更動檔案的負責人</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><a class="reference external" href="https://github.com/servo/bors">bors</a></dt>
+<dd><ul class="first last simple">
+<li>在 GitHub 上</li>
+<li>在 maintainer 同意後會去做 PR 的完整測試</li>
+<li>測試通過後會排程自動 merge</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
 <div class="section" id="id7">
-<h2><a class="toc-backref" href="#id19">參考</a><a class="headerlink" href="#id7" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id20">參考</a><a class="headerlink" href="#id7" title="本標題的永久連結">¶</a></h2>
 <div class="section" id="id8">
-<h3><a class="toc-backref" href="#id20">官方資料</a><a class="headerlink" href="#id8" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id21">官方資料</a><a class="headerlink" href="#id8" title="本標題的永久連結">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/servo/servo/blob/master/docs/HACKING_QUICKSTART.md#hacking-servo---quickstart">Hacking Servo - Quickstart</a></li>
 <li><a class="reference external" href="https://github.com/servo/servo/blob/master/docs/ORGANIZATION.md">Servo&#8217;s directory structure</a></li>
@@ -768,7 +806,7 @@ Servo 中視放在 <code class="docutils literal"><span class="pre">components/s
 </ul>
 </div>
 <div class="section" id="id9">
-<h3><a class="toc-backref" href="#id21">其他</a><a class="headerlink" href="#id9" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id22">其他</a><a class="headerlink" href="#id9" title="本標題的永久連結">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="https://www.facebook.com/groups/608787195932135/">Servo 中文開發者社群</a></li>
 </ul>

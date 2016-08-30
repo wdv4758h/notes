@@ -113,25 +113,25 @@ W3C 的 Web Platform Tests ：
 
 .. code-block:: ini
 
-	[formdata-foreach.html]
-	  type: testharness
-		[Default iterator should see duplicate keys]
-		  expected: FAIL
+    [formdata-foreach.html]
+      type: testharness
+        [Default iterator should see duplicate keys]
+          expected: FAIL
 
-		[Default iterator should see non-deleted values]
-		  expected: FAIL
+        [Default iterator should see non-deleted values]
+          expected: FAIL
 
-		[entries() iterator should see duplicate keys]
-		  expected: FAIL
+        [entries() iterator should see duplicate keys]
+          expected: FAIL
 
-		[entries() iterator should see non-deleted values]
-		  expected: FAIL
+        [entries() iterator should see non-deleted values]
+          expected: FAIL
 
-		[keys() iterator should see duplicate keys]
-		  expected: FAIL
+        [keys() iterator should see duplicate keys]
+          expected: FAIL
 
-		[values() iterator should see non-deleted values]
-		  expected: FAIL
+        [values() iterator should see non-deleted values]
+          expected: FAIL
 
 
 
@@ -170,6 +170,25 @@ WebGL
 * `Fully implement WebGL 1.0 <https://github.com/servo/servo/issues/10209>`_
 * WebGL 1.0 spec
 * GLES 2.0 spec
+
+
+Bots
+========================================
+
+Servo 無論在 GitHub 還是在 IRC 上都有使用機器人，
+以下是相關列表：
+
+* `crowbot <https://github.com/servo/crowbot>`_
+    - 在 ``#servo`` IRC 上（ ``irc.mozilla.org`` ）
+* `highfive <https://github.com/servo/highfive>`_
+    - 在 GitHub 上
+    - 會指定 reviewer
+    - 會更新 PR 的 label
+    - 會對新發的 PR 做檢查來標出更動檔案的負責人
+* `bors <https://github.com/servo/bors>`_
+    - 在 GitHub 上
+    - 在 maintainer 同意後會去做 PR 的完整測試
+    - 測試通過後會排程自動 merge
 
 
 
