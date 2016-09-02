@@ -160,3 +160,17 @@ OSX 上還可以選擇 ``framework`` 。
 
 
 
+建立 rustc 內部文件
+========================================
+
+.. code-block:: sh
+
+    ./configure --enable-compiler-docs
+    make docs -j4
+
+    # 放到 GitHub pages
+    ghp-import docs
+    git push origin gh-pages:gh-pages
+
+
+
