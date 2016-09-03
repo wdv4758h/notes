@@ -9,6 +9,9 @@ Open Source 專案貢獻
 PR
 ========================================
 
+* pyformat.info - `Update dependencies <https://github.com/ulope/pyformat.info/commit/01bc97190de49c919ba9633c10d33793c8064e20>`_
+* awesome-rust - A curated list of Rust code and resources
+    - 加上 rust-brotli `Add rust-brotli #172 <https://github.com/kud1ing/awesome-rust/pull/172>`_
 * markdown-syntax-zhtw - Traditional Chinese Edition Document of Markdown Syntax
     - 修文件 `Add browser extension "Markdown Here #7" <https://github.com/othree/markdown-syntax-zhtw/pull/7>`_
 * howdoi - instant coding answers via the command line
