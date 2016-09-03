@@ -296,6 +296,7 @@
 <li class="toctree-l1"><a class="reference internal" href="misc/archive.html">Archive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/bandwidth.html">頻寬成本</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/calendar.html">Calendar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc/conference.html">Conference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/dot-language.html">DOT Language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/floating-point.html">Floating Point</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/funny-sites.html">Funny Sites</a></li>
@@ -418,6 +419,7 @@
 <li class="toctree-l1"><a class="reference internal" href="rust/iterator.html">Iterator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/kernel.html">Rust Kernel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/libraries.html">Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rust/macro.html">Macro</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/make-parity-work-on-freebsd.html">Make Parity work on FreeBSD</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/mir.html">MIR (Mid-level Intermediate Representation)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/misc.html">Rust - Misc</a></li>
@@ -448,6 +450,7 @@
 <li class="toctree-l1"><a class="reference internal" href="unix-like-environment/irc.html">IRC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="unix-like-environment/keymap.html">xmodmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="unix-like-environment/keymap.html#setxkbmap">setxkbmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unix-like-environment/office.html">Office</a></li>
 <li class="toctree-l1"><a class="reference internal" href="unix-like-environment/sway.html">Sway</a></li>
 <li class="toctree-l1"><a class="reference internal" href="valgrind/android.html">Valgrind on Android Platform</a></li>
 <li class="toctree-l1"><a class="reference internal" href="valgrind/collection.html">Valgrind Resource Collection</a></li>
@@ -2036,6 +2039,11 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="misc/calendar.html">Calendar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc/conference.html">Conference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="misc/conference.html#fosdem">FOSDEM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc/conference.html#bsdcan">BSDCan</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="misc/dot-language.html">DOT Language</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="misc/dot-language.html#graphviz">Graphviz</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="misc/dot-language.html#id1">安裝</a></li>
@@ -2754,6 +2762,20 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="rust/libraries.html#log-logging-implementation-for-rust">log - Logging implementation for Rust</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="rust/macro.html">Macro</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rust/macro.html#id2">介紹</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rust/macro.html#id3">基本觀念</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rust/macro.html#id4">使用方式</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rust/macro.html#id5">如果你會其他語言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/macro.html#macros">macros 歷史發展</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/macro.html#macro-rules-macros"><code class="docutils literal"><span class="pre">macro_rules</span></code> macros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/macro.html#procedural-macros">procedural macros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/macro.html#built-in-macros">built-in macros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/macro.html#id6">參考</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="rust/make-parity-work-on-freebsd.html">Make Parity work on FreeBSD</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="rust/make-parity-work-on-freebsd.html#nanomsg">問題一 — nanomsg 無法編譯</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/make-parity-work-on-freebsd.html#mio">問題二 — mio 無法編譯</a></li>
@@ -2921,6 +2943,16 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </li>
 <li class="toctree-l1"><a class="reference internal" href="unix-like-environment/keymap.html#setxkbmap">setxkbmap</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="unix-like-environment/keymap.html#reset">reset</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="unix-like-environment/office.html">Office</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="unix-like-environment/office.html#libreoffice">LibreOffice</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="unix-like-environment/office.html#opencl">OpenCL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-like-environment/office.html#extension">Extension</a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-like-environment/office.html#id2">常用指令</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="unix-like-environment/office.html#id3">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="unix-like-environment/sway.html">Sway</a><ul>
