@@ -426,7 +426,11 @@
 <li class="toctree-l3"><a class="reference internal" href="#id4">使用方式</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id5">如果你會其他語言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">如果你會其他語言</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#c-c">如果你會 C 或 C++</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#python">如果你會 Python</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#macros">macros 歷史發展</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#macro-rules-macros"><code class="docutils literal"><span class="pre">macro_rules</span></code> macros</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#procedural-macros">procedural macros</a></li>
@@ -615,12 +619,16 @@
 <li><a class="reference internal" href="#id4" id="id11">使用方式</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id5" id="id12">如果你會其他語言</a></li>
-<li><a class="reference internal" href="#macros" id="id13">macros 歷史發展</a></li>
-<li><a class="reference internal" href="#macro-rules-macros" id="id14"><code class="docutils literal"><span class="pre">macro_rules</span></code> macros</a></li>
-<li><a class="reference internal" href="#procedural-macros" id="id15">procedural macros</a></li>
-<li><a class="reference internal" href="#built-in-macros" id="id16">built-in macros</a></li>
-<li><a class="reference internal" href="#id6" id="id17">參考</a></li>
+<li><a class="reference internal" href="#id5" id="id12">如果你會其他語言</a><ul>
+<li><a class="reference internal" href="#c-c" id="id13">如果你會 C 或 C++</a></li>
+<li><a class="reference internal" href="#python" id="id14">如果你會 Python</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#macros" id="id15">macros 歷史發展</a></li>
+<li><a class="reference internal" href="#macro-rules-macros" id="id16"><code class="docutils literal"><span class="pre">macro_rules</span></code> macros</a></li>
+<li><a class="reference internal" href="#procedural-macros" id="id17">procedural macros</a></li>
+<li><a class="reference internal" href="#built-in-macros" id="id18">built-in macros</a></li>
+<li><a class="reference internal" href="#id6" id="id19">參考</a></li>
 </ul>
 </li>
 </ul>
@@ -640,20 +648,26 @@
 </div>
 <div class="section" id="id5">
 <h2><a class="toc-backref" href="#id12">如果你會其他語言</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="c-c">
+<h3><a class="toc-backref" href="#id13">如果你會 C 或 C++</a><a class="headerlink" href="#c-c" title="本標題的永久連結">¶</a></h3>
 <p>很抱歉，
 這邊要討論的 macros 跟一般 C 或 C++ 在討論的不太一樣，
 C 或 C++ 的 macros 會被分類為「Text-substitution macros」，
 也就是說是以字串取代為基底架構成的。</p>
+</div>
+<div class="section" id="python">
+<h3><a class="toc-backref" href="#id14">如果你會 Python</a><a class="headerlink" href="#python" title="本標題的永久連結">¶</a></h3>
 <p>很抱歉，
 預設並沒有提供好專門的相關語法可以使用，
 但是有相關的 Library （例如 <a class="reference external" href="https://github.com/lihaoyi/macropy">MacroPy</a> ）
 可以達成類似的事情。</p>
 </div>
+</div>
 <div class="section" id="macros">
-<h2><a class="toc-backref" href="#id13">macros 歷史發展</a><a class="headerlink" href="#macros" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id15">macros 歷史發展</a><a class="headerlink" href="#macros" title="本標題的永久連結">¶</a></h2>
 </div>
 <div class="section" id="macro-rules-macros">
-<h2><a class="toc-backref" href="#id14"><code class="docutils literal"><span class="pre">macro_rules</span></code> macros</a><a class="headerlink" href="#macro-rules-macros" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id16"><code class="docutils literal"><span class="pre">macro_rules</span></code> macros</a><a class="headerlink" href="#macro-rules-macros" title="本標題的永久連結">¶</a></h2>
 <p>&#8220;macros by example&#8221;</p>
 <p><code class="docutils literal"><span class="pre">macro_rules!</span></code> 讓程式設計師可以利用 Pattern Matching 來撰寫 syntactic macros，
 以下是一個非常簡單的範例：</p>
@@ -755,7 +769,7 @@ C 或 C++ 的 macros 會被分類為「Text-substitution macros」，
 除此之外可以使用 <code class="docutils literal"><span class="pre">+</span></code> 來取代 <code class="docutils literal"><span class="pre">*</span></code> 以限制至少要 match 一次。</p>
 </div>
 <div class="section" id="procedural-macros">
-<h2><a class="toc-backref" href="#id15">procedural macros</a><a class="headerlink" href="#procedural-macros" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id17">procedural macros</a><a class="headerlink" href="#procedural-macros" title="本標題的永久連結">¶</a></h2>
 <p>「procedural macros」又被稱為「syntax extensions」或「syntax plugins」
 或「compiler plugins」。</p>
 <p>procedural macros 是使用純 Rust 在 meta level 實做，
@@ -810,7 +824,7 @@ procedural macro 的使用可以不限於前面提到的幾種，
 （以上這些會需要加上 <code class="docutils literal"><span class="pre">#![feature(plugin_registrar)]</span></code> 來開啟）</p>
 </div>
 <div class="section" id="built-in-macros">
-<h2><a class="toc-backref" href="#id16">built-in macros</a><a class="headerlink" href="#built-in-macros" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id18">built-in macros</a><a class="headerlink" href="#built-in-macros" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li>println!</li>
 <li>asm!</li>
@@ -819,7 +833,7 @@ procedural macro 的使用可以不限於前面提到的幾種，
 </ul>
 </div>
 <div class="section" id="id6">
-<h2><a class="toc-backref" href="#id17">參考</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id19">參考</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://www.ncameron.org/blog/macros/">Macros</a></li>
 <li><a class="reference external" href="http://ncameron.org/blog/macros-in-rust-pt1/">Macros in Rust pt1</a></li>
