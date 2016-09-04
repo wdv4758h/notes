@@ -25,7 +25,7 @@ Rust 的 macros 使用就像 function 一樣，
 
 
 
-如果你會其他語言
+我會其他語言
 ========================================
 
 如果你會 C 或 C++
@@ -37,6 +37,10 @@ C 或 C++ 的 macros 會被分類為「Text-substitution macros」，
 也就是說是以字串取代為基底架構成的。
 
 
+如果你會 Lisp
+------------------------------
+
+
 如果你會 Python
 ------------------------------
 
@@ -45,6 +49,9 @@ C 或 C++ 的 macros 會被分類為「Text-substitution macros」，
 但是有相關的 Library （例如 `MacroPy <https://github.com/lihaoyi/macropy>`_ ）
 可以達成類似的事情。
 
+
+如果你會 Scheme
+------------------------------
 
 
 macros 歷史發展
@@ -228,6 +235,10 @@ attribute-like 的 macros 會符合以下 grammar
 （以上這些會需要加上 ``#![feature(plugin_registrar)]`` 來開啟）
 
 
+libmacro
+========================================
+
+
 
 built-in macros
 ========================================
@@ -242,12 +253,29 @@ built-in macros
 參考
 ========================================
 
+Nick Cameron
+
 * `Macros <http://www.ncameron.org/blog/macros/>`_
 * `Macros in Rust pt1 <http://ncameron.org/blog/macros-in-rust-pt1/>`_
 * `Macros in Rust pt2 <http://ncameron.org/blog/macros-in-rust-pt2/>`_
 * `Macros in Rust pt3 <http://ncameron.org/blog/macros-in-rust-pt3/>`_
 * `Macros in Rust pt4 <http://ncameron.org/blog/macros-in-rust-pt4/>`_
 * `Macros in Rust pt5 <http://ncameron.org/blog/macros-in-rust-pt5/>`_
+* `Macros pt6 - more issues <http://www.ncameron.org/blog/macros-pt6-more-issues/>`_
+* `concat_idents! and macros in ident position <http://www.ncameron.org/blog/untitledconcat_idents-and-macros-in-ident-position/>`_
+* `Macro hygiene in all its guises and variations <http://www.ncameron.org/blog/macro-hygiene-in-all-its-guises-and-variations/>`_
+* `Sets of scopes macro hygiene <http://www.ncameron.org/blog/sets-of-scopes-macro-hygiene/>`_
+* `Macro plans, overview <http://ncameron.org/blog/macro-plans-overview/>`_
+* `Macro plans - syntax <http://ncameron.org/blog/macro-plans-syntax/>`_
+* `Procedural macros, framework <http://ncameron.org/blog/procedural-macros-framework/>`_
+* `Libmacro <http://ncameron.org/blog/libmacro/>`_
+* `Macros and name resolution <http://www.ncameron.org/blog/name-resolution/>`_
+* `Procedural macros by nrc · Pull Request #1566 · rust-lang/rfcs <https://github.com/rust-lang/rfcs/pull/1566>`_
+
+* `rust/src/librustc_macro/ <https://github.com/rust-lang/rust/tree/master/src/librustc_macro>`_
+
+* `Framework for procedural macroes in Rust <http://developers-club.com/posts/274225/>`_
+
 * [2012] `Macros that Work Together <https://www.cs.utah.edu/plt/publications/jfp12-draft-fcdf.pdf>`_
 
 * `Rust Books - Macros <https://doc.rust-lang.org/nightly/book/macros.html>`_
