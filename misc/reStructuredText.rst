@@ -3,6 +3,19 @@ reStructuredText
 ========================================
 
 
+cross-reference
+========================================
+
+* `StackOverflow - RestructuredText: Adding a cross-reference to a subheading or anchor in another page <https://stackoverflow.com/questions/15394347/restructuredtext-adding-a-cross-reference-to-a-subheading-or-anchor-in-another>`_
+
+::
+
+    `<other.html#section>`__
+
+    `<other.rstl#section>`__
+
+
+
 轉 HTML Slides
 ========================================
 
