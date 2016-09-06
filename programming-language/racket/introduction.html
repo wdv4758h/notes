@@ -265,6 +265,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../learning/svm.html">SVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../learning/t-SNE.html">t-SNE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../learning/todo.html">Todo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license/resource.html">相關資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../linux/bfq.html">BFQ - Budget Fair Queueing Storage-I/O Scheduler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../linux/clear-linux.html">Intel Clear Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../linux/dd.html">dd</a></li>
@@ -591,16 +592,28 @@
            <div itemprop="articleBody">
             
   <div class="section" id="racket">
-<h1><a class="toc-backref" href="#id7">Racket</a><a class="headerlink" href="#racket" title="本標題的永久連結">¶</a></h1>
+<h1><a class="toc-backref" href="#id11">Racket</a><a class="headerlink" href="#racket" title="本標題的永久連結">¶</a></h1>
 <div class="contents topic" id="table-of-contents">
 <p class="topic-title first">Table of Contents / 目錄</p>
 <ul class="simple">
-<li><a class="reference internal" href="#racket" id="id7">Racket</a><ul>
-<li><a class="reference internal" href="#id1" id="id8">安裝</a></li>
-<li><a class="reference internal" href="#id2" id="id9">實做</a></li>
-<li><a class="reference internal" href="#id4" id="id10">參考</a><ul>
-<li><a class="reference internal" href="#id5" id="id11">網站</a></li>
-<li><a class="reference internal" href="#id6" id="id12">論文</a></li>
+<li><a class="reference internal" href="#racket" id="id11">Racket</a><ul>
+<li><a class="reference internal" href="#id1" id="id12">歷史發展</a><ul>
+<li><a class="reference internal" href="#lisp" id="id13">Lisp 方言時間表</a></li>
+<li><a class="reference internal" href="#typed-racket" id="id14">Typed Racket</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id2" id="id15">實做</a></li>
+<li><a class="reference internal" href="#id4" id="id16">安裝</a></li>
+<li><a class="reference internal" href="#id5" id="id17">套件</a></li>
+<li><a class="reference internal" href="#id6" id="id18">入門</a><ul>
+<li><a class="reference internal" href="#hello-world" id="id19">Hello World</a></li>
+<li><a class="reference internal" href="#fibonacci" id="id20">Fibonacci</a></li>
+<li><a class="reference internal" href="#fibonacci-with-memoize" id="id21">Fibonacci with Memoize</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id7" id="id22">參考</a><ul>
+<li><a class="reference internal" href="#id8" id="id23">網站</a></li>
+<li><a class="reference internal" href="#id10" id="id24">論文</a></li>
 </ul>
 </li>
 </ul>
@@ -608,7 +621,25 @@
 </ul>
 </div>
 <div class="section" id="id1">
-<h2><a class="toc-backref" href="#id8">安裝</a><a class="headerlink" href="#id1" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id12">歷史發展</a><a class="headerlink" href="#id1" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="lisp">
+<h3><a class="toc-backref" href="#id13">Lisp 方言時間表</a><a class="headerlink" href="#lisp" title="本標題的永久連結">¶</a></h3>
+<img alt="../../_images/lisp-dialects-timeline.png" src="../../_images/lisp-dialects-timeline.png" />
+</div>
+<div class="section" id="typed-racket">
+<h3><a class="toc-backref" href="#id14">Typed Racket</a><a class="headerlink" href="#typed-racket" title="本標題的永久連結">¶</a></h3>
+<p>Typed Racket 是在原本的 Racket 之上加了 gradually-typed 的能力，</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id15">實做</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li>[GitHub] <a class="reference external" href="https://github.com/racket/racket">Racket</a></li>
+<li>[GitHub] <a class="reference external" href="https://github.com/pycket/pycket">Pycket - A rudimentary Racket implementation using RPython</a></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id16">安裝</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h2>
 <p>正常版：</p>
 <div class="highlight-sh"><div class="highlight"><pre><span></span>$ sudo pacman -S racket
 ...
@@ -632,23 +663,161 @@ Total Installed Size:  22.80 MiB
 </pre></div>
 </div>
 </div>
-<div class="section" id="id2">
-<h2><a class="toc-backref" href="#id9">實做</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
-<ul class="simple">
-<li>[GitHub] <a class="reference external" href="https://github.com/racket/racket">Racket</a></li>
-<li>[GitHub] <a class="reference external" href="https://github.com/pycket/pycket">Pycket - A rudimentary Racket implementation using RPython</a></li>
-</ul>
-</div>
-<div class="section" id="id4">
-<h2><a class="toc-backref" href="#id10">參考</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h2>
 <div class="section" id="id5">
-<h3><a class="toc-backref" href="#id11">網站</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h3>
-<ul class="simple">
-<li><a class="reference external" href="https://racket-lang.org/">The Racket Language</a></li>
-</ul>
+<h2><a class="toc-backref" href="#id17">套件</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h2>
+<p>Racket 把第三方套件都蒐集在 <a class="reference external" href="https://pkgs.racket-lang.org/">Racket Packages</a> ，
+套件相關的資訊會寫在 <code class="docutils literal"><span class="pre">info.rkt</span></code></p>
+<p>這是一個 <code class="docutils literal"><span class="pre">info.rkt</span></code> 的範例：</p>
+<div class="highlight-racket"><div class="highlight"><pre><span></span><span class="kn">#lang </span><span class="nn">info</span>
+<span class="p">(</span><span class="k">define</span> <span class="n">collection</span> <span class="o">&#39;</span><span class="ss">multi</span><span class="p">)</span>
+
+<span class="p">(</span><span class="k">define</span> <span class="nb">version</span> <span class="s2">&quot;1.1&quot;</span><span class="p">)</span>
+<span class="p">(</span><span class="k">define</span> <span class="n">deps</span> <span class="o">&#39;</span><span class="p">(</span><span class="s2">&quot;base&quot;</span> <span class="p">[</span><span class="s2">&quot;txexpr&quot;</span> <span class="kd">#:version</span> <span class="s2">&quot;0.2&quot;</span><span class="p">]</span> <span class="p">[</span><span class="s2">&quot;sugar&quot;</span> <span class="kd">#:version</span> <span class="s2">&quot;0.2&quot;</span><span class="p">]</span> <span class="p">[</span><span class="s2">&quot;markdown&quot;</span> <span class="kd">#:version</span> <span class="s2">&quot;0.18&quot;</span><span class="p">]</span> <span class="s2">&quot;htdp&quot;</span>
+               <span class="s2">&quot;at-exp-lib&quot;</span> <span class="s2">&quot;html-lib&quot;</span> <span class="s2">&quot;rackjure&quot;</span> <span class="s2">&quot;web-server-lib&quot;</span> <span class="s2">&quot;scribble-lib&quot;</span> <span class="s2">&quot;scribble-text-lib&quot;</span> <span class="s2">&quot;rackunit-lib&quot;</span>
+               <span class="s2">&quot;gui-lib&quot;</span><span class="p">))</span>
+<span class="p">(</span><span class="k">define</span> <span class="n">build-deps</span> <span class="o">&#39;</span><span class="p">(</span><span class="s2">&quot;plot-gui-lib&quot;</span> <span class="s2">&quot;scribble-lib&quot;</span> <span class="s2">&quot;racket-doc&quot;</span> <span class="s2">&quot;rackunit-doc&quot;</span>
+                     <span class="s2">&quot;plot-doc&quot;</span> <span class="s2">&quot;scribble-doc&quot;</span> <span class="s2">&quot;slideshow-doc&quot;</span> <span class="s2">&quot;web-server-doc&quot;</span> <span class="s2">&quot;drracket&quot;</span><span class="p">))</span>
+<span class="p">(</span><span class="k">define</span> <span class="n">update-implies</span> <span class="o">&#39;</span><span class="p">(</span><span class="s2">&quot;txexpr&quot;</span> <span class="s2">&quot;sugar&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="id6">
-<h3><a class="toc-backref" href="#id12">論文</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h3>
+<h2><a class="toc-backref" href="#id18">入門</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h2>
+<p>官方網站上有 <a class="reference external" href="https://docs.racket-lang.org/racket-cheat/index.html">Cheat Sheet</a> ，
+對於學過類似程式語言的人可以直接去那邊快速上手。
+另外還有 <a class="reference external" href="https://learnxinyminutes.com/docs/racket/">Learn Racket in Y Minutes</a>
+也是快速上手的好地方。</p>
+<div class="section" id="hello-world">
+<h3><a class="toc-backref" href="#id19">Hello World</a><a class="headerlink" href="#hello-world" title="本標題的永久連結">¶</a></h3>
+<p>Racket 的執行是打開程式碼後從頭開始依序跑到底的</p>
+<p>程式碼：</p>
+<div class="highlight-racket"><div class="highlight"><pre><span></span><span class="kn">#lang </span><span class="nn">racket</span>
+
+<span class="p">(</span><span class="nb">printf</span> <span class="s2">&quot;Hello World</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>執行：</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># 直接用直譯器執行</span>
+$ racket hello.rkt
+Hello World
+
+<span class="c1"># 編譯成執行檔</span>
+$ raco exe hello.rkt
+$ ls -l hello
+-rwxr-xr-x <span class="m">1</span> user user <span class="m">6586613</span> Sep  <span class="m">6</span> 21:39 hello
+$ ldd hello
+        linux-vdso.so.1 <span class="o">(</span>0x00007fffab7e5000<span class="o">)</span>
+        libpthread.so.0 <span class="o">=</span>&gt; /usr/lib/libpthread.so.0 <span class="o">(</span>0x00007f042c232000<span class="o">)</span>
+        libc.so.6 <span class="o">=</span>&gt; /usr/lib/libc.so.6 <span class="o">(</span>0x00007f042be94000<span class="o">)</span>
+        /lib64/ld-linux-x86-64.so.2 <span class="o">(</span>0x00007f042c44f000<span class="o">)</span>
+$ ./hello
+Hello World
+</pre></div>
+</div>
+</div>
+<div class="section" id="fibonacci">
+<h3><a class="toc-backref" href="#id20">Fibonacci</a><a class="headerlink" href="#fibonacci" title="本標題的永久連結">¶</a></h3>
+<p>程式碼：</p>
+<div class="highlight-racket"><div class="highlight"><pre><span></span><span class="kn">#lang </span><span class="nn">racket</span>
+
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="n">fib</span> <span class="n">n</span><span class="p">)</span>
+    <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">&lt;=</span> <span class="n">n</span> <span class="mi">1</span><span class="p">)</span> <span class="mi">1</span>
+        <span class="p">(</span><span class="nb">+</span>
+            <span class="p">(</span><span class="n">fib</span> <span class="p">(</span><span class="nb">-</span> <span class="n">n</span> <span class="mi">1</span><span class="p">))</span>
+            <span class="p">(</span><span class="n">fib</span> <span class="p">(</span><span class="nb">-</span> <span class="n">n</span> <span class="mi">2</span><span class="p">))</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+
+<span class="p">(</span><span class="k">time</span> <span class="p">(</span><span class="n">fib</span> <span class="mi">40</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>執行：</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># 編譯成執行檔</span>
+$ raco exe fib.rkt
+$ ls -l fib
+-rwxr-xr-x <span class="m">1</span> user user <span class="m">6587986</span> Sep  <span class="m">6</span> 22:05 fib
+$ ldd fib
+        linux-vdso.so.1 <span class="o">(</span>0x00007fffab7e5000<span class="o">)</span>
+        libpthread.so.0 <span class="o">=</span>&gt; /usr/lib/libpthread.so.0 <span class="o">(</span>0x00007f042c232000<span class="o">)</span>
+        libc.so.6 <span class="o">=</span>&gt; /usr/lib/libc.so.6 <span class="o">(</span>0x00007f042be94000<span class="o">)</span>
+        /lib64/ld-linux-x86-64.so.2 <span class="o">(</span>0x00007f042c44f000<span class="o">)</span>
+$ ./fib
+cpu time: <span class="m">1556</span> real time: <span class="m">1555</span> gc time: 0
+165580141
+</pre></div>
+</div>
+</div>
+<div class="section" id="fibonacci-with-memoize">
+<h3><a class="toc-backref" href="#id21">Fibonacci with Memoize</a><a class="headerlink" href="#fibonacci-with-memoize" title="本標題的永久連結">¶</a></h3>
+<p>參考這邊 <a class="reference external" href="https://docs.racket-lang.org/memoize/index.html">Memoize: Lightweight Dynamic Programming</a></p>
+<p>程式碼：</p>
+<div class="highlight-racket"><div class="highlight"><pre><span></span><span class="kn">#lang </span><span class="nn">racket</span>
+
+<span class="p">(</span><span class="k">require</span> <span class="n">memoize</span><span class="p">)</span>       <span class="c1">; 拉進 memoize</span>
+
+<span class="p">(</span><span class="n">define/memo</span> <span class="p">(</span><span class="n">fib</span> <span class="n">n</span><span class="p">)</span>    <span class="c1">; define 改成 define/memo</span>
+    <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">&lt;=</span> <span class="n">n</span> <span class="mi">1</span><span class="p">)</span> <span class="mi">1</span>
+        <span class="p">(</span><span class="nb">+</span>
+            <span class="p">(</span><span class="n">fib</span> <span class="p">(</span><span class="nb">-</span> <span class="n">n</span> <span class="mi">1</span><span class="p">))</span>
+            <span class="p">(</span><span class="n">fib</span> <span class="p">(</span><span class="nb">-</span> <span class="n">n</span> <span class="mi">2</span><span class="p">))</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+
+<span class="p">(</span><span class="k">time</span> <span class="p">(</span><span class="n">fib</span> <span class="mi">40</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># 編譯成執行檔</span>
+$ raco pkg install memoize  <span class="c1"># 會放在 &quot;~/.racket/{VERSION}/pkgs/&quot;</span>
+$ raco exe fib.rkt
+$ ls -l fib
+-rwxr-xr-x <span class="m">1</span> user user <span class="m">6598463</span> Sep  <span class="m">6</span> 22:27 fib
+$ ldd fib
+        linux-vdso.so.1 <span class="o">(</span>0x00007fffab7e5000<span class="o">)</span>
+        libpthread.so.0 <span class="o">=</span>&gt; /usr/lib/libpthread.so.0 <span class="o">(</span>0x00007f042c232000<span class="o">)</span>
+        libc.so.6 <span class="o">=</span>&gt; /usr/lib/libc.so.6 <span class="o">(</span>0x00007f042be94000<span class="o">)</span>
+        /lib64/ld-linux-x86-64.so.2 <span class="o">(</span>0x00007f042c44f000<span class="o">)</span>
+$ ./fib
+cpu time: <span class="m">0</span> real time: <span class="m">0</span> gc time: 0
+165580141
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2><a class="toc-backref" href="#id22">參考</a><a class="headerlink" href="#id7" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="id8">
+<h3><a class="toc-backref" href="#id23">網站</a><a class="headerlink" href="#id8" title="本標題的永久連結">¶</a></h3>
+<ul>
+<li><p class="first"><a class="reference external" href="https://racket-lang.org/">The Racket Language</a></p>
+</li>
+<li><p class="first"><a class="reference external" href="https://docs.racket-lang.org/guide/index.html">The Racket Guide</a></p>
+</li>
+<li><p class="first"><a class="reference external" href="https://docs.racket-lang.org/quick/index.html">Quick: An Introduction to Racket with Pictures</a></p>
+</li>
+<li><p class="first"><a class="reference external" href="https://docs.racket-lang.org/more/index.html">More: Systems Programming with Racket</a></p>
+</li>
+<li><p class="first"><a class="reference external" href="https://docs.racket-lang.org/continue/index.html">Continue: Web Applications in Racket</a></p>
+</li>
+<li><p class="first"><a class="reference external" href="https://docs.racket-lang.org/index.html">Racket Documentation</a></p>
+</li>
+<li><p class="first"><a class="reference external" href="https://learnxinyminutes.com/docs/racket/">Learn Racket in Y Minutes</a></p>
+</li>
+<li><p class="first"><a class="reference external" href="http://beautifulracket.com/">Beautiful Racket - learn how to make your own programming languages with Racket (and why)</a></p>
+</li>
+<li><dl class="first docutils">
+<dt><a class="reference external" href="http://htdp.org/">How to Design Programs</a></dt>
+<dd><ul class="first last simple">
+<li>講 Scheme 的書，但是可以套用到 Racket</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="id10">
+<h3><a class="toc-backref" href="#id24">論文</a><a class="headerlink" href="#id10" title="本標題的永久連結">¶</a></h3>
 <ul class="simple">
 <li>[2015] <a class="reference external" href="http://www.ccs.neu.edu/home/samth/pycket-draft.pdf">Pycket: A Tracing JIT For a Functional Language</a></li>
 </ul>
