@@ -33,7 +33,7 @@
 
   
     <link rel="top" title="wdv4758h-notes latest 說明文件" href="../index.html"/>
-        <link rel="next" title="W^X (Write XOR Execute)" href="../memory/W^X.html"/>
+        <link rel="next" title="Math on Web" href="math-on-web.html"/>
         <link rel="prev" title="線性代數 （Linear Algebra）" href="linear-algebra.html"/> 
 
   
@@ -223,6 +223,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../debug/record-replay.html">Record Replay</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/resource.html">Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../docker/docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../editor/emacs.html">Emacs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../embedded/stm32.html">STM32</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../fonts/README.html">Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../fonts/resource.html">Resource</a></li>
@@ -299,6 +300,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#misc">Misc</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="math-on-web.html">Math on Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/W^X.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
@@ -314,6 +316,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../misc/bandwidth.html">頻寬成本</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/calendar.html">Calendar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/conference.html">Conference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/disk-encryption.html">Disk Encryption</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/dot-language.html">DOT Language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/floating-point.html">Floating Point</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/funny-sites.html">Funny Sites</a></li>
@@ -331,6 +334,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../misc/sites.html">Sites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/ssl-tls-pki-history.html">SL/TLS 以及 PKI 的歷史</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/statifier.html">Statifier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/team-collaboration.html">Team Collaboration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/todo-projects.html">想做的專案</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/tools.html">Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/typesetting.html">Typesetting</a></li>
@@ -477,12 +481,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../valgrind/new-plugin.html">Writeing a New Valgrind Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../valgrind/tips.html">Valgrind Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../valgrind/valgrind-talks.html">Valgrind Talks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../vim/history.html">History</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../vim/neovim.html">Neovim</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../vim/registers.html">Vim Registers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../vim/resource.html">Resource</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../vim/session.html">Session</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../vim/vimscript.html">Vimscript</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../virtualization/bhyve.html">bhyve</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../arm-server.html">ARM Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../basic-system-utils.html">Basic System Utils</a></li>
@@ -497,7 +495,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../data-science.html">Data Science</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dsl.html">DSL (Domain-Specific Languages)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../elf.html">ELF</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../emacs.html">Emacs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../erlang.html">Erlang</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ffmpeg.html">FFmpeg</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../file.html">file command</a></li>
@@ -694,7 +691,7 @@ Non-Uniform 則是 knots 的值會慢慢不規律地上升 (0, 0, 0, 1, 2, 2, 3.
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../memory/W^X.html" class="btn btn-neutral float-right" title="W^X (Write XOR Execute)" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="math-on-web.html" class="btn btn-neutral float-right" title="Math on Web" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="linear-algebra.html" class="btn btn-neutral" title="線性代數 （Linear Algebra）" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>

@@ -33,7 +33,7 @@
 
   
     <link rel="top" title="wdv4758h-notes latest 說明文件" href="../index.html"/>
-        <link rel="next" title="想做的專案" href="todo-projects.html"/>
+        <link rel="next" title="Team Collaboration" href="team-collaboration.html"/>
         <link rel="prev" title="SL/TLS 以及 PKI 的歷史" href="ssl-tls-pki-history.html"/> 
 
   
@@ -223,6 +223,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../debug/record-replay.html">Record Replay</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/resource.html">Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../docker/docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../editor/emacs.html">Emacs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../embedded/stm32.html">STM32</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../fonts/README.html">Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../fonts/resource.html">Resource</a></li>
@@ -284,6 +285,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../linux/ubuntu.html">Ubuntu</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/math.html">Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/math-on-web.html">Math on Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/W^X.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
@@ -299,6 +301,7 @@
 <li class="toctree-l1"><a class="reference internal" href="bandwidth.html">頻寬成本</a></li>
 <li class="toctree-l1"><a class="reference internal" href="calendar.html">Calendar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="conference.html">Conference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="disk-encryption.html">Disk Encryption</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dot-language.html">DOT Language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="floating-point.html">Floating Point</a></li>
 <li class="toctree-l1"><a class="reference internal" href="funny-sites.html">Funny Sites</a></li>
@@ -319,6 +322,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="team-collaboration.html">Team Collaboration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="todo-projects.html">想做的專案</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="typesetting.html">Typesetting</a></li>
@@ -465,12 +469,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../valgrind/new-plugin.html">Writeing a New Valgrind Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../valgrind/tips.html">Valgrind Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../valgrind/valgrind-talks.html">Valgrind Talks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../vim/history.html">History</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../vim/neovim.html">Neovim</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../vim/registers.html">Vim Registers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../vim/resource.html">Resource</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../vim/session.html">Session</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../vim/vimscript.html">Vimscript</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../virtualization/bhyve.html">bhyve</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../arm-server.html">ARM Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../basic-system-utils.html">Basic System Utils</a></li>
@@ -485,7 +483,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../data-science.html">Data Science</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dsl.html">DSL (Domain-Specific Languages)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../elf.html">ELF</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../emacs.html">Emacs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../erlang.html">Erlang</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ffmpeg.html">FFmpeg</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../file.html">file command</a></li>
@@ -621,7 +618,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="todo-projects.html" class="btn btn-neutral float-right" title="想做的專案" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="team-collaboration.html" class="btn btn-neutral float-right" title="Team Collaboration" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="ssl-tls-pki-history.html" class="btn btn-neutral" title="SL/TLS 以及 PKI 的歷史" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
