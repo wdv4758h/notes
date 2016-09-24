@@ -47,3 +47,15 @@ Dropbox 希望他們的壓縮、解壓縮演算法可以有三個性質：
 * [2015] `Introducing Brotli: a new compression algorithm for the internet <https://google-opensource.blogspot.tw/2015/09/introducing-brotli-new-compression.html>`_
 * `Quora - What is Brotli? How is it different from Zopfli? <https://www.quora.com/What-is-Brotli-How-is-it-different-from-Zopfli/answer/Cody-Ray-Hoeft>`_
 * `Comparison of Brotli, Deflate, Zopfli, LZMA, LZHAM and Bzip2 Compression Algorithms <https://www.gstatic.com/b/brotlidocs/brotli-2015-09-22.pdf>`_
+
+
+
+ripgrep is faster than {grep, ag, git grep, ucg, pt, sift}
+==========================================================
+
+:作者: Andrew Gallant
+:URL: http://blog.burntsushi.net/ripgrep/
+:HackerNews: https://news.ycombinator.com/item?id=12564442
+
+稍微介紹 Regex Engine 的差異、ripgrep 有哪些特色、有哪些地方可以加速字串的尋找，
+最後做一些效能測試
