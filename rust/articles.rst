@@ -59,3 +59,14 @@ ripgrep is faster than {grep, ag, git grep, ucg, pt, sift}
 
 稍微介紹 Regex Engine 的差異、ripgrep 有哪些特色、有哪些地方可以加速字串的尋找，
 最後做一些效能測試
+
+
+
+Incremental Compilation
+==========================================================
+
+:作者: Michael Woerister
+:URL: https://blog.rust-lang.org/2016/09/08/incremental.html
+:HackerNews: https://news.ycombinator.com/item?id=12457942
+
+介紹 Rust 編譯器正在開發的 Incremental Compilation 功能
