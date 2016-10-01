@@ -2,9 +2,21 @@
 Rust RFCs
 ========================================
 
+
 PR # => RFC #
 
-----
+.. contents:: 目錄
+
+
+別人提 RFC 的經驗
+========================================
+
+* `From Tweet to Rust Feature <https://llogiq.github.io/2016/09/14/feature.html>`_
+
+
+
+Misc
+========================================
 
 * `Rust RFCs - 0198 - Slice Notation <https://github.com/rust-lang/rfcs/blob/master/text/0198-slice-notation.md>`_
     - foo.as_slice()    => ``foo[]``
