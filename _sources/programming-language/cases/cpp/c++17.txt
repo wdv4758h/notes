@@ -1,0 +1,45 @@
+========================================
+C++17
+========================================
+
+std::size
+========================================
+
+* `cppreference - std::size <http://en.cppreference.com/w/cpp/iterator/size>`_
+
+version 1 :
+
+.. code-block:: cpp
+
+    template <class C>
+    constexpr auto size(const C& c) -> decltype(c.size())
+    {
+        return c.size();
+    }
+
+
+version 2 :
+
+.. code-block:: cpp
+
+    template <class T, std::size_t N>
+    constexpr std::size_t size(const T (&array)[N]) noexcept
+    {
+        return N;
+    }
+
+
+Progress
+========================================
+
+* `C++17 progress update! (Oct 2015) <https://www.reddit.com/r/cpp/comments/3q4agc/c17_progress_update_oct_2015/>`_
+* `Trip report: Fall 2015 ISO C++ standards meeting <http://herbsutter.com/2015/10/25/2568/>`_
+* [GitHub] `Parallelism TS Editor's Report, post-Lenexa mailing <https://github.com/cplusplus/parallelism-ts>`_
+
+
+Reference
+========================================
+
+* `Wikipedia - C++17 <https://en.wikipedia.org/wiki/C++17>`_
+* `fold expression <http://en.cppreference.com/w/cpp/language/fold>`_
+* `C++ Status at the end of 2015 <http://www.bfilipek.com/2015/12/c-status-at-end-of-2015.html>`_

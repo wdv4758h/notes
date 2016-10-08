@@ -1,0 +1,929 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Python - async &amp; await &mdash; wdv4758h-notes latest 說明文件</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+
+  
+    <link rel="stylesheet" href="https://media.readthedocs.org/css/sphinx_rtd_theme.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="wdv4758h-notes latest 說明文件" href="../../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> wdv4758h-notes
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/big-o-notation.html">Big O Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/books.html">Books</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/dict.html">Dict</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/heap.html">Heap （堆）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/inverse-square-root.html">Inverse Square Root</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/misc.html">Misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/substring-searching.html">Substring Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../android/android.html">Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../android/android-emulator.html">Android Emulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../android/android-images.html">Android Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../android/binder.html">Android&#8217;s Binder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../android/busybox-mv.html">BysyBox 的 mv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../android/cheat-sheet.html">Android Cheat Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../android/cts.html">Android CTS (Compatibility Test Suite)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../android/google-project-butter.html">Google Project Butter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../android/init.html">Android - init</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../android/install.html">安裝新 Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../android/misc.html">Android - Misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../android/ndk.html">Android NDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../android/surfaceflinger.html">SurfaceFlinger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archlinux/UEFI.html">UEFI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archlinux/abs.html">Arch Build System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archlinux/arch-in-ubuntu-lxc.html">Arch Linux in Ubuntu LXC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archlinux/arch-install-script.html">Arch Install Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archlinux/aur.html">Arch Linux Arch User Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archlinux/hardware.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archlinux/packages.html">Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archlinux/pacman.html">Pacman</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archlinux/performance.html">Performance Tuning For Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archlinux/printer.html">Printer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archlinux/video-player.html">Video Player</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archlinux/x11-forwarding.html">X11 Forwarding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archlinux/xdg-settings.html">xdg-settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../arm/intro.html">ARM Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../articles/python-need-for-speed.html">Python - Need For Speed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../articles/travis-ci-sphinx-github-pages.html">用 Travis CI 自動化發佈 reStructuredText 到 GitHub Pages 上</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../assembly/cheat-sheet.html">Assembly Cheat Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../assembly/sha-extension.html">SHA Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../assembly/x86.html">x86 Assembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../books/ISBN-13|978-1-59327-385-9|A Bug Hunter's Diary.html">A Bug Hunter&#8217;s Diary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../books/README.html">書籍紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../browser/cdm.html">CDM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../browser/css.html">CSS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../browser/design.html">How Browser Work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../browser/extensions.html">WebExtensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../browser/firefox-settings.html">Firefox 設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../browser/service-worker.html">Service Worker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../browser/servo.html">Servo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../browser/webassembly.html">WebAssembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../build-system/cmake.html">CMake</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../build-system/gyp.html">GYP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../c/c.html">C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../c/cheat-sheet.html">C Cheat Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../c/exception.html">Exceptions in C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../c/features.html">Some C&#8217;s features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../c/gnu-extension.html">GNU Extension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../c/internal_and_external_linkage_in_C.html">Internal and External Linkage in C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../c/mmap.html">mmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../c/pragma-once.html">pragma once</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../c/pragma-weak.html">pragma weak</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../c/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../c/undefine-behavior.html">Undefined Behavior</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/branch-prediction-hint.html">Branch Prediction Hint</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/clang-tools.html">Clang Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/code-gen.html">Code Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/compiler-and-learning.html">Compiler and Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/compiler-options.html">Compiler Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/compiler-rt.html">LLVM - compiler-rt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/computed-goto.html">Computed goto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/cross-compile.html">Cross Compile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/crt.html">crt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/environment.html">Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/gcc-plugins.html">GCC Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/gpgpu.html">GPGPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/jump-threading.html">Jump Threading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/linker.html">Linker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/llvm.html">LLVM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/llvm-android.html">Android With LLVM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/llvm-cuda.html">LLVM &amp; CUDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/llvm-ir.html">LLVM IR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/llvm-python.html">LLVM &amp; Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/lto.html">LTO - Link Time Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/obfuscator.html">Obfuscator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/optimizations.html">Optimizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/porting.html">Use Compiler To Help Porting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/resource.html">Compiler Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/ssa.html">SSA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compression/jpeg.html">JPEG Compression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compression/png.html">PNG Compression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compression/resource.html">資料壓縮相關資源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computer-vision/README.html">電腦視覺</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computer-vision/SIFT.html">SIFT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computer-vision/books.html">電腦視覺相關書籍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computer-vision/object-detection.html">Object Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computer-vision/panaorma.html">Panorama (Image Stitching)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/64bits-problem.html">64 Bits Problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/SFINAE.html">SFINAE (Substitution Failure Is Not An Error)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/assembly.html">C++ &amp; Assembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/bit-field.html">C++ Bit Field</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/c++17.html">C++17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/concepts.html">C++ Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/const.html">C++ const</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/coroutine.html">C++ Coroutine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/crtp.html">CRTP (Curiously recurring template pattern)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/ctor-dtor.html">C++ Constructors &amp; Destructors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/experimental.html">Experimental</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/expression-templates.html">Expression Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/history.html">C++ History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/initialization.html">Initialization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/macro.html">Macro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/misc.html">C++ Misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/oop.html">C++ 繼承</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/oop.html#virutal-function">Virutal Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/oop.html#c-11-override-final">C++11 - override &amp; final</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/optimizations.html">C++ Optimizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/optional.html">Optional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/parallel.html">C++ - Parallel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/pimpl.html">Pimpl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/qt.html">Qt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/repl.html">C++ REPL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/resource.html">C++ Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/rvo.html">Return Value Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/size_t-ptrdiff_t.html">About size_t and ptrdiff_t</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/standard-library-implementation.html">Standard Library Implementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/stl.html">C++ STL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/string-optimization.html">String Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/temporary-objects.html">Temporary Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/thread.html">C++ Thread</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/todo.html">Todo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/value-category.html">C++ Value Category</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/videos.html">C++ Videos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../crypto/blowfish.html">Blowfish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../crypto/elliptic-curve.html">Elliptic Curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../crypto/sha.html">SHA (Secure Hash Algorithm)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../database/postgresql.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../debug/kernel.html">Debugging a Kernel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../debug/record-replay.html">Record Replay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../debug/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docker/docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editor/emacs.html">Emacs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../embedded/stm32.html">STM32</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../fonts/README.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../fonts/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../freebsd/freebsd.html">FreeBSD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../functional/monad.html">Monad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../functional/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game/real-time-strategy.html">Real-time Strategy Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game/rpg.html">Role-playing Games (RPG)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../garbage-collection/garbage-collection.html">Garbage Collection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../garbage-collection/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../git/cheat-sheet.html">Git Cheat Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../git/format-patch.html">Git Format Patch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../git/resource.html">Git Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../git/tips.html">Git Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gpgpu/arrayfire.html">ArrayFire</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gpgpu/boost.html">Boost.Compute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gpgpu/kernel.html">GPGPU with Kernel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gpgpu/spir-v.html">SPIR-V</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../graphics/README.html">Linux Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../graphics/dri.html">DRI (Direct Rendering Infrastructure)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../graphics/glsl.html">GLSL - OpenGL Shading Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../graphics/introduction.html">Linux Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../graphics/mesa.html">Mesa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hardware/hardware-and-programming.html">Hardware &amp; Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hardware/history.html">Hardware&#8217;s History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hardware/intel-mic.html">Intel MIC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hardware/my-devices.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../jit/asmjit.html">asmjit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../jit/introduction.html">JIT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../language-virtual-machines/resource.html">資源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../learning/ann-history.html">Artificial Neural Network History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../learning/artificial-neural-network.html">Artificial Neural Network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../learning/cheatsheet.html">Cheat Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../learning/clustering.html">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../learning/decision-tree.html">決策樹學習 （Decision Tree）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../learning/deep-learning.html">Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../learning/dimensionality-reduction.html">Dimensionality Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../learning/instance-based.html">Instance Based</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../learning/learning.html">Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../learning/naive-bayes-classifier.html">樸素貝葉斯分類器 （Naïve Bayesian Classifier）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../learning/regression.html">Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../learning/regularization.html">Regularization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../learning/resource.html">機器學習相關資源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../learning/rule-system.html">Rule System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../learning/svm.html">SVM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../learning/t-SNE.html">t-SNE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../learning/todo.html">Todo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license/resource.html">相關資源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../linux/bfq.html">BFQ - Budget Fair Queueing Storage-I/O Scheduler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../linux/clear-linux.html">Intel Clear Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../linux/dd.html">dd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../linux/file-system.html">File System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../linux/firmware.html">Firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../linux/gimp.html">Gimp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../linux/hotplug-cpu.html">Hotplug CPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../linux/ipc.html">IPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../linux/kernel-module.html">Kernel Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../linux/nmcli.html">nmcli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../linux/sendfile.html">sendfile - transfer data between file descriptors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../linux/start-up.html">Linux Program Start Up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../linux/systemd.html">systemd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../linux/tickless.html">Tickless</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../linux/ubuntu.html">Ubuntu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../math/math.html">Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../math/math-on-web.html">Math on Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../memory/W^X.html">W^X (Write XOR Execute)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../memory/allocator.html">Allocator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../memory/kernel-memory-management.html">Kernel Memory Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../memory/memory.html">Memory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../memory/memory-allocators-under-the-hood.html">Memory Allocator - Under The Hood</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../memory/memory-hardware.html">Memory Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../memory/memory-management.html">Memory Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../memory/memory-profiling.html">Memory Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../memory/sanitizer.html">Sanitizer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../memory/stack-protection.html">Stack Protection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/archive.html">Archive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/articles.html">文章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/bandwidth.html">頻寬成本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/calendar.html">Calendar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/conference.html">Conference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/disk-encryption.html">Disk Encryption</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/dot-language.html">DOT Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/floating-point.html">Floating Point</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/funny-sites.html">Funny Sites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/http-history.html">HTTP History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/images.html">Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/jargons.html">Jargons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/keyboard.html">Keyboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/misc.html">Misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/origin.html">緣由</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/papers.html">Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/pdf-viewers-history.html">PDF Viewer History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/podcast.html">Podcast</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/reStructuredText.html">reStructuredText</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/repo.html">Interesting Repo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/sites.html">Sites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/ssl-tls-pki-history.html">SL/TLS 以及 PKI 的歷史</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/statifier.html">Statifier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/team-collaboration.html">Team Collaboration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/todo-projects.html">想做的專案</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/typesetting.html">Typesetting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/undergraduate-course-taken.html">大學修過的課程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/unicode.html">Unicode 解說</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/video.html">Video</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/vulkan.html">Vulkan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mpi/mpi.html">MPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../multimedia/ffmpeg.html">ffmpeg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../network/resource.html">資源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/brain.html">Brain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/crosstalk.html">相聲</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/disease.html">Disease (疾病)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/drama.html">Drama</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/english.html">英文</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/english-checker.html">English Checker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/game-of-throne.html">Game of Throne</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/gender-equality.html">Gender Equality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/japanese.html">日本相關作品</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/legend.html">傳說</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/movies.html">Movies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/music.html">音樂</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/non-cs-books.html">Non CS Books</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/novel.html">Novel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/skateboard.html">滑板</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/taiwan-education.html">臺灣教育與國族認同</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/taiwan-opendata.html">臺灣開放資料（Taiwan&#8217;s Open Data）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/taiwan-rocket.html">臺灣的火箭 - ARRC (前瞻火箭研究中心)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/todo.html">Todo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/visa-bitcon.html">VISA &amp; Bitcoin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/外宿準備項目.html">外宿準備項目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">程式語言理論 (Programming Language Theory) (PLT)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pypy/brief.html">簡單介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/ast.html">Python AST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/async-await.html">Python - async &amp; await</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/benchmark.html">Benchmark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/best-practice.html">Best Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/concurrency.html">Python&#8217;s Concurrency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/contextlib.html">contextlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/cpython.html">CPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/cpython-equality.html">CPython Equality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/deprecated.html">Some Deprecated Things</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/django.html">Django</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/gil.html">CPython GIL (Global Interpreter Lock)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/hardware.html">Python &amp; Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/install-packages.html">Python - Install Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/iterator.html">Iterator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/matplotlib.html">matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/numpy.html">Numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/operator.html">Operator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/packages.html">Some Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/porting.html">遷移至 Python 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/power-operator-vs-math-pow.html">** operator v.s. math.pow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/pypi.html">PyPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/python-3.5.html">Python 3.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/qt.html">Qt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/scipy.html">SciPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/standard-library.html">Standard Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/sympy.html">SymPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/testing.html">Python Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/tips.html">Python Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/virtualenv.html">virtualenv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/yield-with-list-comprehension.html">yield with list comprehension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quantum/intro.html">量子電腦</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../regex/re2.html">RE2 - fast, safe, thread-friendly alternative to backtracking regular expression engines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../regex/regex.html">Regular Expression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../regex/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/2015-week-28.html">Engineering Report &lt;dv&gt; - Week 28, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/2015-week-29.html">Engineering Report &lt;dv&gt; - Week 29, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/2015-week-30.html">Engineering Report &lt;dv&gt; - Week 30, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/2015-week-31.html">Engineering Report &lt;dv&gt; - Week 31, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/2015-week-32.html">Engineering Report &lt;dv&gt; - Week 32, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/2015-week-33.html">Engineering Report &lt;dv&gt; - Week 33, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/2015-week-34.html">Engineering Report &lt;dv&gt; - Week 34, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/2015-week-35.html">Engineering Report &lt;dv&gt; - Week 35, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/2015-week-36.html">Engineering Report &lt;dv&gt; - Week 36, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/2015-week-37.html">Engineering Report &lt;dv&gt; - Week 37, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/2015-week-53.html">Self Report &lt;dv&gt; - Week 53, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/2015-week-54.html">Self Report &lt;dv&gt; - Week 54, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/2015-week-55.html">Self Report &lt;dv&gt; - Week 55, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/2015-week-56.html">Self Report &lt;dv&gt; - Week 56, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/2016-week-19.html">Self Report &lt;dv&gt; - Week 19, 2016</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/2016-week-20.html">Self Report &lt;dv&gt; - Week 20, 2016</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/2016-week-21.html">Self Report &lt;dv&gt; - Week 21, 2016</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/2016-week-22.html">Self Report &lt;dv&gt; - Week 22, 2016</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/info.html">Information For Your Report</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/template.html">Engineering Report &lt;dv&gt; - Week #, 2016</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/README.html">Rust Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/any.html">Rust&#8217;s runtime reflection - &#8220;Any&#8221; type trait</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/articles.html">文章閱讀（Articles）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/cargo.html">Cargo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/features-basic.html">Rust&#8217;s Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/index.html">My Rust Articles Collection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/iterator.html">Iterator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/kernel.html">Rust Kernel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/libraries.html">Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/macro.html">Macro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/make-parity-work-on-freebsd.html">Make Parity work on FreeBSD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/mir.html">MIR (Mid-level Intermediate Representation)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/misc.html">Rust - Misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/monomorphization.html">Monomorphization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/multirust.html">multirust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/object-safety.html">Object Safety</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/orm.html">ORM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/os.html">Rust in OS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/packages.html">Some Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/performance.html">Rust&#8217;s Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/rfcs.html">Rust RFCs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/rust.html">Rust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/rust-vim-plugin.html">Rust Vim Plugin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/tips.html">Rust Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/todo.html">Todo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/type-system.html">Rust&#8217;s Type System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/use.html">use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/videos.html">Rust Videos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/web.html">Rust &amp; Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../simd/status.html">SIMD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../systemd/networkctl.html">networkctl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/256-color.html">256 color</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/README.html">常用軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/find.html">find</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/input-method.html">Input Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/installer.html">Installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/intro.html">Some Basic Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/irc.html">IRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/keymap.html">xmodmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/keymap.html#setxkbmap">setxkbmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/office.html">Office</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/sway.html">Sway</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../valgrind/android.html">Valgrind on Android Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../valgrind/collection.html">Valgrind Resource Collection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../valgrind/dynamic-binary-instrumentation.html">Valgrind: A Framework for Heavyweight Dynamic Binary Instrumentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../valgrind/firefox.html">Valgrind &amp; Firefox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../valgrind/new-plugin.html">Writeing a New Valgrind Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../valgrind/tips.html">Valgrind Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../valgrind/valgrind-talks.html">Valgrind Talks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../virtualization/bhyve.html">bhyve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../arm-server.html">ARM Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../basic-system-utils.html">Basic System Utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bugs.html">踩 Bug 紀錄 (從 2015-10-26 開始)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../busybox.html">BusyBox - 人人都該備一個在身邊的執行檔</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cache.html">Cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ci.html">Continuous Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../common-lisp.html">Common Lisp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../concurrency.html">Concurrency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contribution.html">Open Source 專案貢獻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../coredump.html">coredump</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data-science.html">Data Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dsl.html">DSL (Domain-Specific Languages)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../elf.html">ELF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../erlang.html">Erlang</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ffmpeg.html">FFmpeg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../file.html">file command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../fortran.html">Fortran</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../free-software-in-taiwan.html">臺灣自由軟體界</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../google-on-hub.html">Google OnHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../graphic.html">Graphic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../init-system.html">init systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../intel.html">Intel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interpreter-for-compiled-language.html">Interpreter For Compiled Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../jit-for-processors.html">JIT For Processors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../kvm.html">KVM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../languages.html">Languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../libc.html">那些 libc 們</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../librt.html">librt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../libunwind.html">libunwind</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../libuv.html">libuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../linker.html">Linker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../linux-laptop-gpu.html">Linux Laptop GPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../linux-porting.html">Linux Porting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../lua.html">Lua</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../lxc.html">Linux Containers (LXC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../make-an-interpreter.html">Make An Interpreter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modemmanager.html">ModemManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../multicall-binary.html">Multicall Binary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../multithread-concurrency-parallelism.html">名詞釐清</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../name-mangling.html">Name Mangling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../netbsd.html">NetBSD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../objdump.html">Objdump</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../openhmpp.html">OpenHMPP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../openhouse.html">Open House</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../openmp.html">OpenMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../opensource-projects-i-love.html">Open Source Porjects I Love</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../parallel.html">Parallel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plan-9.html">Plan 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../posix.html">POSIX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../process-live-migration.html">Process Live Migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../project-measurement.html">Project Measurement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../realtime.html">Real Time Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../regex-lib.html">Regular Expression Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sandbox.html">Sandbox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../security.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signal.html">Signal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../software-updates.html">Software Updates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../spark.html">Spark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../strace.html">strace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../system-programming.html">System Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tcg-ir.html">TCG IR - Tiny Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tcpdump.html">tcpdump</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tensorflow.html">TensorFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../thread-stack.html">Thread Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../todo.html">Todo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../transactional-memory.html">Transactional Memory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../trash-talk.html">技術屁話</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../travis-ci.html">Travis CI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../turing-complete.html">Turing Compilete</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../type-theory.html">Type Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../unicode.html">Unicode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usenix.html">USENIX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../virtualgl.html">VirtualGL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../vlc.html">VLC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../vulkan.html">Vulkan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../wayland.html">Wayland</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../wm.html">Window Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../yocto.html">Yocto Project - 建立自己的嵌入式 Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../zram.html">zram</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">wdv4758h-notes</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+    <li>Python - async &amp; await</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="https://github.com/wdv4758h/notes/blob/master/./programming-language/cases/python/async-await.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="python-async-await">
+<h1>Python - async &amp; await<a class="headerlink" href="#python-async-await" title="本標題的永久連結">¶</a></h1>
+<div class="section" id="history">
+<h2>History<a class="headerlink" href="#history" title="本標題的永久連結">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt>Python 2.5 - <a class="reference external" href="https://www.python.org/dev/peps/pep-0342/">PEP 342 &#8211; Coroutines via Enhanced Generators</a></dt>
+<dd><ul class="first last simple">
+<li>實作更好的 coroutine-like 功能支援 (基於 extended generators)</li>
+<li>把 <code class="docutils literal"><span class="pre">yield</span></code> statement 變成 expression</li>
+<li>幫 generator 加上 <code class="docutils literal"><span class="pre">send()</span></code> 、 <code class="docutils literal"><span class="pre">throw()</span></code> 、 <code class="docutils literal"><span class="pre">close()</span></code></li>
+<li>generator 被 GC 回收時，會去呼叫 <code class="docutils literal"><span class="pre">close()</span></code></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Python 3.3 - <a class="reference external" href="https://www.python.org/dev/peps/pep-0380/">PEP 0380 &#8211; Syntax for Delegating to a Subgenerator</a></dt>
+<dd><ul class="first last simple">
+<li>加入 <code class="docutils literal"><span class="pre">yield</span> <span class="pre">from</span></code> expression，可以 delegate 給 sub-generator</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Python 3.4 - <a class="reference external" href="https://www.python.org/dev/peps/pep-3156/">PEP 3156 &#8211; Asynchronous IO Support Rebooted: the &#8220;asyncio&#8221; Module</a></dt>
+<dd><ul class="first last simple">
+<li>加入 <code class="docutils literal"><span class="pre">asyncio</span></code> module (comprehensive asynchronous I/O framework)</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Python 3.5 - <a class="reference external" href="https://www.python.org/dev/peps/pep-0492/">PEP 0492 &#8211; Coroutines with async and await syntax</a></dt>
+<dd><ul class="first last simple">
+<li>提供 <code class="docutils literal"><span class="pre">async</span></code> 和 <code class="docutils literal"><span class="pre">await</span></code> keywords 讓 coroutine 可以更方便地使用</li>
+<li>提供 <code class="docutils literal"><span class="pre">&#64;types.coroutine</span></code> 來包裝原本使用 <code class="docutils literal"><span class="pre">yield</span></code> 和 <code class="docutils literal"><span class="pre">yield</span> <span class="pre">from</span></code> 撰寫的 function</li>
+<li>asynchronous context managers (提供 <code class="docutils literal"><span class="pre">__aenter__()</span></code> 和 <code class="docutils literal"><span class="pre">__aexit__()</span></code>)</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="module">
+<h2>Module<a class="headerlink" href="#module" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">asynchat</span></code> module 現在還保留是為了 backwards compatibility，現在建議使用 <code class="docutils literal"><span class="pre">asyncio</span></code></li>
+</ul>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="本標題的永久連結">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">async</span></code> keyword 用來把 function 變成 coroutine，
+在 coroutine 內可以使用 <code class="docutils literal"><span class="pre">await</span></code> 來暫停執行，
+等待其他事情完成。</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">async</span></code> function 回傳的是 <code class="docutils literal"><span class="pre">coroutine</span></code> object</li>
+<li><code class="docutils literal"><span class="pre">await</span></code> 只能用於 <code class="docutils literal"><span class="pre">async</span></code> function 內</li>
+<li><code class="docutils literal"><span class="pre">await</span> <span class="pre">with</span></code> 後的 context manager 需要 <code class="docutils literal"><span class="pre">__aenter__</span></code> 和 <code class="docutils literal"><span class="pre">__aexit__</span></code></li>
+<li><code class="docutils literal"><span class="pre">await</span> <span class="pre">for</span></code> 後的 iterable variable 需要 <code class="docutils literal"><span class="pre">__aiter__</span></code> 和 <code class="docutils literal"><span class="pre">__anext__</span></code></li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">async</span> <span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="k">pass</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">f</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">&lt;coroutine object f at 0x7f11f9c19ca8&gt;</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">asyncio</span><span class="o">.</span><span class="n">iscoroutine</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">asyncio</span><span class="o">.</span><span class="n">iscoroutinefunction</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="go">True</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">FakeCoro</span><span class="p">:</span>     <span class="c1"># asyncio.iscoroutine() uses collections.abc.Coroutine</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">send</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span> <span class="k">pass</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">throw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">typ</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">tb</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span> <span class="k">pass</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="k">pass</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">__await__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="k">yield</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">asyncio</span><span class="o">.</span><span class="n">iscoroutine</span><span class="p">(</span><span class="n">FakeCoro</span><span class="p">())</span>
+<span class="go">True</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Awaitable</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">__await__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="p">(</span><span class="s1">&#39;Hello ~&#39;</span><span class="p">,</span> <span class="s1">&#39;XD&#39;</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nd">@asyncio.coroutine</span>
+<span class="gp">... </span><span class="k">def</span> <span class="nf">g</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">Awaitable</span><span class="p">()</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">coro</span> <span class="o">=</span> <span class="n">g</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">coro</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>
+<span class="go">&#39;Hello ~&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">coro</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>
+<span class="go">&#39;XD&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">coro</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">StopIteration</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">coro</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">coro</span> <span class="o">=</span> <span class="n">g</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">coro</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">coro</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">StopIteration</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">async</span> <span class="k">def</span> <span class="nf">bar</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="s1">&#39;O w O&#39;</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">async</span> <span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">await</span> <span class="n">bar</span><span class="p">()</span>  <span class="c1"># await 只能用在 async function 裡</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">loop</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">loop</span><span class="o">.</span><span class="n">run_until_complete</span><span class="p">(</span><span class="n">foo</span><span class="p">())</span>
+<span class="go">&#39;O w O&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">loop</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">async</span> <span class="pre">with</span></code> :</p>
+<p>(<code class="docutils literal"><span class="pre">async</span> <span class="pre">with</span></code> 後面會在進 block 前先去 call <code class="docutils literal"><span class="pre">__aenter__</span></code> ，
+接著在離開 block 時 call <code class="docutils literal"><span class="pre">__aexit__</span></code> 來做善後，
+藉此可以在 method 中使用 <code class="docutils literal"><span class="pre">await</span></code> 來接其他 asynchronous function)</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Manager</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">async</span> <span class="k">def</span> <span class="nf">__aenter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;__aenter__&#39;</span><span class="p">)</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="bp">self</span>
+<span class="gp">... </span>    <span class="n">async</span> <span class="k">def</span> <span class="nf">__aexit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;__aexit__&#39;</span><span class="p">)</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="bp">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">async</span> <span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="n">async</span> <span class="k">with</span> <span class="n">Manager</span><span class="p">()</span> <span class="k">as</span> <span class="n">a</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">print</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">loop</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">loop</span><span class="o">.</span><span class="n">run_until_complete</span><span class="p">(</span><span class="n">foo</span><span class="p">())</span>
+<span class="go">__aenter__</span>
+<span class="go">42</span>
+<span class="go">__aexit__</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">async</span> <span class="pre">for</span></code> :</p>
+<p>(<code class="docutils literal"><span class="pre">async</span> <span class="pre">for</span></code> 後面會先去 call <code class="docutils literal"><span class="pre">__aiter__</span></code> 來拿 iterator，
+接著用 <code class="docutils literal"><span class="pre">__anext__</span></code> 來取下一個值，
+藉此可以在 method 中使用 <code class="docutils literal"><span class="pre">await</span></code> 來接其他 asynchronous function)</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">AsyncIter</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">iteration</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="gp">... </span>    <span class="n">async</span> <span class="k">def</span> <span class="nf">__aiter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;__aiter__&#39;</span><span class="p">)</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="bp">self</span>
+<span class="gp">... </span>    <span class="n">async</span> <span class="k">def</span> <span class="nf">__anext__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">iteration</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="gp">... </span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">iteration</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+<span class="gp">... </span>            <span class="k">raise</span> <span class="n">StopAsyncIteration</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="mi">42</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">async</span> <span class="k">def</span> <span class="nf">bar</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="n">async</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">AsyncIter</span><span class="p">():</span>
+<span class="gp">... </span>        <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">loop</span><span class="o">.</span><span class="n">run_until_complete</span><span class="p">(</span><span class="n">bar</span><span class="p">())</span>
+<span class="go">__aiter__</span>
+<span class="go">42</span>
+<span class="go">42</span>
+<span class="go">42</span>
+<span class="go">42</span>
+<span class="go">42</span>
+<span class="go">42</span>
+<span class="go">42</span>
+<span class="go">42</span>
+<span class="go">42</span>
+<span class="go">42</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">asyncio.wait</span></code> :</p>
+<p>(<code class="docutils literal"><span class="pre">asyncio.wait</span></code> 可以一次吃很多 coroutine 下去執行、等待)</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">async</span> <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;O w O : {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="n">result</span> <span class="o">=</span> <span class="n">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">wait</span><span class="p">([</span>
+<span class="gp">... </span>            <span class="n">f</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">124124</span><span class="p">,</span> <span class="s1">&#39;asd&#39;</span><span class="p">),</span>
+<span class="gp">... </span>            <span class="n">f</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mi">423434343434343434343434343434343434343434343434</span><span class="p">,</span> <span class="s1">&#39;asd&#39;</span><span class="p">),</span>
+<span class="gp">... </span>            <span class="n">f</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">412124</span><span class="p">,</span> <span class="s1">&#39;das&#39;</span><span class="p">),</span>
+<span class="gp">... </span>        <span class="p">])</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">loop</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">loop</span><span class="o">.</span><span class="n">run_until_complete</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+<span class="go">O w O : (412124, &#39;das&#39;)</span>
+<span class="go">O w O : (423434343434343434343434343434343434343434343434, &#39;asd&#39;)</span>
+<span class="go">O w O : (124124, &#39;asd&#39;)</span>
+<span class="go">({&lt;Task finished coro=&lt;f() done, defined at &lt;stdin&gt;:1&gt; result=None&gt;, &lt;Task finished coro=&lt;f() done, defined at &lt;stdin&gt;:1&gt; result=None&gt;, &lt;Task finished coro=&lt;f() done, defined at &lt;stdin&gt;:1&gt; result=None&gt;}, set())</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tmp</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_subprocess_shell</span><span class="p">(</span><span class="s1">&#39;echo &quot;yo&quot;&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">loop</span><span class="o">.</span><span class="n">run_until_complete</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">&lt;Process 4037&gt;</span>
+<span class="go">yo</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="本標題的永久連結">¶</a></h2>
+<ul>
+<li><p class="first"><a class="reference external" href="https://lwn.net/Articles/643786/">[LWN.net] Python coroutines with async and await</a></p>
+</li>
+<li><dl class="first docutils">
+<dt><a class="reference external" href="https://docs.python.org/3/library/types.html#types.coroutine">Python - types module - types.coroutine</a></dt>
+<dd><ul class="first last simple">
+<li>transforms a generator function into a coroutine function which returns a generator-based coroutine</li>
+<li>&#64;types.coroutine</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first"><a class="reference external" href="https://docs.python.org/3/library/asyncio-dev.html">Python - Develop with asyncio</a></p>
+</li>
+<li><p class="first"><a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html">Python - Tasks and coroutines</a></p>
+</li>
+<li><p class="first"><a class="reference external" href="https://docs.python.org/3/library/asyncio-stream.html">Python - Streams (high-level API)</a></p>
+</li>
+<li><p class="first"><a class="reference external" href="https://docs.python.org/3/library/asyncio-subprocess.html">Python - Asyncio Subprocess</a></p>
+</li>
+<li><p class="first"><a class="reference external" href="https://www.python.org/dev/peps/pep-3145/">PEP 3145 &#8211; Asynchronous I/O For subprocess.Popen</a></p>
+</li>
+<li><p class="first"><a class="reference external" href="https://en.wikipedia.org/wiki/Coroutine">Wikipedia - Coroutine</a></p>
+</li>
+<li><p class="first"><a class="reference external" href="https://github.com/python/cpython/blob/master/Lib/test/test_asyncio/test_pep492.py">CPython - Lib/test/test_asyncio/test_pep492.py</a></p>
+</li>
+<li><p class="first"><a class="reference external" href="https://github.com/python/cpython/blob/master/Lib/asyncio/subprocess.py">CPython - Lib/asyncio/subprocess.py</a></p>
+</li>
+<li><p class="first"><a class="reference external" href="https://github.com/python/cpython/blob/master/Lib/test/test_asyncio/test_subprocess.py">CPython - Lib/test/test_asyncio/test_subprocess.py</a></p>
+</li>
+<li><p class="first"><a class="reference external" href="http://python-notes.curiousefficiency.org/en/latest/pep_ideas/async_programming.html">Nick Coghlan&#8217;s Python Notes - Some Thoughts on Asynchronous Programming</a></p>
+</li>
+<li><p class="first"><a class="reference external" href="http://asyncio.org/">Python Async IO Resources</a></p>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; 版權所有 2016.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="/zh_TW/latest/">latest</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="//readthedocs.org/projects/wdv4758h-notes/downloads/htmlzip/latest/">htmlzip</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="//readthedocs.org/projects/wdv4758h-notes/?fromdocs=wdv4758h-notes">Project Home</a>
+          </dd>
+          <dd>
+            <a href="//readthedocs.org/builds/wdv4758h-notes/?fromdocs=wdv4758h-notes">Builds</a>
+          </dd>
+      </dl>
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'latest',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-2.0.3.min.js"></script>
+      <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-migrate-1.2.1.min.js"></script>
+      <script type="text/javascript" src="https://media.readthedocs.org/javascript/underscore.js"></script>
+      <script type="text/javascript" src="https://media.readthedocs.org/javascript/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://media.readthedocs.org/javascript/readthedocs-doc-embed.js"></script>
+
+  
+
+  
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
