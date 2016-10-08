@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Haskell Introduction &mdash; wdv4758h-notes latest 說明文件</title>
+  <title>Hindley-Milner Type Inference &mdash; wdv4758h-notes latest 說明文件</title>
   
 
   
@@ -174,6 +174,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../compression/jpeg.html">JPEG Compression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../compression/png.html">PNG Compression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../compression/resource.html">資料壓縮相關資源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computer-vision/README.html">電腦視覺</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computer-vision/SIFT.html">SIFT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computer-vision/books.html">電腦視覺相關書籍</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computer-vision/object-detection.html">Object Detection</a></li>
@@ -244,6 +245,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../gpgpu/spir-v.html">SPIR-V</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../graphics/README.html">Linux Graphics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../graphics/dri.html">DRI (Direct Rendering Infrastructure)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/glsl.html">GLSL - OpenGL Shading Language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../graphics/introduction.html">Linux Graphics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../graphics/mesa.html">Mesa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../hardware/hardware-and-programming.html">Hardware &amp; Programming</a></li>
@@ -356,17 +358,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../non-cs/visa-bitcon.html">VISA &amp; Bitcoin</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../non-cs/外宿準備項目.html">外宿準備項目</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html">程式語言理論 (Programming Language Theory) (PLT)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../curry-howard.html">Curry-Howard correspondence</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../group-algebraic-structures.html">群論</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../higher-kinded-types.html">Higher-Kinded Type (HKT)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../hindley-milner.html">Hindley-Milner Type Inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../hoare-logic.html">Hoare Logic (霍爾邏輯)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../multiple-dispatch.html">Multiple Dispatch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../my-status.html">個人各程式語言接觸狀況</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../polymorphism.html">Polymorphism (多型)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../resource.html">Resource</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../type-inference.html">Type Inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../type-system.html">Type System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../pypy/brief.html">簡單介紹</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python/ast.html">Python AST</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python/async-await.html">Python - async &amp; await</a></li>
@@ -584,11 +575,11 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
       
-    <li>Haskell Introduction</li>
+    <li>Hindley-Milner Type Inference</li>
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="https://github.com/wdv4758h/notes/blob/master/./programming-language/haskell/introduction.rst" class="fa fa-github"> Edit on GitHub</a>
+            <a href="https://github.com/wdv4758h/notes/blob/master/./programming-language/theory-and-concepts/hindley-milner.rst" class="fa fa-github"> Edit on GitHub</a>
           
         
       </li>
@@ -598,40 +589,24 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="haskell-introduction">
-<h1><a class="toc-backref" href="#id4">Haskell Introduction</a><a class="headerlink" href="#haskell-introduction" title="本標題的永久連結">¶</a></h1>
-<div class="contents topic" id="id1">
-<p class="topic-title first">目錄</p>
-<ul class="simple">
-<li><a class="reference internal" href="#haskell-introduction" id="id4">Haskell Introduction</a><ul>
-<li><a class="reference internal" href="#id2" id="id5">歷史發展</a></li>
-<li><a class="reference internal" href="#id3" id="id6">參考</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="section" id="id2">
-<h2><a class="toc-backref" href="#id5">歷史發展</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
-</div>
-<div class="section" id="id3">
-<h2><a class="toc-backref" href="#id6">參考</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+  <div class="section" id="hindley-milner-type-inference">
+<h1>Hindley-Milner Type Inference<a class="headerlink" href="#hindley-milner-type-inference" title="本標題的永久連結">¶</a></h1>
 <ul>
 <li><dl class="first docutils">
-<dt><a class="reference external" href="https://www.futurelearn.com/courses/functional-programming-haskell/1/steps/115453">Brief History of Haskell</a></dt>
-<dd><ol class="first last arabic simple">
-<li>1930s, Alonzo Church&#8217;s lambda calculus</li>
-<li>1950s, LISP</li>
-<li>1980s, ML, Hope, Miranda</li>
-<li>1990, Haskell</li>
-<li>Glasgow Haskell Compiler, Haskell Platform</li>
-</ol>
+<dt>So You Still Don&#8217;t Understand Hindley-Milner?</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="http://akgupta.ca/blog/2013/05/14/so-you-still-dont-understand-hindley-milner/">Part1</a></li>
+<li><a class="reference external" href="http://akgupta.ca/blog/2013/06/07/so-you-still-dont-understand-hindley-milner-part-2/">Part2</a></li>
+<li><a class="reference external" href="http://akgupta.ca/blog/2013/06/07/so-you-still-dont-understand-hindley-milner-part-3/">Part3</a></li>
+</ul>
 </dd>
 </dl>
 </li>
-<li><p class="first">[2007] <a class="reference external" href="https://research.microsoft.com/en-us/um/people/simonpj/papers/history-of-haskell/">A History of Haskell: being lazy with class</a></p>
+<li><p class="first"><a class="reference external" href="http://dev.stephendiehl.com/fun/006_hindley_milner.html">Write You a Haskell - Hindley-Milner Inference</a></p>
+</li>
+<li><p class="first"><a class="reference external" href="https://github.com/prakhar1989/type-inference">The Hindley Milner Type Inference Algorithm - Implemented in OCaml</a></p>
 </li>
 </ul>
-</div>
 </div>
 
 

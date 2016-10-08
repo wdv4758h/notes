@@ -6,6 +6,7 @@ Resource
 論文
 ========================================
 
+* [2016] `Rust as a language for high performance GC implementation <https://ts.data61.csiro.au/publications/nictaabstracts/Lin_BHN_16.abstract.pml>`_
 * [2016] `Grail Quest: A New Proposal for Hardware-assisted Garbage Collection <https://people.eecs.berkeley.edu/~maas/papers/maas-asbd16-hwgc.pdf>`_
 * [2001] `Concurrent Cycle Collection in Reference Counted Systems <http://researcher.watson.ibm.com/researcher/files/us-bacon/Bacon01Concurrent.pdf>`_
 

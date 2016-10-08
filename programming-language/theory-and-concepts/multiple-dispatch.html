@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Resource &mdash; wdv4758h-notes latest 說明文件</title>
+  <title>Multiple Dispatch &mdash; wdv4758h-notes latest 說明文件</title>
   
 
   
@@ -174,6 +174,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../compression/jpeg.html">JPEG Compression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../compression/png.html">PNG Compression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../compression/resource.html">資料壓縮相關資源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computer-vision/README.html">電腦視覺</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computer-vision/SIFT.html">SIFT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computer-vision/books.html">電腦視覺相關書籍</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computer-vision/object-detection.html">Object Detection</a></li>
@@ -244,6 +245,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../gpgpu/spir-v.html">SPIR-V</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../graphics/README.html">Linux Graphics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../graphics/dri.html">DRI (Direct Rendering Infrastructure)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/glsl.html">GLSL - OpenGL Shading Language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../graphics/introduction.html">Linux Graphics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../graphics/mesa.html">Mesa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../hardware/hardware-and-programming.html">Hardware &amp; Programming</a></li>
@@ -356,17 +358,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../non-cs/visa-bitcon.html">VISA &amp; Bitcoin</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../non-cs/外宿準備項目.html">外宿準備項目</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html">程式語言理論 (Programming Language Theory) (PLT)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../curry-howard.html">Curry-Howard correspondence</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../group-algebraic-structures.html">群論</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../higher-kinded-types.html">Higher-Kinded Type (HKT)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../hindley-milner.html">Hindley-Milner Type Inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../hoare-logic.html">Hoare Logic (霍爾邏輯)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../multiple-dispatch.html">Multiple Dispatch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../my-status.html">個人各程式語言接觸狀況</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../polymorphism.html">Polymorphism (多型)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../resource.html">Resource</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../type-inference.html">Type Inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../type-system.html">Type System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../pypy/brief.html">簡單介紹</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python/ast.html">Python AST</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python/async-await.html">Python - async &amp; await</a></li>
@@ -584,11 +575,11 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
       
-    <li>Resource</li>
+    <li>Multiple Dispatch</li>
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="https://github.com/wdv4758h/notes/blob/master/./programming-language/lisp/resource.rst" class="fa fa-github"> Edit on GitHub</a>
+            <a href="https://github.com/wdv4758h/notes/blob/master/./programming-language/theory-and-concepts/multiple-dispatch.rst" class="fa fa-github"> Edit on GitHub</a>
           
         
       </li>
@@ -598,15 +589,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="resource">
-<h1>Resource<a class="headerlink" href="#resource" title="本標題的永久連結">¶</a></h1>
-<ul class="simple">
-<li><a class="reference external" href="http://www.faqs.org/faqs/lisp-faq/part1/section-5.html">Where can I learn about implementing Lisp interpreters and compilers?</a></li>
-<li><a class="reference external" href="http://acl.readthedocs.io/en/latest/">ANSI Common Lisp 中文翻譯版</a></li>
-<li><a class="reference external" href="http://learnlispthehardway.org/">L(λ)THW - Learn Lisp The Hard Way</a></li>
-<li><a class="reference external" href="http://www.gigamonkeys.com/book/">Practical Common Lisp</a></li>
-<li><a class="reference external" href="http://www.cs.cmu.edu/~dst/LispBook/book.pdf">Common Lisp: A Gentle Introduction to Symbolic Computation</a></li>
-<li>[Scheme] <a class="reference external" href="http://sarabander.github.io/sicp/">Structure and Interpretation of Computer Programs</a></li>
+  <div class="section" id="multiple-dispatch">
+<h1>Multiple Dispatch<a class="headerlink" href="#multiple-dispatch" title="本標題的永久連結">¶</a></h1>
+<ul>
+<li><dl class="first docutils">
+<dt>A polyglot&#8217;s guide to multiple dispatch</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="http://eli.thegreenplace.net/2016/a-polyglots-guide-to-multiple-dispatch">Part 1</a></li>
+<li><a class="reference external" href="http://eli.thegreenplace.net/2016/a-polyglots-guide-to-multiple-dispatch-part-2">Part 2</a></li>
+<li><a class="reference external" href="http://eli.thegreenplace.net/2016/a-polyglots-guide-to-multiple-dispatch-part-3">Part 3</a></li>
+<li><a class="reference external" href="http://eli.thegreenplace.net/2016/a-polyglots-guide-to-multiple-dispatch-part-4">Part 4</a></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </div>
 

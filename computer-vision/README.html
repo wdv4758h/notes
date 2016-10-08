@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Polymorphism (多型) &mdash; wdv4758h-notes latest 說明文件</title>
+  <title>電腦視覺 &mdash; wdv4758h-notes latest 說明文件</title>
   
 
   
@@ -33,8 +33,8 @@
 
   
     <link rel="top" title="wdv4758h-notes latest 說明文件" href="../index.html"/>
-        <link rel="next" title="Resource" href="resource.html"/>
-        <link rel="prev" title="個人各程式語言接觸狀況" href="my-status.html"/> 
+        <link rel="next" title="SIFT" href="SIFT.html"/>
+        <link rel="prev" title="資料壓縮相關資源" href="../compression/resource.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -176,10 +176,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../compression/jpeg.html">JPEG Compression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compression/png.html">PNG Compression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compression/resource.html">資料壓縮相關資源</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../computer-vision/SIFT.html">SIFT</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../computer-vision/books.html">電腦視覺相關書籍</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../computer-vision/object-detection.html">Object Detection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../computer-vision/panaorma.html">Panorama (Image Stitching)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">電腦視覺</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id3">主題</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="SIFT.html">SIFT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="books.html">電腦視覺相關書籍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="object-detection.html">Object Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="panaorma.html">Panorama (Image Stitching)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/64bits-problem.html">64 Bits Problem</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/SFINAE.html">SFINAE (Substitution Failure Is Not An Error)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/assembly.html">C++ &amp; Assembly</a></li>
@@ -246,6 +250,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../gpgpu/spir-v.html">SPIR-V</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../graphics/README.html">Linux Graphics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../graphics/dri.html">DRI (Direct Rendering Infrastructure)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphics/glsl.html">GLSL - OpenGL Shading Language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../graphics/introduction.html">Linux Graphics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../graphics/mesa.html">Mesa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/hardware-and-programming.html">Hardware &amp; Programming</a></li>
@@ -357,51 +362,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../non-cs/todo.html">Todo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../non-cs/visa-bitcon.html">VISA &amp; Bitcoin</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../non-cs/外宿準備項目.html">外宿準備項目</a></li>
-<li class="toctree-l1"><a class="reference internal" href="README.html">程式語言理論 (Programming Language Theory) (PLT)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="curry-howard.html">Curry-Howard correspondence</a></li>
-<li class="toctree-l1"><a class="reference internal" href="group-algebraic-structures.html">群論</a></li>
-<li class="toctree-l1"><a class="reference internal" href="higher-kinded-types.html">Higher-Kinded Type (HKT)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hindley-milner.html">Hindley-Milner Type Inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hoare-logic.html">Hoare Logic (霍爾邏輯)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multiple-dispatch.html">Multiple Dispatch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="my-status.html">個人各程式語言接觸狀況</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Polymorphism (多型)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#variance">Variance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#bounded-quantification-bounded-polymorphism">Bounded Quantification (Bounded Polymorphism)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#rust-bounds-trait-restrictions">Rust - Bounds (trait restrictions)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#c-crtp">C++ CRTP</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#julia-operator">Julia - <code class="docutils literal"><span class="pre">&lt;:</span></code> operator</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#polymorphism-in-rust">Polymorphism in Rust</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#monomorphisation">Monomorphisation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#trait-objects">Trait Objects</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#static-and-dynamic-polymorphism">Static and Dynamic Polymorphism</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#static-binding-name-binding-early-binding">Static Binding (Name Binding) (Early Binding)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#direct-c-function-call">direct C function call</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#late-static-binding">Late Static Binding</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#php-5-3-late-static-binding">PHP 5.3+ - Late Static Binding</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#dynamic-binding-late-binding-virtual-binding">Dynamic Binding (Late Binding) (Virtual Binding)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#c-virtual-table">C++ - Virtual Table</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="resource.html">Resource</a></li>
-<li class="toctree-l1"><a class="reference internal" href="type-inference.html">Type Inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="type-system.html">Type System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../programming-language/README.html">程式語言理論 (Programming Language Theory) (PLT)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pypy/brief.html">簡單介紹</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/ast.html">Python AST</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/async-await.html">Python - async &amp; await</a></li>
@@ -619,11 +580,11 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
       
-    <li>Polymorphism (多型)</li>
+    <li>電腦視覺</li>
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="https://github.com/wdv4758h/notes/blob/master/./programming-language/polymorphism.rst" class="fa fa-github"> Edit on GitHub</a>
+            <a href="https://github.com/wdv4758h/notes/blob/master/./computer-vision/README.rst" class="fa fa-github"> Edit on GitHub</a>
           
         
       </li>
@@ -633,370 +594,25 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="polymorphism">
-<h1><a class="toc-backref" href="#id1">Polymorphism (多型)</a><a class="headerlink" href="#polymorphism" title="本標題的永久連結">¶</a></h1>
-<div class="contents topic" id="table-of-contents">
-<p class="topic-title first">Table of Contents</p>
+  <div class="section" id="id1">
+<h1><a class="toc-backref" href="#id4">電腦視覺</a><a class="headerlink" href="#id1" title="本標題的永久連結">¶</a></h1>
+<div class="contents topic" id="id2">
+<p class="topic-title first">目錄</p>
 <ul class="simple">
-<li><a class="reference internal" href="#polymorphism" id="id1">Polymorphism (多型)</a><ul>
-<li><a class="reference internal" href="#introduction" id="id2">Introduction</a><ul>
-<li><a class="reference internal" href="#variance" id="id3">Variance</a></li>
-<li><a class="reference internal" href="#bounded-quantification-bounded-polymorphism" id="id4">Bounded Quantification (Bounded Polymorphism)</a><ul>
-<li><a class="reference internal" href="#rust-bounds-trait-restrictions" id="id5">Rust - Bounds (trait restrictions)</a></li>
-<li><a class="reference internal" href="#c-crtp" id="id6">C++ CRTP</a></li>
-<li><a class="reference internal" href="#julia-operator" id="id7">Julia - <code class="docutils literal"><span class="pre">&lt;:</span></code> operator</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#polymorphism-in-rust" id="id8">Polymorphism in Rust</a><ul>
-<li><a class="reference internal" href="#monomorphisation" id="id9">Monomorphisation</a></li>
-<li><a class="reference internal" href="#trait-objects" id="id10">Trait Objects</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#static-and-dynamic-polymorphism" id="id11">Static and Dynamic Polymorphism</a><ul>
-<li><a class="reference internal" href="#static-binding-name-binding-early-binding" id="id12">Static Binding (Name Binding) (Early Binding)</a><ul>
-<li><a class="reference internal" href="#direct-c-function-call" id="id13">direct C function call</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#late-static-binding" id="id14">Late Static Binding</a><ul>
-<li><a class="reference internal" href="#php-5-3-late-static-binding" id="id15">PHP 5.3+ - Late Static Binding</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#dynamic-binding-late-binding-virtual-binding" id="id16">Dynamic Binding (Late Binding) (Virtual Binding)</a><ul>
-<li><a class="reference internal" href="#c-virtual-table" id="id17">C++ - Virtual Table</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#reference" id="id18">Reference</a></li>
+<li><a class="reference internal" href="#id1" id="id4">電腦視覺</a><ul>
+<li><a class="reference internal" href="#id3" id="id5">主題</a></li>
 </ul>
 </li>
 </ul>
 </div>
-<div class="section" id="introduction">
-<h2><a class="toc-backref" href="#id2">Introduction</a><a class="headerlink" href="#introduction" title="本標題的永久連結">¶</a></h2>
-<p>Polymorphism 的概念是「為不同的 type 提供單一的介面」。</p>
-<p>在 Polymorphism 的概念底下可以延伸好幾種不同的方式，
-分別為：</p>
-<ul>
-<li><dl class="first docutils">
-<dt>Ad hoc polymorphism</dt>
-<dd><ul class="first last simple">
-<li>function 為許多種 type 實作了客製化的版本</li>
-<li>在大部分的語言中，通常是由 function overloading 來支援</li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>Parametric polymorphism</dt>
-<dd><ul class="first last simple">
-<li>code 在撰寫時沒有提及任何特定的 type，因此可以被任何新 type 使用</li>
-<li>在 OOP 社群中通常被稱為 generics 或 generic programming</li>
-<li>在 functional programming 社群中通常直接被稱為 polymorphism</li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>Subtyping (subtype polymorphism, inclusion polymorphism)</dt>
-<dd><ul class="first last simple">
-<li>code 在撰寫時告知傳入的 type 必須屬於特定的 type</li>
-<li>在 class-based 的語言中通常使用繼承</li>
-<li>在 OOP 社群中通常直接被稱為 polymorphism</li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><p class="first">Polytypism</p>
-</li>
-</ul>
-<p>parametric polymorphism 和 subtyping 之間的互動會產生出 <strong>variance</strong> 和 <strong>bounded quantification</strong> 兩個概念。</p>
-<p>C++ Template 是 Parametric 跟 Ad hoc 並行，
-programmers 可以把 type 的部份做保留，
-也可以針對特定的 type 自己實作客製化版本來 function overloading。</p>
-<hr class="docutils" />
-<p>在沒有 Polymorphism 的情況下，只能吃固定的 type 回傳固定的 type</p>
-<p>例如：加法，傳入兩個整數，回傳一個整數</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>Int → Int → Int
-</pre></div>
-</div>
-<p>Parametric Polymorphism 的情況下可以傳入任意的 type，
-先傳入 type，接著傳入兩筆資料，回傳一筆資料</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>(A: Type) → A → A → A
-</pre></div>
-</div>
-<p>Ad hoc Polymorphism 的情況下會連 programmer 自己實作的版本也傳進來 (function overloading)，
-所以會變成先傳入 type，接著傳入特定的實作，再傳入兩筆資料，最後回傳一筆資料</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>(A : Type) → Implemantation for A → A → A → A
-</pre></div>
-</div>
-<p>Subtyping 的話就再對傳入的 type 做限制，
-先傳入資料的 type 跟想限制的 type，接著確保 type 屬於其中，
-最後看是 Parametric Polymorphism 還是 Ad hoc Polymorphism 來做後續的處理：</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>(A : Type) → (Sup : Type) → A ∈ Sup → A → A → A
-(A : Type) → (Sup : Type) → A ∈ Sup → Implemantation for A → A → A → A
-</pre></div>
-</div>
-<div class="section" id="variance">
-<h3><a class="toc-backref" href="#id3">Variance</a><a class="headerlink" href="#variance" title="本標題的永久連結">¶</a></h3>
-<p>假設有個 type 叫作 <code class="docutils literal"><span class="pre">Animal</span></code> ，
-另外有個繼承自 <code class="docutils literal"><span class="pre">Animal</span></code> 的 type 叫 <code class="docutils literal"><span class="pre">Cat</span></code> ，
-那對於他們的 array 分別可以有幾種不同的關係：</p>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id5">主題</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
-<li>Covariant: <code class="docutils literal"><span class="pre">Cat[]</span></code> 是 <code class="docutils literal"><span class="pre">Animal[]</span></code></li>
-<li>Contravariant: <code class="docutils literal"><span class="pre">Animal[]</span></code> 是 <code class="docutils literal"><span class="pre">Cat[]</span></code></li>
-<li>Invariant:  <code class="docutils literal"><span class="pre">Animal[]</span></code> 不是 <code class="docutils literal"><span class="pre">Cat[]</span></code> ， <code class="docutils literal"><span class="pre">Cat[]</span></code> 不是 <code class="docutils literal"><span class="pre">Animal[]</span></code></li>
-</ul>
-<table border="1" class="docutils">
-<colgroup>
-<col width="43%" />
-<col width="31%" />
-<col width="27%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head">Argument Type</th>
-<th class="head">Return Type</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>C++, Java, Scala, D</td>
-<td>Invariant</td>
-<td>Covariant</td>
-</tr>
-<tr class="row-odd"><td>C#</td>
-<td>Invariant</td>
-<td>Invariant</td>
-</tr>
-<tr class="row-even"><td>Sather</td>
-<td>Contravariant</td>
-<td>Covariant</td>
-</tr>
-<tr class="row-odd"><td>Eiffel</td>
-<td>Covariant</td>
-<td>Covariant</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="bounded-quantification-bounded-polymorphism">
-<h3><a class="toc-backref" href="#id4">Bounded Quantification (Bounded Polymorphism)</a><a class="headerlink" href="#bounded-quantification-bounded-polymorphism" title="本標題的永久連結">¶</a></h3>
-<p>在原先沒有 polymorphism 的狀況下，
-一個 function 名稱只能吃固定的 type 當參數並回傳固定的 type。
-有了 polymorphism 後可以吃各種不同的 type 當參數並回傳各種不同的 type。
-但是其中又想在這樣的彈性中加上一些限制來確保 code 在使用時一定有特定的實作可以用呢？</p>
-<p>Bounded Quantification 就是要利用 subtyping
-來對原本沒有限制 type 的 parametric polymorphism 做一些限制，
-藉此保留可以使用任意 type 的彈性又確保該 type 含有特定的性質。</p>
-<div class="section" id="rust-bounds-trait-restrictions">
-<h4><a class="toc-backref" href="#id5">Rust - Bounds (trait restrictions)</a><a class="headerlink" href="#rust-bounds-trait-restrictions" title="本標題的永久連結">¶</a></h4>
-<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">trait</span><span class="w"> </span><span class="n">MyTrait</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">func</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">i32</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-<span class="k">impl</span><span class="w"> </span><span class="n">MyTrait</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">func</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="o">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="bp">self</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">data</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-<span class="c1">// Bounds, type &quot;T&quot; must have implmentation of &quot;MyTrait&quot;</span>
-<span class="k">fn</span><span class="w"> </span><span class="n">f</span><span class="o">&lt;</span><span class="n">T</span><span class="o">:</span><span class="w"> </span><span class="n">MyTrait</span><span class="o">&gt;</span><span class="p">(</span><span class="n">data</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">func</span><span class="p">(</span><span class="mi">100</span><span class="p">));</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-<span class="k">fn</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">f</span><span class="p">(</span><span class="mi">30_</span><span class="k">i32</span><span class="p">);</span><span class="w">   </span><span class="c1">// pass, 130</span>
-<span class="w">    </span><span class="n">f</span><span class="p">(</span><span class="mi">30_</span><span class="k">i64</span><span class="p">);</span><span class="w">   </span><span class="c1">// fail, &quot;MyTrait&quot; is not implemented for the type &quot;i64&quot;, can not call &quot;f&quot;</span>
-<span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="c-crtp">
-<h4><a class="toc-backref" href="#id6">C++ CRTP</a><a class="headerlink" href="#c-crtp" title="本標題的永久連結">¶</a></h4>
-<p>C++ 中使用到的 CRTP 技巧即是 Bounded Quantification，
-其稱為 F-bounded quantification 或是 recursively bounded quantification，
-範例：</p>
-<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="c1">// The Curiously Recurring Template Pattern (CRTP)</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">Base</span> <span class="p">{</span>
-    <span class="c1">// methods within Base can use template to access members of Derived</span>
-<span class="p">};</span>
-<span class="k">class</span> <span class="nc">Derived</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Base</span><span class="o">&lt;</span><span class="n">Derived</span><span class="o">&gt;</span> <span class="p">{</span>  <span class="c1">// Here !!!</span>
-    <span class="c1">// ...</span>
-<span class="p">};</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="julia-operator">
-<h4><a class="toc-backref" href="#id7">Julia - <code class="docutils literal"><span class="pre">&lt;:</span></code> operator</a><a class="headerlink" href="#julia-operator" title="本標題的永久連結">¶</a></h4>
-<div class="highlight-julia"><div class="highlight"><pre><span></span><span class="k">type</span><span class="nc"> X</span>
-    <span class="n">data</span><span class="p">::</span><span class="kt">Int32</span>
-    <span class="n">func</span><span class="p">::</span><span class="n">Function</span>
-
-    <span class="k">function</span><span class="nf"> X</span><span class="p">()</span>
-        <span class="n">instance</span> <span class="o">=</span> <span class="nb">new</span><span class="p">()</span>
-        <span class="n">instance</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="mi">42</span>
-        <span class="n">instance</span><span class="o">.</span><span class="n">func</span> <span class="o">=</span> <span class="k">function</span><span class="nf"> </span><span class="o">()</span>
-            <span class="k">return</span> <span class="n">instance</span><span class="o">.</span><span class="n">data</span> <span class="o">+</span> <span class="mi">42</span>
-        <span class="k">end</span>
-        <span class="k">return</span> <span class="n">instance</span>
-    <span class="k">end</span>
-<span class="k">end</span>
-
-<span class="k">function</span><span class="nf"> f</span><span class="p">{</span><span class="n">T</span><span class="o">&lt;:</span><span class="n">X</span><span class="p">}(</span><span class="n">data</span><span class="p">::</span><span class="n">T</span><span class="p">)</span>   <span class="c"># T must be subtype of X</span>
-    <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">func</span><span class="p">()</span>
-<span class="k">end</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="polymorphism-in-rust">
-<h2><a class="toc-backref" href="#id8">Polymorphism in Rust</a><a class="headerlink" href="#polymorphism-in-rust" title="本標題的永久連結">¶</a></h2>
-<p>trait 有兩種方式來達到 polymorphic，
-分別是：</p>
-<ul class="simple">
-<li>monomorphisation</li>
-<li>trait objects</li>
-</ul>
-<div class="section" id="monomorphisation">
-<h3><a class="toc-backref" href="#id9">Monomorphisation</a><a class="headerlink" href="#monomorphisation" title="本標題的永久連結">¶</a></h3>
-<p>Monomorphisation 為最常使用的作法，
-compiler 為不同 type 生出 generic function 的特製版，
-例如 C++ 的 Template 或是 Rust 中 <code class="docutils literal"><span class="pre">fn</span> <span class="pre">func&lt;T:</span> <span class="pre">Foo&gt;(x:</span> <span class="pre">&amp;T)</span></code> 的寫法，
-優點是可以做 static dispatching，
-甚至透過 inline 來增加 performance，
-缺點是需要特製許多版本，
-或造成 binary 變大。</p>
-<p>特點：</p>
-<ul class="simple">
-<li>有各自特製化的版本，速度比較快</li>
-<li>可以使用 static dispatch</li>
-<li>binary size 會因許多特製化而變大</li>
-</ul>
-</div>
-<div class="section" id="trait-objects">
-<h3><a class="toc-backref" href="#id10">Trait Objects</a><a class="headerlink" href="#trait-objects" title="本標題的永久連結">¶</a></h3>
-<p>特點：</p>
-<ul class="simple">
-<li>dynamic dispatch</li>
-<li>不會有許多特製化的版本</li>
-</ul>
-</div>
-</div>
-<div class="section" id="static-and-dynamic-polymorphism">
-<h2><a class="toc-backref" href="#id11">Static and Dynamic Polymorphism</a><a class="headerlink" href="#static-and-dynamic-polymorphism" title="本標題的永久連結">¶</a></h2>
-<p>Static Polymorphism 和 Dynamic Polymorphism 是從實作面來做的區分，
-可以在 Compile Time 決定執行到的 code 版本就稱為 Static，
-必須在 run time 才能決定執行到的 code 版本就稱為 Dynamic (通常利用 virtual function)。</p>
-<div class="section" id="static-binding-name-binding-early-binding">
-<h3><a class="toc-backref" href="#id12">Static Binding (Name Binding) (Early Binding)</a><a class="headerlink" href="#static-binding-name-binding-early-binding" title="本標題的永久連結">¶</a></h3>
-<p>在程式執行之前就把 name 都 binding 完</p>
-<div class="section" id="direct-c-function-call">
-<h4><a class="toc-backref" href="#id13">direct C function call</a><a class="headerlink" href="#direct-c-function-call" title="本標題的永久連結">¶</a></h4>
-<p>Static Binding 的簡單範例：</p>
-<div class="highlight-c"><div class="highlight"><pre><span></span><span class="c1">// C</span>
-
-<span class="cp">#include</span> <span class="cpf">&lt;math.h&gt;   // -lm</span><span class="cp"></span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kt">double</span> <span class="n">result</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="mf">0.7</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="late-static-binding">
-<h3><a class="toc-backref" href="#id14">Late Static Binding</a><a class="headerlink" href="#late-static-binding" title="本標題的永久連結">¶</a></h3>
-<p>介於 Static Binding 和 Dynamic Binding 之間的機制，
-跟單純的 Static Binding 不同，
-但是依然會在程式執行前決定好內容，
-卻又可以在後續的 code 裡影響到前面的行為。</p>
-<div class="section" id="php-5-3-late-static-binding">
-<h4><a class="toc-backref" href="#id15">PHP 5.3+ - Late Static Binding</a><a class="headerlink" href="#php-5-3-late-static-binding" title="本標題的永久連結">¶</a></h4>
-<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
-
-<span class="k">class</span> <span class="nc">A</span> <span class="p">{</span>
-    <span class="k">static</span> <span class="nv">$data</span> <span class="o">=</span> <span class="s2">&quot;static</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
-    <span class="k">static</span> <span class="k">function</span> <span class="nf">f1</span><span class="p">()</span> <span class="p">{</span> <span class="k">print</span><span class="p">(</span><span class="nx">self</span><span class="o">::</span><span class="nv">$data</span><span class="p">);</span> <span class="p">}</span>
-    <span class="k">static</span> <span class="k">function</span> <span class="nf">f2</span><span class="p">()</span> <span class="p">{</span> <span class="k">print</span><span class="p">(</span><span class="k">static</span><span class="o">::</span><span class="nv">$data</span><span class="p">);</span> <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="k">class</span> <span class="nc">B</span> <span class="k">extends</span> <span class="nx">A</span> <span class="p">{</span>
-    <span class="k">static</span> <span class="nv">$data</span> <span class="o">=</span> <span class="s2">&quot;late static</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nx">B</span><span class="o">::</span><span class="na">f1</span><span class="p">();</span>    <span class="c1">// static</span>
-<span class="nx">B</span><span class="o">::</span><span class="na">f2</span><span class="p">();</span>    <span class="c1">// late static</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="dynamic-binding-late-binding-virtual-binding">
-<h3><a class="toc-backref" href="#id16">Dynamic Binding (Late Binding) (Virtual Binding)</a><a class="headerlink" href="#dynamic-binding-late-binding-virtual-binding" title="本標題的永久連結">¶</a></h3>
-<p>在程式執行期間才把 name 都 binding 好，
-例如 Dynamic Dispatch (e.g. C++ Virtual Method Call)</p>
-<div class="section" id="c-virtual-table">
-<h4><a class="toc-backref" href="#id17">C++ - Virtual Table</a><a class="headerlink" href="#c-virtual-table" title="本標題的永久連結">¶</a></h4>
-<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Base</span>
-<span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-    <span class="n">FunctionPointer</span> <span class="o">*</span><span class="n">__vptr</span><span class="p">;</span>
-    <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">function1</span><span class="p">()</span> <span class="p">{};</span>
-    <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">function2</span><span class="p">()</span> <span class="p">{};</span>
-<span class="p">};</span>
-
-<span class="k">class</span> <span class="nc">D1</span><span class="o">:</span> <span class="k">public</span> <span class="n">Base</span>
-<span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-    <span class="k">virtual</span> <span class="kt">void</span> <span class="n">function1</span><span class="p">()</span> <span class="p">{};</span>
-<span class="p">};</span>
-
-<span class="k">class</span> <span class="nc">D2</span><span class="o">:</span> <span class="k">public</span> <span class="n">Base</span>
-<span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-    <span class="k">virtual</span> <span class="kt">void</span> <span class="n">function2</span><span class="p">()</span> <span class="p">{};</span>
-<span class="p">};</span>
-</pre></div>
-</div>
-<img alt="http://www.learncpp.com/cpp-tutorial/125-the-virtual-table/" src="../_images/vtable.gif" />
-</div>
-</div>
-</div>
-<div class="section" id="reference">
-<h2><a class="toc-backref" href="#id18">Reference</a><a class="headerlink" href="#reference" title="本標題的永久連結">¶</a></h2>
-<ul>
-<li><dl class="first docutils">
-<dt>Rust</dt>
-<dd><ul class="first last simple">
-<li><a class="reference external" href="https://doc.rust-lang.org/book/generics.html">Rust Book - Generics</a></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>Wikipedia</dt>
-<dd><ul class="first last simple">
-<li><a class="reference external" href="https://en.wikipedia.org/wiki/Object-oriented_programming">Wikipedia - Object-oriented programming</a></li>
-<li><a class="reference external" href="https://en.wikipedia.org/wiki/Polymorphism_%28computer_science%29">Wikipedia - Polymorphism (computer science)</a></li>
-<li><a class="reference external" href="https://en.wikipedia.org/wiki/Parametric_polymorphism">Wikipedia - Parametric polymorphism</a></li>
-<li><a class="reference external" href="https://en.wikipedia.org/wiki/Covariance_and_contravariance_%28computer_science%29">Wikipedia - Covariance and contravariance (computer science)</a></li>
-<li><a class="reference external" href="https://en.wikipedia.org/wiki/Bounded_quantification">Wikipedia - Bounded quantification</a></li>
-<li><a class="reference external" href="https://en.wikipedia.org/wiki/System_F">Wikipedia - System F (a.k.a Polymorphic Lambda Calculus)</a></li>
-<li><a class="reference external" href="https://en.wikipedia.org/wiki/Lambda_cube">Wikipedia - Lambda cube</a></li>
-<li><a class="reference external" href="https://en.wikipedia.org/wiki/System_F-sub">Wikipedia - System F-sub</a></li>
-<li><a class="reference external" href="https://en.wikipedia.org/wiki/Generic_programming">Wikipedia - Generic programming</a></li>
-<li><a class="reference external" href="https://en.wikipedia.org/wiki/Julia_%28programming_language%29">Wikipedia - Julia (programming language)</a></li>
-<li><a class="reference external" href="https://en.wikipedia.org/wiki/Late_binding">Wikipedia - Late binding</a></li>
-<li><a class="reference external" href="https://en.wikipedia.org/wiki/Name_binding">Wikipedia - Name binding</a></li>
-</ul>
-</dd>
-</dl>
-</li>
+<li>Object Recognition</li>
+<li>OCR (Optical Character Recognition)</li>
+<li>Motion Analysis</li>
+<li>Scene Reconstruction</li>
+<li>SLAM (Simultaneous Localization and Mapping)</li>
 </ul>
 </div>
 </div>
@@ -1008,10 +624,10 @@ compiler 為不同 type 生出 generic function 的特製版，
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="resource.html" class="btn btn-neutral float-right" title="Resource" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="SIFT.html" class="btn btn-neutral float-right" title="SIFT" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="my-status.html" class="btn btn-neutral" title="個人各程式語言接觸狀況" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../compression/resource.html" class="btn btn-neutral" title="資料壓縮相關資源" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

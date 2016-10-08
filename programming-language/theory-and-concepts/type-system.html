@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Elixir &mdash; wdv4758h-notes latest 說明文件</title>
+  <title>Type System &mdash; wdv4758h-notes latest 說明文件</title>
   
 
   
@@ -174,6 +174,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../compression/jpeg.html">JPEG Compression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../compression/png.html">PNG Compression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../compression/resource.html">資料壓縮相關資源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computer-vision/README.html">電腦視覺</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computer-vision/SIFT.html">SIFT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computer-vision/books.html">電腦視覺相關書籍</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computer-vision/object-detection.html">Object Detection</a></li>
@@ -244,6 +245,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../gpgpu/spir-v.html">SPIR-V</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../graphics/README.html">Linux Graphics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../graphics/dri.html">DRI (Direct Rendering Infrastructure)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/glsl.html">GLSL - OpenGL Shading Language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../graphics/introduction.html">Linux Graphics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../graphics/mesa.html">Mesa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../hardware/hardware-and-programming.html">Hardware &amp; Programming</a></li>
@@ -356,17 +358,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../non-cs/visa-bitcon.html">VISA &amp; Bitcoin</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../non-cs/外宿準備項目.html">外宿準備項目</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html">程式語言理論 (Programming Language Theory) (PLT)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../curry-howard.html">Curry-Howard correspondence</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../group-algebraic-structures.html">群論</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../higher-kinded-types.html">Higher-Kinded Type (HKT)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../hindley-milner.html">Hindley-Milner Type Inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../hoare-logic.html">Hoare Logic (霍爾邏輯)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../multiple-dispatch.html">Multiple Dispatch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../my-status.html">個人各程式語言接觸狀況</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../polymorphism.html">Polymorphism (多型)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../resource.html">Resource</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../type-inference.html">Type Inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../type-system.html">Type System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../pypy/brief.html">簡單介紹</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python/ast.html">Python AST</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python/async-await.html">Python - async &amp; await</a></li>
@@ -584,11 +575,11 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
       
-    <li>Elixir</li>
+    <li>Type System</li>
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="https://github.com/wdv4758h/notes/blob/master/./programming-language/elixir/resource.rst" class="fa fa-github"> Edit on GitHub</a>
+            <a href="https://github.com/wdv4758h/notes/blob/master/./programming-language/theory-and-concepts/type-system.rst" class="fa fa-github"> Edit on GitHub</a>
           
         
       </li>
@@ -598,16 +589,57 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="elixir">
-<h1>Elixir<a class="headerlink" href="#elixir" title="本標題的永久連結">¶</a></h1>
+  <div class="section" id="type-system">
+<h1>Type System<a class="headerlink" href="#type-system" title="本標題的永久連結">¶</a></h1>
+<div class="section" id="substructural-type-system">
+<h2>Substructural Type System<a class="headerlink" href="#substructural-type-system" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="http://elixir-lang.org/">Elixir</a></li>
-<li><a class="reference external" href="https://github.com/hansihe/Rustler">Rustler - Safe Rust bridge for creating Erlang NIF functions</a></li>
-<li><a class="reference external" href="https://speakerdeck.com/tony612/why-i-love-elixir">Why I love Elixir</a></li>
-<li><a class="reference external" href="https://speakerdeck.com/faheemmughal/introduction-to-elixir">Introduction to Elixir</a></li>
-<li><a class="reference external" href="http://learnyousomeerlang.com/">Learn You Some Erlang for Great Good!</a></li>
-<li><a class="reference external" href="http://www.erlang-in-anger.com/">Stuff Goes Bad - Erlang in Anger</a></li>
+<li>Linear type systems</li>
+<li>Affine type systems</li>
+<li>Relevant type system</li>
+<li>Ordered type system</li>
 </ul>
+<div class="section" id="affine-type-system">
+<h3>Affine Type System<a class="headerlink" href="#affine-type-system" title="本標題的永久連結">¶</a></h3>
+<p>Affine Type System 的特性是 &#8220;最多只能用一次&#8221;，
+主要用於避免 &#8220;use-after&#8221; 系列的 bugs，
+常用於 threads、connections、files、allocations 等地方。</p>
+<div class="section" id="affine-type-system-in-rust">
+<h4>Affine Type System in Rust<a class="headerlink" href="#affine-type-system-in-rust" title="本標題的永久連結">¶</a></h4>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/Gankro/thesis/blob/master/chapters/rust.tex">Rust - Affine Types, Borrows and Regions, Mutable XOR Shared, Unsafe Rust</a></li>
+</ul>
+<p>大概的內容：一開始想要在 data ownership 引入 Affine Type System 來避開一些常見問題，後來為了增加實用性而需解決若干狀況，最後給出了各狀況的解決方案形成現在 Rust 語言的基底</p>
+<p>keyword: Rust, Affine, Ownership, Lifetime, Traits, Unsafe</p>
+<hr class="docutils" />
+<p>Rust 的 data &#8220;Ownership&#8221; 是採用 Affine Type System (有例外，不是唯一)，
+和一般 Affinte Type 不同的在於是從 &#8220;Ownership&#8221; 的角度來看，
+也就是說 value 只會單獨被佔有 (uniquely owned)。</p>
+<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">fn</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// A growable array</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Vec</span><span class="o">::</span><span class="n">new</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// transfer ownership of `data` to `data2`</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">data2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// `data` is now statically inaccessible,</span>
+<span class="w">    </span><span class="c1">// and logically uninitialized</span>
+
+<span class="w">    </span><span class="c1">// transfer ownership of `data2` to `consume`</span>
+<span class="w">    </span><span class="n">consume</span><span class="p">(</span><span class="n">data2</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// `data2` is now statically inaccessible,</span>
+<span class="w">    </span><span class="c1">// and logically uninitialized</span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">fn</span><span class="w"> </span><span class="n">consume</span><span class="p">(</span><span class="k">mut</span><span class="w"> </span><span class="n">data3</span><span class="o">:</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">u32</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Mutating the collection is known to be safe, because</span>
+<span class="w">    </span><span class="c1">// `data3` knows it&#39;s the only one who can access it.</span>
+<span class="w">    </span><span class="n">data3</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
 

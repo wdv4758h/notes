@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Go &mdash; wdv4758h-notes latest 說明文件</title>
+  <title>Higher-Kinded Type (HKT) &mdash; wdv4758h-notes latest 說明文件</title>
   
 
   
@@ -174,6 +174,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../compression/jpeg.html">JPEG Compression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../compression/png.html">PNG Compression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../compression/resource.html">資料壓縮相關資源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computer-vision/README.html">電腦視覺</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computer-vision/SIFT.html">SIFT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computer-vision/books.html">電腦視覺相關書籍</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computer-vision/object-detection.html">Object Detection</a></li>
@@ -244,6 +245,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../gpgpu/spir-v.html">SPIR-V</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../graphics/README.html">Linux Graphics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../graphics/dri.html">DRI (Direct Rendering Infrastructure)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/glsl.html">GLSL - OpenGL Shading Language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../graphics/introduction.html">Linux Graphics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../graphics/mesa.html">Mesa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../hardware/hardware-and-programming.html">Hardware &amp; Programming</a></li>
@@ -356,17 +358,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../non-cs/visa-bitcon.html">VISA &amp; Bitcoin</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../non-cs/外宿準備項目.html">外宿準備項目</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html">程式語言理論 (Programming Language Theory) (PLT)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../curry-howard.html">Curry-Howard correspondence</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../group-algebraic-structures.html">群論</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../higher-kinded-types.html">Higher-Kinded Type (HKT)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../hindley-milner.html">Hindley-Milner Type Inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../hoare-logic.html">Hoare Logic (霍爾邏輯)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../multiple-dispatch.html">Multiple Dispatch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../my-status.html">個人各程式語言接觸狀況</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../polymorphism.html">Polymorphism (多型)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../resource.html">Resource</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../type-inference.html">Type Inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../type-system.html">Type System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../pypy/brief.html">簡單介紹</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python/ast.html">Python AST</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python/async-await.html">Python - async &amp; await</a></li>
@@ -584,11 +575,11 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
       
-    <li>Go</li>
+    <li>Higher-Kinded Type (HKT)</li>
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="https://github.com/wdv4758h/notes/blob/master/./programming-language/go/go.rst" class="fa fa-github"> Edit on GitHub</a>
+            <a href="https://github.com/wdv4758h/notes/blob/master/./programming-language/theory-and-concepts/higher-kinded-types.rst" class="fa fa-github"> Edit on GitHub</a>
           
         
       </li>
@@ -598,70 +589,35 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="go">
-<h1>Go<a class="headerlink" href="#go" title="本標題的永久連結">¶</a></h1>
-<p>官方的 Go compiler 用了很多 escape analysis，
-所以有些 heap allocation 會被轉而長在 stack 上。</p>
-<p>Go 的 GC 在 1.5 後又會修正一些 latency 的問題，
-待之後研究。</p>
-<ul>
-<li><dl class="first docutils">
-<dt><a class="reference external" href="https://blog.golang.org/go1.7">Go 1.7</a></dt>
-<dd><ul class="first last simple">
-<li>SSA (Static single assignment form)</li>
-<li>Bounds-checking elimination</li>
-<li>CSE (Common subexpression elimination)</li>
-<li><a class="reference external" href="https://pauladamsmith.com/blog/2016/08/go-1.7-ssa.html">Looking at your program’s structure in Go 1.7</a></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-<div class="section" id="ssa">
-<h2>觀察 SSA 的改變<a class="headerlink" href="#ssa" title="本標題的永久連結">¶</a></h2>
-<p>測試程式：</p>
-<div class="highlight-go"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nx">main</span>
-
-<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">x</span> <span class="o">:=</span> <span class="mi">5</span>
-
-    <span class="k">if</span> <span class="mi">1</span> <span class="p">&lt;</span> <span class="mi">0</span> <span class="p">{</span>
-        <span class="nx">x</span> <span class="p">=</span> <span class="o">-</span><span class="mi">42</span>
-    <span class="p">}</span>
-
-    <span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>編譯並輸出各階段的 SSA ：</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>env <span class="nv">GOSSAFUNC</span><span class="o">=</span>main go build
-</pre></div>
-</div>
-<p>此時在同個資料夾下會產生 <code class="docutils literal"><span class="pre">ssa.html</span></code> ，
-打開簡單的 web server 觀看內容：</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>python -m http.server
-</pre></div>
-</div>
-<p>可以在網頁上點選某個值或區塊，
-此時會對各階段對應的地方上色。</p>
-</div>
+  <div class="section" id="higher-kinded-type-hkt">
+<h1>Higher-Kinded Type (HKT)<a class="headerlink" href="#higher-kinded-type-hkt" title="本標題的永久連結">¶</a></h1>
+<p>普通的 Type 稱為「Proper Type」（例如 <code class="docutils literal"><span class="pre">int</span></code> 、 <code class="docutils literal"><span class="pre">bool</span></code> 之類的）。</p>
+<p>一個 Type 的 Type 稱作為「Kind」，
+Proper Type 的 Kind 通常標記為 <code class="docutils literal"><span class="pre">*</span></code> 。</p>
+<p>Proper Type 的 Type Constructor 的 Kind 為 <code class="docutils literal"><span class="pre">*</span> <span class="pre">-&gt;</span> <span class="pre">*</span></code> ，
+像是 <code class="docutils literal"><span class="pre">List&lt;T&gt;</span></code> 就不是 Proper Type，
+它需要 Type Parameters 來建立 Concrete Type，
+這種基於另外的 Proper Type 抽象化而成的 Type 稱為「First-Order Type」，
+接受一個 Type Parameter 的 First-Order Type 標為 <code class="docutils literal"><span class="pre">*</span> <span class="pre">-&gt;</span> <span class="pre">*</span></code> ，
+接受兩個 Type Parameters 的 First-Order Type 標為 <code class="docutils literal"><span class="pre">*</span> <span class="pre">-&gt;</span> <span class="pre">*</span> <span class="pre">-&gt;</span> <span class="pre">*</span></code> 。</p>
+<p>基於 First-Order Type 抽象化而成的 Type 就稱為「Second-Order Type」，
+Type 高於 First-Order 的就都稱為「Higher-Kinded Type」，
+一個簡單的 Higher-Kinded Type 標記： <code class="docutils literal"><span class="pre">(*</span> <span class="pre">-&gt;</span> <span class="pre">*)</span> <span class="pre">-&gt;</span> <span class="pre">*</span></code> （例如 <code class="docutils literal"><span class="pre">List&lt;List&lt;T&gt;&gt;</span></code> ）。</p>
 <div class="section" id="id1">
-<h2>參考<a class="headerlink" href="#id1" title="本標題的永久連結">¶</a></h2>
-<ul>
-<li><p class="first"><a class="reference external" href="http://golang.org/doc/faq">Go - Frequently Asked Questions (FAQ)</a></p>
-</li>
-<li><p class="first"><a class="reference external" href="https://en.wikipedia.org/wiki/Go_%28programming_language%29">Wikipedia - Go</a></p>
-</li>
-<li><dl class="first docutils">
-<dt><a class="reference external" href="https://sourcegraph.com/blog/live/gophercon2015/123574706480">Go GC: Solving the Latency Problem in Go 1.5</a></dt>
-<dd><ul class="first last simple">
-<li><a class="reference external" href="https://news.ycombinator.com/item?id=9854408">HackerNews</a></li>
+<h2>概念<a class="headerlink" href="#id1" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://adriaanm.github.io/files/higher.pdf">Generics of a Higher Kind</a></li>
+<li><a class="reference external" href="http://blogs.atlassian.com/2013/09/scala-types-of-a-higher-kind/">Scala: Types of a higher kind</a></li>
+<li><a class="reference external" href="https://www.stephanboyer.com/post/115/higher-rank-and-higher-kinded-types">Higher-rank and higher-kinded types</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Kind_%28type_theory%29">Wikipedia - Kind (type theory)</a></li>
 </ul>
-</dd>
-</dl>
-</li>
-<li><p class="first"><a class="reference external" href="https://gobyexample.com/">Go by Example</a></p>
-</li>
+</div>
+<div class="section" id="rust">
+<h2>Rust<a class="headerlink" href="#rust" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://www.hydrocodedesign.com/2014/04/02/higher-kinded-types/">Higher-Kinded Polymorphism</a></li>
+<li><a class="reference external" href="https://github.com/rust-lang/rfcs/issues/324">Rust - Higher kinded polyorphism #324</a></li>
+<li><a class="reference external" href="https://gist.github.com/CMCDragonkai/a5638f50c87d49f815b8">Rust/Haskell: Higher-Kinded Types (HKT)</a></li>
 </ul>
 </div>
 </div>

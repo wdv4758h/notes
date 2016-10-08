@@ -175,6 +175,7 @@
 <li class="toctree-l1"><a class="reference internal" href="compression/jpeg.html">JPEG Compression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compression/png.html">PNG Compression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compression/resource.html">資料壓縮相關資源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="computer-vision/README.html">電腦視覺</a></li>
 <li class="toctree-l1"><a class="reference internal" href="computer-vision/SIFT.html">SIFT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="computer-vision/books.html">電腦視覺相關書籍</a></li>
 <li class="toctree-l1"><a class="reference internal" href="computer-vision/object-detection.html">Object Detection</a></li>
@@ -245,6 +246,7 @@
 <li class="toctree-l1"><a class="reference internal" href="gpgpu/spir-v.html">SPIR-V</a></li>
 <li class="toctree-l1"><a class="reference internal" href="graphics/README.html">Linux Graphics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="graphics/dri.html">DRI (Direct Rendering Infrastructure)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graphics/glsl.html">GLSL - OpenGL Shading Language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="graphics/introduction.html">Linux Graphics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="graphics/mesa.html">Mesa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hardware/hardware-and-programming.html">Hardware &amp; Programming</a></li>
@@ -357,17 +359,6 @@
 <li class="toctree-l1"><a class="reference internal" href="non-cs/visa-bitcon.html">VISA &amp; Bitcoin</a></li>
 <li class="toctree-l1"><a class="reference internal" href="non-cs/外宿準備項目.html">外宿準備項目</a></li>
 <li class="toctree-l1"><a class="reference internal" href="programming-language/README.html">程式語言理論 (Programming Language Theory) (PLT)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="programming-language/curry-howard.html">Curry-Howard correspondence</a></li>
-<li class="toctree-l1"><a class="reference internal" href="programming-language/group-algebraic-structures.html">群論</a></li>
-<li class="toctree-l1"><a class="reference internal" href="programming-language/higher-kinded-types.html">Higher-Kinded Type (HKT)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="programming-language/hindley-milner.html">Hindley-Milner Type Inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="programming-language/hoare-logic.html">Hoare Logic (霍爾邏輯)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="programming-language/multiple-dispatch.html">Multiple Dispatch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="programming-language/my-status.html">個人各程式語言接觸狀況</a></li>
-<li class="toctree-l1"><a class="reference internal" href="programming-language/polymorphism.html">Polymorphism (多型)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="programming-language/resource.html">Resource</a></li>
-<li class="toctree-l1"><a class="reference internal" href="programming-language/type-inference.html">Type Inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="programming-language/type-system.html">Type System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pypy/brief.html">簡單介紹</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python/ast.html">Python AST</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python/async-await.html">Python - async &amp; await</a></li>
@@ -1334,6 +1325,10 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="compression/resource.html">資料壓縮相關資源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="computer-vision/README.html">電腦視覺</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="computer-vision/README.html#id3">主題</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="computer-vision/SIFT.html">SIFT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="computer-vision/books.html">電腦視覺相關書籍</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="computer-vision/books.html#id2">列表</a></li>
@@ -1609,6 +1604,21 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="graphics/dri.html#dri2">DRI2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="graphics/dri.html#dri3">DRI3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="graphics/dri.html#id2">參考</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="graphics/glsl.html">GLSL - OpenGL Shading Language</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="graphics/glsl.html#id2">歷史</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphics/glsl.html#id3">基本介紹</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="graphics/glsl.html#graphics-pipeline">Graphics Pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="graphics/glsl.html#id4">編譯器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphics/glsl.html#webgl">WebGL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphics/glsl.html#id5">其他</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="graphics/glsl.html#open-shading-language">Open Shading Language</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="graphics/glsl.html#id7">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="graphics/introduction.html">Linux Graphics</a><ul>
@@ -2431,70 +2441,6 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="programming-language/README.html#id3">主題列表</a></li>
 <li class="toctree-l2"><a class="reference internal" href="programming-language/README.html#id4">程式語言案例探討</a></li>
 <li class="toctree-l2"><a class="reference internal" href="programming-language/README.html#id5">參考</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="programming-language/curry-howard.html">Curry-Howard correspondence</a></li>
-<li class="toctree-l1"><a class="reference internal" href="programming-language/group-algebraic-structures.html">群論</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="programming-language/group-algebraic-structures.html#identity-element">Identity Element</a></li>
-<li class="toctree-l2"><a class="reference internal" href="programming-language/group-algebraic-structures.html#semigroup">Semigroup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="programming-language/group-algebraic-structures.html#monoid">Monoid</a></li>
-<li class="toctree-l2"><a class="reference internal" href="programming-language/group-algebraic-structures.html#monoid-morphisms">Monoid Morphisms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="programming-language/group-algebraic-structures.html#id3">性質表</a></li>
-<li class="toctree-l2"><a class="reference internal" href="programming-language/group-algebraic-structures.html#id4">相關主題</a></li>
-<li class="toctree-l2"><a class="reference internal" href="programming-language/group-algebraic-structures.html#id5">參考</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="programming-language/higher-kinded-types.html">Higher-Kinded Type (HKT)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="programming-language/higher-kinded-types.html#id1">概念</a></li>
-<li class="toctree-l2"><a class="reference internal" href="programming-language/higher-kinded-types.html#rust">Rust</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="programming-language/hindley-milner.html">Hindley-Milner Type Inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="programming-language/hoare-logic.html">Hoare Logic (霍爾邏輯)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="programming-language/hoare-logic.html#id2">歷史</a></li>
-<li class="toctree-l2"><a class="reference internal" href="programming-language/hoare-logic.html#hoare-triple">Hoare triple</a></li>
-<li class="toctree-l2"><a class="reference internal" href="programming-language/hoare-logic.html#id3">實際案例</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="programming-language/hoare-logic.html#id4">加法</a></li>
-<li class="toctree-l3"><a class="reference internal" href="programming-language/hoare-logic.html#id5">沒有副作用</a></li>
-<li class="toctree-l3"><a class="reference internal" href="programming-language/hoare-logic.html#composition">Composition</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="programming-language/hoare-logic.html#id6">相關主題</a></li>
-<li class="toctree-l2"><a class="reference internal" href="programming-language/hoare-logic.html#id7">參考</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="programming-language/multiple-dispatch.html">Multiple Dispatch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="programming-language/my-status.html">個人各程式語言接觸狀況</a></li>
-<li class="toctree-l1"><a class="reference internal" href="programming-language/polymorphism.html">Polymorphism (多型)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="programming-language/polymorphism.html#introduction">Introduction</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="programming-language/polymorphism.html#variance">Variance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="programming-language/polymorphism.html#bounded-quantification-bounded-polymorphism">Bounded Quantification (Bounded Polymorphism)</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="programming-language/polymorphism.html#polymorphism-in-rust">Polymorphism in Rust</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="programming-language/polymorphism.html#monomorphisation">Monomorphisation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="programming-language/polymorphism.html#trait-objects">Trait Objects</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="programming-language/polymorphism.html#static-and-dynamic-polymorphism">Static and Dynamic Polymorphism</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="programming-language/polymorphism.html#static-binding-name-binding-early-binding">Static Binding (Name Binding) (Early Binding)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="programming-language/polymorphism.html#late-static-binding">Late Static Binding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="programming-language/polymorphism.html#dynamic-binding-late-binding-virtual-binding">Dynamic Binding (Late Binding) (Virtual Binding)</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="programming-language/polymorphism.html#reference">Reference</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="programming-language/resource.html">Resource</a></li>
-<li class="toctree-l1"><a class="reference internal" href="programming-language/type-inference.html">Type Inference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="programming-language/type-inference.html#hindley-milner">Hindley-Milner</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="programming-language/type-system.html">Type System</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="programming-language/type-system.html#substructural-type-system">Substructural Type System</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="programming-language/type-system.html#affine-type-system">Affine Type System</a></li>
-</ul>
-</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="pypy/brief.html">簡單介紹</a></li>
