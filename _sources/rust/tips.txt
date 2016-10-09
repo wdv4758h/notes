@@ -134,6 +134,7 @@ Conditional Attribute
 
 
 * `RFC - 0194 - cfg syntax <https://github.com/rust-lang/rfcs/blob/master/text/0194-cfg-syntax.md>`_
+* `Quick tip: the #[cfg_attr] attribute <https://chrismorgan.info/blog/rust-cfg_attr.html>`_
 
 
 
@@ -171,6 +172,95 @@ OSX 上還可以選擇 ``framework`` 。
     # 放到 GitHub pages
     ghp-import docs
     git push origin gh-pages:gh-pages
+
+
+
+re-export
+========================================
+
+.. code-block:: rust
+
+    pub use library::*;
+
+
+
+Optional Arguments
+========================================
+
+Rust 1.12 開始 ``Option`` 實做了 ``From`` ，
+``From`` 是一個很基本的型別轉換 ``trait`` ，
+任何的 Rust 型別都可以實做 ``From`` 。
+
+幾個使用範例：
+
+.. code-block:: rust
+
+    // str -> String
+    // we have "impl<'a> From<&'a str> for String"
+    let hello = String::from("Hello, world!");
+
+    // i16 -> i32
+    // we have "impl From<i16> for i32"
+    let number = i32::from(42_i16);
+
+
+我們從 Rust 1.12 開始也可以這樣做：
+
+.. code-block:: rust
+
+    // i32 -> Option<i32>
+    let maybe_int = Option::from(42);
+
+
+這看似沒有什麼重要的突破，
+因為我們可以用 ``Some(42)`` 來達到同樣的事，
+但是這其實在很多地方可以幫助我們少打 ``Some(x)`` 的次數。
+
+假設我們原本有這樣的函式：
+
+.. code-block:: rust
+
+    fn maybe_plus_5(x: Option<i32>) -> i32 {
+        x.unwrap_or(0) + 5
+    }
+
+
+在使用時得明確建立 ``Option`` 物件：
+
+.. code-block:: rust
+
+    let _ = maybe_plus_5(Some(42));  // OK
+    let _ = maybe_plus_5(None);      // OK
+    let _ = maybe_plus_5(42);        // error !!!
+
+
+現在 ``Option<T>`` 有實做 ``From<T>`` 後，
+狀況會改善很多：
+
+.. code-block:: rust
+
+    fn maybe_plus_5<T>(x: T) -> i32 where Option<i32>: From<T> {
+        Option::from(x).unwrap_or(0) + 5
+    }
+
+.. code-block:: rust
+
+    let _ = maybe_plus_5(Some(42));  // OK
+    let _ = maybe_plus_5(None);      // OK
+    let _ = maybe_plus_5(42);        // OK, 不用用 ``Some`` 包起來 !!!
+
+
+更好的寫法：
+
+.. code-block:: rust
+
+    fn maybe_plus_5<T: Into<Option<i32>>>(x: T) -> i32 {
+        x.into().unwrap_or(0) + 5
+    }
+
+
+* `Optional arguments in Rust 1.12 <http://xion.io/post/code/rust-optional-args.html>`_
+* `core: impl From<T> for Option<T> <https://github.com/rust-lang/rust/pull/34828>`_
 
 
 

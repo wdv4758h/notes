@@ -171,6 +171,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../compiler/porting.html">Use Compiler To Help Porting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../compiler/resource.html">Compiler Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../compiler/ssa.html">SSA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/transpiler.html">轉譯器 (Transpiler) (Source-to-Source Compiler)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../compression/jpeg.html">JPEG Compression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../compression/png.html">PNG Compression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../compression/resource.html">資料壓縮相關資源</a></li>
@@ -305,6 +306,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../misc/archive.html">Archive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../misc/articles.html">文章</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../misc/bandwidth.html">頻寬成本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/bit-hacks.html">Bit Hacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../misc/calendar.html">Calendar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../misc/conference.html">Conference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../misc/disk-encryption.html">Disk Encryption</a></li>
@@ -417,7 +419,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/README.html">Rust Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/any.html">Rust&#8217;s runtime reflection - &#8220;Any&#8221; type trait</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/articles.html">文章閱讀（Articles）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/asmjs.html">Rust to asm.js</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/cargo.html">Cargo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/ecosystem.html">Rust 生態圈 (Rust Ecosystem)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/features-basic.html">Rust&#8217;s Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/index.html">My Rust Articles Collection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/iterator.html">Iterator</a></li>
@@ -636,7 +640,45 @@
 此時會對各階段對應的地方上色。</p>
 </div>
 <div class="section" id="id1">
-<h2>參考<a class="headerlink" href="#id1" title="本標題的永久連結">¶</a></h2>
+<h2>參數<a class="headerlink" href="#id1" title="本標題的永久連結">¶</a></h2>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># 輸出所有執行的指令</span>
+go build -x
+
+<span class="c1"># 關閉編譯器優化和 inlining，可以在 ``go tool compile -help`` 找到可傳給編譯器的參數</span>
+go build -gcflags<span class="o">=</span><span class="s2">&quot;-N -l&quot;</span>
+
+<span class="c1"># 輸出測試過程</span>
+go <span class="nb">test</span> -v
+
+<span class="c1"># 執行 Go 的 race detector</span>
+go <span class="nb">test</span> -race
+
+<span class="c1"># 指定要執行的測試</span>
+go <span class="nb">test</span> -run<span class="o">=</span>Example
+
+<span class="c1"># 輸出測試涵蓋結果並且在瀏覽器中顯示</span>
+go <span class="nb">test</span> -coverprofile<span class="o">=</span>c.out <span class="o">&amp;&amp;</span> go tool cover -html<span class="o">=</span>c.out
+
+<span class="c1"># 讓 Go tool 呼叫外部的程式去處理</span>
+go <span class="nb">test</span> -exec CMD
+
+<span class="c1"># 取得套件，如果套件已經存在於 GOPATH 的話，將不會更新，要加上 ``-u`` 來強制更新</span>
+go get -u github.com/golang/lint/golint
+
+<span class="c1"># 只下載套件，不編譯、不安裝</span>
+go get -d golang.org/x/oauth2/...
+
+<span class="c1"># 取得測試時需要的額外相依套件</span>
+go get -t
+
+<span class="c1"># 以客製化的格式列出 Go 套件</span>
+go list -f <span class="s1">&#39;{{.Deps}}&#39;</span> runtime
+<span class="c1"># [runtime/internal/atomic runtime/internal/sys unsafe]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>參考<a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
 <ul>
 <li><p class="first"><a class="reference external" href="http://golang.org/doc/faq">Go - Frequently Asked Questions (FAQ)</a></p>
 </li>
@@ -651,6 +693,10 @@
 </dl>
 </li>
 <li><p class="first"><a class="reference external" href="https://gobyexample.com/">Go by Example</a></p>
+</li>
+<li><p class="first"><a class="reference external" href="http://golang.rakyll.org/go-tool-flags/">Go tooling essentials</a></p>
+</li>
+<li><p class="first"><a class="reference external" href="http://dave.cheney.net/2014/09/14/go-list-your-swiss-army-knife">go list, your Swiss army knife</a></p>
 </li>
 </ul>
 </div>

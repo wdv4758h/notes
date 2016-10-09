@@ -172,6 +172,7 @@
 <li class="toctree-l1"><a class="reference internal" href="compiler/porting.html">Use Compiler To Help Porting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiler/resource.html">Compiler Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiler/ssa.html">SSA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler/transpiler.html">轉譯器 (Transpiler) (Source-to-Source Compiler)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compression/jpeg.html">JPEG Compression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compression/png.html">PNG Compression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compression/resource.html">資料壓縮相關資源</a></li>
@@ -306,6 +307,7 @@
 <li class="toctree-l1"><a class="reference internal" href="misc/archive.html">Archive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/articles.html">文章</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/bandwidth.html">頻寬成本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc/bit-hacks.html">Bit Hacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/calendar.html">Calendar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/conference.html">Conference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/disk-encryption.html">Disk Encryption</a></li>
@@ -418,7 +420,9 @@
 <li class="toctree-l1"><a class="reference internal" href="rust/README.html">Rust Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/any.html">Rust&#8217;s runtime reflection - &#8220;Any&#8221; type trait</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/articles.html">文章閱讀（Articles）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rust/asmjs.html">Rust to asm.js</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/cargo.html">Cargo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rust/ecosystem.html">Rust 生態圈 (Rust Ecosystem)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/features-basic.html">Rust&#8217;s Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/index.html">My Rust Articles Collection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/iterator.html">Iterator</a></li>
@@ -1297,6 +1301,10 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l1"><a class="reference internal" href="compiler/porting.html">Use Compiler To Help Porting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiler/resource.html">Compiler Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiler/ssa.html">SSA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler/transpiler.html">轉譯器 (Transpiler) (Source-to-Source Compiler)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="compiler/transpiler.html#id2">參考</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="compression/jpeg.html">JPEG Compression</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="compression/jpeg.html#lossless-compression">無損壓縮 (Lossless Compression)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compression/jpeg.html#lossy-compression">有損壓縮 (Lossy Compression)</a><ul>
@@ -2087,6 +2095,10 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="misc/bandwidth.html#id2">參考</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="misc/bit-hacks.html">Bit Hacks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="misc/bit-hacks.html#id1">參考</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="misc/calendar.html">Calendar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/conference.html">Conference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="misc/conference.html#fosdem">FOSDEM</a></li>
@@ -2753,6 +2765,8 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#conditional-attribute">Conditional Attribute</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#libraries">指定連結的 Libraries</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#rustc">建立 rustc 內部文件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/README.html#re-export">re-export</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/README.html#optional-arguments">Optional Arguments</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rust/any.html">Rust&#8217;s runtime reflection - &#8220;Any&#8221; type trait</a><ul>
@@ -2765,7 +2779,24 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="rust/articles.html#incremental-compilation">Incremental Compilation</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="rust/asmjs.html">Rust to asm.js</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rust/asmjs.html#id2">參考</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="rust/cargo.html">Cargo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rust/ecosystem.html">Rust 生態圈 (Rust Ecosystem)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rust/ecosystem.html#id2">第三方套件平台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/ecosystem.html#cli">CLI 參數處理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/ecosystem.html#id3">生物資訊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/ecosystem.html#ethereum-blockchain">Ethereum (Blockchain)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/ecosystem.html#id4">正規表達式引擎</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/ecosystem.html#ffi">FFI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/ecosystem.html#id5">科學運算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/ecosystem.html#id6">機器學習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/ecosystem.html#id7">網站開發</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/ecosystem.html#id8">參考</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="rust/features-basic.html">Rust&#8217;s Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/index.html">My Rust Articles Collection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/iterator.html">Iterator</a><ul>
@@ -2898,6 +2929,8 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="rust/tips.html#conditional-attribute">Conditional Attribute</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/tips.html#libraries">指定連結的 Libraries</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/tips.html#rustc">建立 rustc 內部文件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/tips.html#re-export">re-export</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/tips.html#optional-arguments">Optional Arguments</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rust/todo.html">Todo</a><ul>

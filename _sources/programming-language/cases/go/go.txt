@@ -55,6 +55,48 @@ Go 的 GC 在 1.5 後又會修正一些 latency 的問題，
 此時會對各階段對應的地方上色。
 
 
+參數
+========================================
+
+.. code-block:: sh
+
+    # 輸出所有執行的指令
+    go build -x
+
+    # 關閉編譯器優化和 inlining，可以在 ``go tool compile -help`` 找到可傳給編譯器的參數
+    go build -gcflags="-N -l"
+
+    # 輸出測試過程
+    go test -v
+
+    # 執行 Go 的 race detector
+    go test -race
+
+    # 指定要執行的測試
+    go test -run=Example
+
+    # 輸出測試涵蓋結果並且在瀏覽器中顯示
+    go test -coverprofile=c.out && go tool cover -html=c.out
+
+    # 讓 Go tool 呼叫外部的程式去處理
+    go test -exec CMD
+
+    # 取得套件，如果套件已經存在於 GOPATH 的話，將不會更新，要加上 ``-u`` 來強制更新
+    go get -u github.com/golang/lint/golint
+
+    # 只下載套件，不編譯、不安裝
+    go get -d golang.org/x/oauth2/...
+
+    # 取得測試時需要的額外相依套件
+    go get -t
+
+    # 以客製化的格式列出 Go 套件
+    go list -f '{{.Deps}}' runtime
+    # [runtime/internal/atomic runtime/internal/sys unsafe]
+
+
+
+
 參考
 ========================================
 
@@ -64,3 +106,5 @@ Go 的 GC 在 1.5 後又會修正一些 latency 的問題，
     - `HackerNews <https://news.ycombinator.com/item?id=9854408>`_
 
 * `Go by Example <https://gobyexample.com/>`_
+* `Go tooling essentials <http://golang.rakyll.org/go-tool-flags/>`_
+* `go list, your Swiss army knife <http://dave.cheney.net/2014/09/14/go-list-your-swiss-army-knife>`_
