@@ -62,7 +62,7 @@ Rust 實做的 Ethereum client - `Parity <https://ethcore.io/parity.html>`_
 正規表達式引擎
 ========================================
 
-Rust 目前有一個半官方的 `regex <https://github.com/rust-lang-nursery/regex>` 實做，
+Rust 目前有一個半官方的 `regex <https://github.com/rust-lang-nursery/regex>`_ 實做，
 實做方法是和 Google 的 RE2 類似的 NFA/DFA 作法，
 藉此來保證線性的複雜度，
 目前已經有相當的成熟度，
@@ -154,6 +154,7 @@ HTTP 的實做完整度已經非常充足。
 * `Neon: Node + Rust = 💖 <http://calculist.org/blog/2015/12/23/neon-node-rust/>`_
 * `The Rust FFI Omnibus <https://github.com/shepmaster/rust-ffi-omnibus>`_
 * `About Rust’s Machine Learning Community <https://medium.com/@autumn_eng/about-rust-s-machine-learning-community-4cda5ec8a790>`_
+* `Future updates to the rustup distribution format <https://internals.rust-lang.org/t/future-updates-to-the-rustup-distribution-format/4196>`_
 
 * `Are we game yet? <http://arewegameyet.com/>`_
 * `Are we web yet? <http://www.arewewebyet.org/>`_
