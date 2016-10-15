@@ -427,7 +427,13 @@
 <li class="toctree-l1"><a class="reference internal" href="any.html">Rust&#8217;s runtime reflection - &#8220;Any&#8221; type trait</a></li>
 <li class="toctree-l1"><a class="reference internal" href="articles.html">文章閱讀（Articles）</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Rust to asm.js</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2">參考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">前置作業</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">簡單範例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#hello-world">Hello World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fibonacci">Fibonacci</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="cargo.html">Cargo</a></li>
@@ -602,23 +608,121 @@
            <div itemprop="articleBody">
             
   <div class="section" id="rust-to-asm-js">
-<h1><a class="toc-backref" href="#id3">Rust to asm.js</a><a class="headerlink" href="#rust-to-asm-js" title="本標題的永久連結">¶</a></h1>
+<h1><a class="toc-backref" href="#id5">Rust to asm.js</a><a class="headerlink" href="#rust-to-asm-js" title="本標題的永久連結">¶</a></h1>
 <div class="contents topic" id="id1">
 <p class="topic-title first">目錄</p>
 <ul class="simple">
-<li><a class="reference internal" href="#rust-to-asm-js" id="id3">Rust to asm.js</a><ul>
-<li><a class="reference internal" href="#id2" id="id4">參考</a></li>
+<li><a class="reference internal" href="#rust-to-asm-js" id="id5">Rust to asm.js</a><ul>
+<li><a class="reference internal" href="#id2" id="id6">前置作業</a></li>
+<li><a class="reference internal" href="#id3" id="id7">簡單範例</a><ul>
+<li><a class="reference internal" href="#hello-world" id="id8">Hello World</a></li>
+<li><a class="reference internal" href="#fibonacci" id="id9">Fibonacci</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id4" id="id10">參考</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="id2">
-<h2><a class="toc-backref" href="#id4">參考</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id6">前置作業</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># asm.js</span>
+rustup target add asmjs-unknown-emscripten
+
+<span class="c1"># wasm</span>
+rustup target add wasm32-unknown-emscripten
+
+<span class="c1"># Emscripten</span>
+curl -O https://s3.amazonaws.com/mozilla-games/emscripten/releases/emsdk-portable.tar.gz
+tar -xzf emsdk-portable.tar.gz
+<span class="nb">source</span> emsdk_portable/emsdk_env.sh
+emsdk update
+emsdk install sdk-incoming-64bit
+emsdk activate sdk-incoming-64bit
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id7">簡單範例</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="hello-world">
+<h3><a class="toc-backref" href="#id8">Hello World</a><a class="headerlink" href="#hello-world" title="本標題的永久連結">¶</a></h3>
+<p>程式碼：</p>
+<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="c1">// hello.rs</span>
+
+<span class="k">fn</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;Hello World!&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>編譯：</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>rustc --target<span class="o">=</span>asmjs-unknown-emscripten hello.rs
+</pre></div>
+</div>
+<p>執行：</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ node hello.js
+Hello World!
+</pre></div>
+</div>
+</div>
+<div class="section" id="fibonacci">
+<h3><a class="toc-backref" href="#id9">Fibonacci</a><a class="headerlink" href="#fibonacci" title="本標題的永久連結">¶</a></h3>
+<p>程式碼：</p>
+<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="cp">#![feature(link_args)]</span><span class="w"></span>
+
+<span class="cp">#[link_args = </span><span class="s">&quot;-s EXPORTED_FUNCTIONS=[&#39;_fib&#39;]&quot;</span><span class="cp">]</span><span class="w"></span>
+<span class="k">extern</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+
+<span class="k">fn</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+
+<span class="cp">#[no_mangle]</span><span class="w"></span>
+<span class="k">pub</span><span class="w"> </span><span class="k">extern</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">:</span><span class="w"> </span><span class="kt">u32</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">u32</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">n</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>編譯：</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>rustc --target<span class="o">=</span>asmjs-unknown-emscripten fib.rs
+</pre></div>
+</div>
+<p>執行：</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ node
+&gt; var <span class="nv">fib</span> <span class="o">=</span> require<span class="o">(</span><span class="s1">&#39;./fib.js&#39;</span><span class="o">)</span><span class="p">;</span>
+undefined
+&gt; fib
+<span class="o">[</span>Emscripten Module object<span class="o">]</span>
+&gt; fib._fib
+<span class="o">[</span>Function<span class="o">]</span>
+&gt; console.log<span class="o">(</span>fib._fib.toString<span class="o">())</span>
+<span class="k">function</span> <span class="o">()</span> <span class="o">{</span>
+assert<span class="o">(</span>runtimeInitialized, <span class="s1">&#39;you need to wait for the runtime to be ready (e.g. wait for main() to be called)&#39;</span><span class="o">)</span><span class="p">;</span>
+assert<span class="o">(</span>!runtimeExited, <span class="s1">&#39;the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)&#39;</span><span class="o">)</span><span class="p">;</span>
+<span class="k">return</span> real__fib.apply<span class="o">(</span>null, arguments<span class="o">)</span><span class="p">;</span>
+<span class="o">}</span>
+&gt; fib._fib<span class="o">(</span>5<span class="o">)</span>
+5
+&gt; fib._fib<span class="o">(</span>6<span class="o">)</span>
+8
+&gt; fib._fib<span class="o">(</span>7<span class="o">)</span>
+13
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id10">參考</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://rust.cologne/2016/09/05/compile-to-js.html">Compiling Rust to your Browser</a></li>
 <li><a class="reference external" href="https://www.youtube.com/watch?v=bvJCMhJ3RnQ">Rust Meetup Cologne (2016-09-05): Jan-Erik Rediger - Compiling Rust to asm.js</a></li>
 <li><a class="reference external" href="https://github.com/brson/mir2wasm/">mir2wasm - An experimental compiler from Rust to WebAssembly</a></li>
 <li><a class="reference external" href="https://kripken.github.io/talks/binaryen.html">Compiling to WebAssembly with Binaryen</a></li>
+<li><a class="reference external" href="https://users.rust-lang.org/t/compiling-to-the-web-with-rust-and-emscripten/7627">Compiling to the web with Rust and emscripten</a></li>
+<li><a class="reference external" href="https://github.com/tcr/rust-todomvc">Rust implementation of TodoMVC with Emscripten</a></li>
+<li><a class="reference external" href="https://github.com/tcr/rust-webplatform">rust-webplatform - A Rust library for use with emscripten to access the DOM</a></li>
+<li><a class="reference external" href="https://tc39.github.io/ecmascript_simd/">SIMD.js</a></li>
 </ul>
 </div>
 </div>
