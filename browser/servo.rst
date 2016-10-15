@@ -115,23 +115,17 @@ W3C 的 Web Platform Tests ：
 
     [formdata-foreach.html]
       type: testharness
-        [Default iterator should see duplicate keys]
-          expected: FAIL
+      [Iterator should return duplicate keys and non-deleted values]
+        expected: FAIL
 
-        [Default iterator should see non-deleted values]
-          expected: FAIL
+      [Entries iterator should return duplicate keys and non-deleted values]
+        expected: FAIL
 
-        [entries() iterator should see duplicate keys]
-          expected: FAIL
+      [Keys iterator should return duplicates]
+        expected: FAIL
 
-        [entries() iterator should see non-deleted values]
-          expected: FAIL
-
-        [keys() iterator should see duplicate keys]
-          expected: FAIL
-
-        [values() iterator should see non-deleted values]
-          expected: FAIL
+      [Values iterator should return non-deleted values]
+        expected: FAIL
 
 
 
