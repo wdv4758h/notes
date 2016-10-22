@@ -3,6 +3,9 @@ OpenMP
 ========================================
 
 
+.. contents:: 目錄
+
+
 Introduction
 ========================================
 
@@ -412,6 +415,15 @@ OpenMP Language Terminology
 +------------------+------+
 
 
+
+OpenMP with GPU
+========================================
+
+* [2016][PDF] `Targeting GPUs with OpenMP 4.5 Device Directives <http://on-demand.gputechconf.com/gtc/2016/presentation/s6510-jeff-larkin-targeting-gpus-openmp.pdf>`_
+* [GitHub] `llvm/lib/Target/NVPTX/ <https://github.com/llvm-mirror/llvm/tree/master/lib/Target/NVPTX>`_
+
+
+
 Questions
 ========================================
 
@@ -427,6 +439,7 @@ Reference
 ========================================
 
 * `Wikipedia - OpenMP <https://en.wikipedia.org/wiki/OpenMP>`_
+* `Wikipedia - Parallel Thread Execution <https://en.wikipedia.org/wiki/Parallel_Thread_Execution>`_
 * `Guide into OpenMP: Easy multithreading programming for C++ <http://bisqwit.iki.fi/story/howto/openmp/>`_
 * `LLVM - OpenMP* : Support for the OpenMP language <http://openmp.llvm.org/>`_
     - `Clang - Status of supported OpenMP constructs <https://github.com/clang-omp/clang/wiki/Status-of-supported-OpenMP-constructs>`_
@@ -459,3 +472,5 @@ Reference
     - `Cython - Parallel <http://docs.cython.org/src/userguide/parallelism.html>`_
     - `How To Overcome the GIL Limitations (While Staying In Python Ecosphere) <https://python.g-node.org/python-summerschool-2011/_media/materials/parallel/parallelcython.pdf>`_
     - `Understanding the Python GIL <http://www.dabeaz.com/GIL/>`_
+
+* SPIR-V
