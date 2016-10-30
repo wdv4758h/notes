@@ -140,6 +140,63 @@ Rust 目前已經有許多 FFI 的專案出現，
 
 
 
+Unicode
+========================================
+
+在處理 Unicode 上面，Rust 有許多基本的操作都在 `unicode-rs <https://github.com/unicode-rs>`_ 底下，
+其中的
+
+* ``unicode-segmentation`` 會根據 ``Unicode Standard Annex #29`` 來做分割
+* ``unicode-width`` 會根據 ``Unicode Standard Annex #11`` 判斷顯示的寬度
+* ``unicode-xid`` 會根據 ``Unicode Standard Annex #31`` 判斷是否有 ``XID_Start`` 或 ``XID_Continue`` 屬性
+* ``unicode-normalization`` 會根據 ``Unicode Standard Annex #15`` 來組合或拆解文字
+
+其他
+
+* `WTF-8 <https://github.com/SimonSapin/rust-wtf8>`_ - implementation of the WTF-8 encoding
+* `Emojicons <https://github.com/jiri/rust-emojicons>`_ - Parse :emoji: notation to unicode representation
+* `libucd <https://github.com/sourtin/libucd>`_ - exposing much of the Unicode Character Database
+* `unicode-bidi <https://github.com/servo/unicode-bidi>`_ - implements the Unicode Bidirectional Algorithm for display of mixed right-to-left and left-to-right text
+* `unicode_names <https://github.com/huonw/unicode_names>`_ - char <-> Unicode character name
+* `unicode-categories <https://github.com/swgillespie/unicode-categories>`_ - allows for unicode categories can be queried for characters
+
+
+
+雜類
+========================================
+
+* `itertools <https://github.com/bluss/rust-itertools>`_
+    - 更多 iterator 相關的操作
+* `Corrode <https://github.com/jameysharp/corrode>`_
+    - Automatic semantics-preserving translation from C to Rust
+* `Rust-PHF <https://github.com/sfackler/rust-phf>`_
+    - Compile time static maps
+* `ripgrep <https://github.com/BurntSushi/ripgrep>`_
+    - combines the usability of The Silver Searcher (an ack clone) with the raw speed of GNU grep
+* `xsv <https://github.com/BurntSushi/xsv>`_
+    - A fast CSV toolkit
+* `tokei <https://github.com/Aaronepower/tokei>`_
+    - counts the lines of code
+* `substudy <https://github.com/emk/substudy/>`_
+    - Use SRT subtitle files to study foreign languages
+
+
+
+Parallel
+========================================
+
+* `rayon <https://github.com/nikomatsakis/rayon/>`_ - data-parallelism by work stealing
+
+
+
+Serialization
+========================================
+
+* `Serde <https://serde.rs/>`_
+* `rustc-serialize <https://github.com/rust-lang-nursery/rustc-serialize>`_
+
+
+
 網站開發
 ========================================
 
