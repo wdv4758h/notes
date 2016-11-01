@@ -264,3 +264,43 @@ Rust 1.12 開始 ``Option`` 實做了 ``From`` ，
 
 
 
+String 和 str
+========================================
+
+Rust 有兩種字串的型別，分別為 ``String`` 和 ``str`` ，
+
+String 是 dynamic heap string type，
+當我們需要更動或擁有所有權時，
+會使用這個型別。
+
+str 是不可更動（immutable）的一串未知長度的 UTF8，
+儲存在記憶體的某處，
+因為長度未知，通常會以 ``&str`` 來使用（reference 到某個 UTF8 資料），
+
+``&str`` 可以指到以下地方：
+
+* string literal，字串直接寫死在程式碼內並儲存在執行檔，當程式執行時直接存到記憶體，e.g. ``"foo"``
+* heap allocated ``String`` ， ``String`` 可以 dereference 成 ``&str`` 做單純的讀取
+* stack，stack-allocated byte array 可以以 ``&str`` 的形式做讀取
+
+
+.. code-block:: rust
+
+    use std::str;
+
+    // static storage
+    let static_str: &str = "this is test";
+
+    // on stack
+    let x: &[u8] = &['a' as u8, 'b' as u8];
+    let stack_str: &str = str::from_utf8(x).unwrap();
+
+    // on heap
+    let y = String::from("test");
+    let heap_str_1: &str = y.as_str();
+    let heap_str_2: &str = &y;  // String -> &String -> &str
+                                // &String can automatically coerce to a &str by "Deref coercions"
+    let heap_str_3: &str = &*y; // String -> str -> &str
+
+
+* `StackOverflow - Rust String versus str <http://stackoverflow.com/a/24159933/3880958>`_
