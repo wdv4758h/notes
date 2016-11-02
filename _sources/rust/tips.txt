@@ -184,6 +184,140 @@ re-export
 
 
 
+FFI (Foreign Function Interface)
+========================================
+
+在 Rust 中， ``String`` 是由一連串的 ``u8`` 所組成，
+並且保證會是有效的 UTF-8，
+這意味著 String 當中也可以正常地儲存 ``NUL`` （ ``\0`` ）。
+而在 C 中，字串是指向 ``char`` 的指標，並且以 ``NUL`` 作為結尾。
+在處理 FFI 時，需要處理好 Rust 和 C 內兩種不同字串表示方法的轉換。
+
+注意事項：
+
+* Rust 的 ``str``/``String`` 不是以 ``NUL`` 結尾做辨別
+* CStr 沒有 ``repr(C)`` 屬性，不要拿來作為 FFI function 的 signature
+
+相關資源：
+
+* `std::ffi <https://doc.rust-lang.org/std/ffi/>`_
+* `The Rust FFI Omnibus <http://jakegoulding.com/rust-ffi-omnibus/>`_
+* `Rust Book - Foreign Function Interface <https://doc.rust-lang.org/book/ffi.html>`_
+* `The Rust Reference - Linkage <https://doc.rust-lang.org/reference.html#linkage>`_
+* `The Guide to Rust Strings <http://www.steveklabnik.com/rust-issue-17340/>`_
+* `Python - ctypes <https://docs.python.org/3/library/ctypes.html>`_
+* `Python - CFFI <http://cffi.readthedocs.io/en/latest/>`_
+
+
+範例一，傳入字串、回傳字串
+------------------------------
+
+Rust 程式碼：
+
+.. code-block:: rust
+
+    // func.rs
+
+    use std::ffi::{CStr, CString};
+    use std::os::raw::c_char;
+
+
+    // 一般始用的 Rust function
+    pub fn func(data: &str) -> &str {
+        "this is a test function"
+    }
+
+    // 給外部使用的 Rust function （一般始用的 Rust function 的包裝）
+    // *const c_char -> CStr -> &str
+    // => func =>
+    // &str -> Result<CString, NulError> -> CString -> *mut c_char -> *const c_char
+    #[no_mangle]
+    pub extern fn ffi_func_generate(data: *const c_char) -> *const c_char {
+        // *const c_char -> CStr
+        let data = unsafe {
+            assert!(!data.is_null());
+            CStr::from_ptr(data)
+        };
+
+        // CStr -> &str
+        let data = data.to_str().unwrap();
+
+        // &str => func => &str
+        let result = func(data);
+
+        // &str -> Result<CString, NulError> -> CString
+        let result = CString::new(result).unwrap();
+
+        // CString -> *mut c_char
+        result.into_raw()
+
+    }
+
+    // 給外部回收記憶體用的 function
+    #[no_mangle]
+    pub extern fn ffi_func_free(ptr: *mut c_char) {
+        unsafe {
+            if ptr.is_null() { return }
+            CString::from_raw(ptr)
+        };
+    }
+
+
+編譯：
+
+.. code-block:: sh
+
+    $ rustc --crate-type dylib func.rs
+
+
+Python 程式碼（ctypes）：
+
+.. code-block:: python
+
+    import ctypes
+    from ctypes import c_char_p, c_void_p
+
+    lib = ctypes.cdll.LoadLibrary("./libfunc.so")
+    # 定義溝通界面
+    lib.ffi_func_generate.argtypes = (c_char_p,)
+    lib.ffi_func_generate.restypes = c_char_p
+    lib.ffi_func_free.argtypes = (c_void_p,)
+    lib.ffi_func_free.restypes = None
+
+    def func(code):
+        # 呼叫 function 取得字串指標
+        ptr = lib.ffi_func_generate(code.encode())
+        try:
+            # 指標轉字串
+            return ctypes.cast(ptr, c_char_p).value.decode('utf-8')
+        finally:
+            # 回收記憶體
+            lib.ffi_func_free(ptr)
+
+
+Python 程式碼（CFFI）：
+
+.. code-block:: python
+
+    from cffi import FFI
+
+    ffi = FFI()
+    lib = ffi.dlopen("./libfunc.so")
+    ffi.cdef('''
+    char* const ffi_func_generate(char* const code);
+    void ffi_func_free(char* ptr);
+    ''')
+
+    def func(code):
+        ptr = lib.ffi_func_generate(code.encode())
+        try:
+            return ffi.string(ptr).decode('utf-8')
+        finally:
+            lib.ffi_func_free(ptr)
+
+
+
+
 Optional Arguments
 ========================================
 
@@ -264,3 +398,43 @@ Rust 1.12 開始 ``Option`` 實做了 ``From`` ，
 
 
 
+String 和 str
+========================================
+
+Rust 有兩種字串的型別，分別為 ``String`` 和 ``str`` ，
+
+String 是 dynamic heap string type，
+當我們需要更動或擁有所有權時，
+會使用這個型別。
+
+str 是不可更動（immutable）的一串未知長度的 UTF8，
+儲存在記憶體的某處，
+因為長度未知，通常會以 ``&str`` 來使用（reference 到某個 UTF8 資料），
+
+``&str`` 可以指到以下地方：
+
+* string literal，字串直接寫死在程式碼內並儲存在執行檔，當程式執行時直接存到記憶體，e.g. ``"foo"``
+* heap allocated ``String`` ， ``String`` 可以 dereference 成 ``&str`` 做單純的讀取
+* stack，stack-allocated byte array 可以以 ``&str`` 的形式做讀取
+
+
+.. code-block:: rust
+
+    use std::str;
+
+    // static storage
+    let static_str: &str = "this is test";
+
+    // on stack
+    let x: &[u8] = &['a' as u8, 'b' as u8];
+    let stack_str: &str = str::from_utf8(x).unwrap();
+
+    // on heap
+    let y = String::from("test");
+    let heap_str_1: &str = y.as_str();
+    let heap_str_2: &str = &y;  // String -> &String -> &str
+                                // &String can automatically coerce to a &str by "Deref coercions"
+    let heap_str_3: &str = &*y; // String -> str -> &str
+
+
+* `StackOverflow - Rust String versus str <http://stackoverflow.com/a/24159933/3880958>`_

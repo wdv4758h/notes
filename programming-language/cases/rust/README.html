@@ -599,27 +599,32 @@
            <div itemprop="articleBody">
             
   <div class="section" id="rust-tips">
-<h1><a class="toc-backref" href="#id6">Rust Tips</a><a class="headerlink" href="#rust-tips" title="本標題的永久連結">¶</a></h1>
+<h1><a class="toc-backref" href="#id7">Rust Tips</a><a class="headerlink" href="#rust-tips" title="本標題的永久連結">¶</a></h1>
 <div class="contents topic" id="id1">
 <p class="topic-title first">目錄</p>
 <ul class="simple">
-<li><a class="reference internal" href="#rust-tips" id="id6">Rust Tips</a><ul>
-<li><a class="reference internal" href="#id2" id="id7">輸出中間產物</a></li>
-<li><a class="reference internal" href="#counter-by-hashmap" id="id8">Counter By HashMap</a></li>
-<li><a class="reference internal" href="#slices-join-concat" id="id9">Slices join/concat</a></li>
-<li><a class="reference internal" href="#id3" id="id10">字串轉特定型別</a></li>
-<li><a class="reference internal" href="#id4" id="id11">把相依套件抓下來</a></li>
-<li><a class="reference internal" href="#conditional-attribute" id="id12">Conditional Attribute</a></li>
-<li><a class="reference internal" href="#libraries" id="id13">指定連結的 Libraries</a></li>
-<li><a class="reference internal" href="#rustc" id="id14">建立 rustc 內部文件</a></li>
-<li><a class="reference internal" href="#re-export" id="id15">re-export</a></li>
-<li><a class="reference internal" href="#optional-arguments" id="id16">Optional Arguments</a></li>
+<li><a class="reference internal" href="#rust-tips" id="id7">Rust Tips</a><ul>
+<li><a class="reference internal" href="#id2" id="id8">輸出中間產物</a></li>
+<li><a class="reference internal" href="#counter-by-hashmap" id="id9">Counter By HashMap</a></li>
+<li><a class="reference internal" href="#slices-join-concat" id="id10">Slices join/concat</a></li>
+<li><a class="reference internal" href="#id3" id="id11">字串轉特定型別</a></li>
+<li><a class="reference internal" href="#id4" id="id12">把相依套件抓下來</a></li>
+<li><a class="reference internal" href="#conditional-attribute" id="id13">Conditional Attribute</a></li>
+<li><a class="reference internal" href="#libraries" id="id14">指定連結的 Libraries</a></li>
+<li><a class="reference internal" href="#rustc" id="id15">建立 rustc 內部文件</a></li>
+<li><a class="reference internal" href="#re-export" id="id16">re-export</a></li>
+<li><a class="reference internal" href="#ffi-foreign-function-interface" id="id17">FFI (Foreign Function Interface)</a><ul>
+<li><a class="reference internal" href="#id6" id="id18">範例一，傳入字串、回傳字串</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#optional-arguments" id="id19">Optional Arguments</a></li>
+<li><a class="reference internal" href="#string-str" id="id20">String 和 str</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="id2">
-<h2><a class="toc-backref" href="#id7">輸出中間產物</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id8">輸出中間產物</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
 <div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># cargo arguments     -- rustc arguments</span>
 cargo rustc           -- --emit<span class="o">=</span>asm,llvm-bc,llvm-ir,obj,link,dep-info
 cargo rustc --release -- --emit<span class="o">=</span>asm,llvm-bc,llvm-ir,obj,link,dep-info
@@ -637,7 +642,7 @@ cargo rustc --release -- -Zunstable-options --unpretty<span class="o">=</span>mi
 </div>
 </div>
 <div class="section" id="counter-by-hashmap">
-<h2><a class="toc-backref" href="#id8">Counter By HashMap</a><a class="headerlink" href="#counter-by-hashmap" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id9">Counter By HashMap</a><a class="headerlink" href="#counter-by-hashmap" title="本標題的永久連結">¶</a></h2>
 <p>HashMap 內 key/value 的型別可以交給 Rust 編譯器來推斷，
 利用 <code class="docutils literal"><span class="pre">or_insert</span></code> 可以在碰到沒有見過的 key 時插入預設值。</p>
 <div class="highlight-rust"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HashMap</span><span class="o">::</span><span class="n">new</span><span class="p">();</span><span class="w"></span>
@@ -648,7 +653,7 @@ cargo rustc --release -- -Zunstable-options --unpretty<span class="o">=</span>mi
 </div>
 </div>
 <div class="section" id="slices-join-concat">
-<h2><a class="toc-backref" href="#id9">Slices join/concat</a><a class="headerlink" href="#slices-join-concat" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id10">Slices join/concat</a><a class="headerlink" href="#slices-join-concat" title="本標題的永久連結">¶</a></h2>
 <p>只要實作了
 <a class="reference external" href="https://doc.rust-lang.org/std/slice/trait.SliceConcatExt.html">std::slice::SliceConcatExt</a>
 trait，
@@ -661,7 +666,7 @@ trait，
 </div>
 </div>
 <div class="section" id="id3">
-<h2><a class="toc-backref" href="#id10">字串轉特定型別</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id11">字串轉特定型別</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
 <p>只要型別 T 有實做 <code class="docutils literal"><span class="pre">std::str::FromStr</span></code> ，
 那就可以使用 <code class="docutils literal"><span class="pre">.parse::&lt;T&gt;()</span></code> 來轉換：</p>
 <div class="highlight-rust"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">foo</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;text&quot;</span><span class="p">.</span><span class="n">parse</span><span class="o">::&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
@@ -669,7 +674,7 @@ trait，
 </div>
 </div>
 <div class="section" id="id4">
-<h2><a class="toc-backref" href="#id11">把相依套件抓下來</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id12">把相依套件抓下來</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h2>
 <p>要裝專案的相依套件可以使用 <code class="docutils literal"><span class="pre">cargo</span> <span class="pre">fetch</span></code> ，
 這指令會把需要的檔案抓到 <code class="docutils literal"><span class="pre">$CARGO_HOME</span></code> ，
 在該資料夾下建立一個叫做 <code class="docutils literal"><span class="pre">registry</span></code> 的資料夾，
@@ -713,7 +718,7 @@ trait，
 </div>
 </div>
 <div class="section" id="conditional-attribute">
-<h2><a class="toc-backref" href="#id12">Conditional Attribute</a><a class="headerlink" href="#conditional-attribute" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id13">Conditional Attribute</a><a class="headerlink" href="#conditional-attribute" title="本標題的永久連結">¶</a></h2>
 <p><code class="docutils literal"><span class="pre">#[cfg_attr(&lt;p&gt;,</span> <span class="pre">&lt;attr&gt;)]</span></code></p>
 <p>當 <code class="docutils literal"><span class="pre">&lt;p&gt;</span></code> 成立時，就加上後面的 <code class="docutils literal"><span class="pre">&lt;attr&gt;</span></code> ，
 範例：</p>
@@ -730,7 +735,7 @@ trait，
 </ul>
 </div>
 <div class="section" id="libraries">
-<h2><a class="toc-backref" href="#id13">指定連結的 Libraries</a><a class="headerlink" href="#libraries" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id14">指定連結的 Libraries</a><a class="headerlink" href="#libraries" title="本標題的永久連結">¶</a></h2>
 <p>要指定額外要連結 Libraries 可以使用 <code class="docutils literal"><span class="pre">link</span></code> attribute，
 並且可以指定如何連結：</p>
 <p>目前 <code class="docutils literal"><span class="pre">link</span></code> 可以指定兩項資訊，
@@ -744,7 +749,7 @@ OSX 上還可以選擇 <code class="docutils literal"><span class="pre">framewor
 </ul>
 </div>
 <div class="section" id="rustc">
-<h2><a class="toc-backref" href="#id14">建立 rustc 內部文件</a><a class="headerlink" href="#rustc" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id15">建立 rustc 內部文件</a><a class="headerlink" href="#rustc" title="本標題的永久連結">¶</a></h2>
 <div class="highlight-sh"><div class="highlight"><pre><span></span>./configure --enable-compiler-docs
 make docs -j4
 
@@ -755,13 +760,131 @@ git push origin gh-pages:gh-pages
 </div>
 </div>
 <div class="section" id="re-export">
-<h2><a class="toc-backref" href="#id15">re-export</a><a class="headerlink" href="#re-export" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id16">re-export</a><a class="headerlink" href="#re-export" title="本標題的永久連結">¶</a></h2>
 <div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">pub</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">library</span><span class="o">::*</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
+<div class="section" id="ffi-foreign-function-interface">
+<h2><a class="toc-backref" href="#id17">FFI (Foreign Function Interface)</a><a class="headerlink" href="#ffi-foreign-function-interface" title="本標題的永久連結">¶</a></h2>
+<p>在 Rust 中， <code class="docutils literal"><span class="pre">String</span></code> 是由一連串的 <code class="docutils literal"><span class="pre">u8</span></code> 所組成，
+並且保證會是有效的 UTF-8，
+這意味著 String 當中也可以正常地儲存 <code class="docutils literal"><span class="pre">NUL</span></code> （ <code class="docutils literal"><span class="pre">\0</span></code> ）。
+而在 C 中，字串是指向 <code class="docutils literal"><span class="pre">char</span></code> 的指標，並且以 <code class="docutils literal"><span class="pre">NUL</span></code> 作為結尾。
+在處理 FFI 時，需要處理好 Rust 和 C 內兩種不同字串表示方法的轉換。</p>
+<p>注意事項：</p>
+<ul class="simple">
+<li>Rust 的 <code class="docutils literal"><span class="pre">str</span></code>/<code class="docutils literal"><span class="pre">String</span></code> 不是以 <code class="docutils literal"><span class="pre">NUL</span></code> 結尾做辨別</li>
+<li>CStr 沒有 <code class="docutils literal"><span class="pre">repr(C)</span></code> 屬性，不要拿來作為 FFI function 的 signature</li>
+</ul>
+<p>相關資源：</p>
+<ul class="simple">
+<li><a class="reference external" href="https://doc.rust-lang.org/std/ffi/">std::ffi</a></li>
+<li><a class="reference external" href="http://jakegoulding.com/rust-ffi-omnibus/">The Rust FFI Omnibus</a></li>
+<li><a class="reference external" href="https://doc.rust-lang.org/book/ffi.html">Rust Book - Foreign Function Interface</a></li>
+<li><a class="reference external" href="https://doc.rust-lang.org/reference.html#linkage">The Rust Reference - Linkage</a></li>
+<li><a class="reference external" href="http://www.steveklabnik.com/rust-issue-17340/">The Guide to Rust Strings</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/library/ctypes.html">Python - ctypes</a></li>
+<li><a class="reference external" href="http://cffi.readthedocs.io/en/latest/">Python - CFFI</a></li>
+</ul>
+<div class="section" id="id6">
+<h3><a class="toc-backref" href="#id18">範例一，傳入字串、回傳字串</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h3>
+<p>Rust 程式碼：</p>
+<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="c1">// func.rs</span>
+
+<span class="kn">use</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">ffi</span><span class="o">::</span><span class="p">{</span><span class="n">CStr</span><span class="p">,</span><span class="w"> </span><span class="n">CString</span><span class="p">};</span><span class="w"></span>
+<span class="kn">use</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">os</span><span class="o">::</span><span class="n">raw</span><span class="o">::</span><span class="n">c_char</span><span class="p">;</span><span class="w"></span>
+
+
+<span class="c1">// 一般始用的 Rust function</span>
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">func</span><span class="p">(</span><span class="n">data</span><span class="o">:</span><span class="w"> </span><span class="o">&amp;</span><span class="kt">str</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="kt">str</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;this is a test function&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="c1">// 給外部使用的 Rust function （一般始用的 Rust function 的包裝）</span>
+<span class="c1">// *const c_char -&gt; CStr -&gt; &amp;str</span>
+<span class="c1">// =&gt; func =&gt;</span>
+<span class="c1">// &amp;str -&gt; Result&lt;CString, NulError&gt; -&gt; CString -&gt; *mut c_char -&gt; *const c_char</span>
+<span class="cp">#[no_mangle]</span><span class="w"></span>
+<span class="k">pub</span><span class="w"> </span><span class="k">extern</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">ffi_func_generate</span><span class="p">(</span><span class="n">data</span><span class="o">:</span><span class="w"> </span><span class="o">*</span><span class="kr">const</span><span class="w"> </span><span class="n">c_char</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">*</span><span class="kr">const</span><span class="w"> </span><span class="n">c_char</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// *const c_char -&gt; CStr</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">assert</span><span class="o">!</span><span class="p">(</span><span class="o">!</span><span class="n">data</span><span class="p">.</span><span class="n">is_null</span><span class="p">());</span><span class="w"></span>
+<span class="w">        </span><span class="n">CStr</span><span class="o">::</span><span class="n">from_ptr</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// CStr -&gt; &amp;str</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">to_str</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// &amp;str =&gt; func =&gt; &amp;str</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">func</span><span class="p">(</span><span class="n">data</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// &amp;str -&gt; Result&lt;CString, NulError&gt; -&gt; CString</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CString</span><span class="o">::</span><span class="n">new</span><span class="p">(</span><span class="n">result</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// CString -&gt; *mut c_char</span>
+<span class="w">    </span><span class="n">result</span><span class="p">.</span><span class="n">into_raw</span><span class="p">()</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+
+<span class="c1">// 給外部回收記憶體用的 function</span>
+<span class="cp">#[no_mangle]</span><span class="w"></span>
+<span class="k">pub</span><span class="w"> </span><span class="k">extern</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">ffi_func_free</span><span class="p">(</span><span class="n">ptr</span><span class="o">:</span><span class="w"> </span><span class="o">*</span><span class="k">mut</span><span class="w"> </span><span class="n">c_char</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">ptr</span><span class="p">.</span><span class="n">is_null</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="n">CString</span><span class="o">::</span><span class="n">from_raw</span><span class="p">(</span><span class="n">ptr</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>編譯：</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ rustc --crate-type dylib func.rs
+</pre></div>
+</div>
+<p>Python 程式碼（ctypes）：</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ctypes</span>
+<span class="kn">from</span> <span class="nn">ctypes</span> <span class="kn">import</span> <span class="n">c_char_p</span><span class="p">,</span> <span class="n">c_void_p</span>
+
+<span class="n">lib</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">cdll</span><span class="o">.</span><span class="n">LoadLibrary</span><span class="p">(</span><span class="s2">&quot;./libfunc.so&quot;</span><span class="p">)</span>
+<span class="c1"># 定義溝通界面</span>
+<span class="n">lib</span><span class="o">.</span><span class="n">ffi_func_generate</span><span class="o">.</span><span class="n">argtypes</span> <span class="o">=</span> <span class="p">(</span><span class="n">c_char_p</span><span class="p">,)</span>
+<span class="n">lib</span><span class="o">.</span><span class="n">ffi_func_generate</span><span class="o">.</span><span class="n">restypes</span> <span class="o">=</span> <span class="n">c_char_p</span>
+<span class="n">lib</span><span class="o">.</span><span class="n">ffi_func_free</span><span class="o">.</span><span class="n">argtypes</span> <span class="o">=</span> <span class="p">(</span><span class="n">c_void_p</span><span class="p">,)</span>
+<span class="n">lib</span><span class="o">.</span><span class="n">ffi_func_free</span><span class="o">.</span><span class="n">restypes</span> <span class="o">=</span> <span class="bp">None</span>
+
+<span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">code</span><span class="p">):</span>
+    <span class="c1"># 呼叫 function 取得字串指標</span>
+    <span class="n">ptr</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">ffi_func_generate</span><span class="p">(</span><span class="n">code</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># 指標轉字串</span>
+        <span class="k">return</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">ptr</span><span class="p">,</span> <span class="n">c_char_p</span><span class="p">)</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="c1"># 回收記憶體</span>
+        <span class="n">lib</span><span class="o">.</span><span class="n">ffi_func_free</span><span class="p">(</span><span class="n">ptr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Python 程式碼（CFFI）：</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cffi</span> <span class="kn">import</span> <span class="n">FFI</span>
+
+<span class="n">ffi</span> <span class="o">=</span> <span class="n">FFI</span><span class="p">()</span>
+<span class="n">lib</span> <span class="o">=</span> <span class="n">ffi</span><span class="o">.</span><span class="n">dlopen</span><span class="p">(</span><span class="s2">&quot;./libfunc.so&quot;</span><span class="p">)</span>
+<span class="n">ffi</span><span class="o">.</span><span class="n">cdef</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">char* const ffi_func_generate(char* const code);</span>
+<span class="s1">void ffi_func_free(char* ptr);</span>
+<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">code</span><span class="p">):</span>
+    <span class="n">ptr</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">ffi_func_generate</span><span class="p">(</span><span class="n">code</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">ffi</span><span class="o">.</span><span class="n">string</span><span class="p">(</span><span class="n">ptr</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">lib</span><span class="o">.</span><span class="n">ffi_func_free</span><span class="p">(</span><span class="n">ptr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="optional-arguments">
-<h2><a class="toc-backref" href="#id16">Optional Arguments</a><a class="headerlink" href="#optional-arguments" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id19">Optional Arguments</a><a class="headerlink" href="#optional-arguments" title="本標題的永久連結">¶</a></h2>
 <p>Rust 1.12 開始 <code class="docutils literal"><span class="pre">Option</span></code> 實做了 <code class="docutils literal"><span class="pre">From</span></code> ，
 <code class="docutils literal"><span class="pre">From</span></code> 是一個很基本的型別轉換 <code class="docutils literal"><span class="pre">trait</span></code> ，
 任何的 Rust 型別都可以實做 <code class="docutils literal"><span class="pre">From</span></code> 。</p>
@@ -816,6 +939,42 @@ git push origin gh-pages:gh-pages
 <ul class="simple">
 <li><a class="reference external" href="http://xion.io/post/code/rust-optional-args.html">Optional arguments in Rust 1.12</a></li>
 <li><a class="reference external" href="https://github.com/rust-lang/rust/pull/34828">core: impl From&lt;T&gt; for Option&lt;T&gt;</a></li>
+</ul>
+</div>
+<div class="section" id="string-str">
+<h2><a class="toc-backref" href="#id20">String 和 str</a><a class="headerlink" href="#string-str" title="本標題的永久連結">¶</a></h2>
+<p>Rust 有兩種字串的型別，分別為 <code class="docutils literal"><span class="pre">String</span></code> 和 <code class="docutils literal"><span class="pre">str</span></code> ，</p>
+<p>String 是 dynamic heap string type，
+當我們需要更動或擁有所有權時，
+會使用這個型別。</p>
+<p>str 是不可更動（immutable）的一串未知長度的 UTF8，
+儲存在記憶體的某處，
+因為長度未知，通常會以 <code class="docutils literal"><span class="pre">&amp;str</span></code> 來使用（reference 到某個 UTF8 資料），</p>
+<p><code class="docutils literal"><span class="pre">&amp;str</span></code> 可以指到以下地方：</p>
+<ul class="simple">
+<li>string literal，字串直接寫死在程式碼內並儲存在執行檔，當程式執行時直接存到記憶體，e.g. <code class="docutils literal"><span class="pre">&quot;foo&quot;</span></code></li>
+<li>heap allocated <code class="docutils literal"><span class="pre">String</span></code> ， <code class="docutils literal"><span class="pre">String</span></code> 可以 dereference 成 <code class="docutils literal"><span class="pre">&amp;str</span></code> 做單純的讀取</li>
+<li>stack，stack-allocated byte array 可以以 <code class="docutils literal"><span class="pre">&amp;str</span></code> 的形式做讀取</li>
+</ul>
+<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="kn">use</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">str</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">// static storage</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">static_str</span><span class="o">:</span><span class="w"> </span><span class="o">&amp;</span><span class="kt">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;this is test&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">// on stack</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">x</span><span class="o">:</span><span class="w"> </span><span class="o">&amp;</span><span class="p">[</span><span class="kt">u8</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="p">[</span><span class="sc">&#39;a&#39;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">u8</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;b&#39;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">u8</span><span class="p">];</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="n">stack_str</span><span class="o">:</span><span class="w"> </span><span class="o">&amp;</span><span class="kt">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">str</span><span class="o">::</span><span class="n">from_utf8</span><span class="p">(</span><span class="n">x</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
+
+<span class="c1">// on heap</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span><span class="o">::</span><span class="n">from</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="n">heap_str_1</span><span class="o">:</span><span class="w"> </span><span class="o">&amp;</span><span class="kt">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">.</span><span class="n">as_str</span><span class="p">();</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="n">heap_str_2</span><span class="o">:</span><span class="w"> </span><span class="o">&amp;</span><span class="kt">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">y</span><span class="p">;</span><span class="w">  </span><span class="c1">// String -&gt; &amp;String -&gt; &amp;str</span>
+<span class="w">                            </span><span class="c1">// &amp;String can automatically coerce to a &amp;str by &quot;Deref coercions&quot;</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">heap_str_3</span><span class="o">:</span><span class="w"> </span><span class="o">&amp;</span><span class="kt">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;*</span><span class="n">y</span><span class="p">;</span><span class="w"> </span><span class="c1">// String -&gt; str -&gt; &amp;str</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference external" href="http://stackoverflow.com/a/24159933/3880958">StackOverflow - Rust String versus str</a></li>
 </ul>
 </div>
 </div>
