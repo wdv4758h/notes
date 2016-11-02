@@ -184,6 +184,140 @@ re-export
 
 
 
+FFI (Foreign Function Interface)
+========================================
+
+在 Rust 中， ``String`` 是由一連串的 ``u8`` 所組成，
+並且保證會是有效的 UTF-8，
+這意味著 String 當中也可以正常地儲存 ``NUL`` （ ``\0`` ）。
+而在 C 中，字串是指向 ``char`` 的指標，並且以 ``NUL`` 作為結尾。
+在處理 FFI 時，需要處理好 Rust 和 C 內兩種不同字串表示方法的轉換。
+
+注意事項：
+
+* Rust 的 ``str``/``String`` 不是以 ``NUL`` 結尾做辨別
+* CStr 沒有 ``repr(C)`` 屬性，不要拿來作為 FFI function 的 signature
+
+相關資源：
+
+* `std::ffi <https://doc.rust-lang.org/std/ffi/>`_
+* `The Rust FFI Omnibus <http://jakegoulding.com/rust-ffi-omnibus/>`_
+* `Rust Book - Foreign Function Interface <https://doc.rust-lang.org/book/ffi.html>`_
+* `The Rust Reference - Linkage <https://doc.rust-lang.org/reference.html#linkage>`_
+* `The Guide to Rust Strings <http://www.steveklabnik.com/rust-issue-17340/>`_
+* `Python - ctypes <https://docs.python.org/3/library/ctypes.html>`_
+* `Python - CFFI <http://cffi.readthedocs.io/en/latest/>`_
+
+
+範例一，傳入字串、回傳字串
+------------------------------
+
+Rust 程式碼：
+
+.. code-block:: rust
+
+    // func.rs
+
+    use std::ffi::{CStr, CString};
+    use std::os::raw::c_char;
+
+
+    // 一般始用的 Rust function
+    pub fn func(data: &str) -> &str {
+        "this is a test function"
+    }
+
+    // 給外部使用的 Rust function （一般始用的 Rust function 的包裝）
+    // *const c_char -> CStr -> &str
+    // => func =>
+    // &str -> Result<CString, NulError> -> CString -> *mut c_char -> *const c_char
+    #[no_mangle]
+    pub extern fn ffi_func_generate(data: *const c_char) -> *const c_char {
+        // *const c_char -> CStr
+        let data = unsafe {
+            assert!(!data.is_null());
+            CStr::from_ptr(data)
+        };
+
+        // CStr -> &str
+        let data = data.to_str().unwrap();
+
+        // &str => func => &str
+        let result = func(data);
+
+        // &str -> Result<CString, NulError> -> CString
+        let result = CString::new(result).unwrap();
+
+        // CString -> *mut c_char
+        result.into_raw()
+
+    }
+
+    // 給外部回收記憶體用的 function
+    #[no_mangle]
+    pub extern fn ffi_func_free(ptr: *mut c_char) {
+        unsafe {
+            if ptr.is_null() { return }
+            CString::from_raw(ptr)
+        };
+    }
+
+
+編譯：
+
+.. code-block:: sh
+
+    $ rustc --crate-type dylib func.rs
+
+
+Python 程式碼（ctypes）：
+
+.. code-block:: python
+
+    import ctypes
+    from ctypes import c_char_p, c_void_p
+
+    lib = ctypes.cdll.LoadLibrary("./libfunc.so")
+    # 定義溝通界面
+    lib.ffi_func_generate.argtypes = (c_char_p,)
+    lib.ffi_func_generate.restypes = c_char_p
+    lib.ffi_func_free.argtypes = (c_void_p,)
+    lib.ffi_func_free.restypes = None
+
+    def func(code):
+        # 呼叫 function 取得字串指標
+        ptr = lib.ffi_func_generate(code.encode())
+        try:
+            # 指標轉字串
+            return ctypes.cast(ptr, c_char_p).value.decode('utf-8')
+        finally:
+            # 回收記憶體
+            lib.ffi_func_free(ptr)
+
+
+Python 程式碼（CFFI）：
+
+.. code-block:: python
+
+    from cffi import FFI
+
+    ffi = FFI()
+    lib = ffi.dlopen("./libfunc.so")
+    ffi.cdef('''
+    char* const ffi_func_generate(char* const code);
+    void ffi_func_free(char* ptr);
+    ''')
+
+    def func(code):
+        ptr = lib.ffi_func_generate(code.encode())
+        try:
+            return ffi.string(ptr).decode('utf-8')
+        finally:
+            lib.ffi_func_free(ptr)
+
+
+
+
 Optional Arguments
 ========================================
 
