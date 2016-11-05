@@ -2,6 +2,7 @@
 文章閱讀（Articles）
 ========================================
 
+
 .. contents:: 目錄
 
 
@@ -70,3 +71,59 @@ Incremental Compilation
 :HackerNews: https://news.ycombinator.com/item?id=12457942
 
 介紹 Rust 編譯器正在開發的 Incremental Compilation 功能
+
+
+
+Pretty State Machine Patterns in Rust
+========================================
+
+:作者: Andrew Hobden
+:URL: https://hoverbear.org/2016/10/12/rust-state-machine-pattern/
+
+
+
+Thoughts on DX: GNOME and Rust
+========================================
+
+:作者: Alberto Ruiz
+:URL: https://siliconislandblog.wordpress.com/2016/10/31/thoughts-on-dx-gnome-and-rust/
+
+相關 repo：
+
+* `GNOME/librsvg - branch rustification <https://github.com/GNOME/librsvg/tree/rustification/rust>`_
+
+
+
+Fixing Python Performance with Rust
+========================================
+
+:作者: Armin Ronacher
+:URL: https://blog.sentry.io/2016/10/19/fixing-python-performance-with-rust.html
+
+
+
+Refactoring std for ultimate portability - libs - Rust Internals
+================================================================
+
+:作者: Brian Anderson
+:URL: https://internals.rust-lang.org/t/refactoring-std-for-ultimate-portability/4301
+
+
+
+2016 Rust Commercial User Survey Results
+========================================
+
+:作者: Jonathan Turner
+:URL: https://internals.rust-lang.org/t/2016-rust-commercial-user-survey-results/4317
+
+
+
+Paradigms of Rust for the Go developer
+========================================
+
+:作者: Ralph Caraveo
+:URL: https://medium.com/@deckarep/paradigms-of-rust-for-the-go-developer-210f67cd6a29
+
+講解在 Go 發生的 data race 問題，
+而在 Rust 中會怎樣被編譯器避免，
+最後建立出沒有 data race 的程式碼。

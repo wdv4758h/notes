@@ -134,6 +134,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../browser/extensions.html">WebExtensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../browser/firefox.html">Firefox</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../browser/firefox-settings.html">Firefox 設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../browser/issues.html">Issues</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../browser/service-worker.html">Service Worker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../browser/servo.html">Servo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../browser/webassembly.html">WebAssembly</a></li>
@@ -253,6 +254,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../graphics/glsl.html">GLSL - OpenGL Shading Language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../graphics/introduction.html">Linux Graphics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../graphics/mesa.html">Mesa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphics/resource.html">Graphic Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/hardware-and-programming.html">Hardware &amp; Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/history.html">Hardware&#8217;s History</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/intel-mic.html">Intel MIC</a></li>
@@ -432,6 +434,12 @@
 <li class="toctree-l2"><a class="reference internal" href="#lossless-compression-with-brotli-in-rust-for-a-bit-of-pied-piper-on-the-backend">Lossless compression with Brotli in Rust for a bit of Pied Piper on the backend</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ripgrep-is-faster-than-grep-ag-git-grep-ucg-pt-sift">ripgrep is faster than {grep, ag, git grep, ucg, pt, sift}</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#incremental-compilation">Incremental Compilation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pretty-state-machine-patterns-in-rust">Pretty State Machine Patterns in Rust</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#thoughts-on-dx-gnome-and-rust">Thoughts on DX: GNOME and Rust</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fixing-python-performance-with-rust">Fixing Python Performance with Rust</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#refactoring-std-for-ultimate-portability-libs-rust-internals">Refactoring std for ultimate portability - libs - Rust Internals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rust-commercial-user-survey-results">2016 Rust Commercial User Survey Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#paradigms-of-rust-for-the-go-developer">Paradigms of Rust for the Go developer</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="asmjs.html">Rust to asm.js</a></li>
@@ -614,6 +622,12 @@
 <li><a class="reference internal" href="#lossless-compression-with-brotli-in-rust-for-a-bit-of-pied-piper-on-the-backend" id="id3">Lossless compression with Brotli in Rust for a bit of Pied Piper on the backend</a></li>
 <li><a class="reference internal" href="#ripgrep-is-faster-than-grep-ag-git-grep-ucg-pt-sift" id="id4">ripgrep is faster than {grep, ag, git grep, ucg, pt, sift}</a></li>
 <li><a class="reference internal" href="#incremental-compilation" id="id5">Incremental Compilation</a></li>
+<li><a class="reference internal" href="#pretty-state-machine-patterns-in-rust" id="id6">Pretty State Machine Patterns in Rust</a></li>
+<li><a class="reference internal" href="#thoughts-on-dx-gnome-and-rust" id="id7">Thoughts on DX: GNOME and Rust</a></li>
+<li><a class="reference internal" href="#fixing-python-performance-with-rust" id="id8">Fixing Python Performance with Rust</a></li>
+<li><a class="reference internal" href="#refactoring-std-for-ultimate-portability-libs-rust-internals" id="id9">Refactoring std for ultimate portability - libs - Rust Internals</a></li>
+<li><a class="reference internal" href="#rust-commercial-user-survey-results" id="id10">2016 Rust Commercial User Survey Results</a></li>
+<li><a class="reference internal" href="#paradigms-of-rust-for-the-go-developer" id="id11">Paradigms of Rust for the Go developer</a></li>
 </ul>
 </li>
 </ul>
@@ -697,6 +711,91 @@
 </tbody>
 </table>
 <p>介紹 Rust 編譯器正在開發的 Incremental Compilation 功能</p>
+</div>
+<div class="section" id="pretty-state-machine-patterns-in-rust">
+<h2><a class="toc-backref" href="#id6">Pretty State Machine Patterns in Rust</a><a class="headerlink" href="#pretty-state-machine-patterns-in-rust" title="本標題的永久連結">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">作者:</th><td class="field-body">Andrew Hobden</td>
+</tr>
+<tr class="field-even field"><th class="field-name">URL:</th><td class="field-body"><a class="reference external" href="https://hoverbear.org/2016/10/12/rust-state-machine-pattern/">https://hoverbear.org/2016/10/12/rust-state-machine-pattern/</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="thoughts-on-dx-gnome-and-rust">
+<h2><a class="toc-backref" href="#id7">Thoughts on DX: GNOME and Rust</a><a class="headerlink" href="#thoughts-on-dx-gnome-and-rust" title="本標題的永久連結">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">作者:</th><td class="field-body">Alberto Ruiz</td>
+</tr>
+<tr class="field-even field"><th class="field-name">URL:</th><td class="field-body"><a class="reference external" href="https://siliconislandblog.wordpress.com/2016/10/31/thoughts-on-dx-gnome-and-rust/">https://siliconislandblog.wordpress.com/2016/10/31/thoughts-on-dx-gnome-and-rust/</a></td>
+</tr>
+</tbody>
+</table>
+<p>相關 repo：</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/GNOME/librsvg/tree/rustification/rust">GNOME/librsvg - branch rustification</a></li>
+</ul>
+</div>
+<div class="section" id="fixing-python-performance-with-rust">
+<h2><a class="toc-backref" href="#id8">Fixing Python Performance with Rust</a><a class="headerlink" href="#fixing-python-performance-with-rust" title="本標題的永久連結">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">作者:</th><td class="field-body">Armin Ronacher</td>
+</tr>
+<tr class="field-even field"><th class="field-name">URL:</th><td class="field-body"><a class="reference external" href="https://blog.sentry.io/2016/10/19/fixing-python-performance-with-rust.html">https://blog.sentry.io/2016/10/19/fixing-python-performance-with-rust.html</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="refactoring-std-for-ultimate-portability-libs-rust-internals">
+<h2><a class="toc-backref" href="#id9">Refactoring std for ultimate portability - libs - Rust Internals</a><a class="headerlink" href="#refactoring-std-for-ultimate-portability-libs-rust-internals" title="本標題的永久連結">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">作者:</th><td class="field-body">Brian Anderson</td>
+</tr>
+<tr class="field-even field"><th class="field-name">URL:</th><td class="field-body"><a class="reference external" href="https://internals.rust-lang.org/t/refactoring-std-for-ultimate-portability/4301">https://internals.rust-lang.org/t/refactoring-std-for-ultimate-portability/4301</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="rust-commercial-user-survey-results">
+<h2><a class="toc-backref" href="#id10">2016 Rust Commercial User Survey Results</a><a class="headerlink" href="#rust-commercial-user-survey-results" title="本標題的永久連結">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">作者:</th><td class="field-body">Jonathan Turner</td>
+</tr>
+<tr class="field-even field"><th class="field-name">URL:</th><td class="field-body"><a class="reference external" href="https://internals.rust-lang.org/t/2016-rust-commercial-user-survey-results/4317">https://internals.rust-lang.org/t/2016-rust-commercial-user-survey-results/4317</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="paradigms-of-rust-for-the-go-developer">
+<h2><a class="toc-backref" href="#id11">Paradigms of Rust for the Go developer</a><a class="headerlink" href="#paradigms-of-rust-for-the-go-developer" title="本標題的永久連結">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">作者:</th><td class="field-body">Ralph Caraveo</td>
+</tr>
+<tr class="field-even field"><th class="field-name">URL:</th><td class="field-body"><a class="reference external" href="https://medium.com/&#64;deckarep/paradigms-of-rust-for-the-go-developer-210f67cd6a29">https://medium.com/&#64;deckarep/paradigms-of-rust-for-the-go-developer-210f67cd6a29</a></td>
+</tr>
+</tbody>
+</table>
+<p>講解在 Go 發生的 data race 問題，
+而在 Rust 中會怎樣被編譯器避免，
+最後建立出沒有 data race 的程式碼。</p>
 </div>
 </div>
 
