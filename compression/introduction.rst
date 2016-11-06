@@ -10,6 +10,8 @@
 ========================================
 
 * `Wikipedia - Run-length encoding <https://en.wikipedia.org/wiki/Run-length_encoding>`_
+* `Rosetta Code - Run-length encoding <https://rosettacode.org/wiki/Run-length_encoding>`_
+
 
 直接跑過字串，把重複的資料單元以一個該資料單元以及代表次數的數字做表示。
 對於具有許多重複性的資料較有用，例如：簡單的圖像、簡單的影像，
@@ -105,3 +107,115 @@ BWT 是 Burrows–Wheeler transform 的縮寫，
 只需要花費一些額外的計算。
 
 使用於 bzip2。
+
+
+範例：
+
+輸入（ ``|`` 代表 EOF） ::
+
+    ^BANANA|
+
+建立所有順序轉換 ::
+
+    ^BANANA|
+    |^BANANA
+    A|^BANAN
+    NA|^BANA
+    ANA|^BAN
+    NANA|^BA
+    ANANA|^B
+    BANANA|^
+
+用字典順序排列 ::
+
+    ANANA|^B
+    ANA|^BAN
+    A|^BANAN
+    BANANA|^
+    NANA|^BA
+    NA|^BANA
+    ^BANANA|
+    |^BANANA
+
+取出最後一行作為輸出 ::
+
+    BNN^AA|A
+
+
+逆操作（不斷地向前一行插入並排序）：
+
+::
+
+    B         A        BA         AN        BAN         ANA        BANA
+    N         A        NA         AN        NAN         ANA        NANA
+    N  sort   A  add   NA  sort   A|  add   NA|  sort   A|^  add   NA|^
+    ^ ------> B -----> ^B ------> BA -----> ^BA ------> BAN -----> ^BAN
+    A         N        AN         NA        ANA         NAN        ANAN
+    A         N        AN         NA        ANA         NA|        ANA|
+    |         ^        |^         ^B        |^B         ^BA        |^BA
+    A         |        A|         |^        A|^         |^B        A|^B
+
+
+            ANAN        BANAN         ANANA        BANANA         ANANA|
+            ANA|        NANA|         ANA|^        NANA|^         ANA|^B
+     sort   A|^B  add   NA|^B  sort   A|^BA  add   NA|^BA  sort   A|^BAN
+    ------> BANA -----> ^BANA ------> BANAN -----> ^BANAN ------> BANANA
+            NANA        ANANA         NANA|        ANANA|         NANA|^
+            NA|^        ANA|^         NA|^B        ANA|^B         NA|^BA
+            ^BAN        |^BAN         ^BANA        |^BANA         ^BANAN
+            |^BA        A|^BA         |^BAN        A|^BAN         |^BANA
+
+
+           BANANA|         ANANA|^        BANANA|^         ANANA|^B
+           NANA|^B         ANA|^BA        NANA|^BA         ANA|^BAN
+     add   NA|^BAN  sort   A|^BANA  add   NA|^BANA  sort   A|^BANAN
+    -----> ^BANANA ------> BANANA| -----> ^BANANA| ------> BANANA|^
+           ANANA|^         NANA|^B        ANANA|^B         NANA|^BA
+           ANA|^BA         NA|^BAN        ANA|^BAN         NA|^BANA
+           |^BANAN         ^BANANA        |^BANANA         ^BANANA|
+           A|^BANA         |^BANAN        A|^BANAN         |^BANANA
+
+
+輸出以「EOF」結尾的那一列：
+
+::
+
+    ^BANANA|
+
+
+範例 Python 程式：
+
+.. code-block:: python
+
+    def bwt(s):
+        n = len(s)
+        table = [s[n-i:]+s[:n-i] for i in range(n)]
+        table.sort()
+        return ''.join(t[-1] for t in table)
+
+    def reverse_bwt(s):
+        l = [c for c in s]
+        l.sort()
+
+        for _ in range(len(s)):
+            l = [i+c for c, i in zip(l, s)]
+            l.sort()
+
+        for i in l:
+            if i[-1] == "|":
+                return i
+
+    if __name__ == '__main__':
+        print(bwt("^BANANA|"))
+        print(reverse_bwt("BNN^AA|A"))
+
+
+
+更有效率的作法：
+
+::
+
+    TODO
+
+
+
