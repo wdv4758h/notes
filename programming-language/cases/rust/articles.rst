@@ -93,6 +93,13 @@ Thoughts on DX: GNOME and Rust
 * `GNOME/librsvg - branch rustification <https://github.com/GNOME/librsvg/tree/rustification/rust>`_
 
 
+後續相關發展：
+
+* `Rust and GNOME meeting notes <https://internals.rust-lang.org/t/rust-and-gnome-meeting-notes/4339>`_
+* `Rust and GObject <https://blogs.gnome.org/despinosa/2016/11/01/rust-and-gobject/>`_
+* `Rust and Vala <https://blogs.gnome.org/despinosa/2016/11/01/rust-and-vala/>`_
+
+
 
 Fixing Python Performance with Rust
 ========================================
