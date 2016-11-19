@@ -463,8 +463,45 @@
 <li class="toctree-l1"><a class="reference internal" href="../rust/videos.html">Rust Videos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/web.html">Rust &amp; Web</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">運用 SIMD 來加速的演算法</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2">基本 SIMD 範例</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id3">加法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">介紹</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">各家技術</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#risc-sparc-sun-microsystems-vis-visual-instruction-set">1994 - RISC/SPARC - Sun Microsystems - VIS (Visual Instruction Set)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#risc-pa-risc-hewlett-packard-max-multimedia-acceleration-extensions">1994 - RISC/PA-RISC - Hewlett-Packard - MAX (Multimedia Acceleration eXtensions)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#risc-alpha-dec-mvi-motion-video-instructions">1995 - RISC/Alpha - DEC - MVI (Motion Video Instructions)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#risc-mips-mips-mdmx-mips-digital-media-extension">1996 - RISC/MIPS - MIPS - MDMX (MIPS Digital Media eXtension)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#risc-power-altivec-apple-ibm-freescale">1996 - RISC/Power - AltiVec - Apple &amp; IBM &amp; Freescale</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cisc-x86-intel-mmx">1996 - CISC/x86 - Intel - MMX</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cisc-x86-intel-mmx2">1997 - CISC/x86 - Intel - MMX2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cisc-x86-amd-3dnow">1998 - CISC/x86 - AMD - 3DNow!</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#risc-mips-mips-mips-3d">1999 - RISC/MIPS - MIPS - MIPS-3D</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cisc-x86-intel-sse-streaming-simd-extensions">1999 - CISC/x86 - Intel - SSE (Streaming SIMD Extensions)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cisc-x86-intel-sse2">2001 - CISC/x86 - Intel - SSE2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cisc-x86-amd-advanced-3dnow">2003 - CISC/x86 - AMD - Advanced 3DNow!</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cisc-x86-intel-sse3">2004 - CISC/x86 - Intel - SSE3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#risc-arm-arm-neon">2005 - RISC/ARM - ARM - NEON</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cisc-x86-intel-ssse3-supplemental-sse3">2006 - CISC/x86 - Intel - SSSE3 (Supplemental SSE3)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cisc-x86-intel-sse4">2006 - CISC/x86 - Intel - SSE4</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#risc-mips-ingenic-mxu-media-extension-unit">2007 - RISC/MIPS - Ingenic - MXU (Media Extension Unit)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cisc-x86-intel-avx-advanced-vector-extensions">2008 - CISC/x86 - Intel - AVX (Advanced Vector Extensions)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cisc-x86-amd-f16c-half-precision-float-conversion">2009 - CISC/x86 - AMD - F16C (Half-precision Float Conversion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cisc-x86-amd-xop-extended-operations">2009 - CISC/x86 - AMD - XOP (eXtended Operations)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cisc-x86-intel-clmul-carry-less-multiplication">2010 - CISC/x86 - Intel - CLMUL (Carry-less Multiplication)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cisc-x86-amd-fma4">2011 - CISC/x86 - AMD - FMA4</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cisc-x86-amd-fma3">2012 - CISC/x86 - AMD - FMA3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cisc-x86-intel-avx-512">2015 - CISC/x86 - Intel - AVX-512</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#risc-arm-arm-sve-scalable-vector-extensions">2016 - RISC/ARM - ARM - SVE (Scalable Vector Extensions)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#simd-rust">SIMD 與 Rust</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#feature-repr-simd">針對型別的支援 — feature(repr_simd)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#simd-feature-platform-intrinsics">SIMD 操作 - feature(platform_intrinsics)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#feature-cfg-target-feature">平台偵測 - feature(cfg_target_feature)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">基本 SIMD 範例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#simd-add">加法 — simd_add</a></li>
 </ul>
 </li>
 </ul>
@@ -612,13 +649,50 @@
            <div itemprop="articleBody">
             
   <div class="section" id="simd">
-<h1><a class="toc-backref" href="#id4">運用 SIMD 來加速的演算法</a><a class="headerlink" href="#simd" title="本標題的永久連結">¶</a></h1>
+<h1><a class="toc-backref" href="#id5">運用 SIMD 來加速的演算法</a><a class="headerlink" href="#simd" title="本標題的永久連結">¶</a></h1>
 <div class="contents topic" id="id1">
 <p class="topic-title first">目錄</p>
 <ul class="simple">
-<li><a class="reference internal" href="#simd" id="id4">運用 SIMD 來加速的演算法</a><ul>
-<li><a class="reference internal" href="#id2" id="id5">基本 SIMD 範例</a><ul>
-<li><a class="reference internal" href="#id3" id="id6">加法</a></li>
+<li><a class="reference internal" href="#simd" id="id5">運用 SIMD 來加速的演算法</a><ul>
+<li><a class="reference internal" href="#id2" id="id6">介紹</a><ul>
+<li><a class="reference internal" href="#id3" id="id7">各家技術</a><ul>
+<li><a class="reference internal" href="#risc-sparc-sun-microsystems-vis-visual-instruction-set" id="id8">1994 - RISC/SPARC - Sun Microsystems - VIS (Visual Instruction Set)</a></li>
+<li><a class="reference internal" href="#risc-pa-risc-hewlett-packard-max-multimedia-acceleration-extensions" id="id9">1994 - RISC/PA-RISC - Hewlett-Packard - MAX (Multimedia Acceleration eXtensions)</a></li>
+<li><a class="reference internal" href="#risc-alpha-dec-mvi-motion-video-instructions" id="id10">1995 - RISC/Alpha - DEC - MVI (Motion Video Instructions)</a></li>
+<li><a class="reference internal" href="#risc-mips-mips-mdmx-mips-digital-media-extension" id="id11">1996 - RISC/MIPS - MIPS - MDMX (MIPS Digital Media eXtension)</a></li>
+<li><a class="reference internal" href="#risc-power-altivec-apple-ibm-freescale" id="id12">1996 - RISC/Power - AltiVec - Apple &amp; IBM &amp; Freescale</a></li>
+<li><a class="reference internal" href="#cisc-x86-intel-mmx" id="id13">1996 - CISC/x86 - Intel - MMX</a></li>
+<li><a class="reference internal" href="#cisc-x86-intel-mmx2" id="id14">1997 - CISC/x86 - Intel - MMX2</a></li>
+<li><a class="reference internal" href="#cisc-x86-amd-3dnow" id="id15">1998 - CISC/x86 - AMD - 3DNow!</a></li>
+<li><a class="reference internal" href="#risc-mips-mips-mips-3d" id="id16">1999 - RISC/MIPS - MIPS - MIPS-3D</a></li>
+<li><a class="reference internal" href="#cisc-x86-intel-sse-streaming-simd-extensions" id="id17">1999 - CISC/x86 - Intel - SSE (Streaming SIMD Extensions)</a></li>
+<li><a class="reference internal" href="#cisc-x86-intel-sse2" id="id18">2001 - CISC/x86 - Intel - SSE2</a></li>
+<li><a class="reference internal" href="#cisc-x86-amd-advanced-3dnow" id="id19">2003 - CISC/x86 - AMD - Advanced 3DNow!</a></li>
+<li><a class="reference internal" href="#cisc-x86-intel-sse3" id="id20">2004 - CISC/x86 - Intel - SSE3</a></li>
+<li><a class="reference internal" href="#risc-arm-arm-neon" id="id21">2005 - RISC/ARM - ARM - NEON</a></li>
+<li><a class="reference internal" href="#cisc-x86-intel-ssse3-supplemental-sse3" id="id22">2006 - CISC/x86 - Intel - SSSE3 (Supplemental SSE3)</a></li>
+<li><a class="reference internal" href="#cisc-x86-intel-sse4" id="id23">2006 - CISC/x86 - Intel - SSE4</a></li>
+<li><a class="reference internal" href="#risc-mips-ingenic-mxu-media-extension-unit" id="id24">2007 - RISC/MIPS - Ingenic - MXU (Media Extension Unit)</a></li>
+<li><a class="reference internal" href="#cisc-x86-intel-avx-advanced-vector-extensions" id="id25">2008 - CISC/x86 - Intel - AVX (Advanced Vector Extensions)</a></li>
+<li><a class="reference internal" href="#cisc-x86-amd-f16c-half-precision-float-conversion" id="id26">2009 - CISC/x86 - AMD - F16C (Half-precision Float Conversion)</a></li>
+<li><a class="reference internal" href="#cisc-x86-amd-xop-extended-operations" id="id27">2009 - CISC/x86 - AMD - XOP (eXtended Operations)</a></li>
+<li><a class="reference internal" href="#cisc-x86-intel-clmul-carry-less-multiplication" id="id28">2010 - CISC/x86 - Intel - CLMUL (Carry-less Multiplication)</a></li>
+<li><a class="reference internal" href="#cisc-x86-amd-fma4" id="id29">2011 - CISC/x86 - AMD - FMA4</a></li>
+<li><a class="reference internal" href="#cisc-x86-amd-fma3" id="id30">2012 - CISC/x86 - AMD - FMA3</a></li>
+<li><a class="reference internal" href="#cisc-x86-intel-avx-512" id="id31">2015 - CISC/x86 - Intel - AVX-512</a></li>
+<li><a class="reference internal" href="#risc-arm-arm-sve-scalable-vector-extensions" id="id32">2016 - RISC/ARM - ARM - SVE (Scalable Vector Extensions)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#simd-rust" id="id33">SIMD 與 Rust</a><ul>
+<li><a class="reference internal" href="#feature-repr-simd" id="id34">針對型別的支援 — feature(repr_simd)</a></li>
+<li><a class="reference internal" href="#simd-feature-platform-intrinsics" id="id35">SIMD 操作 - feature(platform_intrinsics)</a></li>
+<li><a class="reference internal" href="#feature-cfg-target-feature" id="id36">平台偵測 - feature(cfg_target_feature)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id4" id="id37">基本 SIMD 範例</a><ul>
+<li><a class="reference internal" href="#simd-add" id="id38">加法 — simd_add</a></li>
 </ul>
 </li>
 </ul>
@@ -626,9 +700,203 @@
 </ul>
 </div>
 <div class="section" id="id2">
-<h2><a class="toc-backref" href="#id5">基本 SIMD 範例</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id6">介紹</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
 <div class="section" id="id3">
-<h3><a class="toc-backref" href="#id6">加法</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id7">各家技術</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h3>
+<div class="section" id="risc-sparc-sun-microsystems-vis-visual-instruction-set">
+<h4><a class="toc-backref" href="#id8">1994 - RISC/SPARC - Sun Microsystems - VIS (Visual Instruction Set)</a><a class="headerlink" href="#risc-sparc-sun-microsystems-vis-visual-instruction-set" title="本標題的永久連結">¶</a></h4>
+</div>
+<div class="section" id="risc-pa-risc-hewlett-packard-max-multimedia-acceleration-extensions">
+<h4><a class="toc-backref" href="#id9">1994 - RISC/PA-RISC - Hewlett-Packard - MAX (Multimedia Acceleration eXtensions)</a><a class="headerlink" href="#risc-pa-risc-hewlett-packard-max-multimedia-acceleration-extensions" title="本標題的永久連結">¶</a></h4>
+</div>
+<div class="section" id="risc-alpha-dec-mvi-motion-video-instructions">
+<h4><a class="toc-backref" href="#id10">1995 - RISC/Alpha - DEC - MVI (Motion Video Instructions)</a><a class="headerlink" href="#risc-alpha-dec-mvi-motion-video-instructions" title="本標題的永久連結">¶</a></h4>
+</div>
+<div class="section" id="risc-mips-mips-mdmx-mips-digital-media-extension">
+<h4><a class="toc-backref" href="#id11">1996 - RISC/MIPS - MIPS - MDMX (MIPS Digital Media eXtension)</a><a class="headerlink" href="#risc-mips-mips-mdmx-mips-digital-media-extension" title="本標題的永久連結">¶</a></h4>
+</div>
+<div class="section" id="risc-power-altivec-apple-ibm-freescale">
+<h4><a class="toc-backref" href="#id12">1996 - RISC/Power - AltiVec - Apple &amp; IBM &amp; Freescale</a><a class="headerlink" href="#risc-power-altivec-apple-ibm-freescale" title="本標題的永久連結">¶</a></h4>
+</div>
+<div class="section" id="cisc-x86-intel-mmx">
+<h4><a class="toc-backref" href="#id13">1996 - CISC/x86 - Intel - MMX</a><a class="headerlink" href="#cisc-x86-intel-mmx" title="本標題的永久連結">¶</a></h4>
+</div>
+<div class="section" id="cisc-x86-intel-mmx2">
+<h4><a class="toc-backref" href="#id14">1997 - CISC/x86 - Intel - MMX2</a><a class="headerlink" href="#cisc-x86-intel-mmx2" title="本標題的永久連結">¶</a></h4>
+</div>
+<div class="section" id="cisc-x86-amd-3dnow">
+<h4><a class="toc-backref" href="#id15">1998 - CISC/x86 - AMD - 3DNow!</a><a class="headerlink" href="#cisc-x86-amd-3dnow" title="本標題的永久連結">¶</a></h4>
+</div>
+<div class="section" id="risc-mips-mips-mips-3d">
+<h4><a class="toc-backref" href="#id16">1999 - RISC/MIPS - MIPS - MIPS-3D</a><a class="headerlink" href="#risc-mips-mips-mips-3d" title="本標題的永久連結">¶</a></h4>
+</div>
+<div class="section" id="cisc-x86-intel-sse-streaming-simd-extensions">
+<h4><a class="toc-backref" href="#id17">1999 - CISC/x86 - Intel - SSE (Streaming SIMD Extensions)</a><a class="headerlink" href="#cisc-x86-intel-sse-streaming-simd-extensions" title="本標題的永久連結">¶</a></h4>
+</div>
+<div class="section" id="cisc-x86-intel-sse2">
+<h4><a class="toc-backref" href="#id18">2001 - CISC/x86 - Intel - SSE2</a><a class="headerlink" href="#cisc-x86-intel-sse2" title="本標題的永久連結">¶</a></h4>
+</div>
+<div class="section" id="cisc-x86-amd-advanced-3dnow">
+<h4><a class="toc-backref" href="#id19">2003 - CISC/x86 - AMD - Advanced 3DNow!</a><a class="headerlink" href="#cisc-x86-amd-advanced-3dnow" title="本標題的永久連結">¶</a></h4>
+</div>
+<div class="section" id="cisc-x86-intel-sse3">
+<h4><a class="toc-backref" href="#id20">2004 - CISC/x86 - Intel - SSE3</a><a class="headerlink" href="#cisc-x86-intel-sse3" title="本標題的永久連結">¶</a></h4>
+</div>
+<div class="section" id="risc-arm-arm-neon">
+<h4><a class="toc-backref" href="#id21">2005 - RISC/ARM - ARM - NEON</a><a class="headerlink" href="#risc-arm-arm-neon" title="本標題的永久連結">¶</a></h4>
+</div>
+<div class="section" id="cisc-x86-intel-ssse3-supplemental-sse3">
+<h4><a class="toc-backref" href="#id22">2006 - CISC/x86 - Intel - SSSE3 (Supplemental SSE3)</a><a class="headerlink" href="#cisc-x86-intel-ssse3-supplemental-sse3" title="本標題的永久連結">¶</a></h4>
+</div>
+<div class="section" id="cisc-x86-intel-sse4">
+<h4><a class="toc-backref" href="#id23">2006 - CISC/x86 - Intel - SSE4</a><a class="headerlink" href="#cisc-x86-intel-sse4" title="本標題的永久連結">¶</a></h4>
+</div>
+<div class="section" id="risc-mips-ingenic-mxu-media-extension-unit">
+<h4><a class="toc-backref" href="#id24">2007 - RISC/MIPS - Ingenic - MXU (Media Extension Unit)</a><a class="headerlink" href="#risc-mips-ingenic-mxu-media-extension-unit" title="本標題的永久連結">¶</a></h4>
+</div>
+<div class="section" id="cisc-x86-intel-avx-advanced-vector-extensions">
+<h4><a class="toc-backref" href="#id25">2008 - CISC/x86 - Intel - AVX (Advanced Vector Extensions)</a><a class="headerlink" href="#cisc-x86-intel-avx-advanced-vector-extensions" title="本標題的永久連結">¶</a></h4>
+</div>
+<div class="section" id="cisc-x86-amd-f16c-half-precision-float-conversion">
+<h4><a class="toc-backref" href="#id26">2009 - CISC/x86 - AMD - F16C (Half-precision Float Conversion)</a><a class="headerlink" href="#cisc-x86-amd-f16c-half-precision-float-conversion" title="本標題的永久連結">¶</a></h4>
+</div>
+<div class="section" id="cisc-x86-amd-xop-extended-operations">
+<h4><a class="toc-backref" href="#id27">2009 - CISC/x86 - AMD - XOP (eXtended Operations)</a><a class="headerlink" href="#cisc-x86-amd-xop-extended-operations" title="本標題的永久連結">¶</a></h4>
+</div>
+<div class="section" id="cisc-x86-intel-clmul-carry-less-multiplication">
+<h4><a class="toc-backref" href="#id28">2010 - CISC/x86 - Intel - CLMUL (Carry-less Multiplication)</a><a class="headerlink" href="#cisc-x86-intel-clmul-carry-less-multiplication" title="本標題的永久連結">¶</a></h4>
+</div>
+<div class="section" id="cisc-x86-amd-fma4">
+<h4><a class="toc-backref" href="#id29">2011 - CISC/x86 - AMD - FMA4</a><a class="headerlink" href="#cisc-x86-amd-fma4" title="本標題的永久連結">¶</a></h4>
+</div>
+<div class="section" id="cisc-x86-amd-fma3">
+<h4><a class="toc-backref" href="#id30">2012 - CISC/x86 - AMD - FMA3</a><a class="headerlink" href="#cisc-x86-amd-fma3" title="本標題的永久連結">¶</a></h4>
+</div>
+<div class="section" id="cisc-x86-intel-avx-512">
+<h4><a class="toc-backref" href="#id31">2015 - CISC/x86 - Intel - AVX-512</a><a class="headerlink" href="#cisc-x86-intel-avx-512" title="本標題的永久連結">¶</a></h4>
+</div>
+<div class="section" id="risc-arm-arm-sve-scalable-vector-extensions">
+<h4><a class="toc-backref" href="#id32">2016 - RISC/ARM - ARM - SVE (Scalable Vector Extensions)</a><a class="headerlink" href="#risc-arm-arm-sve-scalable-vector-extensions" title="本標題的永久連結">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="section" id="simd-rust">
+<h2><a class="toc-backref" href="#id33">SIMD 與 Rust</a><a class="headerlink" href="#simd-rust" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="feature-repr-simd">
+<h3><a class="toc-backref" href="#id34">針對型別的支援 — feature(repr_simd)</a><a class="headerlink" href="#feature-repr-simd" title="本標題的永久連結">¶</a></h3>
+<p>加上 <code class="docutils literal"><span class="pre">#[repr(simd)]</span></code> 屬性的型別會被編譯成 SIMD vector，
+此型別可以為泛型但必須是同種 primitive type 重複數次。
+加上此屬性後該型別可能會根據不同平台而有不同的 alignment。</p>
+</div>
+<div class="section" id="simd-feature-platform-intrinsics">
+<h3><a class="toc-backref" href="#id35">SIMD 操作 - feature(platform_intrinsics)</a><a class="headerlink" href="#simd-feature-platform-intrinsics" title="本標題的永久連結">¶</a></h3>
+<p>CPU 廠商通常會提供一個 C header 讓開發者使用 CPU 的 SIMD 功能，
+例如 ARM 的 <a class="reference external" href="http://infocenter.arm.com/help/topic/com.arm.doc.ihi0073a/IHI0073A_arm_neon_intrinsics_ref.pdf">arm_neon.h</a>  或是 x86 的 <a class="reference external" href="https://software.intel.com/sites/landingpage/IntrinsicsGuide">...mmintrin.h</a> 。</p>
+<p>這些功能都會以 compiler intrinsics 的形式來支援，
+名稱也都會相似於 CPU 廠商所提供的 C header，
+可以經由 <code class="docutils literal"><span class="pre">extern</span></code> block 選定適當的 ABI 來使用，
+而不會放在 <code class="docutils literal"><span class="pre">std</span></code> 當中。</p>
+<p>範例：</p>
+<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">extern</span><span class="w"> </span><span class="s">&quot;platform-intrinsic&quot;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">x86_mm_abs_epi16</span><span class="p">(</span><span class="n">a</span><span class="o">:</span><span class="w"> </span><span class="n">Simd8</span><span class="o">&lt;</span><span class="kt">i16</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Simd8</span><span class="o">&lt;</span><span class="kt">i16</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">simd_add</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">a</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">T</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// ...</span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>在 <code class="docutils literal"><span class="pre">platform-intrinsic</span></code> 中的函式會由 <code class="docutils literal"><span class="pre">librustc_platform_intrinsics</span></code> 來支援，
+其中會用前綴來選擇對應平台的 SIMD 函式，
+例如 <code class="docutils literal"><span class="pre">x86_</span></code> 、 <code class="docutils literal"><span class="pre">arm_</span></code> 、 <code class="docutils literal"><span class="pre">aarch64</span></code> （可以由 <a class="reference external" href="https://github.com/rust-lang/rust/blob/master/src/librustc_platform_intrinsics/lib.rs">rust/src/librustc_platform_intrinsics/lib.rs</a> 而知)，
+在找到對應的平台後，
+會再找到對應的 LLVM 定義（可以由 <a class="reference external" href="https://github.com/rust-lang/rust/blob/master/src/librustc_platform_intrinsics/x86.rs">rust/src/librustc_platform_intrinsics/x86.rs</a> 而知）。
+這些 intrinsics 只在特定的 CPU 上可以使用，
+如果 target CPU 不支援的話會產生編譯時期的錯誤。
+（ <code class="docutils literal"><span class="pre">librustc_platform_intrinsics</span></code> 內針對各平台的程式是經由餵入不同的 JSON 設定檔給 <a class="reference external" href="https://github.com/rust-lang/rust/blob/master/src/etc/platform-intrinsics/generator.py">rust/src/etc/platform-intrinsics/generator.py</a> 所產生的）</p>
+<p>除了上面提到的平台特定 SIMD 功能外，
+有些功能是各個有支援 SIMD 的平台都能使用的，
+這些功能會被包裝成更方便使用的形式，
+例如 <code class="docutils literal"><span class="pre">simd_add</span></code> 、 <code class="docutils literal"><span class="pre">simd_sub</span></code>
+（可以在 <a class="reference external" href="https://github.com/rust-lang/rust/blob/master/src/librustc_trans/intrinsic.rs">rust/src/librustc_trans/intrinsic.rs</a> 當中的 <code class="docutils literal"><span class="pre">generic_simd_intrinsic</span></code> 找到）。</p>
+<p>更完整的通用列表：</p>
+<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">extern</span><span class="w"> </span><span class="s">&quot;platform-intrinsic&quot;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Arithmetic</span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">simd_add</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">T</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">simd_sub</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">T</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">simd_mul</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">T</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">simd_div</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">T</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">simd_shl</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">T</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">simd_shr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">T</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">simd_and</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">T</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">simd_or</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">T</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">simd_xor</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">T</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Comparisons</span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">simd_eq</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">U</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">simd_ne</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">U</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">simd_lt</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">U</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">simd_le</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">U</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">simd_gt</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">U</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">simd_ge</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">U</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Shuffles (simd_shuffleN, N is usize)</span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">simd_shuffle2</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">idx</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="kt">u32</span><span class="p">;</span><span class="w"> </span><span class="mi">2</span><span class="p">])</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">U</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">simd_shuffle3</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">idx</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="kt">u32</span><span class="p">;</span><span class="w"> </span><span class="mi">3</span><span class="p">])</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">U</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">simd_shuffle4</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">idx</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="kt">u32</span><span class="p">;</span><span class="w"> </span><span class="mi">4</span><span class="p">])</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">U</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">simd_shuffle8</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">idx</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="kt">u32</span><span class="p">;</span><span class="w"> </span><span class="mi">8</span><span class="p">])</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">U</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">simd_shuffle16</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">idx</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="kt">u32</span><span class="p">;</span><span class="w"> </span><span class="mi">16</span><span class="p">])</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">U</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// inserting/extracting elements</span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">simd_insert</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">E</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">idx</span><span class="o">:</span><span class="w"> </span><span class="kt">u32</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">:</span><span class="w"> </span><span class="n">E</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">T</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">simd_extract</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">E</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">idx</span><span class="o">:</span><span class="w"> </span><span class="kt">u32</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">E</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// cast</span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">simd_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">U</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>相關檔案：</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/rust-lang/rust/blob/master/src/test/run-pass/simd-generics.rs">https://github.com/rust-lang/rust/blob/master/src/test/run-pass/simd-generics.rs</a></li>
+<li><a class="reference external" href="https://github.com/rust-lang/rust/blob/master/src/test/run-pass/simd-upgraded.rs">https://github.com/rust-lang/rust/blob/master/src/test/run-pass/simd-upgraded.rs</a></li>
+<li><a class="reference external" href="https://github.com/rust-lang/rust/blob/master/src/test/run-pass/simd-intrinsic-generic-comparison.rs">https://github.com/rust-lang/rust/blob/master/src/test/run-pass/simd-intrinsic-generic-comparison.rs</a></li>
+<li><a class="reference external" href="https://github.com/rust-lang/rust/blob/master/src/test/run-pass/simd-intrinsic-generic-arithmetic.rs">https://github.com/rust-lang/rust/blob/master/src/test/run-pass/simd-intrinsic-generic-arithmetic.rs</a></li>
+<li><a class="reference external" href="https://github.com/rust-lang/rust/blob/master/src/test/run-pass/simd-intrinsic-generic-cast.rs">https://github.com/rust-lang/rust/blob/master/src/test/run-pass/simd-intrinsic-generic-cast.rs</a></li>
+<li><a class="reference external" href="https://github.com/rust-lang/rust/blob/master/src/test/run-pass/simd-intrinsic-generic-elements.rs">https://github.com/rust-lang/rust/blob/master/src/test/run-pass/simd-intrinsic-generic-elements.rs</a></li>
+<li><a class="reference external" href="https://github.com/rust-lang/rust/blob/master/src/librustc_typeck/check/intrinsic.rs">https://github.com/rust-lang/rust/blob/master/src/librustc_typeck/check/intrinsic.rs</a></li>
+<li><a class="reference external" href="https://github.com/rust-lang/rust/blob/master/src/libsyntax/abi.rs">https://github.com/rust-lang/rust/blob/master/src/libsyntax/abi.rs</a></li>
+<li><a class="reference external" href="https://github.com/rust-lang/rust/blob/master/src/etc/platform-intrinsics/generator.py">https://github.com/rust-lang/rust/blob/master/src/etc/platform-intrinsics/generator.py</a></li>
+</ul>
+</div>
+<div class="section" id="feature-cfg-target-feature">
+<h3><a class="toc-backref" href="#id36">平台偵測 - feature(cfg_target_feature)</a><a class="headerlink" href="#feature-cfg-target-feature" title="本標題的永久連結">¶</a></h3>
+<p>要針對特定平台打開 SIMD 支援光是使用 <code class="docutils literal"><span class="pre">cfg(target_arch</span> <span class="pre">=</span> <span class="pre">&quot;...&quot;)</span></code> 是不夠的，
+因此需要 <code class="docutils literal"><span class="pre">cfg(target_feature</span> <span class="pre">=</span> <span class="pre">&quot;...&quot;)</span></code> 的支援，
+在 CPU 支援特定指令集時才開啟。
+要特別指定開啟某個功能可以在編譯時加上參數，
+例如 <code class="docutils literal"><span class="pre">-C</span> <span class="pre">target-feature=&quot;+sse4.2&quot;</span></code> ，
+另外也可以藉由 <code class="docutils literal"><span class="pre">-C</span> <span class="pre">target-cpu=native</span></code> 來讓編譯器自動偵測現在的 CPU 來選擇要開啟的功能。</p>
+<p>如果搭配第三方的 <a class="reference external" href="https://crates.io/crates/cfg-if">cfg-if</a> 可能會讓程式長成這樣：</p>
+<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="n">cfg_if_else</span><span class="o">!</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="cp">#[cfg(target_feature = </span><span class="s">&quot;avx&quot;</span><span class="cp">)]</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">foo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* use AVX things */</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="cp">#[cfg(target_feature = </span><span class="s">&quot;sse4.1&quot;</span><span class="cp">)]</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">foo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* use SSE4.1 things */</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="cp">#[cfg(target_feature = </span><span class="s">&quot;sse2&quot;</span><span class="cp">)]</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">foo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* use SSE2 things */</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="cp">#[cfg(target_feature = </span><span class="s">&quot;neon&quot;</span><span class="cp">)]</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">foo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* use NEON things */</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">foo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* universal fallback */</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>}</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id37">基本 SIMD 範例</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="simd-add">
+<h3><a class="toc-backref" href="#id38">加法 — simd_add</a><a class="headerlink" href="#simd-add" title="本標題的永久連結">¶</a></h3>
 <div class="highlight-rust"><div class="highlight"><pre><span></span><span class="c1">// Rust</span>
 
 <span class="cp">#![feature(repr_simd)]</span><span class="w"></span>
