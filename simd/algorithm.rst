@@ -100,7 +100,7 @@ SIMD 與 Rust
 加上此屬性後該型別可能會根據不同平台而有不同的 alignment。
 
 
-SIMD 操作 - feature(platform_intrinsics)
+SIMD 操作 — feature(platform_intrinsics)
 ----------------------------------------
 
 CPU 廠商通常會提供一個 C header 讓開發者使用 CPU 的 SIMD 功能，
@@ -192,7 +192,7 @@ CPU 廠商通常會提供一個 C header 讓開發者使用 CPU 的 SIMD 功能�
 * https://github.com/rust-lang/rust/blob/master/src/etc/platform-intrinsics/generator.py
 
 
-平台偵測 - feature(cfg_target_feature)
+平台偵測 — feature(cfg_target_feature)
 --------------------------------------
 
 要針對特定平台打開 SIMD 支援光是使用 ``cfg(target_arch = "...")`` 是不夠的，
@@ -219,6 +219,12 @@ CPU 廠商通常會提供一個 C header 讓開發者使用 CPU 的 SIMD 功能�
         fn foo() { /* universal fallback */ }
     }
 }
+
+
+第三方套件 — simd
+------------------------------
+
+目前在 Rust 針對 SIMD 最常使用的套件是 `simd <https://github.com/huonw/simd>`_ 。
 
 
 
@@ -294,3 +300,126 @@ CPU 廠商通常會提供一個 C header 讓開發者使用 CPU 的 SIMD 功能�
             println!("{:?}", a);
         }
     }
+
+
+指令集說明
+========================================
+
+Byte Shuffle - pshufb (_mm_shuffle_epi8)
+----------------------------------------
+
+範例：
+
+.. code-block:: c
+
+    // C
+
+    #include <stdio.h>
+    #include <stdint.h>     // uint16_t
+    #include <tmmintrin.h>  // SSSE3
+
+    void print128_num(__m128i var) {
+        uint16_t *val = (uint16_t*) &var;
+        printf("Numerical: %i %i %i %i %i %i %i %i \n",
+                val[0], val[1], val[2], val[3], val[4], val[5],
+                val[6], val[7]);
+    }
+
+    int main() {
+        // Set packed 16-bit integers
+        // 128 bits, 8 short, per 16 bits
+        __m128i v_in = _mm_setr_epi16(1, 2, 3, 4, 5, 6, 7, 8);
+        // Set packed 8-bit integers
+        // 128 bits, 16 chars, per 8 bits
+        __m128i v_perm = _mm_setr_epi8(1, 0, 2, 3, 8, 9, 10, 11, 4, 5, 12, 13, 6, 7, 14, 15);
+        // Shuffle packed 8-bit integers
+        __m128i v_out = _mm_shuffle_epi8(v_in, v_perm); // pshufb
+        print128_num(v_in);
+        print128_num(v_out);
+        return 0;
+    }
+
+
+編譯並執行：
+
+.. code-block:: sh
+
+    $ clang -mssse3 test.c
+    $ ./a.out
+    Numerical: 1 2 3 4 5 6 7 8
+    Numerical: 256 2 5 6 3 7 4 8
+
+Byte Shuffle 操作：
+
+::
+
+    Data (Number, Binary, Byte Index) :
+
+        +---------------------+----------+----------+----------+----------+----------+----------+
+        |          1          |          2          |          3          |          4          | Number
+        +----------+----------+----------+----------+----------+----------+----------+----------+
+        | 00000000 | 00000001 | 00000000 | 00000010 | 00000000 | 00000011 | 00000000 | 00000100 | Binary
+        +----------+----------+----------+----------+----------+----------+----------+----------+
+        |        0 |        1 |        2 |        3 |        4 |        5 |        6 |        7 | Index
+        +----------+----------+----------+----------+----------+----------+----------+----------+
+
+        +----------+----------+----------+----------+----------+----------+----------+----------+
+        |          5          |          6          |          7          |          8          | Number
+        +----------+----------+----------+----------+----------+----------+----------+----------+
+        | 00000000 | 00000101 | 00000000 | 00000110 | 00000000 | 00000111 | 00000000 | 00001000 | Binary
+        +----------+----------+----------+----------+----------+----------+----------+----------+
+        |        8 |        9 |       10 |       11 |       12 |       13 |       14 |       15 | Index
+        +----------+----------+----------+----------+----------+----------+----------+----------+
+
+    Index (Byte Index) :
+
+        +------+------+------+------+------+------+------+------+
+        |    1 |    0 |    2 |    3 |    8 |    9 |   10 |   11 |
+        +------+------+------+------+------+------+------+------+
+
+        +------+------+------+------+------+------+------+------+
+        |    4 |    5 |   12 |   13 |    6 |    7 |   14 |   15 |
+        +------+------+------+------+------+------+------+------+
+
+    Result :
+
+        +----------+----------+----------+----------+----------+----------+----------+----------+
+        |        1 |        0 |        2 |        3 |        8 |        9 |       10 |       11 | Index
+        +----------+----------+----------+----------+----------+----------+----------+----------+
+        | 00000001 | 00000000 | 00000000 | 00000010 | 00000000 | 00000101 | 00000000 | 00000110 | Binary
+        +----------+----------+----------+----------+----------+----------+----------+----------+
+        |         256         |          2          |          5          |          6          | Number
+        +---------------------+----------+----------+----------+----------+----------+----------+
+
+        +----------+----------+----------+----------+----------+----------+----------+----------+
+        |        4 |        5 |       12 |       13 |        6 |        7 |       14 |       15 | Index
+        +----------+----------+----------+----------+----------+----------+----------+----------+
+        | 00000000 | 00000011 | 00000000 | 00000111 | 00000000 | 00000100 | 00000000 | 00001000 | Binary
+        +----------+----------+----------+----------+----------+----------+----------+----------+
+        |          3          |          7          |          4          |          8          | Number
+        +---------------------+----------+----------+----------+----------+----------+----------+
+
+
+
+參考
+========================================
+
+* `Wikipedia - SIMD <https://en.wikipedia.org/wiki/SIMD>`_
+* `Wikipedia - SWAR (SIMD within a register) <https://en.wikipedia.org/wiki/SWAR>`_
+* `Project Ne10: An Open Optimized Software Library Project for the ARM Architecture <http://projectne10.github.io/Ne10/>`_
+* `PyPy Vectorization <https://pypyvecopt.blogspot.com/>`_
+* [2005] `An Investigation of SIMD instruction sets <https://web.archive.org/web/20140320040450/http://noisymime.org/blogimages/SIMD.pdf>`_
+* [2014] `Automatic SIMD Vectorization of SSA-based Control Flow Graphs <http://d-nb.info/1071087355/34>`_
+
+
+* `Rust RFCs - 1199 - SIMD Infrastructure <https://github.com/rust-lang/rfcs/blob/master/text/1199-simd-infrastructure.md>`_
+
+
+* `MDN - JavaScript - SIMD <https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/SIMD>`_
+* `MDN - JavaScript - SIMD types <https://developer.mozilla.org/en/docs/Web/JavaScript/SIMD_types>`_
+* `SIMD.js specification <https://tc39.github.io/ecmascript_simd/>`_
+
+
+* `x86 Intrinsics Cheatsheet <https://db.in.tum.de/~finis/x86-intrin-cheatsheet-v2.2.pdf>`_
+* `Intel® 64 and IA-32 Architectures Software Developer's Manual <http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html>`_
+* `Intel® 64 and IA-32 Architectures Optimization Reference Manual <https://software.intel.com/sites/default/files/managed/9e/bc/64-ia-32-architectures-optimization-manual.pdf>`_
