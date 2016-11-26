@@ -3,7 +3,7 @@ Podcast
 ========================================
 
 * `BSD Now <http://www.bsdnow.tv/>`_
-* `Talk Python To Me <http://www.talkpythontome.com/>`_
+* `Talk Python To Me <https://talkpython.fm/>`_
 * `CppCast <http://cppcast.com/>`_
 * `rusty radio <http://rustyrad.io/>`_
 * `Podcast.__init__ : A podcast about Python and the people who make it great <http://podcastinit.com/>`_
