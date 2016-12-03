@@ -32,3 +32,11 @@ Resource
 * `The Very Basics of Garbage Collection <http://basen.oru.se/kurser/koi/2008-2009-p1/texter/gc/index.html>`_
 * `Memory Management Reference <http://www.memorymanagement.org/>`_
 * `LuaJIT - New Garbage Collector <http://wiki.luajit.org/New-Garbage-Collector>`_
+
+
+
+文章
+========================================
+
+* `Golang’s Real-time GC in Theory and Practice <https://blog.pusher.com/golangs-real-time-gc-in-theory-and-practice/>`_
+* `Real World OCaml - Chapter 21. Understanding the Garbage Collector <https://realworldocaml.org/v1/en/html/understanding-the-garbage-collector.html>`_
