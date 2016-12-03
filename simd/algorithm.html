@@ -509,7 +509,17 @@
 <li class="toctree-l3"><a class="reference internal" href="#byte-shuffle-pshufb-mm-shuffle-epi8">Byte Shuffle - pshufb (_mm_shuffle_epi8)</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id8">參考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vectorization">編譯器 — Vectorization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id8">介紹</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#llvm-auto-vectorization">LLVM Auto-Vectorization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#polly">Polly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#intel-spmd-program-compiler">Intel SPMD Program Compiler</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mandelbrot">Mandelbrot 範例</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="status.html">SIMD</a></li>
@@ -655,153 +665,163 @@
            <div itemprop="articleBody">
             
   <div class="section" id="simd">
-<h1><a class="toc-backref" href="#id9">運用 SIMD 來加速的演算法</a><a class="headerlink" href="#simd" title="本標題的永久連結">¶</a></h1>
+<h1><a class="toc-backref" href="#id10">運用 SIMD 來加速的演算法</a><a class="headerlink" href="#simd" title="本標題的永久連結">¶</a></h1>
 <div class="contents topic" id="id1">
 <p class="topic-title first">目錄</p>
 <ul class="simple">
-<li><a class="reference internal" href="#simd" id="id9">運用 SIMD 來加速的演算法</a><ul>
-<li><a class="reference internal" href="#id2" id="id10">介紹</a><ul>
-<li><a class="reference internal" href="#id3" id="id11">各家技術</a><ul>
-<li><a class="reference internal" href="#risc-sparc-sun-microsystems-vis-visual-instruction-set" id="id12">1994 - RISC/SPARC - Sun Microsystems - VIS (Visual Instruction Set)</a></li>
-<li><a class="reference internal" href="#risc-pa-risc-hewlett-packard-max-multimedia-acceleration-extensions" id="id13">1994 - RISC/PA-RISC - Hewlett-Packard - MAX (Multimedia Acceleration eXtensions)</a></li>
-<li><a class="reference internal" href="#risc-alpha-dec-mvi-motion-video-instructions" id="id14">1995 - RISC/Alpha - DEC - MVI (Motion Video Instructions)</a></li>
-<li><a class="reference internal" href="#risc-mips-mips-mdmx-mips-digital-media-extension" id="id15">1996 - RISC/MIPS - MIPS - MDMX (MIPS Digital Media eXtension)</a></li>
-<li><a class="reference internal" href="#risc-power-altivec-apple-ibm-freescale" id="id16">1996 - RISC/Power - AltiVec - Apple &amp; IBM &amp; Freescale</a></li>
-<li><a class="reference internal" href="#cisc-x86-intel-mmx" id="id17">1996 - CISC/x86 - Intel - MMX</a></li>
-<li><a class="reference internal" href="#cisc-x86-intel-mmx2" id="id18">1997 - CISC/x86 - Intel - MMX2</a></li>
-<li><a class="reference internal" href="#cisc-x86-amd-3dnow" id="id19">1998 - CISC/x86 - AMD - 3DNow!</a></li>
-<li><a class="reference internal" href="#risc-mips-mips-mips-3d" id="id20">1999 - RISC/MIPS - MIPS - MIPS-3D</a></li>
-<li><a class="reference internal" href="#cisc-x86-intel-sse-streaming-simd-extensions" id="id21">1999 - CISC/x86 - Intel - SSE (Streaming SIMD Extensions)</a></li>
-<li><a class="reference internal" href="#cisc-x86-intel-sse2" id="id22">2001 - CISC/x86 - Intel - SSE2</a></li>
-<li><a class="reference internal" href="#cisc-x86-amd-advanced-3dnow" id="id23">2003 - CISC/x86 - AMD - Advanced 3DNow!</a></li>
-<li><a class="reference internal" href="#cisc-x86-intel-sse3" id="id24">2004 - CISC/x86 - Intel - SSE3</a></li>
-<li><a class="reference internal" href="#risc-arm-arm-neon" id="id25">2005 - RISC/ARM - ARM - NEON</a></li>
-<li><a class="reference internal" href="#cisc-x86-intel-ssse3-supplemental-sse3" id="id26">2006 - CISC/x86 - Intel - SSSE3 (Supplemental SSE3)</a></li>
-<li><a class="reference internal" href="#cisc-x86-intel-sse4" id="id27">2006 - CISC/x86 - Intel - SSE4</a></li>
-<li><a class="reference internal" href="#risc-mips-ingenic-mxu-media-extension-unit" id="id28">2007 - RISC/MIPS - Ingenic - MXU (Media Extension Unit)</a></li>
-<li><a class="reference internal" href="#cisc-x86-intel-avx-advanced-vector-extensions" id="id29">2008 - CISC/x86 - Intel - AVX (Advanced Vector Extensions)</a></li>
-<li><a class="reference internal" href="#cisc-x86-amd-f16c-half-precision-float-conversion" id="id30">2009 - CISC/x86 - AMD - F16C (Half-precision Float Conversion)</a></li>
-<li><a class="reference internal" href="#cisc-x86-amd-xop-extended-operations" id="id31">2009 - CISC/x86 - AMD - XOP (eXtended Operations)</a></li>
-<li><a class="reference internal" href="#cisc-x86-intel-clmul-carry-less-multiplication" id="id32">2010 - CISC/x86 - Intel - CLMUL (Carry-less Multiplication)</a></li>
-<li><a class="reference internal" href="#cisc-x86-amd-fma4" id="id33">2011 - CISC/x86 - AMD - FMA4</a></li>
-<li><a class="reference internal" href="#cisc-x86-amd-fma3" id="id34">2012 - CISC/x86 - AMD - FMA3</a></li>
-<li><a class="reference internal" href="#cisc-x86-intel-avx-512" id="id35">2015 - CISC/x86 - Intel - AVX-512</a></li>
-<li><a class="reference internal" href="#risc-arm-arm-sve-scalable-vector-extensions" id="id36">2016 - RISC/ARM - ARM - SVE (Scalable Vector Extensions)</a></li>
+<li><a class="reference internal" href="#simd" id="id10">運用 SIMD 來加速的演算法</a><ul>
+<li><a class="reference internal" href="#id2" id="id11">介紹</a><ul>
+<li><a class="reference internal" href="#id3" id="id12">各家技術</a><ul>
+<li><a class="reference internal" href="#risc-sparc-sun-microsystems-vis-visual-instruction-set" id="id13">1994 - RISC/SPARC - Sun Microsystems - VIS (Visual Instruction Set)</a></li>
+<li><a class="reference internal" href="#risc-pa-risc-hewlett-packard-max-multimedia-acceleration-extensions" id="id14">1994 - RISC/PA-RISC - Hewlett-Packard - MAX (Multimedia Acceleration eXtensions)</a></li>
+<li><a class="reference internal" href="#risc-alpha-dec-mvi-motion-video-instructions" id="id15">1995 - RISC/Alpha - DEC - MVI (Motion Video Instructions)</a></li>
+<li><a class="reference internal" href="#risc-mips-mips-mdmx-mips-digital-media-extension" id="id16">1996 - RISC/MIPS - MIPS - MDMX (MIPS Digital Media eXtension)</a></li>
+<li><a class="reference internal" href="#risc-power-altivec-apple-ibm-freescale" id="id17">1996 - RISC/Power - AltiVec - Apple &amp; IBM &amp; Freescale</a></li>
+<li><a class="reference internal" href="#cisc-x86-intel-mmx" id="id18">1996 - CISC/x86 - Intel - MMX</a></li>
+<li><a class="reference internal" href="#cisc-x86-intel-mmx2" id="id19">1997 - CISC/x86 - Intel - MMX2</a></li>
+<li><a class="reference internal" href="#cisc-x86-amd-3dnow" id="id20">1998 - CISC/x86 - AMD - 3DNow!</a></li>
+<li><a class="reference internal" href="#risc-mips-mips-mips-3d" id="id21">1999 - RISC/MIPS - MIPS - MIPS-3D</a></li>
+<li><a class="reference internal" href="#cisc-x86-intel-sse-streaming-simd-extensions" id="id22">1999 - CISC/x86 - Intel - SSE (Streaming SIMD Extensions)</a></li>
+<li><a class="reference internal" href="#cisc-x86-intel-sse2" id="id23">2001 - CISC/x86 - Intel - SSE2</a></li>
+<li><a class="reference internal" href="#cisc-x86-amd-advanced-3dnow" id="id24">2003 - CISC/x86 - AMD - Advanced 3DNow!</a></li>
+<li><a class="reference internal" href="#cisc-x86-intel-sse3" id="id25">2004 - CISC/x86 - Intel - SSE3</a></li>
+<li><a class="reference internal" href="#risc-arm-arm-neon" id="id26">2005 - RISC/ARM - ARM - NEON</a></li>
+<li><a class="reference internal" href="#cisc-x86-intel-ssse3-supplemental-sse3" id="id27">2006 - CISC/x86 - Intel - SSSE3 (Supplemental SSE3)</a></li>
+<li><a class="reference internal" href="#cisc-x86-intel-sse4" id="id28">2006 - CISC/x86 - Intel - SSE4</a></li>
+<li><a class="reference internal" href="#risc-mips-ingenic-mxu-media-extension-unit" id="id29">2007 - RISC/MIPS - Ingenic - MXU (Media Extension Unit)</a></li>
+<li><a class="reference internal" href="#cisc-x86-intel-avx-advanced-vector-extensions" id="id30">2008 - CISC/x86 - Intel - AVX (Advanced Vector Extensions)</a></li>
+<li><a class="reference internal" href="#cisc-x86-amd-f16c-half-precision-float-conversion" id="id31">2009 - CISC/x86 - AMD - F16C (Half-precision Float Conversion)</a></li>
+<li><a class="reference internal" href="#cisc-x86-amd-xop-extended-operations" id="id32">2009 - CISC/x86 - AMD - XOP (eXtended Operations)</a></li>
+<li><a class="reference internal" href="#cisc-x86-intel-clmul-carry-less-multiplication" id="id33">2010 - CISC/x86 - Intel - CLMUL (Carry-less Multiplication)</a></li>
+<li><a class="reference internal" href="#cisc-x86-amd-fma4" id="id34">2011 - CISC/x86 - AMD - FMA4</a></li>
+<li><a class="reference internal" href="#cisc-x86-amd-fma3" id="id35">2012 - CISC/x86 - AMD - FMA3</a></li>
+<li><a class="reference internal" href="#cisc-x86-intel-avx-512" id="id36">2015 - CISC/x86 - Intel - AVX-512</a></li>
+<li><a class="reference internal" href="#risc-arm-arm-sve-scalable-vector-extensions" id="id37">2016 - RISC/ARM - ARM - SVE (Scalable Vector Extensions)</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#simd-rust" id="id37">SIMD 與 Rust</a><ul>
-<li><a class="reference internal" href="#feature-repr-simd" id="id38">針對型別的支援 — feature(repr_simd)</a></li>
-<li><a class="reference internal" href="#simd-feature-platform-intrinsics" id="id39">SIMD 操作 — feature(platform_intrinsics)</a></li>
-<li><a class="reference internal" href="#feature-cfg-target-feature" id="id40">平台偵測 — feature(cfg_target_feature)</a></li>
-<li><a class="reference internal" href="#id4" id="id41">第三方套件 — simd</a></li>
+<li><a class="reference internal" href="#simd-rust" id="id38">SIMD 與 Rust</a><ul>
+<li><a class="reference internal" href="#feature-repr-simd" id="id39">針對型別的支援 — feature(repr_simd)</a></li>
+<li><a class="reference internal" href="#simd-feature-platform-intrinsics" id="id40">SIMD 操作 — feature(platform_intrinsics)</a></li>
+<li><a class="reference internal" href="#feature-cfg-target-feature" id="id41">平台偵測 — feature(cfg_target_feature)</a></li>
+<li><a class="reference internal" href="#id4" id="id42">第三方套件 — simd</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id6" id="id42">基本 SIMD 範例</a><ul>
-<li><a class="reference internal" href="#simd-add" id="id43">加法 — simd_add</a></li>
+<li><a class="reference internal" href="#id6" id="id43">基本 SIMD 範例</a><ul>
+<li><a class="reference internal" href="#simd-add" id="id44">加法 — simd_add</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id7" id="id44">指令集說明</a><ul>
-<li><a class="reference internal" href="#byte-shuffle-pshufb-mm-shuffle-epi8" id="id45">Byte Shuffle - pshufb (_mm_shuffle_epi8)</a></li>
+<li><a class="reference internal" href="#id7" id="id45">指令集說明</a><ul>
+<li><a class="reference internal" href="#byte-shuffle-pshufb-mm-shuffle-epi8" id="id46">Byte Shuffle - pshufb (_mm_shuffle_epi8)</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id8" id="id46">參考</a></li>
+<li><a class="reference internal" href="#vectorization" id="id47">編譯器 — Vectorization</a><ul>
+<li><a class="reference internal" href="#id8" id="id48">介紹</a></li>
+<li><a class="reference internal" href="#llvm-auto-vectorization" id="id49">LLVM Auto-Vectorization</a></li>
+<li><a class="reference internal" href="#polly" id="id50">Polly</a></li>
+<li><a class="reference internal" href="#intel-spmd-program-compiler" id="id51">Intel SPMD Program Compiler</a><ul>
+<li><a class="reference internal" href="#mandelbrot" id="id52">Mandelbrot 範例</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id9" id="id53">參考</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="id2">
-<h2><a class="toc-backref" href="#id10">介紹</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id11">介紹</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
 <div class="section" id="id3">
-<h3><a class="toc-backref" href="#id11">各家技術</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id12">各家技術</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h3>
 <div class="section" id="risc-sparc-sun-microsystems-vis-visual-instruction-set">
-<h4><a class="toc-backref" href="#id12">1994 - RISC/SPARC - Sun Microsystems - VIS (Visual Instruction Set)</a><a class="headerlink" href="#risc-sparc-sun-microsystems-vis-visual-instruction-set" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id13">1994 - RISC/SPARC - Sun Microsystems - VIS (Visual Instruction Set)</a><a class="headerlink" href="#risc-sparc-sun-microsystems-vis-visual-instruction-set" title="本標題的永久連結">¶</a></h4>
 </div>
 <div class="section" id="risc-pa-risc-hewlett-packard-max-multimedia-acceleration-extensions">
-<h4><a class="toc-backref" href="#id13">1994 - RISC/PA-RISC - Hewlett-Packard - MAX (Multimedia Acceleration eXtensions)</a><a class="headerlink" href="#risc-pa-risc-hewlett-packard-max-multimedia-acceleration-extensions" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id14">1994 - RISC/PA-RISC - Hewlett-Packard - MAX (Multimedia Acceleration eXtensions)</a><a class="headerlink" href="#risc-pa-risc-hewlett-packard-max-multimedia-acceleration-extensions" title="本標題的永久連結">¶</a></h4>
 </div>
 <div class="section" id="risc-alpha-dec-mvi-motion-video-instructions">
-<h4><a class="toc-backref" href="#id14">1995 - RISC/Alpha - DEC - MVI (Motion Video Instructions)</a><a class="headerlink" href="#risc-alpha-dec-mvi-motion-video-instructions" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id15">1995 - RISC/Alpha - DEC - MVI (Motion Video Instructions)</a><a class="headerlink" href="#risc-alpha-dec-mvi-motion-video-instructions" title="本標題的永久連結">¶</a></h4>
 </div>
 <div class="section" id="risc-mips-mips-mdmx-mips-digital-media-extension">
-<h4><a class="toc-backref" href="#id15">1996 - RISC/MIPS - MIPS - MDMX (MIPS Digital Media eXtension)</a><a class="headerlink" href="#risc-mips-mips-mdmx-mips-digital-media-extension" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id16">1996 - RISC/MIPS - MIPS - MDMX (MIPS Digital Media eXtension)</a><a class="headerlink" href="#risc-mips-mips-mdmx-mips-digital-media-extension" title="本標題的永久連結">¶</a></h4>
 </div>
 <div class="section" id="risc-power-altivec-apple-ibm-freescale">
-<h4><a class="toc-backref" href="#id16">1996 - RISC/Power - AltiVec - Apple &amp; IBM &amp; Freescale</a><a class="headerlink" href="#risc-power-altivec-apple-ibm-freescale" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id17">1996 - RISC/Power - AltiVec - Apple &amp; IBM &amp; Freescale</a><a class="headerlink" href="#risc-power-altivec-apple-ibm-freescale" title="本標題的永久連結">¶</a></h4>
 </div>
 <div class="section" id="cisc-x86-intel-mmx">
-<h4><a class="toc-backref" href="#id17">1996 - CISC/x86 - Intel - MMX</a><a class="headerlink" href="#cisc-x86-intel-mmx" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id18">1996 - CISC/x86 - Intel - MMX</a><a class="headerlink" href="#cisc-x86-intel-mmx" title="本標題的永久連結">¶</a></h4>
 </div>
 <div class="section" id="cisc-x86-intel-mmx2">
-<h4><a class="toc-backref" href="#id18">1997 - CISC/x86 - Intel - MMX2</a><a class="headerlink" href="#cisc-x86-intel-mmx2" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id19">1997 - CISC/x86 - Intel - MMX2</a><a class="headerlink" href="#cisc-x86-intel-mmx2" title="本標題的永久連結">¶</a></h4>
 </div>
 <div class="section" id="cisc-x86-amd-3dnow">
-<h4><a class="toc-backref" href="#id19">1998 - CISC/x86 - AMD - 3DNow!</a><a class="headerlink" href="#cisc-x86-amd-3dnow" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id20">1998 - CISC/x86 - AMD - 3DNow!</a><a class="headerlink" href="#cisc-x86-amd-3dnow" title="本標題的永久連結">¶</a></h4>
 </div>
 <div class="section" id="risc-mips-mips-mips-3d">
-<h4><a class="toc-backref" href="#id20">1999 - RISC/MIPS - MIPS - MIPS-3D</a><a class="headerlink" href="#risc-mips-mips-mips-3d" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id21">1999 - RISC/MIPS - MIPS - MIPS-3D</a><a class="headerlink" href="#risc-mips-mips-mips-3d" title="本標題的永久連結">¶</a></h4>
 </div>
 <div class="section" id="cisc-x86-intel-sse-streaming-simd-extensions">
-<h4><a class="toc-backref" href="#id21">1999 - CISC/x86 - Intel - SSE (Streaming SIMD Extensions)</a><a class="headerlink" href="#cisc-x86-intel-sse-streaming-simd-extensions" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id22">1999 - CISC/x86 - Intel - SSE (Streaming SIMD Extensions)</a><a class="headerlink" href="#cisc-x86-intel-sse-streaming-simd-extensions" title="本標題的永久連結">¶</a></h4>
 </div>
 <div class="section" id="cisc-x86-intel-sse2">
-<h4><a class="toc-backref" href="#id22">2001 - CISC/x86 - Intel - SSE2</a><a class="headerlink" href="#cisc-x86-intel-sse2" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id23">2001 - CISC/x86 - Intel - SSE2</a><a class="headerlink" href="#cisc-x86-intel-sse2" title="本標題的永久連結">¶</a></h4>
 </div>
 <div class="section" id="cisc-x86-amd-advanced-3dnow">
-<h4><a class="toc-backref" href="#id23">2003 - CISC/x86 - AMD - Advanced 3DNow!</a><a class="headerlink" href="#cisc-x86-amd-advanced-3dnow" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id24">2003 - CISC/x86 - AMD - Advanced 3DNow!</a><a class="headerlink" href="#cisc-x86-amd-advanced-3dnow" title="本標題的永久連結">¶</a></h4>
 </div>
 <div class="section" id="cisc-x86-intel-sse3">
-<h4><a class="toc-backref" href="#id24">2004 - CISC/x86 - Intel - SSE3</a><a class="headerlink" href="#cisc-x86-intel-sse3" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id25">2004 - CISC/x86 - Intel - SSE3</a><a class="headerlink" href="#cisc-x86-intel-sse3" title="本標題的永久連結">¶</a></h4>
 </div>
 <div class="section" id="risc-arm-arm-neon">
-<h4><a class="toc-backref" href="#id25">2005 - RISC/ARM - ARM - NEON</a><a class="headerlink" href="#risc-arm-arm-neon" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id26">2005 - RISC/ARM - ARM - NEON</a><a class="headerlink" href="#risc-arm-arm-neon" title="本標題的永久連結">¶</a></h4>
 </div>
 <div class="section" id="cisc-x86-intel-ssse3-supplemental-sse3">
-<h4><a class="toc-backref" href="#id26">2006 - CISC/x86 - Intel - SSSE3 (Supplemental SSE3)</a><a class="headerlink" href="#cisc-x86-intel-ssse3-supplemental-sse3" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id27">2006 - CISC/x86 - Intel - SSSE3 (Supplemental SSE3)</a><a class="headerlink" href="#cisc-x86-intel-ssse3-supplemental-sse3" title="本標題的永久連結">¶</a></h4>
 </div>
 <div class="section" id="cisc-x86-intel-sse4">
-<h4><a class="toc-backref" href="#id27">2006 - CISC/x86 - Intel - SSE4</a><a class="headerlink" href="#cisc-x86-intel-sse4" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id28">2006 - CISC/x86 - Intel - SSE4</a><a class="headerlink" href="#cisc-x86-intel-sse4" title="本標題的永久連結">¶</a></h4>
 </div>
 <div class="section" id="risc-mips-ingenic-mxu-media-extension-unit">
-<h4><a class="toc-backref" href="#id28">2007 - RISC/MIPS - Ingenic - MXU (Media Extension Unit)</a><a class="headerlink" href="#risc-mips-ingenic-mxu-media-extension-unit" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id29">2007 - RISC/MIPS - Ingenic - MXU (Media Extension Unit)</a><a class="headerlink" href="#risc-mips-ingenic-mxu-media-extension-unit" title="本標題的永久連結">¶</a></h4>
 </div>
 <div class="section" id="cisc-x86-intel-avx-advanced-vector-extensions">
-<h4><a class="toc-backref" href="#id29">2008 - CISC/x86 - Intel - AVX (Advanced Vector Extensions)</a><a class="headerlink" href="#cisc-x86-intel-avx-advanced-vector-extensions" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id30">2008 - CISC/x86 - Intel - AVX (Advanced Vector Extensions)</a><a class="headerlink" href="#cisc-x86-intel-avx-advanced-vector-extensions" title="本標題的永久連結">¶</a></h4>
 </div>
 <div class="section" id="cisc-x86-amd-f16c-half-precision-float-conversion">
-<h4><a class="toc-backref" href="#id30">2009 - CISC/x86 - AMD - F16C (Half-precision Float Conversion)</a><a class="headerlink" href="#cisc-x86-amd-f16c-half-precision-float-conversion" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id31">2009 - CISC/x86 - AMD - F16C (Half-precision Float Conversion)</a><a class="headerlink" href="#cisc-x86-amd-f16c-half-precision-float-conversion" title="本標題的永久連結">¶</a></h4>
 </div>
 <div class="section" id="cisc-x86-amd-xop-extended-operations">
-<h4><a class="toc-backref" href="#id31">2009 - CISC/x86 - AMD - XOP (eXtended Operations)</a><a class="headerlink" href="#cisc-x86-amd-xop-extended-operations" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id32">2009 - CISC/x86 - AMD - XOP (eXtended Operations)</a><a class="headerlink" href="#cisc-x86-amd-xop-extended-operations" title="本標題的永久連結">¶</a></h4>
 </div>
 <div class="section" id="cisc-x86-intel-clmul-carry-less-multiplication">
-<h4><a class="toc-backref" href="#id32">2010 - CISC/x86 - Intel - CLMUL (Carry-less Multiplication)</a><a class="headerlink" href="#cisc-x86-intel-clmul-carry-less-multiplication" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id33">2010 - CISC/x86 - Intel - CLMUL (Carry-less Multiplication)</a><a class="headerlink" href="#cisc-x86-intel-clmul-carry-less-multiplication" title="本標題的永久連結">¶</a></h4>
 </div>
 <div class="section" id="cisc-x86-amd-fma4">
-<h4><a class="toc-backref" href="#id33">2011 - CISC/x86 - AMD - FMA4</a><a class="headerlink" href="#cisc-x86-amd-fma4" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id34">2011 - CISC/x86 - AMD - FMA4</a><a class="headerlink" href="#cisc-x86-amd-fma4" title="本標題的永久連結">¶</a></h4>
 </div>
 <div class="section" id="cisc-x86-amd-fma3">
-<h4><a class="toc-backref" href="#id34">2012 - CISC/x86 - AMD - FMA3</a><a class="headerlink" href="#cisc-x86-amd-fma3" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id35">2012 - CISC/x86 - AMD - FMA3</a><a class="headerlink" href="#cisc-x86-amd-fma3" title="本標題的永久連結">¶</a></h4>
 </div>
 <div class="section" id="cisc-x86-intel-avx-512">
-<h4><a class="toc-backref" href="#id35">2015 - CISC/x86 - Intel - AVX-512</a><a class="headerlink" href="#cisc-x86-intel-avx-512" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id36">2015 - CISC/x86 - Intel - AVX-512</a><a class="headerlink" href="#cisc-x86-intel-avx-512" title="本標題的永久連結">¶</a></h4>
 </div>
 <div class="section" id="risc-arm-arm-sve-scalable-vector-extensions">
-<h4><a class="toc-backref" href="#id36">2016 - RISC/ARM - ARM - SVE (Scalable Vector Extensions)</a><a class="headerlink" href="#risc-arm-arm-sve-scalable-vector-extensions" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id37">2016 - RISC/ARM - ARM - SVE (Scalable Vector Extensions)</a><a class="headerlink" href="#risc-arm-arm-sve-scalable-vector-extensions" title="本標題的永久連結">¶</a></h4>
 </div>
 </div>
 </div>
 <div class="section" id="simd-rust">
-<h2><a class="toc-backref" href="#id37">SIMD 與 Rust</a><a class="headerlink" href="#simd-rust" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id38">SIMD 與 Rust</a><a class="headerlink" href="#simd-rust" title="本標題的永久連結">¶</a></h2>
 <div class="section" id="feature-repr-simd">
-<h3><a class="toc-backref" href="#id38">針對型別的支援 — feature(repr_simd)</a><a class="headerlink" href="#feature-repr-simd" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id39">針對型別的支援 — feature(repr_simd)</a><a class="headerlink" href="#feature-repr-simd" title="本標題的永久連結">¶</a></h3>
 <p>加上 <code class="docutils literal"><span class="pre">#[repr(simd)]</span></code> 屬性的型別會被編譯成 SIMD vector，
 此型別可以為泛型但必須是同種 primitive type 重複數次。
 加上此屬性後該型別可能會根據不同平台而有不同的 alignment。</p>
 </div>
 <div class="section" id="simd-feature-platform-intrinsics">
-<h3><a class="toc-backref" href="#id39">SIMD 操作 — feature(platform_intrinsics)</a><a class="headerlink" href="#simd-feature-platform-intrinsics" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id40">SIMD 操作 — feature(platform_intrinsics)</a><a class="headerlink" href="#simd-feature-platform-intrinsics" title="本標題的永久連結">¶</a></h3>
 <p>CPU 廠商通常會提供一個 C header 讓開發者使用 CPU 的 SIMD 功能，
 例如 ARM 的 <a class="reference external" href="http://infocenter.arm.com/help/topic/com.arm.doc.ihi0073a/IHI0073A_arm_neon_intrinsics_ref.pdf">arm_neon.h</a>  或是 x86 的 <a class="reference external" href="https://software.intel.com/sites/landingpage/IntrinsicsGuide">...mmintrin.h</a> 。</p>
 <p>這些功能都會以 compiler intrinsics 的形式來支援，
@@ -880,7 +900,7 @@
 </ul>
 </div>
 <div class="section" id="feature-cfg-target-feature">
-<h3><a class="toc-backref" href="#id40">平台偵測 — feature(cfg_target_feature)</a><a class="headerlink" href="#feature-cfg-target-feature" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id41">平台偵測 — feature(cfg_target_feature)</a><a class="headerlink" href="#feature-cfg-target-feature" title="本標題的永久連結">¶</a></h3>
 <p>要針對特定平台打開 SIMD 支援光是使用 <code class="docutils literal"><span class="pre">cfg(target_arch</span> <span class="pre">=</span> <span class="pre">&quot;...&quot;)</span></code> 是不夠的，
 因此需要 <code class="docutils literal"><span class="pre">cfg(target_feature</span> <span class="pre">=</span> <span class="pre">&quot;...&quot;)</span></code> 的支援，
 在 CPU 支援特定指令集時才開啟。
@@ -905,14 +925,14 @@
 <p>}</p>
 </div>
 <div class="section" id="id4">
-<h3><a class="toc-backref" href="#id41">第三方套件 — simd</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id42">第三方套件 — simd</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h3>
 <p>目前在 Rust 針對 SIMD 最常使用的套件是 <a class="reference external" href="https://github.com/huonw/simd">simd</a> 。</p>
 </div>
 </div>
 <div class="section" id="id6">
-<h2><a class="toc-backref" href="#id42">基本 SIMD 範例</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id43">基本 SIMD 範例</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h2>
 <div class="section" id="simd-add">
-<h3><a class="toc-backref" href="#id43">加法 — simd_add</a><a class="headerlink" href="#simd-add" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id44">加法 — simd_add</a><a class="headerlink" href="#simd-add" title="本標題的永久連結">¶</a></h3>
 <div class="highlight-rust"><div class="highlight"><pre><span></span><span class="c1">// Rust</span>
 
 <span class="cp">#![feature(repr_simd)]</span><span class="w"></span>
@@ -982,9 +1002,9 @@
 </div>
 </div>
 <div class="section" id="id7">
-<h2><a class="toc-backref" href="#id44">指令集說明</a><a class="headerlink" href="#id7" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id45">指令集說明</a><a class="headerlink" href="#id7" title="本標題的永久連結">¶</a></h2>
 <div class="section" id="byte-shuffle-pshufb-mm-shuffle-epi8">
-<h3><a class="toc-backref" href="#id45">Byte Shuffle - pshufb (_mm_shuffle_epi8)</a><a class="headerlink" href="#byte-shuffle-pshufb-mm-shuffle-epi8" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id46">Byte Shuffle - pshufb (_mm_shuffle_epi8)</a><a class="headerlink" href="#byte-shuffle-pshufb-mm-shuffle-epi8" title="本標題的永久連結">¶</a></h3>
 <p>範例：</p>
 <div class="highlight-c"><div class="highlight"><pre><span></span><span class="c1">// C</span>
 
@@ -1071,22 +1091,514 @@ Numerical: <span class="m">256</span> <span class="m">2</span> <span class="m">5
 </div>
 </div>
 </div>
+<div class="section" id="vectorization">
+<h2><a class="toc-backref" href="#id47">編譯器 — Vectorization</a><a class="headerlink" href="#vectorization" title="本標題的永久連結">¶</a></h2>
 <div class="section" id="id8">
-<h2><a class="toc-backref" href="#id46">參考</a><a class="headerlink" href="#id8" title="本標題的永久連結">¶</a></h2>
+<h3><a class="toc-backref" href="#id48">介紹</a><a class="headerlink" href="#id8" title="本標題的永久連結">¶</a></h3>
+<p>這是讓編譯器自動將原本的程式轉換成使用 SIMD Instruction 的 Binary 的技術，
+雖然目前已經有可以使用的技術，
+但是還是有改進的空間，
+程式設計師仍然能容易地利用 SIMD 自己寫出更好的程式。</p>
+<p>Implicit:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://llvm.org/docs/Vectorizers.html">Auto-Vectorization in LLVM</a></li>
+<li><a class="reference external" href="http://polly.llvm.org/">Polly - Polyhedral optimizations for LLVM</a></li>
+</ul>
+<p>Explicit:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://ispc.github.io/">Intel® SPMD Program Compiler - A compiler for high-performance SIMD programming on the CPU</a></li>
+<li>OpenMP SIMD</li>
+</ul>
+</div>
+<div class="section" id="llvm-auto-vectorization">
+<h3><a class="toc-backref" href="#id49">LLVM Auto-Vectorization</a><a class="headerlink" href="#llvm-auto-vectorization" title="本標題的永久連結">¶</a></h3>
+</div>
+<div class="section" id="polly">
+<h3><a class="toc-backref" href="#id50">Polly</a><a class="headerlink" href="#polly" title="本標題的永久連結">¶</a></h3>
+</div>
+<div class="section" id="intel-spmd-program-compiler">
+<h3><a class="toc-backref" href="#id51">Intel SPMD Program Compiler</a><a class="headerlink" href="#intel-spmd-program-compiler" title="本標題的永久連結">¶</a></h3>
+<p>ispc 是 Intel 開發的開放原始碼編譯器，
+為的是有效地利用 CPU 上 SIMD 的支援來加速程式。
+作法和 CUDA 還有 OpenCL 類似，
+使用特別制定的 C-Like 語言來實做 ISPC Program （需要用 SIMD 來加速的 Function），
+接著使用 ispc 來編譯，
+剩餘程式則使用一般的 C 或 C++ 來撰寫即可，
+最後搭配在一起達成加速的效果，
+如此一來就不用自己去手寫利用 SSE 等指令的程式碼。</p>
+<div class="section" id="mandelbrot">
+<h4><a class="toc-backref" href="#id52">Mandelbrot 範例</a><a class="headerlink" href="#mandelbrot" title="本標題的永久連結">¶</a></h4>
+<p>取自 <a class="reference external" href="https://github.com/ispc/ispc/blob/master/examples/mandelbrot/">ispc/examples/mandelbrot/</a> ，
+SIMD 版本：</p>
+<p><code class="docutils literal"><span class="pre">mandelbrot_serial.cpp</span></code> （一般版本）:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="kt">int</span> <span class="nf">mandel</span><span class="p">(</span><span class="kt">float</span> <span class="n">c_re</span><span class="p">,</span> <span class="kt">float</span> <span class="n">c_im</span><span class="p">,</span> <span class="kt">int</span> <span class="n">count</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">float</span> <span class="n">z_re</span> <span class="o">=</span> <span class="n">c_re</span><span class="p">,</span> <span class="n">z_im</span> <span class="o">=</span> <span class="n">c_im</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">count</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">z_re</span> <span class="o">*</span> <span class="n">z_re</span> <span class="o">+</span> <span class="n">z_im</span> <span class="o">*</span> <span class="n">z_im</span> <span class="o">&gt;</span> <span class="mf">4.f</span><span class="p">)</span>
+            <span class="k">break</span><span class="p">;</span>
+
+        <span class="kt">float</span> <span class="n">new_re</span> <span class="o">=</span> <span class="n">z_re</span><span class="o">*</span><span class="n">z_re</span> <span class="o">-</span> <span class="n">z_im</span><span class="o">*</span><span class="n">z_im</span><span class="p">;</span>
+        <span class="kt">float</span> <span class="n">new_im</span> <span class="o">=</span> <span class="mf">2.f</span> <span class="o">*</span> <span class="n">z_re</span> <span class="o">*</span> <span class="n">z_im</span><span class="p">;</span>
+        <span class="n">z_re</span> <span class="o">=</span> <span class="n">c_re</span> <span class="o">+</span> <span class="n">new_re</span><span class="p">;</span>
+        <span class="n">z_im</span> <span class="o">=</span> <span class="n">c_im</span> <span class="o">+</span> <span class="n">new_im</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">i</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">mandelbrot_serial</span><span class="p">(</span><span class="kt">float</span> <span class="n">x0</span><span class="p">,</span> <span class="kt">float</span> <span class="n">y0</span><span class="p">,</span> <span class="kt">float</span> <span class="n">x1</span><span class="p">,</span> <span class="kt">float</span> <span class="n">y1</span><span class="p">,</span>
+                       <span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="kt">int</span> <span class="n">height</span><span class="p">,</span> <span class="kt">int</span> <span class="n">maxIterations</span><span class="p">,</span>
+                       <span class="kt">int</span> <span class="n">output</span><span class="p">[])</span>
+<span class="p">{</span>
+    <span class="kt">float</span> <span class="n">dx</span> <span class="o">=</span> <span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span> <span class="o">/</span> <span class="n">width</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="n">dy</span> <span class="o">=</span> <span class="p">(</span><span class="n">y1</span> <span class="o">-</span> <span class="n">y0</span><span class="p">)</span> <span class="o">/</span> <span class="n">height</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">height</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">width</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kt">float</span> <span class="n">x</span> <span class="o">=</span> <span class="n">x0</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="n">dx</span><span class="p">;</span>
+            <span class="kt">float</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y0</span> <span class="o">+</span> <span class="n">j</span> <span class="o">*</span> <span class="n">dy</span><span class="p">;</span>
+
+            <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="p">(</span><span class="n">j</span> <span class="o">*</span> <span class="n">width</span> <span class="o">+</span> <span class="n">i</span><span class="p">);</span>
+            <span class="n">output</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">mandel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">maxIterations</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">mandelbrot.ispc</span></code> （ispc 版本）:</p>
+<div class="highlight-ispc"><div class="highlight"><pre><span></span>static inline int mandel(float c_re, float c_im, int count) {
+    float z_re = c_re, z_im = c_im;
+    int i;
+    for (i = 0; i &lt; count; ++i) {
+        if (z_re * z_re + z_im * z_im &gt; 4.)
+            break;
+
+        float new_re = z_re*z_re - z_im*z_im;
+        float new_im = 2.f * z_re * z_im;
+        unmasked {
+            z_re = c_re + new_re;
+            z_im = c_im + new_im;
+        }
+    }
+
+    return i;
+}
+
+export void mandelbrot_ispc(uniform float x0, uniform float y0,
+                            uniform float x1, uniform float y1,
+                            uniform int width, uniform int height,
+                            uniform int maxIterations,
+                            uniform int output[])
+{
+    float dx = (x1 - x0) / width;
+    float dy = (y1 - y0) / height;
+
+    for (uniform int j = 0; j &lt; height; j++) {
+        // Note that we&#39;ll be doing programCount computations in parallel,
+        // so increment i by that much.  This assumes that width evenly
+        // divides programCount.
+        foreach (i = 0 ... width) {
+            // Figure out the position on the complex plane to compute the
+            // number of iterations at.  Note that the x values are
+            // different across different program instances, since its
+            // initializer incorporates the value of the programIndex
+            // variable.
+            float x = x0 + i * dx;
+            float y = y0 + j * dy;
+
+            int index = j * width + i;
+            output[index] = mandel(x, y, maxIterations);
+        }
+    }
+}
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">mandelbrot.cpp</span></code> :</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="cp">#ifdef _MSC_VER</span>
+<span class="cp">#define _CRT_SECURE_NO_WARNINGS</span>
+<span class="cp">#define NOMINMAX</span>
+<span class="cp">#pragma warning (disable: 4244)</span>
+<span class="cp">#pragma warning (disable: 4305)</span>
+<span class="cp">#endif</span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;../timing.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;mandelbrot_ispc.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;cstdlib&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">ispc</span><span class="p">;</span>
+
+<span class="k">extern</span> <span class="kt">void</span> <span class="nf">mandelbrot_serial</span><span class="p">(</span><span class="kt">float</span> <span class="n">x0</span><span class="p">,</span> <span class="kt">float</span> <span class="n">y0</span><span class="p">,</span> <span class="kt">float</span> <span class="n">x1</span><span class="p">,</span> <span class="kt">float</span> <span class="n">y1</span><span class="p">,</span>
+                              <span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="kt">int</span> <span class="n">height</span><span class="p">,</span> <span class="kt">int</span> <span class="n">maxIterations</span><span class="p">,</span>
+                              <span class="kt">int</span> <span class="n">output</span><span class="p">[]);</span>
+
+<span class="cm">/* Write a PPM image file with the image of the Mandelbrot set */</span>
+<span class="k">static</span> <span class="kt">void</span>
+<span class="nf">writePPM</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">buf</span><span class="p">,</span> <span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="kt">int</span> <span class="n">height</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">fn</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">FILE</span> <span class="o">*</span><span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="s">&quot;wb&quot;</span><span class="p">);</span>
+    <span class="n">fprintf</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="s">&quot;P6</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="n">fprintf</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="s">&quot;%d %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">);</span>
+    <span class="n">fprintf</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="s">&quot;255</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">width</span><span class="o">*</span><span class="n">height</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Map the iteration count to colors by just alternating between</span>
+        <span class="c1">// two greys.</span>
+        <span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&amp;</span> <span class="mh">0x1</span><span class="p">)</span> <span class="o">?</span> <span class="mi">240</span> <span class="o">:</span> <span class="mi">20</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span>
+            <span class="n">fputc</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">fp</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Wrote image file %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">fn</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="k">static</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">test_iterations</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">768</span><span class="p">;</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">512</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="n">x0</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="n">x1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="n">y0</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="n">y1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">strncmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s">&quot;--scale=&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kt">float</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">atof</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">8</span><span class="p">);</span>
+            <span class="n">width</span> <span class="o">*=</span> <span class="n">scale</span><span class="p">;</span>
+            <span class="n">height</span> <span class="o">*=</span> <span class="n">scale</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">argc</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">argc</span> <span class="o">==</span> <span class="mi">4</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">test_iterations</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="n">argc</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">i</span><span class="p">]);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kt">int</span> <span class="n">maxIterations</span> <span class="o">=</span> <span class="mi">256</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="o">*</span><span class="n">buf</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="n">width</span><span class="o">*</span><span class="n">height</span><span class="p">];</span>
+
+    <span class="c1">//</span>
+    <span class="c1">// Compute the image using the ispc implementation; report the minimum</span>
+    <span class="c1">// time of three runs.</span>
+    <span class="c1">//</span>
+    <span class="kt">double</span> <span class="n">minISPC</span> <span class="o">=</span> <span class="mf">1e30</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">test_iterations</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">reset_and_start_timer</span><span class="p">();</span>
+        <span class="n">mandelbrot_ispc</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">maxIterations</span><span class="p">,</span> <span class="n">buf</span><span class="p">);</span>
+        <span class="kt">double</span> <span class="n">dt</span> <span class="o">=</span> <span class="n">get_elapsed_mcycles</span><span class="p">();</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;@time of ISPC run:</span><span class="se">\t\t\t</span><span class="s">[%.3f] million cycles</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">dt</span><span class="p">);</span>
+        <span class="n">minISPC</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">min</span><span class="p">(</span><span class="n">minISPC</span><span class="p">,</span> <span class="n">dt</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;[mandelbrot ispc]:</span><span class="se">\t\t</span><span class="s">[%.3f] million cycles</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">minISPC</span><span class="p">);</span>
+    <span class="n">writePPM</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="s">&quot;mandelbrot-ispc.ppm&quot;</span><span class="p">);</span>
+
+    <span class="c1">// Clear out the buffer</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">width</span> <span class="o">*</span> <span class="n">height</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+        <span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="c1">//</span>
+    <span class="c1">// And run the serial implementation 3 times, again reporting the</span>
+    <span class="c1">// minimum time.</span>
+    <span class="c1">//</span>
+    <span class="kt">double</span> <span class="n">minSerial</span> <span class="o">=</span> <span class="mf">1e30</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">test_iterations</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">reset_and_start_timer</span><span class="p">();</span>
+        <span class="n">mandelbrot_serial</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">maxIterations</span><span class="p">,</span> <span class="n">buf</span><span class="p">);</span>
+        <span class="kt">double</span> <span class="n">dt</span> <span class="o">=</span> <span class="n">get_elapsed_mcycles</span><span class="p">();</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;@time of serial run:</span><span class="se">\t\t\t</span><span class="s">[%.3f] million cycles</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">dt</span><span class="p">);</span>
+        <span class="n">minSerial</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">min</span><span class="p">(</span><span class="n">minSerial</span><span class="p">,</span> <span class="n">dt</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;[mandelbrot serial]:</span><span class="se">\t\t</span><span class="s">[%.3f] million cycles</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">minSerial</span><span class="p">);</span>
+    <span class="n">writePPM</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="s">&quot;mandelbrot-serial.ppm&quot;</span><span class="p">);</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\t\t\t\t</span><span class="s">(%.2fx speedup from ISPC)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">minSerial</span><span class="o">/</span><span class="n">minISPC</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">timing.h</span></code> :</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdint.h&gt;</span><span class="cp"></span>
+
+<span class="cp">#ifdef __arm__</span>
+<span class="cp">#include</span> <span class="cpf">&lt;sys/time.h&gt;</span><span class="cp"></span>
+<span class="c1">// There&#39;s no easy way to get a hardware clock counter on ARM, so instead</span>
+<span class="c1">// we&#39;ll pretend it&#39;s a 1GHz processor and then compute pretend cycles</span>
+<span class="c1">// based on elapsed time from gettimeofday().</span>
+<span class="n">__inline__</span> <span class="kt">uint64_t</span> <span class="nf">rdtsc</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">static</span> <span class="kt">bool</span> <span class="n">first</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+  <span class="k">static</span> <span class="k">struct</span> <span class="n">timeval</span> <span class="n">tv_start</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">first</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">gettimeofday</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tv_start</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+    <span class="n">first</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">struct</span> <span class="n">timeval</span> <span class="n">tv</span><span class="p">;</span>
+  <span class="n">gettimeofday</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tv</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+  <span class="n">tv</span><span class="p">.</span><span class="n">tv_sec</span> <span class="o">-=</span> <span class="n">tv_start</span><span class="p">.</span><span class="n">tv_sec</span><span class="p">;</span>
+  <span class="n">tv</span><span class="p">.</span><span class="n">tv_usec</span> <span class="o">-=</span> <span class="n">tv_start</span><span class="p">.</span><span class="n">tv_usec</span><span class="p">;</span>
+  <span class="k">return</span> <span class="p">(</span><span class="mi">1000000ull</span> <span class="o">*</span> <span class="n">tv</span><span class="p">.</span><span class="n">tv_sec</span> <span class="o">+</span> <span class="n">tv</span><span class="p">.</span><span class="n">tv_usec</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000ull</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;sys/time.h&gt;</span><span class="cp"></span>
+<span class="k">static</span> <span class="kr">inline</span> <span class="kt">double</span> <span class="nf">rtc</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">struct</span> <span class="n">timeval</span> <span class="n">Tvalue</span><span class="p">;</span>
+  <span class="kt">double</span> <span class="n">etime</span><span class="p">;</span>
+  <span class="k">struct</span> <span class="n">timezone</span> <span class="n">dummy</span><span class="p">;</span>
+
+  <span class="n">gettimeofday</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Tvalue</span><span class="p">,</span><span class="o">&amp;</span><span class="n">dummy</span><span class="p">);</span>
+  <span class="n">etime</span> <span class="o">=</span>  <span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="n">Tvalue</span><span class="p">.</span><span class="n">tv_sec</span> <span class="o">+</span>
+    <span class="mf">1.e-6</span><span class="o">*</span><span class="p">((</span><span class="kt">double</span><span class="p">)</span> <span class="n">Tvalue</span><span class="p">.</span><span class="n">tv_usec</span><span class="p">);</span>
+  <span class="k">return</span> <span class="n">etime</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cp">#else </span><span class="c1">// __arm__</span>
+
+<span class="cp">#ifdef WIN32</span>
+<span class="cp">#include</span> <span class="cpf">&lt;windows.h&gt;</span><span class="cp"></span>
+<span class="cp">#define rdtsc __rdtsc</span>
+<span class="cp">#else </span><span class="c1">// WIN32</span>
+<span class="n">__inline__</span> <span class="kt">uint64_t</span> <span class="nf">rdtsc</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kt">uint32_t</span> <span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">;</span>
+<span class="cp">#ifdef __x86_64</span>
+  <span class="n">__asm__</span> <span class="n">__volatile__</span> <span class="p">(</span><span class="s">&quot;xorl %%eax,%%eax </span><span class="se">\n</span><span class="s">    cpuid&quot;</span>
+                        <span class="o">:::</span> <span class="s">&quot;%rax&quot;</span><span class="p">,</span> <span class="s">&quot;%rbx&quot;</span><span class="p">,</span> <span class="s">&quot;%rcx&quot;</span><span class="p">,</span> <span class="s">&quot;%rdx&quot;</span> <span class="p">);</span>
+<span class="cp">#else</span>
+  <span class="n">__asm__</span> <span class="n">__volatile__</span> <span class="p">(</span><span class="s">&quot;xorl %%eax,%%eax </span><span class="se">\n</span><span class="s">    cpuid&quot;</span>
+                        <span class="o">:::</span> <span class="s">&quot;%eax&quot;</span><span class="p">,</span> <span class="s">&quot;%ebx&quot;</span><span class="p">,</span> <span class="s">&quot;%ecx&quot;</span><span class="p">,</span> <span class="s">&quot;%edx&quot;</span> <span class="p">);</span>
+<span class="cp">#endif</span>
+  <span class="n">__asm__</span> <span class="n">__volatile__</span> <span class="p">(</span><span class="s">&quot;rdtsc&quot;</span> <span class="o">:</span> <span class="s">&quot;=a&quot;</span> <span class="p">(</span><span class="n">low</span><span class="p">),</span> <span class="s">&quot;=d&quot;</span> <span class="p">(</span><span class="n">high</span><span class="p">));</span>
+  <span class="k">return</span> <span class="p">(</span><span class="kt">uint64_t</span><span class="p">)</span><span class="n">high</span> <span class="o">&lt;&lt;</span> <span class="mi">32</span> <span class="o">|</span> <span class="n">low</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;sys/time.h&gt;</span><span class="cp"></span>
+<span class="k">static</span> <span class="kr">inline</span> <span class="kt">double</span> <span class="nf">rtc</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">struct</span> <span class="n">timeval</span> <span class="n">Tvalue</span><span class="p">;</span>
+  <span class="kt">double</span> <span class="n">etime</span><span class="p">;</span>
+  <span class="k">struct</span> <span class="n">timezone</span> <span class="n">dummy</span><span class="p">;</span>
+
+  <span class="n">gettimeofday</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Tvalue</span><span class="p">,</span><span class="o">&amp;</span><span class="n">dummy</span><span class="p">);</span>
+  <span class="n">etime</span> <span class="o">=</span>  <span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="n">Tvalue</span><span class="p">.</span><span class="n">tv_sec</span> <span class="o">+</span>
+    <span class="mf">1.e-6</span><span class="o">*</span><span class="p">((</span><span class="kt">double</span><span class="p">)</span> <span class="n">Tvalue</span><span class="p">.</span><span class="n">tv_usec</span><span class="p">);</span>
+  <span class="k">return</span> <span class="n">etime</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cp">#endif </span><span class="c1">// !WIN32</span>
+<span class="cp">#endif </span><span class="c1">// !__arm__</span>
+
+<span class="k">static</span> <span class="kt">uint64_t</span> <span class="n">start</span><span class="p">,</span>  <span class="n">end</span><span class="p">;</span>
+<span class="k">static</span> <span class="kt">double</span>  <span class="n">tstart</span><span class="p">,</span> <span class="n">tend</span><span class="p">;</span>
+
+<span class="k">static</span> <span class="kr">inline</span> <span class="kt">void</span> <span class="nf">reset_and_start_timer</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">rdtsc</span><span class="p">();</span>
+<span class="cp">#ifndef WIN32</span>
+    <span class="c1">// Unused in Windows build, rtc() causing link errors</span>
+    <span class="n">tstart</span> <span class="o">=</span> <span class="n">rtc</span><span class="p">();</span>
+<span class="cp">#endif</span>
+<span class="p">}</span>
+
+<span class="cm">/* Returns the number of millions of elapsed processor cycles since the</span>
+<span class="cm">   last reset_and_start_timer() call. */</span>
+<span class="k">static</span> <span class="kr">inline</span> <span class="kt">double</span> <span class="nf">get_elapsed_mcycles</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="n">rdtsc</span><span class="p">();</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">end</span><span class="o">-</span><span class="n">start</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1024.</span> <span class="o">*</span> <span class="mf">1024.</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="cp">#ifndef WIN32</span>
+<span class="c1">// Unused in Windows build, rtc() causing link errors</span>
+<span class="k">static</span> <span class="kr">inline</span> <span class="kt">double</span> <span class="nf">get_elapsed_msec</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">tend</span> <span class="o">=</span> <span class="n">rtc</span><span class="p">();</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">tend</span> <span class="o">-</span> <span class="n">tstart</span><span class="p">)</span><span class="o">*</span><span class="mf">1e3</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="cp">#endif</span>
+</pre></div>
+</div>
+<p>編譯並執行：</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ mkdir objs
+$ ispc -O3 --target<span class="o">=</span>host mandelbrot.ispc -o objs/mandelbrot_ispc.o -h objs/mandelbrot_ispc.h
+$ clang++ -O3 -I objs/ mandelbrot.cpp -c -o objs/mandelbrot.o
+$ clang++ -O3 -I objs/ mandelbrot_serial.cpp -c -o objs/mandelbrot_serial.o
+$ clang++ -O3 -I objs/ -o mandelbrot objs/mandelbrot.o objs/mandelbrot_ispc.o objs/mandelbrot_serial.o
+$ ls -l mandelbrot
+-rwxr-xr-x <span class="m">1</span> user user <span class="m">13424</span> Dec  <span class="m">3</span> 13:06 mandelbrot
+$ strip mandelbrot
+$ ls -l mandelbrot
+-rwxr-xr-x <span class="m">1</span> user user <span class="m">10432</span> Dec  <span class="m">3</span> 13:06 mandelbrot
+$ ldd mandelbrot
+        linux-vdso.so.1 <span class="o">(</span>0x00007ffc4b3fe000<span class="o">)</span>
+        libstdc++.so.6 <span class="o">=</span>&gt; /usr/lib/libstdc++.so.6 <span class="o">(</span>0x00007fc2108da000<span class="o">)</span>
+        libm.so.6 <span class="o">=</span>&gt; /usr/lib/libm.so.6 <span class="o">(</span>0x00007fc2105d6000<span class="o">)</span>
+        libgcc_s.so.1 <span class="o">=</span>&gt; /usr/lib/libgcc_s.so.1 <span class="o">(</span>0x00007fc2103bf000<span class="o">)</span>
+        libc.so.6 <span class="o">=</span>&gt; /usr/lib/libc.so.6 <span class="o">(</span>0x00007fc210021000<span class="o">)</span>
+        /lib64/ld-linux-x86-64.so.2 <span class="o">(</span>0x00007fc210c62000<span class="o">)</span>
+$ ./mandelbrot  <span class="c1"># Intel Xeon(R) CPU E5504 @ 2.00GHz</span>
+@time of ISPC run:                      <span class="o">[</span>156.990<span class="o">]</span> million cycles
+@time of ISPC run:                      <span class="o">[</span>154.923<span class="o">]</span> million cycles
+@time of ISPC run:                      <span class="o">[</span>154.838<span class="o">]</span> million cycles
+<span class="o">[</span>mandelbrot ispc<span class="o">]</span>:              <span class="o">[</span>154.838<span class="o">]</span> million cycles
+Wrote image file mandelbrot-ispc.ppm
+@time of serial run:                    <span class="o">[</span>319.032<span class="o">]</span> million cycles
+@time of serial run:                    <span class="o">[</span>319.239<span class="o">]</span> million cycles
+@time of serial run:                    <span class="o">[</span>318.566<span class="o">]</span> million cycles
+<span class="o">[</span>mandelbrot serial<span class="o">]</span>:            <span class="o">[</span>318.566<span class="o">]</span> million cycles
+Wrote image file mandelbrot-serial.ppm
+                                <span class="o">(</span>2.06x speedup from ISPC<span class="o">)</span>
+$ ./mandelbrot  <span class="c1"># Intel Core(TM) i5-6200U CPU @ 2.30GHz</span>
+@time of ISPC run:                      <span class="o">[</span>64.837<span class="o">]</span> million cycles
+@time of ISPC run:                      <span class="o">[</span>59.869<span class="o">]</span> million cycles
+@time of ISPC run:                      <span class="o">[</span>61.037<span class="o">]</span> million cycles
+<span class="o">[</span>mandelbrot ispc<span class="o">]</span>:              <span class="o">[</span>59.869<span class="o">]</span> million cycles
+Wrote image file mandelbrot-ispc.ppm
+@time of serial run:                    <span class="o">[</span>354.393<span class="o">]</span> million cycles
+@time of serial run:                    <span class="o">[</span>353.565<span class="o">]</span> million cycles
+@time of serial run:                    <span class="o">[</span>354.725<span class="o">]</span> million cycles
+<span class="o">[</span>mandelbrot serial<span class="o">]</span>:            <span class="o">[</span>353.565<span class="o">]</span> million cycles
+Wrote image file mandelbrot-serial.ppm
+                                <span class="o">(</span>5.91x speedup from ISPC<span class="o">)</span>
+</pre></div>
+</div>
+<p>取自 <a class="reference external" href="https://github.com/ispc/ispc/blob/master/examples/mandelbrot_tasks/">ispc/examples/mandelbrot_tasks/</a> ，
+SIMD + multithreading 版本：</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ ispc -O3 --target<span class="o">=</span>host mandelbrot_tasks.ispc -o objs/mandelbrot_tasks_ispc.o -h objs/mandelbrot_tasks_ispc.h
+$ clang++ -O3 -I objs/ mandelbrot_tasks.cpp -c -o objs/mandelbrot_tasks.o
+$ clang++ -O3 -I objs/ mandelbrot_tasks_serial.cpp -c -o objs/mandelbrot_tasks_serial.o
+$ clang++ -O3 tasksys.cpp -c -o objs/tasksys.o  <span class="c1"># for ISPCAlloc, ISPCLaunch, ISPCSync</span>
+$ clang++ -O3 -I objs/ -o mandelbrot objs/mandelbrot_tasks.o objs/mandelbrot_tasks_ispc.o objs/mandelbrot_tasks_serial.o objs/tasksys.o -lpthread         <span class="c1"># use pthread for multithreading</span>
+$ ls -l mandelbrot
+-rwxr-xr-x <span class="m">1</span> user user <span class="m">28544</span> Dec  <span class="m">3</span> 13:06 mandelbrot
+$ strip mandelbrot
+$ ls -l mandelbrot
+-rwxr-xr-x <span class="m">1</span> user user <span class="m">23032</span> Dec  <span class="m">3</span> 13:06 mandelbrot
+$ ldd mandelbrot
+        linux-vdso.so.1 <span class="o">(</span>0x00007fffd6b38000<span class="o">)</span>
+        libpthread.so.0 <span class="o">=</span>&gt; /usr/lib/libpthread.so.0 <span class="o">(</span>0x00007f8396a40000<span class="o">)</span>
+        libstdc++.so.6 <span class="o">=</span>&gt; /usr/lib/libstdc++.so.6 <span class="o">(</span>0x00007f83966b8000<span class="o">)</span>
+        libm.so.6 <span class="o">=</span>&gt; /usr/lib/libm.so.6 <span class="o">(</span>0x00007f83963b4000<span class="o">)</span>
+        libgcc_s.so.1 <span class="o">=</span>&gt; /usr/lib/libgcc_s.so.1 <span class="o">(</span>0x00007f839619d000<span class="o">)</span>
+        libc.so.6 <span class="o">=</span>&gt; /usr/lib/libc.so.6 <span class="o">(</span>0x00007f8395dff000<span class="o">)</span>
+        /lib64/ld-linux-x86-64.so.2 <span class="o">(</span>0x00007f8396c5d000<span class="o">)</span>
+$ ./mandelbrot  <span class="c1"># Intel Xeon(R) CPU E5504 @ 2.00GHz</span>
+@time of ISPC + TASKS run:              <span class="o">[</span>143.944<span class="o">]</span> million cycles
+@time of ISPC + TASKS run:              <span class="o">[</span>114.246<span class="o">]</span> million cycles
+@time of ISPC + TASKS run:              <span class="o">[</span>134.146<span class="o">]</span> million cycles
+@time of ISPC + TASKS run:              <span class="o">[</span>131.987<span class="o">]</span> million cycles
+@time of ISPC + TASKS run:              <span class="o">[</span>124.449<span class="o">]</span> million cycles
+@time of ISPC + TASKS run:              <span class="o">[</span>118.815<span class="o">]</span> million cycles
+@time of ISPC + TASKS run:              <span class="o">[</span>119.104<span class="o">]</span> million cycles
+<span class="o">[</span>mandelbrot ispc+tasks<span class="o">]</span>:        <span class="o">[</span>114.246<span class="o">]</span> million cycles
+Wrote image file mandelbrot-ispc.ppm
+@time of serial run:                    <span class="o">[</span>2456.413<span class="o">]</span> million cycles
+<span class="o">[</span>mandelbrot serial<span class="o">]</span>:            <span class="o">[</span>2456.413<span class="o">]</span> million cycles
+Wrote image file mandelbrot-serial.ppm
+                                <span class="o">(</span>21.50x speedup from ISPC + tasks<span class="o">)</span>
+$ ./mandelbrot  <span class="c1"># Intel Core(TM) i5-6200U CPU @ 2.30GHz</span>
+@time of ISPC + TASKS run:              <span class="o">[</span>100.304<span class="o">]</span> million cycles
+@time of ISPC + TASKS run:              <span class="o">[</span>118.307<span class="o">]</span> million cycles
+@time of ISPC + TASKS run:              <span class="o">[</span>99.052<span class="o">]</span> million cycles
+@time of ISPC + TASKS run:              <span class="o">[</span>99.102<span class="o">]</span> million cycles
+@time of ISPC + TASKS run:              <span class="o">[</span>98.825<span class="o">]</span> million cycles
+@time of ISPC + TASKS run:              <span class="o">[</span>98.654<span class="o">]</span> million cycles
+@time of ISPC + TASKS run:              <span class="o">[</span>108.323<span class="o">]</span> million cycles
+<span class="o">[</span>mandelbrot ispc+tasks<span class="o">]</span>:        <span class="o">[</span>98.654<span class="o">]</span> million cycles
+Wrote image file mandelbrot-ispc.ppm
+@time of serial run:                    <span class="o">[</span>2760.993<span class="o">]</span> million cycles
+<span class="o">[</span>mandelbrot serial<span class="o">]</span>:            <span class="o">[</span>2760.993<span class="o">]</span> million cycles
+Wrote image file mandelbrot-serial.ppm
+                                <span class="o">(</span>27.99x speedup from ISPC + tasks<span class="o">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id9">
+<h2><a class="toc-backref" href="#id53">參考</a><a class="headerlink" href="#id9" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://en.wikipedia.org/wiki/SIMD">Wikipedia - SIMD</a></li>
 <li><a class="reference external" href="https://en.wikipedia.org/wiki/SWAR">Wikipedia - SWAR (SIMD within a register)</a></li>
-<li><a class="reference external" href="http://projectne10.github.io/Ne10/">Project Ne10: An Open Optimized Software Library Project for the ARM Architecture</a></li>
-<li><a class="reference external" href="https://pypyvecopt.blogspot.com/">PyPy Vectorization</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Intrinsic_function">Wikipedia - Intrinsic function</a></li>
 <li>[2005] <a class="reference external" href="https://web.archive.org/web/20140320040450/http://noisymime.org/blogimages/SIMD.pdf">An Investigation of SIMD instruction sets</a></li>
 <li>[2014] <a class="reference external" href="http://d-nb.info/1071087355/34">Automatic SIMD Vectorization of SSA-based Control Flow Graphs</a></li>
+<li><a class="reference external" href="http://llvm.org/docs/LangRef.html#intrinsic-functions">LLVM - Intrinsic Functions</a></li>
+<li><a class="reference external" href="https://www.kernel.org/pub/linux/kernel/people/geoff/cell/ps3-linux-docs/CellProgrammingTutorial/BasicsOfSIMDProgramming.html">Basics of SIMD Programming</a></li>
 <li><a class="reference external" href="https://github.com/rust-lang/rfcs/blob/master/text/1199-simd-infrastructure.md">Rust RFCs - 1199 - SIMD Infrastructure</a></li>
+<li><a class="reference external" href="https://huonw.github.io/blog/2015/08/simd-in-rust/">SIMD in Rust</a></li>
 <li><a class="reference external" href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/SIMD">MDN - JavaScript - SIMD</a></li>
 <li><a class="reference external" href="https://developer.mozilla.org/en/docs/Web/JavaScript/SIMD_types">MDN - JavaScript - SIMD types</a></li>
 <li><a class="reference external" href="https://tc39.github.io/ecmascript_simd/">SIMD.js specification</a></li>
 <li><a class="reference external" href="https://db.in.tum.de/~finis/x86-intrin-cheatsheet-v2.2.pdf">x86 Intrinsics Cheatsheet</a></li>
+<li><a class="reference external" href="https://software.intel.com/sites/landingpage/IntrinsicsGuide/">Intel Intrinsics Guide</a></li>
 <li><a class="reference external" href="http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html">Intel® 64 and IA-32 Architectures Software Developer&#8217;s Manual</a></li>
 <li><a class="reference external" href="https://software.intel.com/sites/default/files/managed/9e/bc/64-ia-32-architectures-optimization-manual.pdf">Intel® 64 and IA-32 Architectures Optimization Reference Manual</a></li>
+</ul>
+<p>專案參看：</p>
+<ul>
+<li><dl class="first docutils">
+<dt><a class="reference external" href="https://github.com/undefx/vecpy">VecPy</a></dt>
+<dd><ul class="first last simple">
+<li>builds native libraries from arbitrary kernel functions written in Python</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first"><a class="reference external" href="https://github.com/uploadcare/pillow-simd">Pillow-SIMD</a></p>
+</li>
+<li><p class="first"><a class="reference external" href="https://pypyvecopt.blogspot.com/">PyPy Vectorization</a></p>
+</li>
+<li><dl class="first docutils">
+<dt><a class="reference external" href="https://github.com/serge-sans-paille/pythran">Pythran</a></dt>
+<dd><ul class="first last simple">
+<li>Python to C++ compiler for a subset of the Python with SIMD support</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><a class="reference external" href="https://github.com/numba/numba">Numba</a></dt>
+<dd><ul class="first last simple">
+<li>NumPy aware dynamic Python compiler using LLVM</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first"><a class="reference external" href="https://www.yeppp.info/index.html">Yeppp! - high-performance SIMD-optimized mathematical library for x86, ARM, and MIPS</a></p>
+</li>
+<li><p class="first"><a class="reference external" href="http://projectne10.github.io/Ne10/">Project Ne10: An Open Optimized Software Library Project for the ARM Architecture</a></p>
+</li>
+<li><dl class="first docutils">
+<dt><a class="reference external" href="https://bitbucket.org/eigen/eigen/">Eigen</a></dt>
+<dd><ul class="first last simple">
+<li>C++ template library for linear algebra</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><a class="reference external" href="https://github.com/NumScale/boost.simd">Boost.SIMD</a></dt>
+<dd><ul class="first last simple">
+<li>portable SIMD programming library to be proposed as a Boost library</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first"><a class="reference external" href="https://github.com/opencv/opencv">OpenCV</a></p>
+</li>
+<li><dl class="first docutils">
+<dt><a class="reference external" href="https://github.com/davisking/dlib">dlib</a></dt>
+<dd><ul class="first last simple">
+<li>modern C++ toolkit containing machine learning algorithms</li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </div>
 </div>

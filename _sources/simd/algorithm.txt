@@ -401,25 +401,504 @@ Byte Shuffle 操作：
 
 
 
+
+
+
+編譯器 — Vectorization
+========================================
+
+介紹
+------------------------------
+
+這是讓編譯器自動將原本的程式轉換成使用 SIMD Instruction 的 Binary 的技術，
+雖然目前已經有可以使用的技術，
+但是還是有改進的空間，
+程式設計師仍然能容易地利用 SIMD 自己寫出更好的程式。
+
+
+Implicit:
+
+* `Auto-Vectorization in LLVM <http://llvm.org/docs/Vectorizers.html>`_
+* `Polly - Polyhedral optimizations for LLVM <http://polly.llvm.org/>`_
+
+Explicit:
+
+* `Intel® SPMD Program Compiler - A compiler for high-performance SIMD programming on the CPU <https://ispc.github.io/>`_
+* OpenMP SIMD
+
+
+LLVM Auto-Vectorization
+------------------------------
+
+Polly
+------------------------------
+
+Intel SPMD Program Compiler
+------------------------------
+
+ispc 是 Intel 開發的開放原始碼編譯器，
+為的是有效地利用 CPU 上 SIMD 的支援來加速程式。
+作法和 CUDA 還有 OpenCL 類似，
+使用特別制定的 C-Like 語言來實做 ISPC Program （需要用 SIMD 來加速的 Function），
+接著使用 ispc 來編譯，
+剩餘程式則使用一般的 C 或 C++ 來撰寫即可，
+最後搭配在一起達成加速的效果，
+如此一來就不用自己去手寫利用 SSE 等指令的程式碼。
+
+
+Mandelbrot 範例
+++++++++++++++++++++
+
+取自 `ispc/examples/mandelbrot/ <https://github.com/ispc/ispc/blob/master/examples/mandelbrot/>`_ ，
+SIMD 版本：
+
+``mandelbrot_serial.cpp`` （一般版本）:
+
+.. code-block:: cpp
+
+    static int mandel(float c_re, float c_im, int count) {
+        float z_re = c_re, z_im = c_im;
+        int i;
+        for (i = 0; i < count; ++i) {
+            if (z_re * z_re + z_im * z_im > 4.f)
+                break;
+
+            float new_re = z_re*z_re - z_im*z_im;
+            float new_im = 2.f * z_re * z_im;
+            z_re = c_re + new_re;
+            z_im = c_im + new_im;
+        }
+
+        return i;
+    }
+
+    void mandelbrot_serial(float x0, float y0, float x1, float y1,
+                           int width, int height, int maxIterations,
+                           int output[])
+    {
+        float dx = (x1 - x0) / width;
+        float dy = (y1 - y0) / height;
+
+        for (int j = 0; j < height; j++) {
+            for (int i = 0; i < width; ++i) {
+                float x = x0 + i * dx;
+                float y = y0 + j * dy;
+
+                int index = (j * width + i);
+                output[index] = mandel(x, y, maxIterations);
+            }
+        }
+    }
+
+
+``mandelbrot.ispc`` （ispc 版本）:
+
+.. code-block:: ispc
+
+    static inline int mandel(float c_re, float c_im, int count) {
+        float z_re = c_re, z_im = c_im;
+        int i;
+        for (i = 0; i < count; ++i) {
+            if (z_re * z_re + z_im * z_im > 4.)
+                break;
+
+            float new_re = z_re*z_re - z_im*z_im;
+            float new_im = 2.f * z_re * z_im;
+            unmasked {
+                z_re = c_re + new_re;
+                z_im = c_im + new_im;
+            }
+        }
+
+        return i;
+    }
+
+    export void mandelbrot_ispc(uniform float x0, uniform float y0,
+                                uniform float x1, uniform float y1,
+                                uniform int width, uniform int height,
+                                uniform int maxIterations,
+                                uniform int output[])
+    {
+        float dx = (x1 - x0) / width;
+        float dy = (y1 - y0) / height;
+
+        for (uniform int j = 0; j < height; j++) {
+            // Note that we'll be doing programCount computations in parallel,
+            // so increment i by that much.  This assumes that width evenly
+            // divides programCount.
+            foreach (i = 0 ... width) {
+                // Figure out the position on the complex plane to compute the
+                // number of iterations at.  Note that the x values are
+                // different across different program instances, since its
+                // initializer incorporates the value of the programIndex
+                // variable.
+                float x = x0 + i * dx;
+                float y = y0 + j * dy;
+
+                int index = j * width + i;
+                output[index] = mandel(x, y, maxIterations);
+            }
+        }
+    }
+
+
+``mandelbrot.cpp`` :
+
+.. code-block:: cpp
+
+    #ifdef _MSC_VER
+    #define _CRT_SECURE_NO_WARNINGS
+    #define NOMINMAX
+    #pragma warning (disable: 4244)
+    #pragma warning (disable: 4305)
+    #endif
+
+    #include <stdio.h>
+    #include <algorithm>
+    #include "../timing.h"
+    #include "mandelbrot_ispc.h"
+    #include <string.h>
+    #include <cstdlib>
+    using namespace ispc;
+
+    extern void mandelbrot_serial(float x0, float y0, float x1, float y1,
+                                  int width, int height, int maxIterations,
+                                  int output[]);
+
+    /* Write a PPM image file with the image of the Mandelbrot set */
+    static void
+    writePPM(int *buf, int width, int height, const char *fn) {
+        FILE *fp = fopen(fn, "wb");
+        fprintf(fp, "P6\n");
+        fprintf(fp, "%d %d\n", width, height);
+        fprintf(fp, "255\n");
+        for (int i = 0; i < width*height; ++i) {
+            // Map the iteration count to colors by just alternating between
+            // two greys.
+            char c = (buf[i] & 0x1) ? 240 : 20;
+            for (int j = 0; j < 3; ++j)
+                fputc(c, fp);
+        }
+        fclose(fp);
+        printf("Wrote image file %s\n", fn);
+    }
+
+
+    int main(int argc, char *argv[]) {
+        static unsigned int test_iterations[] = {3, 3};
+        unsigned int width = 768;
+        unsigned int height = 512;
+        float x0 = -2;
+        float x1 = 1;
+        float y0 = -1;
+        float y1 = 1;
+
+        if (argc > 1) {
+            if (strncmp(argv[1], "--scale=", 8) == 0) {
+                float scale = atof(argv[1] + 8);
+                width *= scale;
+                height *= scale;
+            }
+        }
+        if ((argc == 3) || (argc == 4)) {
+            for (int i = 0; i < 2; i++) {
+                test_iterations[i] = atoi(argv[argc - 2 + i]);
+            }
+        }
+
+        int maxIterations = 256;
+        int *buf = new int[width*height];
+
+        //
+        // Compute the image using the ispc implementation; report the minimum
+        // time of three runs.
+        //
+        double minISPC = 1e30;
+        for (unsigned int i = 0; i < test_iterations[0]; ++i) {
+            reset_and_start_timer();
+            mandelbrot_ispc(x0, y0, x1, y1, width, height, maxIterations, buf);
+            double dt = get_elapsed_mcycles();
+            printf("@time of ISPC run:\t\t\t[%.3f] million cycles\n", dt);
+            minISPC = std::min(minISPC, dt);
+        }
+
+        printf("[mandelbrot ispc]:\t\t[%.3f] million cycles\n", minISPC);
+        writePPM(buf, width, height, "mandelbrot-ispc.ppm");
+
+        // Clear out the buffer
+        for (unsigned int i = 0; i < width * height; ++i)
+            buf[i] = 0;
+
+        //
+        // And run the serial implementation 3 times, again reporting the
+        // minimum time.
+        //
+        double minSerial = 1e30;
+        for (unsigned int i = 0; i < test_iterations[1]; ++i) {
+            reset_and_start_timer();
+            mandelbrot_serial(x0, y0, x1, y1, width, height, maxIterations, buf);
+            double dt = get_elapsed_mcycles();
+            printf("@time of serial run:\t\t\t[%.3f] million cycles\n", dt);
+            minSerial = std::min(minSerial, dt);
+        }
+
+        printf("[mandelbrot serial]:\t\t[%.3f] million cycles\n", minSerial);
+        writePPM(buf, width, height, "mandelbrot-serial.ppm");
+
+        printf("\t\t\t\t(%.2fx speedup from ISPC)\n", minSerial/minISPC);
+
+        return 0;
+    }
+
+
+``timing.h`` :
+
+.. code-block:: c
+
+    #include <stdint.h>
+
+    #ifdef __arm__
+    #include <sys/time.h>
+    // There's no easy way to get a hardware clock counter on ARM, so instead
+    // we'll pretend it's a 1GHz processor and then compute pretend cycles
+    // based on elapsed time from gettimeofday().
+    __inline__ uint64_t rdtsc() {
+      static bool first = true;
+      static struct timeval tv_start;
+      if (first) {
+        gettimeofday(&tv_start, NULL);
+        first = false;
+        return 0;
+      }
+
+      struct timeval tv;
+      gettimeofday(&tv, NULL);
+      tv.tv_sec -= tv_start.tv_sec;
+      tv.tv_usec -= tv_start.tv_usec;
+      return (1000000ull * tv.tv_sec + tv.tv_usec) * 1000ull;
+    }
+
+    #include <sys/time.h>
+    static inline double rtc(void)
+    {
+      struct timeval Tvalue;
+      double etime;
+      struct timezone dummy;
+
+      gettimeofday(&Tvalue,&dummy);
+      etime =  (double) Tvalue.tv_sec +
+        1.e-6*((double) Tvalue.tv_usec);
+      return etime;
+    }
+
+    #else // __arm__
+
+    #ifdef WIN32
+    #include <windows.h>
+    #define rdtsc __rdtsc
+    #else // WIN32
+    __inline__ uint64_t rdtsc() {
+      uint32_t low, high;
+    #ifdef __x86_64
+      __asm__ __volatile__ ("xorl %%eax,%%eax \n    cpuid"
+                            ::: "%rax", "%rbx", "%rcx", "%rdx" );
+    #else
+      __asm__ __volatile__ ("xorl %%eax,%%eax \n    cpuid"
+                            ::: "%eax", "%ebx", "%ecx", "%edx" );
+    #endif
+      __asm__ __volatile__ ("rdtsc" : "=a" (low), "=d" (high));
+      return (uint64_t)high << 32 | low;
+    }
+
+    #include <sys/time.h>
+    static inline double rtc(void)
+    {
+      struct timeval Tvalue;
+      double etime;
+      struct timezone dummy;
+
+      gettimeofday(&Tvalue,&dummy);
+      etime =  (double) Tvalue.tv_sec +
+        1.e-6*((double) Tvalue.tv_usec);
+      return etime;
+    }
+
+    #endif // !WIN32
+    #endif // !__arm__
+
+    static uint64_t start,  end;
+    static double  tstart, tend;
+
+    static inline void reset_and_start_timer()
+    {
+        start = rdtsc();
+    #ifndef WIN32
+        // Unused in Windows build, rtc() causing link errors
+        tstart = rtc();
+    #endif
+    }
+
+    /* Returns the number of millions of elapsed processor cycles since the
+       last reset_and_start_timer() call. */
+    static inline double get_elapsed_mcycles()
+    {
+        end = rdtsc();
+        return (end-start) / (1024. * 1024.);
+    }
+
+    #ifndef WIN32
+    // Unused in Windows build, rtc() causing link errors
+    static inline double get_elapsed_msec()
+    {
+        tend = rtc();
+        return (tend - tstart)*1e3;
+    }
+    #endif
+
+
+編譯並執行：
+
+.. code-block:: sh
+
+    $ mkdir objs
+    $ ispc -O3 --target=host mandelbrot.ispc -o objs/mandelbrot_ispc.o -h objs/mandelbrot_ispc.h
+    $ clang++ -O3 -I objs/ mandelbrot.cpp -c -o objs/mandelbrot.o
+    $ clang++ -O3 -I objs/ mandelbrot_serial.cpp -c -o objs/mandelbrot_serial.o
+    $ clang++ -O3 -I objs/ -o mandelbrot objs/mandelbrot.o objs/mandelbrot_ispc.o objs/mandelbrot_serial.o
+    $ ls -l mandelbrot
+    -rwxr-xr-x 1 user user 13424 Dec  3 13:06 mandelbrot
+    $ strip mandelbrot
+    $ ls -l mandelbrot
+    -rwxr-xr-x 1 user user 10432 Dec  3 13:06 mandelbrot
+    $ ldd mandelbrot
+            linux-vdso.so.1 (0x00007ffc4b3fe000)
+            libstdc++.so.6 => /usr/lib/libstdc++.so.6 (0x00007fc2108da000)
+            libm.so.6 => /usr/lib/libm.so.6 (0x00007fc2105d6000)
+            libgcc_s.so.1 => /usr/lib/libgcc_s.so.1 (0x00007fc2103bf000)
+            libc.so.6 => /usr/lib/libc.so.6 (0x00007fc210021000)
+            /lib64/ld-linux-x86-64.so.2 (0x00007fc210c62000)
+    $ ./mandelbrot  # Intel Xeon(R) CPU E5504 @ 2.00GHz
+    @time of ISPC run:                      [156.990] million cycles
+    @time of ISPC run:                      [154.923] million cycles
+    @time of ISPC run:                      [154.838] million cycles
+    [mandelbrot ispc]:              [154.838] million cycles
+    Wrote image file mandelbrot-ispc.ppm
+    @time of serial run:                    [319.032] million cycles
+    @time of serial run:                    [319.239] million cycles
+    @time of serial run:                    [318.566] million cycles
+    [mandelbrot serial]:            [318.566] million cycles
+    Wrote image file mandelbrot-serial.ppm
+                                    (2.06x speedup from ISPC)
+    $ ./mandelbrot  # Intel Core(TM) i5-6200U CPU @ 2.30GHz
+    @time of ISPC run:                      [64.837] million cycles
+    @time of ISPC run:                      [59.869] million cycles
+    @time of ISPC run:                      [61.037] million cycles
+    [mandelbrot ispc]:              [59.869] million cycles
+    Wrote image file mandelbrot-ispc.ppm
+    @time of serial run:                    [354.393] million cycles
+    @time of serial run:                    [353.565] million cycles
+    @time of serial run:                    [354.725] million cycles
+    [mandelbrot serial]:            [353.565] million cycles
+    Wrote image file mandelbrot-serial.ppm
+                                    (5.91x speedup from ISPC)
+
+
+取自 `ispc/examples/mandelbrot_tasks/ <https://github.com/ispc/ispc/blob/master/examples/mandelbrot_tasks/>`_ ，
+SIMD + multithreading 版本：
+
+.. code-block:: sh
+
+    $ ispc -O3 --target=host mandelbrot_tasks.ispc -o objs/mandelbrot_tasks_ispc.o -h objs/mandelbrot_tasks_ispc.h
+    $ clang++ -O3 -I objs/ mandelbrot_tasks.cpp -c -o objs/mandelbrot_tasks.o
+    $ clang++ -O3 -I objs/ mandelbrot_tasks_serial.cpp -c -o objs/mandelbrot_tasks_serial.o
+    $ clang++ -O3 tasksys.cpp -c -o objs/tasksys.o  # for ISPCAlloc, ISPCLaunch, ISPCSync
+    $ clang++ -O3 -I objs/ -o mandelbrot objs/mandelbrot_tasks.o objs/mandelbrot_tasks_ispc.o objs/mandelbrot_tasks_serial.o objs/tasksys.o -lpthread         # use pthread for multithreading
+    $ ls -l mandelbrot
+    -rwxr-xr-x 1 user user 28544 Dec  3 13:06 mandelbrot
+    $ strip mandelbrot
+    $ ls -l mandelbrot
+    -rwxr-xr-x 1 user user 23032 Dec  3 13:06 mandelbrot
+    $ ldd mandelbrot
+            linux-vdso.so.1 (0x00007fffd6b38000)
+            libpthread.so.0 => /usr/lib/libpthread.so.0 (0x00007f8396a40000)
+            libstdc++.so.6 => /usr/lib/libstdc++.so.6 (0x00007f83966b8000)
+            libm.so.6 => /usr/lib/libm.so.6 (0x00007f83963b4000)
+            libgcc_s.so.1 => /usr/lib/libgcc_s.so.1 (0x00007f839619d000)
+            libc.so.6 => /usr/lib/libc.so.6 (0x00007f8395dff000)
+            /lib64/ld-linux-x86-64.so.2 (0x00007f8396c5d000)
+    $ ./mandelbrot  # Intel Xeon(R) CPU E5504 @ 2.00GHz
+    @time of ISPC + TASKS run:              [143.944] million cycles
+    @time of ISPC + TASKS run:              [114.246] million cycles
+    @time of ISPC + TASKS run:              [134.146] million cycles
+    @time of ISPC + TASKS run:              [131.987] million cycles
+    @time of ISPC + TASKS run:              [124.449] million cycles
+    @time of ISPC + TASKS run:              [118.815] million cycles
+    @time of ISPC + TASKS run:              [119.104] million cycles
+    [mandelbrot ispc+tasks]:        [114.246] million cycles
+    Wrote image file mandelbrot-ispc.ppm
+    @time of serial run:                    [2456.413] million cycles
+    [mandelbrot serial]:            [2456.413] million cycles
+    Wrote image file mandelbrot-serial.ppm
+                                    (21.50x speedup from ISPC + tasks)
+    $ ./mandelbrot  # Intel Core(TM) i5-6200U CPU @ 2.30GHz
+    @time of ISPC + TASKS run:              [100.304] million cycles
+    @time of ISPC + TASKS run:              [118.307] million cycles
+    @time of ISPC + TASKS run:              [99.052] million cycles
+    @time of ISPC + TASKS run:              [99.102] million cycles
+    @time of ISPC + TASKS run:              [98.825] million cycles
+    @time of ISPC + TASKS run:              [98.654] million cycles
+    @time of ISPC + TASKS run:              [108.323] million cycles
+    [mandelbrot ispc+tasks]:        [98.654] million cycles
+    Wrote image file mandelbrot-ispc.ppm
+    @time of serial run:                    [2760.993] million cycles
+    [mandelbrot serial]:            [2760.993] million cycles
+    Wrote image file mandelbrot-serial.ppm
+                                    (27.99x speedup from ISPC + tasks)
+
+
+
 參考
 ========================================
 
 * `Wikipedia - SIMD <https://en.wikipedia.org/wiki/SIMD>`_
 * `Wikipedia - SWAR (SIMD within a register) <https://en.wikipedia.org/wiki/SWAR>`_
-* `Project Ne10: An Open Optimized Software Library Project for the ARM Architecture <http://projectne10.github.io/Ne10/>`_
-* `PyPy Vectorization <https://pypyvecopt.blogspot.com/>`_
+* `Wikipedia - Intrinsic function <https://en.wikipedia.org/wiki/Intrinsic_function>`_
 * [2005] `An Investigation of SIMD instruction sets <https://web.archive.org/web/20140320040450/http://noisymime.org/blogimages/SIMD.pdf>`_
 * [2014] `Automatic SIMD Vectorization of SSA-based Control Flow Graphs <http://d-nb.info/1071087355/34>`_
+* `LLVM - Intrinsic Functions <http://llvm.org/docs/LangRef.html#intrinsic-functions>`_
+* `Basics of SIMD Programming <https://www.kernel.org/pub/linux/kernel/people/geoff/cell/ps3-linux-docs/CellProgrammingTutorial/BasicsOfSIMDProgramming.html>`_
 
 
 * `Rust RFCs - 1199 - SIMD Infrastructure <https://github.com/rust-lang/rfcs/blob/master/text/1199-simd-infrastructure.md>`_
+* `SIMD in Rust <https://huonw.github.io/blog/2015/08/simd-in-rust/>`_
 
 
 * `MDN - JavaScript - SIMD <https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/SIMD>`_
 * `MDN - JavaScript - SIMD types <https://developer.mozilla.org/en/docs/Web/JavaScript/SIMD_types>`_
 * `SIMD.js specification <https://tc39.github.io/ecmascript_simd/>`_
 
-
 * `x86 Intrinsics Cheatsheet <https://db.in.tum.de/~finis/x86-intrin-cheatsheet-v2.2.pdf>`_
+* `Intel Intrinsics Guide <https://software.intel.com/sites/landingpage/IntrinsicsGuide/>`_
 * `Intel® 64 and IA-32 Architectures Software Developer's Manual <http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html>`_
 * `Intel® 64 and IA-32 Architectures Optimization Reference Manual <https://software.intel.com/sites/default/files/managed/9e/bc/64-ia-32-architectures-optimization-manual.pdf>`_
+
+
+專案參看：
+
+* `VecPy <https://github.com/undefx/vecpy>`_
+    - builds native libraries from arbitrary kernel functions written in Python
+* `Pillow-SIMD <https://github.com/uploadcare/pillow-simd>`_
+* `PyPy Vectorization <https://pypyvecopt.blogspot.com/>`_
+* `Pythran <https://github.com/serge-sans-paille/pythran>`_
+    - Python to C++ compiler for a subset of the Python with SIMD support
+* `Numba <https://github.com/numba/numba>`_
+    - NumPy aware dynamic Python compiler using LLVM
+* `Yeppp! - high-performance SIMD-optimized mathematical library for x86, ARM, and MIPS <https://www.yeppp.info/index.html>`_
+* `Project Ne10: An Open Optimized Software Library Project for the ARM Architecture <http://projectne10.github.io/Ne10/>`_
+* `Eigen <https://bitbucket.org/eigen/eigen/>`_
+    - C++ template library for linear algebra
+* `Boost.SIMD <https://github.com/NumScale/boost.simd>`_
+    - portable SIMD programming library to be proposed as a Boost library
+* `OpenCV <https://github.com/opencv/opencv>`_
+* `dlib <https://github.com/davisking/dlib>`_
+    - modern C++ toolkit containing machine learning algorithms

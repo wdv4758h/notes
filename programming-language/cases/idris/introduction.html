@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Idris 相關資源 &mdash; wdv4758h-notes latest 說明文件</title>
+  <title>Idris &mdash; wdv4758h-notes latest 說明文件</title>
   
 
   
@@ -589,11 +589,11 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../../../index.html">Docs</a> &raquo;</li>
       
-    <li>Idris 相關資源</li>
+    <li>Idris</li>
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="https://github.com/wdv4758h/notes/blob/master/./programming-language/cases/idris/resource.rst" class="fa fa-github"> Edit on GitHub</a>
+            <a href="https://github.com/wdv4758h/notes/blob/master/./programming-language/cases/idris/introduction.rst" class="fa fa-github"> Edit on GitHub</a>
           
         
       </li>
@@ -604,29 +604,79 @@
            <div itemprop="articleBody">
             
   <div class="section" id="idris">
-<h1>Idris 相關資源<a class="headerlink" href="#idris" title="本標題的永久連結">¶</a></h1>
+<h1><a class="toc-backref" href="#id6">Idris</a><a class="headerlink" href="#idris" title="本標題的永久連結">¶</a></h1>
+<div class="contents topic" id="id1">
+<p class="topic-title first">目錄</p>
 <ul class="simple">
-<li><a class="reference external" href="https://en.wikipedia.org/wiki/Cheney%27s_algorithm">Wikipedia - Cheney&#8217;s algorithm</a></li>
-<li><a class="reference external" href="https://en.wikipedia.org/wiki/Eager_evaluation">Wikipedia - Eager evaluation</a></li>
-<li>[GitHub] <a class="reference external" href="https://github.com/idris-lang/Idris-dev">Idris - A Dependently Typed Functional Programming Language</a></li>
-<li>[GitHub] <a class="reference external" href="https://github.com/idris-hackers">Idris Hackers</a></li>
-<li><a class="reference external" href="https://www.reddit.com/r/Idris/">Reddit - Idris</a></li>
+<li><a class="reference internal" href="#idris" id="id6">Idris</a><ul>
+<li><a class="reference internal" href="#id2" id="id7">基本介紹</a></li>
+<li><a class="reference internal" href="#id3" id="id8">安裝</a></li>
+<li><a class="reference internal" href="#id4" id="id9">範例</a><ul>
+<li><a class="reference internal" href="#hello-world" id="id10">Hello World</a></li>
 </ul>
-<p>Slides:</p>
+</li>
+<li><a class="reference internal" href="#id5" id="id11">參考</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id7">基本介紹</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<p>Idris 是一個研究用的純 Functional 程式語言，
+具有 Dependent Type 的特色，
+Type System 類似於 Agda，
+和 Agda 相比，Idris 更著重於打造通用的程式語言，
+而不是只著重在 Theorem Proving。</p>
+<p>Idris 語言本身主要是使用 Haskell 做開發，
+而程式碼可以在編譯後轉換成其他程式語言，
+例如 C 和 JavaScript。</p>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id8">安裝</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ sudo pacman -S idris
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id9">範例</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="hello-world">
+<h3><a class="toc-backref" href="#id10">Hello World</a><a class="headerlink" href="#hello-world" title="本標題的永久連結">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">hello.idr</span></code> :</p>
+<div class="highlight-idris"><div class="highlight"><pre><span></span><span class="kr">module</span> <span class="nn">Main</span>
+
+<span class="nf">main</span> <span class="ow">:</span> <span class="kt">IO</span> <span class="ow">()</span>
+main <span class="ow">=</span> putStrLn <span class="s">&quot;Hello, World!&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ idris hello.idr -o hello
+$ ./hello
+Hello, World!
+$ ls -l hello
+-rwxr-xr-x <span class="m">1</span> user user <span class="m">85320</span> Dec  <span class="m">3</span> 11:00 hello
+$ file hello
+hello: ELF 64-bit LSB executable, x86-64, version <span class="m">1</span> <span class="o">(</span>SYSV<span class="o">)</span>, dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, <span class="k">for</span> GNU/Linux 2.6.32, BuildID<span class="o">[</span>sha1<span class="o">]=</span>08cf680adb63917f28e607caae2ccbd74cc9d53e, not stripped
+$ ldd hello
+        linux-vdso.so.1 <span class="o">(</span>0x00007ffc122c8000<span class="o">)</span>
+        libgmp.so.10 <span class="o">=</span>&gt; /usr/lib/libgmp.so.10 <span class="o">(</span>0x00007f5e76961000<span class="o">)</span>
+        libpthread.so.0 <span class="o">=</span>&gt; /usr/lib/libpthread.so.0 <span class="o">(</span>0x00007f5e76744000<span class="o">)</span>
+        libm.so.6 <span class="o">=</span>&gt; /usr/lib/libm.so.6 <span class="o">(</span>0x00007f5e76440000<span class="o">)</span>
+        libc.so.6 <span class="o">=</span>&gt; /usr/lib/libc.so.6 <span class="o">(</span>0x00007f5e760a2000<span class="o">)</span>
+        /lib64/ld-linux-x86-64.so.2 <span class="o">(</span>0x00007f5e76bf4000<span class="o">)</span>
+$ strip hello
+$ ls -l hello
+-rwxr-xr-x <span class="m">1</span> user user <span class="m">64232</span> Dec  <span class="m">3</span> 11:04 hello-stripped
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2><a class="toc-backref" href="#id11">參考</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
-<li>[2014] <a class="reference external" href="https://speakerdeck.com/puffnfresh/lambdaconf-idris-workshop">LambdaConf: Idris Workshop</a></li>
-<li>[2014] <a class="reference external" href="https://speakerdeck.com/markhibberd/tic-tac-type-dependent-types-with-idris">Tic Tac Type: Dependent Types with Idris</a></li>
-<li>[2014] <a class="reference external" href="https://speakerdeck.com/ctford/the-hitchikers-guide-to-the-curry-howard-correspondence">The Hitchiker&#8217;s Guide to the Curry-Howard Correspondence</a></li>
-<li>[2015] <a class="reference external" href="https://speakerdeck.com/undees/you-got-your-idris-in-my-c-plus-plus">You Got Your Idris in My C++</a></li>
+<li><a class="reference external" href="http://www.idris-lang.org/">Idris - A Language with Dependent Types</a></li>
+<li><a class="reference external" href="http://docs.idris-lang.org/en/latest/index.html">Documentation for the Idris Language</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Idris_(programming_language)">Wikipedia - Idris (programming language)</a></li>
 </ul>
-<p>Online:</p>
-<ul class="simple">
-<li><a class="reference external" href="https://tryidris.herokuapp.com/">Try Idris</a></li>
-</ul>
-<p>Books:</p>
-<ul class="simple">
-<li><a class="reference external" href="https://www.manning.com/books/type-driven-development-with-idris">Type-driven Development with Idris</a></li>
-</ul>
+</div>
 </div>
 
 

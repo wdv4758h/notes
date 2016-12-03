@@ -2,9 +2,8 @@
 Idris 相關資源
 ========================================
 
-* `Idris - A Language with Dependent Types <http://www.idris-lang.org/>`_
-* `Wikipedia - Idris (programming language) <https://en.wikipedia.org/wiki/Idris_(programming_language)>`_
 * `Wikipedia - Cheney's algorithm <https://en.wikipedia.org/wiki/Cheney%27s_algorithm>`_
+* `Wikipedia - Eager evaluation <https://en.wikipedia.org/wiki/Eager_evaluation>`_
 
 * [GitHub] `Idris - A Dependently Typed Functional Programming Language <https://github.com/idris-lang/Idris-dev>`_
 * [GitHub] `Idris Hackers <https://github.com/idris-hackers>`_
@@ -22,3 +21,8 @@ Slides:
 Online:
 
 * `Try Idris <https://tryidris.herokuapp.com/>`_
+
+
+Books:
+
+* `Type-driven Development with Idris <https://www.manning.com/books/type-driven-development-with-idris>`_
