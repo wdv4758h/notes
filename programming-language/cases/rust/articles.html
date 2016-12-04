@@ -432,6 +432,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/articles.html">文章閱讀（Articles）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/asmjs.html">Rust to asm.js</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/cargo.html">Cargo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/compiler.html">Rust 編譯器</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/ecosystem.html">Rust 生態圈 (Rust Ecosystem)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/features-basic.html">Rust&#8217;s Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/index.html">My Rust Articles Collection</a></li>
@@ -618,6 +619,9 @@
 <li><a class="reference internal" href="#refactoring-std-for-ultimate-portability-libs-rust-internals" id="id9">Refactoring std for ultimate portability - libs - Rust Internals</a></li>
 <li><a class="reference internal" href="#rust-commercial-user-survey-results" id="id10">2016 Rust Commercial User Survey Results</a></li>
 <li><a class="reference internal" href="#paradigms-of-rust-for-the-go-developer" id="id11">Paradigms of Rust for the Go developer</a></li>
+<li><a class="reference internal" href="#sccache-mozilla-s-distributed-compiler-cache-now-written-in-rust" id="id12">sccache, Mozilla&#8217;s distributed compiler cache, now written in Rust</a></li>
+<li><a class="reference internal" href="#webvr-coming-to-servo-architecture-and-latency-optimizations" id="id13">WebVR coming to Servo: Architecture and latency optimizations</a></li>
+<li><a class="reference internal" href="#ripgrep-code-review" id="id14">ripgrep code review</a></li>
 </ul>
 </li>
 </ul>
@@ -736,6 +740,8 @@
 <li><a class="reference external" href="https://internals.rust-lang.org/t/rust-and-gnome-meeting-notes/4339">Rust and GNOME meeting notes</a></li>
 <li><a class="reference external" href="https://blogs.gnome.org/despinosa/2016/11/01/rust-and-gobject/">Rust and GObject</a></li>
 <li><a class="reference external" href="https://blogs.gnome.org/despinosa/2016/11/01/rust-and-vala/">Rust and Vala</a></li>
+<li><a class="reference external" href="https://people.gnome.org/~federico/news-2016-11.html#14">Exposing Rust objects to C code</a></li>
+<li><a class="reference external" href="https://people.gnome.org/~federico/news-2016-11.html#16">Debugging Rust code inside a C library</a></li>
 </ul>
 </div>
 <div class="section" id="fixing-python-performance-with-rust">
@@ -792,6 +798,54 @@
 <p>講解在 Go 發生的 data race 問題，
 而在 Rust 中會怎樣被編譯器避免，
 最後建立出沒有 data race 的程式碼。</p>
+</div>
+<div class="section" id="sccache-mozilla-s-distributed-compiler-cache-now-written-in-rust">
+<h2><a class="toc-backref" href="#id12">sccache, Mozilla&#8217;s distributed compiler cache, now written in Rust</a><a class="headerlink" href="#sccache-mozilla-s-distributed-compiler-cache-now-written-in-rust" title="本標題的永久連結">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">作者:</th><td class="field-body">Ted Mielczarek</td>
+</tr>
+<tr class="field-even field"><th class="field-name">URL:</th><td class="field-body"><a class="reference external" href="https://blog.mozilla.org/ted/2016/11/21/sccache-mozillas-distributed-compiler-cache-now-written-in-rust/">https://blog.mozilla.org/ted/2016/11/21/sccache-mozillas-distributed-compiler-cache-now-written-in-rust/</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="webvr-coming-to-servo-architecture-and-latency-optimizations">
+<h2><a class="toc-backref" href="#id13">WebVR coming to Servo: Architecture and latency optimizations</a><a class="headerlink" href="#webvr-coming-to-servo-architecture-and-latency-optimizations" title="本標題的永久連結">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">作者:</th><td class="field-body">Imanol Fernandez</td>
+</tr>
+<tr class="field-even field"><th class="field-name">URL:</th><td class="field-body"><a class="reference external" href="https://blog.mozvr.com/webvr-servo-architecture-and-latency-optimizations/">https://blog.mozvr.com/webvr-servo-architecture-and-latency-optimizations/</a></td>
+</tr>
+</tbody>
+</table>
+<p>講述 Servo 中支援 WebVR 的架構，
+以及以 Rust 寫的 WebVR Library 的設計。</p>
+<p>相關資源：</p>
+<ul class="simple">
+<li><a class="reference external" href="https://webvr.info/">WebVR - Bringing Virtual Reality to the Web</a></li>
+<li><a class="reference external" href="https://iswebvrready.org/">Is WebVR Ready?</a></li>
+</ul>
+</div>
+<div class="section" id="ripgrep-code-review">
+<h2><a class="toc-backref" href="#id14">ripgrep code review</a><a class="headerlink" href="#ripgrep-code-review" title="本標題的永久連結">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">作者:</th><td class="field-body">Michele Bertasi</td>
+</tr>
+<tr class="field-even field"><th class="field-name">URL:</th><td class="field-body"><a class="reference external" href="http://blog.mbrt.it/2016-12-01-ripgrep-code-review/">http://blog.mbrt.it/2016-12-01-ripgrep-code-review/</a></td>
+</tr>
+</tbody>
+</table>
+<p>針對 ripgrep 的程式碼做研究，
+分析裡面的架構和運作流程。</p>
 </div>
 </div>
 

@@ -432,6 +432,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/articles.html">文章閱讀（Articles）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/asmjs.html">Rust to asm.js</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/cargo.html">Cargo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/compiler.html">Rust 編譯器</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/ecosystem.html">Rust 生態圈 (Rust Ecosystem)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/features-basic.html">Rust&#8217;s Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/index.html">My Rust Articles Collection</a></li>
@@ -611,7 +612,8 @@
 <ul class="simple">
 <li><a class="reference internal" href="#rust-rfcs" id="id5">Rust RFCs</a><ul>
 <li><a class="reference internal" href="#rfc" id="id6">別人提 RFC 的經驗</a></li>
-<li><a class="reference internal" href="#misc" id="id7">Misc</a></li>
+<li><a class="reference internal" href="#rfc-1504-int128" id="id7">RFC 1504 - int128</a></li>
+<li><a class="reference internal" href="#misc" id="id8">Misc</a></li>
 </ul>
 </li>
 </ul>
@@ -622,8 +624,27 @@
 <li><a class="reference external" href="https://llogiq.github.io/2016/09/14/feature.html">From Tweet to Rust Feature</a></li>
 </ul>
 </div>
+<div class="section" id="rfc-1504-int128">
+<h2><a class="toc-backref" href="#id7">RFC 1504 - int128</a><a class="headerlink" href="#rfc-1504-int128" title="本標題的永久連結">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">RFC:</th><td class="field-body"><a class="reference external" href="https://github.com/rust-lang/rfcs/blob/master/text/1504-int128.md">https://github.com/rust-lang/rfcs/blob/master/text/1504-int128.md</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">PR:</th><td class="field-body"><a class="reference external" href="https://github.com/rust-lang/rfcs/pull/1504">https://github.com/rust-lang/rfcs/pull/1504</a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Tracking:</th><td class="field-body"><a class="reference external" href="https://github.com/rust-lang/rust/issues/35118">https://github.com/rust-lang/rust/issues/35118</a></td>
+</tr>
+</tbody>
+</table>
+<p>這個 RFC 的目標是加入 <code class="docutils literal"><span class="pre">i128</span></code> 和 <code class="docutils literal"><span class="pre">u128</span></code> 這兩個 primitive type，
+藉此用比較有效率的實做取代部份需要使用 BigNum 的地方，
+也避免掉使用 BigNum 時的 Heap allocation 和較高 overhead 的操作，
+而 128 位元數字將由 LLVM 提供有效率的實做（在 C 中已經可以經由 Clang 來使用 <code class="docutils literal"><span class="pre">__int128</span></code> ）。</p>
+</div>
 <div class="section" id="misc">
-<h2><a class="toc-backref" href="#id7">Misc</a><a class="headerlink" href="#misc" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id8">Misc</a><a class="headerlink" href="#misc" title="本標題的永久連結">¶</a></h2>
 <ul>
 <li><dl class="first docutils">
 <dt><a class="reference external" href="https://github.com/rust-lang/rfcs/blob/master/text/0198-slice-notation.md">Rust RFCs - 0198 - Slice Notation</a></dt>

@@ -98,6 +98,8 @@ Thoughts on DX: GNOME and Rust
 * `Rust and GNOME meeting notes <https://internals.rust-lang.org/t/rust-and-gnome-meeting-notes/4339>`_
 * `Rust and GObject <https://blogs.gnome.org/despinosa/2016/11/01/rust-and-gobject/>`_
 * `Rust and Vala <https://blogs.gnome.org/despinosa/2016/11/01/rust-and-vala/>`_
+* `Exposing Rust objects to C code <https://people.gnome.org/~federico/news-2016-11.html#14>`_
+* `Debugging Rust code inside a C library <https://people.gnome.org/~federico/news-2016-11.html#16>`_
 
 
 
@@ -134,3 +136,38 @@ Paradigms of Rust for the Go developer
 講解在 Go 發生的 data race 問題，
 而在 Rust 中會怎樣被編譯器避免，
 最後建立出沒有 data race 的程式碼。
+
+
+
+sccache, Mozilla's distributed compiler cache, now written in Rust
+==================================================================
+
+:作者: Ted Mielczarek
+:URL: https://blog.mozilla.org/ted/2016/11/21/sccache-mozillas-distributed-compiler-cache-now-written-in-rust/
+
+
+
+WebVR coming to Servo: Architecture and latency optimizations
+==================================================================
+
+:作者: Imanol Fernandez
+:URL: https://blog.mozvr.com/webvr-servo-architecture-and-latency-optimizations/
+
+講述 Servo 中支援 WebVR 的架構，
+以及以 Rust 寫的 WebVR Library 的設計。
+
+
+相關資源：
+
+* `WebVR - Bringing Virtual Reality to the Web <https://webvr.info/>`_
+* `Is WebVR Ready? <https://iswebvrready.org/>`_
+
+
+ripgrep code review
+===========================================
+
+:作者: Michele Bertasi
+:URL: http://blog.mbrt.it/2016-12-01-ripgrep-code-review/
+
+針對 ripgrep 的程式碼做研究，
+分析裡面的架構和運作流程。

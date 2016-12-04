@@ -5,8 +5,8 @@
 Misc
 ========================================
 
+* `Machine learning algorithms <https://github.com/rushter/MLAlgorithms>`_
 * `Generating Faces with Deconvolution Networks <https://zo7.github.io/blog/2016/09/25/generating-faces.html>`_
-
 
 
 Cheat Sheet

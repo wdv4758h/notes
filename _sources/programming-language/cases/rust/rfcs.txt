@@ -14,6 +14,19 @@ PR # => RFC #
 * `From Tweet to Rust Feature <https://llogiq.github.io/2016/09/14/feature.html>`_
 
 
+RFC 1504 - int128
+========================================
+
+:RFC: https://github.com/rust-lang/rfcs/blob/master/text/1504-int128.md
+:PR: https://github.com/rust-lang/rfcs/pull/1504
+:Tracking: https://github.com/rust-lang/rust/issues/35118
+
+這個 RFC 的目標是加入 ``i128`` 和 ``u128`` 這兩個 primitive type，
+藉此用比較有效率的實做取代部份需要使用 BigNum 的地方，
+也避免掉使用 BigNum 時的 Heap allocation 和較高 overhead 的操作，
+而 128 位元數字將由 LLVM 提供有效率的實做（在 C 中已經可以經由 Clang 來使用 ``__int128`` ）。
+
+
 
 Misc
 ========================================
