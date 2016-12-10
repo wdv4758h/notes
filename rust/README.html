@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Rust Tips &mdash; wdv4758h-notes latest 說明文件</title>
+  <title>Rust 相關文章 &mdash; wdv4758h-notes latest 說明文件</title>
   
 
   
@@ -429,7 +429,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../reports/2016-week-23.html">Self Report &lt;dv&gt; - Week 23, 2016</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reports/info.html">Information For Your Report</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reports/template.html">Engineering Report &lt;dv&gt; - Week #, 2016</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Rust Tips</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Rust 相關文章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#rust-tips">Rust Tips</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id2">輸出中間產物</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#counter-by-hashmap">Counter By HashMap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#slices-join-concat">Slices join/concat</a></li>
@@ -609,7 +610,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
       
-    <li>Rust Tips</li>
+    <li>Rust 相關文章</li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -623,33 +624,54 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="rust-tips">
-<h1><a class="toc-backref" href="#id7">Rust Tips</a><a class="headerlink" href="#rust-tips" title="本標題的永久連結">¶</a></h1>
+  <div class="section" id="rust">
+<h1><a class="toc-backref" href="#id7">Rust 相關文章</a><a class="headerlink" href="#rust" title="本標題的永久連結">¶</a></h1>
+<p>目錄：</p>
+<ul class="simple">
+<li><a class="reference external" href="articles.rst">文章閱讀</a></li>
+<li><a class="reference external" href="compiler.rst">編譯器</a></li>
+<li><a class="reference external" href="rfcs.rst">RFCs</a></li>
+<li><a class="reference external" href="tips.rst">Tips</a></li>
+<li><a class="reference external" href="ecosystem.rst">生態圈</a></li>
+<li><a class="reference external" href="servo.rst">Servo</a></li>
+<li><a class="reference external" href="any.rst">runtime reflection - &#8220;Any&#8221; type trait</a></li>
+<li><a class="reference external" href="asmjs.rst">Rust to asm.js</a></li>
+<li><a class="reference external" href="macro.rst">Macro</a></li>
+<li><a class="reference external" href="make-parity-work-on-freebsd.rst">Make Parity work on FreeBSD</a></li>
+<li><a class="reference external" href="misc.rst">Misc</a></li>
+<li><a class="reference external" href="tagged-unions.rst">Tagged Unions (Sum Type)</a></li>
+<li><a class="reference external" href="videos.rst">Videos</a></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="rust-tips">
+<h1><a class="toc-backref" href="#id8">Rust Tips</a><a class="headerlink" href="#rust-tips" title="本標題的永久連結">¶</a></h1>
 <div class="contents topic" id="id1">
 <p class="topic-title first">目錄</p>
 <ul class="simple">
-<li><a class="reference internal" href="#rust-tips" id="id7">Rust Tips</a><ul>
-<li><a class="reference internal" href="#id2" id="id8">輸出中間產物</a></li>
-<li><a class="reference internal" href="#counter-by-hashmap" id="id9">Counter By HashMap</a></li>
-<li><a class="reference internal" href="#slices-join-concat" id="id10">Slices join/concat</a></li>
-<li><a class="reference internal" href="#id3" id="id11">字串轉特定型別</a></li>
-<li><a class="reference internal" href="#id4" id="id12">把相依套件抓下來</a></li>
-<li><a class="reference internal" href="#conditional-attribute" id="id13">Conditional Attribute</a></li>
-<li><a class="reference internal" href="#libraries" id="id14">指定連結的 Libraries</a></li>
-<li><a class="reference internal" href="#rustc" id="id15">建立 rustc 內部文件</a></li>
-<li><a class="reference internal" href="#re-export" id="id16">re-export</a></li>
-<li><a class="reference internal" href="#ffi-foreign-function-interface" id="id17">FFI (Foreign Function Interface)</a><ul>
-<li><a class="reference internal" href="#id6" id="id18">範例一，傳入字串、回傳字串</a></li>
+<li><a class="reference internal" href="#rust" id="id7">Rust 相關文章</a></li>
+<li><a class="reference internal" href="#rust-tips" id="id8">Rust Tips</a><ul>
+<li><a class="reference internal" href="#id2" id="id9">輸出中間產物</a></li>
+<li><a class="reference internal" href="#counter-by-hashmap" id="id10">Counter By HashMap</a></li>
+<li><a class="reference internal" href="#slices-join-concat" id="id11">Slices join/concat</a></li>
+<li><a class="reference internal" href="#id3" id="id12">字串轉特定型別</a></li>
+<li><a class="reference internal" href="#id4" id="id13">把相依套件抓下來</a></li>
+<li><a class="reference internal" href="#conditional-attribute" id="id14">Conditional Attribute</a></li>
+<li><a class="reference internal" href="#libraries" id="id15">指定連結的 Libraries</a></li>
+<li><a class="reference internal" href="#rustc" id="id16">建立 rustc 內部文件</a></li>
+<li><a class="reference internal" href="#re-export" id="id17">re-export</a></li>
+<li><a class="reference internal" href="#ffi-foreign-function-interface" id="id18">FFI (Foreign Function Interface)</a><ul>
+<li><a class="reference internal" href="#id6" id="id19">範例一，傳入字串、回傳字串</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#optional-arguments" id="id19">Optional Arguments</a></li>
-<li><a class="reference internal" href="#string-str" id="id20">String 和 str</a></li>
+<li><a class="reference internal" href="#optional-arguments" id="id20">Optional Arguments</a></li>
+<li><a class="reference internal" href="#string-str" id="id21">String 和 str</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="id2">
-<h2><a class="toc-backref" href="#id8">輸出中間產物</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id9">輸出中間產物</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
 <div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># cargo arguments     -- rustc arguments</span>
 cargo rustc           -- --emit<span class="o">=</span>asm,llvm-bc,llvm-ir,obj,link,dep-info
 cargo rustc --release -- --emit<span class="o">=</span>asm,llvm-bc,llvm-ir,obj,link,dep-info
@@ -667,7 +689,7 @@ cargo rustc --release -- -Zunstable-options --unpretty<span class="o">=</span>mi
 </div>
 </div>
 <div class="section" id="counter-by-hashmap">
-<h2><a class="toc-backref" href="#id9">Counter By HashMap</a><a class="headerlink" href="#counter-by-hashmap" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id10">Counter By HashMap</a><a class="headerlink" href="#counter-by-hashmap" title="本標題的永久連結">¶</a></h2>
 <p>HashMap 內 key/value 的型別可以交給 Rust 編譯器來推斷，
 利用 <code class="docutils literal"><span class="pre">or_insert</span></code> 可以在碰到沒有見過的 key 時插入預設值。</p>
 <div class="highlight-rust"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HashMap</span><span class="o">::</span><span class="n">new</span><span class="p">();</span><span class="w"></span>
@@ -678,7 +700,7 @@ cargo rustc --release -- -Zunstable-options --unpretty<span class="o">=</span>mi
 </div>
 </div>
 <div class="section" id="slices-join-concat">
-<h2><a class="toc-backref" href="#id10">Slices join/concat</a><a class="headerlink" href="#slices-join-concat" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id11">Slices join/concat</a><a class="headerlink" href="#slices-join-concat" title="本標題的永久連結">¶</a></h2>
 <p>只要實作了
 <a class="reference external" href="https://doc.rust-lang.org/std/slice/trait.SliceConcatExt.html">std::slice::SliceConcatExt</a>
 trait，
@@ -691,7 +713,7 @@ trait，
 </div>
 </div>
 <div class="section" id="id3">
-<h2><a class="toc-backref" href="#id11">字串轉特定型別</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id12">字串轉特定型別</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
 <p>只要型別 T 有實做 <code class="docutils literal"><span class="pre">std::str::FromStr</span></code> ，
 那就可以使用 <code class="docutils literal"><span class="pre">.parse::&lt;T&gt;()</span></code> 來轉換：</p>
 <div class="highlight-rust"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">foo</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;text&quot;</span><span class="p">.</span><span class="n">parse</span><span class="o">::&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
@@ -699,7 +721,7 @@ trait，
 </div>
 </div>
 <div class="section" id="id4">
-<h2><a class="toc-backref" href="#id12">把相依套件抓下來</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id13">把相依套件抓下來</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h2>
 <p>要裝專案的相依套件可以使用 <code class="docutils literal"><span class="pre">cargo</span> <span class="pre">fetch</span></code> ，
 這指令會把需要的檔案抓到 <code class="docutils literal"><span class="pre">$CARGO_HOME</span></code> ，
 在該資料夾下建立一個叫做 <code class="docutils literal"><span class="pre">registry</span></code> 的資料夾，
@@ -743,7 +765,7 @@ trait，
 </div>
 </div>
 <div class="section" id="conditional-attribute">
-<h2><a class="toc-backref" href="#id13">Conditional Attribute</a><a class="headerlink" href="#conditional-attribute" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id14">Conditional Attribute</a><a class="headerlink" href="#conditional-attribute" title="本標題的永久連結">¶</a></h2>
 <p><code class="docutils literal"><span class="pre">#[cfg_attr(&lt;p&gt;,</span> <span class="pre">&lt;attr&gt;)]</span></code></p>
 <p>當 <code class="docutils literal"><span class="pre">&lt;p&gt;</span></code> 成立時，就加上後面的 <code class="docutils literal"><span class="pre">&lt;attr&gt;</span></code> ，
 範例：</p>
@@ -760,7 +782,7 @@ trait，
 </ul>
 </div>
 <div class="section" id="libraries">
-<h2><a class="toc-backref" href="#id14">指定連結的 Libraries</a><a class="headerlink" href="#libraries" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id15">指定連結的 Libraries</a><a class="headerlink" href="#libraries" title="本標題的永久連結">¶</a></h2>
 <p>要指定額外要連結 Libraries 可以使用 <code class="docutils literal"><span class="pre">link</span></code> attribute，
 並且可以指定如何連結：</p>
 <p>目前 <code class="docutils literal"><span class="pre">link</span></code> 可以指定兩項資訊，
@@ -774,7 +796,7 @@ OSX 上還可以選擇 <code class="docutils literal"><span class="pre">framewor
 </ul>
 </div>
 <div class="section" id="rustc">
-<h2><a class="toc-backref" href="#id15">建立 rustc 內部文件</a><a class="headerlink" href="#rustc" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id16">建立 rustc 內部文件</a><a class="headerlink" href="#rustc" title="本標題的永久連結">¶</a></h2>
 <div class="highlight-sh"><div class="highlight"><pre><span></span>./configure --enable-compiler-docs
 make docs -j4
 
@@ -785,13 +807,13 @@ git push origin gh-pages:gh-pages
 </div>
 </div>
 <div class="section" id="re-export">
-<h2><a class="toc-backref" href="#id16">re-export</a><a class="headerlink" href="#re-export" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id17">re-export</a><a class="headerlink" href="#re-export" title="本標題的永久連結">¶</a></h2>
 <div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">pub</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">library</span><span class="o">::*</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="ffi-foreign-function-interface">
-<h2><a class="toc-backref" href="#id17">FFI (Foreign Function Interface)</a><a class="headerlink" href="#ffi-foreign-function-interface" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id18">FFI (Foreign Function Interface)</a><a class="headerlink" href="#ffi-foreign-function-interface" title="本標題的永久連結">¶</a></h2>
 <p>在 Rust 中， <code class="docutils literal"><span class="pre">String</span></code> 是由一連串的 <code class="docutils literal"><span class="pre">u8</span></code> 所組成，
 並且保證會是有效的 UTF-8，
 這意味著 String 當中也可以正常地儲存 <code class="docutils literal"><span class="pre">NUL</span></code> （ <code class="docutils literal"><span class="pre">\0</span></code> ）。
@@ -813,7 +835,7 @@ git push origin gh-pages:gh-pages
 <li><a class="reference external" href="http://cffi.readthedocs.io/en/latest/">Python - CFFI</a></li>
 </ul>
 <div class="section" id="id6">
-<h3><a class="toc-backref" href="#id18">範例一，傳入字串、回傳字串</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id19">範例一，傳入字串、回傳字串</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h3>
 <p>Rust 程式碼：</p>
 <div class="highlight-rust"><div class="highlight"><pre><span></span><span class="c1">// func.rs</span>
 
@@ -909,7 +931,7 @@ git push origin gh-pages:gh-pages
 </div>
 </div>
 <div class="section" id="optional-arguments">
-<h2><a class="toc-backref" href="#id19">Optional Arguments</a><a class="headerlink" href="#optional-arguments" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id20">Optional Arguments</a><a class="headerlink" href="#optional-arguments" title="本標題的永久連結">¶</a></h2>
 <p>Rust 1.12 開始 <code class="docutils literal"><span class="pre">Option</span></code> 實做了 <code class="docutils literal"><span class="pre">From</span></code> ，
 <code class="docutils literal"><span class="pre">From</span></code> 是一個很基本的型別轉換 <code class="docutils literal"><span class="pre">trait</span></code> ，
 任何的 Rust 型別都可以實做 <code class="docutils literal"><span class="pre">From</span></code> 。</p>
@@ -967,7 +989,7 @@ git push origin gh-pages:gh-pages
 </ul>
 </div>
 <div class="section" id="string-str">
-<h2><a class="toc-backref" href="#id20">String 和 str</a><a class="headerlink" href="#string-str" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id21">String 和 str</a><a class="headerlink" href="#string-str" title="本標題的永久連結">¶</a></h2>
 <p>Rust 有兩種字串的型別，分別為 <code class="docutils literal"><span class="pre">String</span></code> 和 <code class="docutils literal"><span class="pre">str</span></code> ，</p>
 <p>String 是 dynamic heap string type，
 當我們需要更動或擁有所有權時，
