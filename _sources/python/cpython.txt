@@ -51,6 +51,17 @@ Articles
 * [GitHub] `Notes on making CPython faster <https://github.com/haypo/faster_cpython>`_
 
 
+
+Talks
+========================================
+
+* [YouTube] `Architecture of CPython, the bricks! (Stéphane Wirtel) <https://www.youtube.com/watch?v=ZkAc6hzGun4>`_
+* [YouTube] `From Source to Code: How CPython's Compiler Works - Brett Cannon <https://www.youtube.com/watch?v=R31NRWgoIWM>`_
+* [YouTube] `Stepping Through CPython <https://www.youtube.com/watch?v=XGF3Qu4dUqk>`_
+* [YouTube] `Hacking the CPython Interpreter | SciPy 2016 | James Powell <https://www.youtube.com/watch?v=1SqRRrmQHx0>`_
+
+
+
 Other Python Implementations
 ========================================
 

@@ -316,6 +316,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../misc/bit-hacks.html">Bit Hacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/calendar.html">Calendar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/conference.html">Conference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/design-pattern.html">Design Pattern</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/disk-encryption.html">Disk Encryption</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/dot-language.html">DOT Language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/fish.html">Fish Shell</a></li>
@@ -371,6 +372,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../non-cs/外宿準備項目.html">外宿準備項目</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../parallel/openhmpp.html">OpenHMPP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../parallel/openmp.html">OpenMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parallel/resource.html">平行化相關資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../programming-language/README.html">程式語言理論 (Programming Language Theory) (PLT)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pypy/brief.html">簡單介紹</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/ast.html">Python AST</a></li>
@@ -395,6 +397,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../python/power-operator-vs-math-pow.html">** operator v.s. math.pow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/pypi.html">PyPI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/python-3.5.html">Python 3.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/python-3.6.html">Python 3.6</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/qt.html">Qt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/resource.html">Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/scipy.html">SciPy</a></li>
@@ -437,10 +440,14 @@
 <li class="toctree-l1"><a class="reference internal" href="cargo.html">Cargo</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Rust 編譯器</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id2">編譯「編譯器」</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#porting">平台 Porting 範例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#porting">平台 Porting 範例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">新硬體</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">新作業系統</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#parser">Parser</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">編譯器效能追蹤</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">參考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">編譯器效能追蹤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ecosystem.html">Rust 生態圈 (Rust Ecosystem)</a></li>
@@ -615,22 +622,26 @@
            <div itemprop="articleBody">
             
   <div class="section" id="rust">
-<h1><a class="toc-backref" href="#id5">Rust 編譯器</a><a class="headerlink" href="#rust" title="本標題的永久連結">¶</a></h1>
+<h1><a class="toc-backref" href="#id7">Rust 編譯器</a><a class="headerlink" href="#rust" title="本標題的永久連結">¶</a></h1>
 <div class="contents topic" id="id1">
 <p class="topic-title first">目錄</p>
 <ul class="simple">
-<li><a class="reference internal" href="#rust" id="id5">Rust 編譯器</a><ul>
-<li><a class="reference internal" href="#id2" id="id6">編譯「編譯器」</a></li>
-<li><a class="reference internal" href="#porting" id="id7">平台 Porting 範例</a></li>
-<li><a class="reference internal" href="#parser" id="id8">Parser</a></li>
-<li><a class="reference internal" href="#id3" id="id9">編譯器效能追蹤</a></li>
-<li><a class="reference internal" href="#id4" id="id10">參考</a></li>
+<li><a class="reference internal" href="#rust" id="id7">Rust 編譯器</a><ul>
+<li><a class="reference internal" href="#id2" id="id8">編譯「編譯器」</a></li>
+<li><a class="reference internal" href="#porting" id="id9">平台 Porting 範例</a><ul>
+<li><a class="reference internal" href="#id3" id="id10">新硬體</a></li>
+<li><a class="reference internal" href="#id4" id="id11">新作業系統</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#parser" id="id12">Parser</a></li>
+<li><a class="reference internal" href="#id5" id="id13">編譯器效能追蹤</a></li>
+<li><a class="reference internal" href="#id6" id="id14">參考</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="id2">
-<h2><a class="toc-backref" href="#id6">編譯「編譯器」</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id8">編譯「編譯器」</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
 <div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># 抓程式碼</span>
 $ git clone https://github.com/rust-lang/rust/
 $ <span class="nb">cd</span> rust/
@@ -664,14 +675,406 @@ $ python -m http.server
 </ul>
 </div>
 <div class="section" id="porting">
-<h2><a class="toc-backref" href="#id7">平台 Porting 範例</a><a class="headerlink" href="#porting" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id9">平台 Porting 範例</a><a class="headerlink" href="#porting" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id10">新硬體</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/rust-lang/rust/pull/36369">IBM s390x</a></li>
+</ul>
+<p>修改內容：</p>
+<ol class="arabic">
+<li><p class="first">新增平台名稱到 <code class="docutils literal"><span class="pre">configure</span></code> 內的 <code class="docutils literal"><span class="pre">$CFG_CPUTYPE</span></code></p>
+</li>
+<li><p class="first">設定 Toolchain （例如 <code class="docutils literal"><span class="pre">mk/cfg/s390x-unknown-linux-gnu.mk</span></code> ）</p>
+</li>
+<li><dl class="first docutils">
+<dt>在各處設定對應的選擇（以 <code class="docutils literal"><span class="pre">s390x</span></code> 為例）</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>src/liballoc_jemalloc/lib.rs</dt>
+<dd><ul class="first last simple">
+<li>設定 <code class="docutils literal"><span class="pre">MIN_ALIGN</span></code></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>src/liballoc_system/lib.rs</dt>
+<dd><ul class="first last simple">
+<li>設定 <code class="docutils literal"><span class="pre">MIN_ALIGN</span></code></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>src/liblibc</dt>
+<dd><ul class="first last">
+<li><p class="first">[liblibc] src/lib.rs</p>
+</li>
+<li><dl class="first docutils">
+<dt>[liblibc] src/unix/notbsd/linux/mod.rs</dt>
+<dd><ul class="first last simple">
+<li>設定 <code class="docutils literal"><span class="pre">pthread_mutexattr_t</span></code></li>
+<li>設定數個變數和函式</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>[liblibc] src/unix/notbsd/linux/s390x.rs</dt>
+<dd><ul class="first last simple">
+<li>設定許多 Type 的大小</li>
+<li>定義數個函式界面</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>src/libpanic_unwind/gcc.rs</dt>
+<dd><ul class="first last simple">
+<li>設定 <code class="docutils literal"><span class="pre">UNWIND_DATA_REG</span></code></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>src/librustc_back/target/s390x_unknown_linux_gnu.rs</dt>
+<dd><ul class="first last simple">
+<li>LLVM target</li>
+<li>target endian</li>
+<li>data layout</li>
+<li>...</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>src/librustc_trans/abi.rs</dt>
+<dd><ul class="first last simple">
+<li>選擇使用 <code class="docutils literal"><span class="pre">cabi_s390x</span></code> 內的功能</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>src/librustc_trans/cabi_s390x.rs</dt>
+<dd><ul class="first last simple">
+<li>各 Type 的大小以及 Alignment 設定</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>src/librustc_trans/lib.rs</dt>
+<dd><ul class="first last simple">
+<li>加入 <code class="docutils literal"><span class="pre">cabi_s390x.rs</span></code></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>src/libstd/env.rs</dt>
+<dd><ul class="first last simple">
+<li>設定 <code class="docutils literal"><span class="pre">ARCH</span></code></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>src/libstd/os/linux/raw.rs</dt>
+<dd><ul class="first last simple">
+<li>將 libc 的資訊重新 expose 出去</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>src/libstd/os/raw.rs</dt>
+<dd><ul class="first last simple">
+<li>設定數個 Type 的大小</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>src/libstd/sys/unix/rand.rs</dt>
+<dd><ul class="first last simple">
+<li>設定 syscall 數值</li>
+<li>把能提供的功能打開</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>src/libunwind/libunwind.rs</dt>
+<dd><ul class="first last simple">
+<li>設定 <code class="docutils literal"><span class="pre">unwinder_private_data_size</span></code></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>設定數個需要忽略的測試</dt>
+<dd><ul class="first last simple">
+<li>src/test/compile-fail/asm-bad-clobber.rs</li>
+<li>src/test/compile-fail/asm-in-bad-modifier.rs</li>
+<li>src/test/compile-fail/asm-misplaced-option.rs</li>
+<li>src/test/compile-fail/asm-out-assign-imm.rs</li>
+<li>src/test/compile-fail/asm-out-no-modifier.rs</li>
+<li>src/test/compile-fail/asm-out-read-uninit.rs</li>
+<li>src/test/debuginfo/simd.rs</li>
+<li>src/test/run-pass/union/union-basic.rs</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>設定、實做數個需要開啟的測試</dt>
+<dd><ul class="first last simple">
+<li>src/test/run-make/atomic-lock-free/Makefile</li>
+<li>src/test/run-pass/conditional-compile-arch.rs</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>src/tools/compiletest/src/util.rs</dt>
+<dd><ul class="first last simple">
+<li>設定平台的對應</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+</div>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id11">新作業系統</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h3>
+<ul class="simple">
 <li><a class="reference external" href="https://github.com/rust-lang/rust/pull/36727">Haiku OS</a></li>
 </ul>
+<p>修改內容：</p>
+<ol class="arabic">
+<li><p class="first">新增平台名稱到 <code class="docutils literal"><span class="pre">configure</span></code> 內的 <code class="docutils literal"><span class="pre">$CFG_CPUTYPE</span></code></p>
+</li>
+<li><p class="first">設定 Toolchain （例如 <code class="docutils literal"><span class="pre">mk/cfg/i686-unknown-haiku.mk</span></code> 、 <code class="docutils literal"><span class="pre">mk/cfg/x86_64-unknown-haiku.mk</span></code> 和 <code class="docutils literal"><span class="pre">mk/main.mk</span></code> ）</p>
+</li>
+<li><dl class="first docutils">
+<dt>設定 OS</dt>
+<dd><ul class="first last simple">
+<li>src/etc/local_stage0.sh</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+<ol class="arabic" start="3">
+<li><dl class="first docutils">
+<dt>在各處設定對應的選擇</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>src/librustc_back/target/haiku_base.rs</dt>
+<dd><ul class="first last simple">
+<li>Linker</li>
+<li>rpath</li>
+<li>...</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>src/librustc_back/target/i686_unknown_haiku.rs</dt>
+<dd><ul class="first last simple">
+<li>LLVM target</li>
+<li>target endian</li>
+<li>data layout</li>
+<li>...</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>src/librustc_back/target/x86_64_unknown_haiku.rs</dt>
+<dd><ul class="first last simple">
+<li>LLVM target</li>
+<li>target endian</li>
+<li>data layout</li>
+<li>...</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>src/librustc_back/target/mod.rs</dt>
+<dd><ul class="first last simple">
+<li>加入 <code class="docutils literal"><span class="pre">haiku_base</span></code></li>
+<li>target 對應</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">src/librustc_data_structures/flock.rs</p>
+</li>
+<li><dl class="first docutils">
+<dt>src/libstd/env.rs</dt>
+<dd><ul class="first last simple">
+<li>設定 <code class="docutils literal"><span class="pre">FAMILY</span></code> 、 <code class="docutils literal"><span class="pre">OS</span></code> 、 <code class="docutils literal"><span class="pre">DLL_SUFFIX</span></code> 、 <code class="docutils literal"><span class="pre">EXE_SUFFIX</span></code> 等</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>src/libstd/os/haiku/fs.rs</dt>
+<dd><ul class="first last simple">
+<li>設定對應的檔案系統 metadata</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>src/libstd/os/haiku/raw.rs</dt>
+<dd><ul class="first last simple">
+<li>設定對應的 Type 大小</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>src/libstd/os/mod.rs</dt>
+<dd><ul class="first last simple">
+<li>加入 <code class="docutils literal"><span class="pre">haiku</span></code></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>src/libstd/rtdeps.rs</dt>
+<dd><ul class="first last simple">
+<li>設定平台的 runtime dependencies 的 link attributes</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>src/libstd/sys/common/args.rs</dt>
+<dd><ul class="first last simple">
+<li>開啟 CLI 參數的 storage 的相關支援</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>src/libstd/sys/common/net.rs</dt>
+<dd><ul class="first last simple">
+<li>設定網路相關資訊</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>src/libstd/sys/unix/fd.rs</dt>
+<dd><ul class="first last simple">
+<li>設定 File Descriptor 相關資訊</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>src/libstd/sys/unix/fs.rs</dt>
+<dd><ul class="first last simple">
+<li>設定檔案系統相關資訊</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>src/libstd/sys/unix/os.rs</dt>
+<dd><ul class="first last simple">
+<li>設定作業系統相關資訊</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>src/libstd/sys/unix/thread.rs</dt>
+<dd><ul class="first last simple">
+<li>設定 Thread 相關資訊</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>src/libstd/sys/unix/mod.rs</dt>
+<dd><ul class="first last simple">
+<li>加入 <code class="docutils literal"><span class="pre">os::haiku</span></code></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>src/libsyntax/abi.rs</dt>
+<dd><ul class="first last simple">
+<li>加入 <code class="docutils literal"><span class="pre">Haiku</span></code> 的 ABI</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>src/libterm/terminfo/searcher.rs</dt>
+<dd><ul class="first last simple">
+<li>設定 terminfo 位址</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>src/libtest/lib.rs</dt>
+<dd><ul class="first last simple">
+<li>標示尚未實做的功能</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>src/libunwind/libunwind.rs</dt>
+<dd><ul class="first last simple">
+<li>設定 unwinding 方式</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>src/test/run-pass/fds-are-cloexec.rs</dt>
+<dd><ul class="first last simple">
+<li>設定需要忽略的測試</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>src/tools/compiletest/src/util.rs</dt>
+<dd><ul class="first last simple">
+<li>設定平台的對應</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+</div>
 </div>
 <div class="section" id="parser">
-<h2><a class="toc-backref" href="#id8">Parser</a><a class="headerlink" href="#parser" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id12">Parser</a><a class="headerlink" href="#parser" title="本標題的永久連結">¶</a></h2>
 <p>Rust 有用 ANTLR 做 parser 驗證：</p>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/rust-lang/rust/tree/master/src/grammar">https://github.com/rust-lang/rust/tree/master/src/grammar</a></li>
@@ -679,15 +1082,15 @@ $ python -m http.server
 <li><a class="reference external" href="https://github.com/rust-lang/rust/blob/master/src/doc/grammar.md">https://github.com/rust-lang/rust/blob/master/src/doc/grammar.md</a></li>
 </ul>
 </div>
-<div class="section" id="id3">
-<h2><a class="toc-backref" href="#id9">編譯器效能追蹤</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="id5">
+<h2><a class="toc-backref" href="#id13">編譯器效能追蹤</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://perf.rust-lang.org/">rustc performance data</a></li>
 <li><a class="reference external" href="https://github.com/rust-lang-nursery/rustc-benchmarks">Some benchmarks for testing rustc performance</a></li>
 </ul>
 </div>
-<div class="section" id="id4">
-<h2><a class="toc-backref" href="#id10">參考</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="id6">
+<h2><a class="toc-backref" href="#id14">參考</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://www.jonathanturner.org/2016/08/helping-out-with-rust-errors.html">Helping with the Rust Errors</a></li>
 <li><a class="reference external" href="https://github.com/rust-lang/rust/issues/35233">Error code list which need to be updated to new format #35233</a></li>

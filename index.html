@@ -315,6 +315,7 @@
 <li class="toctree-l1"><a class="reference internal" href="misc/bit-hacks.html">Bit Hacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/calendar.html">Calendar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/conference.html">Conference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc/design-pattern.html">Design Pattern</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/disk-encryption.html">Disk Encryption</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/dot-language.html">DOT Language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/fish.html">Fish Shell</a></li>
@@ -370,6 +371,7 @@
 <li class="toctree-l1"><a class="reference internal" href="non-cs/外宿準備項目.html">外宿準備項目</a></li>
 <li class="toctree-l1"><a class="reference internal" href="parallel/openhmpp.html">OpenHMPP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="parallel/openmp.html">OpenMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parallel/resource.html">平行化相關資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="programming-language/README.html">程式語言理論 (Programming Language Theory) (PLT)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pypy/brief.html">簡單介紹</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python/ast.html">Python AST</a></li>
@@ -394,6 +396,7 @@
 <li class="toctree-l1"><a class="reference internal" href="python/power-operator-vs-math-pow.html">** operator v.s. math.pow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python/pypi.html">PyPI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python/python-3.5.html">Python 3.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python/python-3.6.html">Python 3.6</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python/qt.html">Qt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python/resource.html">Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python/scipy.html">SciPy</a></li>
@@ -1531,7 +1534,11 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </li>
 <li class="toctree-l1"><a class="reference internal" href="debug/kernel.html">Debugging a Kernel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="debug/record-replay.html">Record Replay</a></li>
-<li class="toctree-l1"><a class="reference internal" href="debug/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug/resource.html">Resource</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="debug/resource.html#debugger">Debugger 撰寫</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debug/resource.html#misc">Misc</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="docker/docker.html">Docker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="editor/emacs.html">Emacs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="embedded/stm32.html">STM32</a></li>
@@ -2142,6 +2149,10 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="misc/conference.html#bsdcan">BSDCan</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="misc/design-pattern.html">Design Pattern</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="misc/design-pattern.html#id2">參考</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="misc/disk-encryption.html">Disk Encryption</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/dot-language.html">DOT Language</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="misc/dot-language.html#graphviz">Graphviz</a><ul>
@@ -2503,6 +2514,7 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="parallel/openmp.html#reference">Reference</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="parallel/resource.html">平行化相關資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="programming-language/README.html">程式語言理論 (Programming Language Theory) (PLT)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="programming-language/README.html#id2">分類</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="programming-language/README.html#type-theory">Type Theory</a></li>
@@ -2539,6 +2551,7 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="python/cpython.html#build-from-source">Build From Source</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python/cpython.html#decimal">decimal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python/cpython.html#articles">Articles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/cpython.html#talks">Talks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python/cpython.html#other-python-implementations">Other Python Implementations</a></li>
 </ul>
 </li>
@@ -2607,6 +2620,17 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l1"><a class="reference internal" href="python/pypi.html">PyPI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python/python-3.5.html">Python 3.5</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="python/python-3.5.html#pep-0448-additional-unpacking-generalizations">PEP 0448 - Additional Unpacking Generalizations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="python/python-3.6.html">Python 3.6</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="python/python-3.6.html#pep-498-formatted-string-literals">PEP 498: Formatted string literals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/python-3.6.html#pep-526-syntax-for-variable-annotations">PEP 526: Syntax for variable annotations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/python-3.6.html#pep-515-underscores-in-numeric-literals">PEP 515: Underscores in Numeric Literals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/python-3.6.html#asynchronous">更多 Asynchronous 的支援</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/python-3.6.html#module-secrets">新 module — secrets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/python-3.6.html#dict">新 dict 實做</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/python-3.6.html#dtrace-systemtap">DTrace 和 SystemTap 支援</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/python-3.6.html#id2">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="python/qt.html">Qt</a><ul>
@@ -2881,10 +2905,14 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l1"><a class="reference internal" href="rust/cargo.html">Cargo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/compiler.html">Rust 編譯器</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="rust/compiler.html#id2">編譯「編譯器」</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rust/compiler.html#porting">平台 Porting 範例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/compiler.html#porting">平台 Porting 範例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rust/compiler.html#id3">新硬體</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rust/compiler.html#id4">新作業系統</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="rust/compiler.html#parser">Parser</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rust/compiler.html#id3">編譯器效能追蹤</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rust/compiler.html#id4">參考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/compiler.html#id5">編譯器效能追蹤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/compiler.html#id6">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rust/ecosystem.html">Rust 生態圈 (Rust Ecosystem)</a><ul>
