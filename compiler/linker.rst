@@ -31,6 +31,33 @@ system linkers 非常複雜，而其中 ELF linkers 又超級複雜，
 History
 ========================================
 
+LLD Linker
+========================================
+
+目前使用 LLD 作為系統 Linker 的系統：
+
+* CloudABI
+* Fuchsia
+
+有支援 LLD 的專案：
+
+* Chromium
+* Clang/LLVM
+
+其他：
+
+* FreeBSD 正常式使用 LLD 作為系統預設的 Linker
+
+
+參考：
+
+* [2016] `LLD status update and performance chart - Rui Ueyama <http://lists.llvm.org/pipermail/llvm-dev/2016-December/107981.html>`_
+* `The ELF linker symbol table design has been ported to the COFF linker in LLD <https://reviews.llvm.org/rL289280>`_
+* `Identical code folding (ICF) in LLD has been parallelised <https://reviews.llvm.org/rL288373>`_
+* [2016] `New LLD linker for ELF <http://llvm.org/devmtg/2016-03/Presentations/EuroLLVM%202016-%20New%20LLD%20linker%20for%20ELF.pdf>`_
+* [2016] `LLD: A new linker for FreeBSD <https://www.bsdcan.org/2016/schedule/events/656.en.html>`_
+
+
 
 Reference
 ========================================
