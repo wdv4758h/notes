@@ -16,3 +16,7 @@ Plugin Developers
 Organization
 
 * `vim-jp <https://github.com/vim-jp>`_
+
+Sites
+
+* `vimgifs <https://vimgifs.com/>`_
