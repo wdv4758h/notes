@@ -20,3 +20,7 @@ Organization
 Sites
 
 * `vimgifs <https://vimgifs.com/>`_
+
+Talks
+
+* [2016] `Vim 25 presentation by Bram Moolenaar <https://www.youtube.com/watch?v=ayc_qpB-93o>`_
