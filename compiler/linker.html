@@ -166,6 +166,7 @@
 <li class="toctree-l1"><a class="reference internal" href="jump-threading.html">Jump Threading</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Linker</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#history">History</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lld-linker">LLD Linker</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
@@ -264,6 +265,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../hardware/history.html">Hardware&#8217;s History</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/intel-mic.html">Intel MIC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/my-devices.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hardware/random-number-generator.html">硬體亂數產生器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hardware/risc-v.html">RISC-V</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jit/asmjit.html">asmjit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jit/introduction.html">JIT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../language-virtual-machines/resource.html">資源</a></li>
@@ -339,6 +342,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../misc/podcast.html">Podcast</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/reStructuredText.html">reStructuredText</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/repo.html">Interesting Repo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/reverse-engineering.html">逆向工程</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/sites.html">Sites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/ssl-tls-pki-history.html">SL/TLS 以及 PKI 的歷史</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/statifier.html">Statifier</a></li>
@@ -646,6 +650,31 @@
 但是現今實作依然甚少從中獲益。</p>
 <div class="section" id="history">
 <h2>History<a class="headerlink" href="#history" title="本標題的永久連結">¶</a></h2>
+</div>
+<div class="section" id="lld-linker">
+<h2>LLD Linker<a class="headerlink" href="#lld-linker" title="本標題的永久連結">¶</a></h2>
+<p>目前使用 LLD 作為系統 Linker 的系統：</p>
+<ul class="simple">
+<li>CloudABI</li>
+<li>Fuchsia</li>
+</ul>
+<p>有支援 LLD 的專案：</p>
+<ul class="simple">
+<li>Chromium</li>
+<li>Clang/LLVM</li>
+</ul>
+<p>其他：</p>
+<ul class="simple">
+<li>FreeBSD 正常式使用 LLD 作為系統預設的 Linker</li>
+</ul>
+<p>參考：</p>
+<ul class="simple">
+<li>[2016] <a class="reference external" href="http://lists.llvm.org/pipermail/llvm-dev/2016-December/107981.html">LLD status update and performance chart - Rui Ueyama</a></li>
+<li><a class="reference external" href="https://reviews.llvm.org/rL289280">The ELF linker symbol table design has been ported to the COFF linker in LLD</a></li>
+<li><a class="reference external" href="https://reviews.llvm.org/rL288373">Identical code folding (ICF) in LLD has been parallelised</a></li>
+<li>[2016] <a class="reference external" href="http://llvm.org/devmtg/2016-03/Presentations/EuroLLVM%202016-%20New%20LLD%20linker%20for%20ELF.pdf">New LLD linker for ELF</a></li>
+<li>[2016] <a class="reference external" href="https://www.bsdcan.org/2016/schedule/events/656.en.html">LLD: A new linker for FreeBSD</a></li>
+</ul>
 </div>
 <div class="section" id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="本標題的永久連結">¶</a></h2>
