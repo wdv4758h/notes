@@ -438,3 +438,56 @@ str 是不可更動（immutable）的一串未知長度的 UTF8，
 
 
 * `StackOverflow - Rust String versus str <http://stackoverflow.com/a/24159933/3880958>`_
+
+
+
+``is_empty()`` 或 ``== ""``
+========================================
+
+實測產生出來的組語是一樣的
+
+.. code-block:: rust
+
+    fn function1(x: &str) -> bool {
+        if x == "" {
+            return true;
+        }
+        false
+    }
+
+    fn function2(x: &str) -> bool {
+        if x.is_empty() {
+            return true;
+        }
+        false
+    }
+
+    fn function3(x: &str) -> bool {
+        x.is_empty()
+    }
+
+    fn main() {
+        function1("asd");
+        function2("asd");
+        function3("asd");
+    }
+
+
+.. code-block:: sh
+
+    $ rustc --emit=asm tmp.rs
+
+.. code-block:: asm
+
+
+    _ZN3tmp9function117h1b4755b813ebdd74E:
+        .cfi_startproc
+        subq	$56, %rsp
+
+    _ZN3tmp9function217h08a5b6f3f7ebc34eE:
+        .cfi_startproc
+        subq	$40, %rsp
+
+    _ZN3tmp9function317hac51923d2a830a73E:
+        .cfi_startproc
+        subq	$24, %rsp
