@@ -171,3 +171,26 @@ ripgrep code review
 
 針對 ripgrep 的程式碼做研究，
 分析裡面的架構和運作流程。
+
+
+
+Rust futures at a glance
+===========================================
+
+:作者: Zimon Dai
+:URL: https://daiheitan.github.io/blog/2016/12/07/Rust-futures-at-a-glance/
+
+介紹 Rust 的 Async IO 以及 Futures 的概念和使用。
+
+
+相關資源：
+
+* `Tokio <https://github.com/tokio-rs>`_
+* `RFC 1522 - conservative impl trait <https://github.com/rust-lang/rfcs/blob/master/text/1522-conservative-impl-trait.md>`_
+    - Abstract return types allow a function to hide a concrete return type behind a trait interface similar to trait objects, while still generating the same statically dispatched code as with concrete types.
+    - ``#![feature(conservative_impl_trait)]``
+    - 合法的操作
+        + https://github.com/rust-lang/rust/tree/master/src/test/run-pass/impl-trait
+    - 不合法的操作
+        + https://github.com/rust-lang/rust/tree/master/src/test/compile-fail/impl-trait
+* `RFC 0019 - Opt-in builtin traits (OIBITs) <https://github.com/rust-lang/rfcs/blob/master/text/0019-opt-in-builtin-traits.md#default-and-negative-impls>`_
