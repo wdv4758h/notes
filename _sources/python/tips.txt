@@ -7,6 +7,8 @@ Python Tips
 不過有些已經用的很習慣了，
 之後有想到任何新接觸 Python 的人會需要的再補上 :P
 
+
+
 Python 的 bool 可以拿來做運算
 ========================================
 
@@ -20,11 +22,13 @@ Python 的 bool 可以拿來做運算
     2
 
 
+
 善用 any 和 all
 ========================================
 
 * any 是只要傳入的 iterable 中間有任何的 bool 是 True 就回傳 True
 * all 是傳入的 iterable 中間全部的 bool 必須是 True 才回傳 True
+
 
 
 分 group
@@ -45,6 +49,22 @@ Python 的 bool 可以拿來做運算
 
 
 * `Python zip( ) Fu <http://pavdmyt.com/python-zip-fu/>`_
+
+
+
+套用自己 class 內的 decorator 到其他 method
+===========================================
+
+.. code-block:: python
+
+    ＠staticmethod
+    def decorator(function):
+        pass
+
+    ＠decorator.＿func＿
+    def func(self):
+        pass
+
 
 
 Others

@@ -441,6 +441,7 @@
 <li class="toctree-l1"><a class="reference internal" href="rust/articles.html">文章閱讀（Articles）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/asmjs.html">Rust to asm.js</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/books.html">Rust 相關書籍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rust/c-to-rust.html">把 C 程式轉換成 Rust 程式</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/cargo.html">Cargo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/compiler.html">Rust 編譯器</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/ecosystem.html">Rust 生態圈 (Rust Ecosystem)</a></li>
@@ -2707,6 +2708,7 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="python/tips.html#python-bool">Python 的 bool 可以拿來做運算</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python/tips.html#any-all">善用 any 和 all</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python/tips.html#group">分 group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/tips.html#class-decorator-method">套用自己 class 內的 decorator 到其他 method</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python/tips.html#others">Others</a></li>
 </ul>
 </li>
@@ -2900,6 +2902,7 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l3"><a class="reference internal" href="rust/README.html#id6">範例一，傳入字串、回傳字串</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="rust/README.html#pretty-print-debug">Pretty Print Debug</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#optional-arguments">Optional Arguments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#string-str">String 和 str</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#is-empty"><code class="docutils literal"><span class="pre">is_empty()</span></code> 或 <code class="docutils literal"><span class="pre">==</span> <span class="pre">&quot;&quot;</span></code></a></li>
@@ -2936,6 +2939,21 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rust/books.html">Rust 相關書籍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rust/c-to-rust.html">把 C 程式轉換成 Rust 程式</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rust/c-to-rust.html#id2">範例轉換探討</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/c-to-rust.html#corrode-c-rust">Corrode - 自動轉換 C 程式碼為 Rust 程式碼</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rust/c-to-rust.html#id3">介紹</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rust/c-to-rust.html#id4">編譯、安裝</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rust/c-to-rust.html#id5">使用</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rust/c-to-rust.html#id6">自動轉換程式碼架構探討</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rust/c-to-rust.html#id7">驗證</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rust/c-to-rust.html#id8">參考</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="rust/cargo.html">Cargo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/compiler.html">Rust 編譯器</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="rust/compiler.html#id2">編譯「編譯器」</a></li>
@@ -3109,6 +3127,7 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l3"><a class="reference internal" href="rust/tips.html#id6">範例一，傳入字串、回傳字串</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="rust/tips.html#pretty-print-debug">Pretty Print Debug</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/tips.html#optional-arguments">Optional Arguments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/tips.html#string-str">String 和 str</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/tips.html#is-empty"><code class="docutils literal"><span class="pre">is_empty()</span></code> 或 <code class="docutils literal"><span class="pre">==</span> <span class="pre">&quot;&quot;</span></code></a></li>
