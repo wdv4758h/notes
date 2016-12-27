@@ -29,3 +29,10 @@ Manning
 可免費取得該書的電子版本。
 
 * `Manning <https://www.manning.com/>`_
+
+
+Apress
+========================================
+
+* `Apress <http://www.apress.com/us/>`_
+* `Apress Open <http://www.apress.com/us/apress-open>`_
