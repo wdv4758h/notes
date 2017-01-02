@@ -807,6 +807,16 @@ Valgrind Plugin Source Code Structure：
 實際專案測試
 ------------------------------
 
+Valgrind suppression
+------------------------------
+
+範例：
+
+* `CPython - Misc/valgrind-python.supp <https://github.com/python/cpython/blob/master/Misc/valgrind-python.supp>`_
+* `Firefox - build/valgrind/x86_64-redhat-linux-gnu.sup <https://dxr.mozilla.org/mozilla-central/source/build/valgrind/x86_64-redhat-linux-gnu.sup>`_
+
+
+
 Valgrind for Unix-like command
 ------------------------------
 
