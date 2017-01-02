@@ -330,6 +330,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#valgrind-dhat">Valgrind - DHAT</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#valgrind-plugin-structure">Valgrind - Plugin Structure</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id2">實際專案測試</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#valgrind-suppression">Valgrind suppression</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#valgrind-for-unix-like-command">Valgrind for Unix-like command</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#valgrind-for-languages">Valgrind for Languages</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#rust">Rust</a></li>
@@ -417,6 +418,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../misc/vulkan.html">Vulkan</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mpi/mpi.html">MPI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/ffmpeg.html">ffmpeg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/dns.html">DNS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/resource.html">資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../non-cs/brain.html">Brain</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../non-cs/crosstalk.html">相聲</a></li>
@@ -705,46 +707,47 @@
 <li><a class="reference internal" href="#valgrind-dhat" id="id19">Valgrind - DHAT</a></li>
 <li><a class="reference internal" href="#valgrind-plugin-structure" id="id20">Valgrind - Plugin Structure</a></li>
 <li><a class="reference internal" href="#id2" id="id21">實際專案測試</a></li>
-<li><a class="reference internal" href="#valgrind-for-unix-like-command" id="id22">Valgrind for Unix-like command</a></li>
-<li><a class="reference internal" href="#valgrind-for-languages" id="id23">Valgrind for Languages</a><ul>
-<li><a class="reference internal" href="#rust" id="id24">Rust</a></li>
-<li><a class="reference internal" href="#python" id="id25">Python</a></li>
+<li><a class="reference internal" href="#valgrind-suppression" id="id22">Valgrind suppression</a></li>
+<li><a class="reference internal" href="#valgrind-for-unix-like-command" id="id23">Valgrind for Unix-like command</a></li>
+<li><a class="reference internal" href="#valgrind-for-languages" id="id24">Valgrind for Languages</a><ul>
+<li><a class="reference internal" href="#rust" id="id25">Rust</a></li>
+<li><a class="reference internal" href="#python" id="id26">Python</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#igprof" id="id26">IgProf</a><ul>
-<li><a class="reference internal" href="#id3" id="id27">Introduction</a></li>
-<li><a class="reference internal" href="#id4" id="id28">使用</a></li>
+<li><a class="reference internal" href="#igprof" id="id27">IgProf</a><ul>
+<li><a class="reference internal" href="#id3" id="id28">Introduction</a></li>
+<li><a class="reference internal" href="#id4" id="id29">使用</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#running-valgrind-on-android" id="id29">Running Valgrind on Android</a><ul>
-<li><a class="reference internal" href="#valgrind-svn" id="id30">Valgrind SVN</a></li>
-<li><a class="reference internal" href="#valgrind-svn-round-2" id="id31">Valgrind SVN (round 2)</a></li>
-<li><a class="reference internal" href="#aosp-valgrind" id="id32">AOSP Valgrind</a></li>
-<li><a class="reference internal" href="#id5" id="id33">Running Valgrind on Android</a></li>
-<li><a class="reference internal" href="#problems" id="id34">Problems</a><ul>
-<li><a class="reference internal" href="#linker-unsupported-flags" id="id35">Linker - Unsupported Flags</a></li>
-<li><a class="reference internal" href="#unhandled-instruction" id="id36">Unhandled Instruction</a></li>
+<li><a class="reference internal" href="#running-valgrind-on-android" id="id30">Running Valgrind on Android</a><ul>
+<li><a class="reference internal" href="#valgrind-svn" id="id31">Valgrind SVN</a></li>
+<li><a class="reference internal" href="#valgrind-svn-round-2" id="id32">Valgrind SVN (round 2)</a></li>
+<li><a class="reference internal" href="#aosp-valgrind" id="id33">AOSP Valgrind</a></li>
+<li><a class="reference internal" href="#id5" id="id34">Running Valgrind on Android</a></li>
+<li><a class="reference internal" href="#problems" id="id35">Problems</a><ul>
+<li><a class="reference internal" href="#linker-unsupported-flags" id="id36">Linker - Unsupported Flags</a></li>
+<li><a class="reference internal" href="#unhandled-instruction" id="id37">Unhandled Instruction</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#contribute-to-aosp-valgrind" id="id37">Contribute to AOSP Valgrind</a></li>
-<li><a class="reference internal" href="#id6" id="id38">Valgrind 實際案例</a><ul>
-<li><a class="reference internal" href="#cpython" id="id39">CPython</a></li>
+<li><a class="reference internal" href="#contribute-to-aosp-valgrind" id="id38">Contribute to AOSP Valgrind</a></li>
+<li><a class="reference internal" href="#id6" id="id39">Valgrind 實際案例</a><ul>
+<li><a class="reference internal" href="#cpython" id="id40">CPython</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#related-topics" id="id40">Related Topics</a></li>
-<li><a class="reference internal" href="#questions" id="id41">Questions</a><ul>
-<li><a class="reference internal" href="#id7" id="id42">對已經在執行的程式掛上 Valgrind ?</a></li>
-<li><a class="reference internal" href="#valgrind-instrumentation" id="id43">讓 Valgrind 只對部份程式做 Instrumentation ?</a></li>
-<li><a class="reference internal" href="#kernel-memory-leak-detect" id="id44">Kernel Memory Leak Detect ?</a></li>
-<li><a class="reference internal" href="#valgrind-for-kernel" id="id45">Valgrind for Kernel ?</a></li>
+<li><a class="reference internal" href="#related-topics" id="id41">Related Topics</a></li>
+<li><a class="reference internal" href="#questions" id="id42">Questions</a><ul>
+<li><a class="reference internal" href="#id7" id="id43">對已經在執行的程式掛上 Valgrind ?</a></li>
+<li><a class="reference internal" href="#valgrind-instrumentation" id="id44">讓 Valgrind 只對部份程式做 Instrumentation ?</a></li>
+<li><a class="reference internal" href="#kernel-memory-leak-detect" id="id45">Kernel Memory Leak Detect ?</a></li>
+<li><a class="reference internal" href="#valgrind-for-kernel" id="id46">Valgrind for Kernel ?</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#reference" id="id46">Reference</a><ul>
-<li><a class="reference internal" href="#android" id="id47">Android</a></li>
+<li><a class="reference internal" href="#reference" id="id47">Reference</a><ul>
+<li><a class="reference internal" href="#android" id="id48">Android</a></li>
 </ul>
 </li>
 </ul>
@@ -1580,8 +1583,16 @@ Number of snapshots: 21
 <div class="section" id="id2">
 <h3><a class="toc-backref" href="#id21">實際專案測試</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h3>
 </div>
+<div class="section" id="valgrind-suppression">
+<h3><a class="toc-backref" href="#id22">Valgrind suppression</a><a class="headerlink" href="#valgrind-suppression" title="本標題的永久連結">¶</a></h3>
+<p>範例：</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/python/cpython/blob/master/Misc/valgrind-python.supp">CPython - Misc/valgrind-python.supp</a></li>
+<li><a class="reference external" href="https://dxr.mozilla.org/mozilla-central/source/build/valgrind/x86_64-redhat-linux-gnu.sup">Firefox - build/valgrind/x86_64-redhat-linux-gnu.sup</a></li>
+</ul>
+</div>
 <div class="section" id="valgrind-for-unix-like-command">
-<h3><a class="toc-backref" href="#id22">Valgrind for Unix-like command</a><a class="headerlink" href="#valgrind-for-unix-like-command" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id23">Valgrind for Unix-like command</a><a class="headerlink" href="#valgrind-for-unix-like-command" title="本標題的永久連結">¶</a></h3>
 <div class="highlight-sh"><div class="highlight"><pre><span></span>$ echo &quot;hello&quot; &gt; test.txt
 $ valgrind --tool=exp-dhat cat test.txt
 ==18771== DHAT, a dynamic heap analysis tool
@@ -1644,9 +1655,9 @@ $ valgrind --tool=exp-dhat cat test.txt
 </div>
 </div>
 <div class="section" id="valgrind-for-languages">
-<h3><a class="toc-backref" href="#id23">Valgrind for Languages</a><a class="headerlink" href="#valgrind-for-languages" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id24">Valgrind for Languages</a><a class="headerlink" href="#valgrind-for-languages" title="本標題的永久連結">¶</a></h3>
 <div class="section" id="rust">
-<h4><a class="toc-backref" href="#id24">Rust</a><a class="headerlink" href="#rust" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id25">Rust</a><a class="headerlink" href="#rust" title="本標題的永久連結">¶</a></h4>
 <p>把簡單的 Rust 程式 (空的 main) 丟下去跑，
 發現竟然有 heap allocation (而且看起來有用到 pthread)，
 後來知道是 Rust std 的 startup 做的，
@@ -1796,7 +1807,7 @@ $ valgrind --tool=exp-dhat cat test.txt
 </div>
 </div>
 <div class="section" id="python">
-<h4><a class="toc-backref" href="#id25">Python</a><a class="headerlink" href="#python" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id26">Python</a><a class="headerlink" href="#python" title="本標題的永久連結">¶</a></h4>
 <p>code：</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># hello.py</span>
 
@@ -1904,9 +1915,9 @@ $ valgrind --tool=exp-dhat cat test.txt
 </div>
 </div>
 <div class="section" id="igprof">
-<h2><a class="toc-backref" href="#id26">IgProf</a><a class="headerlink" href="#igprof" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id27">IgProf</a><a class="headerlink" href="#igprof" title="本標題的永久連結">¶</a></h2>
 <div class="section" id="id3">
-<h3><a class="toc-backref" href="#id27">Introduction</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id28">Introduction</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h3>
 <p>CERN (歐洲核子研究組織) 在跑 LHC (大型強子對撞機) 做研究時，
 也會需要寫大量的軟體來做運算，
 其中的 CMS (Compact Muon Solenoid) 是個粒子偵測器，
@@ -2003,7 +2014,7 @@ CMSSW 中大約有五百萬行自己寫的程式碼 (包含 C++、Python、Fortr
 其中據說有人的程式 profiling 獲得了 30x 的加速 !?</p>
 </div>
 <div class="section" id="id4">
-<h3><a class="toc-backref" href="#id28">使用</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id29">使用</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h3>
 <div class="highlight-sh"><div class="highlight"><pre><span></span>$ <span class="nv">LD_PRELOAD</span><span class="o">=</span>/tmp/lib/libigprof.so igprof -j -d -mp -z -o igprof.mp.gz ./hello
 $ igprof-analyse --sqlite -d -v -g igprof.mp.gz <span class="p">|</span> sqlite3 igprof.sqlite3
 $ igprof-navigator igprof.sqlite3   <span class="c1"># open web view</span>
@@ -2033,7 +2044,7 @@ $ <span class="nv">LD_PRELOAD</span><span class="o">=</span>/tmp/lib/libigprof.s
 </div>
 </div>
 <div class="section" id="running-valgrind-on-android">
-<h2><a class="toc-backref" href="#id29">Running Valgrind on Android</a><a class="headerlink" href="#running-valgrind-on-android" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id30">Running Valgrind on Android</a><a class="headerlink" href="#running-valgrind-on-android" title="本標題的永久連結">¶</a></h2>
 <ul>
 <li><p class="first"><a class="reference external" href="http://valgrind.org/docs/manual/dist.readme-android.html">Valgrind - README.android</a></p>
 </li>
@@ -2048,7 +2059,7 @@ $ <span class="nv">LD_PRELOAD</span><span class="o">=</span>/tmp/lib/libigprof.s
 </ul>
 <p>下載 android-ndk-r10e-linux-x86_64.bin 和 Valgrind source code 來編</p>
 <div class="section" id="valgrind-svn">
-<h3><a class="toc-backref" href="#id30">Valgrind SVN</a><a class="headerlink" href="#valgrind-svn" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id31">Valgrind SVN</a><a class="headerlink" href="#valgrind-svn" title="本標題的永久連結">¶</a></h3>
 <table border="1" class="docutils">
 <colgroup>
 <col width="27%" />
@@ -2102,7 +2113,7 @@ Inst/data/local/Inst/bin/valgrind: ELF 32-bit LSB executable, ARM, EABI5 version
 另外 AOSP 的 Valgrind 則是在 6 個禮拜前修了這個問題。</p>
 </div>
 <div class="section" id="valgrind-svn-round-2">
-<h3><a class="toc-backref" href="#id31">Valgrind SVN (round 2)</a><a class="headerlink" href="#valgrind-svn-round-2" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id32">Valgrind SVN (round 2)</a><a class="headerlink" href="#valgrind-svn-round-2" title="本標題的永久連結">¶</a></h3>
 <table border="1" class="docutils">
 <colgroup>
 <col width="27%" />
@@ -2128,7 +2139,7 @@ Inst/data/local/Inst/bin/valgrind: ELF 32-bit LSB executable, ARM, EABI5 version
 </table>
 </div>
 <div class="section" id="aosp-valgrind">
-<h3><a class="toc-backref" href="#id32">AOSP Valgrind</a><a class="headerlink" href="#aosp-valgrind" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id33">AOSP Valgrind</a><a class="headerlink" href="#aosp-valgrind" title="本標題的永久連結">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="https://android.googlesource.com/platform/external/valgrind/+/master/README.android">AOSP - Valgrind - README.android</a></li>
 <li><a class="reference external" href="https://groups.google.com/forum/#!forum/android-developers">Google Groups - Android Developers</a></li>
@@ -2185,7 +2196,7 @@ $ adb push Inst /
 </div>
 </div>
 <div class="section" id="id5">
-<h3><a class="toc-backref" href="#id33">Running Valgrind on Android</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id34">Running Valgrind on Android</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h3>
 <p>一個成功 cross-compile 的 Valgrind 可以像一般使用一樣，
 直接用 <code class="docutils literal"><span class="pre">$</span> <span class="pre">valgrind</span> <span class="pre">COMMAND</span></code> 就可以執行內部的指令，
 但是對於 Android 上的其他應用程式 (例如 browser) 則需做額外的處理，
@@ -2247,9 +2258,9 @@ adb logcat
 </ul>
 </div>
 <div class="section" id="problems">
-<h3><a class="toc-backref" href="#id34">Problems</a><a class="headerlink" href="#problems" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id35">Problems</a><a class="headerlink" href="#problems" title="本標題的永久連結">¶</a></h3>
 <div class="section" id="linker-unsupported-flags">
-<h4><a class="toc-backref" href="#id35">Linker - Unsupported Flags</a><a class="headerlink" href="#linker-unsupported-flags" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id36">Linker - Unsupported Flags</a><a class="headerlink" href="#linker-unsupported-flags" title="本標題的永久連結">¶</a></h4>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">WARNING</span><span class="p">:</span> <span class="n">linker</span><span class="p">:</span> <span class="n">Unsupported</span> <span class="n">flags</span> <span class="n">DT_FLAGS_1</span><span class="o">=</span><span class="mh">0x421</span>
 </pre></div>
 </div>
@@ -2259,7 +2270,7 @@ adb logcat
 </ul>
 </div>
 <div class="section" id="unhandled-instruction">
-<h4><a class="toc-backref" href="#id36">Unhandled Instruction</a><a class="headerlink" href="#unhandled-instruction" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id37">Unhandled Instruction</a><a class="headerlink" href="#unhandled-instruction" title="本標題的永久連結">¶</a></h4>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">disInstr</span><span class="p">(</span><span class="n">arm</span><span class="p">):</span> <span class="n">unhandled</span> <span class="n">instruction</span><span class="p">:</span> <span class="mh">0xEC510F1E</span>
                 <span class="n">cond</span><span class="o">=</span><span class="mi">14</span><span class="p">(</span><span class="mh">0xE</span><span class="p">)</span> <span class="mi">27</span><span class="p">:</span><span class="mi">20</span><span class="o">=</span><span class="mi">197</span><span class="p">(</span><span class="mh">0xC5</span><span class="p">)</span> <span class="mi">4</span><span class="p">:</span><span class="mi">4</span><span class="o">=</span><span class="mi">1</span> <span class="mi">3</span><span class="p">:</span><span class="mi">0</span><span class="o">=</span><span class="mi">14</span><span class="p">(</span><span class="mh">0xE</span><span class="p">)</span>
 <span class="o">==</span><span class="mi">1897</span><span class="o">==</span> <span class="n">valgrind</span><span class="p">:</span> <span class="n">Unrecognised</span> <span class="n">instruction</span> <span class="n">at</span> <span class="n">address</span> <span class="mh">0x4b27948</span><span class="o">.</span>
@@ -2273,7 +2284,7 @@ adb logcat
 </div>
 </div>
 <div class="section" id="contribute-to-aosp-valgrind">
-<h2><a class="toc-backref" href="#id37">Contribute to AOSP Valgrind</a><a class="headerlink" href="#contribute-to-aosp-valgrind" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id38">Contribute to AOSP Valgrind</a><a class="headerlink" href="#contribute-to-aosp-valgrind" title="本標題的永久連結">¶</a></h2>
 <ul>
 <li><dl class="first docutils">
 <dt><a class="reference external" href="https://android-review.googlesource.com/">Android Code Review</a></dt>
@@ -2287,9 +2298,9 @@ adb logcat
 </ul>
 </div>
 <div class="section" id="id6">
-<h2><a class="toc-backref" href="#id38">Valgrind 實際案例</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id39">Valgrind 實際案例</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h2>
 <div class="section" id="cpython">
-<h3><a class="toc-backref" href="#id39">CPython</a><a class="headerlink" href="#cpython" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id40">CPython</a><a class="headerlink" href="#cpython" title="本標題的永久連結">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/python/cpython/blob/master/Misc/README.valgrind">CPython - README.valgrind</a></li>
 <li><a class="reference external" href="https://github.com/python/cpython/blob/master/Misc/valgrind-python.supp">CPython - valgrind-python.supp</a></li>
@@ -2298,7 +2309,7 @@ adb logcat
 </div>
 </div>
 <div class="section" id="related-topics">
-<h2><a class="toc-backref" href="#id40">Related Topics</a><a class="headerlink" href="#related-topics" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id41">Related Topics</a><a class="headerlink" href="#related-topics" title="本標題的永久連結">¶</a></h2>
 <ul>
 <li><dl class="first docutils">
 <dt>Valgrind 在 Linux 上的 launcher 會去讀 <code class="docutils literal"><span class="pre">/proc/self/exe</span></code>，而 Linux 的 <code class="docutils literal"><span class="pre">/proc/self/</span></code> 會自動依照存取的 process 來 link 到 /proc/$(pid)/</dt>
@@ -2321,9 +2332,9 @@ adb logcat
 </ul>
 </div>
 <div class="section" id="questions">
-<h2><a class="toc-backref" href="#id41">Questions</a><a class="headerlink" href="#questions" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id42">Questions</a><a class="headerlink" href="#questions" title="本標題的永久連結">¶</a></h2>
 <div class="section" id="id7">
-<h3><a class="toc-backref" href="#id42">對已經在執行的程式掛上 Valgrind ?</a><a class="headerlink" href="#id7" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id43">對已經在執行的程式掛上 Valgrind ?</a><a class="headerlink" href="#id7" title="本標題的永久連結">¶</a></h3>
 <p>不可行，Valgrind 內在執行程式的環境跟一般情況差很多 (例如 memory layout 不同)，
 所以 Valgrind 需要在一開始就取得所有的掌控權。</p>
 <ul class="simple">
@@ -2331,7 +2342,7 @@ adb logcat
 </ul>
 </div>
 <div class="section" id="valgrind-instrumentation">
-<h3><a class="toc-backref" href="#id43">讓 Valgrind 只對部份程式做 Instrumentation ?</a><a class="headerlink" href="#valgrind-instrumentation" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id44">讓 Valgrind 只對部份程式做 Instrumentation ?</a><a class="headerlink" href="#valgrind-instrumentation" title="本標題的永久連結">¶</a></h3>
 <p>可以辦到的，但是要看 plugin 有沒有做，
 目前只有 Callgrind 支援 (<code class="docutils literal"><span class="pre">callgrind_control</span></code>)。</p>
 <ul class="simple">
@@ -2339,7 +2350,7 @@ adb logcat
 </ul>
 </div>
 <div class="section" id="kernel-memory-leak-detect">
-<h3><a class="toc-backref" href="#id44">Kernel Memory Leak Detect ?</a><a class="headerlink" href="#kernel-memory-leak-detect" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id45">Kernel Memory Leak Detect ?</a><a class="headerlink" href="#kernel-memory-leak-detect" title="本標題的永久連結">¶</a></h3>
 <ul>
 <li><p class="first"><a class="reference external" href="https://www.kernel.org/doc/Documentation/kmemleak.txt">Kmemleak - Kernel Memory Leak Detector</a></p>
 </li>
@@ -2357,13 +2368,13 @@ adb logcat
 </ul>
 </div>
 <div class="section" id="valgrind-for-kernel">
-<h3><a class="toc-backref" href="#id45">Valgrind for Kernel ?</a><a class="headerlink" href="#valgrind-for-kernel" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id46">Valgrind for Kernel ?</a><a class="headerlink" href="#valgrind-for-kernel" title="本標題的永久連結">¶</a></h3>
 <p>Valgrind instrument 的對象是 user-space 的程式，
 kernel 的話不太行，不知道要跟 QEMU 搭配使用來 instrument kernel 需要多大的修改？</p>
 </div>
 </div>
 <div class="section" id="reference">
-<h2><a class="toc-backref" href="#id46">Reference</a><a class="headerlink" href="#reference" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id47">Reference</a><a class="headerlink" href="#reference" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://en.wikipedia.org/wiki/Valgrind">Wikipedia - Valgrind</a></li>
 <li><a class="reference external" href="https://en.wikipedia.org/wiki/Shadow_memory">Wikipedia - Shadow memory</a></li>
@@ -2383,7 +2394,7 @@ kernel 的話不太行，不知道要跟 QEMU 搭配使用來 instrument kernel 
 <li><a class="reference external" href="http://www.fillexen.fi/igprof/thesis-nyback.pdf">Improving the support for ARM in the IgProf proiler</a></li>
 </ul>
 <div class="section" id="android">
-<h3><a class="toc-backref" href="#id47">Android</a><a class="headerlink" href="#android" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id48">Android</a><a class="headerlink" href="#android" title="本標題的永久連結">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="https://source.android.com/">AOSP (Android Open Source Project)</a></li>
 <li><a class="reference external" href="https://android.googlesource.com/platform/external/valgrind/">AOSP - Valgrind</a></li>
