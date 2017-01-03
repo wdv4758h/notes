@@ -26,6 +26,7 @@ Rust Tips
     cargo rustc --release -- -Zunstable-options --unpretty=mir > unpretty.mir
 
 
+
 Counter By HashMap
 ========================================
 
@@ -38,6 +39,7 @@ HashMap 內 key/value 的型別可以交給 Rust 編譯器來推斷，
     for key in data {
         *counter.entry(key).or_insert(0) += 1;
     }
+
 
 
 Slices join/concat
@@ -56,6 +58,7 @@ trait，
     assert_eq!(data.concat(), "helloworld");
 
 
+
 字串轉特定型別
 ========================================
 
@@ -65,6 +68,14 @@ trait，
 .. code-block:: rust
 
     let foo: T = "text".parse::<T>();
+
+
+參考：
+
+* `String::parse <https://doc.rust-lang.org/std/string/struct.String.html#method.parse>`_
+    - ``string.parse::<T>()``
+    - turbofish: ``::<>``
+
 
 
 把相依套件抓下來
@@ -506,3 +517,81 @@ str 是不可更動（immutable）的一串未知長度的 UTF8，
     _ZN3tmp9function317hac51923d2a830a73E:
         .cfi_startproc
         subq	$24, %rsp
+
+
+
+cfg! Condition
+========================================
+
+原本內建的 macro 可以達到這樣的事：
+
+.. code-block:: rust
+
+    if cfg!(feature = "xxx") {
+        ...
+    } else if cfg!(target_os ="ooo") {
+        ...
+    } else {
+        ...
+    }
+
+但是這不能用於 function 或 type 定義，
+但是有第三方的 `cfg-if <https://github.com/alexcrichton/cfg-if>`_ 可以支援這樣的事：
+
+.. code-block:: rust
+
+    #[macro_use]
+    extern crate cfg_if;
+
+    cfg_if! {
+        if #[cfg(unix)] {
+            fn foo() { /* unix specific functionality */ }
+        } else if #[cfg(target_pointer_width = "32")] {
+            fn foo() { /* non-unix, 32-bit functionality */ }
+        } else {
+            fn foo() { /* fallback implementation */ }
+        }
+    }
+
+
+
+I/O 處理
+========================================
+
+在進行有實做 Read trait 的型別時，
+至少有三種以上的方式可以讀出資料：
+
+1. Raw Reader，直接讀取檔案，沒有 Buffer，效能最差
+
+.. code-block:: rust
+
+    let f = File::open(path).unwrap();
+    serde_json::from_reader(f).unwrap()
+
+
+2. Buffered Reader，利用 ``BufReader`` 輔助檔案存取，效能比 Raw Reader 好
+
+.. code-block:: rust
+
+   let br = BufReader::new(File::open(path).unwrap());
+   serde_json::from_reader(br).unwrap()
+
+
+3. String，先把有資料讀到 String 中再處理，效能最好但最耗記憶體
+
+.. code-block:: rust
+
+    let mut bytes = Vec::new();
+    File::open(path).unwrap().read_to_end(&mut bytes).unwrap();
+    serde_json::from_slice(&contents).unwrap()
+
+
+疑問：
+
+* 有 ``BufReader`` struct、 ``BufRead`` trait、 ``BufWriter`` ，怎麼沒有 ``BufWrite`` trait ？
+
+
+參考：
+
+* `serde-rs/json - Parsing 20MB file using from_reader is slow <https://github.com/serde-rs/json/issues/160#issuecomment-253446892>`_
+* `Trait std::io::BufRead <https://doc.rust-lang.org/std/io/trait.BufRead.html>`_
