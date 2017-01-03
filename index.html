@@ -91,6 +91,7 @@
 <li class="toctree-l1"><a class="reference internal" href="algorithm/inverse-square-root.html">Inverse Square Root</a></li>
 <li class="toctree-l1"><a class="reference internal" href="algorithm/misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="algorithm/resource.html">演算法</a></li>
 <li class="toctree-l1"><a class="reference internal" href="algorithm/substring-searching.html">Substring Searching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="android/android.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="android/android-emulator.html">Android Emulator</a></li>
@@ -476,6 +477,8 @@
 <li class="toctree-l1"><a class="reference internal" href="rust/use.html">use</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/videos.html">Rust Videos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/web.html">Rust &amp; Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security/resource.html">資源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security/security.html">Security</a></li>
 <li class="toctree-l1"><a class="reference internal" href="simd/algorithm.html">運用 SIMD 來加速的演算法</a></li>
 <li class="toctree-l1"><a class="reference internal" href="simd/status.html">SIMD</a></li>
 <li class="toctree-l1"><a class="reference internal" href="systemd/networkctl.html">networkctl</a></li>
@@ -550,7 +553,6 @@
 <li class="toctree-l1"><a class="reference internal" href="realtime.html">Real Time Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="regex-lib.html">Regular Expression Library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sandbox.html">Sandbox</a></li>
-<li class="toctree-l1"><a class="reference internal" href="security.html">Security</a></li>
 <li class="toctree-l1"><a class="reference internal" href="signal.html">Signal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="software-updates.html">Software Updates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="spark.html">Spark</a></li>
@@ -917,6 +919,12 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l1"><a class="reference internal" href="algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="algorithm/probabilistic-data-structure.html#bloom-filter">Bloom Filter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="algorithm/probabilistic-data-structure.html#cuckoo-filter-practically-better-than-bloom">Cuckoo Filter - Practically Better Than Bloom</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="algorithm/resource.html">演算法</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="algorithm/resource.html#id3">課程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algorithm/resource.html#id4">書籍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algorithm/resource.html#id5">網站</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="algorithm/substring-searching.html">Substring Searching</a></li>
@@ -1342,7 +1350,14 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="compiler/porting.html">Use Compiler To Help Porting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="compiler/resource.html">Compiler Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler/resource.html">Compiler Resource</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="compiler/resource.html#id1">課程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compiler/resource.html#id2">書籍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compiler/resource.html#misc">Misc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compiler/resource.html#workshop">Workshop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compiler/resource.html#conference">Conference</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="compiler/ssa.html">SSA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiler/transpiler.html">轉譯器 (Transpiler) (Source-to-Source Compiler)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="compiler/transpiler.html#id2">參考</a></li>
@@ -2172,6 +2187,7 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="misc/articles.html#token-capture-via-an-llvm-based-analysis-pass">Token Capture via an LLVM-based Analysis Pass</a></li>
 <li class="toctree-l2"><a class="reference internal" href="misc/articles.html#short-film-find-my-phone">Short Film: Find my Phone</a></li>
 <li class="toctree-l2"><a class="reference internal" href="misc/articles.html#djb">djb 的密碼學陰謀論</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc/articles.html#google">比 Google 地圖更偉大，七萬多幅百年地圖數位版收藏免費下載</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="misc/bandwidth.html">頻寬成本</a><ul>
@@ -3200,6 +3216,26 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="rust/web.html#reference">Reference</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="security/resource.html">資源</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="security/resource.html#ps4">PS4</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="security/security.html">Security</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="security/security.html#useful-commands">Useful Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security/security.html#binary-to-assembly">Binary to Assembly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security/security.html#memory-checking">Memory Checking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security/security.html#ida-pro">IDA Pro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security/security.html#buffer-overflow">Buffer Overflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="security/security.html#buffer-overflow-example-1">Buffer Overflow - Example 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security/security.html#buffer-overflow-example-2">Buffer Overflow - Example 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security/security.html#buffer-overflow-example-3">Buffer Overflow - Example 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security/security.html#buffer-overflow-example-4">Buffer Overflow - Example 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security/security.html#buffer-overflow-example-5">Buffer Overflow - Example 5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security/security.html#buffer-overflow-example-6">Buffer Overflow - Example 6</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="simd/algorithm.html">運用 SIMD 來加速的演算法</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="simd/algorithm.html#id2">介紹</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="simd/algorithm.html#id3">各家技術</a></li>
@@ -3591,22 +3627,6 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="sandbox.html#seccomp">seccomp</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sandbox.html#pypy-s-sandboxing">PyPy&#8217;s sandboxing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sandbox.html#nacl">NaCl</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="security.html">Security</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="security.html#useful-commands">Useful Commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="security.html#binary-to-assembly">Binary to Assembly</a></li>
-<li class="toctree-l2"><a class="reference internal" href="security.html#memory-checking">Memory Checking</a></li>
-<li class="toctree-l2"><a class="reference internal" href="security.html#ida-pro">IDA Pro</a></li>
-<li class="toctree-l2"><a class="reference internal" href="security.html#buffer-overflow">Buffer Overflow</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="security.html#buffer-overflow-example-1">Buffer Overflow - Example 1</a></li>
-<li class="toctree-l3"><a class="reference internal" href="security.html#buffer-overflow-example-2">Buffer Overflow - Example 2</a></li>
-<li class="toctree-l3"><a class="reference internal" href="security.html#buffer-overflow-example-3">Buffer Overflow - Example 3</a></li>
-<li class="toctree-l3"><a class="reference internal" href="security.html#buffer-overflow-example-4">Buffer Overflow - Example 4</a></li>
-<li class="toctree-l3"><a class="reference internal" href="security.html#buffer-overflow-example-5">Buffer Overflow - Example 5</a></li>
-<li class="toctree-l3"><a class="reference internal" href="security.html#buffer-overflow-example-6">Buffer Overflow - Example 6</a></li>
-</ul>
-</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="signal.html">Signal</a><ul>

@@ -23,6 +23,7 @@ HTTPS Everywhere 利用人力確認哪些網站適用這種自動轉換，
 而 CloudFlare 則把這個清單拿來使用在 CDN 上。
 
 
+
 Token Capture via an LLVM-based Analysis Pass
 =============================================
 
@@ -48,6 +49,7 @@ Short Film: Find my Phone
 在手機裡面放木馬後，故意讓手機被偷走的紀錄片
 
 
+
 djb 的密碼學陰謀論
 =============================================
 
@@ -61,3 +63,20 @@ djb 的密碼學陰謀論
 相關連結：
 
 * http://www.antipope.org/charlie/blog-static/2013/12/psa-why-there-wont-be-a-third-.html#more
+
+
+
+比 Google 地圖更偉大，七萬多幅百年地圖數位版收藏免費下載
+========================================================
+
+:URL: http://www.playpcesor.com/2016/11/David-Rumsey-map-collection.html
+
+「David Rumsey Map Collection 」號稱是世界上最大的古代地圖收藏庫，
+由美國私人地圖收藏家 David Rumsey 創立，
+存有 16 世紀到 21 世紀的地圖資料，
+全部高解析度的數位版地圖都免費授權非商業使用，
+也支援和現在的 Google 地圖進行數位疊圖。
+
+相關連結：
+
+* `Google 文化藝術中心與歷史博物館，數位典藏跨界策展 <http://www.playpcesor.com/2013/08/google.html>`_
