@@ -2,6 +2,10 @@
 日文及日本相關文化
 ========================================
 
+
+.. contents:: 目錄
+
+
 JapanesePod101
 ========================================
 
@@ -23,8 +27,8 @@ Why Learn Japanese ?
 * Japanese History
 
 
-日語文字系統： Kana
-日語羅馬拼音： Romaji
+* 日語文字系統： Kana
+* 日語羅馬拼音： Romaji
 
 
 相關連結：
@@ -45,7 +49,7 @@ Introduction to Japanese Pronunciation
 每個字佔有時間不相同。
 
 
-日語的字分成三種，
+日語的字分成三種：
 
 1. 五個母音（Vowel），分別為：
 
@@ -201,6 +205,128 @@ Introduction to Japanese – Basic Bootcamp
 
 :URL: https://www.youtube.com/playlist?list=PLPSfPyOOcp3SxDZf7gkbApq_PrJsGf7Pn
 
+
+Day 1
+++++++++++++++++++++
+
+:URL: https://www.youtube.com/watch?v=1AMfCY8sm0E
+
+* あ, a
+    - あい: love
+    - あう: to meet
+    - あお: blue
+    - あおい: blue (adj.)
+* い, i
+    - いう: to say
+    - いえ: house
+    - いいえ: no
+* う, u
+    - うえ: up/above
+* え, e
+* お, o
+    - おう: king
+
+
+Furigana：振假名，日語中為了表示漢字讀音而寫在上方或周圍的假名。
+
+
+相關連結：
+
+* https://en.wikipedia.org/wiki/Furigana
+
+
+Day 2
+++++++++++++++++++++
+
+:URL: https://www.youtube.com/watch?v=TJJvnCpPK2w
+
+
+* か, ka
+    - かく: to write
+    - かげ: shadow
+    - かぎ: key
+    - 日文的問句通常以 "か" 結尾，有類似問號的效果
+* が, ga
+    - えいが: movie
+
+* き, ki
+    - きく: to listen
+    - きおぐ: memory
+    - おおきい: big
+* ぎ, gi
+
+* く, ku
+* ぐ, ku
+
+* け, ke
+* げ, ge
+
+* こ, ko
+    - こえ: voice
+* ご, go
+
+
+Dakuten (だくてん) 或 ten-ten (てんてん)：濁音，
+
+
+相關連結：
+
+* https://en.wikipedia.org/wiki/Dakuten
+
+
+Day 3
+++++++++++++++++++++
+
+:URL: https://www.youtube.com/watch?v=vJc9AZ5rSAs
+
+
+* さ, sa
+    - さく: to bloom
+    - おさけ: alcohol
+    - さいこ: last
+* ざ, za
+
+* し, si
+    - おかし: sweets
+* じ, zi
+    - じこ: accident
+
+* す, su
+    - すし: sushi
+    - すき: like
+* ず, zu
+    - ず: diagram
+
+* せ, se
+    - こうこうせい: high school student
+* ぜ, ze
+
+* そ, so
+* ぞ, zo
+    - ぞう: elephant
+    - そうぞう: imagination
+
+
+Day 4
+++++++++++++++++++++
+
+Day 5
+++++++++++++++++++++
+
+Day 6
+++++++++++++++++++++
+
+Day 7
+++++++++++++++++++++
+
+Day 8
+++++++++++++++++++++
+
+Day 9
+++++++++++++++++++++
+
+Day 10
+++++++++++++++++++++
 
 Introduction to Japanese Kanji
 ------------------------------

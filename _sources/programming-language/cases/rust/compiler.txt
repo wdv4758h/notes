@@ -176,6 +176,41 @@ Rust 編譯器
         - 設定平台的對應
 
 
+新平台 - NVPTX
+------------------------------
+
+* `PTX support <https://github.com/rust-lang/rust/commit/18d49288d546efaceab7c4c6d71a868b575bd00f>`_
+* `PTX support, take 2 <https://github.com/rust-lang/rust/pull/38559>`_
+
+1. 新增平台選擇（NVPTX）到 ``src/bootstrap/native.rs``
+2. 新增平台 Intrinsics
+    * src/etc/platform-intrinsics/nvptx/cuda.json
+    * src/etc/platform-intrinsics/nvptx/info.json
+    * src/etc/platform-intrinsics/nvptx/sreg.json
+3. 新增平台選擇（nvptx）到 ``src/librustc_llvm/build.rs``
+4. 新增平台在 LLVM 的 Calling Convension ID 和相關設定
+    * src/librustc_llvm/ffi.rs
+    * src/librustc_llvm/lib.rs
+5. 新增 extern 內可使用的 Intrinsics 的 functions
+    * src/librustc_platform_intrinsics/lib.rs
+    * src/librustc_platform_intrinsics/nvptx.rs
+6. 新增 ABI
+    * src/librustc_trans/abi.rs
+    * src/librustc_trans/cabi_nvptx.rs
+    * src/librustc_trans/cabi_nvptx64.rs
+    * src/librustc_trans/lib.rs
+    * src/libsyntax/abi.rs
+7. 新增相關的 Feature Gate
+    * src/libsyntax/feature_gate.rs
+    * ``extern "ptx-*" fn()``
+8. 新增測試
+    * src/test/ui/codemap_tests/unicode.stderr
+
+
+相關範例：
+
+* `How to: Run Rust code on your NVIDIA GPU <https://github.com/japaric/nvptx>`_
+* `Experiments with CUDA and Rust <https://github.com/japaric/cuda>`_
 
 Parser
 ========================================
@@ -202,3 +237,4 @@ Rust 有用 ANTLR 做 parser 驗證：
 * `Helping with the Rust Errors <http://www.jonathanturner.org/2016/08/helping-out-with-rust-errors.html>`_
 * `Error code list which need to be updated to new format #35233 <https://github.com/rust-lang/rust/issues/35233>`_
 * `Rust Internals - New error format <https://internals.rust-lang.org/t/new-error-format/3438/>`_
+* `Unstable Feature Gates <https://bot.tinaun.net/rust/featurelist/>`_

@@ -374,6 +374,7 @@
 <li class="toctree-l1"><a class="reference internal" href="non-cs/non-cs-books.html">Non CS Books</a></li>
 <li class="toctree-l1"><a class="reference internal" href="non-cs/novel.html">Novel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="non-cs/skateboard.html">滑板</a></li>
+<li class="toctree-l1"><a class="reference internal" href="non-cs/spanish.html">西班牙文及相關文化</a></li>
 <li class="toctree-l1"><a class="reference internal" href="non-cs/taiwan-education.html">臺灣教育與國族認同</a></li>
 <li class="toctree-l1"><a class="reference internal" href="non-cs/taiwan-opendata.html">臺灣開放資料（Taiwan&#8217;s Open Data）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="non-cs/taiwan-rocket.html">臺灣的火箭 - ARRC (前瞻火箭研究中心)</a></li>
@@ -569,7 +570,6 @@
 <li class="toctree-l1"><a class="reference internal" href="trash-talk.html">技術屁話</a></li>
 <li class="toctree-l1"><a class="reference internal" href="travis-ci.html">Travis CI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="turing-complete.html">Turing Compilete</a></li>
-<li class="toctree-l1"><a class="reference internal" href="type-theory.html">Type Theory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="unicode.html">Unicode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usenix.html">USENIX</a></li>
 <li class="toctree-l1"><a class="reference internal" href="virtualgl.html">VirtualGL</a></li>
@@ -2195,6 +2195,9 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="misc/articles.html#short-film-find-my-phone">Short Film: Find my Phone</a></li>
 <li class="toctree-l2"><a class="reference internal" href="misc/articles.html#djb">djb 的密碼學陰謀論</a></li>
 <li class="toctree-l2"><a class="reference internal" href="misc/articles.html#google">比 Google 地圖更偉大，七萬多幅百年地圖數位版收藏免費下載</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc/articles.html#harfbuzz-1-4-brings-opentype-gx-font-variations">HarfBuzz 1.4 Brings OpenType GX / Font Variations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc/articles.html#irssi-1-0-0-released">Irssi 1.0.0 Released</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc/articles.html#gnome-s-svg-rendering-library-migrating-to-rust">GNOME&#8217;s SVG Rendering Library Migrating To Rust</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="misc/bandwidth.html">頻寬成本</a><ul>
@@ -2432,7 +2435,7 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l3"><a class="reference internal" href="non-cs/japanese.html#japanese-children-s-songs">Japanese Children&#8217;s Songs</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="non-cs/japanese.html#id2">參考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="non-cs/japanese.html#id3">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="non-cs/legend.html">傳說</a><ul>
@@ -2556,6 +2559,13 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </li>
 <li class="toctree-l1"><a class="reference internal" href="non-cs/skateboard.html">滑板</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="non-cs/skateboard.html#id2">手指滑板</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="non-cs/spanish.html">西班牙文及相關文化</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="non-cs/spanish.html#spanishpod101">SpanishPod101</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="non-cs/spanish.html#introduction-to-spanish">Introduction to Spanish</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="non-cs/taiwan-education.html">臺灣教育與國族認同</a><ul>
@@ -3027,6 +3037,7 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="rust/compiler.html#porting">平台 Porting 範例</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="rust/compiler.html#id3">新硬體</a></li>
 <li class="toctree-l3"><a class="reference internal" href="rust/compiler.html#id4">新作業系統</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rust/compiler.html#nvptx">新平台 - NVPTX</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="rust/compiler.html#parser">Parser</a></li>
@@ -3686,11 +3697,6 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="turing-complete.html">Turing Compilete</a></li>
-<li class="toctree-l1"><a class="reference internal" href="type-theory.html">Type Theory</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="type-theory.html#dependent-type">Dependent Type</a></li>
-<li class="toctree-l2"><a class="reference internal" href="type-theory.html#reference">Reference</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="unicode.html">Unicode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usenix.html">USENIX</a></li>
 <li class="toctree-l1"><a class="reference internal" href="virtualgl.html">VirtualGL</a></li>
