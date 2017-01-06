@@ -80,3 +80,47 @@ djb 的密碼學陰謀論
 相關連結：
 
 * `Google 文化藝術中心與歷史博物館，數位典藏跨界策展 <http://www.playpcesor.com/2013/08/google.html>`_
+
+
+
+HarfBuzz 1.4 Brings OpenType GX / Font Variations
+========================================================
+
+:URL: https://www.phoronix.com/scan.php?page=news_item&px=HarfBuzz-1.4-Released
+
+HarfBuzz 新版加入了 OpenType 1.8 Font Variations 支援，
+Font Variations 可以用來描述字的各種變化，
+藉此可以不用設計多份字型塞進字型檔裡，
+而是使用描述變化的方式來製造不同變化，
+如此一來可以大幅減少字型檔的大小。
+
+相關連結：
+
+* `OpenType Font Variations - Gea-Suan Lin <https://blog.gslin.org/archives/2016/09/21/6857/opentype-font-variations/>`_
+* `Introducing OpenType Variable Fonts <https://medium.com/@tiro/https-medium-com-tiro-introducing-opentype-variable-fonts-12ba6cd2369>`_
+* [Video] `TYPO Talks » Videos » OpenType GX: Bringing font variations to OpenType <http://www.typotalks.com/videos/opentype-gx-bringing-font-variations-to-opentype/>`_
+
+
+
+Irssi 1.0.0 Released
+========================================================
+
+:URL: https://irssi.org/2017/01/05/irssi-1.0.0-released/
+
+irssi 釋出了 1.0.0 版，
+之前用了那麼久沒注意版本，
+原來現在才 1.0 版，
+不過說穿了版本號也只是數字而已。
+
+
+
+GNOME's SVG Rendering Library Migrating To Rust
+========================================================
+
+:URL: https://www.phoronix.com/scan.php?page=news_item&px=librsvg-2.41-Rust
+
+GNOME 的 Librsvg 正式轉成 Rust codebase 了，
+在利用 Rust 提供的各項功能下（Memory Safety、抽象化等等），
+外包一層 C API 以確保原本使用 Librsvg 的其他程式依然可以正常運作。
+
+* `Librsvg 2.41.0 is released <https://mail.gnome.org/archives/desktop-devel-list/2017-January/msg00001.html>`_
