@@ -156,6 +156,13 @@ Example 2
 * `幫忙為 Vim patches 標上 NA <https://github.com/neovim/neovim/pull/2832>`_
 
 
+Command History - ShaDa
+========================================
+
+~/.local/share/nvim/shada/main.shada
+
+
+
 其他可能的項目
 ========================================
 
@@ -196,6 +203,14 @@ Idea
 ========================================
 
 * use Pygement to do syntax hightlight
+
+
+討論區
+========================================
+
+* `reddit - Neovim <https://www.reddit.com/r/neovim/>`_
+
+
 
 Reference
 ========================================
