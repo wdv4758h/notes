@@ -502,6 +502,377 @@ Haskell 的程式碼會以 ``.hs`` 作為副檔名，
     capital "" = "Empty string, whoops!"
     capital all@(x:xs) = "The first letter of " ++ all ++ " is " ++ [x]
 
+    -- Guard，用於檢驗某些性質是 True 還是 False，用「|」區隔，參數定義後不需要「=」
+    -- 有點像是 Rust 中的 match
+    bmiTell :: (RealFloat a) => a -> String
+    bmiTell bmi
+        | bmi <= 18.5 = "You're underweight."
+        | bmi <= 25.0 = "You're supposedly normal."
+        | bmi <= 30.0 = "You're fat."
+        | otherwise   = "You're a whale, congratulations!"
+
+    max' :: (Ord a) => a -> a -> a
+    max' a b | a > b = a | otherwise = b
+
+    myCompare :: (Ord a) => a -> a -> Ordering
+    a `myCompare` b     -- 定義函式時也可以使用 infix
+        | a > b     = GT
+        | a == b    = EQ
+        | otherwise = LT
+
+    -- where，可以把重複的操作替換成變數，在 Guards 最後面使用「where」指定
+    bmiTell :: (RealFloat a) => a -> a -> String
+    bmiTell weight height
+        | bmi <= 18.5 = "You're underweight."
+        | bmi <= 25.0 = "You're supposedly normal."
+        | bmi <= 30.0 = "You're fat."
+        | otherwise   = "You're a whale, congratulations!"
+        where bmi = weight / height ^ 2
+
+    bmiTell :: (RealFloat a) => a -> a -> String
+    bmiTell weight height
+        | bmi <= skinny = "You're underweight."
+        | bmi <= normal = "You're supposedly normal."
+        | bmi <= fat    = "You're fat."
+        | otherwise   = "You're a whale, congratulations!"
+        where bmi = weight / height ^ 2
+              skinny = 18.5
+              normal = 25.0
+              fat = 30.0
+
+    -- where 內也可以使用 Pattern Matching
+    bmiTell :: (RealFloat a) => a -> a -> String
+    bmiTell weight height
+        | bmi <= skinny = "You're underweight."
+        | bmi <= normal = "You're supposedly normal."
+        | bmi <= fat    = "You're fat."
+        | otherwise   = "You're a whale, congratulations!"
+    where bmi = weight / height ^ 2
+          (skinny, normal, fat) = (18.5, 25.0, 30.0)
+
+    initials :: String -> String -> String
+    initials firstname lastname = [f] ++ ". " ++ [l] ++ "."
+        where (f:_) = firstname
+              (l:_) = lastname
+
+    -- where 內還可以定義函式
+    calcBmis :: (RealFloat a) => [(a, a)] -> [a]
+    calcBmis xs = [bmi w h | (w, h) <- xs]
+        where bmi weight height = weight / height ^ 2   -- 定義 bmi 函式
+
+    -- Let Binding
+    -- 「let <bindings> in <expression>」
+    -- 在 list comprehension 中使用時，可以省略 in，因為 scope 是已知的
+    cylinder :: (RealFloat a) => a -> a -> a
+    cylinder r h =
+        let sideArea = 2 * pi * r * h
+            topArea = pi * r ^2
+        in  sideArea + 2 * topArea
+
+    ghci> 4 * (let a = 9 in a + 1) + 2
+    42
+    ghci> [let square x = x * x in (square 5, square 3, square 2)]
+    [(25,9,4)]
+    ghci> (let a = 100; b = 200; c = 300 in a*b*c, let foo="Hey "; bar = "there!" in foo ++ bar)
+    (6000000,"Hey there!")
+    ghci> (let (a,b,c) = (1,2,3) in a+b+c) * 100    -- with Pattern Matching
+    600
+
+    calcBmis :: (RealFloat a) => [(a, a)] -> [a]
+    calcBmis xs = [bmi | (w, h) <- xs, let bmi = w / h ^ 2]
+
+    calcBmis :: (RealFloat a) => [(a, a)] -> [a]
+    calcBmis xs = [bmi | (w, h) <- xs, let bmi = w / h ^ 2, bmi >= 25.0]
+
+    ghci> let zoot x y z = x * y + z    -- 省略 in，scope 為整個 GHCi Session
+    ghci> zoot 3 9 2
+    29
+
+    ghci> let boot x y z = x * y + z in boot 3 4 2  -- 沒有省略 in，scope 為後面的 expression
+    14
+    ghci> boot
+    <interactive>:1:0: Not in scope: `boot'
+
+    -- case
+    -- Rust 中的 Match
+    head' :: [a] -> a
+    head' xs = case xs of [] -> error "No head for empty lists!"
+                          (x:_) -> x
+
+    -- 在函式定義時，Pattern Matching 是 case expression 的語法糖
+    describeList :: [a] -> String
+    describeList xs = "The list is " ++ case xs of [] -> "empty."
+                                                   [x] -> "a singleton list."
+                                                   xs -> "a longer list."
+
+    describeList :: [a] -> String
+    describeList xs = "The list is " ++ what xs
+        where what [] = "empty."
+              what [x] = "a singleton list."
+              what xs = "a longer list."
+
+    --
+    -- Recursion
+    --
+
+    maximum' :: (Ord a) => [a] -> a
+    maximum' [] = error "maximum of empty list"
+    maximum' [x] = x
+    maximum' (x:xs) = max x (maximum' xs)
+
+    replicate' :: (Num i, Ord i) => i -> a -> [a]
+    replicate' n x
+        | n <= 0    = []
+        | otherwise = x:replicate' (n-1) x
+
+
+    take' :: (Num i, Ord i) => i -> [a] -> [a]
+    take' n _
+        | n <= 0   = []
+    take' _ []     = []
+    take' n (x:xs) = x : take' (n-1) xs
+
+    reverse' :: [a] -> [a]
+    reverse' [] = []
+    reverse' (x:xs) = reverse' xs ++ [x]
+
+    zip' :: [a] -> [b] -> [(a,b)]
+    zip' _ [] = []
+    zip' [] _ = []
+    zip' (x:xs) (y:ys) = (x,y):zip' xs ys
+
+    elem' :: (Eq a) => a -> [a] -> Bool
+    elem' a [] = False
+    elem' a (x:xs)
+        | a == x    = True
+        | otherwise = a `elem'` xs
+
+    quicksort :: (Ord a) => [a] -> [a]
+    quicksort [] = []
+    quicksort (x:xs) =
+        let smallerSorted = quicksort [a | a <- xs, a <= x]
+            biggerSorted = quicksort [a | a <- xs, a > x]
+        in  smallerSorted ++ [x] ++ biggerSorted
+
+    --
+    -- Higher Order Functions
+    --
+
+    -- Curried Functions
+    -- 所有 Haskell 函式其實都只能接收一個參數，
+    -- 可以接收多個參數的其實是 Curried Functions
+
+    ghci> max 4 5
+    5
+    ghci> (max 4) 5
+    5
+    ghci> :t max
+    max :: Ord a => a -> a -> a     -- 可以解讀為 a -> (a -> a)
+    ghci> :t max 4  -- partially applied function
+    max 4 :: (Ord a, Num a) => a -> a
+    ghci> :t max 4 5
+    max 4 5 :: (Ord a, Num a) => a
+
+    -- 指定一定要接收 Function
+
+    applyTwice :: (a -> a) -> a -> a    -- 用括弧包起來
+    applyTwice f x = f (f x)
+
+    ghci> applyTwice (+3) 10
+    16
+    ghci> applyTwice (++ " HAHA") "HEY"
+    "HEY HAHA HAHA"
+    ghci> applyTwice ("HAHA " ++) "HEY"
+    "HAHA HAHA HEY"
+    ghci> applyTwice (multThree 2 2) 9
+    144
+    ghci> applyTwice (3:) [1]
+    [3,3,1]
+
+    zipWith' :: (a -> b -> c) -> [a] -> [b] -> [c]
+    zipWith' _ [] _ = []
+    zipWith' _ _ [] = []
+    zipWith' f (x:xs) (y:ys) = f x y : zipWith' f xs ys
+
+    ghci> zipWith' (+) [4,2,5,6] [2,6,2,3]
+    [6,8,7,9]
+    ghci> zipWith' max [6,3,2,1] [7,3,1,5]
+    [7,3,2,5]
+    ghci> zipWith' (++) ["foo ", "bar ", "baz "] ["fighters", "hoppers", "aldrin"]
+    ["foo fighters","bar hoppers","baz aldrin"]
+    ghci> zipWith' (*) (replicate 5 2) [1..]
+    [2,4,6,8,10]
+    ghci> zipWith' (zipWith' (*)) [[1,2,3],[3,5,6],[2,3,4]] [[3,2,2],[3,4,5],[5,4,3]]
+    [[3,4,6],[9,20,30],[10,12,12]]
+
+    -- map
+
+    map :: (a -> b) -> [a] -> [b]
+    map _ [] = []
+    map f (x:xs) = f x : map f xs
+
+    ghci> map (+3) [1,5,3,1,6]
+    [4,8,6,4,9]
+    ghci> map (++ "!") ["BIFF", "BANG", "POW"]
+    ["BIFF!","BANG!","POW!"]
+    ghci> map (replicate 3) [3..6]
+    [[3,3,3],[4,4,4],[5,5,5],[6,6,6]]
+    ghci> map (map (^2)) [[1,2],[3,4,5,6],[7,8]]
+    [[1,4],[9,16,25,36],[49,64]]
+    ghci> map fst [(1,2),(3,5),(6,3),(2,6),(2,5)]
+    [1,3,6,2,2]
+
+    -- filter
+
+    filter :: (a -> Bool) -> [a] -> [a]
+    filter _ [] = []
+    filter p (x:xs)
+        | p x       = x : filter p xs
+        | otherwise = filter p xs
+
+    ghci> filter (>3) [1,5,3,2,1,6,4,3,2,1]
+    [5,6,4]
+    ghci> filter (==3) [1,2,3,4,5]
+    [3]
+    ghci> filter even [1..10]
+    [2,4,6,8,10]
+    ghci> let notNull x = not (null x) in filter notNull [[1,2,3],[],[3,4,5],[2,2],[],[],[]]
+    [[1,2,3],[3,4,5],[2,2]]
+    ghci> filter (`elem` ['a'..'z']) "u LaUgH aT mE BeCaUsE I aM diFfeRent"
+    "uagameasadifeent"
+    ghci> filter (`elem` ['A'..'Z']) "i lauGh At You BecAuse u r aLL the Same"
+    "GAYBALLS"
+
+    quicksort :: (Ord a) => [a] -> [a]
+    quicksort [] = []
+    quicksort (x:xs) =
+        let smallerSorted = quicksort (filter (<=x) xs)
+            biggerSorted = quicksort (filter (>x) xs)
+        in  smallerSorted ++ [x] ++ biggerSorted
+
+    -- takeWhile
+
+    ghci> sum (takeWhile (<10000) (filter odd (map (^2) [1..])))
+    166650
+    ghci> sum (takeWhile (<10000) [n^2 | n <- [1..], odd (n^2)])
+    166650
+
+    -- Lambda
+    -- Haskell 中要撰寫匿名函式要使用「\」作為開頭
+    -- 並且我們通常會把匿名函式用括弧包起來，避免一路展開到後面
+    -- (\NAME PARAMETERS -> FUNCTION_BODY)
+
+    ghci> map (\xs -> replicate 3 xs) [1..5])
+    [[1,1,1],[2,2,2],[3,3,3],[4,4,4],[5,5,5]]
+    ghci> zipWith (\a b -> (a * 30 + 3) / b) [5,4,3,2,1] [1,2,3,4,5]
+    [153.0,61.5,31.0,15.75,6.6]
+    ghci> map (\(a,b) -> a + b) [(1,2),(3,5),(6,3),(2,6),(2,5)]
+    [3,8,9,8,7]
+
+    addThree :: (Num a) => a -> a -> a -> a
+    addThree = \x -> \y -> \z -> x + y + z      -- 不使用括弧把匿名函式包住
+
+    flip' :: (a -> b -> c) -> b -> a -> c
+    flip' f = \x y -> f y x
+
+    -- foldl (left fold)
+
+    sum' :: (Num a) => [a] -> a
+    sum' xs = foldl (\acc x -> acc + x) 0 xs
+
+    ghci> sum' [3,5,2,1]
+    11
+
+    -- foldr (right fold)
+
+    map' :: (a -> b) -> [a] -> [b]
+    map' f xs = foldr (\x acc -> f x : acc) [] xs
+
+    -- foldl1
+    -- foldr1
+    -- 和 foldl、foldr 類似，但不用給起始值，會使用第一個 element 作為起始值
+
+    maximum' :: (Ord a) => [a] -> a
+    maximum' = foldr1 (\x acc -> if x > acc then x else acc)
+
+    reverse' :: [a] -> [a]
+    reverse' = foldl (\acc x -> x : acc) []
+
+    product' :: (Num a) => [a] -> a
+    product' = foldr1 (*)
+
+    filter' :: (a -> Bool) -> [a] -> [a]
+    filter' p = foldr (\x acc -> if p x then x : acc else acc) []
+
+    head' :: [a] -> a
+    head' = foldr1 (\x _ -> x)
+
+    last' :: [a] -> a
+    last' = foldl1 (\_ x -> x)
+
+    -- scanl
+    -- scanr
+    -- 和 foldl、foldr 類似，但回傳一個 list 包含所有中間值
+
+    ghci> scanl (+) 0 [3,5,2,1]
+    [0,3,8,10,11]
+    ghci> scanr (+) 0 [3,5,2,1]
+    [11,8,3,1,0]
+    ghci> scanl1 (\acc x -> if x > acc then x else acc) [3,4,5,3,7,9,2,1]
+    [3,4,5,5,7,9,9,9]
+    ghci> scanl (flip (:)) [] [3,2,1]
+    [[],[3],[2,3],[1,2,3]]
+
+    -- $ Function Application
+    -- 「$」具有最低的優先權，且為 right-associative
+    -- 使用「 」作為 Function Applicatoin，「f a b c」等同於「((f a) b) c)」，為 left-associative
+    -- 使用「$」作為 Function Applicatoin，「f $ a $ b c」等同於「(f (a (b c)))」，為 right-associative
+    -- 「$」可以用來減少括弧
+
+    ($) :: (a -> b) -> a -> b
+    f $ x = f x
+
+    ghci> sum (map sqrt [1..130])
+    993.6486803921487
+    ghci> sum $ map sqrt [1..130]
+    993.6486803921487
+
+    ghci> sqrt (3 + 4 + 9)
+    4.0
+    ghci> sqrt $ 3 + 4 + 9
+    4.0
+
+    ghci> map ($ 3) [(4+), (10*), (^2), sqrt]
+    [7.0,30.0,9.0,1.7320508075688772]
+    ghci> map (\f -> f 3) [(4+), (10*), (^2), sqrt]
+    [7.0,30.0,9.0,1.7320508075688772]
+
+    -- Function Composition
+
+    (.) :: (b -> c) -> (a -> b) -> a -> c
+    f . g = \x -> f (g x)
+
+    ghci> map (\x -> negate (abs x)) [5,-3,-6,7,-3,2,-19,24]
+    [-5,-3,-6,-7,-3,-2,-19,-24]
+    ghci> map (negate . abs) [5,-3,-6,7,-3,2,-19,24]    -- 比較簡短且容易理解
+    [-5,-3,-6,-7,-3,-2,-19,-24]
+
+    ghci> map (\xs -> negate (sum (tail xs))) [[1..5],[3..6],[1..7]]
+    [-14,-15,-27]
+    ghci> map (negate . sum . tail) [[1..5],[3..6],[1..7]]
+    [-14,-15,-27]
+
+    oddSquareSum :: Integer     -- version 1
+    oddSquareSum = sum (takeWhile (<10000) (filter odd (map (^2) [1..])))
+    oddSquareSum :: Integer     -- version 2, with function composition
+    oddSquareSum = sum . takeWhile (<10000) . filter odd . map (^2) $ [1..]
+    oddSquareSum :: Integer     -- version 3, more readable
+    oddSquareSum =
+        let oddSquares = filter odd $ map (^2) [1..]
+            belowLimit = takeWhile (<10000) oddSquares
+        in  sum belowLimit
+
+
 
 Haskell Platform
 ------------------------------
