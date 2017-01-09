@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Garbage Collection &mdash; wdv4758h-notes latest 說明文件</title>
+  <title>Garbage Collection 介紹 &mdash; wdv4758h-notes latest 說明文件</title>
   
 
   
@@ -245,20 +245,35 @@
 <li class="toctree-l1"><a class="reference internal" href="../games/real-time-strategy.html">Real-time Strategy Games</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../games/resource.html">Games Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../games/rpg.html">Role-playing Games (RPG)</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Garbage Collection</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Garbage Collection 介紹</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id2">歷史</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id3">常見 Garbage Collection 技術</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#reference-counting">Reference Counting</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#stop-the-world-mark-sweep">Stop-the-world Mark &amp; Sweep</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#generational-mark-sweep">Generational Mark &amp; Sweep</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mark-sweep-gc">Mark-Sweep GC</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tricolor">Tricolor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bitmap">Bitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lazy-sweeping">Lazy Sweeping</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#mark-compact-gc">Mark-Compact GC</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#two-finger-compaction">Two-Finger Compaction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lisp-2-algorithm">Lisp 2 Algorithm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#threaded-compaction">Threaded Compaction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#one-pass-compaction">One-pass Compaction</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#copying-gc">Copying GC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generational-mark-sweep-gc">Generational Mark &amp; Sweep GC</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#nursery-tenured">Nursery &amp; Tenured</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#reference-counting">Reference Counting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#incremental">Incremental</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#compacting">Compacting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parallel-gc">Parallel GC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#concurrent-gc">Concurrent GC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#real-time-gc">Real-time GC</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">案例研究</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id6">案例研究</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#openjdk">OpenJDK</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#serialgc">SerialGC</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#parallelgc">ParallelGC</a></li>
@@ -271,9 +286,13 @@
 <li class="toctree-l4"><a class="reference internal" href="#c4-continuously-concurrent-compacting-collector">C4 (Continuously Concurrent Compacting Collector)</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#go">Go</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypy">PyPy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#boehm">Boehm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#luajit">LuaJIT</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id5">參考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="resource.html">Resource</a></li>
@@ -641,11 +660,11 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
       
-    <li>Garbage Collection</li>
+    <li>Garbage Collection 介紹</li>
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="https://github.com/wdv4758h/notes/blob/master/./garbage-collection/garbage-collection.rst" class="fa fa-github"> Edit on GitHub</a>
+            <a href="https://github.com/wdv4758h/notes/blob/master/./garbage-collection/introduction.rst" class="fa fa-github"> Edit on GitHub</a>
           
         
       </li>
@@ -656,60 +675,172 @@
            <div itemprop="articleBody">
             
   <div class="section" id="garbage-collection">
-<h1><a class="toc-backref" href="#id6">Garbage Collection</a><a class="headerlink" href="#garbage-collection" title="本標題的永久連結">¶</a></h1>
+<h1><a class="toc-backref" href="#id8">Garbage Collection 介紹</a><a class="headerlink" href="#garbage-collection" title="本標題的永久連結">¶</a></h1>
 <div class="contents topic" id="id1">
 <p class="topic-title first">目錄</p>
 <ul class="simple">
-<li><a class="reference internal" href="#garbage-collection" id="id6">Garbage Collection</a><ul>
-<li><a class="reference internal" href="#id2" id="id7">歷史</a></li>
-<li><a class="reference internal" href="#id3" id="id8">常見 Garbage Collection 技術</a><ul>
-<li><a class="reference internal" href="#reference-counting" id="id9">Reference Counting</a></li>
-<li><a class="reference internal" href="#stop-the-world-mark-sweep" id="id10">Stop-the-world Mark &amp; Sweep</a></li>
-<li><a class="reference internal" href="#generational-mark-sweep" id="id11">Generational Mark &amp; Sweep</a><ul>
-<li><a class="reference internal" href="#nursery-tenured" id="id12">Nursery &amp; Tenured</a></li>
+<li><a class="reference internal" href="#garbage-collection" id="id8">Garbage Collection 介紹</a><ul>
+<li><a class="reference internal" href="#id2" id="id9">歷史</a></li>
+<li><a class="reference internal" href="#id3" id="id10">常見 Garbage Collection 技術</a><ul>
+<li><a class="reference internal" href="#mark-sweep-gc" id="id11">Mark-Sweep GC</a><ul>
+<li><a class="reference internal" href="#tricolor" id="id12">Tricolor</a></li>
+<li><a class="reference internal" href="#bitmap" id="id13">Bitmap</a></li>
+<li><a class="reference internal" href="#lazy-sweeping" id="id14">Lazy Sweeping</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#incremental" id="id13">Incremental</a></li>
-<li><a class="reference internal" href="#compacting" id="id14">Compacting</a></li>
+<li><a class="reference internal" href="#mark-compact-gc" id="id15">Mark-Compact GC</a><ul>
+<li><a class="reference internal" href="#two-finger-compaction" id="id16">Two-Finger Compaction</a></li>
+<li><a class="reference internal" href="#lisp-2-algorithm" id="id17">Lisp 2 Algorithm</a></li>
+<li><a class="reference internal" href="#threaded-compaction" id="id18">Threaded Compaction</a></li>
+<li><a class="reference internal" href="#one-pass-compaction" id="id19">One-pass Compaction</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id4" id="id15">案例研究</a><ul>
-<li><a class="reference internal" href="#openjdk" id="id16">OpenJDK</a><ul>
-<li><a class="reference internal" href="#serialgc" id="id17">SerialGC</a></li>
-<li><a class="reference internal" href="#parallelgc" id="id18">ParallelGC</a></li>
-<li><a class="reference internal" href="#cms-parnew-concurrent-mark-sweep" id="id19">CMS (ParNew/Concurrent Mark Sweep)</a></li>
-<li><a class="reference internal" href="#g1-garbage-first" id="id20">G1 (Garbage First)</a></li>
-<li><a class="reference internal" href="#shenandoah" id="id21">Shenandoah</a></li>
+<li><a class="reference internal" href="#copying-gc" id="id20">Copying GC</a></li>
+<li><a class="reference internal" href="#generational-mark-sweep-gc" id="id21">Generational Mark &amp; Sweep GC</a><ul>
+<li><a class="reference internal" href="#nursery-tenured" id="id22">Nursery &amp; Tenured</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#azul" id="id22">Azul</a><ul>
-<li><a class="reference internal" href="#c4-continuously-concurrent-compacting-collector" id="id23">C4 (Continuously Concurrent Compacting Collector)</a></li>
+<li><a class="reference internal" href="#reference-counting" id="id23">Reference Counting</a></li>
+<li><a class="reference internal" href="#incremental" id="id24">Incremental</a></li>
+<li><a class="reference internal" href="#parallel-gc" id="id25">Parallel GC</a></li>
+<li><a class="reference internal" href="#concurrent-gc" id="id26">Concurrent GC</a></li>
+<li><a class="reference internal" href="#real-time-gc" id="id27">Real-time GC</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#id6" id="id28">案例研究</a><ul>
+<li><a class="reference internal" href="#openjdk" id="id29">OpenJDK</a><ul>
+<li><a class="reference internal" href="#serialgc" id="id30">SerialGC</a></li>
+<li><a class="reference internal" href="#parallelgc" id="id31">ParallelGC</a></li>
+<li><a class="reference internal" href="#cms-parnew-concurrent-mark-sweep" id="id32">CMS (ParNew/Concurrent Mark Sweep)</a></li>
+<li><a class="reference internal" href="#g1-garbage-first" id="id33">G1 (Garbage First)</a></li>
+<li><a class="reference internal" href="#shenandoah" id="id34">Shenandoah</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id5" id="id24">參考</a></li>
+<li><a class="reference internal" href="#azul" id="id35">Azul</a><ul>
+<li><a class="reference internal" href="#c4-continuously-concurrent-compacting-collector" id="id36">C4 (Continuously Concurrent Compacting Collector)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#go" id="id37">Go</a></li>
+<li><a class="reference internal" href="#pypy" id="id38">PyPy</a></li>
+<li><a class="reference internal" href="#boehm" id="id39">Boehm</a></li>
+<li><a class="reference internal" href="#luajit" id="id40">LuaJIT</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id7" id="id41">參考</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="id2">
-<h2><a class="toc-backref" href="#id7">歷史</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id9">歷史</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<p>Garbage Collection 的技術誕生於 1960 年代，
+John McCarthy 在開發 Lisp 程式語言時，
+發明了 Garbage Collection 來實做程式語言，
+當時提出了使用 Mark &amp; Sweep 演算法搭配 DFS （depth-first search）來辨別仍然可以被存取到的變數。
+其中 John McCarthy 一開始堅持 Lisp 的 S-expression 結構必須是「不可變動的（immutable）」，
+允許利用 reference sharing 作為 copying 的內部實做，
+這樣的優化技巧以及後來放鬆限制允許「可變動」的結構，
+是為發想出 Garbage Collection 的動機。</p>
+<p>在開始開發 Lisp 的 1958 年的 40 年後，
+1998 年的 10 月，
+展開了第一場 「International Symposium on Memory Management （簡稱 ISMM）」。</p>
 </div>
 <div class="section" id="id3">
-<h2><a class="toc-backref" href="#id8">常見 Garbage Collection 技術</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
-<div class="section" id="reference-counting">
-<h3><a class="toc-backref" href="#id9">Reference Counting</a><a class="headerlink" href="#reference-counting" title="本標題的永久連結">¶</a></h3>
+<h2><a class="toc-backref" href="#id10">常見 Garbage Collection 技術</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+<p>GC 的實做都基於四種基本的演算法改造而成，
+分別為：</p>
 <ul class="simple">
-<li>問題在 reference cycle，會需要一個 cycle detect algorithm 來爬過所有 objects，但這就會產生 undeterministic GC pause</li>
+<li>Mark-Sweep GC</li>
+<li>Mark-Compact GC</li>
+<li>Copying GC</li>
+<li>Reference Counting</li>
 </ul>
+<p>而 GC 要做的事情可以分成三件：</p>
+<ul class="simple">
+<li>分配新空間</li>
+<li>分辨 Live Objects 與 Garbages</li>
+<li>回收 Garbages</li>
+</ul>
+<div class="section" id="mark-sweep-gc">
+<h3><a class="toc-backref" href="#id11">Mark-Sweep GC</a><a class="headerlink" href="#mark-sweep-gc" title="本標題的永久連結">¶</a></h3>
+<p>為最早出現，
+簡單且非常常見的 GC 演算法，
+會先標記所有可以追蹤到的物件（也就是 Live Objects），
+剩餘的則是 Garbages，
+接著進行回收，
+此過程會造成程式暫停執行其他工作，
+此現象稱為「Stop The World」。</p>
+<div class="section" id="tricolor">
+<h4><a class="toc-backref" href="#id12">Tricolor</a><a class="headerlink" href="#tricolor" title="本標題的永久連結">¶</a></h4>
 </div>
-<div class="section" id="stop-the-world-mark-sweep">
-<h3><a class="toc-backref" href="#id10">Stop-the-world Mark &amp; Sweep</a><a class="headerlink" href="#stop-the-world-mark-sweep" title="本標題的永久連結">¶</a></h3>
-<p>非常常見的 GC 演算法</p>
+<div class="section" id="bitmap">
+<h4><a class="toc-backref" href="#id13">Bitmap</a><a class="headerlink" href="#bitmap" title="本標題的永久連結">¶</a></h4>
 </div>
-<div class="section" id="generational-mark-sweep">
-<h3><a class="toc-backref" href="#id11">Generational Mark &amp; Sweep</a><a class="headerlink" href="#generational-mark-sweep" title="本標題的永久連結">¶</a></h3>
+<div class="section" id="lazy-sweeping">
+<h4><a class="toc-backref" href="#id14">Lazy Sweeping</a><a class="headerlink" href="#lazy-sweeping" title="本標題的永久連結">¶</a></h4>
+</div>
+</div>
+<div class="section" id="mark-compact-gc">
+<h3><a class="toc-backref" href="#id15">Mark-Compact GC</a><a class="headerlink" href="#mark-compact-gc" title="本標題的永久連結">¶</a></h3>
+<p>在程式一開始，我們會有連續的可用記憶體可以分配，
+但隨著執行時間變長，
+在反覆地記憶體分配與重新分配中，
+很容易出現記憶體破碎化的狀況（Memory Fragmentation），
+這會造成至少兩個問題：</p>
+<ol class="arabic simple">
+<li>雖然我們還有許多破碎的小空間，但是我們無法找到足夠大的連續空間分配給接下來的使用，造成要不到記憶體。在沒有使用 GC 的程式中，這通常會造成程式終止。在有 GC 的程式中，會過於頻繁地觸發 GC 運作，來嘗試清出空間。</li>
+<li>就算記憶體足夠，記憶體破碎化還是可能造成程式使用更多的 Address Space、Pages、Cache Lines，因此造成效能變差。</li>
+</ol>
+<p>要完全避免記憶體破碎化是不太可能的，
+一來是不能預測未來一連串的記憶體分配請求，
+二來是就算知道接下來一連串的記憶體分配請求，
+要最佳地分配好也是 NP-hard 的問題（<a class="reference internal" href="#robs80" id="id4">[robs80]</a>）。</p>
+<p>我們雖然不完全避免記憶體破碎化，
+但是我們可以管理，
+在「記憶體分配速度」和「記憶體破碎化」之間取一個平衡點。
+而管理的方式就是利用「Compaction」或「Copying」技術，
+說白了就是整理記憶體內使用的區塊，
+把使用的部份集中起來。</p>
+<p>在使用 Compaction 整理的時候會依照特定的整理原則，
+常見的整理原則有三種：</p>
+<ul class="simple">
+<li>Arbitary：不管原本記憶體位址的順序，也不管是否有指到其他人</li>
+<li>Linearising：物件會被分配到和自己比較相關的物件的附近（例如資料結構內為 siblings）</li>
+<li>Sliding：物件會直接被擠到 Heap 的某一邊，保持原本的順序，並把 Garbage 擠去另外一邊</li>
+</ul>
+<p>大部分的實做會選擇 Arbitary 或 Sliding。
+Arbitary 實做容易且執行快速，
+尤其是各節點都是同樣大小時，
+但是不會保留原本的相對順序，
+會對 mutator 造成 Spatial Locality 的問題（Pages、Cache Lines）
+（已經有論文和實驗證實更改物件原本的順序會造成 Throughput 大幅下降 <a class="reference internal" href="#abua04" id="id5">[abua04]</a>）。
+現代的 Compaction 大多使用 Sliding，
+不會改變相對的順序，
+相比 Arbitary 所會遇到的 Spatial Locality 問題較小。</p>
+<p>另外 Copying 則是可以更進一步地改善 Spatial Locality 的問題，
+因為 siblings 都會放在比較靠近的位置。</p>
+<p>參考：</p>
+<ul class="simple">
+<li><a class="reference external" href="https://hacks.mozilla.org/2015/07/compacting-garbage-collection-in-spidermonkey/">Compacting Garbage Collection in SpiderMonkey</a></li>
+</ul>
+<div class="section" id="two-finger-compaction">
+<h4><a class="toc-backref" href="#id16">Two-Finger Compaction</a><a class="headerlink" href="#two-finger-compaction" title="本標題的永久連結">¶</a></h4>
+</div>
+<div class="section" id="lisp-2-algorithm">
+<h4><a class="toc-backref" href="#id17">Lisp 2 Algorithm</a><a class="headerlink" href="#lisp-2-algorithm" title="本標題的永久連結">¶</a></h4>
+</div>
+<div class="section" id="threaded-compaction">
+<h4><a class="toc-backref" href="#id18">Threaded Compaction</a><a class="headerlink" href="#threaded-compaction" title="本標題的永久連結">¶</a></h4>
+</div>
+<div class="section" id="one-pass-compaction">
+<h4><a class="toc-backref" href="#id19">One-pass Compaction</a><a class="headerlink" href="#one-pass-compaction" title="本標題的永久連結">¶</a></h4>
+</div>
+</div>
+<div class="section" id="copying-gc">
+<h3><a class="toc-backref" href="#id20">Copying GC</a><a class="headerlink" href="#copying-gc" title="本標題的永久連結">¶</a></h3>
+</div>
+<div class="section" id="generational-mark-sweep-gc">
+<h3><a class="toc-backref" href="#id21">Generational Mark &amp; Sweep GC</a><a class="headerlink" href="#generational-mark-sweep-gc" title="本標題的永久連結">¶</a></h3>
 <p>Generational garbage collection 的核心觀念就是「大多數的物件的生命都很短」，
 所以就修改原本的 GC 設計，依照不同的存在時間有不同的處理方式，
 對於 Tracing 的 GC 會需要去掃過物件來檢查是否有物件已經成為 Garbage，
@@ -720,7 +851,7 @@
 <li>[1984] <a class="reference external" href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.122.4295">Garbage collection in a large Lisp system</a></li>
 </ul>
 <div class="section" id="nursery-tenured">
-<h4><a class="toc-backref" href="#id12">Nursery &amp; Tenured</a><a class="headerlink" href="#nursery-tenured" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id22">Nursery &amp; Tenured</a><a class="headerlink" href="#nursery-tenured" title="本標題的永久連結">¶</a></h4>
 <p>多數的 objects 都會 allocate 到一個叫做 Nursery 的 memory region，
 當 Nursery 滿的時候，只檢查 Nursery 裡的 objects，此時多數的 short-lived temporary objects 就會被清掉，
 而這樣的檢查相對於原本 (檢查全部的 objects) 也來的快</p>
@@ -776,22 +907,30 @@
 </table>
 </div>
 </div>
-<div class="section" id="incremental">
-<h3><a class="toc-backref" href="#id13">Incremental</a><a class="headerlink" href="#incremental" title="本標題的永久連結">¶</a></h3>
-<p>拆散整個 GC 過程，把每次暫停的時間縮短</p>
-</div>
-<div class="section" id="compacting">
-<h3><a class="toc-backref" href="#id14">Compacting</a><a class="headerlink" href="#compacting" title="本標題的永久連結">¶</a></h3>
-<p>為了減少記憶體的破碎化</p>
+<div class="section" id="reference-counting">
+<h3><a class="toc-backref" href="#id23">Reference Counting</a><a class="headerlink" href="#reference-counting" title="本標題的永久連結">¶</a></h3>
 <ul class="simple">
-<li><a class="reference external" href="https://hacks.mozilla.org/2015/07/compacting-garbage-collection-in-spidermonkey/">Compacting Garbage Collection in SpiderMonkey</a></li>
+<li>問題在 reference cycle，會需要一個 cycle detect algorithm 來爬過所有 objects，但這就會產生 undeterministic GC pause</li>
 </ul>
 </div>
+<div class="section" id="incremental">
+<h3><a class="toc-backref" href="#id24">Incremental</a><a class="headerlink" href="#incremental" title="本標題的永久連結">¶</a></h3>
+<p>拆散整個 GC 過程，把每次暫停的時間縮短</p>
 </div>
-<div class="section" id="id4">
-<h2><a class="toc-backref" href="#id15">案例研究</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="parallel-gc">
+<h3><a class="toc-backref" href="#id25">Parallel GC</a><a class="headerlink" href="#parallel-gc" title="本標題的永久連結">¶</a></h3>
+</div>
+<div class="section" id="concurrent-gc">
+<h3><a class="toc-backref" href="#id26">Concurrent GC</a><a class="headerlink" href="#concurrent-gc" title="本標題的永久連結">¶</a></h3>
+</div>
+<div class="section" id="real-time-gc">
+<h3><a class="toc-backref" href="#id27">Real-time GC</a><a class="headerlink" href="#real-time-gc" title="本標題的永久連結">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id6">
+<h2><a class="toc-backref" href="#id28">案例研究</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h2>
 <div class="section" id="openjdk">
-<h3><a class="toc-backref" href="#id16">OpenJDK</a><a class="headerlink" href="#openjdk" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id29">OpenJDK</a><a class="headerlink" href="#openjdk" title="本標題的永久連結">¶</a></h3>
 <p>參考：</p>
 <ul class="simple">
 <li><a class="reference external" href="http://openjdk.java.net/jeps/189">JEP 189: Shenandoah: An Ultra-Low-Pause-Time Garbage Collector</a></li>
@@ -801,7 +940,7 @@
 <li>[2016] <a class="reference external" href="http://www.slideshare.net/RedHatDevelopers/shenandoah-gc-java-without-the-garbage-collection-hiccups-christine-flood">Shenandoah GC: Java Without The Garbage Collection Hiccups (Christine Flood)</a></li>
 </ul>
 <div class="section" id="serialgc">
-<h4><a class="toc-backref" href="#id17">SerialGC</a><a class="headerlink" href="#serialgc" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id30">SerialGC</a><a class="headerlink" href="#serialgc" title="本標題的永久連結">¶</a></h4>
 <p>特色：</p>
 <ul class="simple">
 <li>Small Footprint</li>
@@ -809,14 +948,14 @@
 </ul>
 </div>
 <div class="section" id="parallelgc">
-<h4><a class="toc-backref" href="#id18">ParallelGC</a><a class="headerlink" href="#parallelgc" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id31">ParallelGC</a><a class="headerlink" href="#parallelgc" title="本標題的永久連結">¶</a></h4>
 <p>特色：</p>
 <ul class="simple">
 <li>High Throughput</li>
 </ul>
 </div>
 <div class="section" id="cms-parnew-concurrent-mark-sweep">
-<h4><a class="toc-backref" href="#id19">CMS (ParNew/Concurrent Mark Sweep)</a><a class="headerlink" href="#cms-parnew-concurrent-mark-sweep" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id32">CMS (ParNew/Concurrent Mark Sweep)</a><a class="headerlink" href="#cms-parnew-concurrent-mark-sweep" title="本標題的永久連結">¶</a></h4>
 <p>特色：</p>
 <ul class="simple">
 <li>Minimal Pause Time</li>
@@ -826,7 +965,7 @@
 </ul>
 </div>
 <div class="section" id="g1-garbage-first">
-<h4><a class="toc-backref" href="#id20">G1 (Garbage First)</a><a class="headerlink" href="#g1-garbage-first" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id33">G1 (Garbage First)</a><a class="headerlink" href="#g1-garbage-first" title="本標題的永久連結">¶</a></h4>
 <p>特色：</p>
 <ul class="simple">
 <li>Managed Pause Times</li>
@@ -836,7 +975,7 @@
 </ul>
 </div>
 <div class="section" id="shenandoah">
-<h4><a class="toc-backref" href="#id21">Shenandoah</a><a class="headerlink" href="#shenandoah" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id34">Shenandoah</a><a class="headerlink" href="#shenandoah" title="本標題的永久連結">¶</a></h4>
 <p>目標：&lt;10 ms GC pause times for 100GB+ Heaps</p>
 <p>此 GC 的目標是要提供極低（ultra-low）的 pause time，
 先前的 CMS 和 G1 都已經可以 Concurrent 地進行 live objects marking，
@@ -844,9 +983,9 @@ Shenandoah 則是讓 Compaction 也可以 Concurrent 地進行。</p>
 </div>
 </div>
 <div class="section" id="azul">
-<h3><a class="toc-backref" href="#id22">Azul</a><a class="headerlink" href="#azul" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id35">Azul</a><a class="headerlink" href="#azul" title="本標題的永久連結">¶</a></h3>
 <div class="section" id="c4-continuously-concurrent-compacting-collector">
-<h4><a class="toc-backref" href="#id23">C4 (Continuously Concurrent Compacting Collector)</a><a class="headerlink" href="#c4-continuously-concurrent-compacting-collector" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id36">C4 (Continuously Concurrent Compacting Collector)</a><a class="headerlink" href="#c4-continuously-concurrent-compacting-collector" title="本標題的永久連結">¶</a></h4>
 <p>特色：</p>
 <ul class="simple">
 <li>Pauseless</li>
@@ -860,12 +999,40 @@ Shenandoah 則是讓 Compaction 也可以 Concurrent 地進行。</p>
 </ul>
 </div>
 </div>
+<div class="section" id="go">
+<h3><a class="toc-backref" href="#id37">Go</a><a class="headerlink" href="#go" title="本標題的永久連結">¶</a></h3>
 </div>
-<div class="section" id="id5">
-<h2><a class="toc-backref" href="#id24">參考</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="pypy">
+<h3><a class="toc-backref" href="#id38">PyPy</a><a class="headerlink" href="#pypy" title="本標題的永久連結">¶</a></h3>
+</div>
+<div class="section" id="boehm">
+<h3><a class="toc-backref" href="#id39">Boehm</a><a class="headerlink" href="#boehm" title="本標題的永久連結">¶</a></h3>
+</div>
+<div class="section" id="luajit">
+<h3><a class="toc-backref" href="#id40">LuaJIT</a><a class="headerlink" href="#luajit" title="本標題的永久連結">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id7">
+<h2><a class="toc-backref" href="#id41">參考</a><a class="headerlink" href="#id7" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Mark-compact_algorithm">Wikipedia - Mark-compact algorithm</a></li>
+<li><a class="reference external" href="https://www.cs.kent.ac.uk/people/staff/rej/gcbib/">the Garbage Collection Bibliography</a></li>
 <li><a class="reference external" href="http://sebastiansylvan.com/post/garbage-collection-thoughts/">Garbage collection thoughts</a></li>
+<li><a class="reference external" href="https://www.seas.harvard.edu/courses/cs252/2016fa/16.pdf">Origins of Garbage Collection</a></li>
+<li><a class="reference external" href="http://www.sigplan.org/Conferences/ISMM/">International Symposium on Memory Management (ISMM)</a></li>
 </ul>
+<table class="docutils citation" frame="void" id="robs80" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[robs80]</a></td><td>[1980] J. M. Robson. <a class="reference external" href="http://dx.doi.org/10.1016/0020-0190(80)90124-6">Storage allocation is NP-hard</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="abua04" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id5">[abua04]</a></td><td>[2004] Diab Abuaiadh, Yoav Ossia, Erez Petrank, and Uri Silbershtein. <a class="reference external" href="https://www.research.ibm.com/haifa/projects/systems/rs/papers/ParCompac_OOPSLA04.pdf">An efficient parallel heap compaction algorithm</a></td></tr>
+</tbody>
+</table>
 </div>
 </div>
 
