@@ -292,7 +292,11 @@
 <li class="toctree-l3"><a class="reference internal" href="#luajit">LuaJIT</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id7">參考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">深入程式碼</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rust-rc-reference-counting">Rust - Rc - Reference Counting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="resource.html">Resource</a></li>
@@ -675,64 +679,68 @@
            <div itemprop="articleBody">
             
   <div class="section" id="garbage-collection">
-<h1><a class="toc-backref" href="#id8">Garbage Collection 介紹</a><a class="headerlink" href="#garbage-collection" title="本標題的永久連結">¶</a></h1>
+<h1><a class="toc-backref" href="#id9">Garbage Collection 介紹</a><a class="headerlink" href="#garbage-collection" title="本標題的永久連結">¶</a></h1>
 <div class="contents topic" id="id1">
 <p class="topic-title first">目錄</p>
 <ul class="simple">
-<li><a class="reference internal" href="#garbage-collection" id="id8">Garbage Collection 介紹</a><ul>
-<li><a class="reference internal" href="#id2" id="id9">歷史</a></li>
-<li><a class="reference internal" href="#id3" id="id10">常見 Garbage Collection 技術</a><ul>
-<li><a class="reference internal" href="#mark-sweep-gc" id="id11">Mark-Sweep GC</a><ul>
-<li><a class="reference internal" href="#tricolor" id="id12">Tricolor</a></li>
-<li><a class="reference internal" href="#bitmap" id="id13">Bitmap</a></li>
-<li><a class="reference internal" href="#lazy-sweeping" id="id14">Lazy Sweeping</a></li>
+<li><a class="reference internal" href="#garbage-collection" id="id9">Garbage Collection 介紹</a><ul>
+<li><a class="reference internal" href="#id2" id="id10">歷史</a></li>
+<li><a class="reference internal" href="#id3" id="id11">常見 Garbage Collection 技術</a><ul>
+<li><a class="reference internal" href="#mark-sweep-gc" id="id12">Mark-Sweep GC</a><ul>
+<li><a class="reference internal" href="#tricolor" id="id13">Tricolor</a></li>
+<li><a class="reference internal" href="#bitmap" id="id14">Bitmap</a></li>
+<li><a class="reference internal" href="#lazy-sweeping" id="id15">Lazy Sweeping</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#mark-compact-gc" id="id15">Mark-Compact GC</a><ul>
-<li><a class="reference internal" href="#two-finger-compaction" id="id16">Two-Finger Compaction</a></li>
-<li><a class="reference internal" href="#lisp-2-algorithm" id="id17">Lisp 2 Algorithm</a></li>
-<li><a class="reference internal" href="#threaded-compaction" id="id18">Threaded Compaction</a></li>
-<li><a class="reference internal" href="#one-pass-compaction" id="id19">One-pass Compaction</a></li>
+<li><a class="reference internal" href="#mark-compact-gc" id="id16">Mark-Compact GC</a><ul>
+<li><a class="reference internal" href="#two-finger-compaction" id="id17">Two-Finger Compaction</a></li>
+<li><a class="reference internal" href="#lisp-2-algorithm" id="id18">Lisp 2 Algorithm</a></li>
+<li><a class="reference internal" href="#threaded-compaction" id="id19">Threaded Compaction</a></li>
+<li><a class="reference internal" href="#one-pass-compaction" id="id20">One-pass Compaction</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#copying-gc" id="id20">Copying GC</a></li>
-<li><a class="reference internal" href="#generational-mark-sweep-gc" id="id21">Generational Mark &amp; Sweep GC</a><ul>
-<li><a class="reference internal" href="#nursery-tenured" id="id22">Nursery &amp; Tenured</a></li>
+<li><a class="reference internal" href="#copying-gc" id="id21">Copying GC</a></li>
+<li><a class="reference internal" href="#generational-mark-sweep-gc" id="id22">Generational Mark &amp; Sweep GC</a><ul>
+<li><a class="reference internal" href="#nursery-tenured" id="id23">Nursery &amp; Tenured</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#reference-counting" id="id23">Reference Counting</a></li>
-<li><a class="reference internal" href="#incremental" id="id24">Incremental</a></li>
-<li><a class="reference internal" href="#parallel-gc" id="id25">Parallel GC</a></li>
-<li><a class="reference internal" href="#concurrent-gc" id="id26">Concurrent GC</a></li>
-<li><a class="reference internal" href="#real-time-gc" id="id27">Real-time GC</a></li>
+<li><a class="reference internal" href="#reference-counting" id="id24">Reference Counting</a></li>
+<li><a class="reference internal" href="#incremental" id="id25">Incremental</a></li>
+<li><a class="reference internal" href="#parallel-gc" id="id26">Parallel GC</a></li>
+<li><a class="reference internal" href="#concurrent-gc" id="id27">Concurrent GC</a></li>
+<li><a class="reference internal" href="#real-time-gc" id="id28">Real-time GC</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id6" id="id28">案例研究</a><ul>
-<li><a class="reference internal" href="#openjdk" id="id29">OpenJDK</a><ul>
-<li><a class="reference internal" href="#serialgc" id="id30">SerialGC</a></li>
-<li><a class="reference internal" href="#parallelgc" id="id31">ParallelGC</a></li>
-<li><a class="reference internal" href="#cms-parnew-concurrent-mark-sweep" id="id32">CMS (ParNew/Concurrent Mark Sweep)</a></li>
-<li><a class="reference internal" href="#g1-garbage-first" id="id33">G1 (Garbage First)</a></li>
-<li><a class="reference internal" href="#shenandoah" id="id34">Shenandoah</a></li>
+<li><a class="reference internal" href="#id6" id="id29">案例研究</a><ul>
+<li><a class="reference internal" href="#openjdk" id="id30">OpenJDK</a><ul>
+<li><a class="reference internal" href="#serialgc" id="id31">SerialGC</a></li>
+<li><a class="reference internal" href="#parallelgc" id="id32">ParallelGC</a></li>
+<li><a class="reference internal" href="#cms-parnew-concurrent-mark-sweep" id="id33">CMS (ParNew/Concurrent Mark Sweep)</a></li>
+<li><a class="reference internal" href="#g1-garbage-first" id="id34">G1 (Garbage First)</a></li>
+<li><a class="reference internal" href="#shenandoah" id="id35">Shenandoah</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#azul" id="id35">Azul</a><ul>
-<li><a class="reference internal" href="#c4-continuously-concurrent-compacting-collector" id="id36">C4 (Continuously Concurrent Compacting Collector)</a></li>
+<li><a class="reference internal" href="#azul" id="id36">Azul</a><ul>
+<li><a class="reference internal" href="#c4-continuously-concurrent-compacting-collector" id="id37">C4 (Continuously Concurrent Compacting Collector)</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#go" id="id37">Go</a></li>
-<li><a class="reference internal" href="#pypy" id="id38">PyPy</a></li>
-<li><a class="reference internal" href="#boehm" id="id39">Boehm</a></li>
-<li><a class="reference internal" href="#luajit" id="id40">LuaJIT</a></li>
+<li><a class="reference internal" href="#go" id="id38">Go</a></li>
+<li><a class="reference internal" href="#pypy" id="id39">PyPy</a></li>
+<li><a class="reference internal" href="#boehm" id="id40">Boehm</a></li>
+<li><a class="reference internal" href="#luajit" id="id41">LuaJIT</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id7" id="id41">參考</a></li>
+<li><a class="reference internal" href="#id7" id="id42">深入程式碼</a><ul>
+<li><a class="reference internal" href="#rust-rc-reference-counting" id="id43">Rust - Rc - Reference Counting</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id8" id="id44">參考</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="id2">
-<h2><a class="toc-backref" href="#id9">歷史</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id10">歷史</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
 <p>Garbage Collection 的技術誕生於 1960 年代，
 John McCarthy 在開發 Lisp 程式語言時，
 發明了 Garbage Collection 來實做程式語言，
@@ -746,7 +754,7 @@ John McCarthy 在開發 Lisp 程式語言時，
 展開了第一場 「International Symposium on Memory Management （簡稱 ISMM）」。</p>
 </div>
 <div class="section" id="id3">
-<h2><a class="toc-backref" href="#id10">常見 Garbage Collection 技術</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id11">常見 Garbage Collection 技術</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
 <p>GC 的實做都基於四種基本的演算法改造而成，
 分別為：</p>
 <ul class="simple">
@@ -762,7 +770,7 @@ John McCarthy 在開發 Lisp 程式語言時，
 <li>回收 Garbages</li>
 </ul>
 <div class="section" id="mark-sweep-gc">
-<h3><a class="toc-backref" href="#id11">Mark-Sweep GC</a><a class="headerlink" href="#mark-sweep-gc" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id12">Mark-Sweep GC</a><a class="headerlink" href="#mark-sweep-gc" title="本標題的永久連結">¶</a></h3>
 <p>為最早出現，
 簡單且非常常見的 GC 演算法，
 會先標記所有可以追蹤到的物件（也就是 Live Objects），
@@ -771,17 +779,17 @@ John McCarthy 在開發 Lisp 程式語言時，
 此過程會造成程式暫停執行其他工作，
 此現象稱為「Stop The World」。</p>
 <div class="section" id="tricolor">
-<h4><a class="toc-backref" href="#id12">Tricolor</a><a class="headerlink" href="#tricolor" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id13">Tricolor</a><a class="headerlink" href="#tricolor" title="本標題的永久連結">¶</a></h4>
 </div>
 <div class="section" id="bitmap">
-<h4><a class="toc-backref" href="#id13">Bitmap</a><a class="headerlink" href="#bitmap" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id14">Bitmap</a><a class="headerlink" href="#bitmap" title="本標題的永久連結">¶</a></h4>
 </div>
 <div class="section" id="lazy-sweeping">
-<h4><a class="toc-backref" href="#id14">Lazy Sweeping</a><a class="headerlink" href="#lazy-sweeping" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id15">Lazy Sweeping</a><a class="headerlink" href="#lazy-sweeping" title="本標題的永久連結">¶</a></h4>
 </div>
 </div>
 <div class="section" id="mark-compact-gc">
-<h3><a class="toc-backref" href="#id15">Mark-Compact GC</a><a class="headerlink" href="#mark-compact-gc" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id16">Mark-Compact GC</a><a class="headerlink" href="#mark-compact-gc" title="本標題的永久連結">¶</a></h3>
 <p>在程式一開始，我們會有連續的可用記憶體可以分配，
 但隨著執行時間變長，
 在反覆地記憶體分配與重新分配中，
@@ -824,23 +832,23 @@ Arbitary 實做容易且執行快速，
 <li><a class="reference external" href="https://hacks.mozilla.org/2015/07/compacting-garbage-collection-in-spidermonkey/">Compacting Garbage Collection in SpiderMonkey</a></li>
 </ul>
 <div class="section" id="two-finger-compaction">
-<h4><a class="toc-backref" href="#id16">Two-Finger Compaction</a><a class="headerlink" href="#two-finger-compaction" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id17">Two-Finger Compaction</a><a class="headerlink" href="#two-finger-compaction" title="本標題的永久連結">¶</a></h4>
 </div>
 <div class="section" id="lisp-2-algorithm">
-<h4><a class="toc-backref" href="#id17">Lisp 2 Algorithm</a><a class="headerlink" href="#lisp-2-algorithm" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id18">Lisp 2 Algorithm</a><a class="headerlink" href="#lisp-2-algorithm" title="本標題的永久連結">¶</a></h4>
 </div>
 <div class="section" id="threaded-compaction">
-<h4><a class="toc-backref" href="#id18">Threaded Compaction</a><a class="headerlink" href="#threaded-compaction" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id19">Threaded Compaction</a><a class="headerlink" href="#threaded-compaction" title="本標題的永久連結">¶</a></h4>
 </div>
 <div class="section" id="one-pass-compaction">
-<h4><a class="toc-backref" href="#id19">One-pass Compaction</a><a class="headerlink" href="#one-pass-compaction" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id20">One-pass Compaction</a><a class="headerlink" href="#one-pass-compaction" title="本標題的永久連結">¶</a></h4>
 </div>
 </div>
 <div class="section" id="copying-gc">
-<h3><a class="toc-backref" href="#id20">Copying GC</a><a class="headerlink" href="#copying-gc" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id21">Copying GC</a><a class="headerlink" href="#copying-gc" title="本標題的永久連結">¶</a></h3>
 </div>
 <div class="section" id="generational-mark-sweep-gc">
-<h3><a class="toc-backref" href="#id21">Generational Mark &amp; Sweep GC</a><a class="headerlink" href="#generational-mark-sweep-gc" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id22">Generational Mark &amp; Sweep GC</a><a class="headerlink" href="#generational-mark-sweep-gc" title="本標題的永久連結">¶</a></h3>
 <p>Generational garbage collection 的核心觀念就是「大多數的物件的生命都很短」，
 所以就修改原本的 GC 設計，依照不同的存在時間有不同的處理方式，
 對於 Tracing 的 GC 會需要去掃過物件來檢查是否有物件已經成為 Garbage，
@@ -851,7 +859,7 @@ Arbitary 實做容易且執行快速，
 <li>[1984] <a class="reference external" href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.122.4295">Garbage collection in a large Lisp system</a></li>
 </ul>
 <div class="section" id="nursery-tenured">
-<h4><a class="toc-backref" href="#id22">Nursery &amp; Tenured</a><a class="headerlink" href="#nursery-tenured" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id23">Nursery &amp; Tenured</a><a class="headerlink" href="#nursery-tenured" title="本標題的永久連結">¶</a></h4>
 <p>多數的 objects 都會 allocate 到一個叫做 Nursery 的 memory region，
 當 Nursery 滿的時候，只檢查 Nursery 裡的 objects，此時多數的 short-lived temporary objects 就會被清掉，
 而這樣的檢查相對於原本 (檢查全部的 objects) 也來的快</p>
@@ -908,29 +916,29 @@ Arbitary 實做容易且執行快速，
 </div>
 </div>
 <div class="section" id="reference-counting">
-<h3><a class="toc-backref" href="#id23">Reference Counting</a><a class="headerlink" href="#reference-counting" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id24">Reference Counting</a><a class="headerlink" href="#reference-counting" title="本標題的永久連結">¶</a></h3>
 <ul class="simple">
 <li>問題在 reference cycle，會需要一個 cycle detect algorithm 來爬過所有 objects，但這就會產生 undeterministic GC pause</li>
 </ul>
 </div>
 <div class="section" id="incremental">
-<h3><a class="toc-backref" href="#id24">Incremental</a><a class="headerlink" href="#incremental" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id25">Incremental</a><a class="headerlink" href="#incremental" title="本標題的永久連結">¶</a></h3>
 <p>拆散整個 GC 過程，把每次暫停的時間縮短</p>
 </div>
 <div class="section" id="parallel-gc">
-<h3><a class="toc-backref" href="#id25">Parallel GC</a><a class="headerlink" href="#parallel-gc" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id26">Parallel GC</a><a class="headerlink" href="#parallel-gc" title="本標題的永久連結">¶</a></h3>
 </div>
 <div class="section" id="concurrent-gc">
-<h3><a class="toc-backref" href="#id26">Concurrent GC</a><a class="headerlink" href="#concurrent-gc" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id27">Concurrent GC</a><a class="headerlink" href="#concurrent-gc" title="本標題的永久連結">¶</a></h3>
 </div>
 <div class="section" id="real-time-gc">
-<h3><a class="toc-backref" href="#id27">Real-time GC</a><a class="headerlink" href="#real-time-gc" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id28">Real-time GC</a><a class="headerlink" href="#real-time-gc" title="本標題的永久連結">¶</a></h3>
 </div>
 </div>
 <div class="section" id="id6">
-<h2><a class="toc-backref" href="#id28">案例研究</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id29">案例研究</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h2>
 <div class="section" id="openjdk">
-<h3><a class="toc-backref" href="#id29">OpenJDK</a><a class="headerlink" href="#openjdk" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id30">OpenJDK</a><a class="headerlink" href="#openjdk" title="本標題的永久連結">¶</a></h3>
 <p>參考：</p>
 <ul class="simple">
 <li><a class="reference external" href="http://openjdk.java.net/jeps/189">JEP 189: Shenandoah: An Ultra-Low-Pause-Time Garbage Collector</a></li>
@@ -940,7 +948,7 @@ Arbitary 實做容易且執行快速，
 <li>[2016] <a class="reference external" href="http://www.slideshare.net/RedHatDevelopers/shenandoah-gc-java-without-the-garbage-collection-hiccups-christine-flood">Shenandoah GC: Java Without The Garbage Collection Hiccups (Christine Flood)</a></li>
 </ul>
 <div class="section" id="serialgc">
-<h4><a class="toc-backref" href="#id30">SerialGC</a><a class="headerlink" href="#serialgc" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id31">SerialGC</a><a class="headerlink" href="#serialgc" title="本標題的永久連結">¶</a></h4>
 <p>特色：</p>
 <ul class="simple">
 <li>Small Footprint</li>
@@ -948,14 +956,14 @@ Arbitary 實做容易且執行快速，
 </ul>
 </div>
 <div class="section" id="parallelgc">
-<h4><a class="toc-backref" href="#id31">ParallelGC</a><a class="headerlink" href="#parallelgc" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id32">ParallelGC</a><a class="headerlink" href="#parallelgc" title="本標題的永久連結">¶</a></h4>
 <p>特色：</p>
 <ul class="simple">
 <li>High Throughput</li>
 </ul>
 </div>
 <div class="section" id="cms-parnew-concurrent-mark-sweep">
-<h4><a class="toc-backref" href="#id32">CMS (ParNew/Concurrent Mark Sweep)</a><a class="headerlink" href="#cms-parnew-concurrent-mark-sweep" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id33">CMS (ParNew/Concurrent Mark Sweep)</a><a class="headerlink" href="#cms-parnew-concurrent-mark-sweep" title="本標題的永久連結">¶</a></h4>
 <p>特色：</p>
 <ul class="simple">
 <li>Minimal Pause Time</li>
@@ -965,7 +973,7 @@ Arbitary 實做容易且執行快速，
 </ul>
 </div>
 <div class="section" id="g1-garbage-first">
-<h4><a class="toc-backref" href="#id33">G1 (Garbage First)</a><a class="headerlink" href="#g1-garbage-first" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id34">G1 (Garbage First)</a><a class="headerlink" href="#g1-garbage-first" title="本標題的永久連結">¶</a></h4>
 <p>特色：</p>
 <ul class="simple">
 <li>Managed Pause Times</li>
@@ -975,7 +983,7 @@ Arbitary 實做容易且執行快速，
 </ul>
 </div>
 <div class="section" id="shenandoah">
-<h4><a class="toc-backref" href="#id34">Shenandoah</a><a class="headerlink" href="#shenandoah" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id35">Shenandoah</a><a class="headerlink" href="#shenandoah" title="本標題的永久連結">¶</a></h4>
 <p>目標：&lt;10 ms GC pause times for 100GB+ Heaps</p>
 <p>此 GC 的目標是要提供極低（ultra-low）的 pause time，
 先前的 CMS 和 G1 都已經可以 Concurrent 地進行 live objects marking，
@@ -983,9 +991,9 @@ Shenandoah 則是讓 Compaction 也可以 Concurrent 地進行。</p>
 </div>
 </div>
 <div class="section" id="azul">
-<h3><a class="toc-backref" href="#id35">Azul</a><a class="headerlink" href="#azul" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id36">Azul</a><a class="headerlink" href="#azul" title="本標題的永久連結">¶</a></h3>
 <div class="section" id="c4-continuously-concurrent-compacting-collector">
-<h4><a class="toc-backref" href="#id36">C4 (Continuously Concurrent Compacting Collector)</a><a class="headerlink" href="#c4-continuously-concurrent-compacting-collector" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id37">C4 (Continuously Concurrent Compacting Collector)</a><a class="headerlink" href="#c4-continuously-concurrent-compacting-collector" title="本標題的永久連結">¶</a></h4>
 <p>特色：</p>
 <ul class="simple">
 <li>Pauseless</li>
@@ -1000,20 +1008,233 @@ Shenandoah 則是讓 Compaction 也可以 Concurrent 地進行。</p>
 </div>
 </div>
 <div class="section" id="go">
-<h3><a class="toc-backref" href="#id37">Go</a><a class="headerlink" href="#go" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id38">Go</a><a class="headerlink" href="#go" title="本標題的永久連結">¶</a></h3>
 </div>
 <div class="section" id="pypy">
-<h3><a class="toc-backref" href="#id38">PyPy</a><a class="headerlink" href="#pypy" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id39">PyPy</a><a class="headerlink" href="#pypy" title="本標題的永久連結">¶</a></h3>
 </div>
 <div class="section" id="boehm">
-<h3><a class="toc-backref" href="#id39">Boehm</a><a class="headerlink" href="#boehm" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id40">Boehm</a><a class="headerlink" href="#boehm" title="本標題的永久連結">¶</a></h3>
 </div>
 <div class="section" id="luajit">
-<h3><a class="toc-backref" href="#id40">LuaJIT</a><a class="headerlink" href="#luajit" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id41">LuaJIT</a><a class="headerlink" href="#luajit" title="本標題的永久連結">¶</a></h3>
 </div>
 </div>
 <div class="section" id="id7">
-<h2><a class="toc-backref" href="#id41">參考</a><a class="headerlink" href="#id7" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id42">深入程式碼</a><a class="headerlink" href="#id7" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="rust-rc-reference-counting">
+<h3><a class="toc-backref" href="#id43">Rust - Rc - Reference Counting</a><a class="headerlink" href="#rust-rc-reference-counting" title="本標題的永久連結">¶</a></h3>
+<p>Rust 有一個 single-threaded reference-counting 實做在 <code class="docutils literal"><span class="pre">src/liballoc/rc.rs</span></code> ，
+以下對於實做的程式碼進行研究。</p>
+<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="kn">use</span><span class="w"> </span><span class="n">core</span><span class="o">::</span><span class="n">cell</span><span class="o">::</span><span class="n">Cell</span><span class="p">;</span><span class="w"></span>
+<span class="kn">use</span><span class="w"> </span><span class="n">core</span><span class="o">::</span><span class="n">ptr</span><span class="o">::</span><span class="p">{</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">Shared</span><span class="p">};</span><span class="w"></span>
+
+<span class="k">struct</span><span class="w"> </span><span class="n">RcBox</span><span class="o">&lt;</span><span class="n">T</span><span class="o">:</span><span class="w"> </span><span class="o">?</span><span class="nb">Sized</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">strong</span><span class="o">:</span><span class="w"> </span><span class="n">Cell</span><span class="o">&lt;</span><span class="kt">usize</span><span class="o">&gt;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">weak</span><span class="o">:</span><span class="w"> </span><span class="n">Cell</span><span class="o">&lt;</span><span class="kt">usize</span><span class="o">&gt;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">value</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="n">Rc</span><span class="o">&lt;</span><span class="n">T</span><span class="o">:</span><span class="w"> </span><span class="o">?</span><span class="nb">Sized</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">ptr</span><span class="o">:</span><span class="w"> </span><span class="n">Shared</span><span class="o">&lt;</span><span class="n">RcBox</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>先從 <code class="docutils literal"><span class="pre">Rc</span></code> sturct 的內容來看，
+<a class="reference external" href="https://doc.rust-lang.org/core/ptr/struct.Shared.html">core::ptr::Shared</a>
+是對於 <code class="docutils literal"><span class="pre">*mut</span> <span class="pre">T</span></code> 的包裝，
+用來標示為 Shared Ownership，
+所以實際上的資料在 <code class="docutils literal"><span class="pre">RcBox</span></code> 。</p>
+<p><code class="docutils literal"><span class="pre">RcBox</span></code> 內含三種資料：</p>
+<ul class="simple">
+<li>strong：這個值的 Strong Reference 數量</li>
+<li>weak：這個值的 Weak Reference 數量</li>
+<li>value：實際上的值</li>
+</ul>
+<p><code class="docutils literal"><span class="pre">strong</span></code> 和 <code class="docutils literal"><span class="pre">weak</span></code> 都是 <code class="docutils literal"><span class="pre">usize</span></code> ，
+但是用了 <code class="docutils literal"><span class="pre">Cell</span></code> 包住，
+藉此就算 <code class="docutils literal"><span class="pre">RcBox</span></code> 是 immutable 的，
+還是可以更動 <code class="docutils literal"><span class="pre">strong</span></code> 和 <code class="docutils literal"><span class="pre">weak</span></code> 的值，
+如此一來我們才能維護 Reference Counting。</p>
+<p>我們可以看到下面不遠處有 <code class="docutils literal"><span class="pre">Rc</span></code> 的 method 實做，
+從其中的 <code class="docutils literal"><span class="pre">new</span></code> 函式可以了解到我們的 <code class="docutils literal"><span class="pre">Rc</span></code> 是如何建立的：</p>
+<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">impl</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Rc</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="sd">/// Constructs a new `Rc&lt;T&gt;`.</span>
+<span class="w">    </span><span class="sd">///</span>
+<span class="w">    </span><span class="sd">/// # Examples</span>
+<span class="w">    </span><span class="sd">///</span>
+<span class="w">    </span><span class="sd">/// ```</span>
+<span class="w">    </span><span class="sd">/// use std::rc::Rc;</span>
+<span class="w">    </span><span class="sd">///</span>
+<span class="w">    </span><span class="sd">/// let five = Rc::new(5);</span>
+<span class="w">    </span><span class="sd">/// ```</span>
+<span class="w">    </span><span class="cp">#[stable(feature = </span><span class="s">&quot;rust1&quot;</span><span class="cp">, since = </span><span class="s">&quot;1.0.0&quot;</span><span class="cp">)]</span><span class="w"></span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">new</span><span class="p">(</span><span class="n">value</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Rc</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">Rc</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="c1">// there is an implicit weak pointer owned by all the strong</span>
+<span class="w">                </span><span class="c1">// pointers, which ensures that the weak destructor never frees</span>
+<span class="w">                </span><span class="c1">// the allocation while the strong destructor is running, even</span>
+<span class="w">                </span><span class="c1">// if the weak pointer is stored inside the strong one.</span>
+<span class="w">                </span><span class="n">ptr</span><span class="o">:</span><span class="w"> </span><span class="n">Shared</span><span class="o">::</span><span class="n">new</span><span class="p">(</span><span class="nb">Box</span><span class="o">::</span><span class="n">into_raw</span><span class="p">(</span><span class="k">box</span><span class="w"> </span><span class="n">RcBox</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="n">strong</span><span class="o">:</span><span class="w"> </span><span class="n">Cell</span><span class="o">::</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"></span>
+<span class="w">                    </span><span class="n">weak</span><span class="o">:</span><span class="w"> </span><span class="n">Cell</span><span class="o">::</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"></span>
+<span class="w">                    </span><span class="n">value</span><span class="o">:</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="p">})),</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">...</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>在 <code class="docutils literal"><span class="pre">Rc</span></code> 剛建立時，
+我們除了會有原本想要使用的值之外，
+還會有 Strong Reference、Weak Reference，
+兩個都被初始化為 1。</p>
+<p>那我們會如何增加 Strong Reference 呢？
+如果搜尋 <code class="docutils literal"><span class="pre">inc_strong</span></code> 函式，
+可以找到一個關鍵 Trait「 <code class="docutils literal"><span class="pre">RcBoxPtr</span></code> 」，
+這個 Trait 定義了各種我們想要的功能，
+包含 Strong Reference 和 Weak Reference 的取得、增加、減少，
+所以只要我們的 <code class="docutils literal"><span class="pre">Rc</span></code> struct 實做這個 Trait 就可以擁有我們 Reference Counting 需要的基本功能。</p>
+<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">trait</span><span class="w"> </span><span class="n">RcBoxPtr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">:</span><span class="w"> </span><span class="o">?</span><span class="nb">Sized</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">inner</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">RcBox</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="cp">#[inline]</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">strong</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">usize</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">inner</span><span class="p">().</span><span class="n">strong</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="cp">#[inline]</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">inc_strong</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">inner</span><span class="p">().</span><span class="n">strong</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">strong</span><span class="p">().</span><span class="n">checked_add</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="n">unwrap_or_else</span><span class="p">(</span><span class="o">||</span><span class="w"> </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">abort</span><span class="p">()</span><span class="w"> </span><span class="p">}));</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="cp">#[inline]</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">dec_strong</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">inner</span><span class="p">().</span><span class="n">strong</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">strong</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="cp">#[inline]</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">weak</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">usize</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">inner</span><span class="p">().</span><span class="n">weak</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="cp">#[inline]</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">inc_weak</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">inner</span><span class="p">().</span><span class="n">weak</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">weak</span><span class="p">().</span><span class="n">checked_add</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="n">unwrap_or_else</span><span class="p">(</span><span class="o">||</span><span class="w"> </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">abort</span><span class="p">()</span><span class="w"> </span><span class="p">}));</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="cp">#[inline]</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">dec_weak</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">inner</span><span class="p">().</span><span class="n">weak</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">weak</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>接著我們可以在下方馬上找到 <code class="docutils literal"><span class="pre">Rc</span></code> 對於 <code class="docutils literal"><span class="pre">RcBoxPtr</span></code> 的實做：</p>
+<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">impl</span><span class="o">&lt;</span><span class="n">T</span><span class="o">:</span><span class="w"> </span><span class="o">?</span><span class="nb">Sized</span><span class="o">&gt;</span><span class="w"> </span><span class="n">RcBoxPtr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Rc</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="cp">#[inline(always)]</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">inner</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">RcBox</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// Safe to assume this here, as if it weren&#39;t true, we&#39;d be breaking</span>
+<span class="w">            </span><span class="c1">// the contract anyway.</span>
+<span class="w">            </span><span class="c1">// This allows the null check to be elided in the destructor if we</span>
+<span class="w">            </span><span class="c1">// manipulated the reference count in the same function.</span>
+<span class="w">            </span><span class="n">assume</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">.</span><span class="n">ptr</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="o">*</span><span class="kr">const</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="o">*</span><span class="kr">const</span><span class="w"> </span><span class="o">*</span><span class="kr">const</span><span class="w"> </span><span class="p">())).</span><span class="n">is_null</span><span class="p">());</span><span class="w"></span>
+<span class="w">            </span><span class="o">&amp;</span><span class="p">(</span><span class="o">**</span><span class="bp">self</span><span class="p">.</span><span class="n">ptr</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>至此到一個段落，
+接下來只要 <code class="docutils literal"><span class="pre">Rc</span></code> 在進行操作時呼叫對應的函式即可，
+例如 clone 時要使用 <code class="docutils literal"><span class="pre">inc_strong</span></code> ：</p>
+<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">impl</span><span class="o">&lt;</span><span class="n">T</span><span class="o">:</span><span class="w"> </span><span class="o">?</span><span class="nb">Sized</span><span class="o">&gt;</span><span class="w"> </span><span class="nb">Clone</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Rc</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="sd">/// Makes a clone of the `Rc` pointer.</span>
+<span class="w">    </span><span class="sd">///</span>
+<span class="w">    </span><span class="sd">/// This creates another pointer to the same inner value, increasing the</span>
+<span class="w">    </span><span class="sd">/// strong reference count.</span>
+<span class="w">    </span><span class="sd">///</span>
+<span class="w">    </span><span class="sd">/// # Examples</span>
+<span class="w">    </span><span class="sd">///</span>
+<span class="w">    </span><span class="sd">/// ```</span>
+<span class="w">    </span><span class="sd">/// use std::rc::Rc;</span>
+<span class="w">    </span><span class="sd">///</span>
+<span class="w">    </span><span class="sd">/// let five = Rc::new(5);</span>
+<span class="w">    </span><span class="sd">///</span>
+<span class="w">    </span><span class="sd">/// five.clone();</span>
+<span class="w">    </span><span class="sd">/// ```</span>
+<span class="w">    </span><span class="cp">#[inline]</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">clone</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Rc</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">inc_strong</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="n">Rc</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">ptr</span><span class="o">:</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">ptr</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>drop 時要呼叫 <code class="docutils literal"><span class="pre">dec_strong</span></code> 並判斷是否要回收記憶體：</p>
+<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="kn">use</span><span class="w"> </span><span class="n">core</span><span class="o">::</span><span class="n">mem</span><span class="o">::</span><span class="p">{</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">align_of_val</span><span class="p">,</span><span class="w"> </span><span class="n">size_of_val</span><span class="p">};</span><span class="w"></span>
+<span class="kn">use</span><span class="w"> </span><span class="n">heap</span><span class="o">::</span><span class="n">deallocate</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">impl</span><span class="o">&lt;</span><span class="n">T</span><span class="o">:</span><span class="w"> </span><span class="o">?</span><span class="nb">Sized</span><span class="o">&gt;</span><span class="w"> </span><span class="nb">Drop</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Rc</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="sd">/// Drops the `Rc`.</span>
+<span class="w">    </span><span class="sd">///</span>
+<span class="w">    </span><span class="sd">/// This will decrement the strong reference count. If the strong reference</span>
+<span class="w">    </span><span class="sd">/// count reaches zero then the only other references (if any) are</span>
+<span class="w">    </span><span class="sd">/// [`Weak`][weak], so we `drop` the inner value.</span>
+<span class="w">    </span><span class="sd">///</span>
+<span class="w">    </span><span class="sd">/// [weak]: struct.Weak.html</span>
+<span class="w">    </span><span class="sd">///</span>
+<span class="w">    </span><span class="sd">/// # Examples</span>
+<span class="w">    </span><span class="sd">///</span>
+<span class="w">    </span><span class="sd">/// ```</span>
+<span class="w">    </span><span class="sd">/// use std::rc::Rc;</span>
+<span class="w">    </span><span class="sd">///</span>
+<span class="w">    </span><span class="sd">/// struct Foo;</span>
+<span class="w">    </span><span class="sd">///</span>
+<span class="w">    </span><span class="sd">/// impl Drop for Foo {</span>
+<span class="w">    </span><span class="sd">///     fn drop(&amp;mut self) {</span>
+<span class="w">    </span><span class="sd">///         println!(&quot;dropped!&quot;);</span>
+<span class="w">    </span><span class="sd">///     }</span>
+<span class="w">    </span><span class="sd">/// }</span>
+<span class="w">    </span><span class="sd">///</span>
+<span class="w">    </span><span class="sd">/// let foo  = Rc::new(Foo);</span>
+<span class="w">    </span><span class="sd">/// let foo2 = foo.clone();</span>
+<span class="w">    </span><span class="sd">///</span>
+<span class="w">    </span><span class="sd">/// drop(foo);    // Doesn&#39;t print anything</span>
+<span class="w">    </span><span class="sd">/// drop(foo2);   // Prints &quot;dropped!&quot;</span>
+<span class="w">    </span><span class="sd">/// ```</span>
+<span class="w">    </span><span class="cp">#[unsafe_destructor_blind_to_params]</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="nb">drop</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="bp">self</span><span class="p">.</span><span class="n">ptr</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">            </span><span class="bp">self</span><span class="p">.</span><span class="n">dec_strong</span><span class="p">();</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">strong</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="c1">// destroy the contained object</span>
+<span class="w">                </span><span class="n">ptr</span><span class="o">::</span><span class="n">drop_in_place</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">ptr</span><span class="p">).</span><span class="n">value</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">                </span><span class="c1">// remove the implicit &quot;strong weak&quot; pointer now that we&#39;ve</span>
+<span class="w">                </span><span class="c1">// destroyed the contents.</span>
+<span class="w">                </span><span class="bp">self</span><span class="p">.</span><span class="n">dec_weak</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">weak</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="n">deallocate</span><span class="p">(</span><span class="n">ptr</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="o">*</span><span class="k">mut</span><span class="w"> </span><span class="kt">u8</span><span class="p">,</span><span class="w"> </span><span class="n">size_of_val</span><span class="p">(</span><span class="o">&amp;*</span><span class="n">ptr</span><span class="p">),</span><span class="w"> </span><span class="n">align_of_val</span><span class="p">(</span><span class="o">&amp;*</span><span class="n">ptr</span><span class="p">))</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2><a class="toc-backref" href="#id44">參考</a><a class="headerlink" href="#id8" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://en.wikipedia.org/wiki/Mark-compact_algorithm">Wikipedia - Mark-compact algorithm</a></li>
 <li><a class="reference external" href="https://www.cs.kent.ac.uk/people/staff/rej/gcbib/">the Garbage Collection Bibliography</a></li>

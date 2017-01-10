@@ -304,6 +304,239 @@ LuaJIT
 ------------------------------
 
 
+深入程式碼
+========================================
+
+Rust - Rc - Reference Counting
+------------------------------
+
+Rust 有一個 single-threaded reference-counting 實做在 ``src/liballoc/rc.rs`` ，
+以下對於實做的程式碼進行研究。
+
+.. code-block:: rust
+
+    use core::cell::Cell;
+    use core::ptr::{self, Shared};
+
+    struct RcBox<T: ?Sized> {
+        strong: Cell<usize>,
+        weak: Cell<usize>,
+        value: T,
+    }
+
+    pub struct Rc<T: ?Sized> {
+        ptr: Shared<RcBox<T>>,
+    }
+
+
+先從 ``Rc`` sturct 的內容來看，
+`core::ptr::Shared <https://doc.rust-lang.org/core/ptr/struct.Shared.html>`_
+是對於 ``*mut T`` 的包裝，
+用來標示為 Shared Ownership，
+所以實際上的資料在 ``RcBox`` 。
+
+``RcBox`` 內含三種資料：
+
+* strong：這個值的 Strong Reference 數量
+* weak：這個值的 Weak Reference 數量
+* value：實際上的值
+
+``strong`` 和 ``weak`` 都是 ``usize`` ，
+但是用了 ``Cell`` 包住，
+藉此就算 ``RcBox`` 是 immutable 的，
+還是可以更動 ``strong`` 和 ``weak`` 的值，
+如此一來我們才能維護 Reference Counting。
+
+我們可以看到下面不遠處有 ``Rc`` 的 method 實做，
+從其中的 ``new`` 函式可以了解到我們的 ``Rc`` 是如何建立的：
+
+.. code-block:: rust
+
+    impl<T> Rc<T> {
+        /// Constructs a new `Rc<T>`.
+        ///
+        /// # Examples
+        ///
+        /// ```
+        /// use std::rc::Rc;
+        ///
+        /// let five = Rc::new(5);
+        /// ```
+        #[stable(feature = "rust1", since = "1.0.0")]
+        pub fn new(value: T) -> Rc<T> {
+            unsafe {
+                Rc {
+                    // there is an implicit weak pointer owned by all the strong
+                    // pointers, which ensures that the weak destructor never frees
+                    // the allocation while the strong destructor is running, even
+                    // if the weak pointer is stored inside the strong one.
+                    ptr: Shared::new(Box::into_raw(box RcBox {
+                        strong: Cell::new(1),
+                        weak: Cell::new(1),
+                        value: value,
+                    })),
+                }
+            }
+        }
+
+        ...
+    }
+
+
+在 ``Rc`` 剛建立時，
+我們除了會有原本想要使用的值之外，
+還會有 Strong Reference、Weak Reference，
+兩個都被初始化為 1。
+
+那我們會如何增加 Strong Reference 呢？
+如果搜尋 ``inc_strong`` 函式，
+可以找到一個關鍵 Trait「 ``RcBoxPtr`` 」，
+這個 Trait 定義了各種我們想要的功能，
+包含 Strong Reference 和 Weak Reference 的取得、增加、減少，
+所以只要我們的 ``Rc`` struct 實做這個 Trait 就可以擁有我們 Reference Counting 需要的基本功能。
+
+.. code-block:: rust
+
+    trait RcBoxPtr<T: ?Sized> {
+        fn inner(&self) -> &RcBox<T>;
+
+        #[inline]
+        fn strong(&self) -> usize {
+            self.inner().strong.get()
+        }
+
+        #[inline]
+        fn inc_strong(&self) {
+            self.inner().strong.set(self.strong().checked_add(1).unwrap_or_else(|| unsafe { abort() }));
+        }
+
+        #[inline]
+        fn dec_strong(&self) {
+            self.inner().strong.set(self.strong() - 1);
+        }
+
+        #[inline]
+        fn weak(&self) -> usize {
+            self.inner().weak.get()
+        }
+
+        #[inline]
+        fn inc_weak(&self) {
+            self.inner().weak.set(self.weak().checked_add(1).unwrap_or_else(|| unsafe { abort() }));
+        }
+
+        #[inline]
+        fn dec_weak(&self) {
+            self.inner().weak.set(self.weak() - 1);
+        }
+    }
+
+
+接著我們可以在下方馬上找到 ``Rc`` 對於 ``RcBoxPtr`` 的實做：
+
+.. code-block:: rust
+
+    impl<T: ?Sized> RcBoxPtr<T> for Rc<T> {
+        #[inline(always)]
+        fn inner(&self) -> &RcBox<T> {
+            unsafe {
+                // Safe to assume this here, as if it weren't true, we'd be breaking
+                // the contract anyway.
+                // This allows the null check to be elided in the destructor if we
+                // manipulated the reference count in the same function.
+                assume(!(*(&self.ptr as *const _ as *const *const ())).is_null());
+                &(**self.ptr)
+            }
+        }
+    }
+
+至此到一個段落，
+接下來只要 ``Rc`` 在進行操作時呼叫對應的函式即可，
+例如 clone 時要使用 ``inc_strong`` ：
+
+.. code-block:: rust
+
+    impl<T: ?Sized> Clone for Rc<T> {
+        /// Makes a clone of the `Rc` pointer.
+        ///
+        /// This creates another pointer to the same inner value, increasing the
+        /// strong reference count.
+        ///
+        /// # Examples
+        ///
+        /// ```
+        /// use std::rc::Rc;
+        ///
+        /// let five = Rc::new(5);
+        ///
+        /// five.clone();
+        /// ```
+        #[inline]
+        fn clone(&self) -> Rc<T> {
+            self.inc_strong();
+            Rc { ptr: self.ptr }
+        }
+    }
+
+drop 時要呼叫 ``dec_strong`` 並判斷是否要回收記憶體：
+
+.. code-block:: rust
+
+    use core::mem::{self, align_of_val, size_of_val};
+    use heap::deallocate;
+
+    impl<T: ?Sized> Drop for Rc<T> {
+        /// Drops the `Rc`.
+        ///
+        /// This will decrement the strong reference count. If the strong reference
+        /// count reaches zero then the only other references (if any) are
+        /// [`Weak`][weak], so we `drop` the inner value.
+        ///
+        /// [weak]: struct.Weak.html
+        ///
+        /// # Examples
+        ///
+        /// ```
+        /// use std::rc::Rc;
+        ///
+        /// struct Foo;
+        ///
+        /// impl Drop for Foo {
+        ///     fn drop(&mut self) {
+        ///         println!("dropped!");
+        ///     }
+        /// }
+        ///
+        /// let foo  = Rc::new(Foo);
+        /// let foo2 = foo.clone();
+        ///
+        /// drop(foo);    // Doesn't print anything
+        /// drop(foo2);   // Prints "dropped!"
+        /// ```
+        #[unsafe_destructor_blind_to_params]
+        fn drop(&mut self) {
+            unsafe {
+                let ptr = *self.ptr;
+
+                self.dec_strong();
+                if self.strong() == 0 {
+                    // destroy the contained object
+                    ptr::drop_in_place(&mut (*ptr).value);
+
+                    // remove the implicit "strong weak" pointer now that we've
+                    // destroyed the contents.
+                    self.dec_weak();
+
+                    if self.weak() == 0 {
+                        deallocate(ptr as *mut u8, size_of_val(&*ptr), align_of_val(&*ptr))
+                    }
+                }
+            }
+        }
+    }
+
+
+
 參考
 ========================================
 
