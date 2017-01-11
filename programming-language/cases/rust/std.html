@@ -705,7 +705,7 @@
 </div>
 <p>另外各平台也可以更改自己預設的 OOM Handler，
 Unix-like 的平台可以在 <code class="docutils literal"><span class="pre">src/libstd/sys/unix/mod.rs</span></code> 找到另外的預設 OOM Handler，
-這個 OOM Handler 其實也是沒做什麼是，
+這個 OOM Handler 其實也是沒做什麼事，
 但是會先印出訊息告知發生 OOM 後才死掉：</p>
 <div class="highlight-rust"><div class="highlight"><pre><span></span><span class="cp">#[cfg(not(test))]</span><span class="w"></span>
 <span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">init</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
