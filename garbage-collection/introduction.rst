@@ -592,9 +592,286 @@ Rust 中還有另外一個 Reference Counting 實做是可以在 Thread 間傳�
 但是 Strong Reference 和 Weak Reference 的部份從原本的 ``usize`` 換成了 ``atomic::AtomicUsize`` ，
 ``AtomicUsize`` 是可以安全地在 Thread 間傳送的整數型別。
 
-TODO: AtomicUsize
+我們先開個分之出去看 ``AtomicUsize`` 的實做是如何確保 Thread 間操作的正確性的，
+``AtomicUsize`` 的實做在 ``src/libcore/sync/atomic.rs`` ，
+直接搜尋 ``AtomicUsize`` 會找到一個叫 ``atomic_int!`` 的 macro：
 
-接下來來看 ``Arc`` 是如何被建立的，
+.. code-block:: rust
+
+    #[cfg(target_has_atomic = "ptr")]
+    atomic_int!{
+        stable(feature = "rust1", since = "1.0.0"),
+        stable(feature = "extended_compare_and_swap", since = "1.10.0"),
+        stable(feature = "atomic_debug", since = "1.3.0"),
+        stable(feature = "atomic_access", since = "1.15.0"),
+        usize AtomicUsize ATOMIC_USIZE_INIT
+    }
+
+很明顯地所有數值的 Atomic 實做都被包成一個叫 ``atomic_int!`` 的 macro，
+如此一來只要呼叫 macro 就可以實做好幾個數值的 Atomic 版本，
+我們立馬來看這 macro 做了什麼（為了減少篇幅這邊刪去了不少註解）：
+
+.. code-block:: rust
+
+    macro_rules! atomic_int {
+        ($stable:meta,
+         $stable_cxchg:meta,
+         $stable_debug:meta,
+         $stable_access:meta,
+         $int_type:ident $atomic_type:ident $atomic_init:ident) => {
+            /// An integer type which can be safely shared between threads.
+            ///
+            /// This type has the same in-memory representation as the underlying integer type.
+            #[$stable]
+            pub struct $atomic_type {
+                v: UnsafeCell<$int_type>,
+            }
+
+            /// An atomic integer initialized to `0`.
+            #[$stable]
+            pub const $atomic_init: $atomic_type = $atomic_type::new(0);
+
+            #[$stable]
+            impl Default for $atomic_type {
+                fn default() -> Self {
+                    Self::new(Default::default())
+                }
+            }
+
+            #[$stable_debug]
+            impl fmt::Debug for $atomic_type {
+                fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+                    f.debug_tuple(stringify!($atomic_type))
+                     .field(&self.load(Ordering::SeqCst))
+                     .finish()
+                }
+            }
+
+            // Send is implicitly implemented.
+            #[$stable]
+            unsafe impl Sync for $atomic_type {}
+
+            impl $atomic_type {
+                #[inline]
+                #[$stable]
+                pub const fn new(v: $int_type) -> Self {
+                    $atomic_type {v: UnsafeCell::new(v)}
+                }
+
+                /// Returns a mutable reference to the underlying integer.
+                ///
+                /// This is safe because the mutable reference guarantees that no other threads are
+                /// concurrently accessing the atomic data.
+                #[inline]
+                #[$stable_access]
+                pub fn get_mut(&mut self) -> &mut $int_type {
+                    unsafe { &mut *self.v.get() }
+                }
+
+                /// Consumes the atomic and returns the contained value.
+                ///
+                /// This is safe because passing `self` by value guarantees that no other threads are
+                /// concurrently accessing the atomic data.
+                #[inline]
+                #[$stable_access]
+                pub fn into_inner(self) -> $int_type {
+                    unsafe { self.v.into_inner() }
+                }
+
+                /// Loads a value from the atomic integer.
+                #[inline]
+                #[$stable]
+                pub fn load(&self, order: Ordering) -> $int_type {
+                    unsafe { atomic_load(self.v.get(), order) }
+                }
+
+                /// Stores a value into the atomic integer.
+                #[inline]
+                #[$stable]
+                pub fn store(&self, val: $int_type, order: Ordering) {
+                    unsafe { atomic_store(self.v.get(), val, order); }
+                }
+
+                /// Stores a value into the atomic integer, returning the old value.
+                #[inline]
+                #[$stable]
+                pub fn swap(&self, val: $int_type, order: Ordering) -> $int_type {
+                    unsafe { atomic_swap(self.v.get(), val, order) }
+                }
+
+                /// Stores a value into the atomic integer if the current value is the same as the
+                /// `current` value.
+                ///
+                /// The return value is always the previous value. If it is equal to `current`, then the
+                /// value was updated.
+                #[inline]
+                #[$stable]
+                pub fn compare_and_swap(&self,
+                                        current: $int_type,
+                                        new: $int_type,
+                                        order: Ordering) -> $int_type {
+                    match self.compare_exchange(current,
+                                                new,
+                                                order,
+                                                strongest_failure_ordering(order)) {
+                        Ok(x) => x,
+                        Err(x) => x,
+                    }
+                }
+
+                /// Stores a value into the atomic integer if the current value is the same as the
+                /// `current` value.
+                ///
+                /// The return value is a result indicating whether the new value was written and
+                /// containing the previous value. On success this value is guaranteed to be equal to
+                /// `current`.
+                ///
+                /// `compare_exchange` takes two [`Ordering`] arguments to describe the memory
+                /// ordering of this operation. The first describes the required ordering if
+                /// the operation succeeds while the second describes the required ordering when
+                /// the operation fails. The failure ordering can't be [`Release`] or [`AcqRel`] and
+                /// must be equivalent or weaker than the success ordering.
+                #[inline]
+                #[$stable_cxchg]
+                pub fn compare_exchange(&self,
+                                        current: $int_type,
+                                        new: $int_type,
+                                        success: Ordering,
+                                        failure: Ordering) -> Result<$int_type, $int_type> {
+                    unsafe { atomic_compare_exchange(self.v.get(), current, new, success, failure) }
+                }
+
+                /// Stores a value into the atomic integer if the current value is the same as the
+                /// `current` value.
+                ///
+                /// Unlike [`compare_exchange`], this function is allowed to spuriously fail even
+                /// when the comparison succeeds, which can result in more efficient code on some
+                /// platforms. The return value is a result indicating whether the new value was
+                /// written and containing the previous value.
+                ///
+                /// `compare_exchange_weak` takes two [`Ordering`] arguments to describe the memory
+                /// ordering of this operation. The first describes the required ordering if the
+                /// operation succeeds while the second describes the required ordering when the
+                /// operation fails. The failure ordering can't be [`Release`] or [`AcqRel`] and
+                /// must be equivalent or weaker than the success ordering.
+                #[inline]
+                #[$stable_cxchg]
+                pub fn compare_exchange_weak(&self,
+                                             current: $int_type,
+                                             new: $int_type,
+                                             success: Ordering,
+                                             failure: Ordering) -> Result<$int_type, $int_type> {
+                    unsafe {
+                        atomic_compare_exchange_weak(self.v.get(), current, new, success, failure)
+                    }
+                }
+
+                /// Add to the current value, returning the previous value.
+                #[inline]
+                #[$stable]
+                pub fn fetch_add(&self, val: $int_type, order: Ordering) -> $int_type {
+                    unsafe { atomic_add(self.v.get(), val, order) }
+                }
+
+                /// Subtract from the current value, returning the previous value.
+                #[inline]
+                #[$stable]
+                pub fn fetch_sub(&self, val: $int_type, order: Ordering) -> $int_type {
+                    unsafe { atomic_sub(self.v.get(), val, order) }
+                }
+
+                /// Bitwise and with the current value, returning the previous value.
+                #[inline]
+                #[$stable]
+                pub fn fetch_and(&self, val: $int_type, order: Ordering) -> $int_type {
+                    unsafe { atomic_and(self.v.get(), val, order) }
+                }
+
+                /// Bitwise or with the current value, returning the previous value.
+                #[inline]
+                #[$stable]
+                pub fn fetch_or(&self, val: $int_type, order: Ordering) -> $int_type {
+                    unsafe { atomic_or(self.v.get(), val, order) }
+                }
+
+                /// Bitwise xor with the current value, returning the previous value.
+                #[inline]
+                #[$stable]
+                pub fn fetch_xor(&self, val: $int_type, order: Ordering) -> $int_type {
+                    unsafe { atomic_xor(self.v.get(), val, order) }
+                }
+            }
+        }
+    }
+
+
+實做的函式大致上有這些：
+
+* new
+* get_mut
+* into_inner
+* load
+* store
+* swap
+* compare_and_swap
+* compare_exchange
+* compare_exchange_weak
+* fetch_add
+* fetch_sub
+* fetch_and
+* fetch_or
+* fetch_xor
+
+仔細看的話就會發現，
+其實都是呼叫對應的 ``atomic_XXX`` 函式來完成，
+所以對於 Atomic 的處理必定在那之中，
+我們以 ``fetch_add`` 為例，
+它呼叫了 ``atomic_add`` ，
+搜尋後可以找到這段程式碼：
+
+.. code-block:: rust
+
+    /// Returns the old value (like __sync_fetch_and_add).
+    #[inline]
+    unsafe fn atomic_add<T>(dst: *mut T, val: T, order: Ordering) -> T {
+        match order {
+            Acquire => intrinsics::atomic_xadd_acq(dst, val),
+            Release => intrinsics::atomic_xadd_rel(dst, val),
+            AcqRel => intrinsics::atomic_xadd_acqrel(dst, val),
+            Relaxed => intrinsics::atomic_xadd_relaxed(dst, val),
+            SeqCst => intrinsics::atomic_xadd(dst, val),
+            __Nonexhaustive => panic!("invalid memory ordering"),
+        }
+    }
+
+
+根據不同的 Ordering 規則，
+會對應到同的 Intrinsics 函式，
+部份相關的文件在
+`std::intrinsics#Atomics <https://doc.rust-lang.org/std/intrinsics/index.html#atomics>`_ ，
+從文件中可以知道 Rust 的 Ordering 規則和 C++11 相同，
+這些函式說穿了在 libcore 中其實定義好界面拿來用，
+實做也不在其中，
+而實際上的定義在 ``src/libcore/intrinsics.rs`` ：
+
+.. code-block:: rust
+
+    extern "rust-intrinsic" {
+        ...
+        pub fn atomic_xadd<T>(dst: *mut T, src: T) -> T;
+        pub fn atomic_xadd_acq<T>(dst: *mut T, src: T) -> T;
+        pub fn atomic_xadd_rel<T>(dst: *mut T, src: T) -> T;
+        pub fn atomic_xadd_acqrel<T>(dst: *mut T, src: T) -> T;
+        pub fn atomic_xadd_relaxed<T>(dst: *mut T, src: T) -> T;
+        ...
+    }
+
+至此我們可以知道這些 ``atomic_XXX`` 系列的函式都會對應到一個編譯器支援的特別函式。
+（如果想要看編譯器如何處理這些 Intrinsics 函式來接到 LLVM 的，
+可以看 ``src/librustc_trans/intrinsic.rs`` 程式碼內有 ``name.starts_with("atomic_")`` 的部份）
+
+接下來我們做個大跳躍，
+跳回來看 ``Arc`` 是如何被建立的，
 這部份其實跟 ``Rc::new`` 大同小異，
 做的事情差不了多少：
 
@@ -789,6 +1066,31 @@ TODO: AtomicUsize
                 self.drop_slow();
             }
         }
+    }
+
+
+而實際上回收記憶體的程式碼在這裡：
+
+.. code-block:: rust
+
+    impl<T: ?Sized> Arc<T> {
+        ...
+
+        #[inline(never)]
+        unsafe fn drop_slow(&mut self) {
+            let ptr = *self.ptr;
+
+            // Destroy the data at this time, even though we may not free the box
+            // allocation itself (there may still be weak pointers lying around).
+            ptr::drop_in_place(&mut (*ptr).data);
+
+            if self.inner().weak.fetch_sub(1, Release) == 1 {
+                atomic::fence(Acquire);
+                deallocate(ptr as *mut u8, size_of_val(&*ptr), align_of_val(&*ptr))
+            }
+        }
+
+        ...
     }
 
 
