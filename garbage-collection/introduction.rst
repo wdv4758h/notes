@@ -131,6 +131,17 @@ One-pass Compaction
 Copying GC
 ---------------------------------
 
+基本的 semispace copying 會把 Heap 分成兩塊，
+稱為 semispace，
+這兩塊又分別被稱為 fromspace 和 tospace，
+一次只會有一邊在使用（所以這邊的缺點是可用 Heap 大小變一半），
+GC 在運作時會把 Live Objects 從 fromspace 移到 tospace，
+並在此時整理好 Heap，
+此時角色就會互換，
+原本的 fromspace 變成 tospace，
+原本的 tospace 變成 fromspace，
+以新的 fromspace 繼續作為可用的 Heap。
+
 
 Generational Mark & Sweep GC
 ---------------------------------
@@ -300,6 +311,9 @@ ART (Android Runtime)
 Go
 ------------------------------
 
+CPython - Reference Counting
+------------------------------
+
 PyPy
 ------------------------------
 
@@ -308,6 +322,7 @@ Boehm
 
 LuaJIT
 ------------------------------
+
 
 
 深入程式碼
