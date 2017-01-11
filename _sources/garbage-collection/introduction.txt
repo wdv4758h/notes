@@ -291,6 +291,12 @@ C4 (Continuously Concurrent Compacting Collector)
 * `JVM performance optimization, Part 4: C4 garbage collection for low-latency Java applications <http://www.javaworld.com/article/2078661/java-concurrency/jvm-performance-optimization--part-4--c4-garbage-collection-for-low-latency-java-ap.html>`_
 
 
+Android Dalvik VM
+------------------------------
+
+ART (Android Runtime)
+------------------------------
+
 Go
 ------------------------------
 
@@ -307,8 +313,8 @@ LuaJIT
 深入程式碼
 ========================================
 
-Rust - Rc - Reference Counting
-------------------------------
+Rust - Rc - Non-Thread-Safe Reference Counting
+----------------------------------------------
 
 Rust 有一個 single-threaded reference-counting 實做在 ``src/liballoc/rc.rs`` ，
 以下對於實做的程式碼進行研究。
@@ -534,6 +540,261 @@ drop 時要呼叫 ``dec_strong`` 並判斷是否要回收記憶體：
             }
         }
     }
+
+
+要注意的是：
+
+* 此 Reference Counting 不是 atomic 的（也因此 overhead 很小），所以 Rust 會在編譯時期確保沒有在 thread 間傳送
+* 沒有 Cycle Detection，所以如果建立了 Cycle，該記憶體會永遠不被清除（直到程式結束），但是可以用 Weak Reference 來避免 Cycle 的產生
+* 如果要使用可以在 Thread 間傳送的 Reference Counting 的話，另外有 ``Arc`` 負責
+
+
+Rust - Arc - Thread-Safe Reference Counting
+-------------------------------------------
+
+前面已經介紹了 Rust 的 ``Rc`` ，
+但是它不能在 Thread 間傳送，
+如果我們真的有這樣的需求該怎麼辦呢？
+Rust 中還有另外一個 Reference Counting 實做是可以在 Thread 間傳送的，
+它叫做 ``Arc`` ，
+顧名思義就是 atomic 版的 ``Rc`` ，
+實做的檔案在 ``src/liballoc/arc.rs`` ，
+以下接續研究。
+
+一樣直接先來看 ``Arc`` struct：
+
+.. code-block:: rust
+
+    use core::sync::atomic;
+    use core::ptr::{self, Shared};
+
+    struct ArcInner<T: ?Sized> {
+        strong: atomic::AtomicUsize,
+
+        // the value usize::MAX acts as a sentinel for temporarily "locking" the
+        // ability to upgrade weak pointers or downgrade strong ones; this is used
+        // to avoid races in `make_mut` and `get_mut`.
+        weak: atomic::AtomicUsize,
+
+        data: T,
+    }
+
+    pub struct Arc<T: ?Sized> {
+        ptr: Shared<ArcInner<T>>,
+    }
+
+
+``Arc`` 長的跟 ``Rc`` 非常像，
+但是裡面的 ``RcBox`` 換成了 ``ArcInner`` ，
+因此關鍵就在於這 ``ArcInner`` 。
+找到 ``ArcInner`` 後會發現，
+欄位其實跟 ``RcBox`` 一模一樣，
+但是 Strong Reference 和 Weak Reference 的部份從原本的 ``usize`` 換成了 ``atomic::AtomicUsize`` ，
+``AtomicUsize`` 是可以安全地在 Thread 間傳送的整數型別。
+
+TODO: AtomicUsize
+
+接下來來看 ``Arc`` 是如何被建立的，
+這部份其實跟 ``Rc::new`` 大同小異，
+做的事情差不了多少：
+
+.. code-block:: rust
+
+    impl<T> Arc<T> {
+        /// Constructs a new `Arc<T>`.
+        ///
+        /// # Examples
+        ///
+        /// ```
+        /// use std::sync::Arc;
+        ///
+        /// let five = Arc::new(5);
+        /// ```
+        #[inline]
+        #[stable(feature = "rust1", since = "1.0.0")]
+        pub fn new(data: T) -> Arc<T> {
+            // Start the weak pointer count as 1 which is the weak pointer that's
+            // held by all the strong pointers (kinda), see std/rc.rs for more info
+            let x: Box<_> = box ArcInner {
+                strong: atomic::AtomicUsize::new(1),
+                weak: atomic::AtomicUsize::new(1),
+                data: data,
+            };
+            Arc { ptr: unsafe { Shared::new(Box::into_raw(x)) } }
+        }
+
+        ...
+    }
+
+
+接著可以在下方不遠處發現先前我們在替 ``Rc`` 實做 ``RcBoxPtr`` Trait 時，
+所要提供的函式 ``inner`` ，
+但是 ``Arc`` 這邊沒有對應的 Trait 要實做，
+不過 ``inner`` 函式要做的事還是相似的：
+
+.. code-block:: rust
+
+    impl<T: ?Sized> Arc<T> {
+        ...
+
+        #[inline]
+        fn inner(&self) -> &ArcInner<T> {
+            // This unsafety is ok because while this arc is alive we're guaranteed
+            // that the inner pointer is valid. Furthermore, we know that the
+            // `ArcInner` structure itself is `Sync` because the inner data is
+            // `Sync` as well, so we're ok loaning out an immutable pointer to these
+            // contents.
+            unsafe { &**self.ptr }
+        }
+
+        ...
+    }
+
+
+有了 ``inner`` 函式我們就可以存取到 ``ArcInner`` 裡面的 Reference Counting 數值，
+藉此就能更動裡面的計數器。
+
+接著來看 clone 的實做，
+其中直接呼叫了 ``inner`` 函式來存取 Strong Reference，
+要注意的是這邊使用了 ``fetch_add`` 來增加 Reference 數量，
+做的是對原本的數值加一，
+並回傳「原本的數值」，
+原本的數值會在後面拿來檢查，
+確保沒有 Overflow，
+以避免 use after free。
+另外要注意的是呼叫 ``fetch_add`` 時，
+還傳入了一個參數 ``Relaxed`` ，
+這個參數指定的是編譯器和 CPU 可以對指令重新排列的程度，
+``Relaxed`` 對應到的是 LLVM 內的 ``Monotonic`` Ordering，
+對於指令排列的順序不太有限制，
+只要保證是 Atomic 即可
+（這邊有引用到 C++ Boost Library 的說明，
+在 Reference Counting 的 Context 下，
+這邊的操作是可以選擇 ``Relaxed`` 的）：
+
+.. code-block:: rust
+
+    impl<T: ?Sized> Clone for Arc<T> {
+        /// Makes a clone of the `Arc` pointer.
+        ///
+        /// This creates another pointer to the same inner value, increasing the
+        /// strong reference count.
+        ///
+        /// # Examples
+        ///
+        /// ```
+        /// use std::sync::Arc;
+        ///
+        /// let five = Arc::new(5);
+        ///
+        /// five.clone();
+        /// ```
+        #[inline]
+        fn clone(&self) -> Arc<T> {
+            // Using a relaxed ordering is alright here, as knowledge of the
+            // original reference prevents other threads from erroneously deleting
+            // the object.
+            //
+            // As explained in the [Boost documentation][1], Increasing the
+            // reference counter can always be done with memory_order_relaxed: New
+            // references to an object can only be formed from an existing
+            // reference, and passing an existing reference from one thread to
+            // another must already provide any required synchronization.
+            //
+            // [1]: (www.boost.org/doc/libs/1_55_0/doc/html/atomic/usage_examples.html)
+            let old_size = self.inner().strong.fetch_add(1, Relaxed);
+
+            // However we need to guard against massive refcounts in case someone
+            // is `mem::forget`ing Arcs. If we don't do this the count can overflow
+            // and users will use-after free. We racily saturate to `isize::MAX` on
+            // the assumption that there aren't ~2 billion threads incrementing
+            // the reference count at once. This branch will never be taken in
+            // any realistic program.
+            //
+            // We abort because such a program is incredibly degenerate, and we
+            // don't care to support it.
+            if old_size > MAX_REFCOUNT {
+                unsafe {
+                    abort();
+                }
+            }
+
+            Arc { ptr: self.ptr }
+        }
+    }
+
+
+實做 drop，並檢查是否需要清除記憶體：
+
+.. code-block:: rust
+
+    impl<T: ?Sized> Drop for Arc<T> {
+        /// Drops the `Arc`.
+        ///
+        /// This will decrement the strong reference count. If the strong reference
+        /// count reaches zero then the only other references (if any) are
+        /// [`Weak`][weak], so we `drop` the inner value.
+        ///
+        /// [weak]: struct.Weak.html
+        ///
+        /// # Examples
+        ///
+        /// ```
+        /// use std::sync::Arc;
+        ///
+        /// struct Foo;
+        ///
+        /// impl Drop for Foo {
+        ///     fn drop(&mut self) {
+        ///         println!("dropped!");
+        ///     }
+        /// }
+        ///
+        /// let foo  = Arc::new(Foo);
+        /// let foo2 = foo.clone();
+        ///
+        /// drop(foo);    // Doesn't print anything
+        /// drop(foo2);   // Prints "dropped!"
+        /// ```
+        #[unsafe_destructor_blind_to_params]
+        #[inline]
+        fn drop(&mut self) {
+            // Because `fetch_sub` is already atomic, we do not need to synchronize
+            // with other threads unless we are going to delete the object. This
+            // same logic applies to the below `fetch_sub` to the `weak` count.
+            if self.inner().strong.fetch_sub(1, Release) != 1 {
+                return;
+            }
+
+            // This fence is needed to prevent reordering of use of the data and
+            // deletion of the data.  Because it is marked `Release`, the decreasing
+            // of the reference count synchronizes with this `Acquire` fence. This
+            // means that use of the data happens before decreasing the reference
+            // count, which happens before this fence, which happens before the
+            // deletion of the data.
+            //
+            // As explained in the [Boost documentation][1],
+            //
+            // > It is important to enforce any possible access to the object in one
+            // > thread (through an existing reference) to *happen before* deleting
+            // > the object in a different thread. This is achieved by a "release"
+            // > operation after dropping a reference (any access to the object
+            // > through this reference must obviously happened before), and an
+            // > "acquire" operation before deleting the object.
+            //
+            // [1]: (www.boost.org/doc/libs/1_55_0/doc/html/atomic/usage_examples.html)
+            atomic::fence(Acquire);
+
+            unsafe {
+                self.drop_slow();
+            }
+        }
+    }
+
+
+要注意的是：
+
+* 沒有 Cycle Detection，所以如果建立了 Cycle，該記憶體會永遠不被清除（直到程式結束），但是可以用 Weak Reference 來避免 Cycle 的產生
 
 
 
