@@ -214,6 +214,23 @@ Parallel GC
 Concurrent GC
 ---------------------------------
 
+Concurrent Mark-Sweep
+---------------------------------
+
+DLG (Doligez-Leroy-Gonthier)
+++++++++++++++++++++++++++++
+
+
+Concurrent Mark-Copying
+---------------------------------
+
+Baker 演算法
+++++++++++++++++++++
+
+
+Concurrent Reference Counting
+---------------------------------
+
 
 Real-time GC
 ---------------------------------
@@ -359,6 +376,13 @@ Boehm
 Lua
 ------------------------------
 
+Lua 的 GC 原本是使用一般的 Mark-Sweep，
+在 5.1 版時改成使用 Incremental Mark-Sweep，
+主要程式碼在
+`lgc.h <https://github.com/lua/lua/blob/master/lgc.h>`_
+和
+`lgc.c <https://github.com/lua/lua/blob/master/lgc.c>`_ 。
+
 
 LuaJIT
 ------------------------------
@@ -394,9 +418,43 @@ Rust 本身是不使用 GC 來管理記憶體的，
 OCaml
 ------------------------------
 
+OCaml 的 GC 是 Non-Concurrent Incremental Generational Mark-Compact GC，
+把 Heap 拆分成兩塊，
+分別為 Major Heap 和 Minor Heap，
+相關的程式碼在 `這裡 https://github.com/ocaml/ocaml>`_ ，
+Repo 內的這些地方是主要跟 GC 相關的部份：
+
+::
+
+    .
+    └── byterun
+        ├── caml
+        │   ├── gc_ctrl.h
+        │   ├── gc.h
+        │   ├── major_gc.h
+        │   └── minor_gc.h
+        ├── compact.c
+        ├── gc_ctrl.c
+        ├── major_gc.c
+        └── minor_gc.c
+
+
+Racket
+------------------------------
+
 
 Swift - ARC
 ------------------------------
+
+
+Crystal
+------------------------------
+
+Crystal 目前使用 Boehm（Boehm-Demers-Weiser Conservative Garbage Collector）作為語言的 GC 實做，
+相關的程式碼在
+`src/gc <https://github.com/crystal-lang/crystal/tree/master/src/gc>`_
+和
+`src/gc.cr <https://github.com/crystal-lang/crystal/blob/master/src/gc.cr>`_ 。
 
 
 Ruby
@@ -412,6 +470,10 @@ PHP - Zend Engine
 
 
 PHP - HHVM
+------------------------------
+
+
+Perl
 ------------------------------
 
 
@@ -1219,6 +1281,8 @@ Rust 中還有另外一個 Reference Counting 實做是可以在 Thread 間傳�
 
 * `Wikipedia - Garbage collection (computer science) <https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)>`_
 * `Wikipedia - Mark-compact algorithm <https://en.wikipedia.org/wiki/Mark-compact_algorithm>`_
+* `GC FAQ <http://iecc.com/gclist/GC-faq.html>`_
+* `Memory Management Reference <http://www.memorymanagement.org/>`_
 * `the Garbage Collection Bibliography <https://www.cs.kent.ac.uk/people/staff/rej/gcbib/>`_
 * `Garbage collection thoughts <http://sebastiansylvan.com/post/garbage-collection-thoughts/>`_
 * `Origins of Garbage Collection <https://www.seas.harvard.edu/courses/cs252/2016fa/16.pdf>`_

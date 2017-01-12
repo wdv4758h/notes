@@ -229,6 +229,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../crypto/sha.html">SHA (Secure Hash Algorithm)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mariadb.html">MariaDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/postgresql.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debug/javascript.html">Debugger for JavaScript</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/kernel.html">Debugging a Kernel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/record-replay.html">Record Replay</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/resource.html">Resource</a></li>
@@ -327,6 +328,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#harfbuzz-1-4-brings-opentype-gx-font-variations">HarfBuzz 1.4 Brings OpenType GX / Font Variations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#irssi-1-0-0-released">Irssi 1.0.0 Released</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#gnome-s-svg-rendering-library-migrating-to-rust">GNOME&#8217;s SVG Rendering Library Migrating To Rust</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#google-android-apk">Google 再次改善 Android 的 APK 更新，讓下載的量更小</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="bandwidth.html">頻寬成本</a></li>
@@ -650,6 +652,7 @@
 <li><a class="reference internal" href="#harfbuzz-1-4-brings-opentype-gx-font-variations" id="id10">HarfBuzz 1.4 Brings OpenType GX / Font Variations</a></li>
 <li><a class="reference internal" href="#irssi-1-0-0-released" id="id11">Irssi 1.0.0 Released</a></li>
 <li><a class="reference internal" href="#gnome-s-svg-rendering-library-migrating-to-rust" id="id12">GNOME&#8217;s SVG Rendering Library Migrating To Rust</a></li>
+<li><a class="reference internal" href="#google-android-apk" id="id13">Google 再次改善 Android 的 APK 更新，讓下載的量更小</a></li>
 </ul>
 </li>
 </ul>
@@ -800,6 +803,24 @@ Font Variations 可以用來描述字的各種變化，
 外包一層 C API 以確保原本使用 Librsvg 的其他程式依然可以正常運作。</p>
 <ul class="simple">
 <li><a class="reference external" href="https://mail.gnome.org/archives/desktop-devel-list/2017-January/msg00001.html">Librsvg 2.41.0 is released</a></li>
+</ul>
+</div>
+<div class="section" id="google-android-apk">
+<h2><a class="toc-backref" href="#id13">Google 再次改善 Android 的 APK 更新，讓下載的量更小</a><a class="headerlink" href="#google-android-apk" title="本標題的永久連結">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">URL:</th><td class="field-body"><a class="reference external" href="https://blog.gslin.org/archives/2016/12/11/7021/google">https://blog.gslin.org/archives/2016/12/11/7021/google</a>-再次改善-android-的-apk-更新，讓下載的量更小/</td>
+</tr>
+</tbody>
+</table>
+<p>其實就是對檔案做 bsdiff 後再壓縮，
+Client 端再用 bspatch 打上去，
+相關的技術在 Chromium 上很久以前就用過了。</p>
+<p>相關連結：</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.chromium.org/developers/design-documents/software-updates-courgette">Chromium - Software Updates: Courgette</a></li>
 </ul>
 </div>
 </div>
