@@ -124,3 +124,18 @@ GNOME 的 Librsvg 正式轉成 Rust codebase 了，
 外包一層 C API 以確保原本使用 Librsvg 的其他程式依然可以正常運作。
 
 * `Librsvg 2.41.0 is released <https://mail.gnome.org/archives/desktop-devel-list/2017-January/msg00001.html>`_
+
+
+
+Google 再次改善 Android 的 APK 更新，讓下載的量更小
+===================================================
+
+:URL: https://blog.gslin.org/archives/2016/12/11/7021/google-再次改善-android-的-apk-更新，讓下載的量更小/
+
+其實就是對檔案做 bsdiff 後再壓縮，
+Client 端再用 bspatch 打上去，
+相關的技術在 Chromium 上很久以前就用過了。
+
+相關連結：
+
+* `Chromium - Software Updates: Courgette <https://www.chromium.org/developers/design-documents/software-updates-courgette>`_
