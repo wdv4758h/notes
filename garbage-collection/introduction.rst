@@ -223,6 +223,10 @@ Real-time GC
 案例研究
 ========================================
 
+此章節比較簡短地去了解現今各平台的 GC 使用狀況，
+某些已經有特別翻完實做程式碼的可以看下面一個章節。
+
+
 OpenJDK
 ------------------------------
 
@@ -305,22 +309,117 @@ C4 (Continuously Concurrent Compacting Collector)
 Android Dalvik VM
 ------------------------------
 
+
 ART (Android Runtime)
 ------------------------------
+
 
 Go
 ------------------------------
 
-CPython - Reference Counting
+
+Python - CPython
 ------------------------------
 
-PyPy
+CPython 是 Python 的官方實做，
+採用的是 Reference Counting 技術。
+
+
+Python - PyPy
 ------------------------------
+
+PyPy 是 Python 的另外一大實做，
+內含有 JIT 及更好的 GC 支援。
+PyPy 的實做是使用一套 PyPy 的開發者們設計的動態語言實做 Framework，
+稱之為「RPython Toolchain」，
+在這個 Framework 中，
+GC 的實做可以以選擇的，
+以下列出含有的 GC 實做
+（程式碼都在 `rpython/memory/gc/ <https://bitbucket.org/pypy/pypy/src/default/rpython/memory/gc/>`_ ）：
+
+* Mark & Sweep GC，經典的傳統實做，目前已經移除
+* Semispace Copying GC，使用 Cheney 演算法
+* Generational GC，繼承自先前的 Semispace Copying GC，另外實做兩世代的 GC
+* Hybrid GC，繼承自先前的 Generational GC，另外實做三世代的 GC
+* Mark & Compact GC，目前已經移除
+* Minimark GC，先前的 Hybrid GC 的改版
+* Incminimark GC， 先前的 Minimark GC 的 Incremental 版
+
+另外還有跟 STM (Software Transactional Memory）技術結合的 GC 實做，
+STM 是概念類似資料庫 Transaction 的 Concurrent 機制，
+藉此機制 PyPy 可以真正地同時執行 Python 的 multithread 程式碼，
+而不受限於直譯器的 GIL（Global Interpreter Lock），
+目前 PyPy 內結合 STM 的 GC 放在 `pypy - stmgc <https://bitbucket.org/pypy/stmgc>`_ 。
+
 
 Boehm
 ------------------------------
 
+
+Lua
+------------------------------
+
+
 LuaJIT
+------------------------------
+
+
+GHC (Glasgow Haskell Compiler)
+------------------------------
+
+
+Erlang - BEAM VM
+------------------------------
+
+
+JavaScript - V8
+------------------------------
+
+
+JavaScript - SpiderMonkey
+------------------------------
+
+
+Rust
+------------------------------
+
+Rust 本身是不使用 GC 來管理記憶體的，
+但是撰寫時也不需要明確地呼叫 malloc/free，
+編譯器會在編譯時幫忙處理。
+
+但是 Rust 的 Standard Library 內仍然提供
+``Rc`` 和 ``Arc`` 兩種 Reference Counting 可以在需要時選用。
+
+
+OCaml
+------------------------------
+
+
+Swift - ARC
+------------------------------
+
+
+Ruby
+------------------------------
+
+
+Julia
+------------------------------
+
+
+PHP - Zend Engine
+------------------------------
+
+
+PHP - HHVM
+------------------------------
+
+
+.NET Framework
+------------------------------
+
+
+Memory Pool System
 ------------------------------
 
 
@@ -1118,6 +1217,7 @@ Rust 中還有另外一個 Reference Counting 實做是可以在 Thread 間傳�
 參考
 ========================================
 
+* `Wikipedia - Garbage collection (computer science) <https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)>`_
 * `Wikipedia - Mark-compact algorithm <https://en.wikipedia.org/wiki/Mark-compact_algorithm>`_
 * `the Garbage Collection Bibliography <https://www.cs.kent.ac.uk/people/staff/rej/gcbib/>`_
 * `Garbage collection thoughts <http://sebastiansylvan.com/post/garbage-collection-thoughts/>`_
