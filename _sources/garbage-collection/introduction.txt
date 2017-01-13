@@ -464,6 +464,22 @@ Ruby
 Julia
 ------------------------------
 
+Julia 使用的是 Incremental Mark-Sweep GC，
+相關的主要程式碼在：
+
+* `src/gc.c <https://github.com/JuliaLang/julia/blob/master/src/gc.c>`_
+* `src/gc-debug.c <https://github.com/JuliaLang/julia/blob/master/src/gc-debug.c>`_
+* `src/gc-pages.c <https://github.com/JuliaLang/julia/blob/master/src/gc-pages.c>`_
+* `src/safepoint.c <https://github.com/JuliaLang/julia/blob/master/src/safepoint.c>`_
+* `src/llvm-gcroot.cpp <https://github.com/JuliaLang/julia/blob/master/src/llvm-gcroot.cpp>`_
+
+
+參考：
+
+* `Initialization of the Julia runtime <http://docs.julialang.org/en/latest/devdocs/init.html>`_
+* `Memory layout of Julia Objects <http://docs.julialang.org/en/latest/devdocs/object.html>`_
+* `PR #5227 - Incremental GC <https://github.com/JuliaLang/julia/pull/5227>`_
+
 
 PHP - Zend Engine
 ------------------------------
@@ -479,6 +495,22 @@ Perl
 
 .NET Framework
 ------------------------------
+
+D
+------------------------------
+
+D 語言使用的是 Conservative Mark-Sweep GC，
+相關的程式碼在 ``druntime`` 的
+`src/core/memory.d <https://github.com/dlang/druntime/blob/master/src/core/memory.d>`_
+和
+`src/gc/ <https://github.com/dlang/druntime/tree/master/src/gc>`_ 。
+
+參考：
+
+* `Phobos Runtime Library - core.memory <https://dlang.org/phobos/core_memory.html>`_
+* `D Spec - Garbage Collection <https://dlang.org/spec/garbage.html>`_
+* `D - Memory Management <https://wiki.dlang.org/Memory_Management>`_
+* `Wikibooks - D Programming - Garbage Collector <https://en.wikibooks.org/wiki/D_Programming/Garbage_collector>`_
 
 
 Memory Pool System
@@ -1290,3 +1322,5 @@ Rust 中還有另外一個 Reference Counting 實做是可以在 Thread 間傳�
 
 .. [robs80] [1980] J. M. Robson. `Storage allocation is NP-hard <http://dx.doi.org/10.1016/0020-0190(80)90124-6>`_
 .. [abua04] [2004] Diab Abuaiadh, Yoav Ossia, Erez Petrank, and Uri Silbershtein. `An efficient parallel heap compaction algorithm <https://www.research.ibm.com/haifa/projects/systems/rs/papers/ParCompac_OOPSLA04.pdf>`_
+.. [baco01a] [2001] David F. Bacon, V.T. Rajan. `Concurrent Cycle Collection in Reference Counted Systems <http://researcher.watson.ibm.com/researcher/files/us-bacon/Bacon01Concurrent.pdf>`_
+.. [lin16] [2016] Yi Lin, Stephen M. Blackurn, Antony L. Hosking, Michael Norrish. `Rust as a Language for High Performance GC Implementation <http://users.cecs.anu.edu.au/~steveb/downloads/pdf/rust-ismm-2016.pdf>`_
