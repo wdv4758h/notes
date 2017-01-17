@@ -595,3 +595,66 @@ I/O 處理
 
 * `serde-rs/json - Parsing 20MB file using from_reader is slow <https://github.com/serde-rs/json/issues/160#issuecomment-253446892>`_
 * `Trait std::io::BufRead <https://doc.rust-lang.org/std/io/trait.BufRead.html>`_
+
+
+
+
+執行檔大小
+========================================
+
+如果想要盡量降低執行檔大小，
+一來是盡量打開相關的優化：
+
+* Link Time Optimization： ``Cargo.toml`` 內為 ``[profile.release]`` 加上 ``lto = ture``
+
+二來是考慮使用 ``jemalloc`` 加 ``musl``
+
+
+參考：
+
+* `Optimizing Rust Binaries: Observation of Musl versus Glibc and Jemalloc versus System Alloc <https://users.rust-lang.org/t/optimizing-rust-binaries-observation-of-musl-versus-glibc-and-jemalloc-versus-system-alloc/8499>`_
+* `jemalloc <http://jemalloc.net/>`_
+* `musl libc <https://www.musl-libc.org/>`_
+* `Cargo - src/cargo/core/manifest.rs <https://github.com/rust-lang/cargo/blob/master/src/cargo/core/manifest.rs>`_
+    - struct ``Profile`` 定義了 profile 內可加入的參數
+
+
+
+Iterator over contigunous windows of specific length
+====================================================
+
+``slice`` 內有 ``windows`` 函式可以固定長度的 Windows Iterator，
+Iterator 看到的新資料的開頭會跟上一筆的結尾重複。
+（若想要直接分成不重複片段，可以使用 ``chunks`` ）
+
+程式碼：
+
+.. code-block:: rust
+
+    fn main() {
+        let data = "測試123";
+
+        let byte_window = data.as_bytes().windows(2).collect::<Vec<_>>();
+        println!("{:?}", byte_window);
+
+        let chars = data.chars().collect::<Vec<_>>();
+        let char_window = chars.windows(2).collect::<Vec<_>>();
+        println!("{:?}", char_window);
+
+        let char_window3 = chars.windows(3).collect::<Vec<_>>();
+        println!("{:?}", char_window3);
+    }
+
+
+輸出：
+
+::
+
+    [[230, 184], [184, 172], [172, 232], [232, 169], [169, 166], [166, 49], [49, 50], [50, 51]]
+    [['測', '試'], ['試', '1'], ['1', '2'], ['2', '3']]
+    [['測', '試', '1'], ['試', '1', '2'], ['1', '2', '3']]
+
+
+參考：
+
+* `std - primitive.slice#method.windows <https://doc.rust-lang.org/std/primitive.slice.html#method.windows>`_
