@@ -139,3 +139,36 @@ Client 端再用 bspatch 打上去，
 相關連結：
 
 * `Chromium - Software Updates: Courgette <https://www.chromium.org/developers/design-documents/software-updates-courgette>`_
+
+
+
+創造AlphaGo的台灣「土博士」，他們眼中的黃士傑
+=============================================
+
+:URL: https://theinitium.com/article/20170116-taiwan-AlphaGo/
+
+講述黃士傑在進入 DeepMind 之前的經歷，
+大多是在臺師大讀博士班的時期。
+
+
+
+Why RethinkDB failed ?
+============================================
+
+:URL: https://github.com/coffeemug/defstartup/blob/master/_drafts/why-rethinkdb-failed.md
+
+講述 RethinkDB 的一群工程師當初是如何決定這個開源產品的走向，
+以及後來在產品銷售上碰到的困境，
+包含使用者對於這開源產品不願意付錢，
+還有大家都跑去使用他們當時覺得設計不良的 MongoDB，
+在產品失敗後檢討當初出錯的環節。
+
+最後作者給了三個建議：
+
+* 選一個較大的市場，並為特別的使用者打造產品
+* 學習如何辨別出你缺少的才能，並竭盡所能把相關人才招攬到團隊
+* 多閱讀 The Economist
+
+相關連結：
+
+* `The Rise of Worse is Better <https://dreamsongs.com/RiseOfWorseIsBetter.html>`_
