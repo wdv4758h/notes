@@ -658,3 +658,121 @@ Iterator 看到的新資料的開頭會跟上一筆的結尾重複。
 參考：
 
 * `std - primitive.slice#method.windows <https://doc.rust-lang.org/std/primitive.slice.html#method.windows>`_
+
+
+
+ASCII 相關操作
+========================================
+
+Rust 內建就已經有好幾個 ASCII 相關的函式可以用，
+只要實做了 ``AsciiExt`` trait 就可以支援，
+目前包含以下函式：
+
+* is_ascii
+* to_ascii_uppercase
+* to_ascii_lowercase
+* eq_ignore_ascii_case
+* make_ascii_uppercase
+* make_ascii_lowercase
+
+* `Rust - Trait std::ascii::AsciiExt <https://doc.rust-lang.org/std/ascii/trait.AsciiExt.html>`_
+
+
+
+AsRef/AsMut/Into/From
+========================================
+
+``AsRef`` 主要是用來建立統一一致的界面，
+例如一個函式接受 ``AsRef<[u8]>`` 作為參數，
+如此一來不管傳入的變數是要呼叫 ``.as_slice()`` 還是 ``.as_bytes()`` 才能轉成 ``&[u8]`` 都能拿來用，
+範例程式碼：
+
+.. code-block:: rust
+
+    fn func<T: AsRef<[u8]>>(data: T) {
+        println!("{:?}", data.as_ref());
+    }
+
+    fn main() {
+        func([1, 2, 3]);
+        func(vec![4, 5, 6]);    // need to call .as_slice() to make &[u8]
+        func("test");           // need to call .as_bytes() to make &[u8]
+    }
+
+``AsRef`` 在 Standard Libray 內的很多地方都有使用，
+例如 ``std::process::Command::args`` 就可以接受 ``&[AsRef<OsStr>]`` 作為指令參數來源。
+
+和 ``AsRef`` 一起加入的 Trait 還有 ``AsMut`` 、 ``Into`` 、 ``From`` ，
+``AsMut`` 是 ``AsRef`` 的 mutable reference 版本，
+使用範例：
+
+.. code-block:: rust
+
+    fn func<T: AsMut<[u8]>>(data: &mut T) {
+        let mut data = data.as_mut();
+        data[0] += 42;
+        println!("{:?}", data);
+    }
+
+    fn main() {
+        func(&mut [4, 5, 6]);
+        func(&mut vec![1, 2, 3]);
+    }
+
+``AsRef`` 和 ``AsMut`` 都是「一種 Reference 轉成另一種 Reference」，
+另外的 ``Into`` 則會消耗掉原本的資料在「Arbitrary Types 之間轉換」，
+但是 ``Into`` 通常不會直接被實做，
+會被直接實做的是 ``From`` ，
+而實做了 ``From`` 也就會跟著實做了 ``Into`` ，
+因為 ``Into`` 在 Standard Library 內唯二的實做之一就是 ``impl<T, U> Into<U> for T where U: From<T>`` ，
+另外一個實做則是保證了反身性（ ``impl<T> From<T> for T`` ），
+使用範例：
+
+.. code-block:: rust
+
+    fn func<T: Into<Vec<u8>>>(data: T) {
+        let mut data = data.into();
+        data[0] += 42;
+        println!("{:?}", data);
+    }
+
+    fn main() {
+        let data = vec![1, 2, 3];
+        func(data);     // value moved
+        func(data);     // compile error !!!
+
+        let data = "test".to_string();
+        func(data);     // value moved
+        func(data);     // compile error !!!
+    }
+
+
+使用 ``From`` 的範例：
+
+.. code-block:: rust
+
+    // 等同於前面使用 ``Into`` 的範例
+    fn func<T>(data: T)
+        where Vec<u8>: From<T> {
+        let mut data = Vec::from(data);
+        data[0] += 42;
+        println!("{:?}", data);
+    }
+
+    fn main() {
+        let data = vec![1, 2, 3];
+        func(data);     // value moved
+        func(data);     // compile error !!!
+
+        let data = "test".to_string();
+        func(data);     // value moved
+        func(data);     // compile error !!!
+    }
+
+
+* `Borrow and AsRef <https://doc.rust-lang.org/nightly/book/borrow-and-asref.html>`_
+* `Rust - Trait std::convert::AsRef <https://doc.rust-lang.org/nightly/std/convert/trait.AsRef.html>`_
+* `Rust - Trait std::borrow::Borrow <https://doc.rust-lang.org/nightly/std/borrow/trait.Borrow.html>`_
+* `RFC #0235 - Collections Conventions <https://github.com/rust-lang/rfcs/blob/master/text/0235-collections-conventions.md>`_
+* `RFC #0529 - Conversion Traits <https://github.com/rust-lang/rfcs/blob/master/text/0529-conversion-traits.md>`_
+* `Convenient and idiomatic conversions in Rust <https://ricardomartins.cc/2016/08/03/convenient_and_idiomatic_conversions_in_rust>`_
