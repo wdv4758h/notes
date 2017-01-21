@@ -595,3 +595,184 @@ I/O 處理
 
 * `serde-rs/json - Parsing 20MB file using from_reader is slow <https://github.com/serde-rs/json/issues/160#issuecomment-253446892>`_
 * `Trait std::io::BufRead <https://doc.rust-lang.org/std/io/trait.BufRead.html>`_
+
+
+
+
+執行檔大小
+========================================
+
+如果想要盡量降低執行檔大小，
+一來是盡量打開相關的優化：
+
+* Link Time Optimization： ``Cargo.toml`` 內為 ``[profile.release]`` 加上 ``lto = ture``
+
+二來是考慮使用 ``jemalloc`` 加 ``musl``
+
+
+參考：
+
+* `Optimizing Rust Binaries: Observation of Musl versus Glibc and Jemalloc versus System Alloc <https://users.rust-lang.org/t/optimizing-rust-binaries-observation-of-musl-versus-glibc-and-jemalloc-versus-system-alloc/8499>`_
+* `jemalloc <http://jemalloc.net/>`_
+* `musl libc <https://www.musl-libc.org/>`_
+* `Cargo - src/cargo/core/manifest.rs <https://github.com/rust-lang/cargo/blob/master/src/cargo/core/manifest.rs>`_
+    - struct ``Profile`` 定義了 profile 內可加入的參數
+
+
+
+Iterator over contigunous windows of specific length
+====================================================
+
+``slice`` 內有 ``windows`` 函式可以固定長度的 Windows Iterator，
+Iterator 看到的新資料的開頭會跟上一筆的結尾重複。
+（若想要直接分成不重複片段，可以使用 ``chunks`` ）
+
+程式碼：
+
+.. code-block:: rust
+
+    fn main() {
+        let data = "測試123";
+
+        let byte_window = data.as_bytes().windows(2).collect::<Vec<_>>();
+        println!("{:?}", byte_window);
+
+        let chars = data.chars().collect::<Vec<_>>();
+        let char_window = chars.windows(2).collect::<Vec<_>>();
+        println!("{:?}", char_window);
+
+        let char_window3 = chars.windows(3).collect::<Vec<_>>();
+        println!("{:?}", char_window3);
+    }
+
+
+輸出：
+
+::
+
+    [[230, 184], [184, 172], [172, 232], [232, 169], [169, 166], [166, 49], [49, 50], [50, 51]]
+    [['測', '試'], ['試', '1'], ['1', '2'], ['2', '3']]
+    [['測', '試', '1'], ['試', '1', '2'], ['1', '2', '3']]
+
+
+參考：
+
+* `std - primitive.slice#method.windows <https://doc.rust-lang.org/std/primitive.slice.html#method.windows>`_
+
+
+
+ASCII 相關操作
+========================================
+
+Rust 內建就已經有好幾個 ASCII 相關的函式可以用，
+只要實做了 ``AsciiExt`` trait 就可以支援，
+目前包含以下函式：
+
+* is_ascii
+* to_ascii_uppercase
+* to_ascii_lowercase
+* eq_ignore_ascii_case
+* make_ascii_uppercase
+* make_ascii_lowercase
+
+* `Rust - Trait std::ascii::AsciiExt <https://doc.rust-lang.org/std/ascii/trait.AsciiExt.html>`_
+
+
+
+AsRef/AsMut/Into/From
+========================================
+
+``AsRef`` 主要是用來建立統一一致的界面，
+例如一個函式接受 ``AsRef<[u8]>`` 作為參數，
+如此一來不管傳入的變數是要呼叫 ``.as_slice()`` 還是 ``.as_bytes()`` 才能轉成 ``&[u8]`` 都能拿來用，
+範例程式碼：
+
+.. code-block:: rust
+
+    fn func<T: AsRef<[u8]>>(data: T) {
+        println!("{:?}", data.as_ref());
+    }
+
+    fn main() {
+        func([1, 2, 3]);
+        func(vec![4, 5, 6]);    // need to call .as_slice() to make &[u8]
+        func("test");           // need to call .as_bytes() to make &[u8]
+    }
+
+``AsRef`` 在 Standard Libray 內的很多地方都有使用，
+例如 ``std::process::Command::args`` 就可以接受 ``&[AsRef<OsStr>]`` 作為指令參數來源。
+
+和 ``AsRef`` 一起加入的 Trait 還有 ``AsMut`` 、 ``Into`` 、 ``From`` ，
+``AsMut`` 是 ``AsRef`` 的 mutable reference 版本，
+使用範例：
+
+.. code-block:: rust
+
+    fn func<T: AsMut<[u8]>>(data: &mut T) {
+        let mut data = data.as_mut();
+        data[0] += 42;
+        println!("{:?}", data);
+    }
+
+    fn main() {
+        func(&mut [4, 5, 6]);
+        func(&mut vec![1, 2, 3]);
+    }
+
+``AsRef`` 和 ``AsMut`` 都是「一種 Reference 轉成另一種 Reference」，
+另外的 ``Into`` 則會消耗掉原本的資料在「Arbitrary Types 之間轉換」，
+但是 ``Into`` 通常不會直接被實做，
+會被直接實做的是 ``From`` ，
+而實做了 ``From`` 也就會跟著實做了 ``Into`` ，
+因為 ``Into`` 在 Standard Library 內唯二的實做之一就是 ``impl<T, U> Into<U> for T where U: From<T>`` ，
+另外一個實做則是保證了反身性（ ``impl<T> From<T> for T`` ），
+使用範例：
+
+.. code-block:: rust
+
+    fn func<T: Into<Vec<u8>>>(data: T) {
+        let mut data = data.into();
+        data[0] += 42;
+        println!("{:?}", data);
+    }
+
+    fn main() {
+        let data = vec![1, 2, 3];
+        func(data);     // value moved
+        func(data);     // compile error !!!
+
+        let data = "test".to_string();
+        func(data);     // value moved
+        func(data);     // compile error !!!
+    }
+
+
+使用 ``From`` 的範例：
+
+.. code-block:: rust
+
+    // 等同於前面使用 ``Into`` 的範例
+    fn func<T>(data: T)
+        where Vec<u8>: From<T> {
+        let mut data = Vec::from(data);
+        data[0] += 42;
+        println!("{:?}", data);
+    }
+
+    fn main() {
+        let data = vec![1, 2, 3];
+        func(data);     // value moved
+        func(data);     // compile error !!!
+
+        let data = "test".to_string();
+        func(data);     // value moved
+        func(data);     // compile error !!!
+    }
+
+
+* `Borrow and AsRef <https://doc.rust-lang.org/nightly/book/borrow-and-asref.html>`_
+* `Rust - Trait std::convert::AsRef <https://doc.rust-lang.org/nightly/std/convert/trait.AsRef.html>`_
+* `Rust - Trait std::borrow::Borrow <https://doc.rust-lang.org/nightly/std/borrow/trait.Borrow.html>`_
+* `RFC #0235 - Collections Conventions <https://github.com/rust-lang/rfcs/blob/master/text/0235-collections-conventions.md>`_
+* `RFC #0529 - Conversion Traits <https://github.com/rust-lang/rfcs/blob/master/text/0529-conversion-traits.md>`_
+* `Convenient and idiomatic conversions in Rust <https://ricardomartins.cc/2016/08/03/convenient_and_idiomatic_conversions_in_rust>`_

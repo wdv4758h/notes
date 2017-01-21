@@ -229,10 +229,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../crypto/sha.html">SHA (Secure Hash Algorithm)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mariadb.html">MariaDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/postgresql.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/resource.html">Database (資料庫)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/javascript.html">Debugger for JavaScript</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/kernel.html">Debugging a Kernel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/record-replay.html">Record Replay</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dns/resource.html">DNS 相關資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../docker/docker.html">Docker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../editor/emacs.html">Emacs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../embedded/stm32.html">STM32</a></li>
@@ -329,6 +331,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#irssi-1-0-0-released">Irssi 1.0.0 Released</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#gnome-s-svg-rendering-library-migrating-to-rust">GNOME&#8217;s SVG Rendering Library Migrating To Rust</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#google-android-apk">Google 再次改善 Android 的 APK 更新，讓下載的量更小</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#alphago">創造AlphaGo的台灣「土博士」，他們眼中的黃士傑</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-rethinkdb-failed">Why RethinkDB failed ?</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="bandwidth.html">頻寬成本</a></li>
@@ -338,6 +342,7 @@
 <li class="toctree-l1"><a class="reference internal" href="design-pattern.html">Design Pattern</a></li>
 <li class="toctree-l1"><a class="reference internal" href="disk-encryption.html">Disk Encryption</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dot-language.html">DOT Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="esoteric_languages.html">Esoteric Programming Language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fish.html">Fish Shell</a></li>
 <li class="toctree-l1"><a class="reference internal" href="floating-point.html">Floating Point</a></li>
 <li class="toctree-l1"><a class="reference internal" href="funny-sites.html">Funny Sites</a></li>
@@ -499,6 +504,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../security/security.html">Security</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../simd/algorithm.html">運用 SIMD 來加速的演算法</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../simd/status.html">SIMD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../synchronization/introduction.html">同步 (Synchronization)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../systemd/networkctl.html">networkctl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/256-color.html">256 color</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/README.html">常用軟體</a></li>
@@ -653,6 +659,8 @@
 <li><a class="reference internal" href="#irssi-1-0-0-released" id="id11">Irssi 1.0.0 Released</a></li>
 <li><a class="reference internal" href="#gnome-s-svg-rendering-library-migrating-to-rust" id="id12">GNOME&#8217;s SVG Rendering Library Migrating To Rust</a></li>
 <li><a class="reference internal" href="#google-android-apk" id="id13">Google 再次改善 Android 的 APK 更新，讓下載的量更小</a></li>
+<li><a class="reference internal" href="#alphago" id="id14">創造AlphaGo的台灣「土博士」，他們眼中的黃士傑</a></li>
+<li><a class="reference internal" href="#why-rethinkdb-failed" id="id15">Why RethinkDB failed ?</a></li>
 </ul>
 </li>
 </ul>
@@ -821,6 +829,45 @@ Client 端再用 bspatch 打上去，
 <p>相關連結：</p>
 <ul class="simple">
 <li><a class="reference external" href="https://www.chromium.org/developers/design-documents/software-updates-courgette">Chromium - Software Updates: Courgette</a></li>
+</ul>
+</div>
+<div class="section" id="alphago">
+<h2><a class="toc-backref" href="#id14">創造AlphaGo的台灣「土博士」，他們眼中的黃士傑</a><a class="headerlink" href="#alphago" title="本標題的永久連結">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">URL:</th><td class="field-body"><a class="reference external" href="https://theinitium.com/article/20170116-taiwan-AlphaGo/">https://theinitium.com/article/20170116-taiwan-AlphaGo/</a></td>
+</tr>
+</tbody>
+</table>
+<p>講述黃士傑在進入 DeepMind 之前的經歷，
+大多是在臺師大讀博士班的時期。</p>
+</div>
+<div class="section" id="why-rethinkdb-failed">
+<h2><a class="toc-backref" href="#id15">Why RethinkDB failed ?</a><a class="headerlink" href="#why-rethinkdb-failed" title="本標題的永久連結">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">URL:</th><td class="field-body"><a class="reference external" href="https://github.com/coffeemug/defstartup/blob/master/_drafts/why-rethinkdb-failed.md">https://github.com/coffeemug/defstartup/blob/master/_drafts/why-rethinkdb-failed.md</a></td>
+</tr>
+</tbody>
+</table>
+<p>講述 RethinkDB 的一群工程師當初是如何決定這個開源產品的走向，
+以及後來在產品銷售上碰到的困境，
+包含使用者對於這開源產品不願意付錢，
+還有大家都跑去使用他們當時覺得設計不良的 MongoDB，
+在產品失敗後檢討當初出錯的環節。</p>
+<p>最後作者給了三個建議：</p>
+<ul class="simple">
+<li>選一個較大的市場，並為特別的使用者打造產品</li>
+<li>學習如何辨別出你缺少的才能，並竭盡所能把相關人才招攬到團隊</li>
+<li>多閱讀 The Economist</li>
+</ul>
+<p>相關連結：</p>
+<ul class="simple">
+<li><a class="reference external" href="https://dreamsongs.com/RiseOfWorseIsBetter.html">The Rise of Worse is Better</a></li>
 </ul>
 </div>
 </div>

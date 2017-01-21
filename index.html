@@ -228,10 +228,12 @@
 <li class="toctree-l1"><a class="reference internal" href="crypto/sha.html">SHA (Secure Hash Algorithm)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="database/mariadb.html">MariaDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="database/postgresql.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database/resource.html">Database (資料庫)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="debug/javascript.html">Debugger for JavaScript</a></li>
 <li class="toctree-l1"><a class="reference internal" href="debug/kernel.html">Debugging a Kernel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="debug/record-replay.html">Record Replay</a></li>
 <li class="toctree-l1"><a class="reference internal" href="debug/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dns/resource.html">DNS 相關資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="docker/docker.html">Docker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="editor/emacs.html">Emacs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="embedded/stm32.html">STM32</a></li>
@@ -326,6 +328,7 @@
 <li class="toctree-l1"><a class="reference internal" href="misc/design-pattern.html">Design Pattern</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/disk-encryption.html">Disk Encryption</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/dot-language.html">DOT Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc/esoteric_languages.html">Esoteric Programming Language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/fish.html">Fish Shell</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/floating-point.html">Floating Point</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/funny-sites.html">Funny Sites</a></li>
@@ -487,6 +490,7 @@
 <li class="toctree-l1"><a class="reference internal" href="security/security.html">Security</a></li>
 <li class="toctree-l1"><a class="reference internal" href="simd/algorithm.html">運用 SIMD 來加速的演算法</a></li>
 <li class="toctree-l1"><a class="reference internal" href="simd/status.html">SIMD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="synchronization/introduction.html">同步 (Synchronization)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="systemd/networkctl.html">networkctl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="unix-like-environment/256-color.html">256 color</a></li>
 <li class="toctree-l1"><a class="reference internal" href="unix-like-environment/README.html">常用軟體</a></li>
@@ -1568,12 +1572,27 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="database/postgresql.html#postgresql">PostgreSQL</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="database/resource.html">Database (資料庫)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="database/resource.html#id2">課程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database/resource.html#id3">互動式網站</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database/resource.html#id4">系列內容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database/resource.html#id5">書籍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database/resource.html#id6">遊戲 &amp; 試題</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database/resource.html#id7">文章</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="debug/javascript.html">Debugger for JavaScript</a></li>
 <li class="toctree-l1"><a class="reference internal" href="debug/kernel.html">Debugging a Kernel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="debug/record-replay.html">Record Replay</a></li>
 <li class="toctree-l1"><a class="reference internal" href="debug/resource.html">Resource</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="debug/resource.html#debugger">Debugger 撰寫</a></li>
 <li class="toctree-l2"><a class="reference internal" href="debug/resource.html#misc">Misc</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dns/resource.html">DNS 相關資源</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dns/resource.html#id1">實做</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dns/resource.html#id2">效能測試</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dns/resource.html#id3">文章</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="docker/docker.html">Docker</a></li>
@@ -2243,6 +2262,8 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="misc/articles.html#irssi-1-0-0-released">Irssi 1.0.0 Released</a></li>
 <li class="toctree-l2"><a class="reference internal" href="misc/articles.html#gnome-s-svg-rendering-library-migrating-to-rust">GNOME&#8217;s SVG Rendering Library Migrating To Rust</a></li>
 <li class="toctree-l2"><a class="reference internal" href="misc/articles.html#google-android-apk">Google 再次改善 Android 的 APK 更新，讓下載的量更小</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc/articles.html#alphago">創造AlphaGo的台灣「土博士」，他們眼中的黃士傑</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc/articles.html#why-rethinkdb-failed">Why RethinkDB failed ?</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="misc/bandwidth.html">頻寬成本</a><ul>
@@ -2271,6 +2292,10 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="misc/dot-language.html#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="misc/esoteric_languages.html">Esoteric Programming Language</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="misc/esoteric_languages.html#id2">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="misc/fish.html">Fish Shell</a></li>
@@ -3028,6 +3053,10 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#is-empty"><code class="docutils literal"><span class="pre">is_empty()</span></code> 或 <code class="docutils literal"><span class="pre">==</span> <span class="pre">&quot;&quot;</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#cfg-condition">cfg! Condition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#i-o">I/O 處理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/README.html#id7">執行檔大小</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/README.html#iterator-over-contigunous-windows-of-specific-length">Iterator over contigunous windows of specific length</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/README.html#ascii">ASCII 相關操作</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/README.html#asref-asmut-into-from">AsRef/AsMut/Into/From</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rust/any.html">Rust&#8217;s runtime reflection - &#8220;Any&#8221; type trait</a><ul>
@@ -3263,6 +3292,10 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="rust/tips.html#is-empty"><code class="docutils literal"><span class="pre">is_empty()</span></code> 或 <code class="docutils literal"><span class="pre">==</span> <span class="pre">&quot;&quot;</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/tips.html#cfg-condition">cfg! Condition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/tips.html#i-o">I/O 處理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/tips.html#id7">執行檔大小</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/tips.html#iterator-over-contigunous-windows-of-specific-length">Iterator over contigunous windows of specific length</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/tips.html#ascii">ASCII 相關操作</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/tips.html#asref-asmut-into-from">AsRef/AsMut/Into/From</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rust/todo.html">Todo</a><ul>
@@ -3356,6 +3389,14 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l1"><a class="reference internal" href="simd/status.html">SIMD</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="simd/status.html#armv8-a-sve">ARMv8-A - SVE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="simd/status.html#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="synchronization/introduction.html">同步 (Synchronization)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="synchronization/introduction.html#rcu-read-copy-update">RCU (Read-Copy-Update)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="synchronization/introduction.html#id2">參考</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="synchronization/introduction.html#rcu">RCU</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="systemd/networkctl.html">networkctl</a></li>
