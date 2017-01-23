@@ -935,3 +935,108 @@ Cell 和 RefCell 在 ``std::cell`` 內，
 * `Interior mutability in Rust: what, why, how? <https://ricardomartins.cc/2016/06/08/interior-mutability>`_
 * `Interior mutability in Rust, part 2: thread safety <https://ricardomartins.cc/2016/06/25/interior-mutability-thread-safety>`_
 * `Interior mutability in Rust, part 3: behind the curtain <https://ricardomartins.cc/2016/07/11/interior-mutability-behind-the-curtain>`_
+
+
+
+Atomic* & RwLock & Mutex
+========================================
+
+雖然 Cell 和 RefCell 提供了 Interior Mutability，
+但是卻沒有提供 Thread-safe 的性質，
+相關操作都不是 atomic 的（RefCell 的 Runtime Borrow Checking 也不是 atomic 的），
+如果我們就這樣使用在多執行緒的程式內會有 Race Condition 的問題，
+所以 Cell 和 RefCell 都被標了 ``!Sync`` 來標示 Non-thread-safe，
+而 ``!Sync`` 這標示是有傳染性的，
+所以使用了 Cell 的 Rc 也是 Non-thread-safe。
+
+如果想要 Thread-safe 的 Interior Mutability，
+Rust 內還有其他選擇，
+對於原本使用 Cell 的型別（有實做 Copy 的），
+另外有 ``Atomic*`` 型別（在 ``std::sync::atomic::*`` ）：
+
+* AtomicBool
+* AtomicIsize
+* AtomicPtr
+* AtomicUsize
+* AtomicI16
+* AtomicI32
+* AtomicI64
+* AtomicI8
+* AtomicU16
+* AtomicU32
+* AtomicU64
+* AtomicU8
+
+雖然內建的只有這些，
+但是我們可以根據 ``AtomicPtr`` 來實做額外的型別。
+
+這些 ``Atomic*`` 型別不能直接給予新的值，
+要呼叫 ``fetch_add`` 來更動，
+其中第一個參數為要增加的值，
+第二個參數為 ``Ordering`` ，
+用來告知編譯器和 CPU 有多少彈性可以重新排列指令。
+（Thread-safe 版的 Reference Counting ``Arc`` 就是使用 ``Atomic*`` 實做的）
+
+對於原本使用 ``RefCell`` 的型別（沒有實做 Copy 的），
+另外有 ``std::sync::RwLock`` 可以使用，
+但是 ``RwLock`` 不會在 Borrow Checking 失敗時造成 Panic（ ``RefCell`` 會），
+取而代之的是持續等待直到其他執行緒釋放 Lock，
+我們可以藉由呼叫 ``read`` 來取得 Shared & Read-only Reference（類似 ``RefCell`` 的 ``borrow`` ），
+或者藉由呼叫 ``write`` 來取得 Exclusive & Mutable Reference（類似 ``RefCell`` 的 ``borrow_mut`` ）。
+
+``read`` 和 ``write`` 回傳的是 ``LockResult`` ，
+其實也就是 ``Result<Guard, PoisonError<Guard>>`` ，
+所以需要先經過一層處理，
+而 ``Guard`` 可以自動被 coerce 成內部資料的 Reference，
+所以不需要特別處理。
+而 ``PoisonError`` 發生的機會其實也不高，
+因為只會在另外一個執行緒拿著 Mutable Reference 卻 Panic 的狀況下才會發生，
+在這種狀況下，
+專案內應該有其他更嚴重的 Bug 需要先處理好。
+
+由於 ``read`` 和 ``write`` 會持續等到能夠取得 Lock，
+在某些狀況下我們不會想無止境地等待，
+此時可以使用 ``try_read`` 和 ``try_write`` ，
+這兩個函式不會 Block 住，
+在不能取得 Lock 時會回傳錯誤。
+
+除了 ``RwLock`` 外，
+另外還有 ``std::sync::Mutex`` （Mutual Exclusion）可以使用，
+``Mutex`` 可以被視為沒有 ``read`` 的 ``RwLock`` ，
+因此使用狀況更嚴苛，
+只要想存取就得取得所有掌控權，
+也因為 ``Mutex`` 只有一種 Borrow，
+所以沒有 ``read`` 和 ``write`` 函式，
+取而代之的是單一的 ``lock`` ，
+一樣如果不想等待的話還有 ``try_lock`` 可以用。
+
+
+總結：
+
++--------------------+---------------+------------------+
+|                    | Single Thread | Multiple Threads |
++====================+===============+==================+
+| Copy               | Cell          | Atomic*          |
++--------------------+---------------+------------------+
+| Non-Copy           | RefCell       | RwLock, Mutex    |
++--------------------+---------------+------------------+
+| Reference Counting | Rc            | Arc              |
++--------------------+---------------+------------------+
+
++----------------------+----------------+------------+--------+-------+
+|                      | Borrow Checker | RefCell    | RwLock | Mutex |
++======================+================+============+========+=======+
+| shared / read-only   | &T             | borrow     | read   | -     |
++----------------------+----------------+------------+--------+-------+
+| exclusive / writable | &mut T         | borrow_mut | write  | lock  |
++----------------------+----------------+------------+--------+-------+
+
+
+相關連結：
+
+* `Module std::sync <https://doc.rust-lang.org/std/sync/>`_
+* `Interior mutability in Rust, part 2: thread safety <https://ricardomartins.cc/2016/06/25/interior-mutability-thread-safety>`_
+* `Enum std::sync::atomic::Ordering <https://doc.rust-lang.org/std/sync/atomic/enum.Ordering.html>`_
+* `LLVM Language Reference Manual — Memory Model for Concurrent Operations <http://llvm.org/docs/LangRef.html#memory-model-for-concurrent-operations>`_
+* `LLVM Atomic Instructions and Concurrency Guide <http://llvm.org/docs/Atomics.html#introduction>`_
+* `C++ - std::memory_order <http://en.cppreference.com/w/cpp/atomic/memory_order>`_

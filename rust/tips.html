@@ -505,6 +505,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#ascii">ASCII 相關操作</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#asref-asmut-into-from-borrow">AsRef/AsMut/Into/From &amp; Borrow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#cell-refcell">Cell &amp; RefCell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#atomic-rwlock-mutex">Atomic* &amp; RwLock &amp; Mutex</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="todo.html">Todo</a></li>
@@ -658,41 +659,42 @@
            <div itemprop="articleBody">
             
   <div class="section" id="rust-tips">
-<h1><a class="toc-backref" href="#id8">Rust Tips</a><a class="headerlink" href="#rust-tips" title="本標題的永久連結">¶</a></h1>
+<h1><a class="toc-backref" href="#id9">Rust Tips</a><a class="headerlink" href="#rust-tips" title="本標題的永久連結">¶</a></h1>
 <div class="contents topic" id="id1">
 <p class="topic-title first">目錄</p>
 <ul class="simple">
-<li><a class="reference internal" href="#rust-tips" id="id8">Rust Tips</a><ul>
-<li><a class="reference internal" href="#id2" id="id9">輸出中間產物</a></li>
-<li><a class="reference internal" href="#counter-by-hashmap" id="id10">Counter By HashMap</a></li>
-<li><a class="reference internal" href="#slices-join-concat" id="id11">Slices join/concat</a></li>
-<li><a class="reference internal" href="#id3" id="id12">字串轉特定型別</a></li>
-<li><a class="reference internal" href="#id4" id="id13">把相依套件抓下來</a></li>
-<li><a class="reference internal" href="#conditional-attribute" id="id14">Conditional Attribute</a></li>
-<li><a class="reference internal" href="#libraries" id="id15">指定連結的 Libraries</a></li>
-<li><a class="reference internal" href="#rustc" id="id16">建立 rustc 內部文件</a></li>
-<li><a class="reference internal" href="#re-export" id="id17">re-export</a></li>
-<li><a class="reference internal" href="#ffi-foreign-function-interface" id="id18">FFI (Foreign Function Interface)</a><ul>
-<li><a class="reference internal" href="#id6" id="id19">範例一，傳入字串、回傳字串</a></li>
+<li><a class="reference internal" href="#rust-tips" id="id9">Rust Tips</a><ul>
+<li><a class="reference internal" href="#id2" id="id10">輸出中間產物</a></li>
+<li><a class="reference internal" href="#counter-by-hashmap" id="id11">Counter By HashMap</a></li>
+<li><a class="reference internal" href="#slices-join-concat" id="id12">Slices join/concat</a></li>
+<li><a class="reference internal" href="#id3" id="id13">字串轉特定型別</a></li>
+<li><a class="reference internal" href="#id4" id="id14">把相依套件抓下來</a></li>
+<li><a class="reference internal" href="#conditional-attribute" id="id15">Conditional Attribute</a></li>
+<li><a class="reference internal" href="#libraries" id="id16">指定連結的 Libraries</a></li>
+<li><a class="reference internal" href="#rustc" id="id17">建立 rustc 內部文件</a></li>
+<li><a class="reference internal" href="#re-export" id="id18">re-export</a></li>
+<li><a class="reference internal" href="#ffi-foreign-function-interface" id="id19">FFI (Foreign Function Interface)</a><ul>
+<li><a class="reference internal" href="#id6" id="id20">範例一，傳入字串、回傳字串</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#pretty-print-debug" id="id20">Pretty Print Debug</a></li>
-<li><a class="reference internal" href="#optional-arguments" id="id21">Optional Arguments</a></li>
-<li><a class="reference internal" href="#string-str" id="id22">String 和 str</a></li>
-<li><a class="reference internal" href="#is-empty" id="id23"><code class="docutils literal"><span class="pre">is_empty()</span></code> 或 <code class="docutils literal"><span class="pre">==</span> <span class="pre">&quot;&quot;</span></code></a></li>
-<li><a class="reference internal" href="#cfg-condition" id="id24">cfg! Condition</a></li>
-<li><a class="reference internal" href="#i-o" id="id25">I/O 處理</a></li>
-<li><a class="reference internal" href="#id7" id="id26">執行檔大小</a></li>
-<li><a class="reference internal" href="#iterator-over-contigunous-windows-of-specific-length" id="id27">Iterator over contigunous windows of specific length</a></li>
-<li><a class="reference internal" href="#ascii" id="id28">ASCII 相關操作</a></li>
-<li><a class="reference internal" href="#asref-asmut-into-from-borrow" id="id29">AsRef/AsMut/Into/From &amp; Borrow</a></li>
-<li><a class="reference internal" href="#cell-refcell" id="id30">Cell &amp; RefCell</a></li>
+<li><a class="reference internal" href="#pretty-print-debug" id="id21">Pretty Print Debug</a></li>
+<li><a class="reference internal" href="#optional-arguments" id="id22">Optional Arguments</a></li>
+<li><a class="reference internal" href="#string-str" id="id23">String 和 str</a></li>
+<li><a class="reference internal" href="#is-empty" id="id24"><code class="docutils literal"><span class="pre">is_empty()</span></code> 或 <code class="docutils literal"><span class="pre">==</span> <span class="pre">&quot;&quot;</span></code></a></li>
+<li><a class="reference internal" href="#cfg-condition" id="id25">cfg! Condition</a></li>
+<li><a class="reference internal" href="#i-o" id="id26">I/O 處理</a></li>
+<li><a class="reference internal" href="#id7" id="id27">執行檔大小</a></li>
+<li><a class="reference internal" href="#iterator-over-contigunous-windows-of-specific-length" id="id28">Iterator over contigunous windows of specific length</a></li>
+<li><a class="reference internal" href="#ascii" id="id29">ASCII 相關操作</a></li>
+<li><a class="reference internal" href="#asref-asmut-into-from-borrow" id="id30">AsRef/AsMut/Into/From &amp; Borrow</a></li>
+<li><a class="reference internal" href="#cell-refcell" id="id31">Cell &amp; RefCell</a></li>
+<li><a class="reference internal" href="#atomic-rwlock-mutex" id="id32">Atomic* &amp; RwLock &amp; Mutex</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="id2">
-<h2><a class="toc-backref" href="#id9">輸出中間產物</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id10">輸出中間產物</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
 <div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># cargo arguments     -- rustc arguments</span>
 cargo rustc           -- --emit<span class="o">=</span>asm,llvm-bc,llvm-ir,obj,link,dep-info
 cargo rustc --release -- --emit<span class="o">=</span>asm,llvm-bc,llvm-ir,obj,link,dep-info
@@ -710,7 +712,7 @@ cargo rustc --release -- -Zunstable-options --unpretty<span class="o">=</span>mi
 </div>
 </div>
 <div class="section" id="counter-by-hashmap">
-<h2><a class="toc-backref" href="#id10">Counter By HashMap</a><a class="headerlink" href="#counter-by-hashmap" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id11">Counter By HashMap</a><a class="headerlink" href="#counter-by-hashmap" title="本標題的永久連結">¶</a></h2>
 <p>HashMap 內 key/value 的型別可以交給 Rust 編譯器來推斷，
 利用 <code class="docutils literal"><span class="pre">or_insert</span></code> 可以在碰到沒有見過的 key 時插入預設值。</p>
 <div class="highlight-rust"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HashMap</span><span class="o">::</span><span class="n">new</span><span class="p">();</span><span class="w"></span>
@@ -721,7 +723,7 @@ cargo rustc --release -- -Zunstable-options --unpretty<span class="o">=</span>mi
 </div>
 </div>
 <div class="section" id="slices-join-concat">
-<h2><a class="toc-backref" href="#id11">Slices join/concat</a><a class="headerlink" href="#slices-join-concat" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id12">Slices join/concat</a><a class="headerlink" href="#slices-join-concat" title="本標題的永久連結">¶</a></h2>
 <p>只要實作了
 <a class="reference external" href="https://doc.rust-lang.org/std/slice/trait.SliceConcatExt.html">std::slice::SliceConcatExt</a>
 trait，
@@ -734,7 +736,7 @@ trait，
 </div>
 </div>
 <div class="section" id="id3">
-<h2><a class="toc-backref" href="#id12">字串轉特定型別</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id13">字串轉特定型別</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
 <p>只要型別 T 有實做 <code class="docutils literal"><span class="pre">std::str::FromStr</span></code> ，
 那就可以使用 <code class="docutils literal"><span class="pre">.parse::&lt;T&gt;()</span></code> 來轉換：</p>
 <div class="highlight-rust"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">foo</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;text&quot;</span><span class="p">.</span><span class="n">parse</span><span class="o">::&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
@@ -754,7 +756,7 @@ trait，
 </ul>
 </div>
 <div class="section" id="id4">
-<h2><a class="toc-backref" href="#id13">把相依套件抓下來</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id14">把相依套件抓下來</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h2>
 <p>要裝專案的相依套件可以使用 <code class="docutils literal"><span class="pre">cargo</span> <span class="pre">fetch</span></code> ，
 這指令會把需要的檔案抓到 <code class="docutils literal"><span class="pre">$CARGO_HOME</span></code> ，
 在該資料夾下建立一個叫做 <code class="docutils literal"><span class="pre">registry</span></code> 的資料夾，
@@ -798,7 +800,7 @@ trait，
 </div>
 </div>
 <div class="section" id="conditional-attribute">
-<h2><a class="toc-backref" href="#id14">Conditional Attribute</a><a class="headerlink" href="#conditional-attribute" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id15">Conditional Attribute</a><a class="headerlink" href="#conditional-attribute" title="本標題的永久連結">¶</a></h2>
 <p><code class="docutils literal"><span class="pre">#[cfg_attr(&lt;p&gt;,</span> <span class="pre">&lt;attr&gt;)]</span></code></p>
 <p>當 <code class="docutils literal"><span class="pre">&lt;p&gt;</span></code> 成立時，就加上後面的 <code class="docutils literal"><span class="pre">&lt;attr&gt;</span></code> ，
 範例：</p>
@@ -815,7 +817,7 @@ trait，
 </ul>
 </div>
 <div class="section" id="libraries">
-<h2><a class="toc-backref" href="#id15">指定連結的 Libraries</a><a class="headerlink" href="#libraries" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id16">指定連結的 Libraries</a><a class="headerlink" href="#libraries" title="本標題的永久連結">¶</a></h2>
 <p>要指定額外要連結 Libraries 可以使用 <code class="docutils literal"><span class="pre">link</span></code> attribute，
 並且可以指定如何連結：</p>
 <p>目前 <code class="docutils literal"><span class="pre">link</span></code> 可以指定兩項資訊，
@@ -829,7 +831,7 @@ OSX 上還可以選擇 <code class="docutils literal"><span class="pre">framewor
 </ul>
 </div>
 <div class="section" id="rustc">
-<h2><a class="toc-backref" href="#id16">建立 rustc 內部文件</a><a class="headerlink" href="#rustc" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id17">建立 rustc 內部文件</a><a class="headerlink" href="#rustc" title="本標題的永久連結">¶</a></h2>
 <div class="highlight-sh"><div class="highlight"><pre><span></span>./configure --enable-compiler-docs
 make docs -j4
 
@@ -840,13 +842,13 @@ git push origin gh-pages:gh-pages
 </div>
 </div>
 <div class="section" id="re-export">
-<h2><a class="toc-backref" href="#id17">re-export</a><a class="headerlink" href="#re-export" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id18">re-export</a><a class="headerlink" href="#re-export" title="本標題的永久連結">¶</a></h2>
 <div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">pub</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">library</span><span class="o">::*</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="ffi-foreign-function-interface">
-<h2><a class="toc-backref" href="#id18">FFI (Foreign Function Interface)</a><a class="headerlink" href="#ffi-foreign-function-interface" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id19">FFI (Foreign Function Interface)</a><a class="headerlink" href="#ffi-foreign-function-interface" title="本標題的永久連結">¶</a></h2>
 <p>在 Rust 中， <code class="docutils literal"><span class="pre">String</span></code> 是由一連串的 <code class="docutils literal"><span class="pre">u8</span></code> 所組成，
 並且保證會是有效的 UTF-8，
 這意味著 String 當中也可以正常地儲存 <code class="docutils literal"><span class="pre">NUL</span></code> （ <code class="docutils literal"><span class="pre">\0</span></code> ）。
@@ -868,7 +870,7 @@ git push origin gh-pages:gh-pages
 <li><a class="reference external" href="http://cffi.readthedocs.io/en/latest/">Python - CFFI</a></li>
 </ul>
 <div class="section" id="id6">
-<h3><a class="toc-backref" href="#id19">範例一，傳入字串、回傳字串</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id20">範例一，傳入字串、回傳字串</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h3>
 <p>Rust 程式碼：</p>
 <div class="highlight-rust"><div class="highlight"><pre><span></span><span class="c1">// func.rs</span>
 
@@ -964,7 +966,7 @@ git push origin gh-pages:gh-pages
 </div>
 </div>
 <div class="section" id="pretty-print-debug">
-<h2><a class="toc-backref" href="#id20">Pretty Print Debug</a><a class="headerlink" href="#pretty-print-debug" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id21">Pretty Print Debug</a><a class="headerlink" href="#pretty-print-debug" title="本標題的永久連結">¶</a></h2>
 <div class="highlight-sh"><div class="highlight"><pre><span></span>println!<span class="o">(</span><span class="s2">&quot;{:#?}&quot;</span>, vec!<span class="o">[</span>1, 2, 3<span class="o">])</span><span class="p">;</span>
 
 // <span class="o">[</span>
@@ -976,7 +978,7 @@ git push origin gh-pages:gh-pages
 </div>
 </div>
 <div class="section" id="optional-arguments">
-<h2><a class="toc-backref" href="#id21">Optional Arguments</a><a class="headerlink" href="#optional-arguments" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id22">Optional Arguments</a><a class="headerlink" href="#optional-arguments" title="本標題的永久連結">¶</a></h2>
 <p>Rust 1.12 開始 <code class="docutils literal"><span class="pre">Option</span></code> 實做了 <code class="docutils literal"><span class="pre">From</span></code> ，
 <code class="docutils literal"><span class="pre">From</span></code> 是一個很基本的型別轉換 <code class="docutils literal"><span class="pre">trait</span></code> ，
 任何的 Rust 型別都可以實做 <code class="docutils literal"><span class="pre">From</span></code> 。</p>
@@ -1034,7 +1036,7 @@ git push origin gh-pages:gh-pages
 </ul>
 </div>
 <div class="section" id="string-str">
-<h2><a class="toc-backref" href="#id22">String 和 str</a><a class="headerlink" href="#string-str" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id23">String 和 str</a><a class="headerlink" href="#string-str" title="本標題的永久連結">¶</a></h2>
 <p>Rust 有兩種字串的型別，分別為 <code class="docutils literal"><span class="pre">String</span></code> 和 <code class="docutils literal"><span class="pre">str</span></code> ，</p>
 <p>String 是 dynamic heap string type，
 當我們需要更動或擁有所有權時，
@@ -1070,7 +1072,7 @@ git push origin gh-pages:gh-pages
 </ul>
 </div>
 <div class="section" id="is-empty">
-<h2><a class="toc-backref" href="#id23"><code class="docutils literal"><span class="pre">is_empty()</span></code> 或 <code class="docutils literal"><span class="pre">==</span> <span class="pre">&quot;&quot;</span></code></a><a class="headerlink" href="#is-empty" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id24"><code class="docutils literal"><span class="pre">is_empty()</span></code> 或 <code class="docutils literal"><span class="pre">==</span> <span class="pre">&quot;&quot;</span></code></a><a class="headerlink" href="#is-empty" title="本標題的永久連結">¶</a></h2>
 <p>實測產生出來的組語是一樣的</p>
 <div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">fn</span><span class="w"> </span><span class="n">function1</span><span class="p">(</span><span class="n">x</span><span class="o">:</span><span class="w"> </span><span class="o">&amp;</span><span class="kt">str</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -1115,7 +1117,7 @@ git push origin gh-pages:gh-pages
 </div>
 </div>
 <div class="section" id="cfg-condition">
-<h2><a class="toc-backref" href="#id24">cfg! Condition</a><a class="headerlink" href="#cfg-condition" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id25">cfg! Condition</a><a class="headerlink" href="#cfg-condition" title="本標題的永久連結">¶</a></h2>
 <p>原本內建的 macro 可以達到這樣的事：</p>
 <div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="n">cfg</span><span class="o">!</span><span class="p">(</span><span class="n">feature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;xxx&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="p">...</span><span class="w"></span>
@@ -1144,7 +1146,7 @@ git push origin gh-pages:gh-pages
 </div>
 </div>
 <div class="section" id="i-o">
-<h2><a class="toc-backref" href="#id25">I/O 處理</a><a class="headerlink" href="#i-o" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id26">I/O 處理</a><a class="headerlink" href="#i-o" title="本標題的永久連結">¶</a></h2>
 <p>在進行有實做 Read trait 的型別時，
 至少有三種以上的方式可以讀出資料：</p>
 <ol class="arabic simple">
@@ -1180,7 +1182,7 @@ git push origin gh-pages:gh-pages
 </ul>
 </div>
 <div class="section" id="id7">
-<h2><a class="toc-backref" href="#id26">執行檔大小</a><a class="headerlink" href="#id7" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id27">執行檔大小</a><a class="headerlink" href="#id7" title="本標題的永久連結">¶</a></h2>
 <p>如果想要盡量降低執行檔大小，
 一來是盡量打開相關的優化：</p>
 <ul class="simple">
@@ -1206,7 +1208,7 @@ git push origin gh-pages:gh-pages
 </ul>
 </div>
 <div class="section" id="iterator-over-contigunous-windows-of-specific-length">
-<h2><a class="toc-backref" href="#id27">Iterator over contigunous windows of specific length</a><a class="headerlink" href="#iterator-over-contigunous-windows-of-specific-length" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id28">Iterator over contigunous windows of specific length</a><a class="headerlink" href="#iterator-over-contigunous-windows-of-specific-length" title="本標題的永久連結">¶</a></h2>
 <p><code class="docutils literal"><span class="pre">slice</span></code> 內有 <code class="docutils literal"><span class="pre">windows</span></code> 函式可以固定長度的 Windows Iterator，
 Iterator 看到的新資料的開頭會跟上一筆的結尾重複。
 （若想要直接分成不重複片段，可以使用 <code class="docutils literal"><span class="pre">chunks</span></code> ）</p>
@@ -1238,7 +1240,7 @@ Iterator 看到的新資料的開頭會跟上一筆的結尾重複。
 </ul>
 </div>
 <div class="section" id="ascii">
-<h2><a class="toc-backref" href="#id28">ASCII 相關操作</a><a class="headerlink" href="#ascii" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id29">ASCII 相關操作</a><a class="headerlink" href="#ascii" title="本標題的永久連結">¶</a></h2>
 <p>Rust 內建就已經有好幾個 ASCII 相關的函式可以用，
 只要實做了 <code class="docutils literal"><span class="pre">AsciiExt</span></code> trait 就可以支援，
 目前包含以下函式：</p>
@@ -1253,7 +1255,7 @@ Iterator 看到的新資料的開頭會跟上一筆的結尾重複。
 </ul>
 </div>
 <div class="section" id="asref-asmut-into-from-borrow">
-<h2><a class="toc-backref" href="#id29">AsRef/AsMut/Into/From &amp; Borrow</a><a class="headerlink" href="#asref-asmut-into-from-borrow" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id30">AsRef/AsMut/Into/From &amp; Borrow</a><a class="headerlink" href="#asref-asmut-into-from-borrow" title="本標題的永久連結">¶</a></h2>
 <p><code class="docutils literal"><span class="pre">AsRef</span></code> 主要是用來建立統一一致的界面，
 例如一個函式接受 <code class="docutils literal"><span class="pre">AsRef&lt;[u8]&gt;</span></code> 作為參數，
 如此一來不管傳入的變數是要呼叫 <code class="docutils literal"><span class="pre">.as_slice()</span></code> 還是 <code class="docutils literal"><span class="pre">.as_bytes()</span></code> 才能轉成 <code class="docutils literal"><span class="pre">&amp;[u8]</span></code> 都能拿來用，
@@ -1420,7 +1422,7 @@ Iterator 看到的新資料的開頭會跟上一筆的結尾重複。
 </ul>
 </div>
 <div class="section" id="cell-refcell">
-<h2><a class="toc-backref" href="#id30">Cell &amp; RefCell</a><a class="headerlink" href="#cell-refcell" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id31">Cell &amp; RefCell</a><a class="headerlink" href="#cell-refcell" title="本標題的永久連結">¶</a></h2>
 <p>Cell 和 RefCell 在 <code class="docutils literal"><span class="pre">std::cell</span></code> 內，
 該 module 提供的是「Shareable Mutable Containers」，
 換句話說是提供「Interior Mutability」，
@@ -1508,6 +1510,142 @@ Iterator 看到的新資料的開頭會跟上一筆的結尾重複。
 <li><a class="reference external" href="https://ricardomartins.cc/2016/06/08/interior-mutability">Interior mutability in Rust: what, why, how?</a></li>
 <li><a class="reference external" href="https://ricardomartins.cc/2016/06/25/interior-mutability-thread-safety">Interior mutability in Rust, part 2: thread safety</a></li>
 <li><a class="reference external" href="https://ricardomartins.cc/2016/07/11/interior-mutability-behind-the-curtain">Interior mutability in Rust, part 3: behind the curtain</a></li>
+</ul>
+</div>
+<div class="section" id="atomic-rwlock-mutex">
+<h2><a class="toc-backref" href="#id32">Atomic* &amp; RwLock &amp; Mutex</a><a class="headerlink" href="#atomic-rwlock-mutex" title="本標題的永久連結">¶</a></h2>
+<p>雖然 Cell 和 RefCell 提供了 Interior Mutability，
+但是卻沒有提供 Thread-safe 的性質，
+相關操作都不是 atomic 的（RefCell 的 Runtime Borrow Checking 也不是 atomic 的），
+如果我們就這樣使用在多執行緒的程式內會有 Race Condition 的問題，
+所以 Cell 和 RefCell 都被標了 <code class="docutils literal"><span class="pre">!Sync</span></code> 來標示 Non-thread-safe，
+而 <code class="docutils literal"><span class="pre">!Sync</span></code> 這標示是有傳染性的，
+所以使用了 Cell 的 Rc 也是 Non-thread-safe。</p>
+<p>如果想要 Thread-safe 的 Interior Mutability，
+Rust 內還有其他選擇，
+對於原本使用 Cell 的型別（有實做 Copy 的），
+另外有 <code class="docutils literal"><span class="pre">Atomic*</span></code> 型別（在 <code class="docutils literal"><span class="pre">std::sync::atomic::*</span></code> ）：</p>
+<ul class="simple">
+<li>AtomicBool</li>
+<li>AtomicIsize</li>
+<li>AtomicPtr</li>
+<li>AtomicUsize</li>
+<li>AtomicI16</li>
+<li>AtomicI32</li>
+<li>AtomicI64</li>
+<li>AtomicI8</li>
+<li>AtomicU16</li>
+<li>AtomicU32</li>
+<li>AtomicU64</li>
+<li>AtomicU8</li>
+</ul>
+<p>雖然內建的只有這些，
+但是我們可以根據 <code class="docutils literal"><span class="pre">AtomicPtr</span></code> 來實做額外的型別。</p>
+<p>這些 <code class="docutils literal"><span class="pre">Atomic*</span></code> 型別不能直接給予新的值，
+要呼叫 <code class="docutils literal"><span class="pre">fetch_add</span></code> 來更動，
+其中第一個參數為要增加的值，
+第二個參數為 <code class="docutils literal"><span class="pre">Ordering</span></code> ，
+用來告知編譯器和 CPU 有多少彈性可以重新排列指令。
+（Thread-safe 版的 Reference Counting <code class="docutils literal"><span class="pre">Arc</span></code> 就是使用 <code class="docutils literal"><span class="pre">Atomic*</span></code> 實做的）</p>
+<p>對於原本使用 <code class="docutils literal"><span class="pre">RefCell</span></code> 的型別（沒有實做 Copy 的），
+另外有 <code class="docutils literal"><span class="pre">std::sync::RwLock</span></code> 可以使用，
+但是 <code class="docutils literal"><span class="pre">RwLock</span></code> 不會在 Borrow Checking 失敗時造成 Panic（ <code class="docutils literal"><span class="pre">RefCell</span></code> 會），
+取而代之的是持續等待直到其他執行緒釋放 Lock，
+我們可以藉由呼叫 <code class="docutils literal"><span class="pre">read</span></code> 來取得 Shared &amp; Read-only Reference（類似 <code class="docutils literal"><span class="pre">RefCell</span></code> 的 <code class="docutils literal"><span class="pre">borrow</span></code> ），
+或者藉由呼叫 <code class="docutils literal"><span class="pre">write</span></code> 來取得 Exclusive &amp; Mutable Reference（類似 <code class="docutils literal"><span class="pre">RefCell</span></code> 的 <code class="docutils literal"><span class="pre">borrow_mut</span></code> ）。</p>
+<p><code class="docutils literal"><span class="pre">read</span></code> 和 <code class="docutils literal"><span class="pre">write</span></code> 回傳的是 <code class="docutils literal"><span class="pre">LockResult</span></code> ，
+其實也就是 <code class="docutils literal"><span class="pre">Result&lt;Guard,</span> <span class="pre">PoisonError&lt;Guard&gt;&gt;</span></code> ，
+所以需要先經過一層處理，
+而 <code class="docutils literal"><span class="pre">Guard</span></code> 可以自動被 coerce 成內部資料的 Reference，
+所以不需要特別處理。
+而 <code class="docutils literal"><span class="pre">PoisonError</span></code> 發生的機會其實也不高，
+因為只會在另外一個執行緒拿著 Mutable Reference 卻 Panic 的狀況下才會發生，
+在這種狀況下，
+專案內應該有其他更嚴重的 Bug 需要先處理好。</p>
+<p>由於 <code class="docutils literal"><span class="pre">read</span></code> 和 <code class="docutils literal"><span class="pre">write</span></code> 會持續等到能夠取得 Lock，
+在某些狀況下我們不會想無止境地等待，
+此時可以使用 <code class="docutils literal"><span class="pre">try_read</span></code> 和 <code class="docutils literal"><span class="pre">try_write</span></code> ，
+這兩個函式不會 Block 住，
+在不能取得 Lock 時會回傳錯誤。</p>
+<p>除了 <code class="docutils literal"><span class="pre">RwLock</span></code> 外，
+另外還有 <code class="docutils literal"><span class="pre">std::sync::Mutex</span></code> （Mutual Exclusion）可以使用，
+<code class="docutils literal"><span class="pre">Mutex</span></code> 可以被視為沒有 <code class="docutils literal"><span class="pre">read</span></code> 的 <code class="docutils literal"><span class="pre">RwLock</span></code> ，
+因此使用狀況更嚴苛，
+只要想存取就得取得所有掌控權，
+也因為 <code class="docutils literal"><span class="pre">Mutex</span></code> 只有一種 Borrow，
+所以沒有 <code class="docutils literal"><span class="pre">read</span></code> 和 <code class="docutils literal"><span class="pre">write</span></code> 函式，
+取而代之的是單一的 <code class="docutils literal"><span class="pre">lock</span></code> ，
+一樣如果不想等待的話還有 <code class="docutils literal"><span class="pre">try_lock</span></code> 可以用。</p>
+<p>總結：</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="38%" />
+<col width="28%" />
+<col width="34%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">&nbsp;</th>
+<th class="head">Single Thread</th>
+<th class="head">Multiple Threads</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Copy</td>
+<td>Cell</td>
+<td>Atomic*</td>
+</tr>
+<tr class="row-odd"><td>Non-Copy</td>
+<td>RefCell</td>
+<td>RwLock, Mutex</td>
+</tr>
+<tr class="row-even"><td>Reference Counting</td>
+<td>Rc</td>
+<td>Arc</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="34%" />
+<col width="25%" />
+<col width="18%" />
+<col width="12%" />
+<col width="11%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">&nbsp;</th>
+<th class="head">Borrow Checker</th>
+<th class="head">RefCell</th>
+<th class="head">RwLock</th>
+<th class="head">Mutex</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>shared / read-only</td>
+<td>&amp;T</td>
+<td>borrow</td>
+<td>read</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td>exclusive / writable</td>
+<td>&amp;mut T</td>
+<td>borrow_mut</td>
+<td>write</td>
+<td>lock</td>
+</tr>
+</tbody>
+</table>
+<p>相關連結：</p>
+<ul class="simple">
+<li><a class="reference external" href="https://doc.rust-lang.org/std/sync/">Module std::sync</a></li>
+<li><a class="reference external" href="https://ricardomartins.cc/2016/06/25/interior-mutability-thread-safety">Interior mutability in Rust, part 2: thread safety</a></li>
+<li><a class="reference external" href="https://doc.rust-lang.org/std/sync/atomic/enum.Ordering.html">Enum std::sync::atomic::Ordering</a></li>
+<li><a class="reference external" href="http://llvm.org/docs/LangRef.html#memory-model-for-concurrent-operations">LLVM Language Reference Manual — Memory Model for Concurrent Operations</a></li>
+<li><a class="reference external" href="http://llvm.org/docs/Atomics.html#introduction">LLVM Atomic Instructions and Concurrency Guide</a></li>
+<li><a class="reference external" href="http://en.cppreference.com/w/cpp/atomic/memory_order">C++ - std::memory_order</a></li>
 </ul>
 </div>
 </div>
