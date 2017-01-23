@@ -343,7 +343,6 @@ Pretty Print Debug
 
 
 
-
 Optional Arguments
 ========================================
 
@@ -679,7 +678,7 @@ Rust 內建就已經有好幾個 ASCII 相關的函式可以用，
 
 
 
-AsRef/AsMut/Into/From
+AsRef/AsMut/Into/From & Borrow
 ========================================
 
 ``AsRef`` 主要是用來建立統一一致的界面，
@@ -832,3 +831,107 @@ AsRef/AsMut/Into/From
 * `RFC #0235 - Collections Conventions <https://github.com/rust-lang/rfcs/blob/master/text/0235-collections-conventions.md>`_
 * `RFC #0529 - Conversion Traits <https://github.com/rust-lang/rfcs/blob/master/text/0529-conversion-traits.md>`_
 * `Convenient and idiomatic conversions in Rust <https://ricardomartins.cc/2016/08/03/convenient_and_idiomatic_conversions_in_rust>`_
+* `Rust - src/libcore/convert.rs <https://github.com/rust-lang/rust/blob/master/src/libcore/convert.rs>`_
+
+
+
+Cell & RefCell
+========================================
+
+Cell 和 RefCell 在 ``std::cell`` 內，
+該 module 提供的是「Shareable Mutable Containers」，
+換句話說是提供「Interior Mutability」，
+一般 Rust 的型別都是「Inherited Mutability」，
+也就是說如果我的 struct 變數是「不可更動」的，
+那裡面的每個變數都會是「不可更動」的，
+但是有時候我們會需要 struct 為「不可更動」而裡面某個欄位為「可以更動」，
+例如 ``std::rc::Rc`` 在實做 reference counting，
+無論現在使用到的變數是不是可以更動，
+裡面的計數器就是要可以改動。
+
+
+利用 ``Cell`` 製造可以更動的欄位：
+
+.. code-block:: rust
+
+    use std::cell::Cell;
+
+    struct FunctionWrapper<'a> {
+        counter: Cell<usize>,
+        func: &'a Fn(),
+    }
+
+    impl<'a> FunctionWrapper<'a> {
+        pub fn new(func: &Fn()) -> FunctionWrapper {
+            FunctionWrapper {
+                counter: Cell::new(0),
+                func: func,
+            }
+        }
+
+        pub fn call(&self) {
+            self.counter.set(self.counter.get()+1);
+            (*(*self).func)();
+        }
+
+        pub fn count(&self) -> usize {
+            self.counter.get()
+        }
+    }
+
+    fn hello() {
+        println!("Hello");
+    }
+
+    fn main() {
+        let func = &hello;
+        let func = FunctionWrapper::new(func);
+        println!("Call times: {}", func.count());   // 0
+        func.call();
+        println!("Call times: {}", func.count());   // 1
+        func.call();
+    }
+
+
+``Cell`` 雖然是 zero-cost，
+但只能用於有實做 ``Copy`` 的型別，
+對於沒有實做 ``Copy`` 的型別要使用 ``RefCell`` ，
+而 ``RefCell`` 和其他編譯時期做靜態追蹤的 Native Reference 型別不同，
+``RefCell`` 會利用 Rust 的 lifetime 實做「Dynamic Borrowing」，
+追蹤會執行在 runtime，
+也因此有機會 borrow 到已經 mutably borrowed 的值，
+當這個狀況發生時會導致 Thread Panic。
+
+
+以下狀況可能會使用到 Interior Mutability：
+
+* 在不可更動的資料內加入可以內部更動的欄位
+* 實做邏輯上不會更動的 method（例如為了 amortize running time 而在內部做了 cache）
+* 更動 ``Clone`` 的實做
+* 更動使用 Reference Counting 的值
+
+
+``Cell`` 和 ``RefCell`` 相比下，雖然 ``Cell`` 沒有 Runtime Cost，但以下狀況可能會想要用 ``RefCell`` ：
+
+* 要包的型別沒有實做 ``Copy``
+* 想要在出錯時讓程式 crash 而不是讓資料有爛掉的可能性（RefCell 才有 Runtime Borrow Checking）
+* expose 內部值得指標
+
+
+總結：
+
+* Interior Mutability：當你擁有 immutable reference 卻仍然可以更動更動內部某些值
+* Cell 和 RefCell 可以用來達成 Interior Mutability，兩個都沒有 Compile-time Borrow Checking
+* Cell 包裝有實做 Copy 的型別，沒有 Compile-time 和 Runtime Borrow Checking
+* RefCell 包裝任意型別，有動態的 Borrow Checking，需要呼叫 borrow/borrow_mut 來取得 reference，此時會進行 Runtime 的 Borrow Checking
+* Cell 具有 copy 的語意，會提供 values。RefCell 具有 move 的語意，會提供 references
+* Cell 和 RefCell 都是 Non-thread-safe，在多執行緒下需要用 Mutex 或 RwLock
+
+
+相關連結：
+
+* `Module std::cell <https://doc.rust-lang.org/std/cell/>`_
+* `Choosing your Guarantees <https://doc.rust-lang.org/beta/book/choosing-your-guarantees.html>`_
+* `Interior mutability in Rust: what, why, how? <https://ricardomartins.cc/2016/06/08/interior-mutability>`_
+* `Interior mutability in Rust, part 2: thread safety <https://ricardomartins.cc/2016/06/25/interior-mutability-thread-safety>`_
+* `Interior mutability in Rust, part 3: behind the curtain <https://ricardomartins.cc/2016/07/11/interior-mutability-behind-the-curtain>`_
