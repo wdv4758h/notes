@@ -1294,6 +1294,8 @@ Iterator 看到的新資料的開頭會跟上一筆的結尾重複。
 使用範例：</p>
 <div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">fn</span><span class="w"> </span><span class="n">func</span><span class="o">&lt;</span><span class="n">T</span><span class="o">:</span><span class="w"> </span><span class="nb">Into</span><span class="o">&lt;</span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">u8</span><span class="o">&gt;&gt;&gt;</span><span class="p">(</span><span class="n">data</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">into</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 也可以用 Into trait 來呼叫 into，但是要有足夠多的資訊讓編譯器知道要轉成的型別</span>
+<span class="w">    </span><span class="c1">// let mut data = Into::into(data);</span>
 <span class="w">    </span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{:?}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">);</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
@@ -1313,7 +1315,10 @@ Iterator 看到的新資料的開頭會跟上一筆的結尾重複。
 <div class="highlight-rust"><div class="highlight"><pre><span></span><span class="c1">// 等同於前面使用 ``Into`` 的範例</span>
 <span class="k">fn</span><span class="w"> </span><span class="n">func</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">data</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="n">where</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">u8</span><span class="o">&gt;:</span><span class="w"> </span><span class="nb">From</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 用目標型別來呼叫 from</span>
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Vec</span><span class="o">::</span><span class="n">from</span><span class="p">(</span><span class="n">data</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 也可以直接用 From trait 來呼叫 from，但是編譯器要有足夠多的訊息來幫忙找到對應的型別</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">data</span><span class="o">:</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="n">_</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">From</span><span class="o">::</span><span class="n">from</span><span class="p">(</span><span class="n">data</span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{:?}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">);</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
@@ -1329,6 +1334,79 @@ Iterator 看到的新資料的開頭會跟上一筆的結尾重複。
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
+<p><code class="docutils literal"><span class="pre">From</span></code> 和 <code class="docutils literal"><span class="pre">Into</span></code> 在使用上非常類似，
+但轉換的方向不同，
+使用上為了讓意圖明顯和簡短方便，
+分別的情境可能會是 <code class="docutils literal"><span class="pre">TargetType::from(value)</span></code> 和 <code class="docutils literal"><span class="pre">value.into()</span></code> 。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="64%" />
+<col width="17%" />
+<col width="10%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Trait</th>
+<th class="head">功用</th>
+<th class="head">Moved/Reference</th>
+<th class="head">可否失敗</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>From</td>
+<td>在不同的資料型別間轉換</td>
+<td>Moved</td>
+<td>否</td>
+</tr>
+<tr class="row-odd"><td>Into</td>
+<td>在不同的資料型別間轉換，有 From 就自動會有 Into，但反向不成立</td>
+<td>Moved</td>
+<td>否</td>
+</tr>
+<tr class="row-even"><td>AsRef</td>
+<td>在不同的 Reference 型別間轉換，不可更動</td>
+<td>Reference</td>
+<td>否</td>
+</tr>
+<tr class="row-odd"><td>AsMut</td>
+<td>在不同的 Reference 型別間轉換，可更動</td>
+<td>Reference</td>
+<td>否</td>
+</tr>
+<tr class="row-even"><td>TryFrom</td>
+<td>在不同的資料型別間轉換</td>
+<td>Moved</td>
+<td>可</td>
+</tr>
+<tr class="row-odd"><td>TryInto</td>
+<td>在不同的資料型別間轉換，有 TryFrom 就自動有 TryInto，反向不成立</td>
+<td>Moved</td>
+<td>可</td>
+</tr>
+</tbody>
+</table>
+<p>另外還有也很類似的在 <code class="docutils literal"><span class="pre">std::borrow::Borrow</span></code> ，
+<code class="docutils literal"><span class="pre">Borrow</span></code> 的用途是來抽象化各種 borrow 的方式，
+例如一般對於 <code class="docutils literal"><span class="pre">T</span></code> 會有 <code class="docutils literal"><span class="pre">&amp;T</span></code> 和 <code class="docutils literal"><span class="pre">&amp;mut</span> <span class="pre">T</span></code> ，
+如果是 <code class="docutils literal"><span class="pre">Vec&lt;T&gt;</span></code> 還會有 borrowed slice <code class="docutils literal"><span class="pre">&amp;[T]</span></code> 和 <code class="docutils literal"><span class="pre">&amp;mut</span> <span class="pre">[T]</span></code> ，
+為了讓這些不同的 borrow 都可以被接收，
+所以用 <code class="docutils literal"><span class="pre">Borrow</span></code> Trait 來做一層簡單的包裝，
+雖然在某些情況效果會跟 <code class="docutils literal"><span class="pre">AsRef</span></code> 雷同，
+但兩者的語意不一樣。</p>
+<p><code class="docutils literal"><span class="pre">Borrow</span></code> 在 Standard Libray 中被用來實做 <code class="docutils literal"><span class="pre">HashMap</span></code> 和 <code class="docutils literal"><span class="pre">BTreeMap</span></code> ，
+這邊會假設同個值的 Owned 和 Borrowed 版本會有相同的 Hashing 和 Ordering，
+但是 <code class="docutils literal"><span class="pre">AsRef</span></code> 不能保證這點，
+也因為 <code class="docutils literal"><span class="pre">Borrow</span></code> 的條件限制比 AsRef 強，所以實做 Borrow 的型別會比較少</p>
+<p>以下情況建議使用 <code class="docutils literal"><span class="pre">Borrow</span></code> ：</p>
+<ul class="simple">
+<li>想要抽象化不同的 borrow 時</li>
+<li>在建立資料結構，想要同等對待 owned 和 borrowed 值時，例如 Hashing 或數值比較</li>
+</ul>
+<p>以下情況建議使用 <code class="docutils literal"><span class="pre">AsRef</span></code> ：</p>
+<ul class="simple">
+<li>撰寫泛型程式時，想要把某個值直接轉成 Reference</li>
+</ul>
+<p>相關連結：</p>
 <ul class="simple">
 <li><a class="reference external" href="https://doc.rust-lang.org/nightly/book/borrow-and-asref.html">Borrow and AsRef</a></li>
 <li><a class="reference external" href="https://doc.rust-lang.org/nightly/std/convert/trait.AsRef.html">Rust - Trait std::convert::AsRef</a></li>

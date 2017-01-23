@@ -732,6 +732,8 @@ AsRef/AsMut/Into/From
 
     fn func<T: Into<Vec<u8>>>(data: T) {
         let mut data = data.into();
+        // 也可以用 Into trait 來呼叫 into，但是要有足夠多的資訊讓編譯器知道要轉成的型別
+        // let mut data = Into::into(data);
         data[0] += 42;
         println!("{:?}", data);
     }
@@ -754,7 +756,10 @@ AsRef/AsMut/Into/From
     // 等同於前面使用 ``Into`` 的範例
     fn func<T>(data: T)
         where Vec<u8>: From<T> {
+        // 用目標型別來呼叫 from
         let mut data = Vec::from(data);
+        // 也可以直接用 From trait 來呼叫 from，但是編譯器要有足夠多的訊息來幫忙找到對應的型別
+        let mut data: Vec<_> = From::from(data);
         data[0] += 42;
         println!("{:?}", data);
     }
@@ -769,6 +774,57 @@ AsRef/AsMut/Into/From
         func(data);     // compile error !!!
     }
 
+
+``From`` 和 ``Into`` 在使用上非常類似，
+但轉換的方向不同，
+使用上為了讓意圖明顯和簡短方便，
+分別的情境可能會是 ``TargetType::from(value)`` 和 ``value.into()`` 。
+
++---------+-----------------------------------------------------------------+-----------------+----------+
+| Trait   | 功用                                                            | Moved/Reference | 可否失敗 |
++=========+=================================================================+=================+==========+
+| From    | 在不同的資料型別間轉換                                          | Moved           | 否       |
++---------+-----------------------------------------------------------------+-----------------+----------+
+| Into    | 在不同的資料型別間轉換，有 From 就自動會有 Into，但反向不成立   | Moved           | 否       |
++---------+-----------------------------------------------------------------+-----------------+----------+
+| AsRef   | 在不同的 Reference 型別間轉換，不可更動                         | Reference       | 否       |
++---------+-----------------------------------------------------------------+-----------------+----------+
+| AsMut   | 在不同的 Reference 型別間轉換，可更動                           | Reference       | 否       |
++---------+-----------------------------------------------------------------+-----------------+----------+
+| TryFrom | 在不同的資料型別間轉換                                          | Moved           | 可       |
++---------+-----------------------------------------------------------------+-----------------+----------+
+| TryInto | 在不同的資料型別間轉換，有 TryFrom 就自動有 TryInto，反向不成立 | Moved           | 可       |
++---------+-----------------------------------------------------------------+-----------------+----------+
+
+另外還有也很類似的在 ``std::borrow::Borrow`` ，
+``Borrow`` 的用途是來抽象化各種 borrow 的方式，
+例如一般對於 ``T`` 會有 ``&T`` 和 ``&mut T`` ，
+如果是 ``Vec<T>`` 還會有 borrowed slice ``&[T]`` 和 ``&mut [T]`` ，
+為了讓這些不同的 borrow 都可以被接收，
+所以用 ``Borrow`` Trait 來做一層簡單的包裝，
+雖然在某些情況效果會跟 ``AsRef`` 雷同，
+但兩者的語意不一樣。
+
+``Borrow`` 在 Standard Libray 中被用來實做 ``HashMap`` 和 ``BTreeMap`` ，
+這邊會假設同個值的 Owned 和 Borrowed 版本會有相同的 Hashing 和 Ordering，
+但是 ``AsRef`` 不能保證這點，
+也因為 ``Borrow`` 的條件限制比 AsRef 強，所以實做 Borrow 的型別會比較少
+
+
+
+以下情況建議使用 ``Borrow`` ：
+
+* 想要抽象化不同的 borrow 時
+* 在建立資料結構，想要同等對待 owned 和 borrowed 值時，例如 Hashing 或數值比較
+
+
+以下情況建議使用 ``AsRef`` ：
+
+* 撰寫泛型程式時，想要把某個值直接轉成 Reference
+
+
+
+相關連結：
 
 * `Borrow and AsRef <https://doc.rust-lang.org/nightly/book/borrow-and-asref.html>`_
 * `Rust - Trait std::convert::AsRef <https://doc.rust-lang.org/nightly/std/convert/trait.AsRef.html>`_
