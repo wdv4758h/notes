@@ -172,3 +172,17 @@ Why RethinkDB failed ?
 相關連結：
 
 * `The Rise of Worse is Better <https://dreamsongs.com/RiseOfWorseIsBetter.html>`_
+
+
+
+A hyper update
+============================================
+
+:URL: http://seanmonstar.com/post/156128815358/a-hyper-update
+
+Hyper 最近的新版本釋出把 TLS 實做分割出去，
+不再依賴 OpenSSL，
+而是做了界面讓使用者可以選用想用的 TLS 實做。
+另外目前的 master branch 已經把 Tokio 的分支合進去了，
+從下個釋出開始將會支援 non-blocking IO，
+目前作者用 wrk 測試的結果是每秒可以處理 225759 個 requests。
