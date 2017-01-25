@@ -630,42 +630,43 @@
            <div itemprop="articleBody">
             
   <div class="section" id="rust-tips">
-<h1><a class="toc-backref" href="#id9">Rust Tips</a><a class="headerlink" href="#rust-tips" title="本標題的永久連結">¶</a></h1>
+<h1><a class="toc-backref" href="#id10">Rust Tips</a><a class="headerlink" href="#rust-tips" title="本標題的永久連結">¶</a></h1>
 <div class="contents topic" id="id1">
 <p class="topic-title first">目錄</p>
 <ul class="simple">
-<li><a class="reference internal" href="#rust-tips" id="id9">Rust Tips</a><ul>
-<li><a class="reference internal" href="#id2" id="id10">輸出中間產物</a></li>
-<li><a class="reference internal" href="#counter-by-hashmap" id="id11">Counter By HashMap</a></li>
-<li><a class="reference internal" href="#slices-join-concat" id="id12">Slices join/concat</a></li>
-<li><a class="reference internal" href="#id3" id="id13">字串轉特定型別</a></li>
-<li><a class="reference internal" href="#id4" id="id14">把相依套件抓下來</a></li>
-<li><a class="reference internal" href="#conditional-attribute" id="id15">Conditional Attribute</a></li>
-<li><a class="reference internal" href="#libraries" id="id16">指定連結的 Libraries</a></li>
-<li><a class="reference internal" href="#rustc" id="id17">建立 rustc 內部文件</a></li>
-<li><a class="reference internal" href="#re-export" id="id18">re-export</a></li>
-<li><a class="reference internal" href="#ffi-foreign-function-interface" id="id19">FFI (Foreign Function Interface)</a><ul>
-<li><a class="reference internal" href="#id6" id="id20">範例一，傳入字串、回傳字串</a></li>
+<li><a class="reference internal" href="#rust-tips" id="id10">Rust Tips</a><ul>
+<li><a class="reference internal" href="#id2" id="id11">輸出中間產物</a></li>
+<li><a class="reference internal" href="#counter-by-hashmap" id="id12">Counter By HashMap</a></li>
+<li><a class="reference internal" href="#slices-join-concat" id="id13">Slices join/concat</a></li>
+<li><a class="reference internal" href="#id3" id="id14">字串轉特定型別</a></li>
+<li><a class="reference internal" href="#id4" id="id15">把相依套件抓下來</a></li>
+<li><a class="reference internal" href="#conditional-attribute" id="id16">Conditional Attribute</a></li>
+<li><a class="reference internal" href="#libraries" id="id17">指定連結的 Libraries</a></li>
+<li><a class="reference internal" href="#rustc" id="id18">建立 rustc 內部文件</a></li>
+<li><a class="reference internal" href="#re-export" id="id19">re-export</a></li>
+<li><a class="reference internal" href="#ffi-foreign-function-interface" id="id20">FFI (Foreign Function Interface)</a><ul>
+<li><a class="reference internal" href="#id6" id="id21">範例一，傳入字串、回傳字串</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#pretty-print-debug" id="id21">Pretty Print Debug</a></li>
-<li><a class="reference internal" href="#optional-arguments" id="id22">Optional Arguments</a></li>
-<li><a class="reference internal" href="#string-str" id="id23">String 和 str</a></li>
-<li><a class="reference internal" href="#is-empty" id="id24"><code class="docutils literal"><span class="pre">is_empty()</span></code> 或 <code class="docutils literal"><span class="pre">==</span> <span class="pre">&quot;&quot;</span></code></a></li>
-<li><a class="reference internal" href="#cfg-condition" id="id25">cfg! Condition</a></li>
-<li><a class="reference internal" href="#i-o" id="id26">I/O 處理</a></li>
-<li><a class="reference internal" href="#id7" id="id27">執行檔大小</a></li>
-<li><a class="reference internal" href="#iterator-over-contigunous-windows-of-specific-length" id="id28">Iterator over contigunous windows of specific length</a></li>
-<li><a class="reference internal" href="#ascii" id="id29">ASCII 相關操作</a></li>
-<li><a class="reference internal" href="#asref-asmut-into-from-borrow" id="id30">AsRef/AsMut/Into/From &amp; Borrow</a></li>
-<li><a class="reference internal" href="#cell-refcell" id="id31">Cell &amp; RefCell</a></li>
-<li><a class="reference internal" href="#atomic-rwlock-mutex" id="id32">Atomic* &amp; RwLock &amp; Mutex</a></li>
+<li><a class="reference internal" href="#pretty-print-debug" id="id22">Pretty Print Debug</a></li>
+<li><a class="reference internal" href="#optional-arguments" id="id23">Optional Arguments</a></li>
+<li><a class="reference internal" href="#string-str" id="id24">String 和 str</a></li>
+<li><a class="reference internal" href="#is-empty" id="id25"><code class="docutils literal"><span class="pre">is_empty()</span></code> 或 <code class="docutils literal"><span class="pre">==</span> <span class="pre">&quot;&quot;</span></code></a></li>
+<li><a class="reference internal" href="#cfg-condition" id="id26">cfg! Condition</a></li>
+<li><a class="reference internal" href="#i-o" id="id27">I/O 處理</a></li>
+<li><a class="reference internal" href="#id7" id="id28">執行檔大小</a></li>
+<li><a class="reference internal" href="#iterator-over-contigunous-windows-of-specific-length" id="id29">Iterator over contigunous windows of specific length</a></li>
+<li><a class="reference internal" href="#ascii" id="id30">ASCII 相關操作</a></li>
+<li><a class="reference internal" href="#asref-asmut-into-from-borrow" id="id31">AsRef/AsMut/Into/From &amp; Borrow</a></li>
+<li><a class="reference internal" href="#cell-refcell" id="id32">Cell &amp; RefCell</a></li>
+<li><a class="reference internal" href="#atomic-rwlock-mutex" id="id33">Atomic* &amp; RwLock &amp; Mutex</a></li>
+<li><a class="reference internal" href="#unsafecell" id="id34">UnsafeCell</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="id2">
-<h2><a class="toc-backref" href="#id10">輸出中間產物</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id11">輸出中間產物</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
 <div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># cargo arguments     -- rustc arguments</span>
 cargo rustc           -- --emit<span class="o">=</span>asm,llvm-bc,llvm-ir,obj,link,dep-info
 cargo rustc --release -- --emit<span class="o">=</span>asm,llvm-bc,llvm-ir,obj,link,dep-info
@@ -683,7 +684,7 @@ cargo rustc --release -- -Zunstable-options --unpretty<span class="o">=</span>mi
 </div>
 </div>
 <div class="section" id="counter-by-hashmap">
-<h2><a class="toc-backref" href="#id11">Counter By HashMap</a><a class="headerlink" href="#counter-by-hashmap" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id12">Counter By HashMap</a><a class="headerlink" href="#counter-by-hashmap" title="本標題的永久連結">¶</a></h2>
 <p>HashMap 內 key/value 的型別可以交給 Rust 編譯器來推斷，
 利用 <code class="docutils literal"><span class="pre">or_insert</span></code> 可以在碰到沒有見過的 key 時插入預設值。</p>
 <div class="highlight-rust"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HashMap</span><span class="o">::</span><span class="n">new</span><span class="p">();</span><span class="w"></span>
@@ -694,7 +695,7 @@ cargo rustc --release -- -Zunstable-options --unpretty<span class="o">=</span>mi
 </div>
 </div>
 <div class="section" id="slices-join-concat">
-<h2><a class="toc-backref" href="#id12">Slices join/concat</a><a class="headerlink" href="#slices-join-concat" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id13">Slices join/concat</a><a class="headerlink" href="#slices-join-concat" title="本標題的永久連結">¶</a></h2>
 <p>只要實作了
 <a class="reference external" href="https://doc.rust-lang.org/std/slice/trait.SliceConcatExt.html">std::slice::SliceConcatExt</a>
 trait，
@@ -707,7 +708,7 @@ trait，
 </div>
 </div>
 <div class="section" id="id3">
-<h2><a class="toc-backref" href="#id13">字串轉特定型別</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id14">字串轉特定型別</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
 <p>只要型別 T 有實做 <code class="docutils literal"><span class="pre">std::str::FromStr</span></code> ，
 那就可以使用 <code class="docutils literal"><span class="pre">.parse::&lt;T&gt;()</span></code> 來轉換：</p>
 <div class="highlight-rust"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">foo</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;text&quot;</span><span class="p">.</span><span class="n">parse</span><span class="o">::&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
@@ -727,7 +728,7 @@ trait，
 </ul>
 </div>
 <div class="section" id="id4">
-<h2><a class="toc-backref" href="#id14">把相依套件抓下來</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id15">把相依套件抓下來</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h2>
 <p>要裝專案的相依套件可以使用 <code class="docutils literal"><span class="pre">cargo</span> <span class="pre">fetch</span></code> ，
 這指令會把需要的檔案抓到 <code class="docutils literal"><span class="pre">$CARGO_HOME</span></code> ，
 在該資料夾下建立一個叫做 <code class="docutils literal"><span class="pre">registry</span></code> 的資料夾，
@@ -771,7 +772,7 @@ trait，
 </div>
 </div>
 <div class="section" id="conditional-attribute">
-<h2><a class="toc-backref" href="#id15">Conditional Attribute</a><a class="headerlink" href="#conditional-attribute" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id16">Conditional Attribute</a><a class="headerlink" href="#conditional-attribute" title="本標題的永久連結">¶</a></h2>
 <p><code class="docutils literal"><span class="pre">#[cfg_attr(&lt;p&gt;,</span> <span class="pre">&lt;attr&gt;)]</span></code></p>
 <p>當 <code class="docutils literal"><span class="pre">&lt;p&gt;</span></code> 成立時，就加上後面的 <code class="docutils literal"><span class="pre">&lt;attr&gt;</span></code> ，
 範例：</p>
@@ -788,7 +789,7 @@ trait，
 </ul>
 </div>
 <div class="section" id="libraries">
-<h2><a class="toc-backref" href="#id16">指定連結的 Libraries</a><a class="headerlink" href="#libraries" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id17">指定連結的 Libraries</a><a class="headerlink" href="#libraries" title="本標題的永久連結">¶</a></h2>
 <p>要指定額外要連結 Libraries 可以使用 <code class="docutils literal"><span class="pre">link</span></code> attribute，
 並且可以指定如何連結：</p>
 <p>目前 <code class="docutils literal"><span class="pre">link</span></code> 可以指定兩項資訊，
@@ -802,7 +803,7 @@ OSX 上還可以選擇 <code class="docutils literal"><span class="pre">framewor
 </ul>
 </div>
 <div class="section" id="rustc">
-<h2><a class="toc-backref" href="#id17">建立 rustc 內部文件</a><a class="headerlink" href="#rustc" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id18">建立 rustc 內部文件</a><a class="headerlink" href="#rustc" title="本標題的永久連結">¶</a></h2>
 <div class="highlight-sh"><div class="highlight"><pre><span></span>./configure --enable-compiler-docs
 make docs -j4
 
@@ -813,13 +814,13 @@ git push origin gh-pages:gh-pages
 </div>
 </div>
 <div class="section" id="re-export">
-<h2><a class="toc-backref" href="#id18">re-export</a><a class="headerlink" href="#re-export" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id19">re-export</a><a class="headerlink" href="#re-export" title="本標題的永久連結">¶</a></h2>
 <div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">pub</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">library</span><span class="o">::*</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="ffi-foreign-function-interface">
-<h2><a class="toc-backref" href="#id19">FFI (Foreign Function Interface)</a><a class="headerlink" href="#ffi-foreign-function-interface" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id20">FFI (Foreign Function Interface)</a><a class="headerlink" href="#ffi-foreign-function-interface" title="本標題的永久連結">¶</a></h2>
 <p>在 Rust 中， <code class="docutils literal"><span class="pre">String</span></code> 是由一連串的 <code class="docutils literal"><span class="pre">u8</span></code> 所組成，
 並且保證會是有效的 UTF-8，
 這意味著 String 當中也可以正常地儲存 <code class="docutils literal"><span class="pre">NUL</span></code> （ <code class="docutils literal"><span class="pre">\0</span></code> ）。
@@ -841,7 +842,7 @@ git push origin gh-pages:gh-pages
 <li><a class="reference external" href="http://cffi.readthedocs.io/en/latest/">Python - CFFI</a></li>
 </ul>
 <div class="section" id="id6">
-<h3><a class="toc-backref" href="#id20">範例一，傳入字串、回傳字串</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id21">範例一，傳入字串、回傳字串</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h3>
 <p>Rust 程式碼：</p>
 <div class="highlight-rust"><div class="highlight"><pre><span></span><span class="c1">// func.rs</span>
 
@@ -937,7 +938,7 @@ git push origin gh-pages:gh-pages
 </div>
 </div>
 <div class="section" id="pretty-print-debug">
-<h2><a class="toc-backref" href="#id21">Pretty Print Debug</a><a class="headerlink" href="#pretty-print-debug" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id22">Pretty Print Debug</a><a class="headerlink" href="#pretty-print-debug" title="本標題的永久連結">¶</a></h2>
 <div class="highlight-sh"><div class="highlight"><pre><span></span>println!<span class="o">(</span><span class="s2">&quot;{:#?}&quot;</span>, vec!<span class="o">[</span>1, 2, 3<span class="o">])</span><span class="p">;</span>
 
 // <span class="o">[</span>
@@ -949,7 +950,7 @@ git push origin gh-pages:gh-pages
 </div>
 </div>
 <div class="section" id="optional-arguments">
-<h2><a class="toc-backref" href="#id22">Optional Arguments</a><a class="headerlink" href="#optional-arguments" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id23">Optional Arguments</a><a class="headerlink" href="#optional-arguments" title="本標題的永久連結">¶</a></h2>
 <p>Rust 1.12 開始 <code class="docutils literal"><span class="pre">Option</span></code> 實做了 <code class="docutils literal"><span class="pre">From</span></code> ，
 <code class="docutils literal"><span class="pre">From</span></code> 是一個很基本的型別轉換 <code class="docutils literal"><span class="pre">trait</span></code> ，
 任何的 Rust 型別都可以實做 <code class="docutils literal"><span class="pre">From</span></code> 。</p>
@@ -1007,7 +1008,7 @@ git push origin gh-pages:gh-pages
 </ul>
 </div>
 <div class="section" id="string-str">
-<h2><a class="toc-backref" href="#id23">String 和 str</a><a class="headerlink" href="#string-str" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id24">String 和 str</a><a class="headerlink" href="#string-str" title="本標題的永久連結">¶</a></h2>
 <p>Rust 有兩種字串的型別，分別為 <code class="docutils literal"><span class="pre">String</span></code> 和 <code class="docutils literal"><span class="pre">str</span></code> ，</p>
 <p>String 是 dynamic heap string type，
 當我們需要更動或擁有所有權時，
@@ -1043,7 +1044,7 @@ git push origin gh-pages:gh-pages
 </ul>
 </div>
 <div class="section" id="is-empty">
-<h2><a class="toc-backref" href="#id24"><code class="docutils literal"><span class="pre">is_empty()</span></code> 或 <code class="docutils literal"><span class="pre">==</span> <span class="pre">&quot;&quot;</span></code></a><a class="headerlink" href="#is-empty" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id25"><code class="docutils literal"><span class="pre">is_empty()</span></code> 或 <code class="docutils literal"><span class="pre">==</span> <span class="pre">&quot;&quot;</span></code></a><a class="headerlink" href="#is-empty" title="本標題的永久連結">¶</a></h2>
 <p>實測產生出來的組語是一樣的</p>
 <div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">fn</span><span class="w"> </span><span class="n">function1</span><span class="p">(</span><span class="n">x</span><span class="o">:</span><span class="w"> </span><span class="o">&amp;</span><span class="kt">str</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -1088,7 +1089,7 @@ git push origin gh-pages:gh-pages
 </div>
 </div>
 <div class="section" id="cfg-condition">
-<h2><a class="toc-backref" href="#id25">cfg! Condition</a><a class="headerlink" href="#cfg-condition" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id26">cfg! Condition</a><a class="headerlink" href="#cfg-condition" title="本標題的永久連結">¶</a></h2>
 <p>原本內建的 macro 可以達到這樣的事：</p>
 <div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="n">cfg</span><span class="o">!</span><span class="p">(</span><span class="n">feature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;xxx&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="p">...</span><span class="w"></span>
@@ -1117,7 +1118,7 @@ git push origin gh-pages:gh-pages
 </div>
 </div>
 <div class="section" id="i-o">
-<h2><a class="toc-backref" href="#id26">I/O 處理</a><a class="headerlink" href="#i-o" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id27">I/O 處理</a><a class="headerlink" href="#i-o" title="本標題的永久連結">¶</a></h2>
 <p>在進行有實做 Read trait 的型別時，
 至少有三種以上的方式可以讀出資料：</p>
 <ol class="arabic simple">
@@ -1153,7 +1154,7 @@ git push origin gh-pages:gh-pages
 </ul>
 </div>
 <div class="section" id="id7">
-<h2><a class="toc-backref" href="#id27">執行檔大小</a><a class="headerlink" href="#id7" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id28">執行檔大小</a><a class="headerlink" href="#id7" title="本標題的永久連結">¶</a></h2>
 <p>如果想要盡量降低執行檔大小，
 一來是盡量打開相關的優化：</p>
 <ul class="simple">
@@ -1179,7 +1180,7 @@ git push origin gh-pages:gh-pages
 </ul>
 </div>
 <div class="section" id="iterator-over-contigunous-windows-of-specific-length">
-<h2><a class="toc-backref" href="#id28">Iterator over contigunous windows of specific length</a><a class="headerlink" href="#iterator-over-contigunous-windows-of-specific-length" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id29">Iterator over contigunous windows of specific length</a><a class="headerlink" href="#iterator-over-contigunous-windows-of-specific-length" title="本標題的永久連結">¶</a></h2>
 <p><code class="docutils literal"><span class="pre">slice</span></code> 內有 <code class="docutils literal"><span class="pre">windows</span></code> 函式可以固定長度的 Windows Iterator，
 Iterator 看到的新資料的開頭會跟上一筆的結尾重複。
 （若想要直接分成不重複片段，可以使用 <code class="docutils literal"><span class="pre">chunks</span></code> ）</p>
@@ -1211,7 +1212,7 @@ Iterator 看到的新資料的開頭會跟上一筆的結尾重複。
 </ul>
 </div>
 <div class="section" id="ascii">
-<h2><a class="toc-backref" href="#id29">ASCII 相關操作</a><a class="headerlink" href="#ascii" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id30">ASCII 相關操作</a><a class="headerlink" href="#ascii" title="本標題的永久連結">¶</a></h2>
 <p>Rust 內建就已經有好幾個 ASCII 相關的函式可以用，
 只要實做了 <code class="docutils literal"><span class="pre">AsciiExt</span></code> trait 就可以支援，
 目前包含以下函式：</p>
@@ -1226,7 +1227,7 @@ Iterator 看到的新資料的開頭會跟上一筆的結尾重複。
 </ul>
 </div>
 <div class="section" id="asref-asmut-into-from-borrow">
-<h2><a class="toc-backref" href="#id30">AsRef/AsMut/Into/From &amp; Borrow</a><a class="headerlink" href="#asref-asmut-into-from-borrow" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id31">AsRef/AsMut/Into/From &amp; Borrow</a><a class="headerlink" href="#asref-asmut-into-from-borrow" title="本標題的永久連結">¶</a></h2>
 <p><code class="docutils literal"><span class="pre">AsRef</span></code> 主要是用來建立統一一致的界面，
 例如一個函式接受 <code class="docutils literal"><span class="pre">AsRef&lt;[u8]&gt;</span></code> 作為參數，
 如此一來不管傳入的變數是要呼叫 <code class="docutils literal"><span class="pre">.as_slice()</span></code> 還是 <code class="docutils literal"><span class="pre">.as_bytes()</span></code> 才能轉成 <code class="docutils literal"><span class="pre">&amp;[u8]</span></code> 都能拿來用，
@@ -1393,7 +1394,7 @@ Iterator 看到的新資料的開頭會跟上一筆的結尾重複。
 </ul>
 </div>
 <div class="section" id="cell-refcell">
-<h2><a class="toc-backref" href="#id31">Cell &amp; RefCell</a><a class="headerlink" href="#cell-refcell" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id32">Cell &amp; RefCell</a><a class="headerlink" href="#cell-refcell" title="本標題的永久連結">¶</a></h2>
 <p>Cell 和 RefCell 在 <code class="docutils literal"><span class="pre">std::cell</span></code> 內，
 該 module 提供的是「Shareable Mutable Containers」，
 換句話說是提供「Interior Mutability」，
@@ -1484,7 +1485,7 @@ Iterator 看到的新資料的開頭會跟上一筆的結尾重複。
 </ul>
 </div>
 <div class="section" id="atomic-rwlock-mutex">
-<h2><a class="toc-backref" href="#id32">Atomic* &amp; RwLock &amp; Mutex</a><a class="headerlink" href="#atomic-rwlock-mutex" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id33">Atomic* &amp; RwLock &amp; Mutex</a><a class="headerlink" href="#atomic-rwlock-mutex" title="本標題的永久連結">¶</a></h2>
 <p>雖然 Cell 和 RefCell 提供了 Interior Mutability，
 但是卻沒有提供 Thread-safe 的性質，
 相關操作都不是 atomic 的（RefCell 的 Runtime Borrow Checking 也不是 atomic 的），
@@ -1617,6 +1618,371 @@ Rust 內還有其他選擇，
 <li><a class="reference external" href="http://llvm.org/docs/LangRef.html#memory-model-for-concurrent-operations">LLVM Language Reference Manual — Memory Model for Concurrent Operations</a></li>
 <li><a class="reference external" href="http://llvm.org/docs/Atomics.html#introduction">LLVM Atomic Instructions and Concurrency Guide</a></li>
 <li><a class="reference external" href="http://en.cppreference.com/w/cpp/atomic/memory_order">C++ - std::memory_order</a></li>
+</ul>
+</div>
+<div class="section" id="unsafecell">
+<h2><a class="toc-backref" href="#id34">UnsafeCell</a><a class="headerlink" href="#unsafecell" title="本標題的永久連結">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">UnsafeCell</span></code> 是用來提供 Interior Mutability 的底層實做，
+Cell、RefCell、RwLock、Mutex 內部都使用 UnsafeCell 來達成，
+而 UnsafeCell 的定義程式碼為：</p>
+<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="cp">#[lang = </span><span class="s">&quot;unsafe_cell&quot;</span><span class="cp">]</span><span class="w"></span>
+<span class="cp">#[stable(feature = </span><span class="s">&quot;rust1&quot;</span><span class="cp">, since = </span><span class="s">&quot;1.0.0&quot;</span><span class="cp">)]</span><span class="w"></span>
+<span class="k">pub</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="n">UnsafeCell</span><span class="o">&lt;</span><span class="n">T</span><span class="o">:</span><span class="w"> </span><span class="o">?</span><span class="nb">Sized</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">value</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>這定義其實沒什嘛特別的，
+除了關鍵的 <code class="docutils literal"><span class="pre">#[lang</span> <span class="pre">=</span> <span class="pre">&quot;unsafe_cell&quot;]</span></code> ，
+這在 Rust 內叫做「Lang Items」，
+也就是編譯器提供的特別標示，
+可以控制底下的行為。</p>
+<p>UnsafeCell 提供的函式有：</p>
+<ul class="simple">
+<li>new</li>
+<li>into_inner</li>
+<li>get</li>
+</ul>
+<p>其中的 <code class="docutils literal"><span class="pre">get</span></code> 函式會先把值轉成 Raw Pointer <code class="docutils literal"><span class="pre">*const</span> <span class="pre">T</span></code> ，
+接著再轉成 <code class="docutils literal"><span class="pre">*mut</span> <span class="pre">T</span></code> ，
+雖然這個轉換看起來不安全，
+但是這種轉換其實一點副作用也沒有，
+不安全的其實是在使用的時候，
+所以如果要 Dereference 這個 Raw Pointer 來使用才必須加上 unsafe block，
+程式碼如下：</p>
+<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">get</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">*</span><span class="k">mut</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="o">&amp;</span><span class="bp">self</span><span class="p">.</span><span class="n">value</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="o">*</span><span class="kr">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="o">*</span><span class="k">mut</span><span class="w"> </span><span class="n">T</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>前面提到的 <code class="docutils literal"><span class="pre">unsafe_cell</span></code> Lang Item 會在處理時有特別的標記，
+會在編譯階段進入不一樣的 Code Path，
+其中 Rust 編譯器這邊會影響到該型別餵給 LLVM 的相關屬性，
+程式碼如下：</p>
+<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="c1">// src/librustc_trans/abi.rs</span>
+
+<span class="p">...</span><span class="w"></span>
+
+<span class="n">ty</span><span class="o">::</span><span class="n">TyRef</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">mt</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kn">use</span><span class="w"> </span><span class="n">rustc</span><span class="o">::</span><span class="n">ty</span><span class="o">::</span><span class="p">{</span><span class="n">BrAnon</span><span class="p">,</span><span class="w"> </span><span class="n">ReLateBound</span><span class="p">};</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// `&amp;mut` pointer parameters never alias other parameters, or mutable global data</span>
+<span class="w">    </span><span class="c1">//</span>
+<span class="w">    </span><span class="c1">// `&amp;T` where `T` contains no `UnsafeCell&lt;U&gt;` is immutable, and can be marked as</span>
+<span class="w">    </span><span class="c1">// both `readonly` and `noalias`, as LLVM&#39;s definition of `noalias` is based solely</span>
+<span class="w">    </span><span class="c1">// on memory dependencies rather than pointer equality</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">interior_unsafe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mt</span><span class="p">.</span><span class="n">ty</span><span class="p">.</span><span class="n">type_contents</span><span class="p">(</span><span class="n">ccx</span><span class="p">.</span><span class="n">tcx</span><span class="p">()).</span><span class="n">interior_unsafe</span><span class="p">();</span><span class="w"> </span><span class="c1">// unsafe_cell 會影響這裡</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">mt</span><span class="p">.</span><span class="n">mutbl</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">hir</span><span class="o">::</span><span class="n">MutMutable</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">interior_unsafe</span><span class="w"> </span><span class="p">{</span><span class="w">    </span><span class="c1">// unsafe_cell 沒有 NoAlias</span>
+<span class="w">        </span><span class="n">arg</span><span class="p">.</span><span class="n">attrs</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">ArgAttribute</span><span class="o">::</span><span class="n">NoAlias</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">mt</span><span class="p">.</span><span class="n">mutbl</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">hir</span><span class="o">::</span><span class="n">MutImmutable</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">interior_unsafe</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// unsafe_cell 沒有 ReadOnly</span>
+<span class="w">        </span><span class="n">arg</span><span class="p">.</span><span class="n">attrs</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">ArgAttribute</span><span class="o">::</span><span class="n">ReadOnly</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// When a reference in an argument has no named lifetime, it&#39;s</span>
+<span class="w">    </span><span class="c1">// impossible for that reference to escape this function</span>
+<span class="w">    </span><span class="c1">// (returned or stored beyond the call by a closure).</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="n">ReLateBound</span><span class="p">(</span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">BrAnon</span><span class="p">(</span><span class="n">_</span><span class="p">))</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">b</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">arg</span><span class="p">.</span><span class="n">attrs</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">ArgAttribute</span><span class="o">::</span><span class="n">NoCapture</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="nb">Some</span><span class="p">(</span><span class="n">mt</span><span class="p">.</span><span class="n">ty</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="p">...</span><span class="w"></span>
+</pre></div>
+</div>
+<p>標上 <code class="docutils literal"><span class="pre">unsafe_cell</span></code> 的型別沒有 <code class="docutils literal"><span class="pre">NoAlias</span></code> 和 <code class="docutils literal"><span class="pre">ReadOnly</span></code> 兩個屬性，
+擁有這兩個屬性可以開啟 LLVM 內額外的優化，
+但是相關優化可能會跟 <code class="docutils literal"><span class="pre">UnsafeCell</span></code> 需要的行為衝突。</p>
+<p>由於 <code class="docutils literal"><span class="pre">get</span></code> 內沒有 Synchronization 機制，
+所以在多執行緒下是 Unsafe 的，
+因此有標上 <code class="docutils literal"><span class="pre">!Sync</span></code> 。</p>
+<p>如果直接使用 UnsafeCell 的話，
+基本上應該會是 No Runtime Cost，
+相關的包裝都會被編譯器優化掉。</p>
+<p>以下來觀察 UnsafeCell 是怎麼被使用的，
+我們可以在 <code class="docutils literal"><span class="pre">src/libcore/cell.rs</span></code> 看到以下的程式碼：</p>
+<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">pub</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="n">Cell</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">value</span><span class="o">:</span><span class="w"> </span><span class="n">UnsafeCell</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">impl</span><span class="o">&lt;</span><span class="n">T</span><span class="o">:</span><span class="nb">Copy</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Cell</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="cp">#[inline]</span><span class="w"></span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="kr">const</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">new</span><span class="p">(</span><span class="n">value</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Cell</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">Cell</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">value</span><span class="o">:</span><span class="w"> </span><span class="n">UnsafeCell</span><span class="o">::</span><span class="n">new</span><span class="p">(</span><span class="n">value</span><span class="p">),</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="cp">#[inline]</span><span class="w"></span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">get</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">unsafe</span><span class="p">{</span><span class="w"> </span><span class="o">*</span><span class="bp">self</span><span class="p">.</span><span class="n">value</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="cp">#[inline]</span><span class="w"></span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">set</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="o">*</span><span class="bp">self</span><span class="p">.</span><span class="n">value</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="cp">#[inline]</span><span class="w"></span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">as_ptr</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">*</span><span class="k">mut</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">value</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="cp">#[inline]</span><span class="w"></span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">get_mut</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="o">*</span><span class="bp">self</span><span class="p">.</span><span class="n">value</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>我們可以很清楚地發現 Cell 其實只不過是 UnsafeCell 很簡單的包裝，
+把一些 unsafe 操作都包起來，
+讓使用者比較方便，
+但是有一個很重要的限制，
+就是有裡面放的型別必須有實做 Copy Trait，
+如此一來可以避免掉沒有實做 Copy 的型別（例如 <code class="docutils literal"><span class="pre">&amp;mut</span> <span class="pre">T</span></code> ），
+以防止違反 Aliasing 規則。</p>
+<p>現在我們再來看 RefCell，
+它的程式碼一樣在 <code class="docutils literal"><span class="pre">src/libcore/cell.rs</span></code> ：</p>
+<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">pub</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="n">RefCell</span><span class="o">&lt;</span><span class="n">T</span><span class="o">:</span><span class="w"> </span><span class="o">?</span><span class="nb">Sized</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">borrow</span><span class="o">:</span><span class="w"> </span><span class="n">Cell</span><span class="o">&lt;</span><span class="n">BorrowFlag</span><span class="o">&gt;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">value</span><span class="o">:</span><span class="w"> </span><span class="n">UnsafeCell</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">type</span><span class="w"> </span><span class="n">BorrowFlag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">usize</span><span class="p">;</span><span class="w"></span>
+<span class="kr">const</span><span class="w"> </span><span class="n">UNUSED</span><span class="o">:</span><span class="w"> </span><span class="n">BorrowFlag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="kr">const</span><span class="w"> </span><span class="n">WRITING</span><span class="o">:</span><span class="w"> </span><span class="n">BorrowFlag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">impl</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">RefCell</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="cp">#[inline]</span><span class="w"></span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="kr">const</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">new</span><span class="p">(</span><span class="n">value</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">RefCell</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">RefCell</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">value</span><span class="o">:</span><span class="w"> </span><span class="n">UnsafeCell</span><span class="o">::</span><span class="n">new</span><span class="p">(</span><span class="n">value</span><span class="p">),</span><span class="w"></span>
+<span class="w">            </span><span class="n">borrow</span><span class="o">:</span><span class="w"> </span><span class="n">Cell</span><span class="o">::</span><span class="n">new</span><span class="p">(</span><span class="n">UNUSED</span><span class="p">),</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="cp">#[inline]</span><span class="w"></span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">into_inner</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// Since this function takes `self` (the `RefCell`) by value, the</span>
+<span class="w">        </span><span class="c1">// compiler statically verifies that it is not currently borrowed.</span>
+<span class="w">        </span><span class="c1">// Therefore the following assertion is just a `debug_assert!`.</span>
+<span class="w">        </span><span class="n">debug_assert</span><span class="o">!</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">borrow</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">UNUSED</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">value</span><span class="p">.</span><span class="n">into_inner</span><span class="p">()</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">impl</span><span class="o">&lt;</span><span class="n">T</span><span class="o">:</span><span class="w"> </span><span class="o">?</span><span class="nb">Sized</span><span class="o">&gt;</span><span class="w"> </span><span class="n">RefCell</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="cp">#[inline]</span><span class="w"></span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">borrow</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Ref</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">try_borrow</span><span class="p">().</span><span class="n">expect</span><span class="p">(</span><span class="s">&quot;already mutably borrowed&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="cp">#[inline]</span><span class="w"></span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">try_borrow</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb">Result</span><span class="o">&lt;</span><span class="n">Ref</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">BorrowError</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">match</span><span class="w"> </span><span class="n">BorrowRef</span><span class="o">::</span><span class="n">new</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">.</span><span class="n">borrow</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nb">Some</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">Ok</span><span class="p">(</span><span class="n">Ref</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">value</span><span class="o">:</span><span class="w"> </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">&amp;*</span><span class="bp">self</span><span class="p">.</span><span class="n">value</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">                </span><span class="n">borrow</span><span class="o">:</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="p">}),</span><span class="w"></span>
+<span class="w">            </span><span class="nb">None</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">Err</span><span class="p">(</span><span class="n">BorrowError</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">_private</span><span class="o">:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">}),</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="cp">#[inline]</span><span class="w"></span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">borrow_mut</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">RefMut</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">try_borrow_mut</span><span class="p">().</span><span class="n">expect</span><span class="p">(</span><span class="s">&quot;already borrowed&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="cp">#[inline]</span><span class="w"></span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">try_borrow_mut</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb">Result</span><span class="o">&lt;</span><span class="n">RefMut</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">BorrowMutError</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">match</span><span class="w"> </span><span class="n">BorrowRefMut</span><span class="o">::</span><span class="n">new</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">.</span><span class="n">borrow</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nb">Some</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">Ok</span><span class="p">(</span><span class="n">RefMut</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">value</span><span class="o">:</span><span class="w"> </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="o">*</span><span class="bp">self</span><span class="p">.</span><span class="n">value</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">                </span><span class="n">borrow</span><span class="o">:</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="p">}),</span><span class="w"></span>
+<span class="w">            </span><span class="nb">None</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">Err</span><span class="p">(</span><span class="n">BorrowMutError</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">_private</span><span class="o">:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">}),</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="cp">#[inline]</span><span class="w"></span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">as_ptr</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">*</span><span class="k">mut</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">value</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="cp">#[inline]</span><span class="w"></span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">get_mut</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="o">*</span><span class="bp">self</span><span class="p">.</span><span class="n">value</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>RefCell 和 Cell 比起來多了一個用 Cell 包起來的 BorrowFlag，
+而我們知道要使用 RefCell 內的值要呼叫 borrow 或 borrow_mut，
+仔細一看會發現其實它們分別呼叫 try_borrow 和 try_borrow_mut，
+而它們內部處理的方式其實跟 Cell 的 get/set 很像，
+只是多了一個 BorrowFlag 欄位，
+而其中可以注意到 BorrowRef/BorrowRefMut 負責了很重要的部份，
+相關程式碼如下：</p>
+<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="n">BorrowRef</span><span class="o">&lt;</span><span class="na">&#39;b</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">borrow</span><span class="o">:</span><span class="w"> </span><span class="o">&amp;</span><span class="na">&#39;b</span><span class="w"> </span><span class="n">Cell</span><span class="o">&lt;</span><span class="n">BorrowFlag</span><span class="o">&gt;</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">impl</span><span class="o">&lt;</span><span class="na">&#39;b</span><span class="o">&gt;</span><span class="w"> </span><span class="n">BorrowRef</span><span class="o">&lt;</span><span class="na">&#39;b</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="cp">#[inline]</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">new</span><span class="p">(</span><span class="n">borrow</span><span class="o">:</span><span class="w"> </span><span class="o">&amp;</span><span class="na">&#39;b</span><span class="w"> </span><span class="n">Cell</span><span class="o">&lt;</span><span class="n">BorrowFlag</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb">Option</span><span class="o">&lt;</span><span class="n">BorrowRef</span><span class="o">&lt;</span><span class="na">&#39;b</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">match</span><span class="w"> </span><span class="n">borrow</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">WRITING</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">None</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="n">b</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">borrow</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">                </span><span class="nb">Some</span><span class="p">(</span><span class="n">BorrowRef</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">borrow</span><span class="o">:</span><span class="w"> </span><span class="n">borrow</span><span class="w"> </span><span class="p">})</span><span class="w"></span>
+<span class="w">            </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">impl</span><span class="o">&lt;</span><span class="na">&#39;b</span><span class="o">&gt;</span><span class="w"> </span><span class="nb">Drop</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">BorrowRef</span><span class="o">&lt;</span><span class="na">&#39;b</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="cp">#[inline]</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="nb">drop</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">borrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">borrow</span><span class="p">.</span><span class="n">get</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="n">debug_assert</span><span class="o">!</span><span class="p">(</span><span class="n">borrow</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">WRITING</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">borrow</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">UNUSED</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">borrow</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">borrow</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="c1">////////////////////////////////////////</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="n">BorrowRefMut</span><span class="o">&lt;</span><span class="na">&#39;b</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">borrow</span><span class="o">:</span><span class="w"> </span><span class="o">&amp;</span><span class="na">&#39;b</span><span class="w"> </span><span class="n">Cell</span><span class="o">&lt;</span><span class="n">BorrowFlag</span><span class="o">&gt;</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">impl</span><span class="o">&lt;</span><span class="na">&#39;b</span><span class="o">&gt;</span><span class="w"> </span><span class="nb">Drop</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">BorrowRefMut</span><span class="o">&lt;</span><span class="na">&#39;b</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="cp">#[inline]</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="nb">drop</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">borrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">borrow</span><span class="p">.</span><span class="n">get</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="n">debug_assert</span><span class="o">!</span><span class="p">(</span><span class="n">borrow</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">WRITING</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">borrow</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">UNUSED</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">impl</span><span class="o">&lt;</span><span class="na">&#39;b</span><span class="o">&gt;</span><span class="w"> </span><span class="n">BorrowRefMut</span><span class="o">&lt;</span><span class="na">&#39;b</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="cp">#[inline]</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">new</span><span class="p">(</span><span class="n">borrow</span><span class="o">:</span><span class="w"> </span><span class="o">&amp;</span><span class="na">&#39;b</span><span class="w"> </span><span class="n">Cell</span><span class="o">&lt;</span><span class="n">BorrowFlag</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb">Option</span><span class="o">&lt;</span><span class="n">BorrowRefMut</span><span class="o">&lt;</span><span class="na">&#39;b</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">match</span><span class="w"> </span><span class="n">borrow</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">UNUSED</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">borrow</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">WRITING</span><span class="p">);</span><span class="w"></span>
+<span class="w">                </span><span class="nb">Some</span><span class="p">(</span><span class="n">BorrowRefMut</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">borrow</span><span class="o">:</span><span class="w"> </span><span class="n">borrow</span><span class="w"> </span><span class="p">})</span><span class="w"></span>
+<span class="w">            </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">None</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>BorrowRef 的部份如果 BorrowFlag 不是 WRITING 的話就會把 BorrowFlag 加一（借用量的計數器），
+而用完就會減一，
+很簡單的計數器。
+BorrowRefMut 的部份則是如果 BorrowFlag 標為 UNUSED 的話則設成 WRITING，
+否則不能借用，
+符合一次只能有一個 Mutable Reference 的條件。</p>
+<p>從程式碼看下來可以確定 Cell 和 RefCell 都是 UnsafeCell 簡單的包裝，
+其中 Cell 是完全沒有 Overhead 的，
+而 RefCell 則是多了一個計數器來做 Borrow Checking，
+但是兩者都跟 UnsafeCell 一樣是 <code class="docutils literal"><span class="pre">!Sync</span></code> ，
+不能用於多執行緒中。</p>
+<p>另外 <code class="docutils literal"><span class="pre">src/libstd/sync/rwlock.rs</span></code> 和 <code class="docutils literal"><span class="pre">src/libstd/sync/mutex.rs</span></code>
+還有利用 UnsafeCell 實做可以在多執行緒中使用的 RwLock 和 Mutex，
+但是複雜性跟 Cell/RefCell 比起來高很多，
+因為裡面要實做多執行緒下的同步機制。</p>
+<p>稍微瞄一下定義：</p>
+<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">pub</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="n">RwLock</span><span class="o">&lt;</span><span class="n">T</span><span class="o">:</span><span class="w"> </span><span class="o">?</span><span class="nb">Sized</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">inner</span><span class="o">:</span><span class="w"> </span><span class="nb">Box</span><span class="o">&lt;</span><span class="n">sys</span><span class="o">::</span><span class="n">RWLock</span><span class="o">&gt;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">poison</span><span class="o">:</span><span class="w"> </span><span class="n">poison</span><span class="o">::</span><span class="n">Flag</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">data</span><span class="o">:</span><span class="w"> </span><span class="n">UnsafeCell</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">impl</span><span class="o">&lt;</span><span class="n">T</span><span class="o">:</span><span class="w"> </span><span class="o">?</span><span class="nb">Sized</span><span class="o">&gt;</span><span class="w"> </span><span class="n">RwLock</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">...</span><span class="w"></span>
+
+<span class="w">    </span><span class="cp">#[inline]</span><span class="w"></span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">read</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">LockResult</span><span class="o">&lt;</span><span class="n">RwLockReadGuard</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="bp">self</span><span class="p">.</span><span class="n">inner</span><span class="p">.</span><span class="n">read</span><span class="p">();</span><span class="w"></span>
+<span class="w">            </span><span class="n">RwLockReadGuard</span><span class="o">::</span><span class="n">new</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="cp">#[inline]</span><span class="w"></span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">write</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">LockResult</span><span class="o">&lt;</span><span class="n">RwLockWriteGuard</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="bp">self</span><span class="p">.</span><span class="n">inner</span><span class="p">.</span><span class="n">write</span><span class="p">();</span><span class="w"></span>
+<span class="w">            </span><span class="n">RwLockWriteGuard</span><span class="o">::</span><span class="n">new</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">...</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+
+<span class="c1">////////////////////////////////////////</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="n">Mutex</span><span class="o">&lt;</span><span class="n">T</span><span class="o">:</span><span class="w"> </span><span class="o">?</span><span class="nb">Sized</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Note that this mutex is in a *box*, not inlined into the struct itself.</span>
+<span class="w">    </span><span class="c1">// Once a native mutex has been used once, its address can never change (it</span>
+<span class="w">    </span><span class="c1">// can&#39;t be moved). This mutex type can be safely moved at any time, so to</span>
+<span class="w">    </span><span class="c1">// ensure that the native mutex is used correctly we box the inner lock to</span>
+<span class="w">    </span><span class="c1">// give it a constant address.</span>
+<span class="w">    </span><span class="n">inner</span><span class="o">:</span><span class="w"> </span><span class="nb">Box</span><span class="o">&lt;</span><span class="n">sys</span><span class="o">::</span><span class="n">Mutex</span><span class="o">&gt;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">poison</span><span class="o">:</span><span class="w"> </span><span class="n">poison</span><span class="o">::</span><span class="n">Flag</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">data</span><span class="o">:</span><span class="w"> </span><span class="n">UnsafeCell</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">impl</span><span class="o">&lt;</span><span class="n">T</span><span class="o">:</span><span class="w"> </span><span class="o">?</span><span class="nb">Sized</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Mutex</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">...</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">lock</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">LockResult</span><span class="o">&lt;</span><span class="n">MutexGuard</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="bp">self</span><span class="p">.</span><span class="n">inner</span><span class="p">.</span><span class="n">lock</span><span class="p">();</span><span class="w"></span>
+<span class="w">            </span><span class="n">MutexGuard</span><span class="o">::</span><span class="n">new</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">...</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>我們可以注意到其實關鍵的都在 <code class="docutils literal"><span class="pre">sys::RwLock</span></code> 和 <code class="docutils literal"><span class="pre">sys::Mutex</span></code> ，
+也就是說會根據平台的不同而選用不同實做，
+Unix-like 平台的實做在 <code class="docutils literal"><span class="pre">src/libstd/sys/unix/rwlock.rs</span></code> 和 <code class="docutils literal"><span class="pre">src/libstd/sys/unix/mutex.rs</span></code> ，
+仔細一看會發現其實用的是 Pthread：</p>
+<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">pub</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="n">RWLock</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">inner</span><span class="o">:</span><span class="w"> </span><span class="n">UnsafeCell</span><span class="o">&lt;</span><span class="n">libc</span><span class="o">::</span><span class="n">pthread_rwlock_t</span><span class="o">&gt;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">write_locked</span><span class="o">:</span><span class="w"> </span><span class="n">UnsafeCell</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">num_readers</span><span class="o">:</span><span class="w"> </span><span class="n">AtomicUsize</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="c1">////////////////////////////////////////</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="n">Mutex</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">inner</span><span class="o">:</span><span class="w"> </span><span class="n">UnsafeCell</span><span class="o">&lt;</span><span class="n">libc</span><span class="o">::</span><span class="n">pthread_mutex_t</span><span class="o">&gt;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>相關連結：</p>
+<ul class="simple">
+<li><a class="reference external" href="https://ricardomartins.cc/2016/07/11/interior-mutability-behind-the-curtain">Interior mutability in Rust, part 3: behind the curtain</a></li>
+<li><a class="reference external" href="https://doc.rust-lang.org/book/lang-items.html">Rust Book - Lang items</a></li>
 </ul>
 </div>
 </div>

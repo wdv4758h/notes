@@ -1040,3 +1040,404 @@ Rust 內還有其他選擇，
 * `LLVM Language Reference Manual — Memory Model for Concurrent Operations <http://llvm.org/docs/LangRef.html#memory-model-for-concurrent-operations>`_
 * `LLVM Atomic Instructions and Concurrency Guide <http://llvm.org/docs/Atomics.html#introduction>`_
 * `C++ - std::memory_order <http://en.cppreference.com/w/cpp/atomic/memory_order>`_
+
+
+
+UnsafeCell
+========================================
+
+``UnsafeCell`` 是用來提供 Interior Mutability 的底層實做，
+Cell、RefCell、RwLock、Mutex 內部都使用 UnsafeCell 來達成，
+而 UnsafeCell 的定義程式碼為：
+
+.. code-block:: rust
+
+    #[lang = "unsafe_cell"]
+    #[stable(feature = "rust1", since = "1.0.0")]
+    pub struct UnsafeCell<T: ?Sized> {
+        value: T,
+    }
+
+
+這定義其實沒什嘛特別的，
+除了關鍵的 ``#[lang = "unsafe_cell"]`` ，
+這在 Rust 內叫做「Lang Items」，
+也就是編譯器提供的特別標示，
+可以控制底下的行為。
+
+UnsafeCell 提供的函式有：
+
+* new
+* into_inner
+* get
+
+其中的 ``get`` 函式會先把值轉成 Raw Pointer ``*const T`` ，
+接著再轉成 ``*mut T`` ，
+雖然這個轉換看起來不安全，
+但是這種轉換其實一點副作用也沒有，
+不安全的其實是在使用的時候，
+所以如果要 Dereference 這個 Raw Pointer 來使用才必須加上 unsafe block，
+程式碼如下：
+
+.. code-block:: rust
+
+    pub fn get(&self) -> *mut T {
+        &self.value as *const T as *mut T
+    }
+
+
+前面提到的 ``unsafe_cell`` Lang Item 會在處理時有特別的標記，
+會在編譯階段進入不一樣的 Code Path，
+其中 Rust 編譯器這邊會影響到該型別餵給 LLVM 的相關屬性，
+程式碼如下：
+
+.. code-block:: rust
+
+    // src/librustc_trans/abi.rs
+
+    ...
+
+    ty::TyRef(b, mt) => {
+        use rustc::ty::{BrAnon, ReLateBound};
+
+        // `&mut` pointer parameters never alias other parameters, or mutable global data
+        //
+        // `&T` where `T` contains no `UnsafeCell<U>` is immutable, and can be marked as
+        // both `readonly` and `noalias`, as LLVM's definition of `noalias` is based solely
+        // on memory dependencies rather than pointer equality
+        let interior_unsafe = mt.ty.type_contents(ccx.tcx()).interior_unsafe(); // unsafe_cell 會影響這裡
+
+        if mt.mutbl != hir::MutMutable && !interior_unsafe {    // unsafe_cell 沒有 NoAlias
+            arg.attrs.set(ArgAttribute::NoAlias);
+        }
+
+        if mt.mutbl == hir::MutImmutable && !interior_unsafe {  // unsafe_cell 沒有 ReadOnly
+            arg.attrs.set(ArgAttribute::ReadOnly);
+        }
+
+        // When a reference in an argument has no named lifetime, it's
+        // impossible for that reference to escape this function
+        // (returned or stored beyond the call by a closure).
+        if let ReLateBound(_, BrAnon(_)) = *b {
+            arg.attrs.set(ArgAttribute::NoCapture);
+        }
+
+        Some(mt.ty)
+    }
+
+    ...
+
+標上 ``unsafe_cell`` 的型別沒有 ``NoAlias`` 和 ``ReadOnly`` 兩個屬性，
+擁有這兩個屬性可以開啟 LLVM 內額外的優化，
+但是相關優化可能會跟 ``UnsafeCell`` 需要的行為衝突。
+
+由於 ``get`` 內沒有 Synchronization 機制，
+所以在多執行緒下是 Unsafe 的，
+因此有標上 ``!Sync`` 。
+
+如果直接使用 UnsafeCell 的話，
+基本上應該會是 No Runtime Cost，
+相關的包裝都會被編譯器優化掉。
+
+以下來觀察 UnsafeCell 是怎麼被使用的，
+我們可以在 ``src/libcore/cell.rs`` 看到以下的程式碼：
+
+.. code-block:: rust
+
+    pub struct Cell<T> {
+        value: UnsafeCell<T>,
+    }
+
+    impl<T:Copy> Cell<T> {
+        #[inline]
+        pub const fn new(value: T) -> Cell<T> {
+            Cell {
+                value: UnsafeCell::new(value),
+            }
+        }
+
+        #[inline]
+        pub fn get(&self) -> T {
+            unsafe{ *self.value.get() }
+        }
+
+        #[inline]
+        pub fn set(&self, value: T) {
+            unsafe {
+                *self.value.get() = value;
+            }
+        }
+
+        #[inline]
+        pub fn as_ptr(&self) -> *mut T {
+            self.value.get()
+        }
+
+        #[inline]
+        pub fn get_mut(&mut self) -> &mut T {
+            unsafe {
+                &mut *self.value.get()
+            }
+        }
+    }
+
+
+我們可以很清楚地發現 Cell 其實只不過是 UnsafeCell 很簡單的包裝，
+把一些 unsafe 操作都包起來，
+讓使用者比較方便，
+但是有一個很重要的限制，
+就是有裡面放的型別必須有實做 Copy Trait，
+如此一來可以避免掉沒有實做 Copy 的型別（例如 ``&mut T`` ），
+以防止違反 Aliasing 規則。
+
+現在我們再來看 RefCell，
+它的程式碼一樣在 ``src/libcore/cell.rs`` ：
+
+.. code-block:: rust
+
+    pub struct RefCell<T: ?Sized> {
+        borrow: Cell<BorrowFlag>,
+        value: UnsafeCell<T>,
+    }
+
+    type BorrowFlag = usize;
+    const UNUSED: BorrowFlag = 0;
+    const WRITING: BorrowFlag = !0;
+
+    impl<T> RefCell<T> {
+        #[inline]
+        pub const fn new(value: T) -> RefCell<T> {
+            RefCell {
+                value: UnsafeCell::new(value),
+                borrow: Cell::new(UNUSED),
+            }
+        }
+
+        #[inline]
+        pub fn into_inner(self) -> T {
+            // Since this function takes `self` (the `RefCell`) by value, the
+            // compiler statically verifies that it is not currently borrowed.
+            // Therefore the following assertion is just a `debug_assert!`.
+            debug_assert!(self.borrow.get() == UNUSED);
+            unsafe { self.value.into_inner() }
+        }
+    }
+
+    impl<T: ?Sized> RefCell<T> {
+        #[inline]
+        pub fn borrow(&self) -> Ref<T> {
+            self.try_borrow().expect("already mutably borrowed")
+        }
+
+        #[inline]
+        pub fn try_borrow(&self) -> Result<Ref<T>, BorrowError> {
+            match BorrowRef::new(&self.borrow) {
+                Some(b) => Ok(Ref {
+                    value: unsafe { &*self.value.get() },
+                    borrow: b,
+                }),
+                None => Err(BorrowError { _private: () }),
+            }
+        }
+
+        #[inline]
+        pub fn borrow_mut(&self) -> RefMut<T> {
+            self.try_borrow_mut().expect("already borrowed")
+        }
+
+        #[inline]
+        pub fn try_borrow_mut(&self) -> Result<RefMut<T>, BorrowMutError> {
+            match BorrowRefMut::new(&self.borrow) {
+                Some(b) => Ok(RefMut {
+                    value: unsafe { &mut *self.value.get() },
+                    borrow: b,
+                }),
+                None => Err(BorrowMutError { _private: () }),
+            }
+        }
+
+        #[inline]
+        pub fn as_ptr(&self) -> *mut T {
+            self.value.get()
+        }
+
+        #[inline]
+        pub fn get_mut(&mut self) -> &mut T {
+            unsafe {
+                &mut *self.value.get()
+            }
+        }
+    }
+
+
+RefCell 和 Cell 比起來多了一個用 Cell 包起來的 BorrowFlag，
+而我們知道要使用 RefCell 內的值要呼叫 borrow 或 borrow_mut，
+仔細一看會發現其實它們分別呼叫 try_borrow 和 try_borrow_mut，
+而它們內部處理的方式其實跟 Cell 的 get/set 很像，
+只是多了一個 BorrowFlag 欄位，
+而其中可以注意到 BorrowRef/BorrowRefMut 負責了很重要的部份，
+相關程式碼如下：
+
+.. code-block:: rust
+
+    struct BorrowRef<'b> {
+        borrow: &'b Cell<BorrowFlag>,
+    }
+
+    impl<'b> BorrowRef<'b> {
+        #[inline]
+        fn new(borrow: &'b Cell<BorrowFlag>) -> Option<BorrowRef<'b>> {
+            match borrow.get() {
+                WRITING => None,
+                b => {
+                    borrow.set(b + 1);
+                    Some(BorrowRef { borrow: borrow })
+                },
+            }
+        }
+    }
+
+    impl<'b> Drop for BorrowRef<'b> {
+        #[inline]
+        fn drop(&mut self) {
+            let borrow = self.borrow.get();
+            debug_assert!(borrow != WRITING && borrow != UNUSED);
+            self.borrow.set(borrow - 1);
+        }
+    }
+
+    ////////////////////////////////////////
+
+    struct BorrowRefMut<'b> {
+        borrow: &'b Cell<BorrowFlag>,
+    }
+
+    impl<'b> Drop for BorrowRefMut<'b> {
+        #[inline]
+        fn drop(&mut self) {
+            let borrow = self.borrow.get();
+            debug_assert!(borrow == WRITING);
+            self.borrow.set(UNUSED);
+        }
+    }
+
+    impl<'b> BorrowRefMut<'b> {
+        #[inline]
+        fn new(borrow: &'b Cell<BorrowFlag>) -> Option<BorrowRefMut<'b>> {
+            match borrow.get() {
+                UNUSED => {
+                    borrow.set(WRITING);
+                    Some(BorrowRefMut { borrow: borrow })
+                },
+                _ => None,
+            }
+        }
+    }
+
+
+BorrowRef 的部份如果 BorrowFlag 不是 WRITING 的話就會把 BorrowFlag 加一（借用量的計數器），
+而用完就會減一，
+很簡單的計數器。
+BorrowRefMut 的部份則是如果 BorrowFlag 標為 UNUSED 的話則設成 WRITING，
+否則不能借用，
+符合一次只能有一個 Mutable Reference 的條件。
+
+從程式碼看下來可以確定 Cell 和 RefCell 都是 UnsafeCell 簡單的包裝，
+其中 Cell 是完全沒有 Overhead 的，
+而 RefCell 則是多了一個計數器來做 Borrow Checking，
+但是兩者都跟 UnsafeCell 一樣是 ``!Sync`` ，
+不能用於多執行緒中。
+
+
+另外 ``src/libstd/sync/rwlock.rs`` 和 ``src/libstd/sync/mutex.rs``
+還有利用 UnsafeCell 實做可以在多執行緒中使用的 RwLock 和 Mutex，
+但是複雜性跟 Cell/RefCell 比起來高很多，
+因為裡面要實做多執行緒下的同步機制。
+
+
+稍微瞄一下定義：
+
+.. code-block:: rust
+
+    pub struct RwLock<T: ?Sized> {
+        inner: Box<sys::RWLock>,
+        poison: poison::Flag,
+        data: UnsafeCell<T>,
+    }
+
+    impl<T: ?Sized> RwLock<T> {
+
+        ...
+
+        #[inline]
+        pub fn read(&self) -> LockResult<RwLockReadGuard<T>> {
+            unsafe {
+                self.inner.read();
+                RwLockReadGuard::new(self)
+            }
+        }
+
+        #[inline]
+        pub fn write(&self) -> LockResult<RwLockWriteGuard<T>> {
+            unsafe {
+                self.inner.write();
+                RwLockWriteGuard::new(self)
+            }
+        }
+
+        ...
+
+    }
+
+    ////////////////////////////////////////
+
+    pub struct Mutex<T: ?Sized> {
+        // Note that this mutex is in a *box*, not inlined into the struct itself.
+        // Once a native mutex has been used once, its address can never change (it
+        // can't be moved). This mutex type can be safely moved at any time, so to
+        // ensure that the native mutex is used correctly we box the inner lock to
+        // give it a constant address.
+        inner: Box<sys::Mutex>,
+        poison: poison::Flag,
+        data: UnsafeCell<T>,
+    }
+
+    impl<T: ?Sized> Mutex<T> {
+
+        ...
+
+        pub fn lock(&self) -> LockResult<MutexGuard<T>> {
+            unsafe {
+                self.inner.lock();
+                MutexGuard::new(self)
+            }
+        }
+
+        ...
+
+    }
+
+
+我們可以注意到其實關鍵的都在 ``sys::RwLock`` 和 ``sys::Mutex`` ，
+也就是說會根據平台的不同而選用不同實做，
+Unix-like 平台的實做在 ``src/libstd/sys/unix/rwlock.rs`` 和 ``src/libstd/sys/unix/mutex.rs`` ，
+仔細一看會發現其實用的是 Pthread：
+
+.. code-block:: rust
+
+    pub struct RWLock {
+        inner: UnsafeCell<libc::pthread_rwlock_t>,
+        write_locked: UnsafeCell<bool>,
+        num_readers: AtomicUsize,
+    }
+
+    ////////////////////////////////////////
+
+    pub struct Mutex { inner: UnsafeCell<libc::pthread_mutex_t> }
+
+
+
+相關連結：
+
+* `Interior mutability in Rust, part 3: behind the curtain <https://ricardomartins.cc/2016/07/11/interior-mutability-behind-the-curtain>`_
+* `Rust Book - Lang items <https://doc.rust-lang.org/book/lang-items.html>`_
