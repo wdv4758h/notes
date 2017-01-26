@@ -174,19 +174,19 @@ Writing Application for Kindle
     $ [root@kindle root]# uname -a
     Linux kindle 3.0.35-lab126 #3 PREEMPT Fri Nov 4 12:52:26 PDT 2016 armv7l GNU/Linux
     $ [root@kindle root]# cat /proc/cpuinfo
-    Processor	: ARMv7 Processor rev 10 (v7l)
-    BogoMIPS	: 790.16
-    Features	: swp half thumb fastmult vfp edsp neon vfpv3
-    CPU implementer	: 0x41
+    Processor       : ARMv7 Processor rev 10 (v7l)
+    BogoMIPS        : 790.16
+    Features        : swp half thumb fastmult vfp edsp neon vfpv3
+    CPU implementer : 0x41
     CPU architecture: 7
-    CPU variant	: 0x2
-    CPU part	: 0xc09
-    CPU revision	: 10
+    CPU variant     : 0x2
+    CPU part        : 0xc09
+    CPU revision    : 10
 
-    Hardware	: Freescale i.MX 6SoloLite based Wario Board
-    Revision	: 60000
-    Serial		: "G090G10000000000"
-    BoardId		: "0670200000000000"
+    Hardware        : Freescale i.MX 6SoloLite based Wario Board
+    Revision        : 60000
+    Serial          : "G090G10000000000"
+    BoardId         : "0670200000000000"
     [root@kindle root]# free
     total       used       free     shared    buffers     cached
     Mem:        514760     500456      14304          0     149848     135916
