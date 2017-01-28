@@ -350,10 +350,27 @@
 <li class="toctree-l3"><a class="reference internal" href="#id9">範例五 — 不同中文字體用不同字型</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id10">範例六 — 英文字型</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ams-latex">範例七 — AMS-LaTeX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">範例八 — 嵌入圖片</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">範例九 — 列表</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">範例十 — 陣列和表格</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bibtex">範例十一 — BibTeX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">範例十二 — 繪圖</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id11">服務</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id12">參考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tex">TeX 家族</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id15">LaTeX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pdftex">pdfTeX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#xetex">XeTeX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#luatex">LuaTeX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#context">ConTeXt</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id16">相關工具</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#vim">Vim</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id17">服務</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id18">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="man-page.html">Man Page</a></li>
@@ -651,39 +668,56 @@
            <div itemprop="articleBody">
             
   <div class="section" id="latex">
-<h1><a class="toc-backref" href="#id13">LaTeX 教學</a><a class="headerlink" href="#latex" title="本標題的永久連結">¶</a></h1>
+<h1><a class="toc-backref" href="#id19">LaTeX 教學</a><a class="headerlink" href="#latex" title="本標題的永久連結">¶</a></h1>
 <div class="contents topic" id="id1">
 <p class="topic-title first">目錄</p>
 <ul class="simple">
-<li><a class="reference internal" href="#latex" id="id13">LaTeX 教學</a><ul>
-<li><a class="reference internal" href="#id2" id="id14">基本介紹</a></li>
-<li><a class="reference internal" href="#id3" id="id15">安裝</a></li>
-<li><a class="reference internal" href="#id4" id="id16">基本語法</a><ul>
-<li><a class="reference internal" href="#id5" id="id17">範例一 — 非中文內容）</a></li>
-<li><a class="reference internal" href="#id6" id="id18">範例二 — 稍微完整一點的架構</a></li>
-<li><a class="reference internal" href="#id7" id="id19">範例三 — 數學式子</a></li>
-<li><a class="reference internal" href="#id8" id="id20">範例四 — 中文支援</a></li>
-<li><a class="reference internal" href="#id9" id="id21">範例五 — 不同中文字體用不同字型</a></li>
-<li><a class="reference internal" href="#id10" id="id22">範例六 — 英文字型</a></li>
-<li><a class="reference internal" href="#ams-latex" id="id23">範例七 — AMS-LaTeX</a></li>
+<li><a class="reference internal" href="#latex" id="id19">LaTeX 教學</a><ul>
+<li><a class="reference internal" href="#id2" id="id20">基本介紹</a></li>
+<li><a class="reference internal" href="#id3" id="id21">安裝</a></li>
+<li><a class="reference internal" href="#id4" id="id22">基本語法</a><ul>
+<li><a class="reference internal" href="#id5" id="id23">範例一 — 非中文內容）</a></li>
+<li><a class="reference internal" href="#id6" id="id24">範例二 — 稍微完整一點的架構</a></li>
+<li><a class="reference internal" href="#id7" id="id25">範例三 — 數學式子</a></li>
+<li><a class="reference internal" href="#id8" id="id26">範例四 — 中文支援</a></li>
+<li><a class="reference internal" href="#id9" id="id27">範例五 — 不同中文字體用不同字型</a></li>
+<li><a class="reference internal" href="#id10" id="id28">範例六 — 英文字型</a></li>
+<li><a class="reference internal" href="#ams-latex" id="id29">範例七 — AMS-LaTeX</a></li>
+<li><a class="reference internal" href="#id11" id="id30">範例八 — 嵌入圖片</a></li>
+<li><a class="reference internal" href="#id12" id="id31">範例九 — 列表</a></li>
+<li><a class="reference internal" href="#id13" id="id32">範例十 — 陣列和表格</a></li>
+<li><a class="reference internal" href="#bibtex" id="id33">範例十一 — BibTeX</a></li>
+<li><a class="reference internal" href="#id14" id="id34">範例十二 — 繪圖</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id11" id="id24">服務</a></li>
-<li><a class="reference internal" href="#id12" id="id25">參考</a></li>
+<li><a class="reference internal" href="#tex" id="id35">TeX 家族</a><ul>
+<li><a class="reference internal" href="#id15" id="id36">LaTeX</a></li>
+<li><a class="reference internal" href="#pdftex" id="id37">pdfTeX</a></li>
+<li><a class="reference internal" href="#xetex" id="id38">XeTeX</a></li>
+<li><a class="reference internal" href="#luatex" id="id39">LuaTeX</a></li>
+<li><a class="reference internal" href="#context" id="id40">ConTeXt</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id16" id="id41">相關工具</a><ul>
+<li><a class="reference internal" href="#vim" id="id42">Vim</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id17" id="id43">服務</a></li>
+<li><a class="reference internal" href="#id18" id="id44">參考</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="id2">
-<h2><a class="toc-backref" href="#id14">基本介紹</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id20">基本介紹</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
 </div>
 <div class="section" id="id3">
-<h2><a class="toc-backref" href="#id15">安裝</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id21">安裝</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
 </div>
 <div class="section" id="id4">
-<h2><a class="toc-backref" href="#id16">基本語法</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id22">基本語法</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h2>
 <div class="section" id="id5">
-<h3><a class="toc-backref" href="#id17">範例一 — 非中文內容）</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id23">範例一 — 非中文內容）</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h3>
 <p>撰寫：</p>
 <div class="highlight-tex"><div class="highlight"><pre><span></span><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
 <span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
@@ -710,7 +744,7 @@ $ latex2png hello.tex    <span class="c1"># 產生 hello.png</span>
 </div>
 </div>
 <div class="section" id="id6">
-<h3><a class="toc-backref" href="#id18">範例二 — 稍微完整一點的架構</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id24">範例二 — 稍微完整一點的架構</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h3>
 <p>撰寫：</p>
 <div class="highlight-tex"><div class="highlight"><pre><span></span><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
 
@@ -732,7 +766,7 @@ Hello World
 </div>
 </div>
 <div class="section" id="id7">
-<h3><a class="toc-backref" href="#id19">範例三 — 數學式子</a><a class="headerlink" href="#id7" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id25">範例三 — 數學式子</a><a class="headerlink" href="#id7" title="本標題的永久連結">¶</a></h3>
 <p>數學模式分成兩種，
 分別為 inline 和 display，
 inline 用於插在文字中，
@@ -782,7 +816,7 @@ is important.
 <img alt="../_images/math-example0.png" src="../_images/math-example0.png" />
 </div>
 <div class="section" id="id8">
-<h3><a class="toc-backref" href="#id20">範例四 — 中文支援</a><a class="headerlink" href="#id8" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id26">範例四 — 中文支援</a><a class="headerlink" href="#id8" title="本標題的永久連結">¶</a></h3>
 <p>要支援中文要設定兩個東西，
 一個是使用 xeCJK 套件，
 另一個是選中文字型。</p>
@@ -824,7 +858,7 @@ is important.
 </div>
 </div>
 <div class="section" id="id9">
-<h3><a class="toc-backref" href="#id21">範例五 — 不同中文字體用不同字型</a><a class="headerlink" href="#id9" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id27">範例五 — 不同中文字體用不同字型</a><a class="headerlink" href="#id9" title="本標題的永久連結">¶</a></h3>
 <p>通常我們會對不同的字體選用不同的字型，
 而要指定不同的字型也很簡單，
 需要加入的內容：</p>
@@ -877,10 +911,10 @@ is important.
 </div>
 </div>
 <div class="section" id="id10">
-<h3><a class="toc-backref" href="#id22">範例六 — 英文字型</a><a class="headerlink" href="#id10" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id28">範例六 — 英文字型</a><a class="headerlink" href="#id10" title="本標題的永久連結">¶</a></h3>
 </div>
 <div class="section" id="ams-latex">
-<h3><a class="toc-backref" href="#id23">範例七 — AMS-LaTeX</a><a class="headerlink" href="#ams-latex" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id29">範例七 — AMS-LaTeX</a><a class="headerlink" href="#ams-latex" title="本標題的永久連結">¶</a></h3>
 <p>AMS-LaTeX 是由美國數學學會（American Mathematical Society）開發的套件，
 提供了許多數學相關的支援。</p>
 <p>其中包含：</p>
@@ -950,20 +984,439 @@ The statements of the theorem.
 </pre></div>
 </div>
 <img alt="../_images/math-example1.png" src="../_images/math-example1.png" />
+<p>如果有定義多個定理環境，
+那麼它們的預設編號是分開的，
+但是可以指定要一起編號，
+寫法：</p>
+<div class="highlight-tex"><div class="highlight"><pre><span></span><span class="k">\newtheorem</span><span class="nb">{</span>thm<span class="nb">}{</span>My Theorem<span class="nb">}</span>
+<span class="k">\newtheorem</span><span class="nb">{</span>lem<span class="nb">}</span>[thm]<span class="nb">{</span>My Lemma<span class="nb">}</span>
+</pre></div>
 </div>
+<p>完整範例：</p>
+<div class="highlight-tex"><div class="highlight"><pre><span></span><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+
+<span class="c">% 設定區域</span>
+
+<span class="k">\usepackage</span><span class="nb">{</span>amssymb, amsmath, amsthm<span class="nb">}</span>
+
+<span class="k">\title</span><span class="nb">{</span>文章標題<span class="nb">}</span>
+<span class="k">\author</span><span class="nb">{</span>作者<span class="nb">}</span>
+
+<span class="k">\newtheorem</span><span class="nb">{</span>thm<span class="nb">}{</span>My Theorem<span class="nb">}</span>
+<span class="k">\newtheorem</span><span class="nb">{</span>lem<span class="nb">}</span>[thm]<span class="nb">{</span>My Lemma<span class="nb">}</span>
+
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+
+<span class="c">% 以下撰寫內容</span>
+
+<span class="k">\AmS</span>-<span class="k">\LaTeX</span>
+
+
+<span class="k">\begin</span><span class="nb">{</span>thm<span class="nb">}</span>
+    <span class="k">\begin</span><span class="nb">{</span>align<span class="nb">}</span>
+        y <span class="nb">&amp;</span>= (x+1)<span class="nb">^</span>2 <span class="k">\\</span>
+          <span class="nb">&amp;</span>= x<span class="nb">^</span>2+2x+1
+    <span class="k">\end</span><span class="nb">{</span>align<span class="nb">}</span>
+
+    The statements of the theorems.
+<span class="k">\end</span><span class="nb">{</span>thm<span class="nb">}</span>
+
+<span class="k">\begin</span><span class="nb">{</span>thm<span class="nb">}</span>
+    <span class="k">\begin</span><span class="nb">{</span>align<span class="nb">}</span>
+        y <span class="nb">&amp;</span>= (x+1)<span class="nb">^</span>2 + 1
+    <span class="k">\end</span><span class="nb">{</span>align<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>thm<span class="nb">}</span>
+
+<span class="k">\begin</span><span class="nb">{</span>thm<span class="nb">}</span>
+    <span class="k">\begin</span><span class="nb">{</span>align<span class="nb">}</span>
+        y <span class="nb">&amp;</span>= (x+1)<span class="nb">^</span>2 + 2
+    <span class="k">\end</span><span class="nb">{</span>align<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>thm<span class="nb">}</span>
+
+<span class="k">\begin</span><span class="nb">{</span>lem<span class="nb">}</span>
+    statement of lemma
+<span class="k">\end</span><span class="nb">{</span>lem<span class="nb">}</span>
+
+<span class="k">\begin</span><span class="nb">{</span>lem<span class="nb">}</span>
+    another statement of lemma
+<span class="k">\end</span><span class="nb">{</span>lem<span class="nb">}</span>
+
+
+<span class="c">% 以上撰寫內容</span>
+
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
+</div>
+<img alt="../_images/math-example2.png" src="../_images/math-example2.png" />
+<p>如果需要沒有編號的定理環境，
+就加上星號，
+範例：</p>
+<div class="highlight-tex"><div class="highlight"><pre><span></span><span class="k">\newtheorem*</span><span class="nb">{</span>mainthm<span class="nb">}{</span>Main Theorem<span class="nb">}</span>
+</pre></div>
+</div>
+<p>amsthm 還支援不同的定理風格，
+包含：</p>
+<ul class="simple">
+<li>plain</li>
+<li>definition</li>
+<li>remark</li>
+</ul>
+<p>範例：</p>
+<div class="highlight-tex"><div class="highlight"><pre><span></span><span class="k">\theoremstyle</span><span class="nb">{</span>plain<span class="nb">}</span>
+<span class="k">\newtheorem</span><span class="nb">{</span>thm<span class="nb">}{</span>Theorem<span class="nb">}</span>
+
+<span class="k">\theoremstyle</span><span class="nb">{</span>definition<span class="nb">}</span>
+<span class="k">\newtheorem</span><span class="nb">{</span>def<span class="nb">}{</span>Definition<span class="nb">}</span>
+
+<span class="k">\theoremstyle</span><span class="nb">{</span>remark<span class="nb">}</span>
+<span class="k">\newtheorem</span><span class="nb">{</span>rmk<span class="nb">}{</span>Remark<span class="nb">}</span>
+</pre></div>
+</div>
+<p>完整範例：</p>
+<div class="highlight-tex"><div class="highlight"><pre><span></span><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+
+<span class="c">% 設定區域</span>
+
+<span class="k">\usepackage</span><span class="nb">{</span>amssymb, amsmath, amsthm<span class="nb">}</span>
+
+<span class="k">\theoremstyle</span><span class="nb">{</span>plain<span class="nb">}</span>
+<span class="k">\newtheorem</span><span class="nb">{</span>thm<span class="nb">}{</span>Theorem<span class="nb">}</span>
+
+<span class="k">\theoremstyle</span><span class="nb">{</span>definition<span class="nb">}</span>
+<span class="k">\newtheorem</span><span class="nb">{</span>defn<span class="nb">}{</span>Definition<span class="nb">}</span>
+
+<span class="k">\theoremstyle</span><span class="nb">{</span>remark<span class="nb">}</span>
+<span class="k">\newtheorem</span><span class="nb">{</span>rmk<span class="nb">}{</span>Remark<span class="nb">}</span>
+
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+
+<span class="c">% 以下撰寫內容</span>
+
+<span class="k">\begin</span><span class="nb">{</span>thm<span class="nb">}</span>
+    The statements of the theorems.
+<span class="k">\end</span><span class="nb">{</span>thm<span class="nb">}</span>
+
+<span class="k">\begin</span><span class="nb">{</span>defn<span class="nb">}</span>
+    The statements of the definition.
+<span class="k">\end</span><span class="nb">{</span>defn<span class="nb">}</span>
+
+<span class="k">\begin</span><span class="nb">{</span>rmk<span class="nb">}</span>
+    The statements of the remarks.
+<span class="k">\end</span><span class="nb">{</span>rmk<span class="nb">}</span>
+
+<span class="c">% 以上撰寫內容</span>
+
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
+</div>
+<p>我們可以給定理附上標示（ <code class="docutils literal"><span class="pre">\label{代稱}</span></code> ），
+以便後續引用（ <code class="docutils literal"><span class="pre">~\ref{引用代稱}</span></code> ），
+範例：</p>
+<div class="highlight-tex"><div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>thm<span class="nb">}</span><span class="k">\label</span><span class="nb">{</span>T:major<span class="nb">}</span>
+    the statements of the theorem.
+<span class="k">\end</span><span class="nb">{</span>thm<span class="nb">}</span>
+
+<span class="c">% 引用</span>
+
+Please refer to
+Theorem ~<span class="k">\ref</span><span class="nb">{</span>T:major<span class="nb">}</span>
+</pre></div>
+</div>
+<p>完整範例：</p>
+<div class="highlight-tex"><div class="highlight"><pre><span></span><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+
+<span class="c">% 設定區域</span>
+
+<span class="k">\usepackage</span><span class="nb">{</span>amssymb, amsmath, amsthm<span class="nb">}</span>
+
+<span class="k">\newtheorem</span><span class="nb">{</span>thm<span class="nb">}{</span>Theorem<span class="nb">}</span>
+
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+
+<span class="c">% 以下撰寫內容</span>
+
+<span class="k">\begin</span><span class="nb">{</span>thm<span class="nb">}</span><span class="k">\label</span><span class="nb">{</span>T:major<span class="nb">}</span>
+    the statements of the theorem.
+<span class="k">\end</span><span class="nb">{</span>thm<span class="nb">}</span>
+
+<span class="c">% 引用</span>
+
+Please refer to
+Theorem~<span class="k">\ref</span><span class="nb">{</span>T:major<span class="nb">}</span>
+
+<span class="c">% 以上撰寫內容</span>
+
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
+</div>
+<img alt="../_images/math-example3.png" src="../_images/math-example3.png" />
 </div>
 <div class="section" id="id11">
-<h2><a class="toc-backref" href="#id24">服務</a><a class="headerlink" href="#id11" title="本標題的永久連結">¶</a></h2>
+<h3><a class="toc-backref" href="#id30">範例八 — 嵌入圖片</a><a class="headerlink" href="#id11" title="本標題的永久連結">¶</a></h3>
+<p>要插入圖片可以使用 graphicx 套件：</p>
+<div class="highlight-tex"><div class="highlight"><pre><span></span><span class="k">\usepackage</span><span class="nb">{</span>graphicx<span class="nb">}</span>
+</pre></div>
+</div>
+<p>接著可以使用 <code class="docutils literal"><span class="pre">\includegraphics</span></code> 來嵌入圖片：</p>
+<div class="highlight-tex"><div class="highlight"><pre><span></span><span class="k">\includegraphics</span><span class="na">[width=5cm]</span><span class="nb">{</span>pic.png<span class="nb">}</span>
+</pre></div>
+</div>
+<p>圖片置中：</p>
+<div class="highlight-tex"><div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>center<span class="nb">}</span>
+    <span class="k">\includegraphics</span><span class="na">[width=5cm]</span><span class="nb">{</span>pic.png<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>center<span class="nb">}</span>
+</pre></div>
+</div>
+<p>讓圖片依照版面狀況調整位置：</p>
+<div class="highlight-tex"><div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>figure<span class="nb">}</span>
+    <span class="k">\begin</span><span class="nb">{</span>center<span class="nb">}</span>
+        <span class="k">\includegraphics</span><span class="na">[width=5cm]</span><span class="nb">{</span>pic.png<span class="nb">}</span>
+    <span class="k">\end</span><span class="nb">{</span>center<span class="nb">}</span>
+    <span class="k">\caption</span><span class="nb">{</span>Description<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>figure<span class="nb">}</span>
+</pre></div>
+</div>
+<p>可以用額外的參數建議位置，
+可用選項為：</p>
+<ul class="simple">
+<li>h：Here，這裡</li>
+<li>t：Top，頂端</li>
+<li>b：Bottom，底端</li>
+<li>p：Page，本頁</li>
+</ul>
+<p>範例：</p>
+<div class="highlight-tex"><div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>figure<span class="nb">}</span>[h]
+    ...
+<span class="k">\end</span><span class="nb">{</span>figure<span class="nb">}</span>
+</pre></div>
+</div>
+<p>圖片也跟定理一樣可以上標籤和引用：</p>
+<div class="highlight-tex"><div class="highlight"><pre><span></span><span class="k">\caption</span><span class="nb">{</span>Description<span class="nb">}</span><span class="k">\label</span><span class="nb">{</span>My Pic<span class="nb">}</span>
+
+Here is the picture ~<span class="k">\ref</span><span class="nb">{</span>My Pic<span class="nb">}</span>
+</pre></div>
+</div>
+<p>完整範例：</p>
+<div class="highlight-tex"><div class="highlight"><pre><span></span><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+
+<span class="c">% 設定區域</span>
+
+<span class="k">\usepackage</span><span class="nb">{</span>graphicx<span class="nb">}</span>
+
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+
+<span class="c">% 以下撰寫內容</span>
+
+<span class="k">\begin</span><span class="nb">{</span>figure<span class="nb">}</span>
+    <span class="k">\begin</span><span class="nb">{</span>center<span class="nb">}</span>
+        <span class="k">\includegraphics</span><span class="na">[width=5cm]</span><span class="nb">{</span>rust.png<span class="nb">}</span>
+    <span class="k">\end</span><span class="nb">{</span>center<span class="nb">}</span>
+    <span class="k">\caption</span><span class="nb">{</span>Description<span class="nb">}</span>
+    <span class="k">\label</span><span class="nb">{</span>fig:rust<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>figure<span class="nb">}</span>
+
+<span class="c">% 引用</span>
+
+See the figure~<span class="k">\ref</span><span class="nb">{</span>fig:rust<span class="nb">}</span> on page~<span class="k">\pageref</span><span class="nb">{</span>fig:rust<span class="nb">}</span>
+
+<span class="c">% 以上撰寫內容</span>
+
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id12">
+<h3><a class="toc-backref" href="#id31">範例九 — 列表</a><a class="headerlink" href="#id12" title="本標題的永久連結">¶</a></h3>
+<div class="highlight-tex"><div class="highlight"><pre><span></span><span class="c">% 沒有編號</span>
+
+<span class="k">\begin</span><span class="nb">{</span>itemize<span class="nb">}</span>
+    <span class="k">\item</span> A
+    <span class="k">\item</span> B
+    <span class="k">\item</span> C
+<span class="k">\end</span><span class="nb">{</span>itemize<span class="nb">}</span>
+
+<span class="c">% 有編號</span>
+
+<span class="k">\begin</span><span class="nb">{</span>enumerate<span class="nb">}</span>
+    <span class="k">\item</span> A
+    <span class="k">\item</span> B
+    <span class="k">\item</span> C
+<span class="k">\end</span><span class="nb">{</span>enumerate<span class="nb">}</span>
+
+<span class="c">% 客製編號</span>
+
+<span class="k">\begin</span><span class="nb">{</span>description<span class="nb">}</span>
+    <span class="k">\item</span> [One] A
+    <span class="k">\item</span> [Two] B
+    <span class="k">\item</span> [Three] C
+<span class="k">\end</span><span class="nb">{</span>description<span class="nb">}</span>
+</pre></div>
+</div>
+<p>完整範例：</p>
+<div class="highlight-tex"><div class="highlight"><pre><span></span><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+
+<span class="c">% 設定區域</span>
+
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+
+<span class="c">% 以下撰寫內容</span>
+
+<span class="c">% 沒有編號</span>
+
+<span class="k">\begin</span><span class="nb">{</span>itemize<span class="nb">}</span>
+    <span class="k">\item</span> A
+    <span class="k">\item</span> B
+    <span class="k">\item</span> C
+<span class="k">\end</span><span class="nb">{</span>itemize<span class="nb">}</span>
+
+<span class="c">% 有編號</span>
+
+<span class="k">\begin</span><span class="nb">{</span>enumerate<span class="nb">}</span>
+    <span class="k">\item</span> A
+    <span class="k">\item</span> B
+    <span class="k">\item</span> C
+<span class="k">\end</span><span class="nb">{</span>enumerate<span class="nb">}</span>
+
+<span class="c">% 客製編號</span>
+
+<span class="k">\begin</span><span class="nb">{</span>description<span class="nb">}</span>
+    <span class="k">\item</span> [One] A
+    <span class="k">\item</span> [Two] B
+    <span class="k">\item</span> [Three] C
+<span class="k">\end</span><span class="nb">{</span>description<span class="nb">}</span>
+
+<span class="c">% 以上撰寫內容</span>
+
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
+</div>
+<img alt="../_images/math-example5.png" src="../_images/math-example5.png" />
+</div>
+<div class="section" id="id13">
+<h3><a class="toc-backref" href="#id32">範例十 — 陣列和表格</a><a class="headerlink" href="#id13" title="本標題的永久連結">¶</a></h3>
+<div class="highlight-tex"><div class="highlight"><pre><span></span><span class="sb">\[</span><span class="nb"></span>
+<span class="nv">\begin</span><span class="nb">{array}{ccc}</span>
+<span class="nb">    </span><span class="m">1</span><span class="nb"> &amp; </span><span class="m">2</span><span class="nb"> &amp; </span><span class="m">3</span><span class="nb"> </span><span class="nv">\\</span><span class="nb"></span>
+<span class="nb">    </span><span class="m">4</span><span class="nb"> &amp; </span><span class="m">5</span><span class="nb"> &amp; </span><span class="m">6</span><span class="nb"> </span><span class="nv">\\</span><span class="nb"></span>
+<span class="nb">    </span><span class="m">7</span><span class="nb"> &amp; </span><span class="m">8</span><span class="nb"> &amp; </span><span class="m">9</span><span class="nb"></span>
+<span class="nv">\end</span><span class="nb">{array}</span>
+<span class="s">\]</span>
+</pre></div>
+</div>
+<p>這邊表示陣列有三行，
+每行對齊中間，
+支援的對齊方式有：</p>
+<ul class="simple">
+<li>c：對齊中間</li>
+<li>l：對齊左邊</li>
+<li>r：對齊右邊</li>
+</ul>
+<p>輸入時每行要用 <code class="docutils literal"><span class="pre">\\</span></code> 換行，
+每個欄位用 <code class="docutils literal"><span class="pre">&amp;</span></code> 隔開。</p>
+<p>表格使用方式跟陣列類似，
+但是把 <code class="docutils literal"><span class="pre">array</span></code> 換成 <code class="docutils literal"><span class="pre">tabular</span></code> ，
+範例：</p>
+<div class="highlight-tex"><div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>tabular<span class="nb">}{</span>ccc<span class="nb">}</span>
+    item1 <span class="nb">&amp;</span> item2 <span class="nb">&amp;</span> item3 <span class="k">\\</span>
+    1 <span class="nb">&amp;</span> 2 <span class="nb">&amp;</span> 3 <span class="k">\\</span>
+    4 <span class="nb">&amp;</span> 5 <span class="nb">&amp;</span> 6
+<span class="k">\end</span><span class="nb">{</span>tabular<span class="nb">}</span>
+</pre></div>
+</div>
+<p>用 <code class="docutils literal"><span class="pre">\hline</span></code> 加上橫線：</p>
+<div class="highlight-tex"><div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>tabular<span class="nb">}{</span>ccc<span class="nb">}</span> <span class="k">\hline</span>
+    item1 <span class="nb">&amp;</span> item2 <span class="nb">&amp;</span> item3 <span class="k">\\</span> <span class="k">\hline</span>
+    1 <span class="nb">&amp;</span> 2 <span class="nb">&amp;</span> 3 <span class="k">\\</span> <span class="k">\hline</span>
+    4 <span class="nb">&amp;</span> 5 <span class="nb">&amp;</span> 6 <span class="k">\\</span> <span class="k">\hline</span>
+<span class="k">\end</span><span class="nb">{</span>tabular<span class="nb">}</span>
+</pre></div>
+</div>
+<p>在設定中加上縱線：</p>
+<div class="highlight-tex"><div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>tabular<span class="nb">}{</span>|c|c|c|<span class="nb">}</span> <span class="k">\hline</span>
+    item1 <span class="nb">&amp;</span> item2 <span class="nb">&amp;</span> item3 <span class="k">\\</span> <span class="k">\hline</span>
+    1 <span class="nb">&amp;</span> 2 <span class="nb">&amp;</span> 3 <span class="k">\\</span> <span class="k">\hline</span>
+    4 <span class="nb">&amp;</span> 5 <span class="nb">&amp;</span> 6 <span class="k">\\</span> <span class="k">\hline</span>
+<span class="k">\end</span><span class="nb">{</span>tabular<span class="nb">}</span>
+</pre></div>
+</div>
+<p>陣列括弧（用 <code class="docutils literal"><span class="pre">\left</span></code> 和 <code class="docutils literal"><span class="pre">\right</span></code> 才能夠讓括弧夠大到可以把陣列包起來）：</p>
+<div class="highlight-tex"><div class="highlight"><pre><span></span><span class="sb">\[</span><span class="nb"></span>
+<span class="nv">\left</span><span class="o">(</span><span class="nb"></span>
+<span class="nv">\begin</span><span class="nb">{array}{ccc}</span>
+<span class="nb">    </span><span class="m">1</span><span class="nb"> &amp; </span><span class="m">2</span><span class="nb"> &amp; </span><span class="m">3</span><span class="nb"> </span><span class="nv">\\</span><span class="nb"></span>
+<span class="nb">    </span><span class="m">4</span><span class="nb"> &amp; </span><span class="m">5</span><span class="nb"> &amp; </span><span class="m">6</span><span class="nb"> </span><span class="nv">\\</span><span class="nb"></span>
+<span class="nb">    </span><span class="m">7</span><span class="nb"> &amp; </span><span class="m">8</span><span class="nb"> &amp; </span><span class="m">9</span><span class="nb"></span>
+<span class="nv">\end</span><span class="nb">{array}</span>
+<span class="nv">\right</span><span class="o">)</span><span class="nb"></span>
+<span class="s">\]</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">\left</span></code> 和 <code class="docutils literal"><span class="pre">\right</span></code> 一定要成對出現，
+但是有時候我們只想要單邊，
+下面是單邊的範例：</p>
+<div class="highlight-tex"><div class="highlight"><pre><span></span><span class="sb">\[</span><span class="nb"></span>
+<span class="nb">|x| </span><span class="o">=</span><span class="nb"> </span><span class="nv">\left\{</span><span class="nb"></span>
+<span class="nv">\begin</span><span class="nb">{array}{rr}</span>
+<span class="nb">x, &amp; </span><span class="nv">\mbox</span><span class="nb">{if $x </span><span class="nv">\geq</span><span class="nb"> </span><span class="m">0</span><span class="nb">$} </span><span class="nv">\\</span><span class="nb"></span>
+<span class="o">-</span><span class="nb">x, &amp; </span><span class="nv">\mbox</span><span class="nb">{if $x &lt; </span><span class="m">0</span><span class="nb">$}</span>
+<span class="nv">\end</span><span class="nb">{array} </span><span class="nv">\right</span><span class="nb">.</span>
+<span class="s">\]</span>
+</pre></div>
+</div>
+<p>（我們可以用 <code class="docutils literal"><span class="pre">\mbox</span></code> 在數學式中輸入純文字）</p>
+</div>
+<div class="section" id="bibtex">
+<h3><a class="toc-backref" href="#id33">範例十一 — BibTeX</a><a class="headerlink" href="#bibtex" title="本標題的永久連結">¶</a></h3>
+</div>
+<div class="section" id="id14">
+<h3><a class="toc-backref" href="#id34">範例十二 — 繪圖</a><a class="headerlink" href="#id14" title="本標題的永久連結">¶</a></h3>
+</div>
+</div>
+<div class="section" id="tex">
+<h2><a class="toc-backref" href="#id35">TeX 家族</a><a class="headerlink" href="#tex" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="id15">
+<h3><a class="toc-backref" href="#id36">LaTeX</a><a class="headerlink" href="#id15" title="本標題的永久連結">¶</a></h3>
+</div>
+<div class="section" id="pdftex">
+<h3><a class="toc-backref" href="#id37">pdfTeX</a><a class="headerlink" href="#pdftex" title="本標題的永久連結">¶</a></h3>
+</div>
+<div class="section" id="xetex">
+<h3><a class="toc-backref" href="#id38">XeTeX</a><a class="headerlink" href="#xetex" title="本標題的永久連結">¶</a></h3>
+</div>
+<div class="section" id="luatex">
+<h3><a class="toc-backref" href="#id39">LuaTeX</a><a class="headerlink" href="#luatex" title="本標題的永久連結">¶</a></h3>
+</div>
+<div class="section" id="context">
+<h3><a class="toc-backref" href="#id40">ConTeXt</a><a class="headerlink" href="#context" title="本標題的永久連結">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id16">
+<h2><a class="toc-backref" href="#id41">相關工具</a><a class="headerlink" href="#id16" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="vim">
+<h3><a class="toc-backref" href="#id42">Vim</a><a class="headerlink" href="#vim" title="本標題的永久連結">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/vim-latex/vim-latex">vim-latex</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id17">
+<h2><a class="toc-backref" href="#id43">服務</a><a class="headerlink" href="#id17" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://www.overleaf.com/">Overleaf</a></li>
 <li><a class="reference external" href="https://papeeria.com/">Papeeria</a></li>
 </ul>
 </div>
-<div class="section" id="id12">
-<h2><a class="toc-backref" href="#id25">參考</a><a class="headerlink" href="#id12" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="id18">
+<h2><a class="toc-backref" href="#id44">參考</a><a class="headerlink" href="#id18" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/yenlung/quicklatex/">LaTeX 快速入門 (Quick LaTeX)</a></li>
 <li><a class="reference external" href="http://www.study-area.org/tips/latex/chpdf.html">由 TeX/LaTeX 製作中文 PDF 檔</a></li>
+<li><a class="reference external" href="https://www.latex-tutorial.com/tutorials/">A simple guide to LaTeX - Step by Step</a></li>
+<li><a class="reference external" href="https://en.wikibooks.org/wiki/LaTeX">Wikibooks - LaTex</a></li>
+<li><a class="reference external" href="https://www.sharelatex.com/learn/Main_Page">ShareLaTeX - Documentation</a></li>
+<li><a class="reference external" href="https://github.com/egeerardyn/awesome-LaTeX">Awesome LaTeX</a></li>
+<li><a class="reference external" href="https://github.com/posquit0/Awesome-CV">Awesome CV</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/TeX">Wikipedia - TeX</a></li>
 </ul>
 </div>
 </div>
