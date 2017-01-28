@@ -343,7 +343,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#id2">基本介紹</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id3">安裝</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id4">基本語法</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id5">範例一（非中文內容）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">範例一 — 非中文內容）</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id6">範例二 — 稍微完整一點的架構</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id7">範例三 — 數學式子</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id8">範例四 — 中文支援</a></li>
@@ -659,7 +659,7 @@
 <li><a class="reference internal" href="#id2" id="id14">基本介紹</a></li>
 <li><a class="reference internal" href="#id3" id="id15">安裝</a></li>
 <li><a class="reference internal" href="#id4" id="id16">基本語法</a><ul>
-<li><a class="reference internal" href="#id5" id="id17">範例一（非中文內容）</a></li>
+<li><a class="reference internal" href="#id5" id="id17">範例一 — 非中文內容）</a></li>
 <li><a class="reference internal" href="#id6" id="id18">範例二 — 稍微完整一點的架構</a></li>
 <li><a class="reference internal" href="#id7" id="id19">範例三 — 數學式子</a></li>
 <li><a class="reference internal" href="#id8" id="id20">範例四 — 中文支援</a></li>
@@ -683,7 +683,7 @@
 <div class="section" id="id4">
 <h2><a class="toc-backref" href="#id16">基本語法</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h2>
 <div class="section" id="id5">
-<h3><a class="toc-backref" href="#id17">範例一（非中文內容）</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id17">範例一 — 非中文內容）</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h3>
 <p>撰寫：</p>
 <div class="highlight-tex"><div class="highlight"><pre><span></span><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
 <span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
@@ -703,7 +703,7 @@ Hello World
 </div>
 <p>轉成圖片：</p>
 <div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># PNG</span>
-    $ latex2png hello.tex   <span class="c1"># 產生 hello.png</span>
+$ latex2png hello.tex    <span class="c1"># 產生 hello.png</span>
 
 <span class="c1"># TODO: SVG</span>
 </pre></div>
@@ -828,7 +828,7 @@ is important.
 <p>通常我們會對不同的字體選用不同的字型，
 而要指定不同的字型也很簡單，
 需要加入的內容：</p>
-<div class="highlight-tex"><div class="highlight"><pre><span></span>    <span class="c">% 不過目前 Noto Sans 沒有中文的斜體 :(</span>
+<div class="highlight-tex"><div class="highlight"><pre><span></span><span class="c">% 不過目前 Noto Sans 沒有中文的斜體 :(</span>
 <span class="k">\setCJKmainfont</span>[
     BoldFont=<span class="nb">{</span>Noto Sans CJK TC Bold<span class="nb">}</span>,
     ItalicFont=<span class="nb">{</span>Noto Sans CJK TC Medium<span class="nb">}</span>]
@@ -920,28 +920,28 @@ The statements of the theorem.
 
 <span class="c">% 設定區域</span>
 
-    <span class="k">\usepackage</span><span class="nb">{</span>amssymb, amsmath, amsthm<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>amssymb, amsmath, amsthm<span class="nb">}</span>
 
 <span class="k">\title</span><span class="nb">{</span>文章標題<span class="nb">}</span>
 <span class="k">\author</span><span class="nb">{</span>作者<span class="nb">}</span>
 
-    <span class="k">\newtheorem</span><span class="nb">{</span>thm<span class="nb">}{</span>My Theorem<span class="nb">}</span>[section]
+<span class="k">\newtheorem</span><span class="nb">{</span>thm<span class="nb">}{</span>My Theorem<span class="nb">}</span>[section]
 
 <span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
 
 <span class="c">% 以下撰寫內容</span>
 
-    <span class="k">\AmS</span>-<span class="k">\LaTeX</span>
+<span class="k">\AmS</span>-<span class="k">\LaTeX</span>
 
 
-    <span class="k">\begin</span><span class="nb">{</span>thm<span class="nb">}</span>
-            <span class="k">\begin</span><span class="nb">{</span>align<span class="nb">}</span>
-                    y <span class="nb">&amp;</span>= (x+1)<span class="nb">^</span>2 <span class="k">\\</span>
-                      <span class="nb">&amp;</span>= x<span class="nb">^</span>2+2x+1
-            <span class="k">\end</span><span class="nb">{</span>align<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>thm<span class="nb">}</span>
+    <span class="k">\begin</span><span class="nb">{</span>align<span class="nb">}</span>
+        y <span class="nb">&amp;</span>= (x+1)<span class="nb">^</span>2 <span class="k">\\</span>
+          <span class="nb">&amp;</span>= x<span class="nb">^</span>2+2x+1
+    <span class="k">\end</span><span class="nb">{</span>align<span class="nb">}</span>
 
-            The statements of the theorems.
-    <span class="k">\end</span><span class="nb">{</span>thm<span class="nb">}</span>
+    The statements of the theorems.
+<span class="k">\end</span><span class="nb">{</span>thm<span class="nb">}</span>
 
 
 <span class="c">% 以上撰寫內容</span>

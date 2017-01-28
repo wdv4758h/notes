@@ -15,7 +15,7 @@ LaTeX 教學
 基本語法
 ========================================
 
-範例一（非中文內容）
+範例一 — 非中文內容）
 ------------------------------
 
 撰寫：
@@ -46,7 +46,7 @@ LaTeX 教學
 .. code-block:: sh
 
     # PNG
-	$ latex2png hello.tex	# 產生 hello.png
+    $ latex2png hello.tex    # 產生 hello.png
 
     # TODO: SVG
 
@@ -200,7 +200,7 @@ display 則是把數學獨立置中，
 
 .. code-block:: tex
 
-	% 不過目前 Noto Sans 沒有中文的斜體 :(
+    % 不過目前 Noto Sans 沒有中文的斜體 :(
     \setCJKmainfont[
         BoldFont={Noto Sans CJK TC Bold},
         ItalicFont={Noto Sans CJK TC Medium}]
@@ -273,7 +273,7 @@ AMS-LaTeX 是由美國數學學會（American Mathematical Society）開發的�
 
 .. code-block:: tex
 
-	\usepackage{amssymb, ammath, amsthm}
+    \usepackage{amssymb, ammath, amsthm}
 
 
 AMS-LaTeX 也提供一種 Document Class 可以使用，
@@ -283,27 +283,27 @@ AMS-LaTeX 也提供一種 Document Class 可以使用，
 
 .. code-block:: tex
 
-	\documentclass{amsstart}
+    \documentclass{amsstart}
 
 
 定義定理：
 
 .. code-block:: tex
 
-	% 定義定理環境 thm
-	% 顯示時標示為 Theorem
-	\newtheorem{thm}{Theorem}
+    % 定義定理環境 thm
+    % 顯示時標示為 Theorem
+    \newtheorem{thm}{Theorem}
 
-	\begin{thm}
-	The statements of the theorem.
-	\end{thm}
+    \begin{thm}
+    The statements of the theorem.
+    \end{thm}
 
 還可以加上 ``[section]`` 來編號，
 範例：
 
 .. code-block:: tex
 
-	\newtheorem{thm}{Theorem}[section]
+    \newtheorem{thm}{Theorem}[section]
 
 
 完整範例：
@@ -314,28 +314,28 @@ AMS-LaTeX 也提供一種 Document Class 可以使用，
 
     % 設定區域
 
-	\usepackage{amssymb, amsmath, amsthm}
+    \usepackage{amssymb, amsmath, amsthm}
 
     \title{文章標題}
     \author{作者}
 
-	\newtheorem{thm}{My Theorem}[section]
+    \newtheorem{thm}{My Theorem}[section]
 
     \begin{document}
 
     % 以下撰寫內容
 
-	\AmS-\LaTeX
+    \AmS-\LaTeX
 
 
-	\begin{thm}
-		\begin{align}
-			y &= (x+1)^2 \\
-			  &= x^2+2x+1
-		\end{align}
+    \begin{thm}
+        \begin{align}
+            y &= (x+1)^2 \\
+              &= x^2+2x+1
+        \end{align}
 
-		The statements of the theorems.
-	\end{thm}
+        The statements of the theorems.
+    \end{thm}
 
 
     % 以上撰寫內容
