@@ -635,7 +635,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="erlang">
-<h1><a class="toc-backref" href="#id9">Erlang</a><a class="headerlink" href="#erlang" title="本標題的永久連結">¶</a></h1>
+<h1><a class="toc-backref" href="#id11">Erlang</a><a class="headerlink" href="#erlang" title="本標題的永久連結">¶</a></h1>
 <p>初步聽了 Erlang 的介紹，
 感覺受 Prolog 影響很深 (當初的實作據說就是 Prolog 寫的)。
 變數需要大寫，
@@ -654,36 +654,57 @@ BEAM 包含 copying generational GC。</p>
 <div class="contents topic" id="id1">
 <p class="topic-title first">目錄</p>
 <ul class="simple">
-<li><a class="reference internal" href="#erlang" id="id9">Erlang</a><ul>
-<li><a class="reference internal" href="#id2" id="id10">安裝</a></li>
-<li><a class="reference internal" href="#id3" id="id11">基本練習</a><ul>
-<li><a class="reference internal" href="#hello-world" id="id12">Hello World</a></li>
-<li><a class="reference internal" href="#fibonacci" id="id13">Fibonacci</a></li>
+<li><a class="reference internal" href="#erlang" id="id11">Erlang</a><ul>
+<li><a class="reference internal" href="#id2" id="id12">特色清單（用於快速建立語言輪廓）</a></li>
+<li><a class="reference internal" href="#id3" id="id13">歷史發展</a></li>
+<li><a class="reference internal" href="#id4" id="id14">安裝</a></li>
+<li><a class="reference internal" href="#id5" id="id15">練習範例</a><ul>
+<li><a class="reference internal" href="#hello-world" id="id16">Hello World</a></li>
+<li><a class="reference internal" href="#fibonacci" id="id17">Fibonacci</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#escript-erlang-scripting" id="id14">escript - Erlang Scripting</a></li>
-<li><a class="reference internal" href="#id4" id="id15">專案輔助工具</a><ul>
-<li><a class="reference internal" href="#rebar3" id="id16">Rebar3</a></li>
+<li><a class="reference internal" href="#escript-erlang-scripting" id="id18">escript - Erlang Scripting</a></li>
+<li><a class="reference internal" href="#id6" id="id19">專案輔助工具</a><ul>
+<li><a class="reference internal" href="#rebar3" id="id20">Rebar3</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#hex-beam-vm" id="id17">Hex - BEAM VM 生態圈的套件平台</a></li>
-<li><a class="reference internal" href="#otp" id="id18">OTP</a></li>
-<li><a class="reference internal" href="#id6" id="id19">Erlang 與其他程式語言</a><ul>
-<li><a class="reference internal" href="#erlport" id="id20">ErlPort</a></li>
-<li><a class="reference internal" href="#py-distributed-python-for-the-erlang-ecosystem" id="id21">py - Distributed Python for the Erlang Ecosystem</a></li>
+<li><a class="reference internal" href="#hex-beam-vm" id="id21">Hex - BEAM VM 生態圈的套件平台</a></li>
+<li><a class="reference internal" href="#otp" id="id22">OTP</a></li>
+<li><a class="reference internal" href="#dialyzer" id="id23">Dialyzer - 靜態型別檢查</a></li>
+<li><a class="reference internal" href="#id9" id="id24">Erlang 與其他程式語言</a><ul>
+<li><a class="reference internal" href="#erlport" id="id25">ErlPort</a></li>
+<li><a class="reference internal" href="#py-distributed-python-for-the-erlang-ecosystem" id="id26">py - Distributed Python for the Erlang Ecosystem</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#nif-natively-implemented-function" id="id22">NIF (Natively Implemented Function)</a></li>
-<li><a class="reference internal" href="#ds-dirty-scheduler" id="id23">DS (Dirty Scheduler)</a></li>
-<li><a class="reference internal" href="#garbage-collection" id="id24">Garbage Collection</a></li>
-<li><a class="reference internal" href="#id7" id="id25">書籍</a></li>
-<li><a class="reference internal" href="#reference" id="id26">Reference</a></li>
+<li><a class="reference internal" href="#nif-natively-implemented-function" id="id27">NIF (Natively Implemented Function)</a></li>
+<li><a class="reference internal" href="#ds-dirty-scheduler" id="id28">DS (Dirty Scheduler)</a></li>
+<li><a class="reference internal" href="#garbage-collection" id="id29">Garbage Collection</a></li>
+<li><a class="reference internal" href="#id10" id="id30">書籍</a></li>
+<li><a class="reference internal" href="#reference" id="id31">Reference</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="id2">
-<h2><a class="toc-backref" href="#id10">安裝</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id12">特色清單（用於快速建立語言輪廓）</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li>具有語言 VM（叫 BEAM VM）</li>
+<li>有受到邏輯程式語言的影響（例如 Prolog）</li>
+<li>函數式程式語言</li>
+<li>動態、強型別</li>
+<li>動態軟體更新（更新程式碼不用重新啟動已經在執行的服務）</li>
+<li>著重分散式</li>
+<li>所有東西都是自己管理的輕量化 Process</li>
+<li>Process 的狀態只有正常運作或是 Crash，沒有仍然運作但行為奇怪的狀況</li>
+<li>Message Passing</li>
+<li>CSP (Communicating Sequential Processes)</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id13">歷史發展</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id14">安裝</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h2>
 <p>Arch Linux 上有兩個版本可以裝，
 一個是 <code class="docutils literal"><span class="pre">erlang</span></code> 一個是 <code class="docutils literal"><span class="pre">erlang-nox</span></code> ，
 其中的 <code class="docutils literal"><span class="pre">erlang-nox</span></code> 被標為 <code class="docutils literal"><span class="pre">headless</span></code> ，
@@ -694,11 +715,11 @@ BEAM 包含 copying generational GC。</p>
 </div>
 <p>安裝完後會得到 <code class="docutils literal"><span class="pre">erl</span></code> 指令可以打開直譯器</p>
 </div>
-<div class="section" id="id3">
-<h2><a class="toc-backref" href="#id11">基本練習</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="id5">
+<h2><a class="toc-backref" href="#id15">練習範例</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h2>
 <p>Erlang 的程式碼是用 <code class="docutils literal"><span class="pre">.erl</span></code> 作為副檔名。</p>
 <div class="section" id="hello-world">
-<h3><a class="toc-backref" href="#id12">Hello World</a><a class="headerlink" href="#hello-world" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id16">Hello World</a><a class="headerlink" href="#hello-world" title="本標題的永久連結">¶</a></h3>
 <p>hello.erl:</p>
 <div class="highlight-erlang"><div class="highlight"><pre><span></span><span class="p">-</span><span class="ni">module</span><span class="p">(</span><span class="n">hello</span><span class="p">).</span>
 <span class="p">-</span><span class="ni">export</span><span class="p">([</span><span class="n">hello_world</span><span class="o">/</span><span class="mi">0</span><span class="p">]).</span>
@@ -725,7 +746,7 @@ $ erl -noshell -s hello hello_world -s init stop    <span class="c1"># 執行</s
 </div>
 </div>
 <div class="section" id="fibonacci">
-<h3><a class="toc-backref" href="#id13">Fibonacci</a><a class="headerlink" href="#fibonacci" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id17">Fibonacci</a><a class="headerlink" href="#fibonacci" title="本標題的永久連結">¶</a></h3>
 <p>這次以 escript 的形式讀 stdin 來計算 Fibonacci 後輸出到 stdout。</p>
 <div class="highlight-erlang"><div class="highlight"><pre><span></span>#!/usr/bin/env escript
 
@@ -808,15 +829,15 @@ usage() -&gt;
 </div>
 </div>
 <div class="section" id="escript-erlang-scripting">
-<h2><a class="toc-backref" href="#id14">escript - Erlang Scripting</a><a class="headerlink" href="#escript-erlang-scripting" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id18">escript - Erlang Scripting</a><a class="headerlink" href="#escript-erlang-scripting" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://erlang.org/doc/man/escript.html">escript</a></li>
 </ul>
 </div>
-<div class="section" id="id4">
-<h2><a class="toc-backref" href="#id15">專案輔助工具</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="id6">
+<h2><a class="toc-backref" href="#id19">專案輔助工具</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h2>
 <div class="section" id="rebar3">
-<h3><a class="toc-backref" href="#id16">Rebar3</a><a class="headerlink" href="#rebar3" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id20">Rebar3</a><a class="headerlink" href="#rebar3" title="本標題的永久連結">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="https://www.rebar3.org/">Rebar3</a></li>
 <li>[GitHub] <a class="reference external" href="https://github.com/erlang/rebar3">erlang/rebar3</a></li>
@@ -993,7 +1014,7 @@ http://www.rebar3.org/docs/releases<span class="o">)</span>
 </div>
 </div>
 <div class="section" id="hex-beam-vm">
-<h2><a class="toc-backref" href="#id17">Hex - BEAM VM 生態圈的套件平台</a><a class="headerlink" href="#hex-beam-vm" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id21">Hex - BEAM VM 生態圈的套件平台</a><a class="headerlink" href="#hex-beam-vm" title="本標題的永久連結">¶</a></h2>
 <p>Hex 是 Erlang 的 BEAM VM 的套件管理工具及平台，
 可以共享於 Erlang 和 Elixir 之間，
 也有 Erlang Rebar3 的 Plugin 可以使用。</p>
@@ -1003,12 +1024,25 @@ http://www.rebar3.org/docs/releases<span class="o">)</span>
 </div>
 </div>
 <div class="section" id="otp">
-<h2><a class="toc-backref" href="#id18">OTP</a><a class="headerlink" href="#otp" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id22">OTP</a><a class="headerlink" href="#otp" title="本標題的永久連結">¶</a></h2>
 </div>
-<div class="section" id="id6">
-<h2><a class="toc-backref" href="#id19">Erlang 與其他程式語言</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="dialyzer">
+<h2><a class="toc-backref" href="#id23">Dialyzer - 靜態型別檢查</a><a class="headerlink" href="#dialyzer" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://erlang.org/doc/apps/dialyzer/dialyzer_chapter.html">Dialyzer User&#8217;s Guide</a></li>
+<li><a class="reference external" href="http://erlang.org/doc/man/dialyzer.html">Dialyzer</a></li>
+<li><a class="reference external" href="http://erlang.org/faq/academic.html#idp33087440">What&#8217;s the history of static type checking in Erlang?</a></li>
+<li><a class="reference external" href="https://github.com/erlang/otp/tree/maint/lib/dialyzer">otp/lib/dialyzer</a></li>
+</ul>
+<p>就算沒有加上型別訊息，
+還是會有 Type Inference 可以幫忙找出部份錯誤，
+但是加上 Type Annotation 會更好，
+可以找到更多問題。</p>
+</div>
+<div class="section" id="id9">
+<h2><a class="toc-backref" href="#id24">Erlang 與其他程式語言</a><a class="headerlink" href="#id9" title="本標題的永久連結">¶</a></h2>
 <div class="section" id="erlport">
-<h3><a class="toc-backref" href="#id20">ErlPort</a><a class="headerlink" href="#erlport" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id25">ErlPort</a><a class="headerlink" href="#erlport" title="本標題的永久連結">¶</a></h3>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1019,7 +1053,7 @@ http://www.rebar3.org/docs/releases<span class="o">)</span>
 </table>
 </div>
 <div class="section" id="py-distributed-python-for-the-erlang-ecosystem">
-<h3><a class="toc-backref" href="#id21">py - Distributed Python for the Erlang Ecosystem</a><a class="headerlink" href="#py-distributed-python-for-the-erlang-ecosystem" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id26">py - Distributed Python for the Erlang Ecosystem</a><a class="headerlink" href="#py-distributed-python-for-the-erlang-ecosystem" title="本標題的永久連結">¶</a></h3>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1031,32 +1065,32 @@ http://www.rebar3.org/docs/releases<span class="o">)</span>
 </div>
 </div>
 <div class="section" id="nif-natively-implemented-function">
-<h2><a class="toc-backref" href="#id22">NIF (Natively Implemented Function)</a><a class="headerlink" href="#nif-natively-implemented-function" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id27">NIF (Natively Implemented Function)</a><a class="headerlink" href="#nif-natively-implemented-function" title="本標題的永久連結">¶</a></h2>
 <p>a shorthand for replacing Erlang code with C</p>
 </div>
 <div class="section" id="ds-dirty-scheduler">
-<h2><a class="toc-backref" href="#id23">DS (Dirty Scheduler)</a><a class="headerlink" href="#ds-dirty-scheduler" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id28">DS (Dirty Scheduler)</a><a class="headerlink" href="#ds-dirty-scheduler" title="本標題的永久連結">¶</a></h2>
 </div>
 <div class="section" id="garbage-collection">
-<h2><a class="toc-backref" href="#id24">Garbage Collection</a><a class="headerlink" href="#garbage-collection" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id29">Garbage Collection</a><a class="headerlink" href="#garbage-collection" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://hamidreza-s.github.io/erlang%20garbage%20collection%20memory%20layout%20soft%20realtime/2015/08/24/erlang-garbage-collection-details-and-why-it-matters.html">Erlang Garbage Collection Details and Why It Matters</a></li>
 </ul>
 </div>
-<div class="section" id="id7">
-<h2><a class="toc-backref" href="#id25">書籍</a><a class="headerlink" href="#id7" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="id10">
+<h2><a class="toc-backref" href="#id30">書籍</a><a class="headerlink" href="#id10" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://learnyousomeerlang.com/">Learn You Some Erlang for Great Good!</a></li>
 </ul>
 </div>
 <div class="section" id="reference">
-<h2><a class="toc-backref" href="#id26">Reference</a><a class="headerlink" href="#reference" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id31">Reference</a><a class="headerlink" href="#reference" title="本標題的永久連結">¶</a></h2>
 <ul>
 <li><p class="first"><a class="reference external" href="https://en.wikipedia.org/wiki/Erlang_%28programming_language%29">Wikipedia - Erlang (programming language)</a></p>
 </li>
 <li><p class="first"><a class="reference external" href="https://en.wikipedia.org/wiki/Guard_%28computer_science%29">Wikipedia - Guard (computer science)</a></p>
 </li>
-<li><p class="first"><a class="reference external" href="http://learnyousomeerlang.com/">Learn You Some Erlang for Great Good!</a></p>
+<li><p class="first"><a class="reference external" href="http://whyerlang.com/">Why use Erlang</a></p>
 </li>
 <li><p class="first"><a class="reference external" href="http://erllvm.softlab.ntua.gr/files/erllvm_pres-20111107.pdf">[2011] ErLLVM: An LLVM back-end for HiPE, the native code compiler of Erlang/OTP Design and Implementation</a></p>
 </li>

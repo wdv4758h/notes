@@ -25,6 +25,25 @@ BEAM 包含 copying generational GC。
 .. contents:: 目錄
 
 
+特色清單（用於快速建立語言輪廓）
+========================================
+
+* 具有語言 VM（叫 BEAM VM）
+* 有受到邏輯程式語言的影響（例如 Prolog）
+* 函數式程式語言
+* 動態、強型別
+* 動態軟體更新（更新程式碼不用重新啟動已經在執行的服務）
+* 著重分散式
+* 所有東西都是自己管理的輕量化 Process
+* Process 的狀態只有正常運作或是 Crash，沒有仍然運作但行為奇怪的狀況
+* Message Passing
+* CSP (Communicating Sequential Processes)
+
+
+歷史發展
+========================================
+
+
 安裝
 ========================================
 
@@ -43,7 +62,7 @@ Arch Linux 上有兩個版本可以裝，
 安裝完後會得到 ``erl`` 指令可以打開直譯器
 
 
-基本練習
+練習範例
 ========================================
 
 Erlang 的程式碼是用 ``.erl`` 作為副檔名。
@@ -395,6 +414,22 @@ OTP
 ========================================
 
 
+Dialyzer - 靜態型別檢查
+========================================
+
+* `Dialyzer User's Guide <http://erlang.org/doc/apps/dialyzer/dialyzer_chapter.html>`_
+* `Dialyzer <http://erlang.org/doc/man/dialyzer.html>`_
+* `What's the history of static type checking in Erlang? <http://erlang.org/faq/academic.html#idp33087440>`_
+* `otp/lib/dialyzer <https://github.com/erlang/otp/tree/maint/lib/dialyzer>`_
+
+
+就算沒有加上型別訊息，
+還是會有 Type Inference 可以幫忙找出部份錯誤，
+但是加上 Type Annotation 會更好，
+可以找到更多問題。
+
+
+
 Erlang 與其他程式語言
 ========================================
 
@@ -439,7 +474,7 @@ Reference
 
 * `Wikipedia - Erlang (programming language) <https://en.wikipedia.org/wiki/Erlang_%28programming_language%29>`_
 * `Wikipedia - Guard (computer science) <https://en.wikipedia.org/wiki/Guard_%28computer_science%29>`_
-* `Learn You Some Erlang for Great Good! <http://learnyousomeerlang.com/>`_
+* `Why use Erlang <http://whyerlang.com/>`_
 * `[2011] ErLLVM: An LLVM back-end for HiPE, the native code compiler of Erlang/OTP Design and Implementation <http://erllvm.softlab.ntua.gr/files/erllvm_pres-20111107.pdf>`_
 * `[2012] ErLLVM: An LLVM Backend for Erlang <http://erllvm.softlab.ntua.gr/files/erlang03-sagonas.pdf>`_
     - ErLLVM 是 HiPE 把 backend 換成 LLVM 的版本
