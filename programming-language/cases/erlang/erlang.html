@@ -635,7 +635,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="erlang">
-<h1>Erlang<a class="headerlink" href="#erlang" title="本標題的永久連結">¶</a></h1>
+<h1><a class="toc-backref" href="#id9">Erlang</a><a class="headerlink" href="#erlang" title="本標題的永久連結">¶</a></h1>
 <p>初步聽了 Erlang 的介紹，
 感覺受 Prolog 影響很深 (當初的實作據說就是 Prolog 寫的)。
 變數需要大寫，
@@ -651,21 +651,406 @@ mutiprocesses 下是用 actor model 和 message passing 溝通。</p>
 <p>目前常用的實作為 BEAM，
 Erlang 可以編成 BEAM bytecode 再丟到 VM 上執行，
 BEAM 包含 copying generational GC。</p>
+<div class="contents topic" id="id1">
+<p class="topic-title first">目錄</p>
+<ul class="simple">
+<li><a class="reference internal" href="#erlang" id="id9">Erlang</a><ul>
+<li><a class="reference internal" href="#id2" id="id10">安裝</a></li>
+<li><a class="reference internal" href="#id3" id="id11">基本練習</a><ul>
+<li><a class="reference internal" href="#hello-world" id="id12">Hello World</a></li>
+<li><a class="reference internal" href="#fibonacci" id="id13">Fibonacci</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#escript-erlang-scripting" id="id14">escript - Erlang Scripting</a></li>
+<li><a class="reference internal" href="#id4" id="id15">專案輔助工具</a><ul>
+<li><a class="reference internal" href="#rebar3" id="id16">Rebar3</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#hex-beam-vm" id="id17">Hex - BEAM VM 生態圈的套件平台</a></li>
+<li><a class="reference internal" href="#otp" id="id18">OTP</a></li>
+<li><a class="reference internal" href="#id6" id="id19">Erlang 與其他程式語言</a><ul>
+<li><a class="reference internal" href="#erlport" id="id20">ErlPort</a></li>
+<li><a class="reference internal" href="#py-distributed-python-for-the-erlang-ecosystem" id="id21">py - Distributed Python for the Erlang Ecosystem</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#nif-natively-implemented-function" id="id22">NIF (Natively Implemented Function)</a></li>
+<li><a class="reference internal" href="#ds-dirty-scheduler" id="id23">DS (Dirty Scheduler)</a></li>
+<li><a class="reference internal" href="#garbage-collection" id="id24">Garbage Collection</a></li>
+<li><a class="reference internal" href="#id7" id="id25">書籍</a></li>
+<li><a class="reference internal" href="#reference" id="id26">Reference</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id10">安裝</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<p>Arch Linux 上有兩個版本可以裝，
+一個是 <code class="docutils literal"><span class="pre">erlang</span></code> 一個是 <code class="docutils literal"><span class="pre">erlang-nox</span></code> ，
+其中的 <code class="docutils literal"><span class="pre">erlang-nox</span></code> 被標為 <code class="docutils literal"><span class="pre">headless</span></code> ，
+裡面少了 <code class="docutils literal"><span class="pre">erlang/lib/wx-1.5/priv/</span></code> 內的東西，
+但是其他部份的 wx 程式碼依然存在。</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ sudo pacman -S erlang-nox
+</pre></div>
+</div>
+<p>安裝完後會得到 <code class="docutils literal"><span class="pre">erl</span></code> 指令可以打開直譯器</p>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id11">基本練習</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+<p>Erlang 的程式碼是用 <code class="docutils literal"><span class="pre">.erl</span></code> 作為副檔名。</p>
+<div class="section" id="hello-world">
+<h3><a class="toc-backref" href="#id12">Hello World</a><a class="headerlink" href="#hello-world" title="本標題的永久連結">¶</a></h3>
+<p>hello.erl:</p>
+<div class="highlight-erlang"><div class="highlight"><pre><span></span><span class="p">-</span><span class="ni">module</span><span class="p">(</span><span class="n">hello</span><span class="p">).</span>
+<span class="p">-</span><span class="ni">export</span><span class="p">([</span><span class="n">hello_world</span><span class="o">/</span><span class="mi">0</span><span class="p">]).</span>
+
+<span class="nf">hello_world</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nn">io</span><span class="p">:</span><span class="nf">fwrite</span><span class="p">(</span><span class="s">&quot;hello, world</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">).</span>
+</pre></div>
+</div>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ erl
+Erlang/OTP <span class="m">19</span> <span class="o">[</span>erts-8.2<span class="o">]</span> <span class="o">[</span>source<span class="o">]</span> <span class="o">[</span>64-bit<span class="o">]</span> <span class="o">[</span>smp:8:8<span class="o">]</span> <span class="o">[</span>async-threads:10<span class="o">]</span> <span class="o">[</span>hipe<span class="o">]</span> <span class="o">[</span>kernel-poll:false<span class="o">]</span>
+
+Eshell V8.2  <span class="o">(</span>abort with ^G<span class="o">)</span>
+1&gt; c<span class="o">(</span>hello<span class="o">)</span>.                % 編譯，產生 hello.beam
+<span class="o">{</span>ok,hello<span class="o">}</span>
+2&gt; hello:hello_world<span class="o">()</span>.     % 呼叫，只有一個冒號
+hello, world
+ok
+3&gt;
+</pre></div>
+</div>
+<p>不開 Interactive Shell（REPL）：</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ erl -compile hello.erl    <span class="c1"># 編譯，產生 hello.beam</span>
+$ erl -noshell -s hello hello_world -s init stop    <span class="c1"># 執行</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="fibonacci">
+<h3><a class="toc-backref" href="#id13">Fibonacci</a><a class="headerlink" href="#fibonacci" title="本標題的永久連結">¶</a></h3>
+<p>這次以 escript 的形式讀 stdin 來計算 Fibonacci 後輸出到 stdout。</p>
+<div class="highlight-erlang"><div class="highlight"><pre><span></span>#!/usr/bin/env escript
+
+fib(0) -&gt; 0;
+fib(1) -&gt; 1;
+fib(N) when N &gt; 0 -&gt; fib(N-1) + fib(N-2).
+
+main(_) -&gt;
+    %% reads the number
+    {ok, [N]} = io:fread(&quot;fib&gt; &quot;, &quot;~d&quot;),
+    %% call fib
+    io:fwrite(&quot;result: ~B~n&quot;, [fib(N)]).
+</pre></div>
+</div>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ chmod +x fib.erl
+$ ./fib.erl
+fib&gt; 10
+result: 55
+</pre></div>
+</div>
+<p>增加讀入 CLI 參數的能力：</p>
+<div class="highlight-erlang"><div class="highlight"><pre><span></span>#!/usr/bin/env escript
+
+fib(0) -&gt; 0;
+fib(1) -&gt; 1;
+fib(N) when N &gt; 0 -&gt; fib(N-1) + fib(N-2).
+
+main([String]) -&gt;
+    %% convert string to number
+    N = list_to_integer(String),
+    %% call fib
+    io:fwrite(&quot;result: ~B~n&quot;, [fib(N)]);
+
+main(_) -&gt;
+    %% reads the number
+    {ok, [N]} = io:fread(&quot;fib&gt; &quot;, &quot;~d&quot;),
+    %% call fib
+    io:fwrite(&quot;result: ~B~n&quot;, [fib(N)]).
+</pre></div>
+</div>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ ./fib.erl 10
+result: 55
+</pre></div>
+</div>
+<p>增加清理參數的能力，
+並在輸入字串不能正常轉成整數時顯示使用說明：</p>
+<div class="highlight-erlang"><div class="highlight"><pre><span></span>#!/usr/bin/env escript
+%% -*- erlang -*-
+%%! -smp enable -sname fib -mnesia debug verbose
+
+fib(0) -&gt; 0;
+fib(1) -&gt; 1;
+fib(N) when N &gt; 0 -&gt; fib(N-1) + fib(N-2).
+
+% from CLI argument
+main([String]) -&gt;
+    try
+        %% clean spaces and newlines
+        S = re:replace(String, &quot;(^\\s+)|(\\s+$)&quot;, &quot;&quot;, [global,{return,list}]),
+        %% convert string to number
+        N = list_to_integer(string:strip(S)),
+        %% call fib
+        io:fwrite(&quot;result: ~B~n&quot;, [fib(N)])
+    catch
+        _:_ -&gt;
+            usage()
+    end;
+
+% from custom prompt
+main(_) -&gt;
+    %% reads the number
+    String = io:get_line(&quot;fib&gt; &quot;),
+    main([String]).
+
+usage() -&gt;
+    io:format(&quot;usage: fibonacci integer\n&quot;),
+    halt(1).
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="escript-erlang-scripting">
+<h2><a class="toc-backref" href="#id14">escript - Erlang Scripting</a><a class="headerlink" href="#escript-erlang-scripting" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://erlang.org/doc/man/escript.html">escript</a></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id15">專案輔助工具</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="rebar3">
+<h3><a class="toc-backref" href="#id16">Rebar3</a><a class="headerlink" href="#rebar3" title="本標題的永久連結">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://www.rebar3.org/">Rebar3</a></li>
+<li>[GitHub] <a class="reference external" href="https://github.com/erlang/rebar3">erlang/rebar3</a></li>
+<li><a class="reference external" href="https://www.rebar3.org/docs/commands">Rebar3 documentaion</a></li>
+<li><a class="reference external" href="https://hex.pm/">Hex</a></li>
+</ul>
+<p>安裝：</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ wget https://s3.amazonaws.com/rebar3/rebar3
+$ chmod +x rebar3
+</pre></div>
+</div>
+<p>建立專案：</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ rebar3 new
+app <span class="o">(</span>built-in<span class="o">)</span>: Complete OTP Application structure.
+cmake <span class="o">(</span>built-in<span class="o">)</span>: Standalone Makefile <span class="k">for</span> building C/C++ in c_src
+escript <span class="o">(</span>built-in<span class="o">)</span>: Complete escriptized application structure
+lib <span class="o">(</span>built-in<span class="o">)</span>: Complete OTP Library application <span class="o">(</span>no processes<span class="o">)</span> structure
+plugin <span class="o">(</span>built-in<span class="o">)</span>: Rebar3 plugin project structure
+release <span class="o">(</span>built-in<span class="o">)</span>: OTP Release structure <span class="k">for</span> executable programs
+
+$ rebar3 new release <span class="nv">myrelease</span>
+<span class="o">===</span>&gt; Writing myrelease/apps/myrelease/src/myrelease_app.erl
+<span class="o">===</span>&gt; Writing myrelease/apps/myrelease/src/myrelease_sup.erl
+<span class="o">===</span>&gt; Writing myrelease/apps/myrelease/src/myrelease.app.src
+<span class="o">===</span>&gt; Writing myrelease/rebar.config
+<span class="o">===</span>&gt; Writing myrelease/config/sys.config
+<span class="o">===</span>&gt; Writing myrelease/config/vm.args
+<span class="o">===</span>&gt; Writing myrelease/.gitignore
+<span class="o">===</span>&gt; Writing myrelease/LICENSE
+<span class="o">===</span>&gt; Writing myrelease/README.md
+
+$ tree myrelease/
+myrelease/
+├── apps
+│   └── myrelease
+│       └── src
+│           ├── myrelease_app.erl
+│           ├── myrelease.app.src
+│           └── myrelease_sup.erl
+├── config
+│   ├── sys.config
+│   └── vm.args
+├── LICENSE
+├── README.md
+└── rebar.config
+
+<span class="m">4</span> directories, <span class="m">8</span> files
+
+$ <span class="nb">cd</span> myrelease
+$ rebar3 <span class="nv">compile</span>
+<span class="o">===</span>&gt; Verifying dependencies...
+<span class="o">===</span>&gt; Compiling myrelease
+
+$ tree _build/
+_build/
+└── default
+    └── lib
+        └── myrelease
+            ├── ebin
+            │   ├── myrelease.app
+            │   ├── myrelease_app.beam
+            │   └── myrelease_sup.beam
+            ├── include -&gt; ../../../../apps/myrelease/include
+            ├── priv -&gt; ../../../../apps/myrelease/priv
+            └── src -&gt; ../../../../apps/myrelease/src
+
+<span class="m">5</span> directories, <span class="m">5</span> files
+
+$ rebar3 <span class="nv">release</span>
+<span class="o">===</span>&gt; Verifying dependencies...
+<span class="o">===</span>&gt; Compiling <span class="nv">myrelease</span>
+<span class="o">===</span>&gt; Starting relx build process ...
+<span class="o">===</span>&gt; Resolving OTP Applications from directories:
+          /tmp/myrelease/_build/default/lib
+          /tmp/myrelease/apps
+          /usr/lib/erlang/lib
+<span class="o">===</span>&gt; Resolved myrelease-0.1.0
+<span class="o">===</span>&gt; Dev mode enabled, release will be <span class="nv">symlinked</span>
+<span class="o">===</span>&gt; release successfully created!
+
+$ tree _build/default/rel/
+_build/default/rel/
+└── myrelease
+    ├── bin
+    │   ├── install_upgrade.escript
+    │   ├── myrelease
+    │   ├── myrelease-0.1.0
+    │   ├── nodetool
+    │   └── start_clean.boot
+    ├── lib
+    │   └── myrelease-0.1.0 -&gt; /tmp/myrelease/_build/default/lib/myrelease
+    └── releases
+        ├── 0.1.0
+        │   ├── myrelease.boot
+        │   ├── myrelease.rel
+        │   ├── myrelease.script
+        │   ├── start_clean.boot
+        │   ├── sys.config -&gt; /tmp/myrelease/config/sys.config
+        │   └── vm.args -&gt; /tmp/myrelease/config/vm.args
+        ├── RELEASES
+        └── start_erl.data
+
+<span class="m">6</span> directories, <span class="m">13</span> files
+
+<span class="c1"># 打包</span>
+$ rebar3 as prod <span class="nv">tar</span>
+<span class="o">===</span>&gt; Verifying dependencies...
+<span class="o">===</span>&gt; Compiling <span class="nv">myrelease</span>
+<span class="o">===</span>&gt; Starting relx build process ...
+<span class="o">===</span>&gt; Resolving OTP Applications from directories:
+          /tmp/myrelease/_build/prod/lib
+          /tmp/myrelease/apps
+          /usr/lib/erlang/lib
+<span class="o">===</span>&gt; Resolved myrelease-0.1.0
+<span class="o">===</span>&gt; Including Erts from /usr/lib/erlang
+<span class="o">===</span>&gt; release successfully created!
+<span class="o">===</span>&gt; Starting relx build process ...
+<span class="o">===</span>&gt; Resolving OTP Applications from directories:
+          /tmp/myrelease/_build/prod/lib
+          /tmp/myrelease/apps
+          /usr/lib/erlang/lib
+          /tmp/myrelease/_build/prod/rel
+<span class="o">===</span>&gt; Resolved myrelease-0.1.0
+<span class="o">===</span>&gt; tarball /tmp/myrelease/_build/prod/rel/myrelease/myrelease-0.1.0.tar.gz successfully created!
+
+
+$ rebar3 <span class="nv">shell</span>
+<span class="o">===</span>&gt; Verifying dependencies...
+<span class="o">===</span>&gt; Compiling myrelease
+Erlang/OTP <span class="m">19</span> <span class="o">[</span>erts-8.2<span class="o">]</span> <span class="o">[</span>source<span class="o">]</span> <span class="o">[</span>64-bit<span class="o">]</span> <span class="o">[</span>smp:8:8<span class="o">]</span> <span class="o">[</span>async-threads:0<span class="o">]</span> <span class="o">[</span>hipe<span class="o">]</span> <span class="o">[</span>kernel-poll:false<span class="o">]</span>
+
+Eshell V8.2  <span class="o">(</span>abort with ^G<span class="o">)</span>
+1&gt; <span class="o">===</span>&gt; The rebar3 shell is a development tool<span class="p">;</span> to deploy applications in production, consider using releases <span class="o">(</span>
+http://www.rebar3.org/docs/releases<span class="o">)</span>
+
+<span class="o">=</span>PROGRESS <span class="nv">REPORT</span><span class="o">====</span> 5-Feb-2017::16:17:27 <span class="o">===</span>
+          supervisor: <span class="o">{</span>local,sasl_safe_sup<span class="o">}</span>
+             started: <span class="o">[{</span>pid,&lt;0.107.0&gt;<span class="o">}</span>,
+                       <span class="o">{</span>id,alarm_handler<span class="o">}</span>,
+                       <span class="o">{</span>mfargs,<span class="o">{</span>alarm_handler,start_link,<span class="o">[]}}</span>,
+                       <span class="o">{</span>restart_type,permanent<span class="o">}</span>,
+                       <span class="o">{</span>shutdown,2000<span class="o">}</span>,
+                       <span class="o">{</span>child_type,worker<span class="o">}]</span>
+<span class="o">===</span>&gt; Booted <span class="nv">myrelease</span>
+
+<span class="o">=</span>PROGRESS <span class="nv">REPORT</span><span class="o">====</span> 5-Feb-2017::16:17:27 <span class="o">===</span>
+          supervisor: <span class="o">{</span>local,sasl_sup<span class="o">}</span>
+             started: <span class="o">[{</span>pid,&lt;0.106.0&gt;<span class="o">}</span>,
+                       <span class="o">{</span>id,sasl_safe_sup<span class="o">}</span>,
+                       <span class="o">{</span>mfargs,
+                           <span class="o">{</span>supervisor,start_link,
+                               <span class="o">[{</span>local,sasl_safe_sup<span class="o">}</span>,sasl,safe<span class="o">]}}</span>,
+                       <span class="o">{</span>restart_type,permanent<span class="o">}</span>,
+                       <span class="o">{</span>shutdown,infinity<span class="o">}</span>,
+                       <span class="o">{</span>child_type,supervisor<span class="o">}]</span>
+<span class="o">===</span>&gt; Booted <span class="nv">sasl</span>
+
+<span class="o">=</span>PROGRESS <span class="nv">REPORT</span><span class="o">====</span> 5-Feb-2017::16:17:27 <span class="o">===</span>
+          supervisor: <span class="o">{</span>local,sasl_sup<span class="o">}</span>
+             started: <span class="o">[{</span>pid,&lt;0.108.0&gt;<span class="o">}</span>,
+                       <span class="o">{</span>id,release_handler<span class="o">}</span>,
+                       <span class="o">{</span>mfargs,<span class="o">{</span>release_handler,start_link,<span class="o">[]}}</span>,
+                       <span class="o">{</span>restart_type,permanent<span class="o">}</span>,
+                       <span class="o">{</span>shutdown,2000<span class="o">}</span>,
+                       <span class="o">{</span>child_type,worker<span class="o">}]</span>
+
+<span class="o">=</span>PROGRESS <span class="nv">REPORT</span><span class="o">====</span> 5-Feb-2017::16:17:27 <span class="o">===</span>
+         application: sasl
+          started_at: nonode@nohost
+
+1&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="hex-beam-vm">
+<h2><a class="toc-backref" href="#id17">Hex - BEAM VM 生態圈的套件平台</a><a class="headerlink" href="#hex-beam-vm" title="本標題的永久連結">¶</a></h2>
+<p>Hex 是 Erlang 的 BEAM VM 的套件管理工具及平台，
+可以共享於 Erlang 和 Elixir 之間，
+也有 Erlang Rebar3 的 Plugin 可以使用。</p>
+<p><code class="docutils literal"><span class="pre">~/.config/rebar3/rebar.config</span></code> :</p>
+<div class="highlight-erlang"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">plugins</span><span class="p">,</span> <span class="p">[</span><span class="n">rebar3_hex</span><span class="p">]}.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="otp">
+<h2><a class="toc-backref" href="#id18">OTP</a><a class="headerlink" href="#otp" title="本標題的永久連結">¶</a></h2>
+</div>
+<div class="section" id="id6">
+<h2><a class="toc-backref" href="#id19">Erlang 與其他程式語言</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="erlport">
+<h3><a class="toc-backref" href="#id20">ErlPort</a><a class="headerlink" href="#erlport" title="本標題的永久連結">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">URL:</th><td class="field-body"><a class="reference external" href="https://github.com/hdima/erlport">https://github.com/hdima/erlport</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="py-distributed-python-for-the-erlang-ecosystem">
+<h3><a class="toc-backref" href="#id21">py - Distributed Python for the Erlang Ecosystem</a><a class="headerlink" href="#py-distributed-python-for-the-erlang-ecosystem" title="本標題的永久連結">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">URL:</th><td class="field-body"><a class="reference external" href="https://github.com/lfex/py">https://github.com/lfex/py</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <div class="section" id="nif-natively-implemented-function">
-<h2>NIF (Natively Implemented Function)<a class="headerlink" href="#nif-natively-implemented-function" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id22">NIF (Natively Implemented Function)</a><a class="headerlink" href="#nif-natively-implemented-function" title="本標題的永久連結">¶</a></h2>
 <p>a shorthand for replacing Erlang code with C</p>
 </div>
 <div class="section" id="ds-dirty-scheduler">
-<h2>DS (Dirty Scheduler)<a class="headerlink" href="#ds-dirty-scheduler" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id23">DS (Dirty Scheduler)</a><a class="headerlink" href="#ds-dirty-scheduler" title="本標題的永久連結">¶</a></h2>
 </div>
 <div class="section" id="garbage-collection">
-<h2>Garbage Collection<a class="headerlink" href="#garbage-collection" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id24">Garbage Collection</a><a class="headerlink" href="#garbage-collection" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://hamidreza-s.github.io/erlang%20garbage%20collection%20memory%20layout%20soft%20realtime/2015/08/24/erlang-garbage-collection-details-and-why-it-matters.html">Erlang Garbage Collection Details and Why It Matters</a></li>
 </ul>
 </div>
+<div class="section" id="id7">
+<h2><a class="toc-backref" href="#id25">書籍</a><a class="headerlink" href="#id7" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://learnyousomeerlang.com/">Learn You Some Erlang for Great Good!</a></li>
+</ul>
+</div>
 <div class="section" id="reference">
-<h2>Reference<a class="headerlink" href="#reference" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id26">Reference</a><a class="headerlink" href="#reference" title="本標題的永久連結">¶</a></h2>
 <ul>
 <li><p class="first"><a class="reference external" href="https://en.wikipedia.org/wiki/Erlang_%28programming_language%29">Wikipedia - Erlang (programming language)</a></p>
 </li>
