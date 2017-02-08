@@ -127,11 +127,22 @@
 <li class="toctree-l3"><a class="reference internal" href="#bloom-filter">Bloom Filter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#scalable-bloom-filter">Scalable Bloom Filter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#counting-bloom-filter">Counting Bloom Filter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#linear-counting">Linear Counting</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#hyperloglog">HyperLogLog</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">HyperLogLog++</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#stable-bloom-filter">Stable Bloom Filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#layered-bloom-filter">Layered Bloom Filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inverse-bloom-filter">Inverse Bloom Filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cuckoo-filter">Cuckoo Filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linear-counting-lc">Linear Counting (LC)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#loglog-counting-llc">LogLog Counting (LLC)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hyperloglog-counting-hllc">HyperLogLog Counting (HLLC)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hyperloglog">HyperLogLog++</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adaptive-counting-ac">Adaptive Counting (AC)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#count-min-sketch">Count-Min Sketch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filtered-space-saving-top-k">Filtered-Space Saving Top-K</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#k-minimum-values">K-Minimum Values</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#approximate-histograms">Approximate Histograms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#skip-list">Skip List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#treaps">Treaps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#t-digest">t-digest</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#locality-sensitive-hashing">Locality-sensitive Hashing</a><ul>
@@ -140,7 +151,8 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#linear-programming">Linear Programming</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id6">書籍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">書籍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="inverse-square-root.html">Inverse Square Root</a></li>
@@ -692,68 +704,80 @@
            <div itemprop="articleBody">
             
   <div class="section" id="id1">
-<h1><a class="toc-backref" href="#id7">演算法與資料結構</a><a class="headerlink" href="#id1" title="本標題的永久連結">¶</a></h1>
+<h1><a class="toc-backref" href="#id11">演算法與資料結構</a><a class="headerlink" href="#id1" title="本標題的永久連結">¶</a></h1>
 <div class="contents topic" id="id2">
 <p class="topic-title first">目錄</p>
 <ul class="simple">
-<li><a class="reference internal" href="#id1" id="id7">演算法與資料結構</a><ul>
-<li><a class="reference internal" href="#id3" id="id8">介紹</a></li>
-<li><a class="reference internal" href="#big-o-notation" id="id9">Big O Notation</a></li>
-<li><a class="reference internal" href="#sort" id="id10">排序（Sort）</a></li>
-<li><a class="reference internal" href="#search" id="id11">搜尋（Search）</a><ul>
-<li><a class="reference internal" href="#binary-search" id="id12">Binary Search</a></li>
+<li><a class="reference internal" href="#id1" id="id11">演算法與資料結構</a><ul>
+<li><a class="reference internal" href="#id3" id="id12">介紹</a></li>
+<li><a class="reference internal" href="#big-o-notation" id="id13">Big O Notation</a></li>
+<li><a class="reference internal" href="#sort" id="id14">排序（Sort）</a></li>
+<li><a class="reference internal" href="#search" id="id15">搜尋（Search）</a><ul>
+<li><a class="reference internal" href="#binary-search" id="id16">Binary Search</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#graph-search" id="id13">圖像搜尋（Graph Search）</a><ul>
-<li><a class="reference internal" href="#general" id="id14">General</a><ul>
-<li><a class="reference internal" href="#bfs" id="id15">BFS</a></li>
+<li><a class="reference internal" href="#graph-search" id="id17">圖像搜尋（Graph Search）</a><ul>
+<li><a class="reference internal" href="#general" id="id18">General</a><ul>
+<li><a class="reference internal" href="#bfs" id="id19">BFS</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#heuristic" id="id16">Heuristic</a></li>
+<li><a class="reference internal" href="#heuristic" id="id20">Heuristic</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#hash-table" id="id17">Hash Table</a></li>
-<li><a class="reference internal" href="#greedy" id="id18">Greedy</a></li>
-<li><a class="reference internal" href="#dynamic-programming" id="id19">Dynamic Programming</a></li>
-<li><a class="reference internal" href="#search-trees" id="id20">Search Trees</a><ul>
-<li><a class="reference internal" href="#binary-search-tree" id="id21">Binary Search Tree</a></li>
-<li><a class="reference internal" href="#red-black-tree" id="id22">Red-Black Tree</a></li>
+<li><a class="reference internal" href="#hash-table" id="id21">Hash Table</a></li>
+<li><a class="reference internal" href="#greedy" id="id22">Greedy</a></li>
+<li><a class="reference internal" href="#dynamic-programming" id="id23">Dynamic Programming</a></li>
+<li><a class="reference internal" href="#search-trees" id="id24">Search Trees</a><ul>
+<li><a class="reference internal" href="#binary-search-tree" id="id25">Binary Search Tree</a></li>
+<li><a class="reference internal" href="#red-black-tree" id="id26">Red-Black Tree</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#heaps" id="id23">Heaps</a><ul>
-<li><a class="reference internal" href="#binary-heap" id="id24">Binary Heap</a></li>
+<li><a class="reference internal" href="#heaps" id="id27">Heaps</a><ul>
+<li><a class="reference internal" href="#binary-heap" id="id28">Binary Heap</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#tries" id="id25">Tries</a></li>
-<li><a class="reference internal" href="#spatial-data-partitioning-trees" id="id26">Spatial Data Partitioning Trees</a><ul>
-<li><a class="reference internal" href="#k-d-tree" id="id27">k-d tree</a></li>
+<li><a class="reference internal" href="#tries" id="id29">Tries</a></li>
+<li><a class="reference internal" href="#spatial-data-partitioning-trees" id="id30">Spatial Data Partitioning Trees</a><ul>
+<li><a class="reference internal" href="#k-d-tree" id="id31">k-d tree</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#other-trees" id="id28">Other Trees</a></li>
-<li><a class="reference internal" href="#probabilistic-data-structures" id="id29">Probabilistic Data Structures</a><ul>
-<li><a class="reference internal" href="#bloom-filter" id="id30">Bloom Filter</a></li>
-<li><a class="reference internal" href="#scalable-bloom-filter" id="id31">Scalable Bloom Filter</a></li>
-<li><a class="reference internal" href="#counting-bloom-filter" id="id32">Counting Bloom Filter</a></li>
-<li><a class="reference internal" href="#linear-counting" id="id33">Linear Counting</a></li>
-<li><a class="reference internal" href="#hyperloglog" id="id34">HyperLogLog</a></li>
-<li><a class="reference internal" href="#id5" id="id35">HyperLogLog++</a></li>
-<li><a class="reference internal" href="#count-min-sketch" id="id36">Count-Min Sketch</a></li>
-<li><a class="reference internal" href="#approximate-histograms" id="id37">Approximate Histograms</a></li>
+<li><a class="reference internal" href="#other-trees" id="id32">Other Trees</a></li>
+<li><a class="reference internal" href="#probabilistic-data-structures" id="id33">Probabilistic Data Structures</a><ul>
+<li><a class="reference internal" href="#bloom-filter" id="id34">Bloom Filter</a></li>
+<li><a class="reference internal" href="#scalable-bloom-filter" id="id35">Scalable Bloom Filter</a></li>
+<li><a class="reference internal" href="#counting-bloom-filter" id="id36">Counting Bloom Filter</a></li>
+<li><a class="reference internal" href="#stable-bloom-filter" id="id37">Stable Bloom Filter</a></li>
+<li><a class="reference internal" href="#layered-bloom-filter" id="id38">Layered Bloom Filter</a></li>
+<li><a class="reference internal" href="#inverse-bloom-filter" id="id39">Inverse Bloom Filter</a></li>
+<li><a class="reference internal" href="#cuckoo-filter" id="id40">Cuckoo Filter</a></li>
+<li><a class="reference internal" href="#linear-counting-lc" id="id41">Linear Counting (LC)</a></li>
+<li><a class="reference internal" href="#loglog-counting-llc" id="id42">LogLog Counting (LLC)</a></li>
+<li><a class="reference internal" href="#hyperloglog-counting-hllc" id="id43">HyperLogLog Counting (HLLC)</a></li>
+<li><a class="reference internal" href="#hyperloglog" id="id44">HyperLogLog++</a></li>
+<li><a class="reference internal" href="#adaptive-counting-ac" id="id45">Adaptive Counting (AC)</a></li>
+<li><a class="reference internal" href="#count-min-sketch" id="id46">Count-Min Sketch</a></li>
+<li><a class="reference internal" href="#filtered-space-saving-top-k" id="id47">Filtered-Space Saving Top-K</a></li>
+<li><a class="reference internal" href="#k-minimum-values" id="id48">K-Minimum Values</a></li>
+<li><a class="reference internal" href="#approximate-histograms" id="id49">Approximate Histograms</a></li>
+<li><a class="reference internal" href="#skip-list" id="id50">Skip List</a></li>
+<li><a class="reference internal" href="#treaps" id="id51">Treaps</a></li>
+<li><a class="reference internal" href="#t-digest" id="id52">t-digest</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#locality-sensitive-hashing" id="id38">Locality-sensitive Hashing</a><ul>
-<li><a class="reference internal" href="#minhash" id="id39">MinHash</a></li>
-<li><a class="reference internal" href="#simhash" id="id40">SimHash</a></li>
+<li><a class="reference internal" href="#locality-sensitive-hashing" id="id53">Locality-sensitive Hashing</a><ul>
+<li><a class="reference internal" href="#minhash" id="id54">MinHash</a></li>
+<li><a class="reference internal" href="#simhash" id="id55">SimHash</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#linear-programming" id="id41">Linear Programming</a></li>
-<li><a class="reference internal" href="#id6" id="id42">書籍</a></li>
+<li><a class="reference internal" href="#linear-programming" id="id56">Linear Programming</a></li>
+<li><a class="reference internal" href="#id9" id="id57">書籍</a></li>
+<li><a class="reference internal" href="#id10" id="id58">參考</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="id3">
-<h2><a class="toc-backref" href="#id8">介紹</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id12">介紹</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
 <p>演算法與資料結構是資訊領域中非常重要的一塊，
 好的演算法可以節省時間和資源，
 但是演算法何其多，
@@ -762,68 +786,68 @@
 可以多加利用。</p>
 </div>
 <div class="section" id="big-o-notation">
-<h2><a class="toc-backref" href="#id9">Big O Notation</a><a class="headerlink" href="#big-o-notation" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id13">Big O Notation</a><a class="headerlink" href="#big-o-notation" title="本標題的永久連結">¶</a></h2>
 </div>
 <div class="section" id="sort">
-<h2><a class="toc-backref" href="#id10">排序（Sort）</a><a class="headerlink" href="#sort" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id14">排序（Sort）</a><a class="headerlink" href="#sort" title="本標題的永久連結">¶</a></h2>
 </div>
 <div class="section" id="search">
-<h2><a class="toc-backref" href="#id11">搜尋（Search）</a><a class="headerlink" href="#search" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id15">搜尋（Search）</a><a class="headerlink" href="#search" title="本標題的永久連結">¶</a></h2>
 <div class="section" id="binary-search">
-<h3><a class="toc-backref" href="#id12">Binary Search</a><a class="headerlink" href="#binary-search" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id16">Binary Search</a><a class="headerlink" href="#binary-search" title="本標題的永久連結">¶</a></h3>
 </div>
 </div>
 <div class="section" id="graph-search">
-<h2><a class="toc-backref" href="#id13">圖像搜尋（Graph Search）</a><a class="headerlink" href="#graph-search" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id17">圖像搜尋（Graph Search）</a><a class="headerlink" href="#graph-search" title="本標題的永久連結">¶</a></h2>
 <p>（先前修人工智慧時，有寫了一些相關的筆記，之後可以整理過來）</p>
 <div class="section" id="general">
-<h3><a class="toc-backref" href="#id14">General</a><a class="headerlink" href="#general" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id18">General</a><a class="headerlink" href="#general" title="本標題的永久連結">¶</a></h3>
 <div class="section" id="bfs">
-<h4><a class="toc-backref" href="#id15">BFS</a><a class="headerlink" href="#bfs" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id19">BFS</a><a class="headerlink" href="#bfs" title="本標題的永久連結">¶</a></h4>
 </div>
 </div>
 <div class="section" id="heuristic">
-<h3><a class="toc-backref" href="#id16">Heuristic</a><a class="headerlink" href="#heuristic" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id20">Heuristic</a><a class="headerlink" href="#heuristic" title="本標題的永久連結">¶</a></h3>
 </div>
 </div>
 <div class="section" id="hash-table">
-<h2><a class="toc-backref" href="#id17">Hash Table</a><a class="headerlink" href="#hash-table" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id21">Hash Table</a><a class="headerlink" href="#hash-table" title="本標題的永久連結">¶</a></h2>
 </div>
 <div class="section" id="greedy">
-<h2><a class="toc-backref" href="#id18">Greedy</a><a class="headerlink" href="#greedy" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id22">Greedy</a><a class="headerlink" href="#greedy" title="本標題的永久連結">¶</a></h2>
 </div>
 <div class="section" id="dynamic-programming">
-<h2><a class="toc-backref" href="#id19">Dynamic Programming</a><a class="headerlink" href="#dynamic-programming" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id23">Dynamic Programming</a><a class="headerlink" href="#dynamic-programming" title="本標題的永久連結">¶</a></h2>
 </div>
 <div class="section" id="search-trees">
-<h2><a class="toc-backref" href="#id20">Search Trees</a><a class="headerlink" href="#search-trees" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id24">Search Trees</a><a class="headerlink" href="#search-trees" title="本標題的永久連結">¶</a></h2>
 <div class="section" id="binary-search-tree">
-<h3><a class="toc-backref" href="#id21">Binary Search Tree</a><a class="headerlink" href="#binary-search-tree" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id25">Binary Search Tree</a><a class="headerlink" href="#binary-search-tree" title="本標題的永久連結">¶</a></h3>
 </div>
 <div class="section" id="red-black-tree">
-<h3><a class="toc-backref" href="#id22">Red-Black Tree</a><a class="headerlink" href="#red-black-tree" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id26">Red-Black Tree</a><a class="headerlink" href="#red-black-tree" title="本標題的永久連結">¶</a></h3>
 </div>
 </div>
 <div class="section" id="heaps">
-<h2><a class="toc-backref" href="#id23">Heaps</a><a class="headerlink" href="#heaps" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id27">Heaps</a><a class="headerlink" href="#heaps" title="本標題的永久連結">¶</a></h2>
 <div class="section" id="binary-heap">
-<h3><a class="toc-backref" href="#id24">Binary Heap</a><a class="headerlink" href="#binary-heap" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id28">Binary Heap</a><a class="headerlink" href="#binary-heap" title="本標題的永久連結">¶</a></h3>
 </div>
 </div>
 <div class="section" id="tries">
-<h2><a class="toc-backref" href="#id25">Tries</a><a class="headerlink" href="#tries" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id29">Tries</a><a class="headerlink" href="#tries" title="本標題的永久連結">¶</a></h2>
 </div>
 <div class="section" id="spatial-data-partitioning-trees">
-<h2><a class="toc-backref" href="#id26">Spatial Data Partitioning Trees</a><a class="headerlink" href="#spatial-data-partitioning-trees" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id30">Spatial Data Partitioning Trees</a><a class="headerlink" href="#spatial-data-partitioning-trees" title="本標題的永久連結">¶</a></h2>
 <div class="section" id="k-d-tree">
-<h3><a class="toc-backref" href="#id27">k-d tree</a><a class="headerlink" href="#k-d-tree" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id31">k-d tree</a><a class="headerlink" href="#k-d-tree" title="本標題的永久連結">¶</a></h3>
 </div>
 </div>
 <div class="section" id="other-trees">
-<h2><a class="toc-backref" href="#id28">Other Trees</a><a class="headerlink" href="#other-trees" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id32">Other Trees</a><a class="headerlink" href="#other-trees" title="本標題的永久連結">¶</a></h2>
 </div>
 <div class="section" id="probabilistic-data-structures">
-<h2><a class="toc-backref" href="#id29">Probabilistic Data Structures</a><a class="headerlink" href="#probabilistic-data-structures" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id33">Probabilistic Data Structures</a><a class="headerlink" href="#probabilistic-data-structures" title="本標題的永久連結">¶</a></h2>
 <p>Probabilistic Data Structures 的特點在於告訴你「可能的」狀態，
 不是確切的狀況，
 適用於資料量大且計算不需要非常精確的狀況，
@@ -834,7 +858,7 @@
 <li>[2015] <a class="reference external" href="https://speakerdeck.com/paperswelove/pwlsf-number-13-equals-armon-dadgar-on-bloom-filters-and-hyperloglog">PWLSF#13=&gt; Armon Dadgar on Bloom Filters and HyperLogLog</a></li>
 </ul>
 <div class="section" id="bloom-filter">
-<h3><a class="toc-backref" href="#id30">Bloom Filter</a><a class="headerlink" href="#bloom-filter" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id34">Bloom Filter</a><a class="headerlink" href="#bloom-filter" title="本標題的永久連結">¶</a></h3>
 <p>Bloom Filter 的用途在測試一個值是否在一個集合內，
 會有 False Positive（也就是不在集合內，卻回報有在集合內），
 但是不會有 False Negaative（也就是是回報沒有在集合內，就真的不在集合內），
@@ -872,23 +896,60 @@ False Positive 的程度會受到使用的記憶體量和 Hash 方法影響，
 </ul>
 </div>
 <div class="section" id="scalable-bloom-filter">
-<h3><a class="toc-backref" href="#id31">Scalable Bloom Filter</a><a class="headerlink" href="#scalable-bloom-filter" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id35">Scalable Bloom Filter</a><a class="headerlink" href="#scalable-bloom-filter" title="本標題的永久連結">¶</a></h3>
 </div>
 <div class="section" id="counting-bloom-filter">
-<h3><a class="toc-backref" href="#id32">Counting Bloom Filter</a><a class="headerlink" href="#counting-bloom-filter" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id36">Counting Bloom Filter</a><a class="headerlink" href="#counting-bloom-filter" title="本標題的永久連結">¶</a></h3>
 </div>
-<div class="section" id="linear-counting">
-<h3><a class="toc-backref" href="#id33">Linear Counting</a><a class="headerlink" href="#linear-counting" title="本標題的永久連結">¶</a></h3>
+<div class="section" id="stable-bloom-filter">
+<h3><a class="toc-backref" href="#id37">Stable Bloom Filter</a><a class="headerlink" href="#stable-bloom-filter" title="本標題的永久連結">¶</a></h3>
 </div>
-<div class="section" id="hyperloglog">
-<h3><a class="toc-backref" href="#id34">HyperLogLog</a><a class="headerlink" href="#hyperloglog" title="本標題的永久連結">¶</a></h3>
+<div class="section" id="layered-bloom-filter">
+<h3><a class="toc-backref" href="#id38">Layered Bloom Filter</a><a class="headerlink" href="#layered-bloom-filter" title="本標題的永久連結">¶</a></h3>
+</div>
+<div class="section" id="inverse-bloom-filter">
+<h3><a class="toc-backref" href="#id39">Inverse Bloom Filter</a><a class="headerlink" href="#inverse-bloom-filter" title="本標題的永久連結">¶</a></h3>
+</div>
+<div class="section" id="cuckoo-filter">
+<h3><a class="toc-backref" href="#id40">Cuckoo Filter</a><a class="headerlink" href="#cuckoo-filter" title="本標題的永久連結">¶</a></h3>
+</div>
+<div class="section" id="linear-counting-lc">
+<h3><a class="toc-backref" href="#id41">Linear Counting (LC)</a><a class="headerlink" href="#linear-counting-lc" title="本標題的永久連結">¶</a></h3>
+<p>空間複雜度：</p>
+<img alt="../_images/o-n-max.png" src="../_images/o-n-max.png" />
+<p>在 1990 年的一篇論文
+「A Linear-Time Probabilistic Counting Algorithm for Database Applications <a class="reference internal" href="#whang1990linear" id="id5">[whang1990linear]</a> 」
+中被提出，
+屬於早期的 Cardinality Estimation 演算法，
+也因此空間複雜不不如後面出現的演算法來的好。</p>
+<p>Linear Couting 會有一個 bit vector 和 Hash 函式，
+bit vector 一開始會初始化為 0，
+資料在經過 Hash 後會變成 bit vector index，
+此時把對應的位置標為 1，
+把所有資料處理過後就可以概略估計資料內不同數值的數量。</p>
+<p>估計公式為：</p>
+<img alt="../_images/linear-counting-estimation.png" src="../_images/linear-counting-estimation.png" />
+</div>
+<div class="section" id="loglog-counting-llc">
+<h3><a class="toc-backref" href="#id42">LogLog Counting (LLC)</a><a class="headerlink" href="#loglog-counting-llc" title="本標題的永久連結">¶</a></h3>
+<p>空間複雜度：</p>
+<img alt="../_images/o-log-log-n-max.png" src="../_images/o-log-log-n-max.png" />
+<p>「Loglog Counting of Large Cardinalities <a class="reference internal" href="#durand2003loglog" id="id6">[durand2003loglog]</a> 」</p>
+</div>
+<div class="section" id="hyperloglog-counting-hllc">
+<h3><a class="toc-backref" href="#id43">HyperLogLog Counting (HLLC)</a><a class="headerlink" href="#hyperloglog-counting-hllc" title="本標題的永久連結">¶</a></h3>
+<p>空間複雜度：</p>
+<img alt="../_images/o-log-log-n-max.png" src="../_images/o-log-log-n-max.png" />
+<p>「Hyperloglog: The analysis of a near-optimal cardinality estimation algorithm <a class="reference internal" href="#flajolet2007hyperloglog" id="id7">[flajolet2007hyperloglog]</a> 」</p>
 <p>HyperLogLog 是一種解 Cardinality Estimation Problem（或稱 Count-distinct Problem）的演算法，
 用於概略估算集合中不同數值的數量。
 由於計算正確的數量需要比較多的資源與時間，
 尤其對於資料量大時尤其明顯，
 但我們在一些情況下可能可以接受誤差，
-於是就有了 HyperLogLog 這類演算法（更改自更早期的 LogLog 演算法），
-可以用極少量的記憶體來估算極大量的集合中獨一無二的數值的數量，
+於是就有了 HyperLogLog 這類演算法，
+HyperLogLog 更改自更早期的 LogLog 演算法，
+改善其不同數值的數量少的時候會有大誤差的問題，
+可以用極少量的記憶體來估算極大量的集合中不同數值的數量，
 使用 1.5 KB 的記憶體就可以估算 10 億筆資料（誤差為 2%）。</p>
 <p>在講 HyperLogLog 前有一個重要的性質要先知道，
 假設資料是連續均勻分佈的（Uniform Distribution），
@@ -934,34 +995,58 @@ HyperLogLog 還會把資料切割成數個子集合，
 <ul class="simple">
 <li><a class="reference external" href="http://blog.kiip.me/engineering/sketching-scaling-everyday-hyperloglog/">Sketching &amp; Scaling: Everyday HyperLogLog</a></li>
 <li><a class="reference external" href="https://en.wikipedia.org/wiki/HyperLogLog">Wikipedia - HyperLogLog</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Count-distinct_problem">Wikipedia - Count-distinct problem</a></li>
 <li>[2013] <a class="reference external" href="https://research.google.com/pubs/pub40671.html">HyperLogLog in Practice: Algorithmic Engineering of a State of The Art Cardinality Estimation Algorithm</a></li>
 <li>[GitHub] <a class="reference external" href="https://github.com/antirez/redis/blob/unstable/src/hyperloglog.c">Redis - src/hyperloglog.c</a></li>
 </ul>
 </div>
-<div class="section" id="id5">
-<h3><a class="toc-backref" href="#id35">HyperLogLog++</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h3>
+<div class="section" id="hyperloglog">
+<h3><a class="toc-backref" href="#id44">HyperLogLog++</a><a class="headerlink" href="#hyperloglog" title="本標題的永久連結">¶</a></h3>
+</div>
+<div class="section" id="adaptive-counting-ac">
+<h3><a class="toc-backref" href="#id45">Adaptive Counting (AC)</a><a class="headerlink" href="#adaptive-counting-ac" title="本標題的永久連結">¶</a></h3>
+<p>「Fast and Accurate Traffic Matrix Measurement. Using Adaptive Cardinality Counting <a class="reference internal" href="#cai2005fast" id="id8">[cai2005fast]</a> 」</p>
+<p>Linear Counting 和 LogLog Counting 的組合，
+分析兩者的標準差，
+給定門檻決定要使用何者。</p>
 </div>
 <div class="section" id="count-min-sketch">
-<h3><a class="toc-backref" href="#id36">Count-Min Sketch</a><a class="headerlink" href="#count-min-sketch" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id46">Count-Min Sketch</a><a class="headerlink" href="#count-min-sketch" title="本標題的永久連結">¶</a></h3>
+<p>類似 Bloom Filter，但是計算出現頻率</p>
+</div>
+<div class="section" id="filtered-space-saving-top-k">
+<h3><a class="toc-backref" href="#id47">Filtered-Space Saving Top-K</a><a class="headerlink" href="#filtered-space-saving-top-k" title="本標題的永久連結">¶</a></h3>
+</div>
+<div class="section" id="k-minimum-values">
+<h3><a class="toc-backref" href="#id48">K-Minimum Values</a><a class="headerlink" href="#k-minimum-values" title="本標題的永久連結">¶</a></h3>
 </div>
 <div class="section" id="approximate-histograms">
-<h3><a class="toc-backref" href="#id37">Approximate Histograms</a><a class="headerlink" href="#approximate-histograms" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id49">Approximate Histograms</a><a class="headerlink" href="#approximate-histograms" title="本標題的永久連結">¶</a></h3>
+</div>
+<div class="section" id="skip-list">
+<h3><a class="toc-backref" href="#id50">Skip List</a><a class="headerlink" href="#skip-list" title="本標題的永久連結">¶</a></h3>
+</div>
+<div class="section" id="treaps">
+<h3><a class="toc-backref" href="#id51">Treaps</a><a class="headerlink" href="#treaps" title="本標題的永久連結">¶</a></h3>
+</div>
+<div class="section" id="t-digest">
+<h3><a class="toc-backref" href="#id52">t-digest</a><a class="headerlink" href="#t-digest" title="本標題的永久連結">¶</a></h3>
 </div>
 </div>
 <div class="section" id="locality-sensitive-hashing">
-<h2><a class="toc-backref" href="#id38">Locality-sensitive Hashing</a><a class="headerlink" href="#locality-sensitive-hashing" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id53">Locality-sensitive Hashing</a><a class="headerlink" href="#locality-sensitive-hashing" title="本標題的永久連結">¶</a></h2>
 <div class="section" id="minhash">
-<h3><a class="toc-backref" href="#id39">MinHash</a><a class="headerlink" href="#minhash" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id54">MinHash</a><a class="headerlink" href="#minhash" title="本標題的永久連結">¶</a></h3>
 </div>
 <div class="section" id="simhash">
-<h3><a class="toc-backref" href="#id40">SimHash</a><a class="headerlink" href="#simhash" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id55">SimHash</a><a class="headerlink" href="#simhash" title="本標題的永久連結">¶</a></h3>
 </div>
 </div>
 <div class="section" id="linear-programming">
-<h2><a class="toc-backref" href="#id41">Linear Programming</a><a class="headerlink" href="#linear-programming" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id56">Linear Programming</a><a class="headerlink" href="#linear-programming" title="本標題的永久連結">¶</a></h2>
 </div>
-<div class="section" id="id6">
-<h2><a class="toc-backref" href="#id42">書籍</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="id9">
+<h2><a class="toc-backref" href="#id57">書籍</a><a class="headerlink" href="#id9" title="本標題的永久連結">¶</a></h2>
 <ul>
 <li><dl class="first docutils">
 <dt>[2016] <a class="reference external" href="https://www.manning.com/books/grokking-algorithms">Grokking Algorithms: An illustrated guide for programmers and other curious people</a></dt>
@@ -972,6 +1057,33 @@ HyperLogLog 還會把資料切割成數個子集合，
 </dl>
 </li>
 </ul>
+</div>
+<div class="section" id="id10">
+<h2><a class="toc-backref" href="#id58">參考</a><a class="headerlink" href="#id10" title="本標題的永久連結">¶</a></h2>
+<table class="docutils citation" frame="void" id="whang1990linear" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id5">[whang1990linear]</a></td><td>[1990] <a class="reference external" href="http://organ.kaist.ac.kr/Prof/pdf/Whang1990(linear).pdf">A Linear-Time Probabilistic Counting Algorithm for Database Applications</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="durand2003loglog" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id6">[durand2003loglog]</a></td><td>[2003] <a class="reference external" href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.79.8821&amp;rep=rep1&amp;type=pdf">Loglog Counting of Large Cardinalities</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="cai2005fast" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id8">[cai2005fast]</a></td><td>[2005] <a class="reference external" href="http://gridsec.usc.edu/files/TR/TR-2005-12.pdf">Fast and Accurate Traffic Matrix Measurement. Using Adaptive Cardinality Counting</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="flajolet2007hyperloglog" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id7">[flajolet2007hyperloglog]</a></td><td>[2007] <a class="reference external" href="http://algo.inria.fr/flajolet/Publications/FlFuGaMe07.pdf">Hyperloglog: The analysis of a near-optimal cardinality estimation algorithm</a></td></tr>
+</tbody>
+</table>
 </div>
 </div>
 

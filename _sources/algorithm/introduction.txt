@@ -174,20 +174,74 @@ Scalable Bloom Filter
 Counting Bloom Filter
 ------------------------------
 
-Linear Counting
+Stable Bloom Filter
+------------------------------
+
+Layered Bloom Filter
+------------------------------
+
+Inverse Bloom Filter
+------------------------------
+
+Cuckoo Filter
 ------------------------------
 
 
-HyperLogLog
+Linear Counting (LC)
 ------------------------------
+
+空間複雜度：
+
+.. image:: /images/big-o/o-n-max.png
+
+
+在 1990 年的一篇論文
+「A Linear-Time Probabilistic Counting Algorithm for Database Applications [whang1990linear]_ 」
+中被提出，
+屬於早期的 Cardinality Estimation 演算法，
+也因此空間複雜不不如後面出現的演算法來的好。
+
+Linear Couting 會有一個 bit vector 和 Hash 函式，
+bit vector 一開始會初始化為 0，
+資料在經過 Hash 後會變成 bit vector index，
+此時把對應的位置標為 1，
+把所有資料處理過後就可以概略估計資料內不同數值的數量。
+
+估計公式為：
+
+.. image:: /images/algorithm/linear-counting-estimation.png
+
+
+
+LogLog Counting (LLC)
+------------------------------
+
+空間複雜度：
+
+.. image:: /images/big-o/o-log-log-n-max.png
+
+「Loglog Counting of Large Cardinalities [durand2003loglog]_ 」
+
+
+HyperLogLog Counting (HLLC)
+------------------------------
+
+空間複雜度：
+
+.. image:: /images/big-o/o-log-log-n-max.png
+
+
+「Hyperloglog: The analysis of a near-optimal cardinality estimation algorithm [flajolet2007hyperloglog]_ 」
 
 HyperLogLog 是一種解 Cardinality Estimation Problem（或稱 Count-distinct Problem）的演算法，
 用於概略估算集合中不同數值的數量。
 由於計算正確的數量需要比較多的資源與時間，
 尤其對於資料量大時尤其明顯，
 但我們在一些情況下可能可以接受誤差，
-於是就有了 HyperLogLog 這類演算法（更改自更早期的 LogLog 演算法），
-可以用極少量的記憶體來估算極大量的集合中獨一無二的數值的數量，
+於是就有了 HyperLogLog 這類演算法，
+HyperLogLog 更改自更早期的 LogLog 演算法，
+改善其不同數值的數量少的時候會有大誤差的問題，
+可以用極少量的記憶體來估算極大量的集合中不同數值的數量，
 使用 1.5 KB 的記憶體就可以估算 10 億筆資料（誤差為 2%）。
 
 在講 HyperLogLog 前有一個重要的性質要先知道，
@@ -242,6 +296,7 @@ HyperLogLog 的標準差為 ``1.04 / sqrt(m)`` ，
 
 * `Sketching & Scaling: Everyday HyperLogLog <http://blog.kiip.me/engineering/sketching-scaling-everyday-hyperloglog/>`_
 * `Wikipedia - HyperLogLog <https://en.wikipedia.org/wiki/HyperLogLog>`_
+* `Wikipedia - Count-distinct problem <https://en.wikipedia.org/wiki/Count-distinct_problem>`_
 * [2013] `HyperLogLog in Practice: Algorithmic Engineering of a State of The Art Cardinality Estimation Algorithm <https://research.google.com/pubs/pub40671.html>`_
 * [GitHub] `Redis - src/hyperloglog.c <https://github.com/antirez/redis/blob/unstable/src/hyperloglog.c>`_
 
@@ -249,11 +304,46 @@ HyperLogLog 的標準差為 ``1.04 / sqrt(m)`` ，
 HyperLogLog++
 ------------------------------
 
+Adaptive Counting (AC)
+------------------------------
+
+「Fast and Accurate Traffic Matrix Measurement. Using Adaptive Cardinality Counting [cai2005fast]_ 」
+
+Linear Counting 和 LogLog Counting 的組合，
+分析兩者的標準差，
+給定門檻決定要使用何者。
+
+
+
 Count-Min Sketch
 ------------------------------
 
+類似 Bloom Filter，但是計算出現頻率
+
+
+Filtered-Space Saving Top-K
+------------------------------
+
+
+K-Minimum Values
+------------------------------
+
+
 Approximate Histograms
 ------------------------------
+
+Skip List
+------------------------------
+
+
+
+Treaps
+------------------------------
+
+t-digest
+------------------------------
+
+
 
 
 Locality-sensitive Hashing
@@ -277,3 +367,13 @@ Linear Programming
 
 * [2016] `Grokking Algorithms: An illustrated guide for programmers and other curious people <https://www.manning.com/books/grokking-algorithms>`_
     - 入門級好書
+
+
+
+參考
+========================================
+
+.. [whang1990linear] [1990] `A Linear-Time Probabilistic Counting Algorithm for Database Applications <http://organ.kaist.ac.kr/Prof/pdf/Whang1990(linear).pdf>`_
+.. [durand2003loglog] [2003] `Loglog Counting of Large Cardinalities <http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.79.8821&rep=rep1&type=pdf>`_
+.. [cai2005fast] [2005] `Fast and Accurate Traffic Matrix Measurement. Using Adaptive Cardinality Counting <http://gridsec.usc.edu/files/TR/TR-2005-12.pdf>`_
+.. [flajolet2007hyperloglog] [2007] `Hyperloglog: The analysis of a near-optimal cardinality estimation algorithm <http://algo.inria.fr/flajolet/Publications/FlFuGaMe07.pdf>`_
