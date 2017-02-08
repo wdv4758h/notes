@@ -115,6 +115,7 @@ Probabilistic Data Structures 的特點在於告訴你「可能的」狀態，
 參考：
 
 * `PipelineDB - Probabilistic Data Structures & Algorithms <http://docs.pipelinedb.com/probabilistic.html>`_
+* [2015] `PWLSF#13=> Armon Dadgar on Bloom Filters and HyperLogLog <https://speakerdeck.com/paperswelove/pwlsf-number-13-equals-armon-dadgar-on-bloom-filters-and-hyperloglog>`_
 
 
 Bloom Filter
@@ -134,6 +135,9 @@ Bloom Filter 支援兩種操作：
 
 * 新增數值：數值經過 k 個 Hash 函式處理後取得 array index，把值標為 1
 * 檢驗數值：數值經過 k 個 Hash 函式處理後取得 array index，如果 array 內的值為 0，則該數值真的不在這個集合中，如果 array 內的值為 1，則該數值「可能」在這個集合中
+
+
+（簡單來說 Bloom Filter 就是 hash + bits vector，collision 也沒關係）
 
 
 Bloom Filter 的 False Positive Rate：
@@ -160,16 +164,95 @@ Bloom Filter 的 False Positive Rate：
 參考：
 
 * `Bloom Filters by Example <https://llimllib.github.io/bloomfilter-tutorial/>`_
+* `Sketching & Scaling: Bloom Filters <http://blog.kiip.me/engineering/sketching-scaling-bloom-filters/>`_
 * `Wikipedia - Bloom Filter <https://en.wikipedia.org/wiki/Bloom_filter>`_
+
+
+Scalable Bloom Filter
+------------------------------
+
+Counting Bloom Filter
+------------------------------
+
+Linear Counting
+------------------------------
 
 
 HyperLogLog
 ------------------------------
 
-* `Wikipedia - HyperLogLog <https://en.wikipedia.org/wiki/HyperLogLog>`_
+HyperLogLog 是一種解 Cardinality Estimation Problem（或稱 Count-distinct Problem）的演算法，
+用於概略估算集合中不同數值的數量。
+由於計算正確的數量需要比較多的資源與時間，
+尤其對於資料量大時尤其明顯，
+但我們在一些情況下可能可以接受誤差，
+於是就有了 HyperLogLog 這類演算法（更改自更早期的 LogLog 演算法），
+可以用極少量的記憶體來估算極大量的集合中獨一無二的數值的數量，
+使用 1.5 KB 的記憶體就可以估算 10 億筆資料（誤差為 2%）。
 
+在講 HyperLogLog 前有一個重要的性質要先知道，
+假設資料是連續均勻分佈的（Uniform Distribution），
+在這個條件下已經有人觀察到可以用數值的二元表示中最多連續的 0 作為估計來源，
+例如這一大筆資料中最多連續的 0 是 n，
+則估計有 2^n 個不同的資料。
+
+HyperLogLog 會對集合內的元素進行 Hash，
+藉此取得均勻分佈的資料，
+再套用上面提到的性質做計算，
+為了降低誤差，
+HyperLogLog 還會把資料切割成數個子集合，
+由子集合進行計算，
+最後再取調和平均數（Harmonic Mean）算出整體的結果。
+
+
+想法如下，
+假設我們有四個 bits，
+則總共有 16 種可能，
+其中：
+
+* 連續四個 0 的有一種：0000
+* 連續三個 0 的有兩種：0001、1000
+* 連續二個 0 的有五種：0011、1001、1100、0100、0010
+* 連續一個 0 的有七種：0111、1011、1101、1110、0101、1010、0110
+* 沒有0 的有一種：1111
+
+假設我們最高連續次數為三個，
+則其出現的機率為 2/16，
+加上我們的資料是平均分佈的（或使用結果平均分佈的 Hash 函式），
+所以就猜我們可能有 8 筆不同的資料。
+
+為了降低單一估計可能會有極大的偏差（Bias），
+可以把做分割後再取平均來降低，
+例如準備特定長度的 bucket vector，
+取資料的前 4 個 bits 作為 bucket index（所以各 bucket 的分佈狀況應該偏向平均），
+計算剩下資料的連續 0 數量，
+存入對應的 bucket 位置，
+最後使用 Harmonic Mean 計算平均以降低極端值（Outlier）的影響。
+
+HyperLogLog 的標準差為 ``1.04 / sqrt(m)`` ，
+其中 m 為使用的 bucket vector 大小。
+
+
+實際應用：
+
+* `Redis <http://antirez.com/news/75>`_
+
+
+參考：
+
+* `Sketching & Scaling: Everyday HyperLogLog <http://blog.kiip.me/engineering/sketching-scaling-everyday-hyperloglog/>`_
+* `Wikipedia - HyperLogLog <https://en.wikipedia.org/wiki/HyperLogLog>`_
+* [2013] `HyperLogLog in Practice: Algorithmic Engineering of a State of The Art Cardinality Estimation Algorithm <https://research.google.com/pubs/pub40671.html>`_
+* [GitHub] `Redis - src/hyperloglog.c <https://github.com/antirez/redis/blob/unstable/src/hyperloglog.c>`_
+
+
+HyperLogLog++
+------------------------------
 
 Count-Min Sketch
+------------------------------
+
+Approximate Histograms
 ------------------------------
 
 
