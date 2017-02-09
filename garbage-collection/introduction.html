@@ -265,7 +265,10 @@
 <li class="toctree-l4"><a class="reference internal" href="#one-pass-compaction">One-pass Compaction</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#copying-gc">Copying GC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#copying-gc">Copying GC</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cheney-algorithm">Cheney Algorithm</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#generational-mark-sweep-gc">Generational Mark &amp; Sweep GC</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#nursery-tenured">Nursery &amp; Tenured</a></li>
 </ul>
@@ -284,9 +287,16 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#concurrent-reference-counting">Concurrent Reference Counting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#real-time-gc">Real-time GC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#moving-gc-non-moving-gc">Moving GC &amp; Non-moving GC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#precise-gc">Precise GC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#conservative-gc">Conservative GC</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id6">案例研究</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id6">編譯器支援</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#llvm">LLVM</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">案例研究</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#openjdk">OpenJDK</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#serialgc">SerialGC</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#parallelgc">ParallelGC</a></li>
@@ -321,17 +331,19 @@
 <li class="toctree-l3"><a class="reference internal" href="#php-zend-engine">PHP - Zend Engine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#php-hhvm">PHP - HHVM</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#perl">Perl</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#net-framework">.NET Framework</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mono">Mono</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#clr-common-language-runtime">CLR (Common Language Runtime)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#d">D</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#memory-pool-system">Memory Pool System</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id9">深入程式碼</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id10">深入程式碼</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#rust-rc-non-thread-safe-reference-counting">Rust - Rc - Non-Thread-Safe Reference Counting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#rust-arc-thread-safe-reference-counting">Rust - Arc - Thread-Safe Reference Counting</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id10">參考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id11">書籍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id12">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="resource.html">Resource</a></li>
@@ -723,99 +735,111 @@
            <div itemprop="articleBody">
             
   <div class="section" id="garbage-collection">
-<h1><a class="toc-backref" href="#id11">Garbage Collection 介紹</a><a class="headerlink" href="#garbage-collection" title="本標題的永久連結">¶</a></h1>
+<h1><a class="toc-backref" href="#id13">Garbage Collection 介紹</a><a class="headerlink" href="#garbage-collection" title="本標題的永久連結">¶</a></h1>
 <div class="contents topic" id="id1">
 <p class="topic-title first">目錄</p>
 <ul class="simple">
-<li><a class="reference internal" href="#garbage-collection" id="id11">Garbage Collection 介紹</a><ul>
-<li><a class="reference internal" href="#id2" id="id12">歷史</a></li>
-<li><a class="reference internal" href="#id3" id="id13">常見 Garbage Collection 技術</a><ul>
-<li><a class="reference internal" href="#mark-sweep-gc" id="id14">Mark-Sweep GC</a><ul>
-<li><a class="reference internal" href="#tricolor" id="id15">Tricolor</a></li>
-<li><a class="reference internal" href="#bitmap" id="id16">Bitmap</a></li>
-<li><a class="reference internal" href="#lazy-sweeping" id="id17">Lazy Sweeping</a></li>
+<li><a class="reference internal" href="#garbage-collection" id="id13">Garbage Collection 介紹</a><ul>
+<li><a class="reference internal" href="#id2" id="id14">歷史</a></li>
+<li><a class="reference internal" href="#id3" id="id15">常見 Garbage Collection 技術</a><ul>
+<li><a class="reference internal" href="#mark-sweep-gc" id="id16">Mark-Sweep GC</a><ul>
+<li><a class="reference internal" href="#tricolor" id="id17">Tricolor</a></li>
+<li><a class="reference internal" href="#bitmap" id="id18">Bitmap</a></li>
+<li><a class="reference internal" href="#lazy-sweeping" id="id19">Lazy Sweeping</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#mark-compact-gc" id="id18">Mark-Compact GC</a><ul>
-<li><a class="reference internal" href="#two-finger-compaction" id="id19">Two-Finger Compaction</a></li>
-<li><a class="reference internal" href="#lisp-2-algorithm" id="id20">Lisp 2 Algorithm</a></li>
-<li><a class="reference internal" href="#threaded-compaction" id="id21">Threaded Compaction</a></li>
-<li><a class="reference internal" href="#one-pass-compaction" id="id22">One-pass Compaction</a></li>
+<li><a class="reference internal" href="#mark-compact-gc" id="id20">Mark-Compact GC</a><ul>
+<li><a class="reference internal" href="#two-finger-compaction" id="id21">Two-Finger Compaction</a></li>
+<li><a class="reference internal" href="#lisp-2-algorithm" id="id22">Lisp 2 Algorithm</a></li>
+<li><a class="reference internal" href="#threaded-compaction" id="id23">Threaded Compaction</a></li>
+<li><a class="reference internal" href="#one-pass-compaction" id="id24">One-pass Compaction</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#copying-gc" id="id23">Copying GC</a></li>
-<li><a class="reference internal" href="#generational-mark-sweep-gc" id="id24">Generational Mark &amp; Sweep GC</a><ul>
-<li><a class="reference internal" href="#nursery-tenured" id="id25">Nursery &amp; Tenured</a></li>
+<li><a class="reference internal" href="#copying-gc" id="id25">Copying GC</a><ul>
+<li><a class="reference internal" href="#cheney-algorithm" id="id26">Cheney Algorithm</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#reference-counting" id="id26">Reference Counting</a></li>
-<li><a class="reference internal" href="#incremental" id="id27">Incremental</a></li>
-<li><a class="reference internal" href="#parallel-gc" id="id28">Parallel GC</a></li>
-<li><a class="reference internal" href="#concurrent-gc" id="id29">Concurrent GC</a></li>
-<li><a class="reference internal" href="#concurrent-mark-sweep" id="id30">Concurrent Mark-Sweep</a><ul>
-<li><a class="reference internal" href="#dlg-doligez-leroy-gonthier" id="id31">DLG (Doligez-Leroy-Gonthier)</a></li>
+<li><a class="reference internal" href="#generational-mark-sweep-gc" id="id27">Generational Mark &amp; Sweep GC</a><ul>
+<li><a class="reference internal" href="#nursery-tenured" id="id28">Nursery &amp; Tenured</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#concurrent-mark-copying" id="id32">Concurrent Mark-Copying</a><ul>
-<li><a class="reference internal" href="#baker" id="id33">Baker 演算法</a></li>
+<li><a class="reference internal" href="#reference-counting" id="id29">Reference Counting</a></li>
+<li><a class="reference internal" href="#incremental" id="id30">Incremental</a></li>
+<li><a class="reference internal" href="#parallel-gc" id="id31">Parallel GC</a></li>
+<li><a class="reference internal" href="#concurrent-gc" id="id32">Concurrent GC</a></li>
+<li><a class="reference internal" href="#concurrent-mark-sweep" id="id33">Concurrent Mark-Sweep</a><ul>
+<li><a class="reference internal" href="#dlg-doligez-leroy-gonthier" id="id34">DLG (Doligez-Leroy-Gonthier)</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#concurrent-reference-counting" id="id34">Concurrent Reference Counting</a></li>
-<li><a class="reference internal" href="#real-time-gc" id="id35">Real-time GC</a></li>
+<li><a class="reference internal" href="#concurrent-mark-copying" id="id35">Concurrent Mark-Copying</a><ul>
+<li><a class="reference internal" href="#baker" id="id36">Baker 演算法</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id6" id="id36">案例研究</a><ul>
-<li><a class="reference internal" href="#openjdk" id="id37">OpenJDK</a><ul>
-<li><a class="reference internal" href="#serialgc" id="id38">SerialGC</a></li>
-<li><a class="reference internal" href="#parallelgc" id="id39">ParallelGC</a></li>
-<li><a class="reference internal" href="#cms-parnew-concurrent-mark-sweep" id="id40">CMS (ParNew/Concurrent Mark Sweep)</a></li>
-<li><a class="reference internal" href="#g1-garbage-first" id="id41">G1 (Garbage First)</a></li>
-<li><a class="reference internal" href="#shenandoah" id="id42">Shenandoah</a></li>
+<li><a class="reference internal" href="#concurrent-reference-counting" id="id37">Concurrent Reference Counting</a></li>
+<li><a class="reference internal" href="#real-time-gc" id="id38">Real-time GC</a></li>
+<li><a class="reference internal" href="#moving-gc-non-moving-gc" id="id39">Moving GC &amp; Non-moving GC</a></li>
+<li><a class="reference internal" href="#precise-gc" id="id40">Precise GC</a></li>
+<li><a class="reference internal" href="#conservative-gc" id="id41">Conservative GC</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#azul" id="id43">Azul</a><ul>
-<li><a class="reference internal" href="#c4-continuously-concurrent-compacting-collector" id="id44">C4 (Continuously Concurrent Compacting Collector)</a></li>
+<li><a class="reference internal" href="#id6" id="id42">編譯器支援</a><ul>
+<li><a class="reference internal" href="#llvm" id="id43">LLVM</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#android-dalvik-vm" id="id45">Android Dalvik VM</a></li>
-<li><a class="reference internal" href="#art-android-runtime" id="id46">ART (Android Runtime)</a></li>
-<li><a class="reference internal" href="#go" id="id47">Go</a></li>
-<li><a class="reference internal" href="#python-cpython" id="id48">Python - CPython</a></li>
-<li><a class="reference internal" href="#python-pypy" id="id49">Python - PyPy</a></li>
-<li><a class="reference internal" href="#boehm" id="id50">Boehm</a></li>
-<li><a class="reference internal" href="#lua" id="id51">Lua</a></li>
-<li><a class="reference internal" href="#luajit" id="id52">LuaJIT</a></li>
-<li><a class="reference internal" href="#ghc-glasgow-haskell-compiler" id="id53">GHC (Glasgow Haskell Compiler)</a></li>
-<li><a class="reference internal" href="#erlang-beam-vm" id="id54">Erlang - BEAM VM</a></li>
-<li><a class="reference internal" href="#javascript-v8" id="id55">JavaScript - V8</a></li>
-<li><a class="reference internal" href="#javascript-spidermonkey" id="id56">JavaScript - SpiderMonkey</a></li>
-<li><a class="reference internal" href="#rust" id="id57">Rust</a></li>
-<li><a class="reference internal" href="#ocaml" id="id58">OCaml</a></li>
-<li><a class="reference internal" href="#racket" id="id59">Racket</a></li>
-<li><a class="reference internal" href="#swift-arc" id="id60">Swift - ARC</a></li>
-<li><a class="reference internal" href="#crystal" id="id61">Crystal</a></li>
-<li><a class="reference internal" href="#ruby" id="id62">Ruby</a></li>
-<li><a class="reference internal" href="#julia" id="id63">Julia</a></li>
-<li><a class="reference internal" href="#php-zend-engine" id="id64">PHP - Zend Engine</a></li>
-<li><a class="reference internal" href="#php-hhvm" id="id65">PHP - HHVM</a></li>
-<li><a class="reference internal" href="#perl" id="id66">Perl</a></li>
-<li><a class="reference internal" href="#net-framework" id="id67">.NET Framework</a></li>
-<li><a class="reference internal" href="#d" id="id68">D</a></li>
-<li><a class="reference internal" href="#memory-pool-system" id="id69">Memory Pool System</a></li>
+<li><a class="reference internal" href="#id7" id="id44">案例研究</a><ul>
+<li><a class="reference internal" href="#openjdk" id="id45">OpenJDK</a><ul>
+<li><a class="reference internal" href="#serialgc" id="id46">SerialGC</a></li>
+<li><a class="reference internal" href="#parallelgc" id="id47">ParallelGC</a></li>
+<li><a class="reference internal" href="#cms-parnew-concurrent-mark-sweep" id="id48">CMS (ParNew/Concurrent Mark Sweep)</a></li>
+<li><a class="reference internal" href="#g1-garbage-first" id="id49">G1 (Garbage First)</a></li>
+<li><a class="reference internal" href="#shenandoah" id="id50">Shenandoah</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id9" id="id70">深入程式碼</a><ul>
-<li><a class="reference internal" href="#rust-rc-non-thread-safe-reference-counting" id="id71">Rust - Rc - Non-Thread-Safe Reference Counting</a></li>
-<li><a class="reference internal" href="#rust-arc-thread-safe-reference-counting" id="id72">Rust - Arc - Thread-Safe Reference Counting</a></li>
+<li><a class="reference internal" href="#azul" id="id51">Azul</a><ul>
+<li><a class="reference internal" href="#c4-continuously-concurrent-compacting-collector" id="id52">C4 (Continuously Concurrent Compacting Collector)</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id10" id="id73">參考</a></li>
+<li><a class="reference internal" href="#android-dalvik-vm" id="id53">Android Dalvik VM</a></li>
+<li><a class="reference internal" href="#art-android-runtime" id="id54">ART (Android Runtime)</a></li>
+<li><a class="reference internal" href="#go" id="id55">Go</a></li>
+<li><a class="reference internal" href="#python-cpython" id="id56">Python - CPython</a></li>
+<li><a class="reference internal" href="#python-pypy" id="id57">Python - PyPy</a></li>
+<li><a class="reference internal" href="#boehm" id="id58">Boehm</a></li>
+<li><a class="reference internal" href="#lua" id="id59">Lua</a></li>
+<li><a class="reference internal" href="#luajit" id="id60">LuaJIT</a></li>
+<li><a class="reference internal" href="#ghc-glasgow-haskell-compiler" id="id61">GHC (Glasgow Haskell Compiler)</a></li>
+<li><a class="reference internal" href="#erlang-beam-vm" id="id62">Erlang - BEAM VM</a></li>
+<li><a class="reference internal" href="#javascript-v8" id="id63">JavaScript - V8</a></li>
+<li><a class="reference internal" href="#javascript-spidermonkey" id="id64">JavaScript - SpiderMonkey</a></li>
+<li><a class="reference internal" href="#rust" id="id65">Rust</a></li>
+<li><a class="reference internal" href="#ocaml" id="id66">OCaml</a></li>
+<li><a class="reference internal" href="#racket" id="id67">Racket</a></li>
+<li><a class="reference internal" href="#swift-arc" id="id68">Swift - ARC</a></li>
+<li><a class="reference internal" href="#crystal" id="id69">Crystal</a></li>
+<li><a class="reference internal" href="#ruby" id="id70">Ruby</a></li>
+<li><a class="reference internal" href="#julia" id="id71">Julia</a></li>
+<li><a class="reference internal" href="#php-zend-engine" id="id72">PHP - Zend Engine</a></li>
+<li><a class="reference internal" href="#php-hhvm" id="id73">PHP - HHVM</a></li>
+<li><a class="reference internal" href="#perl" id="id74">Perl</a></li>
+<li><a class="reference internal" href="#mono" id="id75">Mono</a></li>
+<li><a class="reference internal" href="#clr-common-language-runtime" id="id76">CLR (Common Language Runtime)</a></li>
+<li><a class="reference internal" href="#d" id="id77">D</a></li>
+<li><a class="reference internal" href="#memory-pool-system" id="id78">Memory Pool System</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id10" id="id79">深入程式碼</a><ul>
+<li><a class="reference internal" href="#rust-rc-non-thread-safe-reference-counting" id="id80">Rust - Rc - Non-Thread-Safe Reference Counting</a></li>
+<li><a class="reference internal" href="#rust-arc-thread-safe-reference-counting" id="id81">Rust - Arc - Thread-Safe Reference Counting</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id11" id="id82">書籍</a></li>
+<li><a class="reference internal" href="#id12" id="id83">參考</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="id2">
-<h2><a class="toc-backref" href="#id12">歷史</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id14">歷史</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
 <p>Garbage Collection 的技術誕生於 1960 年代，
 John McCarthy 在開發 Lisp 程式語言時，
 發明了 Garbage Collection 來實做程式語言，
@@ -829,7 +853,7 @@ John McCarthy 在開發 Lisp 程式語言時，
 展開了第一場 「International Symposium on Memory Management （簡稱 ISMM）」。</p>
 </div>
 <div class="section" id="id3">
-<h2><a class="toc-backref" href="#id13">常見 Garbage Collection 技術</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id15">常見 Garbage Collection 技術</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
 <p>GC 的實做都基於四種基本的演算法改造而成，
 分別為：</p>
 <ul class="simple">
@@ -845,7 +869,7 @@ John McCarthy 在開發 Lisp 程式語言時，
 <li>回收 Garbages</li>
 </ul>
 <div class="section" id="mark-sweep-gc">
-<h3><a class="toc-backref" href="#id14">Mark-Sweep GC</a><a class="headerlink" href="#mark-sweep-gc" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id16">Mark-Sweep GC</a><a class="headerlink" href="#mark-sweep-gc" title="本標題的永久連結">¶</a></h3>
 <p>為最早出現，
 簡單且非常常見的 GC 演算法，
 會先標記所有可以追蹤到的物件（也就是 Live Objects），
@@ -854,17 +878,17 @@ John McCarthy 在開發 Lisp 程式語言時，
 此過程會造成程式暫停執行其他工作，
 此現象稱為「Stop The World」。</p>
 <div class="section" id="tricolor">
-<h4><a class="toc-backref" href="#id15">Tricolor</a><a class="headerlink" href="#tricolor" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id17">Tricolor</a><a class="headerlink" href="#tricolor" title="本標題的永久連結">¶</a></h4>
 </div>
 <div class="section" id="bitmap">
-<h4><a class="toc-backref" href="#id16">Bitmap</a><a class="headerlink" href="#bitmap" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id18">Bitmap</a><a class="headerlink" href="#bitmap" title="本標題的永久連結">¶</a></h4>
 </div>
 <div class="section" id="lazy-sweeping">
-<h4><a class="toc-backref" href="#id17">Lazy Sweeping</a><a class="headerlink" href="#lazy-sweeping" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id19">Lazy Sweeping</a><a class="headerlink" href="#lazy-sweeping" title="本標題的永久連結">¶</a></h4>
 </div>
 </div>
 <div class="section" id="mark-compact-gc">
-<h3><a class="toc-backref" href="#id18">Mark-Compact GC</a><a class="headerlink" href="#mark-compact-gc" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id20">Mark-Compact GC</a><a class="headerlink" href="#mark-compact-gc" title="本標題的永久連結">¶</a></h3>
 <p>在程式一開始，我們會有連續的可用記憶體可以分配，
 但隨著執行時間變長，
 在反覆地記憶體分配與重新分配中，
@@ -907,20 +931,20 @@ Arbitary 實做容易且執行快速，
 <li><a class="reference external" href="https://hacks.mozilla.org/2015/07/compacting-garbage-collection-in-spidermonkey/">Compacting Garbage Collection in SpiderMonkey</a></li>
 </ul>
 <div class="section" id="two-finger-compaction">
-<h4><a class="toc-backref" href="#id19">Two-Finger Compaction</a><a class="headerlink" href="#two-finger-compaction" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id21">Two-Finger Compaction</a><a class="headerlink" href="#two-finger-compaction" title="本標題的永久連結">¶</a></h4>
 </div>
 <div class="section" id="lisp-2-algorithm">
-<h4><a class="toc-backref" href="#id20">Lisp 2 Algorithm</a><a class="headerlink" href="#lisp-2-algorithm" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id22">Lisp 2 Algorithm</a><a class="headerlink" href="#lisp-2-algorithm" title="本標題的永久連結">¶</a></h4>
 </div>
 <div class="section" id="threaded-compaction">
-<h4><a class="toc-backref" href="#id21">Threaded Compaction</a><a class="headerlink" href="#threaded-compaction" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id23">Threaded Compaction</a><a class="headerlink" href="#threaded-compaction" title="本標題的永久連結">¶</a></h4>
 </div>
 <div class="section" id="one-pass-compaction">
-<h4><a class="toc-backref" href="#id22">One-pass Compaction</a><a class="headerlink" href="#one-pass-compaction" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id24">One-pass Compaction</a><a class="headerlink" href="#one-pass-compaction" title="本標題的永久連結">¶</a></h4>
 </div>
 </div>
 <div class="section" id="copying-gc">
-<h3><a class="toc-backref" href="#id23">Copying GC</a><a class="headerlink" href="#copying-gc" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id25">Copying GC</a><a class="headerlink" href="#copying-gc" title="本標題的永久連結">¶</a></h3>
 <p>基本的 semispace copying 會把 Heap 分成兩塊，
 稱為 semispace，
 這兩塊又分別被稱為 fromspace 和 tospace，
@@ -931,9 +955,12 @@ GC 在運作時會把 Live Objects 從 fromspace 移到 tospace，
 原本的 fromspace 變成 tospace，
 原本的 tospace 變成 fromspace，
 以新的 fromspace 繼續作為可用的 Heap。</p>
+<div class="section" id="cheney-algorithm">
+<h4><a class="toc-backref" href="#id26">Cheney Algorithm</a><a class="headerlink" href="#cheney-algorithm" title="本標題的永久連結">¶</a></h4>
+</div>
 </div>
 <div class="section" id="generational-mark-sweep-gc">
-<h3><a class="toc-backref" href="#id24">Generational Mark &amp; Sweep GC</a><a class="headerlink" href="#generational-mark-sweep-gc" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id27">Generational Mark &amp; Sweep GC</a><a class="headerlink" href="#generational-mark-sweep-gc" title="本標題的永久連結">¶</a></h3>
 <p>Generational garbage collection 的核心觀念就是「大多數的物件的生命都很短」，
 所以就修改原本的 GC 設計，依照不同的存在時間有不同的處理方式，
 對於 Tracing 的 GC 會需要去掃過物件來檢查是否有物件已經成為 Garbage，
@@ -944,7 +971,7 @@ GC 在運作時會把 Live Objects 從 fromspace 移到 tospace，
 <li>[1984] <a class="reference external" href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.122.4295">Garbage collection in a large Lisp system</a></li>
 </ul>
 <div class="section" id="nursery-tenured">
-<h4><a class="toc-backref" href="#id25">Nursery &amp; Tenured</a><a class="headerlink" href="#nursery-tenured" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id28">Nursery &amp; Tenured</a><a class="headerlink" href="#nursery-tenured" title="本標題的永久連結">¶</a></h4>
 <p>多數的 objects 都會 allocate 到一個叫做 Nursery 的 memory region，
 當 Nursery 滿的時候，只檢查 Nursery 裡的 objects，此時多數的 short-lived temporary objects 就會被清掉，
 而這樣的檢查相對於原本 (檢查全部的 objects) 也來的快</p>
@@ -1001,46 +1028,82 @@ GC 在運作時會把 Live Objects 從 fromspace 移到 tospace，
 </div>
 </div>
 <div class="section" id="reference-counting">
-<h3><a class="toc-backref" href="#id26">Reference Counting</a><a class="headerlink" href="#reference-counting" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id29">Reference Counting</a><a class="headerlink" href="#reference-counting" title="本標題的永久連結">¶</a></h3>
 <ul class="simple">
 <li>問題在 reference cycle，會需要一個 cycle detect algorithm 來爬過所有 objects，但這就會產生 undeterministic GC pause</li>
 </ul>
 </div>
 <div class="section" id="incremental">
-<h3><a class="toc-backref" href="#id27">Incremental</a><a class="headerlink" href="#incremental" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id30">Incremental</a><a class="headerlink" href="#incremental" title="本標題的永久連結">¶</a></h3>
 <p>拆散整個 GC 過程，把每次暫停的時間縮短</p>
 </div>
 <div class="section" id="parallel-gc">
-<h3><a class="toc-backref" href="#id28">Parallel GC</a><a class="headerlink" href="#parallel-gc" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id31">Parallel GC</a><a class="headerlink" href="#parallel-gc" title="本標題的永久連結">¶</a></h3>
 </div>
 <div class="section" id="concurrent-gc">
-<h3><a class="toc-backref" href="#id29">Concurrent GC</a><a class="headerlink" href="#concurrent-gc" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id32">Concurrent GC</a><a class="headerlink" href="#concurrent-gc" title="本標題的永久連結">¶</a></h3>
 </div>
 <div class="section" id="concurrent-mark-sweep">
-<h3><a class="toc-backref" href="#id30">Concurrent Mark-Sweep</a><a class="headerlink" href="#concurrent-mark-sweep" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id33">Concurrent Mark-Sweep</a><a class="headerlink" href="#concurrent-mark-sweep" title="本標題的永久連結">¶</a></h3>
 <div class="section" id="dlg-doligez-leroy-gonthier">
-<h4><a class="toc-backref" href="#id31">DLG (Doligez-Leroy-Gonthier)</a><a class="headerlink" href="#dlg-doligez-leroy-gonthier" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id34">DLG (Doligez-Leroy-Gonthier)</a><a class="headerlink" href="#dlg-doligez-leroy-gonthier" title="本標題的永久連結">¶</a></h4>
 </div>
 </div>
 <div class="section" id="concurrent-mark-copying">
-<h3><a class="toc-backref" href="#id32">Concurrent Mark-Copying</a><a class="headerlink" href="#concurrent-mark-copying" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id35">Concurrent Mark-Copying</a><a class="headerlink" href="#concurrent-mark-copying" title="本標題的永久連結">¶</a></h3>
 <div class="section" id="baker">
-<h4><a class="toc-backref" href="#id33">Baker 演算法</a><a class="headerlink" href="#baker" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id36">Baker 演算法</a><a class="headerlink" href="#baker" title="本標題的永久連結">¶</a></h4>
 </div>
 </div>
 <div class="section" id="concurrent-reference-counting">
-<h3><a class="toc-backref" href="#id34">Concurrent Reference Counting</a><a class="headerlink" href="#concurrent-reference-counting" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id37">Concurrent Reference Counting</a><a class="headerlink" href="#concurrent-reference-counting" title="本標題的永久連結">¶</a></h3>
 </div>
 <div class="section" id="real-time-gc">
-<h3><a class="toc-backref" href="#id35">Real-time GC</a><a class="headerlink" href="#real-time-gc" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id38">Real-time GC</a><a class="headerlink" href="#real-time-gc" title="本標題的永久連結">¶</a></h3>
+</div>
+<div class="section" id="moving-gc-non-moving-gc">
+<h3><a class="toc-backref" href="#id39">Moving GC &amp; Non-moving GC</a><a class="headerlink" href="#moving-gc-non-moving-gc" title="本標題的永久連結">¶</a></h3>
+<p>Moving GC 代表物件的記憶體位置可能會被搬移，
+藉此可以提高 Cache Locality，
+但 Moving GC 一定得是 Precise Tracing GC，
+因為必須要知道整個物件的 Graph。</p>
+<p>與 Moving GC 相對的就是 Non-moving GC，
+分配好的物件的記憶體位置不會被改動。</p>
+</div>
+<div class="section" id="precise-gc">
+<h3><a class="toc-backref" href="#id40">Precise GC</a><a class="headerlink" href="#precise-gc" title="本標題的永久連結">¶</a></h3>
+<p>Precise GC 又稱為 Exact GC 或 Type Accurate GC，
+代表這個 GC 只處理「Exact Reference」，
+也就是這個 GC 必須知道物件的格式和 roots，
+所以可以知道哪些欄位是 Reference。</p>
+<p>與之相對的是 Conservative GC，
+處理的是「Ambiguous Reference」（或稱 Unsure Reference），
+不能確定到底是一般的值還是 Reference。</p>
+</div>
+<div class="section" id="conservative-gc">
+<h3><a class="toc-backref" href="#id41">Conservative GC</a><a class="headerlink" href="#conservative-gc" title="本標題的永久連結">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/ivmai/bdwgc">The Boehm-Demers-Weiser conservative C/C++ Garbage Collector</a></li>
+<li><a class="reference external" href="http://www.hboehm.info/gc/">A garbage collector for C and C++</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Boehm_garbage_collector">Wikipedia - Boehm garbage collector</a></li>
+</ul>
 </div>
 </div>
 <div class="section" id="id6">
-<h2><a class="toc-backref" href="#id36">案例研究</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id42">編譯器支援</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="llvm">
+<h3><a class="toc-backref" href="#id43">LLVM</a><a class="headerlink" href="#llvm" title="本標題的永久連結">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="http://llvm.org/docs/GarbageCollection.html">Garbage Collection with LLVM</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id7">
+<h2><a class="toc-backref" href="#id44">案例研究</a><a class="headerlink" href="#id7" title="本標題的永久連結">¶</a></h2>
 <p>此章節比較簡短地去了解現今各平台的 GC 使用狀況，
 某些已經有特別翻完實做程式碼的可以看下面一個章節。</p>
 <div class="section" id="openjdk">
-<h3><a class="toc-backref" href="#id37">OpenJDK</a><a class="headerlink" href="#openjdk" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id45">OpenJDK</a><a class="headerlink" href="#openjdk" title="本標題的永久連結">¶</a></h3>
 <p>參考：</p>
 <ul class="simple">
 <li><a class="reference external" href="http://openjdk.java.net/jeps/189">JEP 189: Shenandoah: An Ultra-Low-Pause-Time Garbage Collector</a></li>
@@ -1050,7 +1113,7 @@ GC 在運作時會把 Live Objects 從 fromspace 移到 tospace，
 <li>[2016] <a class="reference external" href="http://www.slideshare.net/RedHatDevelopers/shenandoah-gc-java-without-the-garbage-collection-hiccups-christine-flood">Shenandoah GC: Java Without The Garbage Collection Hiccups (Christine Flood)</a></li>
 </ul>
 <div class="section" id="serialgc">
-<h4><a class="toc-backref" href="#id38">SerialGC</a><a class="headerlink" href="#serialgc" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id46">SerialGC</a><a class="headerlink" href="#serialgc" title="本標題的永久連結">¶</a></h4>
 <p>特色：</p>
 <ul class="simple">
 <li>Small Footprint</li>
@@ -1058,14 +1121,14 @@ GC 在運作時會把 Live Objects 從 fromspace 移到 tospace，
 </ul>
 </div>
 <div class="section" id="parallelgc">
-<h4><a class="toc-backref" href="#id39">ParallelGC</a><a class="headerlink" href="#parallelgc" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id47">ParallelGC</a><a class="headerlink" href="#parallelgc" title="本標題的永久連結">¶</a></h4>
 <p>特色：</p>
 <ul class="simple">
 <li>High Throughput</li>
 </ul>
 </div>
 <div class="section" id="cms-parnew-concurrent-mark-sweep">
-<h4><a class="toc-backref" href="#id40">CMS (ParNew/Concurrent Mark Sweep)</a><a class="headerlink" href="#cms-parnew-concurrent-mark-sweep" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id48">CMS (ParNew/Concurrent Mark Sweep)</a><a class="headerlink" href="#cms-parnew-concurrent-mark-sweep" title="本標題的永久連結">¶</a></h4>
 <p>特色：</p>
 <ul class="simple">
 <li>Minimal Pause Time</li>
@@ -1075,7 +1138,7 @@ GC 在運作時會把 Live Objects 從 fromspace 移到 tospace，
 </ul>
 </div>
 <div class="section" id="g1-garbage-first">
-<h4><a class="toc-backref" href="#id41">G1 (Garbage First)</a><a class="headerlink" href="#g1-garbage-first" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id49">G1 (Garbage First)</a><a class="headerlink" href="#g1-garbage-first" title="本標題的永久連結">¶</a></h4>
 <p>特色：</p>
 <ul class="simple">
 <li>Managed Pause Times</li>
@@ -1085,7 +1148,7 @@ GC 在運作時會把 Live Objects 從 fromspace 移到 tospace，
 </ul>
 </div>
 <div class="section" id="shenandoah">
-<h4><a class="toc-backref" href="#id42">Shenandoah</a><a class="headerlink" href="#shenandoah" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id50">Shenandoah</a><a class="headerlink" href="#shenandoah" title="本標題的永久連結">¶</a></h4>
 <p>目標：&lt;10 ms GC pause times for 100GB+ Heaps</p>
 <p>此 GC 的目標是要提供極低（ultra-low）的 pause time，
 先前的 CMS 和 G1 都已經可以 Concurrent 地進行 live objects marking，
@@ -1093,9 +1156,9 @@ Shenandoah 則是讓 Compaction 也可以 Concurrent 地進行。</p>
 </div>
 </div>
 <div class="section" id="azul">
-<h3><a class="toc-backref" href="#id43">Azul</a><a class="headerlink" href="#azul" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id51">Azul</a><a class="headerlink" href="#azul" title="本標題的永久連結">¶</a></h3>
 <div class="section" id="c4-continuously-concurrent-compacting-collector">
-<h4><a class="toc-backref" href="#id44">C4 (Continuously Concurrent Compacting Collector)</a><a class="headerlink" href="#c4-continuously-concurrent-compacting-collector" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id52">C4 (Continuously Concurrent Compacting Collector)</a><a class="headerlink" href="#c4-continuously-concurrent-compacting-collector" title="本標題的永久連結">¶</a></h4>
 <p>特色：</p>
 <ul class="simple">
 <li>Pauseless</li>
@@ -1110,21 +1173,25 @@ Shenandoah 則是讓 Compaction 也可以 Concurrent 地進行。</p>
 </div>
 </div>
 <div class="section" id="android-dalvik-vm">
-<h3><a class="toc-backref" href="#id45">Android Dalvik VM</a><a class="headerlink" href="#android-dalvik-vm" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id53">Android Dalvik VM</a><a class="headerlink" href="#android-dalvik-vm" title="本標題的永久連結">¶</a></h3>
 </div>
 <div class="section" id="art-android-runtime">
-<h3><a class="toc-backref" href="#id46">ART (Android Runtime)</a><a class="headerlink" href="#art-android-runtime" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id54">ART (Android Runtime)</a><a class="headerlink" href="#art-android-runtime" title="本標題的永久連結">¶</a></h3>
 </div>
 <div class="section" id="go">
-<h3><a class="toc-backref" href="#id47">Go</a><a class="headerlink" href="#go" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id55">Go</a><a class="headerlink" href="#go" title="本標題的永久連結">¶</a></h3>
+<p>參考：</p>
+<ul class="simple">
+<li><a class="reference external" href="https://blog.pusher.com/golangs-real-time-gc-in-theory-and-practice/">Golang&#8217;s Real-time GC in Theory and Practice</a></li>
+</ul>
 </div>
 <div class="section" id="python-cpython">
-<h3><a class="toc-backref" href="#id48">Python - CPython</a><a class="headerlink" href="#python-cpython" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id56">Python - CPython</a><a class="headerlink" href="#python-cpython" title="本標題的永久連結">¶</a></h3>
 <p>CPython 是 Python 的官方實做，
 採用的是 Reference Counting 技術。</p>
 </div>
 <div class="section" id="python-pypy">
-<h3><a class="toc-backref" href="#id49">Python - PyPy</a><a class="headerlink" href="#python-pypy" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id57">Python - PyPy</a><a class="headerlink" href="#python-pypy" title="本標題的永久連結">¶</a></h3>
 <p>PyPy 是 Python 的另外一大實做，
 內含有 JIT 及更好的 GC 支援。
 PyPy 的實做是使用一套 PyPy 的開發者們設計的動態語言實做 Framework，
@@ -1149,10 +1216,10 @@ STM 是概念類似資料庫 Transaction 的 Concurrent 機制，
 目前 PyPy 內結合 STM 的 GC 放在 <a class="reference external" href="https://bitbucket.org/pypy/stmgc">pypy - stmgc</a> 。</p>
 </div>
 <div class="section" id="boehm">
-<h3><a class="toc-backref" href="#id50">Boehm</a><a class="headerlink" href="#boehm" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id58">Boehm</a><a class="headerlink" href="#boehm" title="本標題的永久連結">¶</a></h3>
 </div>
 <div class="section" id="lua">
-<h3><a class="toc-backref" href="#id51">Lua</a><a class="headerlink" href="#lua" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id59">Lua</a><a class="headerlink" href="#lua" title="本標題的永久連結">¶</a></h3>
 <p>Lua 的 GC 原本是使用一般的 Mark-Sweep，
 在 5.1 版時改成使用 Incremental Mark-Sweep，
 主要程式碼在
@@ -1161,22 +1228,31 @@ STM 是概念類似資料庫 Transaction 的 Concurrent 機制，
 <a class="reference external" href="https://github.com/lua/lua/blob/master/lgc.c">lgc.c</a> 。</p>
 </div>
 <div class="section" id="luajit">
-<h3><a class="toc-backref" href="#id52">LuaJIT</a><a class="headerlink" href="#luajit" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id60">LuaJIT</a><a class="headerlink" href="#luajit" title="本標題的永久連結">¶</a></h3>
 </div>
 <div class="section" id="ghc-glasgow-haskell-compiler">
-<h3><a class="toc-backref" href="#id53">GHC (Glasgow Haskell Compiler)</a><a class="headerlink" href="#ghc-glasgow-haskell-compiler" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id61">GHC (Glasgow Haskell Compiler)</a><a class="headerlink" href="#ghc-glasgow-haskell-compiler" title="本標題的永久連結">¶</a></h3>
+<p>參考：</p>
+<ul class="simple">
+<li><a class="reference external" href="https://blog.pusher.com/latency-working-set-ghc-gc-pick-two/">Low latency, large working set, and GHC&#8217;s garbage collector: pick two of three</a></li>
+</ul>
 </div>
 <div class="section" id="erlang-beam-vm">
-<h3><a class="toc-backref" href="#id54">Erlang - BEAM VM</a><a class="headerlink" href="#erlang-beam-vm" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id62">Erlang - BEAM VM</a><a class="headerlink" href="#erlang-beam-vm" title="本標題的永久連結">¶</a></h3>
+<p>參考：</p>
+<ul class="simple">
+<li><a class="reference external" href="http://erlang.org/faq/academic.html#idp33115216">How does the Garbage Collector (GC) work?</a></li>
+<li><a class="reference external" href="http://theerlangelist.com/article/reducing_maximum_latency">Reducing the maximum latency of a bound buffer</a></li>
+</ul>
 </div>
 <div class="section" id="javascript-v8">
-<h3><a class="toc-backref" href="#id55">JavaScript - V8</a><a class="headerlink" href="#javascript-v8" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id63">JavaScript - V8</a><a class="headerlink" href="#javascript-v8" title="本標題的永久連結">¶</a></h3>
 </div>
 <div class="section" id="javascript-spidermonkey">
-<h3><a class="toc-backref" href="#id56">JavaScript - SpiderMonkey</a><a class="headerlink" href="#javascript-spidermonkey" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id64">JavaScript - SpiderMonkey</a><a class="headerlink" href="#javascript-spidermonkey" title="本標題的永久連結">¶</a></h3>
 </div>
 <div class="section" id="rust">
-<h3><a class="toc-backref" href="#id57">Rust</a><a class="headerlink" href="#rust" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id65">Rust</a><a class="headerlink" href="#rust" title="本標題的永久連結">¶</a></h3>
 <p>Rust 本身是不使用 GC 來管理記憶體的，
 但是撰寫時也不需要明確地呼叫 malloc/free，
 編譯器會在編譯時幫忙處理。</p>
@@ -1184,7 +1260,7 @@ STM 是概念類似資料庫 Transaction 的 Concurrent 機制，
 <code class="docutils literal"><span class="pre">Rc</span></code> 和 <code class="docutils literal"><span class="pre">Arc</span></code> 兩種 Reference Counting 可以在需要時選用。</p>
 </div>
 <div class="section" id="ocaml">
-<h3><a class="toc-backref" href="#id58">OCaml</a><a class="headerlink" href="#ocaml" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id66">OCaml</a><a class="headerlink" href="#ocaml" title="本標題的永久連結">¶</a></h3>
 <p>OCaml 的 GC 是 Non-Concurrent Incremental Generational Mark-Compact GC，
 把 Heap 拆分成兩塊，
 分別為 Major Heap 和 Minor Heap，
@@ -1205,13 +1281,13 @@ Repo 內的這些地方是主要跟 GC 相關的部份：</p>
 </div>
 </div>
 <div class="section" id="racket">
-<h3><a class="toc-backref" href="#id59">Racket</a><a class="headerlink" href="#racket" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id67">Racket</a><a class="headerlink" href="#racket" title="本標題的永久連結">¶</a></h3>
 </div>
 <div class="section" id="swift-arc">
-<h3><a class="toc-backref" href="#id60">Swift - ARC</a><a class="headerlink" href="#swift-arc" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id68">Swift - ARC</a><a class="headerlink" href="#swift-arc" title="本標題的永久連結">¶</a></h3>
 </div>
 <div class="section" id="crystal">
-<h3><a class="toc-backref" href="#id61">Crystal</a><a class="headerlink" href="#crystal" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id69">Crystal</a><a class="headerlink" href="#crystal" title="本標題的永久連結">¶</a></h3>
 <p>Crystal 目前使用 Boehm（Boehm-Demers-Weiser Conservative Garbage Collector）作為語言的 GC 實做，
 相關的程式碼在
 <a class="reference external" href="https://github.com/crystal-lang/crystal/tree/master/src/gc">src/gc</a>
@@ -1219,10 +1295,10 @@ Repo 內的這些地方是主要跟 GC 相關的部份：</p>
 <a class="reference external" href="https://github.com/crystal-lang/crystal/blob/master/src/gc.cr">src/gc.cr</a> 。</p>
 </div>
 <div class="section" id="ruby">
-<h3><a class="toc-backref" href="#id62">Ruby</a><a class="headerlink" href="#ruby" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id70">Ruby</a><a class="headerlink" href="#ruby" title="本標題的永久連結">¶</a></h3>
 </div>
 <div class="section" id="julia">
-<h3><a class="toc-backref" href="#id63">Julia</a><a class="headerlink" href="#julia" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id71">Julia</a><a class="headerlink" href="#julia" title="本標題的永久連結">¶</a></h3>
 <p>Julia 使用的是 Incremental Mark-Sweep GC，
 相關的主要程式碼在：</p>
 <ul class="simple">
@@ -1240,19 +1316,33 @@ Repo 內的這些地方是主要跟 GC 相關的部份：</p>
 </ul>
 </div>
 <div class="section" id="php-zend-engine">
-<h3><a class="toc-backref" href="#id64">PHP - Zend Engine</a><a class="headerlink" href="#php-zend-engine" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id72">PHP - Zend Engine</a><a class="headerlink" href="#php-zend-engine" title="本標題的永久連結">¶</a></h3>
 </div>
 <div class="section" id="php-hhvm">
-<h3><a class="toc-backref" href="#id65">PHP - HHVM</a><a class="headerlink" href="#php-hhvm" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id73">PHP - HHVM</a><a class="headerlink" href="#php-hhvm" title="本標題的永久連結">¶</a></h3>
 </div>
 <div class="section" id="perl">
-<h3><a class="toc-backref" href="#id66">Perl</a><a class="headerlink" href="#perl" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id74">Perl</a><a class="headerlink" href="#perl" title="本標題的永久連結">¶</a></h3>
 </div>
-<div class="section" id="net-framework">
-<h3><a class="toc-backref" href="#id67">.NET Framework</a><a class="headerlink" href="#net-framework" title="本標題的永久連結">¶</a></h3>
+<div class="section" id="mono">
+<h3><a class="toc-backref" href="#id75">Mono</a><a class="headerlink" href="#mono" title="本標題的永久連結">¶</a></h3>
+<p>參考：</p>
+<ul class="simple">
+<li><a class="reference external" href="http://www.mono-project.com/docs/advanced/garbage-collector/sgen/">SGen - Generational GC</a></li>
+</ul>
+</div>
+<div class="section" id="clr-common-language-runtime">
+<h3><a class="toc-backref" href="#id76">CLR (Common Language Runtime)</a><a class="headerlink" href="#clr-common-language-runtime" title="本標題的永久連結">¶</a></h3>
+<p>參考：</p>
+<ul class="simple">
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Common_Language_Runtime">Wikipedia - Common Language Runtime</a></li>
+<li><a class="reference external" href="http://mattwarren.org/2017/02/07/The-68-things-the-CLR-does-before-executing-a-single-line-of-your-code/">The 68 things the CLR does before executing a single line of your code (*)</a></li>
+<li><a class="reference external" href="https://github.com/dotnet/coreclr/blob/master/Documentation/botr/README.md">CoreCLR - The Book of the Runtime</a></li>
+<li><a class="reference external" href="http://mattwarren.org/2017/01/13/Analysing-Pause-times-in-the-.NET-GC/">Analysing Pause times in the .NET GC</a></li>
+</ul>
 </div>
 <div class="section" id="d">
-<h3><a class="toc-backref" href="#id68">D</a><a class="headerlink" href="#d" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id77">D</a><a class="headerlink" href="#d" title="本標題的永久連結">¶</a></h3>
 <p>D 語言使用的是 Conservative Mark-Sweep GC，
 相關的程式碼在 <code class="docutils literal"><span class="pre">druntime</span></code> 的
 <a class="reference external" href="https://github.com/dlang/druntime/blob/master/src/core/memory.d">src/core/memory.d</a>
@@ -1267,13 +1357,13 @@ Repo 內的這些地方是主要跟 GC 相關的部份：</p>
 </ul>
 </div>
 <div class="section" id="memory-pool-system">
-<h3><a class="toc-backref" href="#id69">Memory Pool System</a><a class="headerlink" href="#memory-pool-system" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id78">Memory Pool System</a><a class="headerlink" href="#memory-pool-system" title="本標題的永久連結">¶</a></h3>
 </div>
 </div>
-<div class="section" id="id9">
-<h2><a class="toc-backref" href="#id70">深入程式碼</a><a class="headerlink" href="#id9" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="id10">
+<h2><a class="toc-backref" href="#id79">深入程式碼</a><a class="headerlink" href="#id10" title="本標題的永久連結">¶</a></h2>
 <div class="section" id="rust-rc-non-thread-safe-reference-counting">
-<h3><a class="toc-backref" href="#id71">Rust - Rc - Non-Thread-Safe Reference Counting</a><a class="headerlink" href="#rust-rc-non-thread-safe-reference-counting" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id80">Rust - Rc - Non-Thread-Safe Reference Counting</a><a class="headerlink" href="#rust-rc-non-thread-safe-reference-counting" title="本標題的永久連結">¶</a></h3>
 <p>Rust 有一個 single-threaded reference-counting 實做在 <code class="docutils literal"><span class="pre">src/liballoc/rc.rs</span></code> ，
 以下對於實做的程式碼進行研究。</p>
 <div class="highlight-rust"><div class="highlight"><pre><span></span><span class="kn">use</span><span class="w"> </span><span class="n">core</span><span class="o">::</span><span class="n">cell</span><span class="o">::</span><span class="n">Cell</span><span class="p">;</span><span class="w"></span>
@@ -1489,7 +1579,7 @@ Repo 內的這些地方是主要跟 GC 相關的部份：</p>
 </ul>
 </div>
 <div class="section" id="rust-arc-thread-safe-reference-counting">
-<h3><a class="toc-backref" href="#id72">Rust - Arc - Thread-Safe Reference Counting</a><a class="headerlink" href="#rust-arc-thread-safe-reference-counting" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id81">Rust - Arc - Thread-Safe Reference Counting</a><a class="headerlink" href="#rust-arc-thread-safe-reference-counting" title="本標題的永久連結">¶</a></h3>
 <p>前面已經介紹了 Rust 的 <code class="docutils literal"><span class="pre">Rc</span></code> ，
 但是它不能在 Thread 間傳送，
 如果我們真的有這樣的需求該怎麼辦呢？
@@ -2006,8 +2096,16 @@ Rust 中還有另外一個 Reference Counting 實做是可以在 Thread 間傳�
 </ul>
 </div>
 </div>
-<div class="section" id="id10">
-<h2><a class="toc-backref" href="#id73">參考</a><a class="headerlink" href="#id10" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="id11">
+<h2><a class="toc-backref" href="#id82">書籍</a><a class="headerlink" href="#id11" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li>[2017] <a class="reference external" href="https://www.amazon.com/Advanced-Design-Implementation-Virtual-Machines-ebook/dp/B01MXZWNQP/">Advanced Design and Implementation of Virtual Machines</a></li>
+<li>[2011] <a class="reference external" href="https://www.amazon.com/Garbage-Collection-Handbook-Management-Algorithms/dp/1420082795">The Garbage Collection Handbook</a></li>
+<li>[1996] <a class="reference external" href="https://www.amazon.com/gp/product/0471941484/">Garbage Collection: Algorithms for Automatic Dynamic Memory Management</a></li>
+</ul>
+</div>
+<div class="section" id="id12">
+<h2><a class="toc-backref" href="#id83">參考</a><a class="headerlink" href="#id12" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)">Wikipedia - Garbage collection (computer science)</a></li>
 <li><a class="reference external" href="https://en.wikipedia.org/wiki/Mark-compact_algorithm">Wikipedia - Mark-compact algorithm</a></li>

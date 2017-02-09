@@ -143,6 +143,10 @@ GC 在運作時會把 Live Objects 從 fromspace 移到 tospace，
 以新的 fromspace 繼續作為可用的 Heap。
 
 
+Cheney Algorithm
+++++++++++++++++++++
+
+
 Generational Mark & Sweep GC
 ---------------------------------
 
@@ -234,6 +238,50 @@ Concurrent Reference Counting
 
 Real-time GC
 ---------------------------------
+
+Moving GC & Non-moving GC
+---------------------------------
+
+Moving GC 代表物件的記憶體位置可能會被搬移，
+藉此可以提高 Cache Locality，
+但 Moving GC 一定得是 Precise Tracing GC，
+因為必須要知道整個物件的 Graph。
+
+與 Moving GC 相對的就是 Non-moving GC，
+分配好的物件的記憶體位置不會被改動。
+
+
+
+Precise GC
+---------------------------------
+
+Precise GC 又稱為 Exact GC 或 Type Accurate GC，
+代表這個 GC 只處理「Exact Reference」，
+也就是這個 GC 必須知道物件的格式和 roots，
+所以可以知道哪些欄位是 Reference。
+
+與之相對的是 Conservative GC，
+處理的是「Ambiguous Reference」（或稱 Unsure Reference），
+不能確定到底是一般的值還是 Reference。
+
+
+
+Conservative GC
+---------------------------------
+
+* `The Boehm-Demers-Weiser conservative C/C++ Garbage Collector <https://github.com/ivmai/bdwgc>`_
+* `A garbage collector for C and C++ <http://www.hboehm.info/gc/>`_
+* `Wikipedia - Boehm garbage collector <https://en.wikipedia.org/wiki/Boehm_garbage_collector>`_
+
+
+
+編譯器支援
+========================================
+
+LLVM
+------------------------------
+
+* `Garbage Collection with LLVM <http://llvm.org/docs/GarbageCollection.html>`_
 
 
 
@@ -334,6 +382,10 @@ ART (Android Runtime)
 Go
 ------------------------------
 
+參考：
+
+* `Golang's Real-time GC in Theory and Practice <https://blog.pusher.com/golangs-real-time-gc-in-theory-and-practice/>`_
+
 
 Python - CPython
 ------------------------------
@@ -391,9 +443,18 @@ LuaJIT
 GHC (Glasgow Haskell Compiler)
 ------------------------------
 
+參考：
+
+* `Low latency, large working set, and GHC's garbage collector: pick two of three <https://blog.pusher.com/latency-working-set-ghc-gc-pick-two/>`_
+
 
 Erlang - BEAM VM
 ------------------------------
+
+參考：
+
+* `How does the Garbage Collector (GC) work? <http://erlang.org/faq/academic.html#idp33115216>`_
+* `Reducing the maximum latency of a bound buffer <http://theerlangelist.com/article/reducing_maximum_latency>`_
 
 
 JavaScript - V8
@@ -493,8 +554,25 @@ Perl
 ------------------------------
 
 
-.NET Framework
+Mono
 ------------------------------
+
+參考：
+
+* `SGen - Generational GC <http://www.mono-project.com/docs/advanced/garbage-collector/sgen/>`_
+
+
+
+CLR (Common Language Runtime)
+------------------------------
+
+參考：
+
+* `Wikipedia - Common Language Runtime <https://en.wikipedia.org/wiki/Common_Language_Runtime>`_
+* `The 68 things the CLR does before executing a single line of your code (*) <http://mattwarren.org/2017/02/07/The-68-things-the-CLR-does-before-executing-a-single-line-of-your-code/>`_
+* `CoreCLR - The Book of the Runtime <https://github.com/dotnet/coreclr/blob/master/Documentation/botr/README.md>`_
+* `Analysing Pause times in the .NET GC <http://mattwarren.org/2017/01/13/Analysing-Pause-times-in-the-.NET-GC/>`_
+
 
 D
 ------------------------------
@@ -1305,6 +1383,16 @@ Rust 中還有另外一個 Reference Counting 實做是可以在 Thread 間傳�
 要注意的是：
 
 * 沒有 Cycle Detection，所以如果建立了 Cycle，該記憶體會永遠不被清除（直到程式結束），但是可以用 Weak Reference 來避免 Cycle 的產生
+
+
+
+
+書籍
+========================================
+
+* [2017] `Advanced Design and Implementation of Virtual Machines <https://www.amazon.com/Advanced-Design-Implementation-Virtual-Machines-ebook/dp/B01MXZWNQP/>`_
+* [2011] `The Garbage Collection Handbook <https://www.amazon.com/Garbage-Collection-Handbook-Management-Algorithms/dp/1420082795>`_
+* [1996] `Garbage Collection: Algorithms for Automatic Dynamic Memory Management <https://www.amazon.com/gp/product/0471941484/>`_
 
 
 
