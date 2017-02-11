@@ -589,6 +589,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#cell-refcell">Cell &amp; RefCell</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#atomic-rwlock-mutex">Atomic* &amp; RwLock &amp; Mutex</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#unsafecell">UnsafeCell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#llvm-sanitizer">LLVM Sanitizer</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="todo.html">Todo</a></li>
@@ -699,6 +700,7 @@
 <li><a class="reference internal" href="#cell-refcell" id="id32">Cell &amp; RefCell</a></li>
 <li><a class="reference internal" href="#atomic-rwlock-mutex" id="id33">Atomic* &amp; RwLock &amp; Mutex</a></li>
 <li><a class="reference internal" href="#unsafecell" id="id34">UnsafeCell</a></li>
+<li><a class="reference internal" href="#llvm-sanitizer" id="id35">LLVM Sanitizer</a></li>
 </ul>
 </li>
 </ul>
@@ -2019,8 +2021,31 @@ Unix-like 平台的實做在 <code class="docutils literal"><span class="pre">sr
 </div>
 <p>相關連結：</p>
 <ul class="simple">
+<li><a class="reference external" href="https://doc.rust-lang.org/std/cell/struct.UnsafeCell.html">Struct std::cell::UnsafeCell</a></li>
 <li><a class="reference external" href="https://ricardomartins.cc/2016/07/11/interior-mutability-behind-the-curtain">Interior mutability in Rust, part 3: behind the curtain</a></li>
 <li><a class="reference external" href="https://doc.rust-lang.org/book/lang-items.html">Rust Book - Lang items</a></li>
+</ul>
+</div>
+<div class="section" id="llvm-sanitizer">
+<h2><a class="toc-backref" href="#id35">LLVM Sanitizer</a><a class="headerlink" href="#llvm-sanitizer" title="本標題的永久連結">¶</a></h2>
+<p>Rust 編譯器也可以開啟 LLVM Sanitizer 支援來檢查記憶體相關問題，
+雖然程式語言本生的 Borrow Checker 已經避免的這種問題，
+但是仍然可以使用 LLVM Sanitizer 來檢查是否真的沒問題，
+尤其是有自己撰寫的 Unsafe 程式碼。</p>
+<p>使用方式：</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># 用 RUSTFLAGS</span>
+$ <span class="nv">RUSTFLAGS</span><span class="o">=</span><span class="s2">&quot;-Z sanitizer=leak&quot;</span> ...
+
+<span class="c1"># 直接選參數</span>
+$ rustc -Z <span class="nv">sanitizer</span><span class="o">=</span>leak
+</pre></div>
+</div>
+<p>目前支援的有：</p>
+<ul class="simple">
+<li>AddressSanitizer： <code class="docutils literal"><span class="pre">address</span></code></li>
+<li>MemorySanitizer： <code class="docutils literal"><span class="pre">memory</span></code></li>
+<li>ThreadSanitizer： <code class="docutils literal"><span class="pre">thread</span></code></li>
+<li>LeakSanitizer： <code class="docutils literal"><span class="pre">leak</span></code></li>
 </ul>
 </div>
 </div>

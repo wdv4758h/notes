@@ -7,7 +7,8 @@ Build From Source
 
 .. code-block:: sh
 
-    $ hg clone https://hg.python.org/cpython
+    # CPython source code 已經從自己 Hosting 轉移到 GitHub 上了
+    $ git clone https://github.com/python/cpython
     $ cd cpython
     $ ./configure --with-pydebug
     $ make -j8

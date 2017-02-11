@@ -1439,5 +1439,33 @@ Unix-like 平台的實做在 ``src/libstd/sys/unix/rwlock.rs`` 和 ``src/libstd/
 
 相關連結：
 
+* `Struct std::cell::UnsafeCell <https://doc.rust-lang.org/std/cell/struct.UnsafeCell.html>`_
 * `Interior mutability in Rust, part 3: behind the curtain <https://ricardomartins.cc/2016/07/11/interior-mutability-behind-the-curtain>`_
 * `Rust Book - Lang items <https://doc.rust-lang.org/book/lang-items.html>`_
+
+
+
+LLVM Sanitizer
+========================================
+
+Rust 編譯器也可以開啟 LLVM Sanitizer 支援來檢查記憶體相關問題，
+雖然程式語言本生的 Borrow Checker 已經避免的這種問題，
+但是仍然可以使用 LLVM Sanitizer 來檢查是否真的沒問題，
+尤其是有自己撰寫的 Unsafe 程式碼。
+
+使用方式：
+
+.. code-block:: sh
+
+    # 用 RUSTFLAGS
+    $ RUSTFLAGS="-Z sanitizer=leak" ...
+
+    # 直接選參數
+    $ rustc -Z sanitizer=leak
+
+目前支援的有：
+
+* AddressSanitizer： ``address``
+* MemorySanitizer： ``memory``
+* ThreadSanitizer： ``thread``
+* LeakSanitizer： ``leak``
