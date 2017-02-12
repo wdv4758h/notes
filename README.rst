@@ -47,7 +47,7 @@ I'm trying my best to increase the CS information in Traditional Chinese.)
 
 
 
-推薦
+部份項目
 ========================================
 
 Vim
@@ -225,6 +225,30 @@ GC 是現今程式語言常見的記憶體管理方式，
 諸如 Lisp、Python、Ruby、Lua、Go 等等都在使用，
 個人目前的相關筆記放在 `這裡 </garbage-collection/introduction.rst>`_ 。
 
+
+Android
+------------------------------
+
+個人目前使用的手機是 2012 年出的，
+剛開始是 Android 2.3，
+後來官方有提供到 Android 4.1，
+但是就沒有後續升級了，
+所以我就自己刷 AOSP 來用，
+目前是 Android 7.1.1。
+
+少量的相關筆記在 `這裡 </android/install.rst>`_ 。
+
+
+Kindle Paperwhite
+------------------------------
+
+由於陸陸續續買了一些電子書，
+所以就買了一台 Kindle Paperwhite 來看，
+因為想在上面裝些東西所以就刷了，
+刷完後就可以發現上面跑的是 Linux、CPU 是 ARM，
+而系統上還跑著我天天都在用的 Awesome WM。
+
+少量的相關筆記在 `這裡 </hardware/kindle.rst>`_ 。
 
 
 大致結構
