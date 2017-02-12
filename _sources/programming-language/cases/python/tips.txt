@@ -67,6 +67,21 @@ Python 的 bool 可以拿來做運算
 
 
 
+更改遞迴深度限制
+========================================
+
+.. code-block:: python
+
+    import sys
+    print(sys.getrecursionlimit())  # 預設是 1000
+    sys.setrecursionlimit(1000000)
+
+
+雖然可以更改遞迴深度的限制，
+但是改的太寬鬆可能會讓遞迴執行過深，
+造成記憶體不夠。
+
+
 Others
 ========================================
 
