@@ -16,7 +16,7 @@ I'm trying my best to increase the CS information in Traditional Chinese.)
 
 ----
 
-有任何問題可以開 issues (或 `寄信 <mailto:wdv4758h@gmail.com>`_) 詢問 (或告知)
+有任何問題可以開 issues (或 `寄信 <mailto:wdv4758h@gmail.com>`_)
 
 (Feel free to open issues or send mails.)
 
@@ -189,6 +189,7 @@ Rust 的安裝和管理可以使用 `rustup <https://www.rustup.rs/>`_ ，
 語言設計可以參考：
 
 * `You Can't Spell Trust Without Rust <https://raw.githubusercontent.com/Gankro/thesis/master/thesis.pdf>`_
+* `Rust Bibliography <https://forge.rust-lang.org/bibliography.html>`_
 
 要更多資源可以到 `rust-learning <https://github.com/ctjhoa/rust-learning>`_
 和 `awesome-rust <https://github.com/kud1ing/awesome-rust>`_ 尋找。
@@ -207,7 +208,7 @@ Rust 的 Build System - Cargo - 內建就有許多方便的 subcommands 可以�
 目前也已經有不少不錯的第三方 subcommands。
 例如，只想單純作檢查而不生執行檔可以使用
 `cargo-check <https://github.com/rsolomo/cargo-check>`_ ，
-想檢查相依套件的新版本可以用 `cargo-outdated <https://github.com/kbknapp/cargo-outdated>`_ ，
+想檢查相依套件的新版本可以用 `cargo-outdated <https://github.com/kbknapp/cargo-outdated>`_ 。
 
 其他資源：
 
@@ -215,6 +216,16 @@ Rust 的 Build System - Cargo - 內建就有許多方便的 subcommands 可以�
 * `Rust-101 <https://www.ralfj.de/projects/rust-101/main.html>`_
 * `Learning Rust With Entirely Too Many Linked Lists <http://cglab.ca/~abeinges/blah/too-many-lists/book/>`_
 * `Rust Iterator Cheat Sheet <https://danielkeep.github.io/itercheat_baked.html>`_
+
+
+Garbage Collection
+------------------------------
+
+GC 是現今程式語言常見的記憶體管理方式，
+諸如 Lisp、Python、Ruby、Lua、Go 等等都在使用，
+個人目前的相關筆記放在 `這裡 </garbage-collection/introduction.rst>`_ 。
+
+
 
 大致結構
 ========================================
