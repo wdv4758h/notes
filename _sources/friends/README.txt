@@ -10,6 +10,7 @@ susu
     :glob:
 
     susu/*
+    susu/*/*
 
 
 pi
@@ -21,3 +22,4 @@ pi
     :glob:
 
     pi/*
+    pi/*/*
