@@ -1,0 +1,1354 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Internal and External Linkage in C &mdash; wdv4758h-notes latest 說明文件</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+
+  
+    <link rel="stylesheet" href="https://media.readthedocs.org/css/sphinx_rtd_theme.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="wdv4758h-notes latest 說明文件" href="../../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> wdv4758h-notes
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/big-o-notation.html">Big O Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/books.html">Books</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/dict.html">Dict</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/heap.html">Heap （堆）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/introduction.html">演算法與資料結構</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/inverse-square-root.html">Inverse Square Root</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/misc.html">Misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/resource.html">演算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/substring-searching.html">Substring Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../android/android.html">Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../android/android-emulator.html">Android Emulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../android/android-images.html">Android Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../android/binder.html">Android&#8217;s Binder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../android/busybox-mv.html">BysyBox 的 mv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../android/cheat-sheet.html">Android Cheat Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../android/cts.html">Android CTS (Compatibility Test Suite)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../android/google-project-butter.html">Google Project Butter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../android/init.html">Android - init</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../android/install.html">安裝新 Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../android/misc.html">Android - Misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../android/ndk.html">Android NDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../android/surfaceflinger.html">SurfaceFlinger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archlinux/UEFI.html">UEFI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archlinux/abs.html">Arch Build System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archlinux/arch-in-ubuntu-lxc.html">Arch Linux in Ubuntu LXC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archlinux/arch-install-script.html">Arch Install Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archlinux/aur.html">Arch Linux Arch User Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archlinux/hardware.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archlinux/packages.html">Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archlinux/pacman.html">Pacman</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archlinux/performance.html">Performance Tuning For Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archlinux/printer.html">Printer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archlinux/video-audio-through-hdmi.html">利用 HDMI 播放影音</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archlinux/video-player.html">Video Player</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archlinux/x11-forwarding.html">X11 Forwarding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archlinux/xdg-settings.html">xdg-settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../arm/intro.html">ARM Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../articles/python-need-for-speed.html">Python - Need For Speed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../articles/travis-ci-sphinx-github-pages.html">用 Travis CI 自動化發佈 reStructuredText 到 GitHub Pages 上</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../assembly/cheat-sheet.html">Assembly Cheat Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../assembly/sha-extension.html">SHA Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../assembly/x86.html">x86 Assembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/2001_A_Space_Odyssey.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/README.html">Blog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/ann.html">Artificial Neural Network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/ann.html#history">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/ann.html#reference">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/arm-rpi.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/arm-rpi.html#cross-compile">Cross Compile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/arm-rpi.html#control">Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/arm-rpi.html#performance-testing">Performance Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/arm-rpi.html#reference">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/cpp11-override.html">C++ 繼承</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/cpp11-override.html#virutal-function">Virutal Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/cpp11-override.html#c-11-override-final">C++11 - override &amp; final</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/cpp11-override.html#ref">Ref</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/dbus.html">Basic Linux IPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/dbus.html#d-bus">D-Bus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/dbus.html#kdbus">kdbus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/html5-web-storage.html">Web Storage V.S. Cookies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/html5-web-storage.html#web-storage">Web Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/html5-web-storage.html#reference">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/linux-kernel-boot.html">bzImage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/linux-kernel-boot.html#initramfs">initramfs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/linux-kernel-boot.html#zlib">zlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/linux-standard-base.html">Linux Standard Base (LSB)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/linux-standard-base.html#filesystem-hierarchy-standard-fhs">Filesystem Hierarchy Standard (FHS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/memory-management.html">Stack &amp; Heap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/memory-management.html#common-memory-problem">Common Memory Problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/memory-management.html#debugger">Debugger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/memory-management.html#raii-resource-acquisition-is-initialization">RAII (Resource Acquisition Is Initialization)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/memory-management.html#ownership">Ownership</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/memory-management.html#garbage-collection">Garbage Collection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/memory-management.html#cases">Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/memory-management.html#allocator-implementations">Allocator Implementations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/memory-management.html#debugging-data-format">Debugging Data Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/memory-management.html#reference">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/neovim.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/notification.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/notification.html#mac-os-x">Mac OS X</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/notification.html#browser">Browser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/openmp.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/openmp.html#reference">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/pypy-brainfuck.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/pypy-brainfuck.html#tutorial">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/pypy-brainfuck.html#id4">額外紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/pypy-brainfuck.html#reference">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/python-benchmark.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/python-benchmark.html#hello-world">Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/python-benchmark.html#pystone">PyStone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/python-benchmark.html#pybench-2-0">PyBench 2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/python-benchmark.html#richards">Richards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/python-benchmark.html#id7">總結</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/python-benchmark.html#reference">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/python-celery.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/python-celery.html#tutorial">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/python-celery.html#celery-with-non-python">Celery with non-Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/python-celery.html#frequently-asked-questions">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/python-celery.html#reference">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/pythoner-read-ruby-book-1.html">ch 14-1 - functional programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/pythoner-read-ruby-book-1.html#ch-14-4-ruby-with-c">ch 14-4 Ruby with C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/pythoner-read-ruby-book-1.html#ch-14-5-open-source">ch 14-5 Open Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/pythoner-read-ruby-book-2.html">ch 2-5 Duck Typing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/pythoner-read-ruby-book-3.html">ch 8 Regular Expression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/pythoner-read-ruby-book-3.html#ch-9-1-integer">ch 9-1 Integer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/pythoner-read-ruby-book-3.html#ch-9-2-float">ch 9-2 Float</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/qemu-first-step.html">Install QEMU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/qemu-first-step.html#create-image">Create Image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/qemu-first-step.html#install-os-from-bootable-iso">Install OS from bootable ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/qemu-first-step.html#qemu-with-kvm">QEMU with KVM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html">Syntax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#closure">Closure 和外部變數</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#move-closures">&#8220;move&#8221; closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#closure-implementation">Closure implementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#closures-as-arguments">closures as arguments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#returning-closures">returning closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#reference">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-project-euler-1.html">Solution 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-project-euler-1.html#solution-2">Solution 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-project-euler-1.html#solution-3">Solution 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-project-euler-1.html#solution-4">Solution 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-project-euler-1.html#todo">Todo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/software-testing-intro.html">Intro.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/software-testing-intro.html#ch5-boundary-value-testing">Ch5 - Boundary Value Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/software-testing-intro.html#ch6-equivalence-class-testing">Ch6 - Equivalence Class Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/software-testing-intro.html#ch7-decision-table-based-testing">Ch7 - Decision Table-based Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/software-testing-intro.html#ch8-path-testing">Ch8 - Path Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/software-testing-intro.html#ch9-data-flow-testing">Ch9 - Data Flow Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/software-testing-intro.html#ref">Ref</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/some-rust.html">[Ｏ] Big Number 支援？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/some-rust.html#o-first-class-function">[Ｏ] First-class function 支援？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/some-rust.html#o-map-reduce-filter">[Ｏ] map / reduce / filter 之類的東西？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/some-rust.html#o-option-type-maybe-type">[Ｏ] Option type (maybe type) ?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/some-rust.html#o-oop-object-oriented-programming">[Ｏ] OOP (object-oriented programming)？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/some-rust.html#o-type-inference">[Ｏ] Type Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/some-rust.html#o-memory-control">[Ｏ] 高度的 Memory Control？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/some-rust.html#repl">[－] REPL？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/some-rust.html#sort-algorithm">[？] 預設提供的 Sort Algorithm 是啥？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/some-rust.html#o-regular-expression">[Ｏ] Regular Expression 支援？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/some-rust.html#o-ffi-foreign-function-interface">[Ｏ] FFI (Foreign Function Interface)？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/some-rust.html#o-import-third-party-library">[Ｏ] Import third party library？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/some-rust.html#o-native-threading-support">[Ｏ] Native Threading Support？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/some-rust.html#x-garbage-collection">[Ｘ] Garbage Collection？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/some-rust.html#o-format-string">[Ｏ] Format String？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/some-rust.html#o-ownership">[Ｏ] Ownership？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/some-rust.html#third-party">Third Party</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/vdpau.html">vdpau</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/vdpau.html#libva">libva</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/vdpau.html#chromium">Chromium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/vdpau.html#reference">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/vim-clipboard.html">方法 1 : 在 insert mode 快速貼上</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/vim-clipboard.html#normal-mode">方法 2 : 在 normal mode 快速貼上</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/vim-clipboard.html#vim-system-clipboard">其他應用 - 從 Vim 裡複製到 system clipboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/vim-clipboard.html#vim-registers">其他 Vim registers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/vim-clipboard.html#id1">參考資料</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/xorg-with-libinput.html">libinput</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/xorg-with-libinput.html#id1">近況</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/xorg-with-libinput.html#users">Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/xorg-with-libinput.html#reference">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../books/ISBN-13|978-1-59327-385-9|A Bug Hunter's Diary.html">A Bug Hunter&#8217;s Diary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../books/README.html">書籍紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../browser/cdm.html">CDM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../browser/chrome.html">Chrome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../browser/css.html">CSS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../browser/design.html">How Browser Work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../browser/extensions.html">WebExtensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../browser/firefox.html">Firefox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../browser/firefox-settings.html">Firefox 設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../browser/issues.html">Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../browser/service-worker.html">Service Worker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../browser/servo.html">Servo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../browser/webassembly.html">WebAssembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../build-system/cmake.html">CMake</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../build-system/gyp.html">GYP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../c/c.html">C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../c/cheat-sheet.html">C Cheat Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../c/exception.html">Exceptions in C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../c/features.html">Some C&#8217;s features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../c/gnu-extension.html">GNU Extension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../c/internal_and_external_linkage_in_C.html">Internal and External Linkage in C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../c/mmap.html">mmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../c/pragma-once.html">pragma once</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../c/pragma-weak.html">pragma weak</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../c/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../c/undefine-behavior.html">Undefined Behavior</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/branch-prediction-hint.html">Branch Prediction Hint</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/clang-tools.html">Clang Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/code-gen.html">Code Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/compiler-and-learning.html">Compiler and Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/compiler-options.html">Compiler Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/compiler-rt.html">LLVM - compiler-rt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/computed-goto.html">Computed goto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/cross-compile.html">Cross Compile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/crt.html">crt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/environment.html">Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/gcc-plugins.html">GCC Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/gpgpu.html">GPGPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/jump-threading.html">Jump Threading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/linker.html">Linker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/llvm.html">LLVM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/llvm-android.html">Android With LLVM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/llvm-cuda.html">LLVM &amp; CUDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/llvm-ir.html">LLVM IR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/llvm-python.html">LLVM &amp; Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/lto.html">LTO - Link Time Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/obfuscator.html">Obfuscator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/optimizations.html">Optimizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/porting.html">Use Compiler To Help Porting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/resource.html">Compiler Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/ssa.html">SSA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/transpiler.html">轉譯器 (Transpiler) (Source-to-Source Compiler)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compression/introduction.html">壓縮入門</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compression/jpeg.html">JPEG Compression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compression/png.html">PNG Compression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compression/resource.html">資料壓縮相關資源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computer-vision/README.html">電腦視覺</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computer-vision/SIFT.html">SIFT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computer-vision/books.html">電腦視覺相關書籍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computer-vision/object-detection.html">Object Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computer-vision/panaorma.html">Panorama (Image Stitching)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/64bits-problem.html">64 Bits Problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/SFINAE.html">SFINAE (Substitution Failure Is Not An Error)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/assembly.html">C++ &amp; Assembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/bit-field.html">C++ Bit Field</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/c++17.html">C++17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/concepts.html">C++ Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/const.html">C++ const</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/coroutine.html">C++ Coroutine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/crtp.html">CRTP (Curiously recurring template pattern)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/ctor-dtor.html">C++ Constructors &amp; Destructors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/experimental.html">Experimental</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/expression-templates.html">Expression Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/history.html">C++ History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/initialization.html">Initialization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/macro.html">Macro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/misc.html">C++ Misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/oop.html">C++ 繼承</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/oop.html#virutal-function">Virutal Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/oop.html#c-11-override-final">C++11 - override &amp; final</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/optimizations.html">C++ Optimizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/optional.html">Optional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/parallel.html">C++ - Parallel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/pimpl.html">Pimpl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/qt.html">Qt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/repl.html">C++ REPL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/resource.html">C++ Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/rvo.html">Return Value Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/size_t-ptrdiff_t.html">About size_t and ptrdiff_t</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/standard-library-implementation.html">Standard Library Implementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/stl.html">C++ STL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/string-optimization.html">String Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/temporary-objects.html">Temporary Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/thread.html">C++ Thread</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/todo.html">Todo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/value-category.html">C++ Value Category</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/videos.html">C++ Videos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../crypto/blowfish.html">Blowfish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../crypto/elliptic-curve.html">Elliptic Curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../crypto/sha.html">SHA (Secure Hash Algorithm)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../database/postgresql.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../database/resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../debug/javascript.html">Debugger for JavaScript</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../debug/kernel.html">Debugging a Kernel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../debug/record-replay.html">Record Replay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../debug/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dns/resource.html">DNS 相關資源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docker/docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editor/emacs.html">Emacs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../embedded/stm32.html">STM32</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../fonts/README.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../fonts/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../formal-verification/introduction.html">形式驗證 (Formal Verification)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../freebsd/freebsd.html">FreeBSD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../functional/monad.html">Monad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../functional/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../games/emulators.html">Emulators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../games/real-time-strategy.html">Real-time Strategy Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../games/resource.html">Games Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../games/rpg.html">Role-playing Games (RPG)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../garbage-collection/introduction.html">Garbage Collection 介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../garbage-collection/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../git/cheat-sheet.html">Git Cheat Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../git/format-patch.html">Git Format Patch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../git/resource.html">Git Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../git/tips.html">Git Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gpgpu/arrayfire.html">ArrayFire</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gpgpu/boost.html">Boost.Compute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gpgpu/kernel.html">GPGPU with Kernel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gpgpu/spir-v.html">SPIR-V</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../graphics/README.html">Linux Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../graphics/dri.html">DRI (Direct Rendering Infrastructure)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../graphics/glsl.html">GLSL - OpenGL Shading Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../graphics/introduction.html">Linux Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../graphics/mesa.html">Mesa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../graphics/resource.html">Graphic Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hardware/hardware-and-programming.html">Hardware &amp; Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hardware/history.html">Hardware&#8217;s History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hardware/intel-mic.html">Intel MIC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hardware/kindle.html">Kindle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hardware/my-devices.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hardware/random-number-generator.html">硬體亂數產生器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hardware/risc-v.html">RISC-V</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../jit/asmjit.html">asmjit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../jit/introduction.html">JIT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../language-virtual-machines/resource.html">資源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../learning/ann-history.html">Artificial Neural Network History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../learning/artificial-neural-network.html">Artificial Neural Network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../learning/cheatsheet.html">Cheat Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../learning/clustering.html">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../learning/decision-tree.html">決策樹學習 （Decision Tree）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../learning/deep-learning.html">Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../learning/dimensionality-reduction.html">Dimensionality Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../learning/instance-based.html">Instance Based</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../learning/learning.html">Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../learning/naive-bayes-classifier.html">樸素貝葉斯分類器 （Naïve Bayesian Classifier）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../learning/regression.html">Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../learning/regularization.html">Regularization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../learning/resource.html">機器學習相關資源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../learning/rule-system.html">Rule System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../learning/svm.html">SVM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../learning/t-SNE.html">t-SNE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../learning/todo.html">Todo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license/resource.html">相關資源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../linux/bfq.html">BFQ - Budget Fair Queueing Storage-I/O Scheduler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../linux/clear-linux.html">Intel Clear Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../linux/dd.html">dd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../linux/file-system.html">File System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../linux/firmware.html">Firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../linux/gimp.html">Gimp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../linux/hotplug-cpu.html">Hotplug CPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../linux/ipc.html">IPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../linux/kernel-module.html">Kernel Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../linux/nmcli.html">nmcli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../linux/sendfile.html">sendfile - transfer data between file descriptors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../linux/start-up.html">Linux Program Start Up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../linux/systemd.html">systemd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../linux/tickless.html">Tickless</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../linux/ubuntu.html">Ubuntu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../math/math.html">Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../math/math-on-web.html">Math on Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../memory/W^X.html">W^X (Write XOR Execute)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../memory/allocator.html">Allocator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../memory/kernel-memory-management.html">Kernel Memory Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../memory/memory.html">Memory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../memory/memory-allocators-under-the-hood.html">Memory Allocator - Under The Hood</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../memory/memory-hardware.html">Memory Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../memory/memory-management.html">Memory Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../memory/memory-profiling.html">Memory Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../memory/sanitizer.html">Sanitizer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../memory/stack-protection.html">Stack Protection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/arm-server.html">ARM Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/basic-system-utils.html">Basic System Utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/bugs.html">踩 Bug 紀錄 (從 2015-10-26 開始)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/busybox.html">BusyBox - 人人都該備一個在身邊的執行檔</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/cache.html">Cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/ci.html">Continuous Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/concurrency.html">Concurrency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/contribution.html">Open Source 專案貢獻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/coredump.html">coredump</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/data-science.html">Data Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/dsl.html">DSL (Domain-Specific Languages)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/elf.html">ELF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/ffmpeg.html">FFmpeg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/file.html">file command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/free-software-in-taiwan.html">臺灣自由軟體界</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/google-on-hub.html">Google OnHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/graphic.html">Graphic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/init-system.html">init systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/intel.html">Intel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/interpreter-for-compiled-language.html">Interpreter For Compiled Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/jit-for-processors.html">JIT For Processors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/kvm.html">KVM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/languages.html">Languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/libc.html">那些 libc 們</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/librt.html">librt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/libunwind.html">libunwind</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/libuv.html">libuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/linker.html">Linker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/linux-laptop-gpu.html">Linux Laptop GPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/linux-porting.html">Linux Porting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/lua.html">Lua</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/lxc.html">Linux Containers (LXC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/make-an-interpreter.html">Make An Interpreter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/modemmanager.html">ModemManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/multicall-binary.html">Multicall Binary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/multithread-concurrency-parallelism.html">名詞釐清</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/name-mangling.html">Name Mangling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/netbsd.html">NetBSD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/objdump.html">Objdump</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/openhouse.html">Open House</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/opensource-projects-i-love.html">Open Source Porjects I Love</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/parallel.html">Parallel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/plan-9.html">Plan 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/posix.html">POSIX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/process-live-migration.html">Process Live Migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/project-measurement.html">Project Measurement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/realtime.html">Real Time Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/regex-lib.html">Regular Expression Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/sandbox.html">Sandbox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/signal.html">Signal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/software-updates.html">Software Updates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/spark.html">Spark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/strace.html">strace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/system-programming.html">System Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/tcg-ir.html">TCG IR - Tiny Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/tcpdump.html">tcpdump</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/tensorflow.html">TensorFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/thread-stack.html">Thread Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/todo.html">Todo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/transactional-memory.html">Transactional Memory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/trash-talk.html">技術屁話</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/travis-ci.html">Travis CI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/turing-complete.html">Turing Compilete</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/unicode.html">Unicode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/usenix.html">USENIX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/virtualgl.html">VirtualGL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/vlc.html">VLC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/vulkan.html">Vulkan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/wayland.html">Wayland</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/wm.html">Window Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/yocto.html">Yocto Project - 建立自己的嵌入式 Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mess/zram.html">zram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/archive.html">Archive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/articles.html">文章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/bandwidth.html">頻寬成本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/bit-hacks.html">Bit Hacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/calendar.html">Calendar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/chatops.html">ChatOps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/conference.html">Conference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/design-pattern.html">Design Pattern</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/disk-encryption.html">Disk Encryption</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/dot-language.html">DOT Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/esoteric_languages.html">Esoteric Programming Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/fish.html">Fish Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/floating-point.html">Floating Point</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/funny-sites.html">Funny Sites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/hex-float.html">十六進位浮點數（Hex Float）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/http-history.html">HTTP History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/images.html">Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/irc.html">IRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/jargons.html">Jargons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/keyboard.html">Keyboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/latex.html">LaTeX 教學</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/mail-system.html">Mail System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/man-page.html">Man Page</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/misc.html">Misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/origin.html">緣由</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/papers.html">Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/pdf-viewers-history.html">PDF Viewer History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/podcast.html">Podcast</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/proxychains.html">proxychains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/publications.html">資訊相關書籍出版社</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/reStructuredText.html">reStructuredText</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/repo.html">Interesting Repo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/reverse-engineering.html">逆向工程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/sat-smt.html">SAT/SMT Solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/sites.html">Sites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/ssl-tls-pki-history.html">SL/TLS 以及 PKI 的歷史</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/statifier.html">Statifier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/team-collaboration.html">Team Collaboration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/todo-projects.html">想做的專案</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/trace-code.html">Trace Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/typesetting.html">Typesetting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/undergraduate-course-taken.html">大學修過的課程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/unicode.html">Unicode 解說</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/video.html">Video</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/videos.html">一些 Talk 的影片</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/vulkan.html">Vulkan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mpi/mpi.html">MPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../multimedia/ffmpeg.html">ffmpeg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../network/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../network/resource.html">資源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/brain.html">Brain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/crosstalk.html">相聲</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/disease.html">Disease (疾病)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/drama.html">Drama</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/english.html">英文</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/english-checker.html">English Checker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/game-of-throne.html">Game of Throne</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/gender-equality.html">Gender Equality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/japanese.html">日文及日本相關文化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/legend.html">傳說</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/movies.html">Movies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/music.html">音樂</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/non-cs-books.html">Non CS Books</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/novel.html">Novel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/skateboard.html">滑板</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/spanish.html">西班牙文及相關文化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/taiwan-education.html">臺灣教育與國族認同</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/taiwan-opendata.html">臺灣開放資料（Taiwan&#8217;s Open Data）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/taiwan-rocket.html">臺灣的火箭 - ARRC (前瞻火箭研究中心)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/todo.html">Todo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/visa-bitcon.html">VISA &amp; Bitcoin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../non-cs/外宿準備項目.html">外宿準備項目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../parallel/openhmpp.html">OpenHMPP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../parallel/openmp.html">OpenMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../parallel/resource.html">平行化相關資源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../programming-language/README.html">程式語言理論 (Programming Language Theory) (PLT)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pypy/brief.html">簡單介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/ast.html">Python AST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/async-await.html">Python - async &amp; await</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/benchmark.html">Benchmark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/best-practice.html">Best Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/concurrency.html">Python&#8217;s Concurrency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/contextlib.html">contextlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/cpython.html">CPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/cpython-equality.html">CPython Equality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/deprecated.html">Some Deprecated Things</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/django.html">Django</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/gil.html">CPython GIL (Global Interpreter Lock)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/hardware.html">Python &amp; Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/install-packages.html">Python - Install Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/introduction.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/iterator.html">Iterator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/matplotlib.html">matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/numpy.html">Numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/operator.html">Operator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/packages.html">Some Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/porting.html">遷移至 Python 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/power-operator-vs-math-pow.html">** operator v.s. math.pow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/pypi.html">PyPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/python-3.5.html">Python 3.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/python-3.6.html">Python 3.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/qt.html">Qt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/scipy.html">SciPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/standard-library.html">Standard Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/sympy.html">SymPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/testing.html">Python Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/tips.html">Python Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/virtualenv.html">virtualenv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/yield-with-list-comprehension.html">yield with list comprehension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quantum/intro.html">量子電腦</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../regex/re2.html">RE2 - fast, safe, thread-friendly alternative to backtracking regular expression engines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../regex/regex.html">Regular Expression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../regex/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/2015-week-28.html">Engineering Report &lt;dv&gt; - Week 28, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/2015-week-29.html">Engineering Report &lt;dv&gt; - Week 29, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/2015-week-30.html">Engineering Report &lt;dv&gt; - Week 30, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/2015-week-31.html">Engineering Report &lt;dv&gt; - Week 31, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/2015-week-32.html">Engineering Report &lt;dv&gt; - Week 32, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/2015-week-33.html">Engineering Report &lt;dv&gt; - Week 33, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/2015-week-34.html">Engineering Report &lt;dv&gt; - Week 34, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/2015-week-35.html">Engineering Report &lt;dv&gt; - Week 35, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/2015-week-36.html">Engineering Report &lt;dv&gt; - Week 36, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/2015-week-37.html">Engineering Report &lt;dv&gt; - Week 37, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/2015-week-53.html">Self Report &lt;dv&gt; - Week 53, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/2015-week-54.html">Self Report &lt;dv&gt; - Week 54, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/2015-week-55.html">Self Report &lt;dv&gt; - Week 55, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/2015-week-56.html">Self Report &lt;dv&gt; - Week 56, 2015</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/2016-week-19.html">Self Report &lt;dv&gt; - Week 19, 2016</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/2016-week-20.html">Self Report &lt;dv&gt; - Week 20, 2016</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/2016-week-21.html">Self Report &lt;dv&gt; - Week 21, 2016</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/2016-week-22.html">Self Report &lt;dv&gt; - Week 22, 2016</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/2016-week-23.html">Self Report &lt;dv&gt; - Week 23, 2016</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/info.html">Information For Your Report</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/template.html">Engineering Report &lt;dv&gt; - Week #, 2016</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/README.html">Rust 相關文章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/README.html#rust-tips">Rust Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/any.html">Rust&#8217;s runtime reflection - &#8220;Any&#8221; type trait</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/articles.html">文章閱讀（Articles）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/asmjs.html">Rust to asm.js</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/books.html">Rust 相關書籍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/c-to-rust.html">把 C 程式轉換成 Rust 程式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/cargo.html">Cargo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/compiler.html">Rust 編譯器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/ecosystem.html">Rust 生態圈 (Rust Ecosystem)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/features-basic.html">Rust&#8217;s Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/index.html">My Rust Articles Collection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/iterator.html">Iterator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/kernel.html">Rust Kernel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/libraries.html">Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/macro.html">Macro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/make-parity-work-on-freebsd.html">Make Parity work on FreeBSD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/mir.html">MIR (Mid-level Intermediate Representation)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/misc.html">Rust - Misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/monomorphization.html">Monomorphization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/multirust.html">multirust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/object-safety.html">Object Safety</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/orm.html">ORM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/os.html">Rust in OS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/packages.html">Some Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/performance.html">Rust&#8217;s Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/rfcs.html">Rust RFCs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/rust.html">Rust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/rust-vim-plugin.html">Rust Vim Plugin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/std.html">Rust&#8217;s std</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/tagged-unions.html">Tagged Unions (Sum Type)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/tips.html">Rust Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/todo.html">Todo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/type-system.html">Rust&#8217;s Type System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/use.html">use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/videos.html">Rust Videos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/web.html">Rust &amp; Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../security/resource.html">資源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../security/secure-guard-extensions.html">SGX (Secure Guard Extensions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../security/security.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../simd/algorithm.html">運用 SIMD 來加速的演算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../simd/status.html">SIMD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../synchronization/introduction.html">同步 (Synchronization)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../systemd/networkctl.html">networkctl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/256-color.html">256 color</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/README.html">常用軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/find.html">find</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/input-method.html">Input Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/installer.html">Installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/intro.html">Some Basic Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/irc.html">IRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/keymap.html">xmodmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/keymap.html#setxkbmap">setxkbmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/office.html">Office</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/sway.html">Sway</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../valgrind/android.html">Valgrind on Android Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../valgrind/collection.html">Valgrind Resource Collection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../valgrind/dynamic-binary-instrumentation.html">Valgrind: A Framework for Heavyweight Dynamic Binary Instrumentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../valgrind/firefox.html">Valgrind &amp; Firefox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../valgrind/new-plugin.html">Writeing a New Valgrind Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../valgrind/tips.html">Valgrind Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../valgrind/valgrind-talks.html">Valgrind Talks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../virtualization/bhyve.html">bhyve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../wiki/resource.html">Wiki</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">wdv4758h-notes</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+    <li>Internal and External Linkage in C</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="https://github.com/wdv4758h/notes/blob/master/./friends/susu/talk/internal_and_external_linkage_in_C.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="internal-and-external-linkage-in-c">
+<h1><a class="toc-backref" href="#id3">Internal and External Linkage in C</a><a class="headerlink" href="#internal-and-external-linkage-in-c" title="本標題的永久連結">¶</a></h1>
+<p>副標題: extern/static/inline variable/function</p>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title first">Table of Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#internal-and-external-linkage-in-c" id="id3">Internal and External Linkage in C</a><ul>
+<li><a class="reference internal" href="#compiling-linking-and-forward-declaration" id="id4">compiling, linking and forward declaration</a></li>
+<li><a class="reference internal" href="#extern-variable" id="id5">extern variable</a><ul>
+<li><a class="reference internal" href="#restriction" id="id6">restriction</a></li>
+<li><a class="reference internal" href="#extern-usage-in-header-file" id="id7">extern usage in header file</a></li>
+<li><a class="reference internal" href="#extern-variable-example-in-library" id="id8">extern variable example in library</a></li>
+<li><a class="reference internal" href="#extern-variable-in-function" id="id9">extern variable in function</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#static-variable" id="id10">static variable</a><ul>
+<li><a class="reference internal" href="#static-internal-linkage" id="id11">static: internal linkage</a></li>
+<li><a class="reference internal" href="#static-variable-in-function" id="id12">static variable in function</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#extern-and-static-function" id="id13">extern and static function</a><ul>
+<li><a class="reference internal" href="#extern-and-static-function-example" id="id14">extern and static function example</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#conflict-of-inline-function-and-external-linkage" id="id15">conflict of inline function and external linkage</a></li>
+<li><a class="reference internal" href="#c99-static-inline-v-s-extern-inline" id="id16">[C99] static inline v.s. extern inline</a></li>
+<li><a class="reference internal" href="#inline-and-gnu89-inline" id="id17">inline and gnu89 inline</a><ul>
+<li><a class="reference internal" href="#id1" id="id18">實際測試</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id2" id="id19">總結</a></li>
+<li><a class="reference internal" href="#reference" id="id20">reference</a><ul>
+<li><a class="reference internal" href="#related-article" id="id21">related article</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="compiling-linking-and-forward-declaration">
+<h2><a class="toc-backref" href="#id4">compiling, linking and forward declaration</a><a class="headerlink" href="#compiling-linking-and-forward-declaration" title="本標題的永久連結">¶</a></h2>
+<p>C 在將 source code 轉化為 executable 時, 至少可分為 compile 跟 link 兩個階段.</p>
+<ol class="arabic simple">
+<li>在 compile 階段把單獨的 C source code translate 成 cpu instructions 組成的 object code.</li>
+<li>在 link 階段把所有需要用到的 object code 連結組成一個執行檔 (除了 dynamic linking 以外)</li>
+</ol>
+<p>示意圖:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">+----------------------------------------------------------------+</span>
+<span class="o">|</span>                                                                <span class="o">|</span>
+<span class="o">|</span>  <span class="n">source</span> <span class="n">code</span>              <span class="nb">object</span> <span class="n">code</span>             <span class="n">executable</span>   <span class="o">|</span>
+<span class="o">|</span>                                                                <span class="o">|</span>
+<span class="o">|</span>                                                                <span class="o">|</span>
+<span class="o">|</span> <span class="o">+------------+</span>           <span class="o">+------------+</span>                        <span class="o">|</span>
+<span class="o">|</span> <span class="o">|</span>            <span class="o">|</span>  <span class="nb">compile</span>  <span class="o">|</span>            <span class="o">|</span>                        <span class="o">|</span>
+<span class="o">|</span> <span class="o">|</span>   <span class="n">main</span><span class="o">.</span><span class="n">c</span>   <span class="o">+-----------&gt;</span>   <span class="n">main</span><span class="o">.</span><span class="n">o</span>   <span class="o">+-+</span>                      <span class="o">|</span>
+<span class="o">|</span> <span class="o">|</span>            <span class="o">|</span>           <span class="o">|</span>            <span class="o">|</span> <span class="o">|</span>        <span class="o">+-----------+</span> <span class="o">|</span>
+<span class="o">|</span> <span class="o">+------------+</span>           <span class="o">+------------+</span> <span class="o">|</span>  <span class="n">link</span>  <span class="o">|</span>           <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span>                                         <span class="o">+--------&gt;</span>   <span class="n">a</span><span class="o">.</span><span class="n">out</span>   <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="o">+------------+</span>           <span class="o">+------------+</span> <span class="o">|</span>        <span class="o">|</span>           <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="o">|</span>            <span class="o">|</span>  <span class="nb">compile</span>  <span class="o">|</span>            <span class="o">|</span> <span class="o">|</span>        <span class="o">+-----------+</span> <span class="o">|</span>
+<span class="o">|</span> <span class="o">|</span>    <span class="n">foo</span><span class="o">.</span><span class="n">c</span>   <span class="o">+-----------&gt;</span>    <span class="n">foo</span><span class="o">.</span><span class="n">o</span>   <span class="o">+-+</span>                      <span class="o">|</span>
+<span class="o">|</span> <span class="o">|</span>            <span class="o">|</span>           <span class="o">|</span>            <span class="o">|</span>                        <span class="o">|</span>
+<span class="o">|</span> <span class="o">+------------+</span>           <span class="o">+------------+</span>                        <span class="o">|</span>
+<span class="o">|</span>                                                                <span class="o">|</span>
+<span class="o">+----------------------------------------------------------------+</span>
+
+<span class="p">(</span><span class="n">compiler</span> <span class="n">在把</span> <span class="n">main</span><span class="o">.</span><span class="n">c</span> <span class="n">轉換成</span> <span class="n">main</span><span class="o">.</span><span class="n">o</span> <span class="n">的過程</span><span class="p">,</span> <span class="n">並不知道</span> <span class="n">foo</span><span class="o">.</span><span class="n">c</span> <span class="n">的存在</span><span class="p">,</span> <span class="n">也看不到</span> <span class="n">foo</span><span class="o">.</span><span class="n">c</span> <span class="n">的內容</span><span class="o">.</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>由於在 compilation 階段, source code 轉換成 executable 的最重要階段, compiler 無法看到一個 C source file 依賴的其他 C source file 跟外部 library 的內容.</p>
+<p>所以在 C 語言的設計中, 我們需要在每個 C source file 裡, 標注該 source file 中每個使用到的變數與函式的型別(type), 包含外部變數及函式. 透過標注, compiler 才能在 compilation 階段進行型別檢查(type checking).</p>
+<p>換句話說, 對於每個 C source file 來看, 如果要使用任何變數跟函式, 都需要使用處的前面有完整的定義(definition), 或者有僅包含型別(type)的宣告(declaration).</p>
+<p>也正是因為如此, C 語言甚至要使用 header file 跟額外的 preprocessor, 來幫助使用外部的 C source code 跟 library.</p>
+<p>補充一些常見疑惑:</p>
+<ol class="arabic simple">
+<li>所有的 library 本質上都跟 object code 一樣由 cpu instructions 組成, 包含 static library 跟 dynamic library.
+除了 dynamic library 的 cpu instructions 要強制符合 relocable(position independent code) 的條件.
+可參考: <a class="reference external" href="http://blog.longwin.com.tw/2013/03/linux-a-so-la-library-diff-2013/">Tsung&#8217;s Blog - Linux 的 .a / .so / .la 函式庫的差異</a></li>
+<li>header file 不會被單獨 compile, header file 只會被 <code class="docutils literal"><span class="pre">#include</span></code> 貼入到其他 C source code 裡, 跟 C source code 一起被 compile 成 object code.</li>
+</ol>
+</div>
+<div class="section" id="extern-variable">
+<h2><a class="toc-backref" href="#id5">extern variable</a><a class="headerlink" href="#extern-variable" title="本標題的永久連結">¶</a></h2>
+<p>(名詞解釋: 這邊的外部檔案指的是除了自己以外其他的 C source files, libraries)</p>
+<p>當需要使用外部檔案的變數時, 必須在使用前宣告該變數為 <code class="docutils literal"><span class="pre">extern</span></code> 並且寫上該變數的型別(type).</p>
+<p>example</p>
+<div class="code c highlight-default"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">foo</span><span class="o">.</span><span class="n">c</span> <span class="o">*/</span>
+<span class="nb">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+<span class="o">/*</span> <span class="n">main</span><span class="o">.</span><span class="n">c</span> <span class="o">*/</span>
+<span class="n">extern</span> <span class="nb">int</span> <span class="n">a</span><span class="p">;</span>
+
+<span class="n">void</span> <span class="n">print_a</span><span class="p">(</span><span class="n">void</span><span class="p">){</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;a = </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">(){</span>
+    <span class="n">print_a</span><span class="p">();</span> <span class="o">//</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">a</span><span class="o">++</span><span class="p">;</span>
+    <span class="n">print_a</span><span class="p">();</span> <span class="o">//</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">11</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+    <span class="n">print_a</span><span class="p">();</span> <span class="o">//</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>比如說在上面的範例, <code class="docutils literal"><span class="pre">main.c</span></code> 中的 <code class="docutils literal"><span class="pre">extern</span> <span class="pre">int</span> <span class="pre">a</span></code> 便是引用 <code class="docutils literal"><span class="pre">foo.c</span></code> 中的全域變數 <code class="docutils literal"><span class="pre">int</span> <span class="pre">a</span></code>.</p>
+<ul class="simple">
+<li>notice: <code class="docutils literal"><span class="pre">extern</span></code> 只能引用全域變數.</li>
+</ul>
+<div class="section" id="restriction">
+<h3><a class="toc-backref" href="#id6">restriction</a><a class="headerlink" href="#restriction" title="本標題的永久連結">¶</a></h3>
+<p>因為是引用已經定義好的變數, 對宣告方式有很嚴格的限制.</p>
+<ol class="arabic simple">
+<li>型別需跟引用的變數相同, 不然為 undefined behavior. 以上面範例來說, <code class="docutils literal"><span class="pre">extern</span> <span class="pre">double</span> <span class="pre">a</span></code> 很顯然是錯的.</li>
+<li>不可給初始值(initialized value). 如 <code class="docutils literal"><span class="pre">extern</span> <span class="pre">int</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">100</span></code> 很顯然是錯的.</li>
+</ol>
+</div>
+<div class="section" id="extern-usage-in-header-file">
+<h3><a class="toc-backref" href="#id7">extern usage in header file</a><a class="headerlink" href="#extern-usage-in-header-file" title="本標題的永久連結">¶</a></h3>
+<p>一般來說, 我們會用 <code class="docutils literal"><span class="pre">extern</span></code> 去引用別的 library 的全域變數.</p>
+<p>通常 library 會把打算讓你引用的變數, 寫到 header file 裡, 讓所有要用的檔案 <code class="docutils literal"><span class="pre">include</span></code> 就能使用了.</p>
+<p>以上面的 example 為例的話會直接建立一個 <code class="docutils literal"><span class="pre">foo.h</span></code> 給其他檔案如 <code class="docutils literal"><span class="pre">main.c</span></code> 來使用.</p>
+<div class="code c highlight-default"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">foo</span><span class="o">.</span><span class="n">h</span> <span class="o">*/</span>
+<span class="n">extern</span> <span class="nb">int</span> <span class="n">a</span><span class="p">;</span>
+
+<span class="o">/*</span> <span class="n">foo</span><span class="o">.</span><span class="n">c</span> <span class="o">*/</span>
+<span class="nb">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+<span class="o">/*</span> <span class="n">main</span><span class="o">.</span><span class="n">c</span> <span class="o">*/</span>
+<span class="c1">#include &quot;foo.h&quot;</span>
+
+<span class="n">void</span> <span class="n">print_a</span><span class="p">(</span><span class="n">void</span><span class="p">){</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;a = </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">(){</span>
+    <span class="n">print_a</span><span class="p">();</span> <span class="o">//</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">a</span><span class="o">++</span><span class="p">;</span>
+    <span class="n">print_a</span><span class="p">();</span> <span class="o">//</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">11</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+    <span class="n">print_a</span><span class="p">();</span> <span class="o">//</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>而事實上, 會出現在 header file 裡的全域變數基本上只會有 extern variable.</p>
+<p>如果一般非 extern/static 的變數出現在 header file 裡, 並且在全域作 <code class="docutils literal"><span class="pre">#include</span></code>, 便代表你在每個 <code class="docutils literal"><span class="pre">#include</span></code> 該 header file 的檔案都宣告同名的全域變數, 很顯然有重名問題. 這種作法對 header file 的設計不 make sense.</p>
+</div>
+<div class="section" id="extern-variable-example-in-library">
+<h3><a class="toc-backref" href="#id8">extern variable example in library</a><a class="headerlink" href="#extern-variable-example-in-library" title="本標題的永久連結">¶</a></h3>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">stdin,</span> <span class="pre">stdout,</span> <span class="pre">stderr</span></code></li>
+<li>old implementation of <code class="docutils literal"><span class="pre">errno</span></code> (without considering multithreading)</li>
+</ul>
+<div class="code c highlight-default"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">stdio</span><span class="o">.</span><span class="n">h</span>
+<span class="o">/*</span> <span class="n">Standard</span> <span class="n">streams</span><span class="o">.</span>  <span class="o">*/</span>
+<span class="n">extern</span> <span class="n">struct</span> <span class="n">_IO_FILE</span> <span class="o">*</span><span class="n">stdin</span><span class="p">;</span>              <span class="o">/*</span> <span class="n">Standard</span> <span class="nb">input</span> <span class="n">stream</span><span class="o">.</span>  <span class="o">*/</span>
+<span class="n">extern</span> <span class="n">struct</span> <span class="n">_IO_FILE</span> <span class="o">*</span><span class="n">stdout</span><span class="p">;</span>             <span class="o">/*</span> <span class="n">Standard</span> <span class="n">output</span> <span class="n">stream</span><span class="o">.</span>  <span class="o">*/</span>
+<span class="n">extern</span> <span class="n">struct</span> <span class="n">_IO_FILE</span> <span class="o">*</span><span class="n">stderr</span><span class="p">;</span>             <span class="o">/*</span> <span class="n">Standard</span> <span class="n">error</span> <span class="n">output</span> <span class="n">stream</span><span class="o">.</span>  <span class="o">*/</span>
+<span class="o">/*</span> <span class="n">C89</span><span class="o">/</span><span class="n">C99</span> <span class="n">say</span> <span class="n">they</span><span class="s1">&#39;re macros.  Make them happy.  */</span>
+<span class="c1">#define stdin stdin</span>
+<span class="c1">#define stdout stdout</span>
+<span class="c1">#define stderr stderr</span>
+
+<span class="o">//</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">errno</span><span class="o">.</span><span class="n">h</span>
+<span class="c1">#ifndef errno</span>
+<span class="n">extern</span> <span class="nb">int</span> <span class="n">errno</span><span class="p">;</span>
+<span class="c1">#endif</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="extern-variable-in-function">
+<h3><a class="toc-backref" href="#id9">extern variable in function</a><a class="headerlink" href="#extern-variable-in-function" title="本標題的永久連結">¶</a></h3>
+<p>如果在函式中使用 extern 引用變數, scope 會跟區域變數一樣只在函式的範圍內.</p>
+<div class="code c highlight-default"><div class="highlight"><pre><span></span>// main.c
+int foo(){
+    extern int a;
+    ...
+}
+
+int main(){
+    a = 30; // Error!!
+}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="static-variable">
+<h2><a class="toc-backref" href="#id10">static variable</a><a class="headerlink" href="#static-variable" title="本標題的永久連結">¶</a></h2>
+<p>在 C 語言裡, static 主要有兩個效果</p>
+<ol class="arabic simple">
+<li>對函式內的變數用 static 修飾: lifetime 擴展為整個程式的執行期間, 與全域變數的 lifetime 相同, 整個程式期間只存在一個本體, 不像區域變數每個函式有一個本體.</li>
+<li>對全域變數用 static 修飾: 變數不可被外部引用(連接: link), 也不汙染其他檔案的 namespace(symbol table in C). 也就是內部連結(internal linkage)的效果.</li>
+</ol>
+<p>接下來一一解釋兩個效果.</p>
+<div class="section" id="static-internal-linkage">
+<h3><a class="toc-backref" href="#id11">static: internal linkage</a><a class="headerlink" href="#static-internal-linkage" title="本標題的永久連結">¶</a></h3>
+<p>前面說過, 我們可以用宣告 extern variable 的手法, 使用外部 library 的變數.</p>
+<p>那如果 library 想要造一個內部的全域變數, 不給外部檔案使用, 就可以宣告 <code class="docutils literal"><span class="pre">static</span></code> 讓變數無法被外部檔案看到, 無法被連接(link).</p>
+</div>
+<div class="section" id="static-variable-in-function">
+<h3><a class="toc-backref" href="#id12">static variable in function</a><a class="headerlink" href="#static-variable-in-function" title="本標題的永久連結">¶</a></h3>
+<ul class="simple">
+<li>static variable in function, 使用效果是可以做出有狀態 (stateful) 的 function.<ul>
+<li>example: strtok (<a class="reference external" href="http://www.cplusplus.com/reference/cstring/strtok">http://www.cplusplus.com/reference/cstring/strtok</a>)</li>
+<li>延伸思考: static variable in function 在 multithreading 環境下受到的影響.</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="extern-and-static-function">
+<h2><a class="toc-backref" href="#id13">extern and static function</a><a class="headerlink" href="#extern-and-static-function" title="本標題的永久連結">¶</a></h2>
+<p>當需要使用外部檔案的函式時, 需宣告該函式的 type, 通常稱為 function prototype.</p>
+<p>跟變數不同的是, function prototype 可加可不加 <code class="docutils literal"><span class="pre">extern</span></code>.</p>
+<p>而將 function prototype 也放在 header file 的原因跟 extern variable 一樣.</p>
+<p>static function 的效果跟 static 的全域變數一樣, 讓函式不可被外部引用.</p>
+<div class="section" id="extern-and-static-function-example">
+<h3><a class="toc-backref" href="#id14">extern and static function example</a><a class="headerlink" href="#extern-and-static-function-example" title="本標題的永久連結">¶</a></h3>
+<ul>
+<li><p class="first">simple example</p>
+<blockquote>
+<div><ul class="simple">
+<li>fabonacci library, 提供 fabonacci 函式使用.</li>
+<li>fabonacci library 中需使用內部函式 add 的功能.</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="code c highlight-default"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">fabonacci</span><span class="o">.</span><span class="n">h</span> <span class="o">*/</span>
+<span class="nb">int</span> <span class="n">fabonacci</span><span class="p">(</span><span class="nb">int</span> <span class="n">n</span><span class="p">);</span>
+<span class="o">//</span> <span class="n">extern</span> <span class="nb">int</span> <span class="n">fabonacci</span><span class="p">(</span><span class="nb">int</span> <span class="n">n</span><span class="p">);</span> <span class="o">//</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">still</span> <span class="n">ok</span><span class="o">.</span>
+
+<span class="o">/*</span> <span class="n">fabonacci</span><span class="o">.</span><span class="n">c</span> <span class="o">*/</span>
+<span class="n">static</span> <span class="nb">int</span> <span class="n">add</span><span class="p">(</span><span class="nb">int</span> <span class="n">a</span><span class="p">,</span> <span class="nb">int</span> <span class="n">b</span><span class="p">);</span>
+
+<span class="nb">int</span> <span class="n">fabonacci</span><span class="p">(</span><span class="nb">int</span> <span class="n">n</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">add</span><span class="p">(</span><span class="n">fabonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fabonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="n">static</span> <span class="nb">int</span> <span class="n">add</span><span class="p">(</span><span class="nb">int</span> <span class="n">a</span><span class="p">,</span> <span class="nb">int</span> <span class="n">b</span><span class="p">){</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">/*</span> <span class="n">main</span><span class="o">.</span><span class="n">c</span> <span class="o">*/</span>
+<span class="c1">#include &quot;fabonacci.h&quot;</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">(){</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;f(10) = </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fabonacci</span><span class="p">(</span><span class="mi">10</span><span class="p">));</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul>
+<li><p class="first">more complex example</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="https://github.com/Cofyc/argparse">3rd party library - argparse</a></li>
+<li>提供設定 command line option 的函式跟結構(struct).</li>
+<li>內部函式 <code class="docutils literal"><span class="pre">prefix_cmp</span></code>, <code class="docutils literal"><span class="pre">prefix_skip</span></code>. 檢查是否為 prefix string.</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="code c highlight-default"><div class="highlight"><pre><span></span>// argparse.c
+static const char *
+prefix_skip(const char *str, const char *prefix)
+{
+    size_t len = strlen(prefix);
+    return strncmp(str, prefix, len) ? NULL : str + len;
+}
+
+static int
+prefix_cmp(const char *str, const char *prefix)
+{
+    for (;; str++, prefix++)
+        if (!*prefix)
+            return 0;
+        else if (*str != *prefix)
+            return (unsigned char)*prefix - (unsigned char)*str;
+}
+
+// two functions are not in argparse.h
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="conflict-of-inline-function-and-external-linkage">
+<h2><a class="toc-backref" href="#id15">conflict of inline function and external linkage</a><a class="headerlink" href="#conflict-of-inline-function-and-external-linkage" title="本標題的永久連結">¶</a></h2>
+<p>在講解前, 要先說明一下 function call 在執行檔的樣貌.</p>
+<p>以下的 code 是一個簡單的函式 <code class="docutils literal"><span class="pre">add</span></code>, 在 x86_64 組語下的實作.</p>
+<p>(C code 是註解, 僅表示哪些 C code 被轉成該組語, 為了方便辨認, 在 C code 前加上 <code class="docutils literal"><span class="pre">[C]</span></code> 方便辨識.</p>
+<div class="code asm highlight-default"><div class="highlight"><pre><span></span>   <span class="mi">00000000004005</span><span class="n">d1</span> <span class="o">&lt;</span><span class="n">add</span><span class="o">&gt;</span><span class="p">:</span>
+<span class="p">[</span><span class="n">C</span><span class="p">]</span><span class="nb">int</span> <span class="n">add</span><span class="p">(</span><span class="nb">int</span> <span class="n">a</span><span class="p">,</span> <span class="nb">int</span> <span class="n">b</span><span class="p">){</span>
+     <span class="mi">4005</span><span class="n">d1</span><span class="p">:</span>       <span class="mi">55</span>                      <span class="n">push</span>   <span class="o">%</span><span class="n">rbp</span>
+     <span class="mi">4005</span><span class="n">d2</span><span class="p">:</span>       <span class="mi">48</span> <span class="mi">89</span> <span class="n">e5</span>                <span class="n">mov</span>    <span class="o">%</span><span class="n">rsp</span><span class="p">,</span><span class="o">%</span><span class="n">rbp</span>
+     <span class="mi">4005</span><span class="n">d5</span><span class="p">:</span>       <span class="mi">89</span> <span class="mi">7</span><span class="n">d</span> <span class="n">fc</span>                <span class="n">mov</span>    <span class="o">%</span><span class="n">edi</span><span class="p">,</span><span class="o">-</span><span class="mh">0x4</span><span class="p">(</span><span class="o">%</span><span class="n">rbp</span><span class="p">)</span>
+     <span class="mi">4005</span><span class="n">d8</span><span class="p">:</span>       <span class="mi">89</span> <span class="mi">75</span> <span class="n">f8</span>                <span class="n">mov</span>    <span class="o">%</span><span class="n">esi</span><span class="p">,</span><span class="o">-</span><span class="mh">0x8</span><span class="p">(</span><span class="o">%</span><span class="n">rbp</span><span class="p">)</span>
+<span class="p">[</span><span class="n">C</span><span class="p">]</span>    <span class="k">return</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">;</span>
+     <span class="mi">4005</span><span class="n">db</span><span class="p">:</span>       <span class="mi">8</span><span class="n">b</span> <span class="mi">55</span> <span class="n">fc</span>                <span class="n">mov</span>    <span class="o">-</span><span class="mh">0x4</span><span class="p">(</span><span class="o">%</span><span class="n">rbp</span><span class="p">),</span><span class="o">%</span><span class="n">edx</span>
+     <span class="mi">4005</span><span class="n">de</span><span class="p">:</span>       <span class="mi">8</span><span class="n">b</span> <span class="mi">45</span> <span class="n">f8</span>                <span class="n">mov</span>    <span class="o">-</span><span class="mh">0x8</span><span class="p">(</span><span class="o">%</span><span class="n">rbp</span><span class="p">),</span><span class="o">%</span><span class="n">eax</span>
+     <span class="mi">4005</span><span class="n">e1</span><span class="p">:</span>       <span class="mi">01</span> <span class="n">d0</span>                   <span class="n">add</span>    <span class="o">%</span><span class="n">edx</span><span class="p">,</span><span class="o">%</span><span class="n">eax</span>
+<span class="p">[</span><span class="n">C</span><span class="p">]}</span>
+     <span class="mi">4005</span><span class="n">e3</span><span class="p">:</span>       <span class="mi">5</span><span class="n">d</span>                      <span class="n">pop</span>    <span class="o">%</span><span class="n">rbp</span>
+     <span class="mi">4005</span><span class="n">e4</span><span class="p">:</span>       <span class="n">c3</span>                      <span class="n">retq</span>
+</pre></div>
+</div>
+<p>每個組語的 instruction 分成三部份.</p>
+<ol class="arabic simple">
+<li>該 instruction 存在的 memory address. 如 <code class="docutils literal"><span class="pre">4005d1:</span></code></li>
+<li>instruction 的 binary encoded form, machine code 真實存在執行檔的狀態. 如 <code class="docutils literal"><span class="pre">55</span></code></li>
+<li>instruction 的 binary encoded form 被反組譯回來的組語. 如 <code class="docutils literal"><span class="pre">push</span>&#160;&#160; <span class="pre">%rbp</span></code></li>
+</ol>
+<p>函式的本體, 就是函式實作轉換成的 instructions, 結尾為 return 相關的 instruction.</p>
+<p>而函式的名稱也只是這串 instructions 的 start address, 可以用 function call 相關的 instruction 跳到這個 start address.</p>
+<p>如下 code 即為 <code class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">add(a,</span> <span class="pre">b);</span></code> 這行 C source code 轉換成組語的實作, 可以看到透過 <code class="docutils literal"><span class="pre">callq</span></code> instruction 跳到 add 函式(4005d1)</p>
+<div class="code asm highlight-default"><div class="highlight"><pre><span></span>[C]       x = add(a, b);
+     40059f:       8b 55 f4                mov    -0xc(%rbp),%edx
+     4005a2:       8b 45 f8                mov    -0x8(%rbp),%eax
+     4005a5:       89 d6                   mov    %edx,%esi
+     4005a7:       89 c7                   mov    %eax,%edi
+     4005a9:       b8 00 00 00 00          mov    $0x0,%eax
+     4005ae:       e8 1e 00 00 00          callq  4005d1 &lt;add&gt;
+     4005b3:       89 45 fc                mov    %eax,-0x4(%rbp)
+</pre></div>
+</div>
+<p>(p.s. <code class="docutils literal"><span class="pre">call</span> <span class="pre">400561</span> <span class="pre">=&gt;</span> <span class="pre">e8</span> <span class="pre">1e</span> <span class="pre">00</span> <span class="pre">00</span> <span class="pre">00</span></code>, e8 為 call instruction 的 opcode, 0x1e = 0x4005d1 - 0x4005b3)</p>
+<p>但 inline function 的效果, 是直接把函式的內容插入到 function call 的地方, 省略 call, return, 跟參數傳遞帶來效能增進.</p>
+<p>也因此, 函式如果 inline 化之後, 就不需要存在本體了, 可以節省空間.(其實沒差多少, 可以 inline 的函式通常不大, 幾乎小於 10 行)</p>
+<p>不過函式 inline 化這件事基本上是在 compilation 階段完成的, 只能在檔案內 call 這個函式的地方 inline 化.</p>
+<p>如果外部檔案要 function call, 基本上只能正常 call and return, 需要函式的本體, 跟 inline 化的其中一個好處互相衝突.</p>
+<p>因此在這個衝突底下, C 語言讓 programmer 使用 static 跟 extern 關鍵字去做設定要不要保留.</p>
+</div>
+<div class="section" id="c99-static-inline-v-s-extern-inline">
+<h2><a class="toc-backref" href="#id16">[C99] static inline v.s. extern inline</a><a class="headerlink" href="#c99-static-inline-v-s-extern-inline" title="本標題的永久連結">¶</a></h2>
+<p>static inline 代表 internal linkage, 不給外部檔案使用, 很顯然的也就不需要保留本體.</p>
+<p>反之, extern inline 代表 external linkage, 要給外部檔案使用, 必需要保留本體.</p>
+<p>不過 <code class="docutils literal"><span class="pre">inline</span></code> 關鍵字是在 C99 在進入 C 標準的, 所以這是 C99 以後的規則, 純 <code class="docutils literal"><span class="pre">inline</span></code> 的效果也留到下一個 section 講.</p>
+</div>
+<div class="section" id="inline-and-gnu89-inline">
+<h2><a class="toc-backref" href="#id17">inline and gnu89 inline</a><a class="headerlink" href="#inline-and-gnu89-inline" title="本標題的永久連結">¶</a></h2>
+<p>C89(ANSI C) 的年代, 因為還沒有 <code class="docutils literal"><span class="pre">inline</span></code>, 所以第一個做出 <code class="docutils literal"><span class="pre">inline</span></code> 功能的就是 gcc.</p>
+<p>想當然, <code class="docutils literal"><span class="pre">inline/static</span> <span class="pre">inlink/extern</span> <span class="pre">inline</span></code> 的效果就是 gnu 他們自訂的, 與現在 C99 規格化後的效果不同.</p>
+<p>C99 以前的其他 compiler, 也有可能跟進 gcc 的設計.</p>
+<p>整理之後 3 種 inline 在 compiler 相容度分 3 類</p>
+<ol class="arabic simple">
+<li>C89: 不支援 inline.</li>
+<li>gnu89, 某些跟進 gnu89 的 C99 以前 compiler: 走 gnu89 的設計.</li>
+<li>after C99, including gnu99: 走 C99 設計.</li>
+</ol>
+<p>gnu89 v.s. C99</p>
+<ul class="simple">
+<li>gnu89 的 static inline 跟 C99 相同, 不需要保留本體.</li>
+<li>gnu89 的 inline 跟 C99 的 extern inline 相同, 會保留本體.</li>
+<li>gnu89 的 extern inline 跟 C99 的 inline 相同, 不過這個效果很詭異不建議使用.</li>
+</ul>
+<div class="section" id="id1">
+<h3><a class="toc-backref" href="#id18">實際測試</a><a class="headerlink" href="#id1" title="本標題的永久連結">¶</a></h3>
+<ul class="simple">
+<li>at C99 (gcc v4.9.2 -std=c99)<ul>
+<li>開 O2, compiler 沒把 function inline 化</li>
+<li>開 O3, compiler 把 function inline 化了, static inline 跟 inline 的本體消失, extern inline 本體有被保留.</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id19">總結</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<ol class="arabic simple">
+<li>由於 C 的 compilation 流程限制, 每個檔案必須要在變數跟函式使用前加上前綴的型別宣告.</li>
+<li>static 可以將變數跟函式的 scope 縮小為檔案內, extern variable 跟 function prototype 可以讓你引用別的檔案裡沒被 static 化的變數跟函式.</li>
+<li>header file 的變數, 絕大部分情況只會有 extern variable.</li>
+<li>extern inline 的 extern 被賦與第二種意義, 讓 inline function 可被外部引用. static inline 中的 static 仍為保護函式不可被外部引用.</li>
+</ol>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="17%" />
+<col width="18%" />
+<col width="18%" />
+<col width="18%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>inline functions</td>
+<td>C99 internal function</td>
+<td>C99 external function</td>
+<td>gnu89 internal function</td>
+<td>gnu89 external function</td>
+</tr>
+<tr class="row-even"><td>declaration in header file (<code class="docutils literal"><span class="pre">*.h</span></code>)</td>
+<td>X</td>
+<td>inline or extern inline</td>
+<td>X</td>
+<td>inline</td>
+</tr>
+<tr class="row-odd"><td>forward declaration        (<code class="docutils literal"><span class="pre">*.c</span></code>)</td>
+<td>static inline</td>
+<td>inline or extern inline</td>
+<td>static inline</td>
+<td>inline</td>
+</tr>
+<tr class="row-even"><td>function definition        (<code class="docutils literal"><span class="pre">*.c</span></code>)</td>
+<td>static inline</td>
+<td>extern inline</td>
+<td>static inline</td>
+<td>inline</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p class="first">library 本身</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>變數跟函式希望被外部引用: 在 header file 加上 extern variable 或 function prototype</li>
+<li>變數跟函式可被外部引用: 在 C source file 該變數宣告時, 不加上 static.</li>
+<li>變數跟函式不可被外部引用: 在 C source file 該變數宣告時, 加上 static.</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first">使用 library 的外部檔案</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>對應上面的 1., header file 有的話, include 後即可使用.</li>
+<li>對應上面的 2., 需在本檔案中加上 extern variable 或 function prototype 才可使用. 如果沒有 library 的 source code 則無法使用. 因為無法知道變數跟函式的型態.</li>
+<li>對應上面的 3., 在這種情況下無法使用該變數, 不過可以在這個檔案宣告同名變數使用.</li>
+</ol>
+</div></blockquote>
+</li>
+</ul>
+<div class="code c highlight-default"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">just</span> <span class="n">comments</span> <span class="o">*/</span>
+<span class="o">/*</span>
+ <span class="o">*</span> <span class="mf">1.</span> <span class="n">external</span> <span class="n">linkage</span><span class="p">,</span> <span class="n">var1</span><span class="o">/</span><span class="n">func1</span>
+ <span class="o">*</span> <span class="mf">2.</span> <span class="n">can</span> <span class="n">be</span> <span class="n">external</span> <span class="n">linked</span><span class="p">,</span> <span class="n">var2</span><span class="o">/</span><span class="n">func2</span>
+ <span class="o">*</span> <span class="mf">3.</span> <span class="n">internal</span> <span class="n">linkage</span><span class="p">,</span> <span class="n">var3</span><span class="o">/</span><span class="n">func3</span>
+ <span class="o">*/</span>
+
+<span class="o">/*</span> <span class="n">libfoo</span><span class="o">.</span><span class="n">h</span> <span class="o">*/</span>
+<span class="n">extern</span> <span class="nb">int</span> <span class="n">var1</span><span class="p">;</span>
+
+<span class="n">void</span> <span class="n">func1</span><span class="p">(</span><span class="n">void</span><span class="p">);</span>
+
+<span class="o">/*</span> <span class="n">libfoo</span><span class="o">.</span><span class="n">c</span> <span class="o">*/</span>
+<span class="c1">#include &quot;libfoo.h&quot;</span>
+
+<span class="nb">int</span> <span class="n">var1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">var2</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="n">static</span> <span class="nb">int</span> <span class="n">var3</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+<span class="o">//</span> <span class="n">function</span> <span class="n">forward</span> <span class="n">declaration</span> <span class="k">if</span> <span class="n">needed</span><span class="o">.</span>
+<span class="n">void</span> <span class="n">func2</span><span class="p">(</span><span class="n">void</span><span class="p">);</span>
+<span class="n">static</span> <span class="n">void</span> <span class="n">func3</span><span class="p">(</span><span class="n">void</span><span class="p">);</span>
+
+<span class="o">//</span> <span class="n">function</span> <span class="n">definition</span>
+<span class="n">void</span> <span class="n">func1</span><span class="p">(</span><span class="n">void</span><span class="p">){</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;func1</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="n">void</span> <span class="n">func2</span><span class="p">(</span><span class="n">void</span><span class="p">){</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;func2</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="n">static</span> <span class="n">void</span> <span class="n">func3</span><span class="p">(</span><span class="n">void</span><span class="p">){</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;func3</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="o">/*</span> <span class="n">main</span><span class="o">.</span><span class="n">c</span> <span class="o">*/</span>
+<span class="c1">#include &quot;libfoo.h&quot;</span>
+
+<span class="n">extern</span> <span class="nb">int</span> <span class="n">var2</span><span class="p">;</span>  <span class="o">//</span> <span class="k">if</span> <span class="n">using</span> <span class="mf">2.</span>
+<span class="n">void</span> <span class="n">func2</span><span class="p">(</span><span class="n">void</span><span class="p">);</span> <span class="o">//</span> <span class="k">if</span> <span class="n">using</span> <span class="mf">2.</span>
+
+<span class="n">extern</span> <span class="nb">int</span> <span class="n">var3</span><span class="p">;</span>  <span class="o">//</span> <span class="n">error</span>
+<span class="n">extern</span> <span class="n">void</span> <span class="n">func3</span><span class="p">(</span><span class="n">void</span><span class="p">);</span>  <span class="o">//</span> <span class="n">error</span>
+<span class="nb">int</span> <span class="n">var3</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span>  <span class="o">//</span> <span class="n">but</span> <span class="n">main</span><span class="o">.</span><span class="n">c</span> <span class="n">can</span> <span class="n">have</span> <span class="n">independent</span> <span class="n">var3</span>
+<span class="n">void</span> <span class="n">func3</span><span class="p">(</span><span class="n">void</span><span class="p">){</span> <span class="o">//</span> <span class="n">but</span> <span class="n">main</span><span class="o">.</span><span class="n">c</span> <span class="n">can</span> <span class="n">have</span> <span class="n">independent</span> <span class="n">func3</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;my func3</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">(){</span>
+    <span class="n">var1</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="o">//</span> <span class="mf">1.</span> <span class="n">external</span> <span class="n">linkage</span>
+    <span class="n">func1</span><span class="p">();</span>   <span class="o">//</span> <span class="mf">1.</span> <span class="n">external</span> <span class="n">linkage</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="reference">
+<h2><a class="toc-backref" href="#id20">reference</a><a class="headerlink" href="#reference" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://stackoverflow.com/questions/216510/extern-inline/216546#21654">http://stackoverflow.com/questions/216510/extern-inline/216546#21654</a></li>
+</ul>
+<div class="section" id="related-article">
+<h3><a class="toc-backref" href="#id21">related article</a><a class="headerlink" href="#related-article" title="本標題的永久連結">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="http://www.lurklurk.org/linkers/linkers.html">Beginner&#8217;s Guide to Linkers</a></li>
+<li><a class="reference external" href="http://openhome.cc/Gossip/CGossip/Scope.html">良葛格學習筆記 - 變數、函式可視範圍 (static 與 extern)</a></li>
+<li><a class="reference external" href="http://ashinzzz.blogspot.tw/2013/12/extern-static.html">C 陷阱： extern ＆ static ＆ 多檔案、宣告、定義、變數、函式</a></li>
+<li><a class="reference external" href="https://www.ptt.cc/bbs/C_and_CPP/M.1176329014.A.EF2.html">[C_and_CPP] shyang55 - [語法] 作用範圍(scope) 與 生命期(lifetime)</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; 版權所有 2016.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="/zh_TW/latest/">latest</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="//readthedocs.org/projects/wdv4758h-notes/downloads/htmlzip/latest/">htmlzip</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="//readthedocs.org/projects/wdv4758h-notes/?fromdocs=wdv4758h-notes">Project Home</a>
+          </dd>
+          <dd>
+            <a href="//readthedocs.org/builds/wdv4758h-notes/?fromdocs=wdv4758h-notes">Builds</a>
+          </dd>
+      </dl>
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'latest',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-2.0.3.min.js"></script>
+      <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-migrate-1.2.1.min.js"></script>
+      <script type="text/javascript" src="https://media.readthedocs.org/javascript/underscore.js"></script>
+      <script type="text/javascript" src="https://media.readthedocs.org/javascript/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://media.readthedocs.org/javascript/readthedocs-doc-embed.js"></script>
+
+  
+
+  
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
