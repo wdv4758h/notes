@@ -857,8 +857,35 @@ Python 也加入了 <code class="docutils literal"><span class="pre">_</span></c
 </div>
 <div class="section" id="id2">
 <h2><a class="toc-backref" href="#id11">參考</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
-<ul class="simple">
-<li><a class="reference external" href="https://docs.python.org/3.6/whatsnew/3.6.html">What&#8217;s New In Python 3.6</a></li>
+<ul>
+<li><p class="first"><a class="reference external" href="https://docs.python.org/3.6/whatsnew/3.6.html">What&#8217;s New In Python 3.6</a></p>
+</li>
+<li><dl class="first docutils">
+<dt><a class="reference external" href="https://speakerdeck.com/playpauseandstop/python-3-dot-6-and-performance-a-love-story">Python 3.6 &amp; Performance. A Love Story</a></dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt><a class="reference external" href="http://perf.readthedocs.io/en/latest/">perf</a></dt>
+<dd><ul class="first last simple">
+<li>在 Linux 下會蒐集一些例如 ASLR 有無開啟、IRQ affinity 等可能影響效率的系統層資訊</li>
+<li><a class="reference external" href="https://github.com/haypo/perf/blob/master/perf/_collect_metadata.py">perf/_collect_metadata.py</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">CPython 2.7 仍是目前最快的版本，但是效能 CPython 3.6 &gt; CPython 3.5 &gt; CPython 3.4</p>
+</li>
+<li><p class="first">asyncio.Future 和 asyncio.Task 都用 C 重新實做</p>
+</li>
+<li><p class="first">string 和 bytes 的處理有顯著提昇</p>
+</li>
+<li><p class="first">glob 的處理有顯著提昇</p>
+</li>
+<li><p class="first">dict 的新實做類似 PyPy 內的 dict，記憶體用量較小，且會保有原本的順序</p>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </div>
 </div>

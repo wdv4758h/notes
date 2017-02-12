@@ -14,6 +14,7 @@ TWRP
     $ fastboot flash boot twrp-3.0.2-0-nozomi.img
 
     $ fastboot reboot
+    # or $ adb reboot recovery
 
     # 選擇 Advanced -> ADB Sideload
     #
@@ -34,7 +35,7 @@ sideload & reboot
 
 
 
-生到 Android 6.0
+升到 Android 6.0
 ========================================
 
 重新切割並使用 F2FS
@@ -48,3 +49,5 @@ sideload & reboot
 
 * `TeamWin - TWRP <https://twrp.me/>`_
 * `The Open GApps Project <http://opengapps.org/>`_
+* `SuperSU <https://forum.xda-developers.com/apps/supersu>`_
+* `Xposed <https://forum.xda-developers.com/xposed>`_

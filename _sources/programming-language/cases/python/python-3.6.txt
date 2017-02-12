@@ -114,3 +114,12 @@ DTrace 和 SystemTap 支援
 ========================================
 
 * `What's New In Python 3.6 <https://docs.python.org/3.6/whatsnew/3.6.html>`_
+* `Python 3.6 & Performance. A Love Story <https://speakerdeck.com/playpauseandstop/python-3-dot-6-and-performance-a-love-story>`_
+    - `perf <http://perf.readthedocs.io/en/latest/>`_
+        + 在 Linux 下會蒐集一些例如 ASLR 有無開啟、IRQ affinity 等可能影響效率的系統層資訊
+        + `perf/_collect_metadata.py <https://github.com/haypo/perf/blob/master/perf/_collect_metadata.py>`_
+    - CPython 2.7 仍是目前最快的版本，但是效能 CPython 3.6 > CPython 3.5 > CPython 3.4
+    - asyncio.Future 和 asyncio.Task 都用 C 重新實做
+    - string 和 bytes 的處理有顯著提昇
+    - glob 的處理有顯著提昇
+    - dict 的新實做類似 PyPy 內的 dict，記憶體用量較小，且會保有原本的順序
