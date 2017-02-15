@@ -873,9 +873,329 @@ Haskell 的程式碼會以 ``.hs`` 作為副檔名，
         in  sum belowLimit
 
 
+    --
+    -- Modules
+    --
+
+    -- 前面我們呼叫和使用的函式、型別、Typeclasses 都是在「Prelude」module 內
+
+    ghci> import Data.List          -- 預設會把裡面的功能直接拉到現在的全域中
+    ghci> nub ([1..5] ++ [3..10])   -- Data.List 內的 nub 會把重複的 element 去除
+    [1,2,3,4,5,6,7,8,9,10]
+
+    ghci> :m + Data.List            -- 在 GHCi 中也可以使用 :m 來新增要使用的 module
+    ghci> :m + Data.List Data.Map Data.Set
+
+    ghci> import Data.List (nub, sort)  -- 只拉入特定的函式
+    ghci> import Data.List hiding (nub) -- 拉入所有的東西，除了指定的函式不要拉進來
+    ghci> import qualified Data.Map     -- 保留 module scope，要使用 Data.Map.xxx 來呼叫
+    ghci> import qualified Data.Map as M    -- 重新命名
+
+    -- Data.List
+
+    -- intersperse，在每個 element 間加上特定資料
+
+    ghci> intersperse '.' "MONKEY"
+    "M.O.N.K.E.Y"
+    ghci> intersperse 0 [1,2,3,4,5,6]
+    [1,0,2,0,3,0,4,0,5,0,6]
+
+    -- intercalate，在每個 element 間加上特定資料後，把資料展平
+
+    ghci> intercalate " " ["hey","there","guys"]
+    "hey there guys"
+    ghci> intercalate [0,0,0] [[1,2,3],[4,5,6],[7,8,9]]
+    [1,2,3,0,0,0,4,5,6,0,0,0,7,8,9]
+
+    -- transpose，轉置
+
+    ghci> transpose [[1,2,3],[4,5,6],[7,8,9]]
+    [[1,4,7],[2,5,8],[3,6,9]]
+    ghci> transpose ["hey","there","guys"]
+    ["htg","ehu","yey","rs","e"]
+
+    -- foldl'
+    -- foldl1'
+    -- 為 foldl 和 foldl1 的嚴格版本，如果在使用 lazy 版時遇到 Stack Overflow
+    -- 可以改用此版本
+
+    -- concat，把巢狀 list 展平成一層 list
+
+    ghci> concat ["foo","bar","car"]
+    "foobarcar"
+    ghci> concat [[3,4,5],[2,3,4],[2,1,1]]
+    [3,4,5,2,3,4,2,1,1]
+
+    -- concatMap，map 後 concat
+
+    ghci> concatMap (replicate 4) [1..3]
+    [1,1,1,1,2,2,2,2,3,3,3,3]
+
+    -- and，所有 list 內的值都為 True 時才回傳 True，等同 Python 內的 all
+
+    ghci> and $ map (>4) [5,6,7,8]
+    True
+    ghci> and $ map (==4) [4,4,4,3,4]
+    False
+
+    -- or，list 內任意值為 True 時就回傳 True，等同 Python 的的 any
+
+    ghci> or $ map (==4) [2,3,4,5,6,1]
+    True
+    ghci> or $ map (>4) [1,2,3]
+    False
+
+    -- any
+    -- all
+    -- map 後接 or 或是 and
+
+    ghci> any (==4) [2,3,5,6,1,4]
+    True
+    ghci> all (>4) [6,9,10]
+    True
+    ghci> all (`elem` ['A'..'Z']) "HEYGUYSwhatsup"
+    False
+    ghci> any (`elem` ['A'..'Z']) "HEYGUYSwhatsup"
+    True
+
+    -- iterate，不斷地把值丟入函式內，製造 list
+    -- [init, f(init), f(f(init)), ...]
+
+    ghci> take 10 $ iterate (*2) 1
+    [1,2,4,8,16,32,64,128,256,512]
+    ghci> take 3 $ iterate (++ "haha") "haha"
+    ["haha","hahahaha","hahahahahaha"]
+
+    -- splitAt，在第 N 個 element 切割
+
+    ghci> splitAt 3 "heyman"
+    ("hey","man")
+    ghci> splitAt 100 "heyman"
+    ("heyman","")
+    ghci> splitAt (-3) "heyman"
+    ("","heyman")
+    ghci> let (a,b) = splitAt 3 "foobar" in b ++ a
+    "barfoo"
+
+    -- takeWhile，取出符合條件的值，直到第一次 False 時停止
+
+    ghci> takeWhile (>3) [6,5,4,3,2,1,2,3,4,5,4,3,2,1]
+    [6,5,4]
+    ghci> takeWhile (/=' ') "This is a sentence"
+    "This"
+
+    -- dropWhile，略過符合條件的值，直到第一次 False 時停止
+
+    ghci> dropWhile (/=' ') "This is a sentence"
+    " is a sentence"
+    ghci> dropWhile (<3) [1,2,2,2,3,4,5,4,3,2,1]
+    [3,4,5,4,3,2,1]
+
+    -- span，類似 takeWhile，但是會回傳一個 pair 內含兩個 list，
+    -- 第一個 list 為會被 takeWhile 回傳的部份，第二個為會被丟棄的部份
+
+    ghci> break (==4) [1,2,3,4,5,6,7]
+    ([1,2,3],[4,5,6,7])
+    ghci> span (/=4) [1,2,3,4,5,6,7]
+    ([1,2,3],[4,5,6,7])
+
+    -- sort
+
+    ghci> sort [8,5,3,2,1,6,4,2]
+    [1,2,2,3,4,5,6,8]
+    ghci> sort "This will be sorted soon"
+    "    Tbdeehiillnooorssstw"
+
+    -- group，把相連一樣的值放到同個 list 內
+
+    ghci> group [1,1,1,1,2,2,2,2,3,3,2,2,2,5,6,7]
+    [[1,1,1,1],[2,2,2,2],[3,3],[2,2,2],[5],[6],[7]]
+    ghci> group [1,1,2,1,1,2,2,2,2,3,3,2,2,2,5,6,7]
+    [[1,1],[2],[1,1],[2,2,2,2],[3,3],[2,2,2],[5],[6],[7]]
+    ghci> map (\l@(x:xs) -> (x,length l)) . group . sort $ [1,1,1,1,2,2,2,2,3,3,2,2,2,5,6,7]
+    [(1,4),(2,7),(3,2),(5,1),(6,1),(7,1)]
+
+    -- inits
+    -- tails
+    -- 不斷地套用 init 或 tail，直到沒有值
+
+    ghci> inits "w00t"
+    ["","w","w0","w00","w00t"]
+    ghci> tails "w00t"
+    ["w00t","00t","0t","t",""]
+    ghci> let w = "w00t" in zip (inits w) (tails w)
+    [("","w00t"),("w","00t"),("w0","0t"),("w00","t"),("w00t","")]
+
+    -- isInfixOf，是否為子字串
+
+    ghci> "cat" `isInfixOf` "im a cat burglar"
+    True
+    ghci> "Cat" `isInfixOf` "im a cat burglar"
+    False
+    ghci> "cats" `isInfixOf` "im a cat burglar"
+    False
+
+    -- isPrefixOf，是否為前綴
+    -- isSuffixOf，是否為後綴
+
+    ghci> "hey" `isPrefixOf` "hey there!"
+    True
+    ghci> "hey" `isPrefixOf` "oh hey there!"
+    False
+    ghci> "there!" `isSuffixOf` "oh hey there!"
+    True
+    ghci> "there!" `isSuffixOf` "oh hey there"
+    False
+
+    -- elem
+    -- notElem
+    -- 是否存在於 list 中
+
+    -- partition，分割
+
+    ghci> partition (`elem` ['A'..'Z']) "BOBsidneyMORGANeddy"   -- partition 會完整分割
+    ("BOBMORGAN","sidneyeddy")
+    ghci> partition (>3) [1,3,5,6,3,2,1,0,3,7]
+    ([5,6,7],[1,3,3,2,1,0,3])
+
+    ghci> span (`elem` ['A'..'Z']) "BOBsidneyMORGANeddy"        -- span 只到第一次 False
+    ("BOB","sidneyMORGANeddy")
+
+    -- find，回傳第一個符合條件的值，值會用 Maybe 包起來，若沒有找到就是 Nothing
+    -- 類似 Rust 的 Option
+
+    ghci> find (>4) [1,2,3,4,5,6]
+    Just 5
+    ghci> find (>9) [1,2,3,4,5,6]
+    Nothing
+    ghci> :t find
+    find :: (a -> Bool) -> [a] -> Maybe a
+
+    -- elemIndex，回傳第一個找的值的 index
+
+    ghci> :t elemIndex
+    elemIndex :: (Eq a) => a -> [a] -> Maybe Int
+    ghci> 4 `elemIndex` [1,2,3,4,5,6]
+    Just 3
+    ghci> 10 `elemIndex` [1,2,3,4,5,6]
+    Nothing
+
+    -- elemIndices，找出所有 index
+
+    ghci> ' ' `elemIndices` "Where are the spaces?"
+    [5,9,13]
+
+    -- findIndex
+    -- findIndices
+
+    ghci> findIndex (==4) [5,3,2,1,6,4]
+    Just 5
+    ghci> findIndex (==7) [5,3,2,1,6,4]
+    Nothing
+    ghci> findIndices (`elem` ['A'..'Z']) "Where Are The Caps?"
+    [0,6,10,14]
+
+    -- zip3, zip4
+    -- zipWith3, zipWith4
+
+    ghci> zipWith3 (\x y z -> x + y + z) [1,2,3] [4,5,2,2] [2,2,3]
+    [7,9,8]
+    ghci> zip4 [2,3,3] [2,2,2] [5,5,3] [2,2,2]
+    [(2,2,5,2),(3,2,5,2),(3,2,3,2)]
+
+    -- lines
+
+    ghci> lines "first line\nsecond line\nthird line"
+    ["first line","second line","third line"]
+
+    -- unlines
+
+    ghci> unlines ["first line", "second line", "third line"]
+    "first line\nsecond line\nthird line\n"
+
+    -- words
+    -- unwords
+
+    ghci> words "hey these are the words in this sentence"
+    ["hey","these","are","the","words","in","this","sentence"]
+    ghci> words "hey these           are    the words in this\nsentence"
+    ["hey","these","are","the","words","in","this","sentence"]
+    ghci> unwords ["hey","there","mate"]
+    "hey there mate"
+
+    -- nub
+
+    ghci> nub [1,2,3,4,3,2,1,2,3,4,3,2,1]
+    [1,2,3,4]
+    ghci> nub "Lots of words and stuff"
+    "Lots fwrdanu"
+
+    -- delete
+
+    ghci> delete 'h' "hey there ghang!"
+    "ey there ghang!"
+    ghci> delete 'h' . delete 'h' $ "hey there ghang!"
+    "ey tere ghang!"
+    ghci> delete 'h' . delete 'h' . delete 'h' $ "hey there ghang!"
+    "ey tere gang!"
+
+    -- \\，diff
+
+    ghci> [1..10] \\ [2,5,9]
+    [1,3,4,6,7,8,10]
+    ghci> "Im a big baby" \\ "big"
+    "Im a  baby"
+
+    -- union
+
+    ghci> "hey man" `union` "man what's up"
+    "hey manwt'sup"
+    ghci> [1..7] `union` [5..10]
+    [1,2,3,4,5,6,7,8,9,10]
+
+
+
+
+    -- TODO: http://learnyouahaskell.com/modules
+
+
+
+Stack
+========================================
+
+Stack 是 Haskell 的專案開發工具，
+可以為特定專案安裝特定版本的 GHC，
+安裝相依套件，
+對專案編譯、測試、效能測量，
+感覺像 Rust 的 Cargo。
+
+安裝
+------------------------------
+
+.. code-block:: sh
+
+    $ curl -sSL https://get.haskellstack.org/ | sh
+    # 或是
+    $ wget -qO- https://get.haskellstack.org/ | sh
+
+
+基本使用
+------------------------------
+
+.. code-block:: sh
+
+    $ stack new myproj
+
+    $ stack build
+
+
 
 Haskell Platform
-------------------------------
+========================================
+
+Software Transactional Memory
+========================================
+
 
 
 
@@ -893,3 +1213,4 @@ Haskell Platform
     - Facebook 針對 GHC runtime scheduler 的改進
 * `Learn You a Haskell for Great Good! <http://learnyouahaskell.com/>`_
 * `Haskell Implementaiton <https://wiki.haskell.org/Implementations>`_
+* `Replacing GHCi's pretty-printer <http://teh.id.au/posts/2017/02/13/interactive-print/index.html>`_
