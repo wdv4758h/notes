@@ -252,6 +252,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../browser/extensions.html">WebExtensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../browser/firefox.html">Firefox</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../browser/firefox-settings.html">Firefox 設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../browser/html.html">HTML</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../browser/issues.html">Issues</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../browser/service-worker.html">Service Worker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../browser/servo.html">Servo</a></li>
@@ -604,6 +605,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../python/introduction.html">Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../python/iterator.html">Iterator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../python/matplotlib.html">matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/nuitka.html">Nuitka</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../python/numpy.html">Numpy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../python/operator.html">Operator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../python/packages.html">Some Packages</a></li>
@@ -756,30 +758,36 @@
            <div itemprop="articleBody">
             
   <div class="section" id="haskell-introduction">
-<h1><a class="toc-backref" href="#id6">Haskell Introduction</a><a class="headerlink" href="#haskell-introduction" title="本標題的永久連結">¶</a></h1>
+<h1><a class="toc-backref" href="#id8">Haskell Introduction</a><a class="headerlink" href="#haskell-introduction" title="本標題的永久連結">¶</a></h1>
 <div class="contents topic" id="id1">
 <p class="topic-title first">目錄</p>
 <ul class="simple">
-<li><a class="reference internal" href="#haskell-introduction" id="id6">Haskell Introduction</a><ul>
-<li><a class="reference internal" href="#id2" id="id7">歷史發展</a></li>
-<li><a class="reference internal" href="#id3" id="id8">基本介紹</a><ul>
-<li><a class="reference internal" href="#id4" id="id9">安裝</a></li>
-<li><a class="reference internal" href="#haskell" id="id10">基本 Haskell 撰寫</a></li>
-<li><a class="reference internal" href="#haskell-platform" id="id11">Haskell Platform</a></li>
+<li><a class="reference internal" href="#haskell-introduction" id="id8">Haskell Introduction</a><ul>
+<li><a class="reference internal" href="#id2" id="id9">歷史發展</a></li>
+<li><a class="reference internal" href="#id3" id="id10">基本介紹</a><ul>
+<li><a class="reference internal" href="#id4" id="id11">安裝</a></li>
+<li><a class="reference internal" href="#haskell" id="id12">基本 Haskell 撰寫</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id5" id="id12">參考</a></li>
+<li><a class="reference internal" href="#stack" id="id13">Stack</a><ul>
+<li><a class="reference internal" href="#id5" id="id14">安裝</a></li>
+<li><a class="reference internal" href="#id6" id="id15">基本使用</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#haskell-platform" id="id16">Haskell Platform</a></li>
+<li><a class="reference internal" href="#software-transactional-memory" id="id17">Software Transactional Memory</a></li>
+<li><a class="reference internal" href="#id7" id="id18">參考</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="id2">
-<h2><a class="toc-backref" href="#id7">歷史發展</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id9">歷史發展</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
 </div>
 <div class="section" id="id3">
-<h2><a class="toc-backref" href="#id8">基本介紹</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id10">基本介紹</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
 <div class="section" id="id4">
-<h3><a class="toc-backref" href="#id9">安裝</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id11">安裝</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h3>
 <div class="highlight-sh"><div class="highlight"><pre><span></span>$ sudo pacman -S ghc    <span class="c1"># Glasgow Haskell Compiler</span>
 
 <span class="c1"># 安裝完後取得的指令</span>
@@ -841,7 +849,7 @@ ghc /usr/bin/runhaskell
 </table>
 </div>
 <div class="section" id="haskell">
-<h3><a class="toc-backref" href="#id10">基本 Haskell 撰寫</a><a class="headerlink" href="#haskell" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id12">基本 Haskell 撰寫</a><a class="headerlink" href="#haskell" title="本標題的永久連結">¶</a></h3>
 <p>Haskell 的程式碼會以 <code class="docutils literal"><span class="pre">.hs</span></code> 作為副檔名，
 對於任意一個 Haskell 程式（例如 <code class="docutils literal"><span class="pre">mycode.hs</span></code> ）而言，
 在 <code class="docutils literal"><span class="pre">ghci</span></code> 互動式環境中可以使用 <code class="docutils literal"><span class="pre">:l</span></code> 進行讀取（例如 <code class="docutils literal"><span class="pre">:l</span> <span class="pre">mycode</span></code> ），
@@ -1645,15 +1653,328 @@ oddSquareSum =
     let oddSquares = filter odd $ map (^2) [1..]
         belowLimit = takeWhile (&lt;10000) oddSquares
     in  sum belowLimit
+
+
+--
+-- Modules
+--
+
+-- 前面我們呼叫和使用的函式、型別、Typeclasses 都是在「Prelude」module 內
+
+ghci&gt; import Data.List          -- 預設會把裡面的功能直接拉到現在的全域中
+ghci&gt; nub ([1..5] ++ [3..10])   -- Data.List 內的 nub 會把重複的 element 去除
+[1,2,3,4,5,6,7,8,9,10]
+
+ghci&gt; :m + Data.List            -- 在 GHCi 中也可以使用 :m 來新增要使用的 module
+ghci&gt; :m + Data.List Data.Map Data.Set
+
+ghci&gt; import Data.List (nub, sort)  -- 只拉入特定的函式
+ghci&gt; import Data.List hiding (nub) -- 拉入所有的東西，除了指定的函式不要拉進來
+ghci&gt; import qualified Data.Map     -- 保留 module scope，要使用 Data.Map.xxx 來呼叫
+ghci&gt; import qualified Data.Map as M    -- 重新命名
+
+-- Data.List
+
+-- intersperse，在每個 element 間加上特定資料
+
+ghci&gt; intersperse &#39;.&#39; &quot;MONKEY&quot;
+&quot;M.O.N.K.E.Y&quot;
+ghci&gt; intersperse 0 [1,2,3,4,5,6]
+[1,0,2,0,3,0,4,0,5,0,6]
+
+-- intercalate，在每個 element 間加上特定資料後，把資料展平
+
+ghci&gt; intercalate &quot; &quot; [&quot;hey&quot;,&quot;there&quot;,&quot;guys&quot;]
+&quot;hey there guys&quot;
+ghci&gt; intercalate [0,0,0] [[1,2,3],[4,5,6],[7,8,9]]
+[1,2,3,0,0,0,4,5,6,0,0,0,7,8,9]
+
+-- transpose，轉置
+
+ghci&gt; transpose [[1,2,3],[4,5,6],[7,8,9]]
+[[1,4,7],[2,5,8],[3,6,9]]
+ghci&gt; transpose [&quot;hey&quot;,&quot;there&quot;,&quot;guys&quot;]
+[&quot;htg&quot;,&quot;ehu&quot;,&quot;yey&quot;,&quot;rs&quot;,&quot;e&quot;]
+
+-- foldl&#39;
+-- foldl1&#39;
+-- 為 foldl 和 foldl1 的嚴格版本，如果在使用 lazy 版時遇到 Stack Overflow
+-- 可以改用此版本
+
+-- concat，把巢狀 list 展平成一層 list
+
+ghci&gt; concat [&quot;foo&quot;,&quot;bar&quot;,&quot;car&quot;]
+&quot;foobarcar&quot;
+ghci&gt; concat [[3,4,5],[2,3,4],[2,1,1]]
+[3,4,5,2,3,4,2,1,1]
+
+-- concatMap，map 後 concat
+
+ghci&gt; concatMap (replicate 4) [1..3]
+[1,1,1,1,2,2,2,2,3,3,3,3]
+
+-- and，所有 list 內的值都為 True 時才回傳 True，等同 Python 內的 all
+
+ghci&gt; and $ map (&gt;4) [5,6,7,8]
+True
+ghci&gt; and $ map (==4) [4,4,4,3,4]
+False
+
+-- or，list 內任意值為 True 時就回傳 True，等同 Python 的的 any
+
+ghci&gt; or $ map (==4) [2,3,4,5,6,1]
+True
+ghci&gt; or $ map (&gt;4) [1,2,3]
+False
+
+-- any
+-- all
+-- map 後接 or 或是 and
+
+ghci&gt; any (==4) [2,3,5,6,1,4]
+True
+ghci&gt; all (&gt;4) [6,9,10]
+True
+ghci&gt; all (`elem` [&#39;A&#39;..&#39;Z&#39;]) &quot;HEYGUYSwhatsup&quot;
+False
+ghci&gt; any (`elem` [&#39;A&#39;..&#39;Z&#39;]) &quot;HEYGUYSwhatsup&quot;
+True
+
+-- iterate，不斷地把值丟入函式內，製造 list
+-- [init, f(init), f(f(init)), ...]
+
+ghci&gt; take 10 $ iterate (*2) 1
+[1,2,4,8,16,32,64,128,256,512]
+ghci&gt; take 3 $ iterate (++ &quot;haha&quot;) &quot;haha&quot;
+[&quot;haha&quot;,&quot;hahahaha&quot;,&quot;hahahahahaha&quot;]
+
+-- splitAt，在第 N 個 element 切割
+
+ghci&gt; splitAt 3 &quot;heyman&quot;
+(&quot;hey&quot;,&quot;man&quot;)
+ghci&gt; splitAt 100 &quot;heyman&quot;
+(&quot;heyman&quot;,&quot;&quot;)
+ghci&gt; splitAt (-3) &quot;heyman&quot;
+(&quot;&quot;,&quot;heyman&quot;)
+ghci&gt; let (a,b) = splitAt 3 &quot;foobar&quot; in b ++ a
+&quot;barfoo&quot;
+
+-- takeWhile，取出符合條件的值，直到第一次 False 時停止
+
+ghci&gt; takeWhile (&gt;3) [6,5,4,3,2,1,2,3,4,5,4,3,2,1]
+[6,5,4]
+ghci&gt; takeWhile (/=&#39; &#39;) &quot;This is a sentence&quot;
+&quot;This&quot;
+
+-- dropWhile，略過符合條件的值，直到第一次 False 時停止
+
+ghci&gt; dropWhile (/=&#39; &#39;) &quot;This is a sentence&quot;
+&quot; is a sentence&quot;
+ghci&gt; dropWhile (&lt;3) [1,2,2,2,3,4,5,4,3,2,1]
+[3,4,5,4,3,2,1]
+
+-- span，類似 takeWhile，但是會回傳一個 pair 內含兩個 list，
+-- 第一個 list 為會被 takeWhile 回傳的部份，第二個為會被丟棄的部份
+
+ghci&gt; break (==4) [1,2,3,4,5,6,7]
+([1,2,3],[4,5,6,7])
+ghci&gt; span (/=4) [1,2,3,4,5,6,7]
+([1,2,3],[4,5,6,7])
+
+-- sort
+
+ghci&gt; sort [8,5,3,2,1,6,4,2]
+[1,2,2,3,4,5,6,8]
+ghci&gt; sort &quot;This will be sorted soon&quot;
+&quot;    Tbdeehiillnooorssstw&quot;
+
+-- group，把相連一樣的值放到同個 list 內
+
+ghci&gt; group [1,1,1,1,2,2,2,2,3,3,2,2,2,5,6,7]
+[[1,1,1,1],[2,2,2,2],[3,3],[2,2,2],[5],[6],[7]]
+ghci&gt; group [1,1,2,1,1,2,2,2,2,3,3,2,2,2,5,6,7]
+[[1,1],[2],[1,1],[2,2,2,2],[3,3],[2,2,2],[5],[6],[7]]
+ghci&gt; map (\l@(x:xs) -&gt; (x,length l)) . group . sort $ [1,1,1,1,2,2,2,2,3,3,2,2,2,5,6,7]
+[(1,4),(2,7),(3,2),(5,1),(6,1),(7,1)]
+
+-- inits
+-- tails
+-- 不斷地套用 init 或 tail，直到沒有值
+
+ghci&gt; inits &quot;w00t&quot;
+[&quot;&quot;,&quot;w&quot;,&quot;w0&quot;,&quot;w00&quot;,&quot;w00t&quot;]
+ghci&gt; tails &quot;w00t&quot;
+[&quot;w00t&quot;,&quot;00t&quot;,&quot;0t&quot;,&quot;t&quot;,&quot;&quot;]
+ghci&gt; let w = &quot;w00t&quot; in zip (inits w) (tails w)
+[(&quot;&quot;,&quot;w00t&quot;),(&quot;w&quot;,&quot;00t&quot;),(&quot;w0&quot;,&quot;0t&quot;),(&quot;w00&quot;,&quot;t&quot;),(&quot;w00t&quot;,&quot;&quot;)]
+
+-- isInfixOf，是否為子字串
+
+ghci&gt; &quot;cat&quot; `isInfixOf` &quot;im a cat burglar&quot;
+True
+ghci&gt; &quot;Cat&quot; `isInfixOf` &quot;im a cat burglar&quot;
+False
+ghci&gt; &quot;cats&quot; `isInfixOf` &quot;im a cat burglar&quot;
+False
+
+-- isPrefixOf，是否為前綴
+-- isSuffixOf，是否為後綴
+
+ghci&gt; &quot;hey&quot; `isPrefixOf` &quot;hey there!&quot;
+True
+ghci&gt; &quot;hey&quot; `isPrefixOf` &quot;oh hey there!&quot;
+False
+ghci&gt; &quot;there!&quot; `isSuffixOf` &quot;oh hey there!&quot;
+True
+ghci&gt; &quot;there!&quot; `isSuffixOf` &quot;oh hey there&quot;
+False
+
+-- elem
+-- notElem
+-- 是否存在於 list 中
+
+-- partition，分割
+
+ghci&gt; partition (`elem` [&#39;A&#39;..&#39;Z&#39;]) &quot;BOBsidneyMORGANeddy&quot;   -- partition 會完整分割
+(&quot;BOBMORGAN&quot;,&quot;sidneyeddy&quot;)
+ghci&gt; partition (&gt;3) [1,3,5,6,3,2,1,0,3,7]
+([5,6,7],[1,3,3,2,1,0,3])
+
+ghci&gt; span (`elem` [&#39;A&#39;..&#39;Z&#39;]) &quot;BOBsidneyMORGANeddy&quot;        -- span 只到第一次 False
+(&quot;BOB&quot;,&quot;sidneyMORGANeddy&quot;)
+
+-- find，回傳第一個符合條件的值，值會用 Maybe 包起來，若沒有找到就是 Nothing
+-- 類似 Rust 的 Option
+
+ghci&gt; find (&gt;4) [1,2,3,4,5,6]
+Just 5
+ghci&gt; find (&gt;9) [1,2,3,4,5,6]
+Nothing
+ghci&gt; :t find
+find :: (a -&gt; Bool) -&gt; [a] -&gt; Maybe a
+
+-- elemIndex，回傳第一個找的值的 index
+
+ghci&gt; :t elemIndex
+elemIndex :: (Eq a) =&gt; a -&gt; [a] -&gt; Maybe Int
+ghci&gt; 4 `elemIndex` [1,2,3,4,5,6]
+Just 3
+ghci&gt; 10 `elemIndex` [1,2,3,4,5,6]
+Nothing
+
+-- elemIndices，找出所有 index
+
+ghci&gt; &#39; &#39; `elemIndices` &quot;Where are the spaces?&quot;
+[5,9,13]
+
+-- findIndex
+-- findIndices
+
+ghci&gt; findIndex (==4) [5,3,2,1,6,4]
+Just 5
+ghci&gt; findIndex (==7) [5,3,2,1,6,4]
+Nothing
+ghci&gt; findIndices (`elem` [&#39;A&#39;..&#39;Z&#39;]) &quot;Where Are The Caps?&quot;
+[0,6,10,14]
+
+-- zip3, zip4
+-- zipWith3, zipWith4
+
+ghci&gt; zipWith3 (\x y z -&gt; x + y + z) [1,2,3] [4,5,2,2] [2,2,3]
+[7,9,8]
+ghci&gt; zip4 [2,3,3] [2,2,2] [5,5,3] [2,2,2]
+[(2,2,5,2),(3,2,5,2),(3,2,3,2)]
+
+-- lines
+
+ghci&gt; lines &quot;first line\nsecond line\nthird line&quot;
+[&quot;first line&quot;,&quot;second line&quot;,&quot;third line&quot;]
+
+-- unlines
+
+ghci&gt; unlines [&quot;first line&quot;, &quot;second line&quot;, &quot;third line&quot;]
+&quot;first line\nsecond line\nthird line\n&quot;
+
+-- words
+-- unwords
+
+ghci&gt; words &quot;hey these are the words in this sentence&quot;
+[&quot;hey&quot;,&quot;these&quot;,&quot;are&quot;,&quot;the&quot;,&quot;words&quot;,&quot;in&quot;,&quot;this&quot;,&quot;sentence&quot;]
+ghci&gt; words &quot;hey these           are    the words in this\nsentence&quot;
+[&quot;hey&quot;,&quot;these&quot;,&quot;are&quot;,&quot;the&quot;,&quot;words&quot;,&quot;in&quot;,&quot;this&quot;,&quot;sentence&quot;]
+ghci&gt; unwords [&quot;hey&quot;,&quot;there&quot;,&quot;mate&quot;]
+&quot;hey there mate&quot;
+
+-- nub
+
+ghci&gt; nub [1,2,3,4,3,2,1,2,3,4,3,2,1]
+[1,2,3,4]
+ghci&gt; nub &quot;Lots of words and stuff&quot;
+&quot;Lots fwrdanu&quot;
+
+-- delete
+
+ghci&gt; delete &#39;h&#39; &quot;hey there ghang!&quot;
+&quot;ey there ghang!&quot;
+ghci&gt; delete &#39;h&#39; . delete &#39;h&#39; $ &quot;hey there ghang!&quot;
+&quot;ey tere ghang!&quot;
+ghci&gt; delete &#39;h&#39; . delete &#39;h&#39; . delete &#39;h&#39; $ &quot;hey there ghang!&quot;
+&quot;ey tere gang!&quot;
+
+-- \\，diff
+
+ghci&gt; [1..10] \\ [2,5,9]
+[1,3,4,6,7,8,10]
+ghci&gt; &quot;Im a big baby&quot; \\ &quot;big&quot;
+&quot;Im a  baby&quot;
+
+-- union
+
+ghci&gt; &quot;hey man&quot; `union` &quot;man what&#39;s up&quot;
+&quot;hey manwt&#39;sup&quot;
+ghci&gt; [1..7] `union` [5..10]
+[1,2,3,4,5,6,7,8,9,10]
+
+
+
+
+-- TODO: http://learnyouahaskell.com/modules
 </pre></div>
 </div>
 </div>
-<div class="section" id="haskell-platform">
-<h3><a class="toc-backref" href="#id11">Haskell Platform</a><a class="headerlink" href="#haskell-platform" title="本標題的永久連結">¶</a></h3>
 </div>
-</div>
+<div class="section" id="stack">
+<h2><a class="toc-backref" href="#id13">Stack</a><a class="headerlink" href="#stack" title="本標題的永久連結">¶</a></h2>
+<p>Stack 是 Haskell 的專案開發工具，
+可以為特定專案安裝特定版本的 GHC，
+安裝相依套件，
+對專案編譯、測試、效能測量，
+感覺像 Rust 的 Cargo。</p>
 <div class="section" id="id5">
-<h2><a class="toc-backref" href="#id12">參考</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h2>
+<h3><a class="toc-backref" href="#id14">安裝</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h3>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ curl -sSL https://get.haskellstack.org/ <span class="p">|</span> sh
+<span class="c1"># 或是</span>
+$ wget -qO- https://get.haskellstack.org/ <span class="p">|</span> sh
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3><a class="toc-backref" href="#id15">基本使用</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h3>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ stack new myproj
+
+$ stack build
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="haskell-platform">
+<h2><a class="toc-backref" href="#id16">Haskell Platform</a><a class="headerlink" href="#haskell-platform" title="本標題的永久連結">¶</a></h2>
+</div>
+<div class="section" id="software-transactional-memory">
+<h2><a class="toc-backref" href="#id17">Software Transactional Memory</a><a class="headerlink" href="#software-transactional-memory" title="本標題的永久連結">¶</a></h2>
+</div>
+<div class="section" id="id7">
+<h2><a class="toc-backref" href="#id18">參考</a><a class="headerlink" href="#id7" title="本標題的永久連結">¶</a></h2>
 <ul>
 <li><dl class="first docutils">
 <dt><a class="reference external" href="https://www.futurelearn.com/courses/functional-programming-haskell/1/steps/115453">Brief History of Haskell</a></dt>
@@ -1680,6 +2001,8 @@ oddSquareSum =
 <li><p class="first"><a class="reference external" href="http://learnyouahaskell.com/">Learn You a Haskell for Great Good!</a></p>
 </li>
 <li><p class="first"><a class="reference external" href="https://wiki.haskell.org/Implementations">Haskell Implementaiton</a></p>
+</li>
+<li><p class="first"><a class="reference external" href="http://teh.id.au/posts/2017/02/13/interactive-print/index.html">Replacing GHCi&#8217;s pretty-printer</a></p>
 </li>
 </ul>
 </div>
