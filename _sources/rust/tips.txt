@@ -1469,3 +1469,10 @@ Rust 編譯器也可以開啟 LLVM Sanitizer 支援來檢查記憶體相關問�
 * MemorySanitizer： ``memory``
 * ThreadSanitizer： ``thread``
 * LeakSanitizer： ``leak``
+
+
+
+編譯靜態連結的執行檔
+========================================
+
+用 ``musl`` ，例如 ``--target x86_64-unknown-linux-musl``
