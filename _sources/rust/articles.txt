@@ -194,3 +194,52 @@ Rust futures at a glance
     - 不合法的操作
         + https://github.com/rust-lang/rust/tree/master/src/test/compile-fail/impl-trait
 * `RFC 0019 - Opt-in builtin traits (OIBITs) <https://github.com/rust-lang/rfcs/blob/master/text/0019-opt-in-builtin-traits.md#default-and-negative-impls>`_
+
+
+
+Optimizing Rc memory usage in Rust
+========================================
+
+:作者: Robert Grosse
+:URL: https://medium.com/@robertgrosse/optimizing-rc-memory-usage-in-rust-6652de9e119e4
+
+
+作者想要降低他程式所使用的記憶體，
+並以他程式中常使用的 Arc 著手觀察。
+
+這是他研究的程式碼：
+
+.. code-block:: rust
+
+    enum LongStr {
+        Leaf(Vec<u8>),
+        Concat(RcStr, RcStr),
+    }
+    type RcStr = Arc<LongStr>;
+
+
+一開始猜測他沒用到的 Arc 中的 weak reference 會佔用額外的記憶體，
+但是仔細實驗後發現在沒使用到的狀況下會被編譯器直接優化掉。
+
+後來覺得 ``Concat`` 用的記憶體太多了，
+發現是同 enum 內 ``Leaf`` 的 ``Vec`` 造成的，
+``Vec`` 除了資料以外還存了現在長度、目前容量，
+所以花費了額外的記憶體，
+連帶造成 ``Concat`` 的記憶體也降不下來，
+這兩個欄位對作者的狀況來說是不需要的，
+所以可以用更單純的方式代替，
+於是程式碼就變成這樣：
+
+.. code-block:: rust
+
+    enum LongStr {
+        Leaf(Box<[u8]>),
+        Concat(RcStr, RcStr),
+    }
+    type RcStr = Arc<LongStr>;
+
+
+作者觀察型別大小的方式： ``cargo rustc --release -- -Z print-type-sizes``
+
+另外也有嘗試使用系統的 memoyr allocator，
+但是發現沒有比 ``jemalloc`` 來的好。

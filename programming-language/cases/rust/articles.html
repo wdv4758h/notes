@@ -777,6 +777,7 @@
 <li><a class="reference internal" href="#webvr-coming-to-servo-architecture-and-latency-optimizations" id="id13">WebVR coming to Servo: Architecture and latency optimizations</a></li>
 <li><a class="reference internal" href="#ripgrep-code-review" id="id14">ripgrep code review</a></li>
 <li><a class="reference internal" href="#rust-futures-at-a-glance" id="id15">Rust futures at a glance</a></li>
+<li><a class="reference internal" href="#optimizing-rc-memory-usage-in-rust" id="id16">Optimizing Rc memory usage in Rust</a></li>
 </ul>
 </li>
 </ul>
@@ -1049,6 +1050,49 @@
 <li><p class="first"><a class="reference external" href="https://github.com/rust-lang/rfcs/blob/master/text/0019-opt-in-builtin-traits.md#default-and-negative-impls">RFC 0019 - Opt-in builtin traits (OIBITs)</a></p>
 </li>
 </ul>
+</div>
+<div class="section" id="optimizing-rc-memory-usage-in-rust">
+<h2><a class="toc-backref" href="#id16">Optimizing Rc memory usage in Rust</a><a class="headerlink" href="#optimizing-rc-memory-usage-in-rust" title="本標題的永久連結">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">作者:</th><td class="field-body">Robert Grosse</td>
+</tr>
+<tr class="field-even field"><th class="field-name">URL:</th><td class="field-body"><a class="reference external" href="https://medium.com/&#64;robertgrosse/optimizing-rc-memory-usage-in-rust-6652de9e119e4">https://medium.com/&#64;robertgrosse/optimizing-rc-memory-usage-in-rust-6652de9e119e4</a></td>
+</tr>
+</tbody>
+</table>
+<p>作者想要降低他程式所使用的記憶體，
+並以他程式中常使用的 Arc 著手觀察。</p>
+<p>這是他研究的程式碼：</p>
+<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="n">LongStr</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">Leaf</span><span class="p">(</span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">u8</span><span class="o">&gt;</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="n">Concat</span><span class="p">(</span><span class="n">RcStr</span><span class="p">,</span><span class="w"> </span><span class="n">RcStr</span><span class="p">),</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="k">type</span><span class="w"> </span><span class="n">RcStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arc</span><span class="o">&lt;</span><span class="n">LongStr</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>一開始猜測他沒用到的 Arc 中的 weak reference 會佔用額外的記憶體，
+但是仔細實驗後發現在沒使用到的狀況下會被編譯器直接優化掉。</p>
+<p>後來覺得 <code class="docutils literal"><span class="pre">Concat</span></code> 用的記憶體太多了，
+發現是同 enum 內 <code class="docutils literal"><span class="pre">Leaf</span></code> 的 <code class="docutils literal"><span class="pre">Vec</span></code> 造成的，
+<code class="docutils literal"><span class="pre">Vec</span></code> 除了資料以外還存了現在長度、目前容量，
+所以花費了額外的記憶體，
+連帶造成 <code class="docutils literal"><span class="pre">Concat</span></code> 的記憶體也降不下來，
+這兩個欄位對作者的狀況來說是不需要的，
+所以可以用更單純的方式代替，
+於是程式碼就變成這樣：</p>
+<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="n">LongStr</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">Leaf</span><span class="p">(</span><span class="nb">Box</span><span class="o">&lt;</span><span class="p">[</span><span class="kt">u8</span><span class="p">]</span><span class="o">&gt;</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="n">Concat</span><span class="p">(</span><span class="n">RcStr</span><span class="p">,</span><span class="w"> </span><span class="n">RcStr</span><span class="p">),</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="k">type</span><span class="w"> </span><span class="n">RcStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arc</span><span class="o">&lt;</span><span class="n">LongStr</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>作者觀察型別大小的方式： <code class="docutils literal"><span class="pre">cargo</span> <span class="pre">rustc</span> <span class="pre">--release</span> <span class="pre">--</span> <span class="pre">-Z</span> <span class="pre">print-type-sizes</span></code></p>
+<p>另外也有嘗試使用系統的 memoyr allocator，
+但是發現沒有比 <code class="docutils literal"><span class="pre">jemalloc</span></code> 來的好。</p>
 </div>
 </div>
 

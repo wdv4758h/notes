@@ -681,6 +681,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#unsafecell">UnsafeCell</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#llvm-sanitizer">LLVM Sanitizer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id10">編譯靜態連結的執行檔</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cargo-template">Cargo Template</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="any.html">Rust&#8217;s runtime reflection - &#8220;Any&#8221; type trait</a></li>
@@ -845,6 +846,7 @@
 <li><a class="reference internal" href="#unsafecell" id="id36">UnsafeCell</a></li>
 <li><a class="reference internal" href="#llvm-sanitizer" id="id37">LLVM Sanitizer</a></li>
 <li><a class="reference internal" href="#id10" id="id38">編譯靜態連結的執行檔</a></li>
+<li><a class="reference internal" href="#cargo-template" id="id39">Cargo Template</a></li>
 </ul>
 </li>
 </ul>
@@ -2195,6 +2197,52 @@ $ rustc -Z <span class="nv">sanitizer</span><span class="o">=</span>leak
 <div class="section" id="id10">
 <h2><a class="toc-backref" href="#id38">編譯靜態連結的執行檔</a><a class="headerlink" href="#id10" title="本標題的永久連結">¶</a></h2>
 <p>用 <code class="docutils literal"><span class="pre">musl</span></code> ，例如 <code class="docutils literal"><span class="pre">--target</span> <span class="pre">x86_64-unknown-linux-musl</span></code></p>
+</div>
+<div class="section" id="cargo-template">
+<h2><a class="toc-backref" href="#id39">Cargo Template</a><a class="headerlink" href="#cargo-template" title="本標題的永久連結">¶</a></h2>
+<p>Cargo 支援自己撰寫 Template 以供後續使用，
+Template 格式用的是 <a class="reference external" href="https://github.com/sunng87/handlebars-rust">handlebars</a> 。
+Template 是一個含有相關檔案的資料夾，
+使用時會填入對應的值。
+目前內建的 Template 有 <code class="docutils literal"><span class="pre">bin</span></code> 和 <code class="docutils literal"><span class="pre">lib</span></code> 。</p>
+<p>例如：</p>
+<div class="highlight-toml"><div class="highlight"><pre><span></span># Cargo.toml
+[project]
+name = &quot;{{name}}&quot;
+version = &quot;0.1.0&quot;
+authors = [{{toml-escape author}}]
+</pre></div>
+</div>
+<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="c1">// src/main.rs</span>
+<span class="k">fn</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">prinln</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;This is the {{name}} project!&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>指定 Template：</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># Path</span>
+$ cargo new myproj --template ~/.cargo/mytemplates/mytemplate
+<span class="c1"># Repo</span>
+$ cargo new myproj --template http://github.com/you/mytemplate
+<span class="c1"># Folder in Repo</span>
+$ cargo new myproj --template http://github.com/you/mytemplate --template-subdir command-line-project
+</pre></div>
+</div>
+<p>可用變數：</p>
+<ul class="simple">
+<li>name: 專案名稱</li>
+<li>authors: 專案擁有者</li>
+</ul>
+<p>可用函式：</p>
+<ul class="simple">
+<li>toml-escape</li>
+<li>html-escape</li>
+</ul>
+<p>參考：</p>
+<ul class="simple">
+<li><a class="reference external" href="http://doc.crates.io/guide.html#templates">Cargo Guide - Templates</a></li>
+<li>[GitHub] <a class="reference external" href="https://github.com/rust-lang/cargo/blob/master/src/cargo/util/template.rs">Cargo - src/cargo/util/template.rs</a></li>
+</ul>
 </div>
 </div>
 
