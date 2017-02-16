@@ -1476,3 +1476,60 @@ Rust 編譯器也可以開啟 LLVM Sanitizer 支援來檢查記憶體相關問�
 ========================================
 
 用 ``musl`` ，例如 ``--target x86_64-unknown-linux-musl``
+
+
+
+Cargo Template
+========================================
+
+Cargo 支援自己撰寫 Template 以供後續使用，
+Template 格式用的是 `handlebars <https://github.com/sunng87/handlebars-rust>`_ 。
+Template 是一個含有相關檔案的資料夾，
+使用時會填入對應的值。
+目前內建的 Template 有 ``bin`` 和 ``lib`` 。
+
+
+例如：
+
+.. code-block:: toml
+
+    # Cargo.toml
+    [project]
+    name = "{{name}}"
+    version = "0.1.0"
+    authors = [{{toml-escape author}}]
+
+.. code-block:: rust
+
+    // src/main.rs
+    fn main() {
+        prinln!("This is the {{name}} project!");
+    }
+
+
+指定 Template：
+
+.. code-block:: sh
+
+    # Path
+    $ cargo new myproj --template ~/.cargo/mytemplates/mytemplate
+    # Repo
+    $ cargo new myproj --template http://github.com/you/mytemplate
+    # Folder in Repo
+    $ cargo new myproj --template http://github.com/you/mytemplate --template-subdir command-line-project
+
+
+可用變數：
+
+* name: 專案名稱
+* authors: 專案擁有者
+
+可用函式：
+
+* toml-escape
+* html-escape
+
+參考：
+
+* `Cargo Guide - Templates <http://doc.crates.io/guide.html#templates>`_
+* [GitHub] `Cargo - src/cargo/util/template.rs <https://github.com/rust-lang/cargo/blob/master/src/cargo/util/template.rs>`_
