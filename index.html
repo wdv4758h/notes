@@ -288,6 +288,7 @@
 <li class="toctree-l1"><a class="reference internal" href="compiler/llvm.html">LLVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiler/llvm-android.html">Android With LLVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiler/llvm-cuda.html">LLVM &amp; CUDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler/llvm-help-testing.html">LLVM 輔助測試</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiler/llvm-ir.html">LLVM IR</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiler/llvm-python.html">LLVM &amp; Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiler/lto.html">LTO - Link Time Optimization</a></li>
@@ -1910,6 +1911,11 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </li>
 <li class="toctree-l1"><a class="reference internal" href="compiler/llvm-android.html">Android With LLVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiler/llvm-cuda.html">LLVM &amp; CUDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler/llvm-help-testing.html">LLVM 輔助測試</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="compiler/llvm-help-testing.html#mutation-testing">Mutation Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compiler/llvm-help-testing.html#fuzz-testing">Fuzz Testing</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="compiler/llvm-ir.html">LLVM IR</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="compiler/llvm-ir.html#introduction">Introduction</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="compiler/llvm-ir.html#id1">概念</a></li>
@@ -4150,16 +4156,24 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="python/testing.html#pytest">pytest</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="python/testing.html#id2">安裝</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/testing.html#id3">使用</a></li>
-<li class="toctree-l3"><a class="reference internal" href="python/testing.html#id4">pytest 設定檔</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/testing.html#pytest-fixture">pytest fixture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/testing.html#id5">pytest 設定檔</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/testing.html#fixture-plugin">自製 fixture 和 plugin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/testing.html#pytest-xdist">pytest-xdist - 同時執行多項測試</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/testing.html#pytest-cov">pytest-cov - 測試涵蓋率</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="python/testing.html#nose">nose</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="python/testing.html#id5">安裝</a></li>
-<li class="toctree-l3"><a class="reference internal" href="python/testing.html#id6">使用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/testing.html#id6">安裝</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/testing.html#id7">使用</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="python/testing.html#robot-framework">Robot Framework</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="python/testing.html#id8">安裝</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/testing.html#id9">使用</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="python/testing.html#id12">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="python/tips.html">Python Tips</a><ul>

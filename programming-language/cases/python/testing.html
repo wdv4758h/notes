@@ -287,6 +287,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../compiler/llvm.html">LLVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../compiler/llvm-android.html">Android With LLVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../compiler/llvm-cuda.html">LLVM &amp; CUDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/llvm-help-testing.html">LLVM 輔助測試</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../compiler/llvm-ir.html">LLVM IR</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../compiler/llvm-python.html">LLVM &amp; Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../compiler/lto.html">LTO - Link Time Optimization</a></li>
@@ -758,32 +759,46 @@
            <div itemprop="articleBody">
             
   <div class="section" id="python-testing">
-<h1><a class="toc-backref" href="#id7">Python Testing</a><a class="headerlink" href="#python-testing" title="本標題的永久連結">¶</a></h1>
+<h1><a class="toc-backref" href="#id13">Python Testing</a><a class="headerlink" href="#python-testing" title="本標題的永久連結">¶</a></h1>
 <div class="contents topic" id="id1">
 <p class="topic-title first">目錄</p>
 <ul class="simple">
-<li><a class="reference internal" href="#python-testing" id="id7">Python Testing</a><ul>
-<li><a class="reference internal" href="#doctest" id="id8">doctest</a></li>
-<li><a class="reference internal" href="#unittest-pyunit" id="id9">unittest (PyUnit)</a></li>
-<li><a class="reference internal" href="#pytest" id="id10">pytest</a><ul>
-<li><a class="reference internal" href="#id2" id="id11">安裝</a></li>
-<li><a class="reference internal" href="#id3" id="id12">使用</a></li>
-<li><a class="reference internal" href="#id4" id="id13">pytest 設定檔</a></li>
-<li><a class="reference internal" href="#pytest-xdist" id="id14">pytest-xdist - 同時執行多項測試</a></li>
-<li><a class="reference internal" href="#pytest-cov" id="id15">pytest-cov - 測試涵蓋率</a></li>
+<li><a class="reference internal" href="#python-testing" id="id13">Python Testing</a><ul>
+<li><a class="reference internal" href="#doctest" id="id14">doctest</a></li>
+<li><a class="reference internal" href="#unittest-pyunit" id="id15">unittest (PyUnit)</a></li>
+<li><a class="reference internal" href="#pytest" id="id16">pytest</a><ul>
+<li><a class="reference internal" href="#id2" id="id17">安裝</a></li>
+<li><a class="reference internal" href="#id3" id="id18">使用</a></li>
+<li><a class="reference internal" href="#pytest-fixture" id="id19">pytest fixture</a></li>
+<li><a class="reference internal" href="#id5" id="id20">pytest 設定檔</a></li>
+<li><a class="reference internal" href="#fixture-plugin" id="id21">自製 fixture 和 plugin</a></li>
+<li><a class="reference internal" href="#pytest-xdist" id="id22">pytest-xdist - 同時執行多項測試</a></li>
+<li><a class="reference internal" href="#pytest-cov" id="id23">pytest-cov - 測試涵蓋率</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#nose" id="id16">nose</a><ul>
-<li><a class="reference internal" href="#id5" id="id17">安裝</a></li>
-<li><a class="reference internal" href="#id6" id="id18">使用</a></li>
+<li><a class="reference internal" href="#nose" id="id24">nose</a><ul>
+<li><a class="reference internal" href="#id6" id="id25">安裝</a></li>
+<li><a class="reference internal" href="#id7" id="id26">使用</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#robot-framework" id="id27">Robot Framework</a><ul>
+<li><a class="reference internal" href="#id8" id="id28">安裝</a></li>
+<li><a class="reference internal" href="#id9" id="id29">使用</a><ul>
+<li><a class="reference internal" href="#id10" id="id30">範例一 - 架構輪廓</a></li>
+<li><a class="reference internal" href="#library" id="id31">範例二 - 使用內建 Library</a></li>
+<li><a class="reference internal" href="#keyword" id="id32">範例三 - 自己撰寫 Keyword</a></li>
+<li><a class="reference internal" href="#id11" id="id33">範例四 - 把 Keyword 獨立出來以便共用</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id12" id="id34">參考</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="doctest">
-<h2><a class="toc-backref" href="#id8">doctest</a><a class="headerlink" href="#doctest" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id14">doctest</a><a class="headerlink" href="#doctest" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://docs.python.org/3/library/doctest.html">Python - doctest</a></li>
 <li><a class="reference external" href="https://www.python.org/dev/peps/pep-0257/">PEP 257 - Docstring Conventions</a></li>
@@ -813,7 +828,7 @@ docstring 包含 module 最一開始的匿名字串和 function 下最開始的�
 <p>或是 CLI 直接下 <code class="docutils literal"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">doctest</span> <span class="pre">-v</span> <span class="pre">xxx.py</span></code></p>
 </div>
 <div class="section" id="unittest-pyunit">
-<h2><a class="toc-backref" href="#id9">unittest (PyUnit)</a><a class="headerlink" href="#unittest-pyunit" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id15">unittest (PyUnit)</a><a class="headerlink" href="#unittest-pyunit" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://docs.python.org/3/library/unittest.html">Python - unittest</a></li>
 </ul>
@@ -920,19 +935,46 @@ $ python -m unittest discover -v
 </div>
 </div>
 <div class="section" id="pytest">
-<h2><a class="toc-backref" href="#id10">pytest</a><a class="headerlink" href="#pytest" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id16">pytest</a><a class="headerlink" href="#pytest" title="本標題的永久連結">¶</a></h2>
 <p>Python Standard Library 雖然有內建 <code class="docutils literal"><span class="pre">unittest</span></code> ，
 但是使用上的方便性還是不夠高，
 第三方套件中個人覺得 <code class="docutils literal"><span class="pre">pytest</span></code> 非常好用，
 擴充 Plugins 也很多。</p>
+<p>pytest 會自動去發現符合 convention 的測試，
+也就是 <code class="docutils literal"><span class="pre">test_*.py</span></code> 或 <code class="docutils literal"><span class="pre">*_test.py</span></code> ，
+對於這些檔案會進去找 <code class="docutils literal"><span class="pre">test_*</span></code> 的函式或是 <code class="docutils literal"><span class="pre">Test*::test_*</span></code> method。</p>
+<p>一般 Python 專案放置的測試位置有兩種，
+一種是最上層的 <code class="docutils literal"><span class="pre">tests/</span></code> 資料夾：</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>layout1
+├── mypkg
+│   ├── __init__.py
+│   └── mymodule.py
+├── setup.py
+└── tests
+    └── test_mymodule.py
+</pre></div>
+</div>
+<p>另一種是在 Python Package 內的 <code class="docutils literal"><span class="pre">tests/</span></code> 資料夾：</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>layout2
+├── mypkg
+│   ├── __init__.py
+│   ├── mymodule.py
+│   └── test
+│       └── test_mymodule.py
+└── setup.py
+</pre></div>
+</div>
+<p>相關範例可以參考 <a class="reference external" href="https://github.com/wdv4758h/notes/tree/master/programming-language/cases/python/examples/py.test">examples 資料夾</a></p>
+<p>pytest 雖然自己提供了直接定義函式並使用 <code class="docutils literal"><span class="pre">assert</span></code> 的方法來撰寫測試，
+但是原本使用 <code class="docutils literal"><span class="pre">unittest</span></code> 的方反撰寫的測試也仍然支援。</p>
 <div class="section" id="id2">
-<h3><a class="toc-backref" href="#id11">安裝</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id17">安裝</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h3>
 <div class="highlight-sh"><div class="highlight"><pre><span></span>pip install pytest
 </pre></div>
 </div>
 </div>
 <div class="section" id="id3">
-<h3><a class="toc-backref" href="#id12">使用</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id18">使用</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h3>
 <div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># --doctest-modules: 跑 doctest</span>
 <span class="c1"># -v: verbose</span>
 <span class="c1"># --strict: 把 warning 當 error</span>
@@ -940,16 +982,129 @@ py.test --doctest-modules -v --strict
 </pre></div>
 </div>
 </div>
-<div class="section" id="id4">
-<h3><a class="toc-backref" href="#id13">pytest 設定檔</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h3>
+<div class="section" id="pytest-fixture">
+<h3><a class="toc-backref" href="#id19">pytest fixture</a><a class="headerlink" href="#pytest-fixture" title="本標題的永久連結">¶</a></h3>
+<p>pytest 的 fixture 是接在函式參數寫上對應的名稱即可，
+例如需要暫時的資料夾就寫 <code class="docutils literal"><span class="pre">tempdir</span></code> ：</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_needsfiles</span><span class="p">(</span><span class="n">tmpdir</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">tmpdir</span><span class="p">)</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>列出支援的 fixture：</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ pytest --fixtures
+...
+cache -- /tmp/venv/lib/python3.6/site-packages/_pytest/cacheprovider.py:190
+    Return a cache object that can persist state between testing sessions.
+
+    cache.get<span class="o">(</span>key, default<span class="o">)</span>
+    cache.set<span class="o">(</span>key, value<span class="o">)</span>
+
+    Keys must be a <span class="sb">``</span>/<span class="sb">``</span> separated value, where the first part is usually the
+    name of your plugin or application to avoid clashes with other cache users.
+
+    Values can be any object handled by the json stdlib module.
+capsys -- /tmp/venv/lib/python3.6/site-packages/_pytest/capture.py:160
+    Enable capturing of writes to sys.stdout/sys.stderr and make
+    captured output available via <span class="sb">``</span>capsys.readouterr<span class="o">()</span><span class="sb">``</span> method calls
+    which <span class="k">return</span> a <span class="sb">``</span><span class="o">(</span>out, err<span class="o">)</span><span class="sb">``</span> tuple.
+...
+</pre></div>
+</div>
+<p>如果 fixture 不夠用可以安裝第三方套件或是自行撰寫，
+安裝完後一樣可以在列表中看到：</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ pytest --fixtures
+...
+
+-------------------------------- fixtures defined from pytest_django.fixtures --------------------------------
+db -- /tmp/venv/lib/python3.6/site-packages/pytest_django/fixtures.py:142
+    Require a django <span class="nb">test</span> database
+
+    This database will be setup with the default fixtures and will have
+    the transaction management disabled. At the end of the <span class="nb">test</span> the outer
+    transaction that wraps the <span class="nb">test</span> itself will be rolled back to undo any
+    changes to the database <span class="o">(</span>in <span class="k">case</span> the backend supports transactions<span class="o">)</span>.
+    This is more limited than the <span class="sb">``</span>transactional_db<span class="sb">``</span> resource but
+    faster.
+
+    If both this and <span class="sb">``</span>transactional_db<span class="sb">``</span> are requested <span class="k">then</span> the
+    database setup will behave as only <span class="sb">``</span>transactional_db<span class="sb">``</span> was
+    requested.
+    transactional_db -- /tmp/venv/lib/python3.6/site-packages/pytest_django/fixtures.py:164
+    Require a django <span class="nb">test</span> database with transaction support
+
+    This will re-initialise the django database <span class="k">for</span> each <span class="nb">test</span> and is
+    thus slower than the normal <span class="sb">``</span>db<span class="sb">``</span> fixture.
+
+    If you want to use the database with transactions you must request
+    this resource.  If both this and <span class="sb">``</span>db<span class="sb">``</span> are requested <span class="k">then</span> the
+    database setup will behave as only <span class="sb">``</span>transactional_db<span class="sb">``</span> was
+    requested.
+...
+</pre></div>
+</div>
+<p>另外這邊有各 pytest plugins 跟 Python 版本的相容狀況 <a class="reference external" href="http://plugincompat.herokuapp.com/">網站</a></p>
+</div>
+<div class="section" id="id5">
+<h3><a class="toc-backref" href="#id20">pytest 設定檔</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h3>
 <div class="highlight-ini"><div class="highlight"><pre><span></span><span class="c1"># pytest.ini</span>
 <span class="k">[pytest]</span>
 <span class="na">addopts</span> <span class="o">=</span> <span class="s">--doctest-modules -v --strict -n8</span>
 </pre></div>
 </div>
 </div>
+<div class="section" id="fixture-plugin">
+<h3><a class="toc-backref" href="#id21">自製 fixture 和 plugin</a><a class="headerlink" href="#fixture-plugin" title="本標題的永久連結">¶</a></h3>
+<p>檢查哪些 plugins 是目前會使用到的：</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ pytest --trace-config
+</pre></div>
+</div>
+<p>不使用特定 plugin：</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ pytest -p no:NAME
+</pre></div>
+</div>
+<p>在每個測試程式碼的資料夾都可以放 <code class="docutils literal"><span class="pre">conftest.py</span></code> 來擴充 pytest，
+可以操控的內容包含：</p>
+<ul class="simple">
+<li>fixtures</li>
+<li>external plugin loading: <code class="docutils literal"><span class="pre">pytest_plugins</span> <span class="pre">=</span> <span class="pre">&quot;someapp.someplugin&quot;</span></code></li>
+<li>hooks</li>
+</ul>
+<p>範例一：</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># conftest.py</span>
+
+<span class="kn">import</span> <span class="nn">pytest</span>
+
+
+<span class="nd">@pytest.fixture</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">myitem</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s2">&quot;this is my item&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># test_mymodule</span>
+
+<span class="k">def</span> <span class="nf">test_myitem</span><span class="p">(</span><span class="n">myitem</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">myitem</span> <span class="o">==</span> <span class="s2">&quot;this is my item&quot;</span>
+</pre></div>
+</div>
+<p>範例二（更改錯誤訊息）：</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># conftest.py</span>
+
+<span class="k">def</span> <span class="nf">pytest_assertrepr_compare</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">right</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="n">op</span> <span class="o">==</span> <span class="s2">&quot;==&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;Comparing number:&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;   vals: </span><span class="si">%s</span><span class="s1"> != </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)]</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># test_mymodule</span>
+
+<span class="k">def</span> <span class="nf">test_myint</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="pytest-xdist">
-<h3><a class="toc-backref" href="#id14">pytest-xdist - 同時執行多項測試</a><a class="headerlink" href="#pytest-xdist" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id22">pytest-xdist - 同時執行多項測試</a><a class="headerlink" href="#pytest-xdist" title="本標題的永久連結">¶</a></h3>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -963,7 +1118,7 @@ py.test --doctest-modules -v --strict
 以加速所需要花費的時間。</p>
 </div>
 <div class="section" id="pytest-cov">
-<h3><a class="toc-backref" href="#id15">pytest-cov - 測試涵蓋率</a><a class="headerlink" href="#pytest-cov" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id23">pytest-cov - 測試涵蓋率</a><a class="headerlink" href="#pytest-cov" title="本標題的永久連結">¶</a></h3>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -977,19 +1132,220 @@ py.test --doctest-modules -v --strict
 </div>
 </div>
 <div class="section" id="nose">
-<h2><a class="toc-backref" href="#id16">nose</a><a class="headerlink" href="#nose" title="本標題的永久連結">¶</a></h2>
-<div class="section" id="id5">
-<h3><a class="toc-backref" href="#id17">安裝</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h3>
+<h2><a class="toc-backref" href="#id24">nose</a><a class="headerlink" href="#nose" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="id6">
+<h3><a class="toc-backref" href="#id25">安裝</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h3>
 <div class="highlight-sh"><div class="highlight"><pre><span></span>pip install nose
 </pre></div>
 </div>
 </div>
-<div class="section" id="id6">
-<h3><a class="toc-backref" href="#id18">使用</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h3>
+<div class="section" id="id7">
+<h3><a class="toc-backref" href="#id26">使用</a><a class="headerlink" href="#id7" title="本標題的永久連結">¶</a></h3>
 <div class="highlight-sh"><div class="highlight"><pre><span></span>nosetests --with-doctest -v
 </pre></div>
 </div>
 </div>
+</div>
+<div class="section" id="robot-framework">
+<h2><a class="toc-backref" href="#id27">Robot Framework</a><a class="headerlink" href="#robot-framework" title="本標題的永久連結">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">URL:</th><td class="field-body"><a class="reference external" href="http://robotframework.org/">http://robotframework.org/</a></td>
+</tr>
+</tbody>
+</table>
+<p>Robot Framework 是針對 ATDD（Acceptance Test-Driven Development）的 Framework，
+採用 Keyword-Driven 的方式來撰寫 User Story 作為測試，
+因此和 <code class="docutils literal"><span class="pre">pytest</span></code> 這種比較偏技術性的測試不同（若要相比的話以 <code class="docutils literal"><span class="pre">pytest-bdd</span></code> 比較類似），
+屬於比較著重客戶需求的方式。</p>
+<p>適用於測試人員和 QA，
+尤其是專門的測試人員的程式設計能力不強時，
+藉由 Keyword 的方式可以讓他們能夠撰寫測試。</p>
+<p>Robot Framework 的 Report 是一大強項，
+可以產生完整詳細的測試 Report。</p>
+<div class="section" id="id8">
+<h3><a class="toc-backref" href="#id28">安裝</a><a class="headerlink" href="#id8" title="本標題的永久連結">¶</a></h3>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ pip install robotframework
+$ robot --version
+Robot Framework 3.0.2 <span class="o">(</span>Python 3.6.0 on linux<span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id9">
+<h3><a class="toc-backref" href="#id29">使用</a><a class="headerlink" href="#id9" title="本標題的永久連結">¶</a></h3>
+<p>Robot Framework 提供了兩個 Stript 來輔助使用：</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">rebot</span></code> 來執行測試（例如 <code class="docutils literal"><span class="pre">rebot</span> <span class="pre">tests.robot</span></code> ）</li>
+<li><code class="docutils literal"><span class="pre">rebot</span></code> 來處理產生的資料（例如 <code class="docutils literal"><span class="pre">rebot</span> <span class="pre">output.xml</span></code> ）</li>
+</ul>
+<div class="section" id="id10">
+<h4><a class="toc-backref" href="#id30">範例一 - 架構輪廓</a><a class="headerlink" href="#id10" title="本標題的永久連結">¶</a></h4>
+<p>Robot Framework 支援用好幾個不同的格式來撰寫測試，
+包含：</p>
+<ul class="simple">
+<li>Plain Text</li>
+<li>HTML</li>
+<li>reStructuredText</li>
+</ul>
+<p><code class="docutils literal"><span class="pre">mytests.robot</span></code> ：</p>
+<div class="highlight-robotframework"><div class="highlight"><pre><span></span><span class="gh">*** Settings ***</span><span class="p"></span>
+<span class="kn">Documentation</span><span class="p">     </span><span class="s">A simple test example</span><span class="p"></span>
+<span class="p">...</span>
+<span class="p">...               </span><span class="s">This is just a really simple one.</span><span class="p"></span>
+
+<span class="gh">*** Test Cases ***</span><span class="p"></span>
+<span class="gu">Test Robot Framework Logging</span><span class="p"></span>
+<span class="p">    </span><span class="nf">Log</span><span class="p">   </span><span class="s">&quot;Test Logging&quot;</span><span class="p"></span>
+</pre></div>
+</div>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># 執行測試</span>
+$ robot mytests.robot
+<span class="o">==============================================================================</span>
+Mytests :: A simple <span class="nb">test</span> <span class="nv">example</span>
+<span class="o">==============================================================================</span>
+Test Robot Framework Logging                                          <span class="p">|</span> PASS <span class="p">|</span>
+------------------------------------------------------------------------------
+Mytests :: A simple <span class="nb">test</span> example                                      <span class="p">|</span> PASS <span class="p">|</span>
+<span class="m">1</span> critical test, <span class="m">1</span> passed, <span class="m">0</span> failed
+<span class="m">1</span> <span class="nb">test</span> total, <span class="m">1</span> passed, <span class="m">0</span> <span class="nv">failed</span>
+<span class="o">==============================================================================</span>
+Output:  /tmp/myproj/output.xml
+Log:     /tmp/myproj/log.html
+Report:  /tmp/myproj/report.html
+
+<span class="c1"># 跑完測試會產生 report.html，可以在瀏覽器中看整體的狀況</span>
+$ python -m http.server
+</pre></div>
+</div>
+</div>
+<div class="section" id="library">
+<h4><a class="toc-backref" href="#id31">範例二 - 使用內建 Library</a><a class="headerlink" href="#library" title="本標題的永久連結">¶</a></h4>
+<p>以下嘗試使用 Robot Framework 內建的 Library 來輔助撰寫測試，
+這邊使用了 <code class="docutils literal"><span class="pre">String</span></code> 內的 <code class="docutils literal"><span class="pre">Generate</span> <span class="pre">Random</span> <span class="pre">String</span></code> 。</p>
+<div class="highlight-robotframework"><div class="highlight"><pre><span></span><span class="gh">*** Settings ***</span><span class="p"></span>
+<span class="kn">Documentation</span><span class="p">     </span><span class="s">A simple test example</span><span class="p"></span>
+<span class="p">...</span>
+<span class="p">...               </span><span class="s">This is just a really simple one.</span><span class="p"></span>
+
+<span class="kn">Library</span><span class="p">    </span><span class="nn">String</span><span class="p"></span>
+
+
+<span class="gh">*** Test Cases ***</span><span class="p"></span>
+<span class="gu">Test Robot Framework Logging</span><span class="p"></span>
+<span class="p">    </span><span class="nf">Log</span><span class="p">   </span><span class="s">&quot;Test Logging&quot;</span><span class="p"></span>
+<span class="p">    </span><span class="nf">Log Many</span><span class="p">  </span><span class="s">First Entry</span><span class="p">  </span><span class="s">Second Entry</span><span class="p"></span>
+<span class="p">    </span><span class="nf">Log To Console</span><span class="p">  </span><span class="s">still running</span><span class="p"></span>
+
+<span class="gu">Test For Loop</span><span class="p"></span>
+<span class="p">    : FOR    ${</span><span class="nv">INDEX</span><span class="p">}    IN RANGE    </span><span class="s">1</span><span class="p">    </span><span class="s">3</span><span class="p"></span>
+<span class="p">    \    </span><span class="nf">Log</span><span class="p">    ${</span><span class="nv">INDEX</span><span class="p">}</span>
+<span class="p">    \    ${</span><span class="nv">RANDOM_STRING</span><span class="p">}=    </span><span class="nf">Generate Random String</span><span class="p">    ${</span><span class="nv">INDEX</span><span class="p">}</span>
+<span class="p">    \    </span><span class="nf">Log</span><span class="p">    ${</span><span class="nv">RANDOM_STRING</span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ robot mytests.robot
+<span class="o">==============================================================================</span>
+Mytests :: A simple <span class="nb">test</span> <span class="nv">example</span>
+<span class="o">==============================================================================</span>
+Test Robot Framework Logging                                          ..still running
+Test Robot Framework Logging                                          <span class="p">|</span> PASS <span class="p">|</span>
+------------------------------------------------------------------------------
+Test For Loop                                                         <span class="p">|</span> PASS <span class="p">|</span>
+------------------------------------------------------------------------------
+Mytests :: A simple <span class="nb">test</span> example                                      <span class="p">|</span> PASS <span class="p">|</span>
+<span class="m">2</span> critical tests, <span class="m">2</span> passed, <span class="m">0</span> failed
+<span class="m">2</span> tests total, <span class="m">2</span> passed, <span class="m">0</span> <span class="nv">failed</span>
+<span class="o">==============================================================================</span>
+Output:  /tmp/myproj/output.xml
+Log:     /tmp/myproj/log.html
+Report:  /tmp/myproj/report.html
+</pre></div>
+</div>
+</div>
+<div class="section" id="keyword">
+<h4><a class="toc-backref" href="#id32">範例三 - 自己撰寫 Keyword</a><a class="headerlink" href="#keyword" title="本標題的永久連結">¶</a></h4>
+<div class="highlight-robotframework"><div class="highlight"><pre><span></span><span class="gh">*** Settings ***</span><span class="p"></span>
+
+<span class="gh">*** Test Cases ***</span><span class="p"></span>
+<span class="gu">Test Robot Framework Logging</span><span class="p"></span>
+<span class="p">    </span><span class="nf">Log</span><span class="p">    </span><span class="s">Test Logging</span><span class="p"></span>
+
+<span class="gu">Test My Robot Framework Logging</span><span class="p"></span>
+<span class="p">    </span><span class="nf">My Logging</span><span class="p">    </span><span class="s">My Message</span><span class="p">    </span><span class="s">WARN</span><span class="p"></span>
+
+<span class="gh">*** Keywords ***</span><span class="p"></span>
+<span class="gu">My Logging</span><span class="p"></span>
+<span class="p">    [</span><span class="kn">Arguments</span><span class="p">]    ${</span><span class="nv">msg</span><span class="p">}    ${</span><span class="nv">level</span><span class="p">}       </span><span class="c"># 兩個參數</span>
+<span class="p">    </span><span class="nf">Log</span><span class="p">    ${</span><span class="nv">msg</span><span class="p">}    ${</span><span class="nv">level</span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ robot mytests.robot
+<span class="o">==============================================================================</span>
+<span class="nv">Mytests</span>
+<span class="o">==============================================================================</span>
+Test Robot Framework Logging                                          <span class="p">|</span> PASS <span class="p">|</span>
+------------------------------------------------------------------------------
+<span class="o">[</span> WARN <span class="o">]</span> My Message
+Test My Robot Framework Logging                                       <span class="p">|</span> PASS <span class="p">|</span>
+------------------------------------------------------------------------------
+Mytests                                                               <span class="p">|</span> PASS <span class="p">|</span>
+<span class="m">2</span> critical tests, <span class="m">2</span> passed, <span class="m">0</span> failed
+<span class="m">2</span> tests total, <span class="m">2</span> passed, <span class="m">0</span> <span class="nv">failed</span>
+<span class="o">==============================================================================</span>
+Output:  /tmp/myproj/output.xml
+Log:     /tmp/myproj/log.html
+Report:  /tmp/myproj/report.html
+</pre></div>
+</div>
+</div>
+<div class="section" id="id11">
+<h4><a class="toc-backref" href="#id33">範例四 - 把 Keyword 獨立出來以便共用</a><a class="headerlink" href="#id11" title="本標題的永久連結">¶</a></h4>
+<p><code class="docutils literal"><span class="pre">myresource.robot</span></code> ：</p>
+<div class="highlight-robotframework"><div class="highlight"><pre><span></span><span class="gh">*** Keywords ***</span><span class="p"></span>
+<span class="gu">My Logging</span><span class="p"></span>
+<span class="p">    [</span><span class="kn">Arguments</span><span class="p">]    @{</span><span class="nv">arg</span><span class="p">}</span>
+<span class="p">    </span><span class="nf">Log Many</span><span class="p">    @{</span><span class="nv">arg</span><span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">mytests.robot</span></code> ：</p>
+<div class="highlight-robotframework"><div class="highlight"><pre><span></span><span class="gh">*** Settings ***</span><span class="p"></span>
+<span class="kn">Resource</span><span class="p">        </span><span class="nn">myresource.robot</span><span class="p"></span>
+
+<span class="gh">*** Test Cases ***</span><span class="p"></span>
+<span class="gu">Test Robot Framework Logging</span><span class="p"></span>
+<span class="p">    </span><span class="nf">Log</span><span class="p">    </span><span class="s">&quot;Test Logging&quot;</span><span class="p"></span>
+
+<span class="gu">Test My Logging</span><span class="p"></span>
+<span class="p">    </span><span class="nf">My Logging</span><span class="p">   </span><span class="s">&quot;Test My Logging 1&quot;</span><span class="p">   </span><span class="s">&quot;Test My Logging 2&quot;</span><span class="p"></span>
+</pre></div>
+</div>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ robot mytests.robot
+<span class="o">==============================================================================</span>
+<span class="nv">Mytests</span>
+<span class="o">==============================================================================</span>
+Test Robot Framework Logging                                          <span class="p">|</span> PASS <span class="p">|</span>
+------------------------------------------------------------------------------
+Test My Logging                                                       <span class="p">|</span> PASS <span class="p">|</span>
+------------------------------------------------------------------------------
+Mytests                                                               <span class="p">|</span> PASS <span class="p">|</span>
+<span class="m">2</span> critical tests, <span class="m">2</span> passed, <span class="m">0</span> failed
+<span class="m">2</span> tests total, <span class="m">2</span> passed, <span class="m">0</span> <span class="nv">failed</span>
+<span class="o">==============================================================================</span>
+Output:  /tmp/myproj/output.xml
+Log:     /tmp/myproj/log.html
+Report:  /tmp/myproj/report.html
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id12">
+<h2><a class="toc-backref" href="#id34">參考</a><a class="headerlink" href="#id12" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://stackoverflow.com/a/34520971/3880958">In py.test, what is the use of conftest.py files?</a></li>
+</ul>
 </div>
 </div>
 
