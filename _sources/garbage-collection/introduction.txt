@@ -549,6 +549,11 @@ PHP - Zend Engine
 PHP - HHVM
 ------------------------------
 
+參考：
+
+* `HHVM - Garbage Collector Settings <https://docs.hhvm.com/hhvm/configuration/INI-settings#garbage-collector-settings>`_
+    - HHVM 3.18 加入 GC 開關的選項
+
 
 Perl
 ------------------------------

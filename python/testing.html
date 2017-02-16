@@ -622,11 +622,19 @@
 <li class="toctree-l1"><a class="reference internal" href="standard-library.html">Standard Library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sympy.html">SymPy</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Python Testing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#tools">Tools</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#doctest">doctest</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#unittest-pyunit">unittest (PyUnit)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#nose">nose</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#pytest">pytest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#doctest">doctest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unittest-pyunit">unittest (PyUnit)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pytest">pytest</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">安裝</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">使用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">pytest 設定檔</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pytest-xdist">pytest-xdist - 同時執行多項測試</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pytest-cov">pytest-cov - 測試涵蓋率</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#nose">nose</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">安裝</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">使用</a></li>
 </ul>
 </li>
 </ul>
@@ -769,13 +777,37 @@
            <div itemprop="articleBody">
             
   <div class="section" id="python-testing">
-<h1>Python Testing<a class="headerlink" href="#python-testing" title="本標題的永久連結">¶</a></h1>
-<div class="section" id="tools">
-<h2>Tools<a class="headerlink" href="#tools" title="本標題的永久連結">¶</a></h2>
-<div class="section" id="doctest">
-<h3>doctest<a class="headerlink" href="#doctest" title="本標題的永久連結">¶</a></h3>
+<h1><a class="toc-backref" href="#id7">Python Testing</a><a class="headerlink" href="#python-testing" title="本標題的永久連結">¶</a></h1>
+<div class="contents topic" id="id1">
+<p class="topic-title first">目錄</p>
 <ul class="simple">
-<li><a class="reference external" href="https://docs.python.org/3/library/doctest.html">https://docs.python.org/3/library/doctest.html</a></li>
+<li><a class="reference internal" href="#python-testing" id="id7">Python Testing</a><ul>
+<li><a class="reference internal" href="#doctest" id="id8">doctest</a></li>
+<li><a class="reference internal" href="#unittest-pyunit" id="id9">unittest (PyUnit)</a></li>
+<li><a class="reference internal" href="#pytest" id="id10">pytest</a><ul>
+<li><a class="reference internal" href="#id2" id="id11">安裝</a></li>
+<li><a class="reference internal" href="#id3" id="id12">使用</a></li>
+<li><a class="reference internal" href="#id4" id="id13">pytest 設定檔</a></li>
+<li><a class="reference internal" href="#pytest-xdist" id="id14">pytest-xdist - 同時執行多項測試</a></li>
+<li><a class="reference internal" href="#pytest-cov" id="id15">pytest-cov - 測試涵蓋率</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#nose" id="id16">nose</a><ul>
+<li><a class="reference internal" href="#id5" id="id17">安裝</a></li>
+<li><a class="reference internal" href="#id6" id="id18">使用</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="doctest">
+<h2><a class="toc-backref" href="#id8">doctest</a><a class="headerlink" href="#doctest" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.python.org/3/library/doctest.html">Python - doctest</a></li>
+<li><a class="reference external" href="https://www.python.org/dev/peps/pep-0257/">PEP 257 - Docstring Conventions</a></li>
+<li><a class="reference external" href="https://www.python.org/dev/peps/pep-0287/">PEP 287 - reStructuredText Docstring Format</a></li>
+<li><a class="reference external" href="https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt">A Guide to NumPy/SciPy Documentation</a></li>
 </ul>
 <p>doctest 就是在 Python source code 裡爬 docstring，
 docstring 包含 module 最一開始的匿名字串和 function 下最開始的匿名字串 (也就是 help 可以看到的)，
@@ -797,43 +829,185 @@ docstring 包含 module 最一開始的匿名字串和 function 下最開始的�
     <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>或是 command line 直接下 <code class="docutils literal"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">doctest</span> <span class="pre">-v</span> <span class="pre">xxx.py</span></code></p>
+<p>或是 CLI 直接下 <code class="docutils literal"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">doctest</span> <span class="pre">-v</span> <span class="pre">xxx.py</span></code></p>
 </div>
 <div class="section" id="unittest-pyunit">
-<h3>unittest (PyUnit)<a class="headerlink" href="#unittest-pyunit" title="本標題的永久連結">¶</a></h3>
-<ul>
-<li><p class="first"><a class="reference external" href="https://docs.python.org/3/library/unittest.html">https://docs.python.org/3/library/unittest.html</a></p>
-</li>
-<li><p class="first">inspired by JUnit</p>
-</li>
-<li><dl class="first docutils">
-<dt>support</dt>
-<dd><ul class="first last simple">
-<li>test automation</li>
-<li>sharing of setup and shutdown code for tests</li>
-<li>aggregation of tests into collections</li>
-<li>independence of the tests from the reporting framework</li>
+<h2><a class="toc-backref" href="#id9">unittest (PyUnit)</a><a class="headerlink" href="#unittest-pyunit" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.python.org/3/library/unittest.html">Python - unittest</a></li>
 </ul>
-</dd>
-</dl>
-</li>
-</ul>
-<p>command line 直接下 <code class="docutils literal"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">discover</span> <span class="pre">-v</span></code></p>
-</div>
-<div class="section" id="nose">
-<h3>nose<a class="headerlink" href="#nose" title="本標題的永久連結">¶</a></h3>
-<p>install : <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">pacman</span> <span class="pre">-S</span> <span class="pre">python-nose</span></code></p>
-<p><code class="docutils literal"><span class="pre">nosetests</span> <span class="pre">--with-doctest</span> <span class="pre">-v</span></code></p>
-</div>
-<div class="section" id="pytest">
-<h3>pytest<a class="headerlink" href="#pytest" title="本標題的永久連結">¶</a></h3>
-<p>install : <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">pacman</span> <span class="pre">-S</span> <span class="pre">python-pytest</span></code></p>
-<div class="highlight-ini"><div class="highlight"><pre><span></span><span class="c1"># pytest.ini</span>
-<span class="k">[pytest]</span>
-<span class="na">python_files</span><span class="o">=</span><span class="s">*.py</span>
+<p>從 JUnit 發展過來的產品，
+但是個人感覺有些東西還留有跟 Python convention 不合的地方（例如 <code class="docutils literal"><span class="pre">setUp</span></code> 不是 <code class="docutils literal"><span class="pre">set_up</span></code> ），
+為 Python Standard Library 內提供來撰寫測試的主要方式，
+但是第三方套件還有一些好用的實做（例如 <code class="docutils literal"><span class="pre">pytest</span></code> ）。</p>
+<p>要利用 <code class="docutils literal"><span class="pre">unittest</span></code> 實做測試就要建立新的 class 並繼承 <code class="docutils literal"><span class="pre">unittest.TestCase</span></code> ：</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">unittest</span>
+
+<span class="k">class</span> <span class="nc">TestStringMethods</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">test_upper</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span> <span class="s1">&#39;FOO&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><code class="docutils literal"><span class="pre">py.test</span> <span class="pre">--doctest-modules</span> <span class="pre">-v</span> <span class="pre">--strict</span></code></p>
+<p>執行測試：</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># 直接執行</span>
+$ python mytest.py
+
+<span class="c1"># 指定</span>
+$ python -m unittest mytest
+$ python -m unittest mytest.TestStringMethods
+$ python -m unittest mytest.TestStringMethods.test_upper
+
+<span class="c1"># 自動尋找</span>
+$ python -m unittest discover -v
+</pre></div>
+</div>
+<p>為測試事前準備、事後回收：</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">unittest</span>
+
+<span class="k">class</span> <span class="nc">TestSomething</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;some_file.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">tearDown</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">test_file_access</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">readline</span><span class="p">(),</span> <span class="s1">&#39;XD</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>把特定的測試標為預期會失敗或是跳過：</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">unittest</span>
+
+<span class="k">class</span> <span class="nc">TestSomething</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;some_file.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">tearDown</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="nd">@unittest.skip</span><span class="p">(</span><span class="s2">&quot;demonstrating skipping&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">test_skip</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fail</span><span class="p">(</span><span class="s2">&quot;WTF&quot;</span><span class="p">)</span>
+
+    <span class="nd">@unittest.skipIf</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">)[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+                     <span class="s2">&quot;not supported in this library version&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">test_fstring</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;{name}&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+    <span class="nd">@unittest.skipUnless</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">platform</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;linux&quot;</span><span class="p">),</span> <span class="s2">&quot;requires Linux&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">test_linux</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="nd">@unittest.expectedFailure</span>
+    <span class="k">def</span> <span class="nf">test_fail</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fail</span><span class="p">(</span><span class="s2">&quot;WTF&quot;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>利用 subtest 來區隔不同 iteration：</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">unittest</span>
+
+<span class="k">class</span> <span class="nc">TestSomething</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_even</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
+            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">subTest</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>自製 decorator：</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">skipUnlessHasattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">attr</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">attr</span><span class="p">):</span>
+        <span class="k">return</span> <span class="k">lambda</span> <span class="n">func</span><span class="p">:</span> <span class="n">func</span>
+    <span class="k">return</span> <span class="n">unittest</span><span class="o">.</span><span class="n">skip</span><span class="p">(</span><span class="s2">&quot;{!r} doesn&#39;t have {!r}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">attr</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pytest">
+<h2><a class="toc-backref" href="#id10">pytest</a><a class="headerlink" href="#pytest" title="本標題的永久連結">¶</a></h2>
+<p>Python Standard Library 雖然有內建 <code class="docutils literal"><span class="pre">unittest</span></code> ，
+但是使用上的方便性還是不夠高，
+第三方套件中個人覺得 <code class="docutils literal"><span class="pre">pytest</span></code> 非常好用，
+擴充 Plugins 也很多。</p>
+<div class="section" id="id2">
+<h3><a class="toc-backref" href="#id11">安裝</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h3>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>pip install pytest
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id12">使用</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h3>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># --doctest-modules: 跑 doctest</span>
+<span class="c1"># -v: verbose</span>
+<span class="c1"># --strict: 把 warning 當 error</span>
+py.test --doctest-modules -v --strict
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id13">pytest 設定檔</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h3>
+<div class="highlight-ini"><div class="highlight"><pre><span></span><span class="c1"># pytest.ini</span>
+<span class="k">[pytest]</span>
+<span class="na">addopts</span> <span class="o">=</span> <span class="s">--doctest-modules -v --strict -n8</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pytest-xdist">
+<h3><a class="toc-backref" href="#id14">pytest-xdist - 同時執行多項測試</a><a class="headerlink" href="#pytest-xdist" title="本標題的永久連結">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">URL:</th><td class="field-body"><a class="reference external" href="https://github.com/pytest-dev/pytest-xdist">https://github.com/pytest-dev/pytest-xdist</a></td>
+</tr>
+</tbody>
+</table>
+<p><code class="docutils literal"><span class="pre">pytest-xdist</span></code> 是一個 <code class="docutils literal"><span class="pre">pytest</span></code> 的 plugin，
+可以使用多顆 CPU 或是多台機器來同時執行測試，
+以加速所需要花費的時間。</p>
+</div>
+<div class="section" id="pytest-cov">
+<h3><a class="toc-backref" href="#id15">pytest-cov - 測試涵蓋率</a><a class="headerlink" href="#pytest-cov" title="本標題的永久連結">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">URL:</th><td class="field-body"><a class="reference external" href="https://github.com/pytest-dev/pytest-cov">https://github.com/pytest-dev/pytest-cov</a></td>
+</tr>
+</tbody>
+</table>
+<p>可以產生出多種格式的 Report，
+例如直接在終端機顯示、HTML、XML 等。</p>
+</div>
+</div>
+<div class="section" id="nose">
+<h2><a class="toc-backref" href="#id16">nose</a><a class="headerlink" href="#nose" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="id5">
+<h3><a class="toc-backref" href="#id17">安裝</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h3>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>pip install nose
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3><a class="toc-backref" href="#id18">使用</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h3>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>nosetests --with-doctest -v
+</pre></div>
+</div>
 </div>
 </div>
 </div>
