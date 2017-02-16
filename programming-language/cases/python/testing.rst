@@ -176,6 +176,42 @@ Python Standard Library 雖然有內建 ``unittest`` ，
 第三方套件中個人覺得 ``pytest`` 非常好用，
 擴充 Plugins 也很多。
 
+pytest 會自動去發現符合 convention 的測試，
+也就是 ``test_*.py`` 或 ``*_test.py`` ，
+對於這些檔案會進去找 ``test_*`` 的函式或是 ``Test*::test_*`` method。
+
+一般 Python 專案放置的測試位置有兩種，
+一種是最上層的 ``tests/`` 資料夾：
+
+::
+
+    layout1
+    ├── mypkg
+    │   ├── __init__.py
+    │   └── mymodule.py
+    ├── setup.py
+    └── tests
+        └── test_mymodule.py
+
+另一種是在 Python Package 內的 ``tests/`` 資料夾：
+
+::
+
+    layout2
+    ├── mypkg
+    │   ├── __init__.py
+    │   ├── mymodule.py
+    │   └── test
+    │       └── test_mymodule.py
+    └── setup.py
+
+
+相關範例可以參考 `examples 資料夾 <https://github.com/wdv4758h/notes/tree/master/programming-language/cases/python/examples/py.test>`_
+
+
+pytest 雖然自己提供了直接定義函式並使用 ``assert`` 的方法來撰寫測試，
+但是原本使用 ``unittest`` 的方反撰寫的測試也仍然支援。
+
 
 安裝
 ------------------------------
@@ -196,6 +232,80 @@ Python Standard Library 雖然有內建 ``unittest`` ，
     py.test --doctest-modules -v --strict
 
 
+pytest fixture
+------------------------------
+
+pytest 的 fixture 是接在函式參數寫上對應的名稱即可，
+例如需要暫時的資料夾就寫 ``tempdir`` ：
+
+.. code-block:: python
+
+    def test_needsfiles(tmpdir):
+        print(tmpdir)
+        pass
+
+
+列出支援的 fixture：
+
+.. code-block:: sh
+
+    $ pytest --fixtures
+    ...
+    cache -- /tmp/venv/lib/python3.6/site-packages/_pytest/cacheprovider.py:190
+        Return a cache object that can persist state between testing sessions.
+
+        cache.get(key, default)
+        cache.set(key, value)
+
+        Keys must be a ``/`` separated value, where the first part is usually the
+        name of your plugin or application to avoid clashes with other cache users.
+
+        Values can be any object handled by the json stdlib module.
+    capsys -- /tmp/venv/lib/python3.6/site-packages/_pytest/capture.py:160
+        Enable capturing of writes to sys.stdout/sys.stderr and make
+        captured output available via ``capsys.readouterr()`` method calls
+        which return a ``(out, err)`` tuple.
+    ...
+
+
+如果 fixture 不夠用可以安裝第三方套件或是自行撰寫，
+安裝完後一樣可以在列表中看到：
+
+.. code-block:: sh
+
+    $ pytest --fixtures
+    ...
+
+    -------------------------------- fixtures defined from pytest_django.fixtures --------------------------------
+    db -- /tmp/venv/lib/python3.6/site-packages/pytest_django/fixtures.py:142
+        Require a django test database
+
+        This database will be setup with the default fixtures and will have
+        the transaction management disabled. At the end of the test the outer
+        transaction that wraps the test itself will be rolled back to undo any
+        changes to the database (in case the backend supports transactions).
+        This is more limited than the ``transactional_db`` resource but
+        faster.
+
+        If both this and ``transactional_db`` are requested then the
+        database setup will behave as only ``transactional_db`` was
+        requested.
+        transactional_db -- /tmp/venv/lib/python3.6/site-packages/pytest_django/fixtures.py:164
+        Require a django test database with transaction support
+
+        This will re-initialise the django database for each test and is
+        thus slower than the normal ``db`` fixture.
+
+        If you want to use the database with transactions you must request
+        this resource.  If both this and ``db`` are requested then the
+        database setup will behave as only ``transactional_db`` was
+        requested.
+    ...
+
+
+另外這邊有各 pytest plugins 跟 Python 版本的相容狀況 `網站 <http://plugincompat.herokuapp.com/>`_
+
+
 pytest 設定檔
 ------------------------------
 
@@ -204,6 +314,72 @@ pytest 設定檔
     # pytest.ini
     [pytest]
     addopts = --doctest-modules -v --strict -n8
+
+
+自製 fixture 和 plugin
+------------------------------
+
+檢查哪些 plugins 是目前會使用到的：
+
+.. code-block:: sh
+
+    $ pytest --trace-config
+
+
+不使用特定 plugin：
+
+.. code-block:: sh
+
+    $ pytest -p no:NAME
+
+
+在每個測試程式碼的資料夾都可以放 ``conftest.py`` 來擴充 pytest，
+可以操控的內容包含：
+
+* fixtures
+* external plugin loading: ``pytest_plugins = "someapp.someplugin"``
+* hooks
+
+
+範例一：
+
+.. code-block:: python
+
+    # conftest.py
+
+    import pytest
+
+
+    @pytest.fixture()
+    def myitem():
+        return "this is my item"
+
+.. code-block:: python
+
+    # test_mymodule
+
+    def test_myitem(myitem):
+        assert myitem == "this is my item"
+
+
+範例二（更改錯誤訊息）：
+
+.. code-block:: python
+
+    # conftest.py
+
+    def pytest_assertrepr_compare(op, left, right):
+        if isinstance(left, int) and isinstance(right, int) and op == "==":
+            return ['Comparing number:',
+                    '   vals: %s != %s' % (left, right)]
+
+.. code-block:: python
+
+    # test_mymodule
+
+    def test_myint():
+        assert 1 == 0
+
 
 
 pytest-xdist - 同時執行多項測試
@@ -244,3 +420,230 @@ nose
 
     nosetests --with-doctest -v
 
+
+
+Robot Framework
+========================================
+
+:URL: http://robotframework.org/
+
+Robot Framework 是針對 ATDD（Acceptance Test-Driven Development）的 Framework，
+採用 Keyword-Driven 的方式來撰寫 User Story 作為測試，
+因此和 ``pytest`` 這種比較偏技術性的測試不同（若要相比的話以 ``pytest-bdd`` 比較類似），
+屬於比較著重客戶需求的方式。
+
+適用於測試人員和 QA，
+尤其是專門的測試人員的程式設計能力不強時，
+藉由 Keyword 的方式可以讓他們能夠撰寫測試。
+
+Robot Framework 的 Report 是一大強項，
+可以產生完整詳細的測試 Report。
+
+
+安裝
+------------------------------
+
+.. code-block:: sh
+
+    $ pip install robotframework
+    $ robot --version
+    Robot Framework 3.0.2 (Python 3.6.0 on linux)
+
+
+使用
+------------------------------
+
+Robot Framework 提供了兩個 Stript 來輔助使用：
+
+* ``rebot`` 來執行測試（例如 ``rebot tests.robot`` ）
+* ``rebot`` 來處理產生的資料（例如 ``rebot output.xml`` ）
+
+
+範例一 - 架構輪廓
+++++++++++++++++++++
+
+Robot Framework 支援用好幾個不同的格式來撰寫測試，
+包含：
+
+* Plain Text
+* HTML
+* reStructuredText
+
+
+``mytests.robot`` ：
+
+.. code-block:: robotframework
+
+    *** Settings ***
+    Documentation     A simple test example
+    ...
+    ...               This is just a really simple one.
+
+    *** Test Cases ***
+    Test Robot Framework Logging
+        Log   "Test Logging"
+
+
+.. code-block:: sh
+
+    # 執行測試
+    $ robot mytests.robot
+    ==============================================================================
+    Mytests :: A simple test example
+    ==============================================================================
+    Test Robot Framework Logging                                          | PASS |
+    ------------------------------------------------------------------------------
+    Mytests :: A simple test example                                      | PASS |
+    1 critical test, 1 passed, 0 failed
+    1 test total, 1 passed, 0 failed
+    ==============================================================================
+    Output:  /tmp/myproj/output.xml
+    Log:     /tmp/myproj/log.html
+    Report:  /tmp/myproj/report.html
+
+    # 跑完測試會產生 report.html，可以在瀏覽器中看整體的狀況
+    $ python -m http.server
+
+
+
+範例二 - 使用內建 Library
++++++++++++++++++++++++++
+
+以下嘗試使用 Robot Framework 內建的 Library 來輔助撰寫測試，
+這邊使用了 ``String`` 內的 ``Generate Random String`` 。
+
+.. code-block:: robotframework
+
+    *** Settings ***
+    Documentation     A simple test example
+    ...
+    ...               This is just a really simple one.
+
+    Library    String
+
+
+    *** Test Cases ***
+    Test Robot Framework Logging
+        Log   "Test Logging"
+        Log Many  First Entry  Second Entry
+        Log To Console  still running
+
+    Test For Loop
+        : FOR    ${INDEX}    IN RANGE    1    3
+        \    Log    ${INDEX}
+        \    ${RANDOM_STRING}=    Generate Random String    ${INDEX}
+        \    Log    ${RANDOM_STRING}
+
+
+.. code-block:: sh
+
+    $ robot mytests.robot
+    ==============================================================================
+    Mytests :: A simple test example
+    ==============================================================================
+    Test Robot Framework Logging                                          ..still running
+    Test Robot Framework Logging                                          | PASS |
+    ------------------------------------------------------------------------------
+    Test For Loop                                                         | PASS |
+    ------------------------------------------------------------------------------
+    Mytests :: A simple test example                                      | PASS |
+    2 critical tests, 2 passed, 0 failed
+    2 tests total, 2 passed, 0 failed
+    ==============================================================================
+    Output:  /tmp/myproj/output.xml
+    Log:     /tmp/myproj/log.html
+    Report:  /tmp/myproj/report.html
+
+
+範例三 - 自己撰寫 Keyword
++++++++++++++++++++++++++
+
+.. code-block:: robotframework
+
+    *** Settings ***
+
+    *** Test Cases ***
+    Test Robot Framework Logging
+        Log    Test Logging
+
+    Test My Robot Framework Logging
+        My Logging    My Message    WARN
+
+    *** Keywords ***
+    My Logging
+        [Arguments]    ${msg}    ${level}       # 兩個參數
+        Log    ${msg}    ${level}
+
+
+.. code-block:: sh
+
+    $ robot mytests.robot
+    ==============================================================================
+    Mytests
+    ==============================================================================
+    Test Robot Framework Logging                                          | PASS |
+    ------------------------------------------------------------------------------
+    [ WARN ] My Message
+    Test My Robot Framework Logging                                       | PASS |
+    ------------------------------------------------------------------------------
+    Mytests                                                               | PASS |
+    2 critical tests, 2 passed, 0 failed
+    2 tests total, 2 passed, 0 failed
+    ==============================================================================
+    Output:  /tmp/myproj/output.xml
+    Log:     /tmp/myproj/log.html
+    Report:  /tmp/myproj/report.html
+
+
+
+範例四 - 把 Keyword 獨立出來以便共用
+++++++++++++++++++++++++++++++++++++
+
+``myresource.robot`` ：
+
+.. code-block:: robotframework
+
+    *** Keywords ***
+    My Logging
+        [Arguments]    @{arg}
+        Log Many    @{arg}
+
+
+``mytests.robot`` ：
+
+.. code-block:: robotframework
+
+    *** Settings ***
+    Resource        myresource.robot
+
+    *** Test Cases ***
+    Test Robot Framework Logging
+        Log    "Test Logging"
+
+    Test My Logging
+        My Logging   "Test My Logging 1"   "Test My Logging 2"
+
+
+.. code-block:: sh
+
+    $ robot mytests.robot
+    ==============================================================================
+    Mytests
+    ==============================================================================
+    Test Robot Framework Logging                                          | PASS |
+    ------------------------------------------------------------------------------
+    Test My Logging                                                       | PASS |
+    ------------------------------------------------------------------------------
+    Mytests                                                               | PASS |
+    2 critical tests, 2 passed, 0 failed
+    2 tests total, 2 passed, 0 failed
+    ==============================================================================
+    Output:  /tmp/myproj/output.xml
+    Log:     /tmp/myproj/log.html
+    Report:  /tmp/myproj/report.html
+
+
+參考
+========================================
+
+* `In py.test, what is the use of conftest.py files? <http://stackoverflow.com/a/34520971/3880958>`_
