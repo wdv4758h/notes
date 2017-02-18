@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Return Value Optimization &mdash; wdv4758h-notes latest 說明文件</title>
+  <title>RVO (Return Value Optimization) &mdash; wdv4758h-notes latest 說明文件</title>
   
 
   
@@ -309,6 +309,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../computer-vision/object-detection.html">Object Detection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computer-vision/panaorma.html">Panorama (Image Stitching)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="64bits-problem.html">64 Bits Problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">C++</a></li>
 <li class="toctree-l1"><a class="reference internal" href="SFINAE.html">SFINAE (Substitution Failure Is Not An Error)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="assembly.html">C++ &amp; Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bit-field.html">C++ Bit Field</a></li>
@@ -316,7 +317,7 @@
 <li class="toctree-l1"><a class="reference internal" href="concepts.html">C++ Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="const.html">C++ const</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coroutine.html">C++ Coroutine</a></li>
-<li class="toctree-l1"><a class="reference internal" href="crtp.html">CRTP (Curiously recurring template pattern)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crtp.html">CRTP (Curiously Recurring Template Pattern)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ctor-dtor.html">C++ Constructors &amp; Destructors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="experimental.html">Experimental</a></li>
 <li class="toctree-l1"><a class="reference internal" href="expression-templates.html">Expression Templates</a></li>
@@ -334,7 +335,10 @@
 <li class="toctree-l1"><a class="reference internal" href="qt.html">Qt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="repl.html">C++ REPL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resource.html">C++ Resource</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Return Value Optimization</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">RVO (Return Value Optimization)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">參考</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="size_t-ptrdiff_t.html">About size_t and ptrdiff_t</a></li>
 <li class="toctree-l1"><a class="reference internal" href="standard-library-implementation.html">Standard Library Implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stl.html">C++ STL</a></li>
@@ -746,7 +750,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
       
-    <li>Return Value Optimization</li>
+    <li>RVO (Return Value Optimization)</li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -760,12 +764,21 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="return-value-optimization">
-<h1>Return Value Optimization<a class="headerlink" href="#return-value-optimization" title="本標題的永久連結">¶</a></h1>
-<p>Speed :</p>
+  <div class="section" id="rvo-return-value-optimization">
+<h1>RVO (Return Value Optimization)<a class="headerlink" href="#rvo-return-value-optimization" title="本標題的永久連結">¶</a></h1>
+<p>RVO 和 NRVO（Named Return Value Optimization）是 C++ 中的一項編譯器優化技術，
+可以減少 Temporary Object 的產生和 Copy 的呼叫，
+使用這像優化技術後物件的記憶體位置可能會直接建立在原本要回傳的記憶體位置，
+因此物件記憶體位置可能不在現有的 Stack Frame 範圍內，
+而在別人的 Stack 上。</p>
+<p>以效能來來說，
+套用 RVO/NRVO 技術的狀況會比採用 Move Constructor 來的快，
+Move Constructor 又比 Copy Constructor 來的快。</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">RVO</span><span class="o">/</span><span class="n">NRVO</span> <span class="o">&gt;</span> <span class="n">Move</span> <span class="o">&gt;</span> <span class="n">Copy</span>
 </pre></div>
 </div>
+<div class="section" id="id1">
+<h2>參考<a class="headerlink" href="#id1" title="本標題的永久連結">¶</a></h2>
 <ul>
 <li><p class="first"><a class="reference external" href="https://mbevin.wordpress.com/2012/11/20/move-semantics/">Lesson #5: Move Semantics</a></p>
 </li>
@@ -789,6 +802,7 @@
 <li><p class="first"><a class="reference external" href="http://nondot.org/sabre/LLVMNotes/BetterStructureCopyOptimization.txt">Better Optimization for Structure Copies</a></p>
 </li>
 </ul>
+</div>
 </div>
 
 

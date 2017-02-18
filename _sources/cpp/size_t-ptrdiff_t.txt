@@ -2,7 +2,7 @@
 About size_t and ptrdiff_t
 ========================================
 
-.. image:: ../images/cpp/data-model.png
+.. image:: /images/cpp/data-model.png
 
 * `About size_t and ptrdiff_t <https://medium.com/@CPP_Coder/about-size-t-and-ptrdiff-t-a1654234d842>`_
     - size_t 和 ptrdiff_t 比較安全、portable

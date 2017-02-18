@@ -1,5 +1,5 @@
 ===========================================
-CRTP (Curiously recurring template pattern)
+CRTP (Curiously Recurring Template Pattern)
 ===========================================
 
 CRTP 是一種 static polymorphism 的方式，
