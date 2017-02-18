@@ -6,6 +6,7 @@ C++
 * `Value Category <value-category.rst>`_
 * `Initialization <initialization.rst>`_
 * `OOP <oop.rst>`_
+* `型別推斷 (Type Deduction) <type-deduction.rst>`_
 * `RVO (Return Value Optimization) <rvo.rst>`_
 * `Pimpl (Pointer to Implementation) <pimpl.rst>`_
 * `CRTP (Curiously Recurring Template Pattern) <crtp.rst>`_
