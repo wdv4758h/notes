@@ -1,0 +1,42 @@
+=== Allocate on Stack ===
+[default ctor] MyClass()
+0x7ffc0a2fde18
+0x7ffc0a2fde18
+[dtor        ] ~MyClass()
+=== Allocate on Heap (without explicit delete) ===
+[default ctor] MyClass()
+0x1882c30
+0x1882c30
+=== Allocate on Heap (unique_ptr) ===
+[default ctor] MyClass()
+0x1882c50
+0x1882c50
+[dtor        ] ~MyClass()
+=== Allocate on Heap (shared_ptr) ===
+[default ctor] MyClass()
+0x1882c60
+0x1882c60
+Share Count: 1
+Share Count: 2
+Share Count: 1
+[dtor        ] ~MyClass()
+=== Allocate on Heap (return shared_ptr, assign weak_ptr) ===
+[default ctor] MyClass()
+0x1882c60
+[dtor        ] ~MyClass()
+0
+I don't have object :(
+=== shared_ptr and array ===
+[default ctor] MyClass()
+[default ctor] MyClass()
+[default ctor] MyClass()
+[dtor        ] ~MyClass()
+[dtor        ] ~MyClass()
+[dtor        ] ~MyClass()
+=== shared_ptr and array ===
+[default ctor] MyClass()
+[default ctor] MyClass()
+[default ctor] MyClass()
+[dtor        ] ~MyClass()
+[dtor        ] ~MyClass()
+[dtor        ] ~MyClass()
