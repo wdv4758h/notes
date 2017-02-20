@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Python 3.6 &mdash; wdv4758h-notes latest 說明文件</title>
+  <title>Agda 相關資源 &mdash; wdv4758h-notes latest 說明文件</title>
   
 
   
@@ -750,11 +750,11 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../../../index.html">Docs</a> &raquo;</li>
       
-    <li>Python 3.6</li>
+    <li>Agda 相關資源</li>
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="https://github.com/wdv4758h/notes/blob/master/./programming-language/cases/python/python-3.6.rst" class="fa fa-github"> Edit on GitHub</a>
+            <a href="https://github.com/wdv4758h/notes/blob/master/./programming-language/cases/agda/resource.rst" class="fa fa-github"> Edit on GitHub</a>
           
         
       </li>
@@ -764,147 +764,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="python-3-6">
-<h1><a class="toc-backref" href="#id3">Python 3.6</a><a class="headerlink" href="#python-3-6" title="本標題的永久連結">¶</a></h1>
-<div class="contents topic" id="id1">
-<p class="topic-title first">目錄</p>
+  <div class="section" id="agda">
+<h1>Agda 相關資源<a class="headerlink" href="#agda" title="本標題的永久連結">¶</a></h1>
 <ul class="simple">
-<li><a class="reference internal" href="#python-3-6" id="id3">Python 3.6</a><ul>
-<li><a class="reference internal" href="#pep-498-formatted-string-literals" id="id4">PEP 498: Formatted string literals</a></li>
-<li><a class="reference internal" href="#pep-526-syntax-for-variable-annotations" id="id5">PEP 526: Syntax for variable annotations</a></li>
-<li><a class="reference internal" href="#pep-515-underscores-in-numeric-literals" id="id6">PEP 515: Underscores in Numeric Literals</a></li>
-<li><a class="reference internal" href="#asynchronous" id="id7">更多 Asynchronous 的支援</a></li>
-<li><a class="reference internal" href="#module-secrets" id="id8">新 module — secrets</a></li>
-<li><a class="reference internal" href="#dict" id="id9">新 dict 實做</a></li>
-<li><a class="reference internal" href="#dtrace-systemtap" id="id10">DTrace 和 SystemTap 支援</a></li>
-<li><a class="reference internal" href="#id2" id="id11">參考</a></li>
+<li><a class="reference external" href="http://agda.readthedocs.io/en/latest/index.html">Agda Documentation</a></li>
+<li><a class="reference external" href="http://learnyouanagda.liamoc.net/">Learn you An Agda And Achieve Enlightenment</a></li>
+<li><a class="reference external" href="http://mazzo.li/posts/AgdaSort.html">Agda by Example: Sorting</a></li>
+<li><a class="reference external" href="http://wiki.portal.chalmers.se/agda/pmwiki.php?n=Main.LiterateAgda">Literate Agda</a></li>
 </ul>
-</li>
-</ul>
-</div>
-<div class="section" id="pep-498-formatted-string-literals">
-<h2><a class="toc-backref" href="#id4">PEP 498: Formatted string literals</a><a class="headerlink" href="#pep-498-formatted-string-literals" title="本標題的永久連結">¶</a></h2>
-<p><code class="docutils literal"><span class="pre">f-strings</span></code> 這個新 feature 的加入是因為先前有太多狀況是在寫冗餘的 format，
-所以特別加入這個 feature 來讓使用變簡單。</p>
-<p>原本：</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;{c} | {b} | {a}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>現在可以：</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">s</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;{c} | {b} | {a}&quot;</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="pep-526-syntax-for-variable-annotations">
-<h2><a class="toc-backref" href="#id5">PEP 526: Syntax for variable annotations</a><a class="headerlink" href="#pep-526-syntax-for-variable-annotations" title="本標題的永久連結">¶</a></h2>
-<p>把原本在 PEP 484 加入的函式 Type Hinting 擴增到變數的使用上。</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">primes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-
-<span class="n">captain</span><span class="p">:</span> <span class="nb">str</span>  <span class="c1"># Note: no initial value!</span>
-
-<span class="k">class</span> <span class="nc">Starship</span><span class="p">:</span>
-    <span class="n">stats</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="pep-515-underscores-in-numeric-literals">
-<h2><a class="toc-backref" href="#id6">PEP 515: Underscores in Numeric Literals</a><a class="headerlink" href="#pep-515-underscores-in-numeric-literals" title="本標題的永久連結">¶</a></h2>
-<p>在撰寫數字較長的數值時，
-會因為長度的關係而不好閱讀及判斷，
-因此有些程式語言可以在數值中任意加入分隔符號來做斷點，
-而在 PEP 515 中，
-Python 也加入了 <code class="docutils literal"><span class="pre">_</span></code> 作為分隔符號。</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="n">_000_000_000_000_000</span>
-<span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="n">x_FF_FF_FF_FF</span>
-<span class="n">z</span> <span class="o">=</span> <span class="mi">2</span><span class="n">_3_4_5</span>
-<span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;{:_}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">1000000</span><span class="p">)</span>      <span class="c1"># &#39;1_000_000&#39;</span>
-<span class="n">t</span> <span class="o">=</span> <span class="s1">&#39;{:_x}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mh">0xFFFFFFFF</span><span class="p">)</span>  <span class="c1"># &#39;ffff_ffff&#39;</span>
-</pre></div>
-</div>
-<p>相關 Commits：</p>
-<ul class="simple">
-<li><a class="reference external" href="https://github.com/python/cpython/commit/500b6de0015cdec5cf59a6d1178892e077f3031d">https://github.com/python/cpython/commit/500b6de0015cdec5cf59a6d1178892e077f3031d</a></li>
-<li><a class="reference external" href="https://github.com/python/cpython/commit/c563673a67e8c725e99e4a542d74d634d965c6ae">https://github.com/python/cpython/commit/c563673a67e8c725e99e4a542d74d634d965c6ae</a></li>
-</ul>
-</div>
-<div class="section" id="asynchronous">
-<h2><a class="toc-backref" href="#id7">更多 Asynchronous 的支援</a><a class="headerlink" href="#asynchronous" title="本標題的永久連結">¶</a></h2>
-<ul class="simple">
-<li>PEP 525: Asynchronous Generators</li>
-<li>PEP 530: Asynchronous Comprehensions</li>
-</ul>
-</div>
-<div class="section" id="module-secrets">
-<h2><a class="toc-backref" href="#id8">新 module — secrets</a><a class="headerlink" href="#module-secrets" title="本標題的永久連結">¶</a></h2>
-<p>內含一些函數可以產生亂度較強的 random 數值。</p>
-<ul class="simple">
-<li><a class="reference external" href="https://www.python.org/dev/peps/pep-0506/">PEP 506 - Adding A Secrets Module To The Standard Library</a></li>
-<li><a class="reference external" href="https://docs.python.org/3.6/library/secrets.html">https://docs.python.org/3.6/library/secrets.html</a></li>
-</ul>
-</div>
-<div class="section" id="dict">
-<h2><a class="toc-backref" href="#id9">新 dict 實做</a><a class="headerlink" href="#dict" title="本標題的永久連結">¶</a></h2>
-<ul class="simple">
-<li><a class="reference external" href="https://morepypy.blogspot.com/2015/01/faster-more-memory-efficient-and-more.html">https://morepypy.blogspot.com/2015/01/faster-more-memory-efficient-and-more.html</a></li>
-</ul>
-<p>相關檔案：</p>
-<ul class="simple">
-<li><a class="reference external" href="https://github.com/python/cpython/blob/master/Objects/dictobject.c">https://github.com/python/cpython/blob/master/Objects/dictobject.c</a></li>
-</ul>
-<p>相關 Commits：</p>
-<ul class="simple">
-<li><a class="reference external" href="https://github.com/python/cpython/commit/2330b19b3f6f0fd4e524f445eba05b8c1396736b">https://github.com/python/cpython/commit/2330b19b3f6f0fd4e524f445eba05b8c1396736b</a></li>
-</ul>
-</div>
-<div class="section" id="dtrace-systemtap">
-<h2><a class="toc-backref" href="#id10">DTrace 和 SystemTap 支援</a><a class="headerlink" href="#dtrace-systemtap" title="本標題的永久連結">¶</a></h2>
-<ul class="simple">
-<li><a class="reference external" href="https://docs.python.org/3.6/whatsnew/3.6.html#whatsnew36-tracing">https://docs.python.org/3.6/whatsnew/3.6.html#whatsnew36-tracing</a></li>
-</ul>
-</div>
-<div class="section" id="id2">
-<h2><a class="toc-backref" href="#id11">參考</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
-<ul>
-<li><p class="first"><a class="reference external" href="https://docs.python.org/3.6/whatsnew/3.6.html">What&#8217;s New In Python 3.6</a></p>
-</li>
-<li><dl class="first docutils">
-<dt><a class="reference external" href="https://speakerdeck.com/playpauseandstop/python-3-dot-6-and-performance-a-love-story">Python 3.6 &amp; Performance. A Love Story</a></dt>
-<dd><ul class="first last">
-<li><dl class="first docutils">
-<dt><a class="reference external" href="http://perf.readthedocs.io/en/latest/">perf</a></dt>
-<dd><ul class="first last simple">
-<li>在 Linux 下會蒐集一些例如 ASLR 有無開啟、IRQ affinity 等可能影響效率的系統層資訊</li>
-<li><a class="reference external" href="https://github.com/haypo/perf/blob/master/perf/_collect_metadata.py">perf/_collect_metadata.py</a></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><p class="first">CPython 2.7 仍是目前最快的版本，但是效能 CPython 3.6 &gt; CPython 3.5 &gt; CPython 3.4</p>
-</li>
-<li><p class="first">asyncio.Future 和 asyncio.Task 都用 C 重新實做</p>
-</li>
-<li><p class="first">string 和 bytes 的處理有顯著提昇</p>
-</li>
-<li><p class="first">glob 的處理有顯著提昇</p>
-</li>
-<li><p class="first">dict 的新實做類似 PyPy 內的 dict，記憶體用量較小，且會保有原本的順序</p>
-</li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt><a class="reference external" href="https://github.com/mattharrison/Tiny-Python-3.6-Notebook/blob/master/python.rst">Tiny Python 3.6 Notebook</a></dt>
-<dd><ul class="first last simple">
-<li>列了 Python 3.6 整個語言的特色範例，用於快速複習新的 Python，不適合初學者</li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-</div>
 </div>
 
 

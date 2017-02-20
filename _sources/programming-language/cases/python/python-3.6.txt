@@ -123,3 +123,5 @@ DTrace 和 SystemTap 支援
     - string 和 bytes 的處理有顯著提昇
     - glob 的處理有顯著提昇
     - dict 的新實做類似 PyPy 內的 dict，記憶體用量較小，且會保有原本的順序
+* `Tiny Python 3.6 Notebook <https://github.com/mattharrison/Tiny-Python-3.6-Notebook/blob/master/python.rst>`_
+    - 列了 Python 3.6 整個語言的特色範例，用於快速複習新的 Python，不適合初學者
