@@ -14,3 +14,4 @@ C++
 * `SFINAE (Substitution Failure Is Not An Error) <SFINAE.rst>`_
 * `String Optimization <string-optimization.rst>`_
 * `Testing <testing.rst>`_
+* `std::array <array.rst>`_
