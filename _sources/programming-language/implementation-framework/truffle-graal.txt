@@ -12,3 +12,5 @@ Truffle and Graal
     - `Part 2: Using Truffle and Graal <http://cesquivias.github.io/blog/2014/12/02/writing-a-language-in-truffle-part-2-using-truffle-and-graal/>`_
     - `Part 3: Making my Language (Much) Faster <http://cesquivias.github.io/blog/2015/01/08/writing-a-language-in-truffle-part-3-making-my-language-much-faster/>`_
     - `Part 4: Adding Features the Truffle Way <http://cesquivias.github.io/blog/2015/01/15/writing-a-language-in-truffle-part-4-adding-features-the-truffle-way/>`_
+* `Using TruffleRuby with the SVM <https://github.com/graalvm/truffleruby/blob/master/doc/user/svm.md>`_
+    - TruffleRuby 的 AOT 編譯器
