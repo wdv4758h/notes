@@ -15,3 +15,4 @@ C++
 * `String Optimization <string-optimization.rst>`_
 * `Testing <testing.rst>`_
 * `std::array <array.rst>`_
+* `explicit specifier <explicit.rst>`_

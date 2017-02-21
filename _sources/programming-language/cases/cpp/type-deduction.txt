@@ -274,3 +274,4 @@ C++17 加入了 Class Template Deduction 的支援，
 * `cppreference - decltype specifier <http://en.cppreference.com/w/cpp/language/decltype>`_
 * `cppreference - Class template deduction <http://en.cppreference.com/w/cpp/language/class_template_deduction>`_
 * `cppreference - Declaring functions <http://en.cppreference.com/w/cpp/language/function>`_
+* `GotW #94 Solution: AAA Style (Almost Always Auto) <https://herbsutter.com/2013/08/12/gotw-94-solution-aaa-style-almost-always-auto/>`_
