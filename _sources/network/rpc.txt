@@ -150,6 +150,13 @@ gRPC 是一套 Google 開發的 RPC Framework，
 什麼是 Protocol Buffers ？
 ------------------------------
 
+Protocol Buffers 是一套資料 Serialization 的方法，
+可以用於資料的儲存或傳輸，
+其設計是為了簡化和加速原本由 XML 負責的部份，
+格式為 Binary 而非 Plain Text，
+尤其廣泛使用於 RPC 系統。
+
+
 安裝：
 
 .. code-block:: sh
@@ -229,6 +236,49 @@ gRPC 是一套 Google 開發的 RPC Framework，
 什麼是 Cap'n Proto ？
 ------------------------------
 
+Cap'n Proto 是 Protocol Buffers v2 的作者後來開發的專案，
+作者吸收先前的經驗來開發新的 Serialization 格式，
+主打有更好的效率。
+
+
+什麼是 FlatBuffers ？
+------------------------------
+
+什麼是 MessagePack ？
+------------------------------
+
+MessagePack RPC 使用者：
+
+* Neovim
+
+
+
+選擇 Serialization 方案
+========================================
+
+在選擇一個方案的時候會有很多考量，
+不同的實做間有不同的 tradeoff，
+選擇適合自己的使用情境的方案就變成一個問題。
+
+可能的考量：
+
+* Serialization/Deserialization 效能
+* 需要的儲存大小
+* 傳輸需要的頻寬
+* 支援的程式語言數量
+* 特定程式語言的支援
+* 支援的平台數量
+* 特定平台的支援
+* 可讀性
+* 生態圈的豐富度和活躍度
+
+
+例如：
+Cap'n Proto 在 Serialization/Deserialization 效能考量下可能就是個很好的選擇，
+但是它是 Binary 格式，
+如果你要良好的可讀性的話，
+可能就得選擇其他 Plain Text 的方案。
+
 
 
 相關專案
@@ -249,9 +299,37 @@ gRPC 是一套 Google 開發的 RPC Framework，
 ========================================
 
 * `Wikipedia - Remote Procedure Call <https://en.wikipedia.org/wiki/Remote_procedure_call>`_
+* `Wikipedia - Comparison of data serialization formats <https://en.wikipedia.org/wiki/Comparison_of_data_serialization_formats>`_
+
+gRPC：
+
+* `gRPC - A high performance, open source universal RPC framework <http://www.grpc.io/>`_
 * [GitHub] `gRPC <https://github.com/grpc/grpc/>`_
 * `Introducing gRPC, a new open source HTTP/2 RPC Framework <https://developers.googleblog.com/2015/02/introducing-grpc-new-open-source-http2.html>`_
+
+
+Protocol Buffers：
+
+* `Protocol Buffers <https://developers.google.com/protocol-buffers/>`_
+* [GitHub] `Protocol Buffers <https://github.com/google/protobuf>`_
+
+
+Cap'n Proto：
+
+* `Cap'n Proto - Introduction <https://capnproto.org/>`_
+* [GitHub] `Cap'n Proto for Rust <https://github.com/dwrensha/capnproto-rust>`_
+* `Cap'n Proto, FlatBuffers, and SBE <https://capnproto.org/news/2014-06-17-capnproto-flatbuffers-sbe.html>`_
+
+
+FlatBuffers：
+
+* `FlatBuffers <http://google.github.io/flatbuffers/index.html>`_
+* `Improving Facebook's performance on Android with FlatBuffers <https://code.facebook.com/posts/872547912839369/improving-facebook-s-performance-on-android-with-flatbuffers/>`_
+
+
 
 Benchmark：
 
 * `REST v.s. gRPC <https://husobee.github.io/golang/rest/grpc/2016/05/28/golang-rest-v-grpc.html>`_
+* `Rewriting Rust Serialization, Part 3: Introducing Serde <http://erickt.github.io/blog/2014/12/13/rewriting-rust-serialization/>`_
+    - Cap'n Proto, Protocol Buffers, MessagePack, JSON
