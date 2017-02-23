@@ -64,3 +64,8 @@ Per Martin-Löf - Intuitionistic Type Theory
 * `The collected works of Per Martin-Löf <https://github.com/michaelt/martin-lof>`_
 * `Stanford Encyclopedia of Philosophy - Intuitionistic Type Theory <http://plato.stanford.edu/entries/type-theory-intuitionistic/>`_
 * `Stanford Encyclopedia of Philosophy - Russell's Paradox <http://plato.stanford.edu/entries/russell-paradox/>`_
+
+Talks：
+
+* `Notes on Type Theory for absolute beginners by Hanneli Tavante <https://www.youtube.com/watch?v=UXBoiqRJ6DQ>`_
+    - `Slides <http://slides.com/hannelitavante-hannelita/devoxx-be-notes-type-theory>`_

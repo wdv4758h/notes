@@ -322,6 +322,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#const-in-function-parameters">const in function parameters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#const-member-function">const member function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#const-overloading">const overloading</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">注意事項</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
@@ -540,6 +541,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../misc/design-pattern.html">Design Pattern</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/disk-encryption.html">Disk Encryption</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/dot-language.html">DOT Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/easy-website-builder.html">簡易網站建立服務</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/esoteric_languages.html">Esoteric Programming Language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/fish.html">Fish Shell</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/floating-point.html">Floating Point</a></li>
@@ -707,6 +709,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../rust/use.html">use</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/videos.html">Rust Videos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/web.html">Rust &amp; Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/javascript-engine.html">Security issues in JavaScript Engine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../security/resource.html">資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../security/secure-guard-extensions.html">SGX (Secure Guard Extensions)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../security/security.html">Security</a></li>
@@ -817,10 +820,20 @@
 <span class="kt">void</span> <span class="nf">f3</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">s</span><span class="p">);</span>            <span class="c1">// Pass by value</span>
 </pre></div>
 </div>
+<p>注意的是在 Pass by Value 的情況下，
+參數有沒有加 <code class="docutils literal"><span class="pre">const</span></code> 都不會影響函式的 signature，
+所以如果有使用 forward declaration 的話，
+不需要在宣告時為參數加上 const，
+在寫實做時再依需求決定是否加上 const 來向內部標注 read-only 即可。
+（反正 Pass by Value 會複製一份，原本的資料到底是不是 const 已經不重要了）</p>
 </div>
 <div class="section" id="const-member-function">
 <h2>const member function<a class="headerlink" href="#const-member-function" title="本標題的永久連結">¶</a></h2>
-<p>const member function 又稱為 inspectors，不會更動 object 裡的東西，也就是對於這個 object 沒有副作用：</p>
+<p>const member function 又稱為 inspectors，
+不會更動 object 的 observable state，
+也就是對於這個 object 沒有副作用
+（內部有標明 mutable 的變數仍然可以更動，例如 Cache，
+維護的是 logically const 而不是 physically const）：</p>
 <div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
     <span class="kt">void</span> <span class="n">inspect</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>   <span class="c1">// This member promises NOT to change *this</span>
@@ -849,7 +862,8 @@
 </div>
 <p>如果有 member 在 const member function 是會更動的，
 但是仍然要把它視為 const member function，
-則須把該 member 宣告為 mutable。</p>
+則須把該 member 宣告為 mutable
+（writable but logically const）。</p>
 <div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
 
@@ -860,6 +874,9 @@
 <span class="p">};</span>
 </pre></div>
 </div>
+<p>如果要在多執行緒下跑，
+mutable 變數要額外做同步，
+例如用 mutex 或 atomic 的型別。</p>
 </div>
 <div class="section" id="const-overloading">
 <h2>const overloading<a class="headerlink" href="#const-overloading" title="本標題的永久連結">¶</a></h2>
@@ -876,10 +893,34 @@
 <span class="p">};</span>
 </pre></div>
 </div>
+<div class="section" id="id1">
+<h3>注意事項<a class="headerlink" href="#id1" title="本標題的永久連結">¶</a></h3>
+<p>同樣是 member function 的 const，
+C++98 思考的是 single-thread model，
+隱含 logically const。
+C++11 後思考的是 concurrency model，
+隱含的是真的 read-only 或是會同步，
+不需要 caller 做額外的同步處理。</p>
+</div>
 <div class="section" id="reference">
 <h3>Reference<a class="headerlink" href="#reference" title="本標題的永久連結">¶</a></h3>
-<ul class="simple">
-<li><a class="reference external" href="https://isocpp.org/wiki/faq/const-correctness">C++ FAQ - Const Correctness</a></li>
+<ul>
+<li><p class="first"><a class="reference external" href="https://isocpp.org/wiki/faq/const-correctness">C++ FAQ - Const Correctness</a></p>
+</li>
+<li><dl class="first docutils">
+<dt><a class="reference external" href="https://herbsutter.com/2013/05/24/gotw-6a-const-correctness-part-1-3/">GotW #6a Solution: Const-Correctness, Part 1</a></dt>
+<dd><ul class="first last simple">
+<li>With C++98, we taught a generation of C++ developers that &#8220;const means logically const, not physically/bitwise const&#8221;.</li>
+<li>With C++11 and onward, const now really does mean &#8220;read-only, or safe to read concurrently&#8221;-either truly physically/bitwise const, or internally synchronized so that any actual writes are synchronized with any possible concurrent const accesses so the callers can&#8217;t tell the difference.</li>
+<li>&#8220;Concurrent const operations on the same object are required to be safe without the calling code doing external synchronization.&#8221;</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first"><a class="reference external" href="https://herbsutter.com/2013/05/28/gotw-6b-solution-const-correctness-part-2/">GotW #6b Solution: Const-Correctness, Part 2</a></p>
+</li>
+<li><p class="first"><a class="reference external" href="http://stackoverflow.com/questions/14127379/does-const-mean-thread-safe-in-c11">Does const mean thread-safe in C++11?</a></p>
+</li>
 </ul>
 </div>
 </div>
