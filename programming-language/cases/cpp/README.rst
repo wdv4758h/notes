@@ -12,6 +12,7 @@ C++
 * `Smart Pointer <smart-pointer.rst>`_
 * `Type Conversion <type-conversion.rst>`_
 * `Perfect Forwarding <perfect-forwarding.rst>`_
+* `lambda function <lambda.rst>`_
 * `Pimpl (Pointer to Implementation) <pimpl.rst>`_
 * `CRTP (Curiously Recurring Template Pattern) <crtp.rst>`_
 * `SFINAE (Substitution Failure Is Not An Error) <SFINAE.rst>`_
