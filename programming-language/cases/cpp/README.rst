@@ -5,6 +5,7 @@ C++
 * `const <const.rst>`_
 * `Value Category <value-category.rst>`_
 * `Initialization <initialization.rst>`_
+* `Forward Declaration <forward-declaration.rst>`_
 * `OOP <oop.rst>`_
 * `型別推斷 (Type Deduction) <type-deduction.rst>`_
 * `Copy Elision <copy-elision.rst>`_
