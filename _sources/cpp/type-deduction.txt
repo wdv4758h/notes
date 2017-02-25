@@ -6,7 +6,21 @@
 .. contents:: 目錄
 
 
-Template Type Deduction
+Reference Collapsing
+========================================
+
+Reference Collapsing 會把過多的 Reference 收起來，
+例如 Reference to Reference 會變成 Reference，
+發生在以下狀況：
+
+* Template
+* auto
+* typedef
+* decltype
+
+
+
+種類一：Template Type Deduction
 ========================================
 
 .. code-block:: cpp
@@ -98,7 +112,7 @@ ParamType 不是指標也不是 Reference：
 
 
 
-``auto`` Type Deduction
+種類二： ``auto`` Type Deduction
 ========================================
 
 ``auto`` Type Deduction 的規則基本上都跟 Template Type Deduction 相同，
@@ -123,7 +137,7 @@ ParamType 不是指標也不是 Reference：
 
 
 
-``decltype`` Type Deduction
+種類三： ``decltype`` Type Deduction
 ========================================
 
 .. code-block:: cpp
@@ -186,7 +200,7 @@ C++11 加入了 Trailing Return Type 的語法，
 
 
 
-``decltype(auto)`` Type Deduction
+種類四： ``decltype(auto)`` Type Deduction
 ========================================
 
 在原本的回傳型別推斷中，
@@ -248,7 +262,7 @@ C++11 加入了 Trailing Return Type 的語法，
 
 
 
-Class Template Deduction
+種類五： Class Template Deduction
 ========================================
 
 C++17 加入了 Class Template Deduction 的支援，

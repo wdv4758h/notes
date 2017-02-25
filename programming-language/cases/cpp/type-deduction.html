@@ -325,6 +325,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/expression-templates.html">Expression Templates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/history.html">C++ History</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/initialization.html">Initialization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/lambda.html">lambda function</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/macro.html">Macro</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/misc.html">C++ Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/oop.html">C++ 繼承</a></li>
@@ -333,6 +334,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/optimizations.html">C++ Optimizations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/optional.html">Optional</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/parallel.html">C++ - Parallel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/perfect-forwarding.html">Perfect Forwarding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/pimpl.html">Pimpl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/qt.html">Qt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/repl.html">C++ REPL</a></li>
@@ -778,18 +780,31 @@
 <p class="topic-title first">目錄</p>
 <ul class="simple">
 <li><a class="reference internal" href="#type-deduction" id="id3">型別推斷 (Type Deduction)</a><ul>
-<li><a class="reference internal" href="#template-type-deduction" id="id4">Template Type Deduction</a></li>
-<li><a class="reference internal" href="#auto-type-deduction" id="id5"><code class="docutils literal"><span class="pre">auto</span></code> Type Deduction</a></li>
-<li><a class="reference internal" href="#decltype-type-deduction" id="id6"><code class="docutils literal"><span class="pre">decltype</span></code> Type Deduction</a></li>
-<li><a class="reference internal" href="#decltype-auto-type-deduction" id="id7"><code class="docutils literal"><span class="pre">decltype(auto)</span></code> Type Deduction</a></li>
-<li><a class="reference internal" href="#class-template-deduction" id="id8">Class Template Deduction</a></li>
-<li><a class="reference internal" href="#id2" id="id9">參考</a></li>
+<li><a class="reference internal" href="#reference-collapsing" id="id4">Reference Collapsing</a></li>
+<li><a class="reference internal" href="#template-type-deduction" id="id5">種類一：Template Type Deduction</a></li>
+<li><a class="reference internal" href="#auto-type-deduction" id="id6">種類二： <code class="docutils literal"><span class="pre">auto</span></code> Type Deduction</a></li>
+<li><a class="reference internal" href="#decltype-type-deduction" id="id7">種類三： <code class="docutils literal"><span class="pre">decltype</span></code> Type Deduction</a></li>
+<li><a class="reference internal" href="#decltype-auto-type-deduction" id="id8">種類四： <code class="docutils literal"><span class="pre">decltype(auto)</span></code> Type Deduction</a></li>
+<li><a class="reference internal" href="#class-template-deduction" id="id9">種類五： Class Template Deduction</a></li>
+<li><a class="reference internal" href="#id2" id="id10">參考</a></li>
 </ul>
 </li>
 </ul>
 </div>
+<div class="section" id="reference-collapsing">
+<h2><a class="toc-backref" href="#id4">Reference Collapsing</a><a class="headerlink" href="#reference-collapsing" title="本標題的永久連結">¶</a></h2>
+<p>Reference Collapsing 會把過多的 Reference 收起來，
+例如 Reference to Reference 會變成 Reference，
+發生在以下狀況：</p>
+<ul class="simple">
+<li>Template</li>
+<li>auto</li>
+<li>typedef</li>
+<li>decltype</li>
+</ul>
+</div>
 <div class="section" id="template-type-deduction">
-<h2><a class="toc-backref" href="#id4">Template Type Deduction</a><a class="headerlink" href="#template-type-deduction" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id5">種類一：Template Type Deduction</a><a class="headerlink" href="#template-type-deduction" title="本標題的永久連結">¶</a></h2>
 <div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
 <span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">ParamType</span> <span class="n">param</span><span class="p">);</span>
 
@@ -870,7 +885,7 @@
 </div>
 </div>
 <div class="section" id="auto-type-deduction">
-<h2><a class="toc-backref" href="#id5"><code class="docutils literal"><span class="pre">auto</span></code> Type Deduction</a><a class="headerlink" href="#auto-type-deduction" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id6">種類二： <code class="docutils literal"><span class="pre">auto</span></code> Type Deduction</a><a class="headerlink" href="#auto-type-deduction" title="本標題的永久連結">¶</a></h2>
 <p><code class="docutils literal"><span class="pre">auto</span></code> Type Deduction 的規則基本上都跟 Template Type Deduction 相同，
 只有一個差異，
 就是會把 braced initilizer 視為 <code class="docutils literal"><span class="pre">std::initializer_list</span></code> ，
@@ -890,7 +905,7 @@
 </div>
 </div>
 <div class="section" id="decltype-type-deduction">
-<h2><a class="toc-backref" href="#id6"><code class="docutils literal"><span class="pre">decltype</span></code> Type Deduction</a><a class="headerlink" href="#decltype-type-deduction" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id7">種類三： <code class="docutils literal"><span class="pre">decltype</span></code> Type Deduction</a><a class="headerlink" href="#decltype-type-deduction" title="本標題的永久連結">¶</a></h2>
 <div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">const</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>            <span class="c1">// decltype(i) is const int</span>
 
 <span class="kt">bool</span> <span class="nf">f</span><span class="p">(</span><span class="k">const</span> <span class="n">Widget</span><span class="o">&amp;</span> <span class="n">w</span><span class="p">);</span>    <span class="c1">// decltype(w) is const Widget&amp;</span>
@@ -942,7 +957,7 @@
 </div>
 </div>
 <div class="section" id="decltype-auto-type-deduction">
-<h2><a class="toc-backref" href="#id7"><code class="docutils literal"><span class="pre">decltype(auto)</span></code> Type Deduction</a><a class="headerlink" href="#decltype-auto-type-deduction" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id8">種類四： <code class="docutils literal"><span class="pre">decltype(auto)</span></code> Type Deduction</a><a class="headerlink" href="#decltype-auto-type-deduction" title="本標題的永久連結">¶</a></h2>
 <p>在原本的回傳型別推斷中，
 會把 Reference 的資訊丟棄，
 所以不能拿來做後續更動，
@@ -992,7 +1007,7 @@
 </div>
 </div>
 <div class="section" id="class-template-deduction">
-<h2><a class="toc-backref" href="#id8">Class Template Deduction</a><a class="headerlink" href="#class-template-deduction" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id9">種類五： Class Template Deduction</a><a class="headerlink" href="#class-template-deduction" title="本標題的永久連結">¶</a></h2>
 <p>C++17 加入了 Class Template Deduction 的支援，
 可以讓程式撰寫更簡便，
 例如：</p>
@@ -1005,7 +1020,7 @@
 </div>
 </div>
 <div class="section" id="id2">
-<h2><a class="toc-backref" href="#id9">參考</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id10">參考</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li>[Book] Effective Modern C++: 42 Specific Ways to Improve Your Use of C++11 and C++14</li>
 <li><a class="reference external" href="http://en.cppreference.com/w/cpp/language/template_argument_deduction">cppreference - Template argument deduction</a></li>

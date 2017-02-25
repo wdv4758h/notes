@@ -326,6 +326,7 @@
 <li class="toctree-l1"><a class="reference internal" href="cpp/expression-templates.html">Expression Templates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp/history.html">C++ History</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp/initialization.html">Initialization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp/lambda.html">lambda function</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp/macro.html">Macro</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp/misc.html">C++ Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp/oop.html">C++ 繼承</a></li>
@@ -334,6 +335,7 @@
 <li class="toctree-l1"><a class="reference internal" href="cpp/optimizations.html">C++ Optimizations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp/optional.html">Optional</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp/parallel.html">C++ - Parallel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp/perfect-forwarding.html">Perfect Forwarding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp/pimpl.html">Pimpl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp/qt.html">Qt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp/repl.html">C++ REPL</a></li>
@@ -2101,6 +2103,13 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="cpp/initialization.html#reference">Reference</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="cpp/lambda.html">lambda function</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cpp/lambda.html#id2">介紹</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp/lambda.html#c-lambda">C++ lambda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp/lambda.html#id3">lambda function 有什麼好處？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp/lambda.html#id4">參考</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="cpp/macro.html">Macro</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp/misc.html">C++ Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp/oop.html">C++ 繼承</a></li>
@@ -2117,6 +2126,18 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </li>
 <li class="toctree-l1"><a class="reference internal" href="cpp/parallel.html">C++ - Parallel</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="cpp/parallel.html#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cpp/perfect-forwarding.html">Perfect Forwarding</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cpp/perfect-forwarding.html#id2">介紹</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cpp/perfect-forwarding.html#id3">Perfect Forwarding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp/perfect-forwarding.html#std-forward">std::forward</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp/perfect-forwarding.html#emplace">emplace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp/perfect-forwarding.html#variadic-template">搭配 Variadic Template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cpp/perfect-forwarding.html#id4">結論</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp/perfect-forwarding.html#id5">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="cpp/pimpl.html">Pimpl</a><ul>
@@ -2206,11 +2227,12 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="cpp/type-deduction.html">型別推斷 (Type Deduction)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cpp/type-deduction.html#template-type-deduction">Template Type Deduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cpp/type-deduction.html#auto-type-deduction"><code class="docutils literal"><span class="pre">auto</span></code> Type Deduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cpp/type-deduction.html#decltype-type-deduction"><code class="docutils literal"><span class="pre">decltype</span></code> Type Deduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cpp/type-deduction.html#decltype-auto-type-deduction"><code class="docutils literal"><span class="pre">decltype(auto)</span></code> Type Deduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cpp/type-deduction.html#class-template-deduction">Class Template Deduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp/type-deduction.html#reference-collapsing">Reference Collapsing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp/type-deduction.html#template-type-deduction">種類一：Template Type Deduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp/type-deduction.html#auto-type-deduction">種類二： <code class="docutils literal"><span class="pre">auto</span></code> Type Deduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp/type-deduction.html#decltype-type-deduction">種類三： <code class="docutils literal"><span class="pre">decltype</span></code> Type Deduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp/type-deduction.html#decltype-auto-type-deduction">種類四： <code class="docutils literal"><span class="pre">decltype(auto)</span></code> Type Deduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp/type-deduction.html#class-template-deduction">種類五： Class Template Deduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cpp/type-deduction.html#id2">參考</a></li>
 </ul>
 </li>
