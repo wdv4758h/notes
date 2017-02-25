@@ -317,6 +317,7 @@
 <li class="toctree-l1"><a class="reference internal" href="cpp/c++17.html">C++17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp/concepts.html">C++ Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp/const.html">C++ const</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp/copy-elision.html">Copy Elision</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp/coroutine.html">C++ Coroutine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp/crtp.html">CRTP (Curiously Recurring Template Pattern)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp/ctor-dtor.html">C++ Constructors &amp; Destructors</a></li>
@@ -347,6 +348,7 @@
 <li class="toctree-l1"><a class="reference internal" href="cpp/testing.html">C++ Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp/thread.html">C++ Thread</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp/todo.html">Todo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp/type-conversion.html">型別轉換 (Type Conversion)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp/type-deduction.html">型別推斷 (Type Deduction)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp/value-category.html">C++ Value Category</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp/videos.html">C++ Videos</a></li>
@@ -2076,6 +2078,11 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="cpp/copy-elision.html">Copy Elision</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cpp/copy-elision.html#id2">介紹</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp/copy-elision.html#id4">參考</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="cpp/coroutine.html">C++ Coroutine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp/crtp.html">CRTP (Curiously Recurring Template Pattern)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="cpp/crtp.html#reference">Reference</a></li>
@@ -2128,7 +2135,9 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l1"><a class="reference internal" href="cpp/repl.html">C++ REPL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp/resource.html">C++ Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp/rvo.html">RVO (Return Value Optimization)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cpp/rvo.html#id1">參考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp/rvo.html#id1">介紹</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp/rvo.html#id2">注意事項</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp/rvo.html#id3">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="cpp/size_t-ptrdiff_t.html">About size_t and ptrdiff_t</a></li>
@@ -2181,6 +2190,19 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="cpp/todo.html#extern-c">extern &#8220;C&#8221;</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cpp/todo.html#exam">Exam</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cpp/todo.html#misc">Misc</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cpp/type-conversion.html">型別轉換 (Type Conversion)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cpp/type-conversion.html#id2">介紹</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cpp/type-conversion.html#const-cast">const_cast</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp/type-conversion.html#static-cast">static_cast</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp/type-conversion.html#dynamic-cast">dynamic_cast</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp/type-conversion.html#reinterpret-cast">reinterpret_cast</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cpp/type-conversion.html#polymorphic-objects">Polymorphic Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp/type-conversion.html#id3">總結</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp/type-conversion.html#id4">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="cpp/type-deduction.html">型別推斷 (Type Deduction)</a><ul>

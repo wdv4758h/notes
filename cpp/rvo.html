@@ -318,6 +318,7 @@
 <li class="toctree-l1"><a class="reference internal" href="c++17.html">C++17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts.html">C++ Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="const.html">C++ const</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copy-elision.html">Copy Elision</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coroutine.html">C++ Coroutine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="crtp.html">CRTP (Curiously Recurring Template Pattern)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ctor-dtor.html">C++ Constructors &amp; Destructors</a></li>
@@ -339,7 +340,9 @@
 <li class="toctree-l1"><a class="reference internal" href="repl.html">C++ REPL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resource.html">C++ Resource</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">RVO (Return Value Optimization)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">參考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">介紹</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">注意事項</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="size_t-ptrdiff_t.html">About size_t and ptrdiff_t</a></li>
@@ -351,6 +354,7 @@
 <li class="toctree-l1"><a class="reference internal" href="testing.html">C++ Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="thread.html">C++ Thread</a></li>
 <li class="toctree-l1"><a class="reference internal" href="todo.html">Todo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="type-conversion.html">型別轉換 (Type Conversion)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="type-deduction.html">型別推斷 (Type Deduction)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="value-category.html">C++ Value Category</a></li>
 <li class="toctree-l1"><a class="reference internal" href="videos.html">C++ Videos</a></li>
@@ -777,6 +781,8 @@
             
   <div class="section" id="rvo-return-value-optimization">
 <h1>RVO (Return Value Optimization)<a class="headerlink" href="#rvo-return-value-optimization" title="本標題的永久連結">¶</a></h1>
+<div class="section" id="id1">
+<h2>介紹<a class="headerlink" href="#id1" title="本標題的永久連結">¶</a></h2>
 <p>RVO 和 NRVO（Named Return Value Optimization）是 C++ 中的一項編譯器優化技術，
 可以減少 Temporary Object 的產生和 Copy 的呼叫，
 使用這像優化技術後物件的記憶體位置可能會直接建立在原本要回傳的記憶體位置，
@@ -788,8 +794,16 @@ Move Constructor 又比 Copy Constructor 來的快。</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">RVO</span><span class="o">/</span><span class="n">NRVO</span> <span class="o">&gt;</span> <span class="n">Move</span> <span class="o">&gt;</span> <span class="n">Copy</span>
 </pre></div>
 </div>
-<div class="section" id="id1">
-<h2>參考<a class="headerlink" href="#id1" title="本標題的永久連結">¶</a></h2>
+<p>範例在： <a class="reference external" href="examples/rvo.cpp">examples/rvo.cpp</a></p>
+</div>
+<div class="section" id="id2">
+<h2>注意事項<a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li>如果要用到 RVO/NRVO 的話，回傳值不要自己加 <code class="docutils literal"><span class="pre">std::move</span></code> ，不然會套用到 Move Semantics</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>參考<a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
 <ul>
 <li><p class="first"><a class="reference external" href="https://mbevin.wordpress.com/2012/11/20/move-semantics/">Lesson #5: Move Semantics</a></p>
 </li>

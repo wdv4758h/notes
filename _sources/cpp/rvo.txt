@@ -2,6 +2,10 @@
 RVO (Return Value Optimization)
 ========================================
 
+
+介紹
+========================================
+
 RVO 和 NRVO（Named Return Value Optimization）是 C++ 中的一項編譯器優化技術，
 可以減少 Temporary Object 的產生和 Copy 的呼叫，
 使用這像優化技術後物件的記憶體位置可能會直接建立在原本要回傳的記憶體位置，
@@ -15,6 +19,17 @@ Move Constructor 又比 Copy Constructor 來的快。
 ::
 
     RVO/NRVO > Move > Copy
+
+
+範例在： `examples/rvo.cpp <examples/rvo.cpp>`_
+
+
+
+注意事項
+========================================
+
+* 如果要用到 RVO/NRVO 的話，回傳值不要自己加 ``std::move`` ，不然會套用到 Move Semantics
+
 
 
 參考
