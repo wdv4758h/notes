@@ -4,13 +4,13 @@
 
 class Door {
 public:
-    virtual void descripten();
+    virtual void description();
     ~Door() {}
 };
 
 class DoorFittingExpert {
 public:
-    virtual void descripten();
+    virtual void description();
     ~DoorFittingExpert() {}
 };
 
@@ -25,13 +25,13 @@ public:
 
 class WoodenDoor : public Door {
 public:
-    void descripten() override { std::cout << "A wooden door!" << '\n'; }
+    void description() override { std::cout << "A wooden door!" << '\n'; }
     ~WoodenDoor() {}
 };
 
 class IronDoor : public Door {
 public:
-    void descripten() override { std::cout << "A iron door!" << '\n'; }
+    void description() override { std::cout << "A iron door!" << '\n'; }
     ~IronDoor() {}
 };
 
@@ -39,13 +39,13 @@ public:
 
 class Carpenter : public DoorFittingExpert {
 public:
-    void descripten() override { std::cout << "I can only fit wooden door!" << '\n'; }
+    void description() override { std::cout << "I can only fit wooden door!" << '\n'; }
     ~Carpenter() {}
 };
 
 class Welder : public DoorFittingExpert {
 public:
-    void descripten() override { std::cout << "I can only fit iron door!" << '\n'; }
+    void description() override { std::cout << "I can only fit iron door!" << '\n'; }
     ~Welder() {}
 };
 
@@ -60,15 +60,15 @@ int main() {
         auto factory = WoodenDoorFactory();
         auto door = factory.new_door();
         auto expert = factory.new_expert();
-        door.descripten();
-        expert.descripten();
+        door.description();
+        expert.description();
     }
     {
         auto factory = IronDoorFactory();
         auto door = factory.new_door();
         auto expert = factory.new_expert();
-        door.descripten();
-        expert.descripten();
+        door.description();
+        expert.description();
     }
     {
         auto factory = WoodenDoorFactory();
@@ -76,8 +76,8 @@ int main() {
         auto expert = factory.new_expert();
         auto pdoor   = static_cast<Door*>             (&door);
         auto pexpert = static_cast<DoorFittingExpert*>(&expert);
-        pdoor->descripten();
-        pexpert->descripten();
+        pdoor->description();
+        pexpert->description();
     }
     {
         auto factory = IronDoorFactory();
@@ -85,8 +85,8 @@ int main() {
         auto expert = factory.new_expert();
         auto pdoor   = static_cast<Door*>             (&door);
         auto pexpert = static_cast<DoorFittingExpert*>(&expert);
-        pdoor->descripten();
-        pexpert->descripten();
+        pdoor->description();
+        pexpert->description();
     }
     return 0;
 }
