@@ -427,6 +427,16 @@ Explicit:
 * OpenMP SIMD
 
 
+
+相關參考：
+
+* [2015] `Throttling Automatic Vectorization: When Less is More <http://llvm.org/devmtg/2015-10/slides/Porpodas-ThrottlingAutomaticVectorization.pdf>`_
+    - `Video <https://www.youtube.com/watch?v=xxtA2XPmIug>`_
+* [2016] `RV: A Unified Region Vectorizer for LLVM <http://www.llvm.org/devmtg/2016-11/Slides/Moll-RV.pdf>`_
+    - `Video <https://www.youtube.com/watch?v=cyldhrzqxPA>`_
+    - [GitHub] `A Unified Region Vectorizer for LLVM <https://github.com/simoll/rv>`_
+
+
 LLVM Auto-Vectorization
 ------------------------------
 
@@ -444,6 +454,10 @@ ispc 是 Intel 開發的開放原始碼編譯器，
 剩餘程式則使用一般的 C 或 C++ 來撰寫即可，
 最後搭配在一起達成加速的效果，
 如此一來就不用自己去手寫利用 SSE 等指令的程式碼。
+
+相關論文：
+
+* [2012] `ispc: A SPMD Compiler for High-Performance CPU Programming <http://llvm.org/pubs/2012-05-13-InPar-ispc.html>`_
 
 
 Mandelbrot 範例
@@ -857,6 +871,36 @@ SIMD + multithreading 版本：
 
 
 
+OpenMP SIMD
+------------------------------
+
+OpenMP 自 4.0 釋出後加入了 SIMD 的支援，
+而各編譯器也漸漸有了支援：
+
+* `GCC 4.9.0 for C/C++, GCC 4.9.1 for Fortran <https://www.gnu.org/software/gcc/gcc-4.9/changes.html#languages>`_
+* `Intel Fortran and C/C++ compilers 15.0 <https://software.intel.com/en-us/articles/openmp-40-features-in-intel-compiler-150>`_
+* `LLVM/Clang 3.7 (partial) <http://llvm.org/releases/3.7.0/tools/clang/docs/ReleaseNotes.html#openmp-support>`_
+
+
+使用方法如下：
+
+.. code-block:: c
+
+    #pragma omp simd
+    for (...) {
+        ...
+    }
+
+    #pragma omp parallel for simd
+    for (...) {
+        ...
+    }
+
+
+相關參數可以參考 `OpenMP 4.0 API C/C++ Syntax Quick Reference Card <http://www.openmp.org/wp-content/uploads/OpenMP-4.0-C.pdf>`_
+
+
+
 參考
 ========================================
 
@@ -866,11 +910,15 @@ SIMD + multithreading 版本：
 * [2005] `An Investigation of SIMD instruction sets <https://web.archive.org/web/20140320040450/http://noisymime.org/blogimages/SIMD.pdf>`_
 * [2014] `Automatic SIMD Vectorization of SSA-based Control Flow Graphs <http://d-nb.info/1071087355/34>`_
 * `LLVM - Intrinsic Functions <http://llvm.org/docs/LangRef.html#intrinsic-functions>`_
+* `Polly Labs - Promoting Polyhedral Compilation <https://pollylabs.org/>`_
 * `Basics of SIMD Programming <https://www.kernel.org/pub/linux/kernel/people/geoff/cell/ps3-linux-docs/CellProgrammingTutorial/BasicsOfSIMDProgramming.html>`_
+* `Julia - Performance Annotations - @simd <http://docs.julialang.org/en/release-0.5/manual/performance-tips#performance-annotations>`_
+    - https://github.com/JuliaLang/julia/blob/26d6c20dc803eedf77f41430806efb20f253da1b/src/llvm-simdloop.cpp
 
 
 * `Rust RFCs - 1199 - SIMD Infrastructure <https://github.com/rust-lang/rfcs/blob/master/text/1199-simd-infrastructure.md>`_
 * `SIMD in Rust <https://huonw.github.io/blog/2015/08/simd-in-rust/>`_
+* `Mandelbrot Set with SIMD Intrinsics <http://nullprogram.com/blog/2015/07/10/>`_
 
 
 * `MDN - JavaScript - SIMD <https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/SIMD>`_
@@ -881,6 +929,11 @@ SIMD + multithreading 版本：
 * `Intel Intrinsics Guide <https://software.intel.com/sites/landingpage/IntrinsicsGuide/>`_
 * `Intel® 64 and IA-32 Architectures Software Developer's Manual <http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html>`_
 * `Intel® 64 and IA-32 Architectures Optimization Reference Manual <https://software.intel.com/sites/default/files/managed/9e/bc/64-ia-32-architectures-optimization-manual.pdf>`_
+
+
+Wojciech Muła:
+
+* `SIMD-friendly algorithms for substring searching <http://0x80.pl/articles/simd-strfind.html>`_
 
 
 專案參看：
