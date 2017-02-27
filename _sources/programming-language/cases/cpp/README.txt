@@ -21,3 +21,4 @@ C++
 * `Testing <testing.rst>`_
 * `std::array <array.rst>`_
 * `explicit specifier <explicit.rst>`_
+* `Design Pattern <design-pattern.rst>`_
