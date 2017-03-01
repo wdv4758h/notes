@@ -344,6 +344,7 @@
 <li class="toctree-l1"><a class="reference internal" href="cpp/size_t-ptrdiff_t.html">About size_t and ptrdiff_t</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp/smart-pointer.html">Smart Pointer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp/standard-library-implementation.html">Standard Library Implementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp/static.html">static</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp/stl.html">C++ STL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp/string-optimization.html">String Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp/temporary-objects.html">Temporary Objects</a></li>
@@ -405,6 +406,7 @@
 <li class="toctree-l1"><a class="reference internal" href="hardware/risc-v.html">RISC-V</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jit/asmjit.html">asmjit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jit/introduction.html">JIT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jit/resource.html">JIT 相關資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="language-virtual-machines/resource.html">資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="learning/ann-history.html">Artificial Neural Network History</a></li>
 <li class="toctree-l1"><a class="reference internal" href="learning/artificial-neural-network.html">Artificial Neural Network</a></li>
@@ -2146,16 +2148,19 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l1"><a class="reference internal" href="cpp/history.html">C++ History</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp/inheritance.html">繼承 (Inheritance)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="cpp/inheritance.html#id2">基本繼承</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp/inheritance.html#friend">Friend</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cpp/inheritance.html#virutal-function">Virutal Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cpp/inheritance.html#override-final-since-c-11">override &amp; final (since C++11)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="cpp/inheritance.html#override">override</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cpp/inheritance.html#final">final</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="cpp/inheritance.html#abstract-class">Abstract Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cpp/inheritance.html#id3">多重繼承</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cpp/inheritance.html#virtual-inheritance">Virtual Inheritance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cpp/inheritance.html#template-class">Template &amp; Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cpp/inheritance.html#id4">參考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp/inheritance.html#id4">注意事項</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp/inheritance.html#id5">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="cpp/initialization.html">Initialization</a><ul>
@@ -2221,6 +2226,15 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="cpp/standard-library-implementation.html">Standard Library Implementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp/static.html">static</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cpp/static.html#id2">介紹</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cpp/static.html#class">在 class 內使用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp/static.html#id3">在 class 外使用</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cpp/static.html#id4">參考</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="cpp/stl.html">C++ STL</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="cpp/stl.html#algorithm">&lt;algorithm&gt;</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="cpp/stl.html#rotate">rotate</a></li>
@@ -2921,6 +2935,13 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="jit/introduction.html#blogs-sites-slides">Blogs &amp; Sites &amp; Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jit/introduction.html#reference">Reference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jit/introduction.html#mailing-list">Mailing List</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jit/resource.html">JIT 相關資源</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jit/resource.html#id2">文章</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jit/resource.html#lin-clark">Lin Clark</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="language-virtual-machines/resource.html">資源</a></li>
