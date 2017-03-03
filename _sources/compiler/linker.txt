@@ -2,6 +2,13 @@
 Linker
 ========================================
 
+
+.. contents:: 目錄
+
+
+介紹
+========================================
+
 現今成熟的 Open Source Linker :
 
 * `GNU ld <https://sourceware.org/git/gitweb.cgi?p=binutils-gdb.git;a=tree;f=ld;hb=HEAD>`_
@@ -28,8 +35,26 @@ system linkers 非常複雜，而其中 ELF linkers 又超級複雜，
 但是現今實作依然甚少從中獲益。
 
 
+
 History
 ========================================
+
+
+
+靜態連結
+========================================
+
+
+
+動態連結
+========================================
+
+
+
+Linker Script
+========================================
+
+
 
 LLD Linker
 ========================================
@@ -38,11 +63,14 @@ LLD Linker
 
 * CloudABI
 * Fuchsia
+* FreeBSD
+    - https://github.com/freebsd/freebsd/commit/0691a52b0f6d2925df0254b8e73cf3e02abc162e
 
 有支援 LLD 的專案：
 
 * Chromium
 * Clang/LLVM
+
 
 其他：
 
@@ -56,6 +84,30 @@ LLD Linker
 * `Identical code folding (ICF) in LLD has been parallelised <https://reviews.llvm.org/rL288373>`_
 * [2016] `New LLD linker for ELF <http://llvm.org/devmtg/2016-03/Presentations/EuroLLVM%202016-%20New%20LLD%20linker%20for%20ELF.pdf>`_
 * [2016] `LLD: A new linker for FreeBSD <https://www.bsdcan.org/2016/schedule/events/656.en.html>`_
+
+
+
+Binary Format
+========================================
+
+ELF
+------------------------------
+
+COFF
+------------------------------
+
+
+
+Linker Architecture
+========================================
+
+
+
+Linker 優化技術 (Optimization Technology)
+=========================================
+
+Identical Code Folding
+------------------------------
 
 
 

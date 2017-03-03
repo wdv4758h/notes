@@ -298,6 +298,7 @@
 <li class="toctree-l1"><a class="reference internal" href="compiler/porting.html">Use Compiler To Help Porting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiler/resource.html">Compiler Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiler/ssa.html">SSA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler/streaming-compilation.html">Streaming Compilation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiler/transpiler.html">轉譯器 (Transpiler) (Source-to-Source Compiler)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compression/introduction.html">壓縮入門</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compression/jpeg.html">JPEG Compression</a></li>
@@ -369,6 +370,7 @@
 <li class="toctree-l1"><a class="reference internal" href="dns/resource.html">DNS 相關資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="docker/docker.html">Docker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="editor/emacs.html">Emacs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedded/resource.html">Embedded Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="embedded/stm32.html">STM32</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fonts/README.html">Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fonts/resource.html">Resource</a></li>
@@ -1903,8 +1905,22 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="compiler/linker.html">Linker</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="compiler/linker.html#id2">介紹</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compiler/linker.html#history">History</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compiler/linker.html#id3">靜態連結</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compiler/linker.html#id4">動態連結</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compiler/linker.html#linker-script">Linker Script</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compiler/linker.html#lld-linker">LLD Linker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compiler/linker.html#binary-format">Binary Format</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="compiler/linker.html#elf">ELF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="compiler/linker.html#coff">COFF</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="compiler/linker.html#linker-architecture">Linker Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compiler/linker.html#linker-optimization-technology">Linker 優化技術 (Optimization Technology)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="compiler/linker.html#identical-code-folding">Identical Code Folding</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="compiler/linker.html#reference">Reference</a></li>
 </ul>
 </li>
@@ -1989,6 +2005,11 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="compiler/ssa.html">SSA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler/streaming-compilation.html">Streaming Compilation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="compiler/streaming-compilation.html#id2">介紹</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compiler/streaming-compilation.html#id3">參考</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="compiler/transpiler.html">轉譯器 (Transpiler) (Source-to-Source Compiler)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="compiler/transpiler.html#id2">參考</a></li>
 </ul>
@@ -2359,6 +2380,13 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </li>
 <li class="toctree-l1"><a class="reference internal" href="docker/docker.html">Docker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="editor/emacs.html">Emacs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedded/resource.html">Embedded Resource</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="embedded/resource.html#talks">Talks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="embedded/resource.html#embedded-linux-size-reduction-techniques">Embedded Linux Size Reduction Techniques</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="embedded/stm32.html">STM32</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fonts/README.html">Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fonts/resource.html">Resource</a></li>
