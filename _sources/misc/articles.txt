@@ -1,5 +1,5 @@
 ========================================
-文章
+一些閱讀過的文章
 ========================================
 
 
@@ -186,3 +186,15 @@ Hyper 最近的新版本釋出把 TLS 實做分割出去，
 另外目前的 master branch 已經把 Tokio 的分支合進去了，
 從下個釋出開始將會支援 non-blocking IO，
 目前作者用 wrk 測試的結果是每秒可以處理 225759 個 requests。
+
+
+
+Containers Come to Test Pilot
+============================================
+
+:URL: https://hacks.mozilla.org/2017/03/containers-come-to-test-pilot/
+:Repo: https://github.com/mozilla/testpilot-containers
+
+
+新進到 Test Pilot 的 Containers 支援可以隔離不同網站間的資源，
+包含 cookies、indexedDB、localStorage、caches。

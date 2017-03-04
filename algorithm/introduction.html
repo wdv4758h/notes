@@ -85,6 +85,8 @@
             
             
                 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="README.html">演算法與資料結構</a></li>
+<li class="toctree-l1"><a class="reference internal" href="adt.html">ADT (Abstract Data Type)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="big-o-notation.html">Big O Notation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="books.html">Books</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dict.html">Dict</a></li>
@@ -471,6 +473,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../hardware/kindle.html">Kindle</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/my-devices.html">Hardware</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/random-number-generator.html">硬體亂數產生器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hardware/resource.html">Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/risc-v.html">RISC-V</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jit/asmjit.html">asmjit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jit/introduction.html">JIT</a></li>
@@ -597,7 +600,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../mess/yocto.html">Yocto Project - 建立自己的嵌入式 Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mess/zram.html">zram</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/archive.html">Archive</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/articles.html">文章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/articles.html">一些閱讀過的文章</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/bandwidth.html">頻寬成本</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/bit-hacks.html">Bit Hacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/calendar.html">Calendar</a></li>
@@ -793,6 +796,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/keymap.html#setxkbmap">setxkbmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/office.html">Office</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/sway.html">Sway</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/tips.html">Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../valgrind/android.html">Valgrind on Android Platform</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../valgrind/collection.html">Valgrind Resource Collection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../valgrind/dynamic-binary-instrumentation.html">Valgrind: A Framework for Heavyweight Dynamic Binary Instrumentation</a></li>
@@ -1061,7 +1065,7 @@ False Positive 的程度會受到使用的記憶體量和 Hash 方法影響，
 <p>空間複雜度：</p>
 <img alt="../_images/o-n-max.png" src="../_images/o-n-max.png" />
 <p>在 1990 年的一篇論文
-「A Linear-Time Probabilistic Counting Algorithm for Database Applications <a class="reference internal" href="#whang1990linear" id="id5">[whang1990linear]</a> 」
+「A Linear-Time Probabilistic Counting Algorithm for Database Applications <a class="reference internal" href="probabilistic-data-structure.html#whang1990linear" id="id5">[whang1990linear]</a> 」
 中被提出，
 屬於早期的 Cardinality Estimation 演算法，
 也因此空間複雜不不如後面出現的演算法來的好。</p>
@@ -1077,13 +1081,13 @@ bit vector 一開始會初始化為 0，
 <h3><a class="toc-backref" href="#id42">LogLog Counting (LLC)</a><a class="headerlink" href="#loglog-counting-llc" title="本標題的永久連結">¶</a></h3>
 <p>空間複雜度：</p>
 <img alt="../_images/o-log-log-n-max.png" src="../_images/o-log-log-n-max.png" />
-<p>「Loglog Counting of Large Cardinalities <a class="reference internal" href="#durand2003loglog" id="id6">[durand2003loglog]</a> 」</p>
+<p>「Loglog Counting of Large Cardinalities <a class="reference internal" href="probabilistic-data-structure.html#durand2003loglog" id="id6">[durand2003loglog]</a> 」</p>
 </div>
 <div class="section" id="hyperloglog-counting-hllc">
 <h3><a class="toc-backref" href="#id43">HyperLogLog Counting (HLLC)</a><a class="headerlink" href="#hyperloglog-counting-hllc" title="本標題的永久連結">¶</a></h3>
 <p>空間複雜度：</p>
 <img alt="../_images/o-log-log-n-max.png" src="../_images/o-log-log-n-max.png" />
-<p>「Hyperloglog: The analysis of a near-optimal cardinality estimation algorithm <a class="reference internal" href="#flajolet2007hyperloglog" id="id7">[flajolet2007hyperloglog]</a> 」</p>
+<p>「Hyperloglog: The analysis of a near-optimal cardinality estimation algorithm <a class="reference internal" href="probabilistic-data-structure.html#flajolet2007hyperloglog" id="id7">[flajolet2007hyperloglog]</a> 」</p>
 <p>HyperLogLog 是一種解 Cardinality Estimation Problem（或稱 Count-distinct Problem）的演算法，
 用於概略估算集合中不同數值的數量。
 由於計算正確的數量需要比較多的資源與時間，
@@ -1148,7 +1152,7 @@ HyperLogLog 還會把資料切割成數個子集合，
 </div>
 <div class="section" id="adaptive-counting-ac">
 <h3><a class="toc-backref" href="#id45">Adaptive Counting (AC)</a><a class="headerlink" href="#adaptive-counting-ac" title="本標題的永久連結">¶</a></h3>
-<p>「Fast and Accurate Traffic Matrix Measurement. Using Adaptive Cardinality Counting <a class="reference internal" href="#cai2005fast" id="id8">[cai2005fast]</a> 」</p>
+<p>「Fast and Accurate Traffic Matrix Measurement. Using Adaptive Cardinality Counting <a class="reference internal" href="probabilistic-data-structure.html#cai2005fast" id="id8">[cai2005fast]</a> 」</p>
 <p>Linear Counting 和 LogLog Counting 的組合，
 分析兩者的標準差，
 給定門檻決定要使用何者。</p>

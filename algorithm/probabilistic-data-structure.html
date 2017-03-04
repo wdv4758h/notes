@@ -85,6 +85,8 @@
             
             
                 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="README.html">演算法與資料結構</a></li>
+<li class="toctree-l1"><a class="reference internal" href="adt.html">ADT (Abstract Data Type)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="big-o-notation.html">Big O Notation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="books.html">Books</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dict.html">Dict</a></li>
@@ -93,8 +95,27 @@
 <li class="toctree-l1"><a class="reference internal" href="inverse-square-root.html">Inverse Square Root</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc.html">Misc</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Probabilistic Data Structure</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">介紹</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#bloom-filter">Bloom Filter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cuckoo-filter-practically-better-than-bloom">Cuckoo Filter - Practically Better Than Bloom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scalable-bloom-filter">Scalable Bloom Filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#counting-bloom-filter">Counting Bloom Filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#stable-bloom-filter">Stable Bloom Filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#layered-bloom-filter">Layered Bloom Filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#inverse-bloom-filter">Inverse Bloom Filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cuckoo-filter">Cuckoo Filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#linear-counting-lc">Linear Counting (LC)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#loglog-counting-llc">LogLog Counting (LLC)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hyperloglog-counting-hllc">HyperLogLog Counting (HLLC)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hyperloglog">HyperLogLog++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adaptive-counting-ac">Adaptive Counting (AC)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#count-min-sketch">Count-Min Sketch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#filtered-space-saving-top-k">Filtered-Space Saving Top-K</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#k-minimum-values">K-Minimum Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#approximate-histograms">Approximate Histograms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#skip-list">Skip List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#treaps">Treaps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#t-digest">t-digest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="resource.html">演算法</a></li>
@@ -410,6 +431,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../hardware/kindle.html">Kindle</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/my-devices.html">Hardware</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/random-number-generator.html">硬體亂數產生器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hardware/resource.html">Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/risc-v.html">RISC-V</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jit/asmjit.html">asmjit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jit/introduction.html">JIT</a></li>
@@ -536,7 +558,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../mess/yocto.html">Yocto Project - 建立自己的嵌入式 Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mess/zram.html">zram</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/archive.html">Archive</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/articles.html">文章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/articles.html">一些閱讀過的文章</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/bandwidth.html">頻寬成本</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/bit-hacks.html">Bit Hacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/calendar.html">Calendar</a></li>
@@ -732,6 +754,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/keymap.html#setxkbmap">setxkbmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/office.html">Office</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/sway.html">Sway</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/tips.html">Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../valgrind/android.html">Valgrind on Android Platform</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../valgrind/collection.html">Valgrind Resource Collection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../valgrind/dynamic-binary-instrumentation.html">Valgrind: A Framework for Heavyweight Dynamic Binary Instrumentation</a></li>
@@ -786,28 +809,281 @@
            <div itemprop="articleBody">
             
   <div class="section" id="probabilistic-data-structure">
-<h1><a class="toc-backref" href="#id3">Probabilistic Data Structure</a><a class="headerlink" href="#probabilistic-data-structure" title="本標題的永久連結">¶</a></h1>
+<h1><a class="toc-backref" href="#id10">Probabilistic Data Structure</a><a class="headerlink" href="#probabilistic-data-structure" title="本標題的永久連結">¶</a></h1>
 <div class="contents topic" id="id1">
 <p class="topic-title first">目錄</p>
 <ul class="simple">
-<li><a class="reference internal" href="#probabilistic-data-structure" id="id3">Probabilistic Data Structure</a><ul>
-<li><a class="reference internal" href="#bloom-filter" id="id4">Bloom Filter</a></li>
-<li><a class="reference internal" href="#cuckoo-filter-practically-better-than-bloom" id="id5">Cuckoo Filter - Practically Better Than Bloom</a></li>
+<li><a class="reference internal" href="#probabilistic-data-structure" id="id10">Probabilistic Data Structure</a><ul>
+<li><a class="reference internal" href="#id2" id="id11">介紹</a></li>
+<li><a class="reference internal" href="#bloom-filter" id="id12">Bloom Filter</a></li>
+<li><a class="reference internal" href="#scalable-bloom-filter" id="id13">Scalable Bloom Filter</a></li>
+<li><a class="reference internal" href="#counting-bloom-filter" id="id14">Counting Bloom Filter</a></li>
+<li><a class="reference internal" href="#stable-bloom-filter" id="id15">Stable Bloom Filter</a></li>
+<li><a class="reference internal" href="#layered-bloom-filter" id="id16">Layered Bloom Filter</a></li>
+<li><a class="reference internal" href="#inverse-bloom-filter" id="id17">Inverse Bloom Filter</a></li>
+<li><a class="reference internal" href="#cuckoo-filter" id="id18">Cuckoo Filter</a></li>
+<li><a class="reference internal" href="#linear-counting-lc" id="id19">Linear Counting (LC)</a></li>
+<li><a class="reference internal" href="#loglog-counting-llc" id="id20">LogLog Counting (LLC)</a></li>
+<li><a class="reference internal" href="#hyperloglog-counting-hllc" id="id21">HyperLogLog Counting (HLLC)</a></li>
+<li><a class="reference internal" href="#hyperloglog" id="id22">HyperLogLog++</a></li>
+<li><a class="reference internal" href="#adaptive-counting-ac" id="id23">Adaptive Counting (AC)</a></li>
+<li><a class="reference internal" href="#count-min-sketch" id="id24">Count-Min Sketch</a></li>
+<li><a class="reference internal" href="#filtered-space-saving-top-k" id="id25">Filtered-Space Saving Top-K</a></li>
+<li><a class="reference internal" href="#k-minimum-values" id="id26">K-Minimum Values</a></li>
+<li><a class="reference internal" href="#approximate-histograms" id="id27">Approximate Histograms</a></li>
+<li><a class="reference internal" href="#skip-list" id="id28">Skip List</a></li>
+<li><a class="reference internal" href="#treaps" id="id29">Treaps</a></li>
+<li><a class="reference internal" href="#t-digest" id="id30">t-digest</a></li>
+<li><a class="reference internal" href="#id8" id="id31">參考</a></li>
 </ul>
 </li>
 </ul>
 </div>
-<div class="section" id="bloom-filter">
-<h2><a class="toc-backref" href="#id4">Bloom Filter</a><a class="headerlink" href="#bloom-filter" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id11">介紹</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<p>Probabilistic Data Structures 的特點在於告訴你「可能的」狀態，
+不是確切的狀況，
+適用於資料量大且計算不需要非常精確的狀況，
+可以節省資源和時間。</p>
+<p>參考：</p>
+<ul class="simple">
+<li><a class="reference external" href="http://docs.pipelinedb.com/probabilistic.html">PipelineDB - Probabilistic Data Structures &amp; Algorithms</a></li>
+<li>[2015] <a class="reference external" href="https://speakerdeck.com/paperswelove/pwlsf-number-13-equals-armon-dadgar-on-bloom-filters-and-hyperloglog">PWLSF#13=&gt; Armon Dadgar on Bloom Filters and HyperLogLog</a></li>
+</ul>
 </div>
-<div class="section" id="cuckoo-filter-practically-better-than-bloom">
-<h2><a class="toc-backref" href="#id5">Cuckoo Filter - Practically Better Than Bloom</a><a class="headerlink" href="#cuckoo-filter-practically-better-than-bloom" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="bloom-filter">
+<h2><a class="toc-backref" href="#id12">Bloom Filter</a><a class="headerlink" href="#bloom-filter" title="本標題的永久連結">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">+--------------------+</span>
+<span class="o">|</span> <span class="n">Fake</span> <span class="kc">True</span>          <span class="o">|</span>
+<span class="o">|</span>    <span class="o">+-----------+</span>   <span class="o">|</span>
+<span class="o">|</span>    <span class="o">|</span>           <span class="o">|</span>   <span class="o">|</span>   <span class="kc">False</span>
+<span class="o">|</span>    <span class="o">|</span>   <span class="kc">True</span>    <span class="o">|</span>   <span class="o">|</span>
+<span class="o">|</span>    <span class="o">|</span>           <span class="o">|</span>   <span class="o">|</span>
+<span class="o">|</span>    <span class="o">+-----------+</span>   <span class="o">|</span>
+<span class="o">+--------------------+</span>
+</pre></div>
+</div>
+<p>Bloom Filter 的用途在測試一個值是否在一個集合內，
+會有 False Positive（也就是不在集合內，卻回報有在集合內），
+但是不會有 False Negaative（也就是是回報沒有在集合內，就真的不在集合內），
+False Positive 的程度會受到使用的記憶體量和 Hash 方法影響，
+使用越多的記憶體可以降低 False Positive。</p>
+<p>Bloom Filter 為 m bits 的 array，
+全部都初始化為 0，
+另外搭配 k 個 Hash 函式（k 比 m 小很多）。</p>
+<p>Bloom Filter 支援兩種操作：</p>
+<ul class="simple">
+<li>新增數值：數值經過 k 個 Hash 函式處理後取得 array index，把值標為 1</li>
+<li>檢驗數值：數值經過 k 個 Hash 函式處理後取得 array index，如果 array 內的值為 0，則該數值真的不在這個集合中，如果 array 內的值為 1，則該數值「可能」在這個集合中</li>
+</ul>
+<p>（簡單來說 Bloom Filter 就是 hash + bits vector，collision 也沒關係）</p>
+<p>Bloom Filter 的 False Positive Rate：</p>
+<img alt="../_images/bloom-filter-false-positive-rate.svg" src="../_images/bloom-filter-false-positive-rate.svg" /><p>特性：</p>
+<ul class="simple">
+<li>少量的記憶體可以代表大量的數值，但是 False Positive 會上升</li>
+<li>聯集和交集可以 Bitwise OR 和 Bitwise AND 實做</li>
+</ul>
+<p>使用案例：</p>
+<ul class="simple">
+<li>數個資料庫用於減少為了不存在的資料去存取硬碟（例如 Google BigTable、Apache HBase、Apache Cassandra、PostgreSQL）</li>
+<li>Akamai 發現該公司的 web server 有將近 3/4 的 request 是一次性的，所以利用 Bloom Filter 來檢驗，當 request 重複出現時才存到 cache，可以減少硬碟 loading 和增加 cache 的 hit rate</li>
+<li>Google Chrome 用於偵測可能有害的網站 URL</li>
+<li>Squid 用於 Cache</li>
+<li>Bitcon 用於加速同步</li>
+<li>Medium 用於避免推薦使用者已經讀過的文章</li>
+</ul>
+<p>參考：</p>
+<ul class="simple">
+<li><a class="reference external" href="https://llimllib.github.io/bloomfilter-tutorial/">Bloom Filters by Example</a></li>
+<li><a class="reference external" href="http://blog.kiip.me/engineering/sketching-scaling-bloom-filters/">Sketching &amp; Scaling: Bloom Filters</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Bloom_filter">Wikipedia - Bloom Filter</a></li>
+</ul>
+</div>
+<div class="section" id="scalable-bloom-filter">
+<h2><a class="toc-backref" href="#id13">Scalable Bloom Filter</a><a class="headerlink" href="#scalable-bloom-filter" title="本標題的永久連結">¶</a></h2>
+</div>
+<div class="section" id="counting-bloom-filter">
+<h2><a class="toc-backref" href="#id14">Counting Bloom Filter</a><a class="headerlink" href="#counting-bloom-filter" title="本標題的永久連結">¶</a></h2>
+</div>
+<div class="section" id="stable-bloom-filter">
+<h2><a class="toc-backref" href="#id15">Stable Bloom Filter</a><a class="headerlink" href="#stable-bloom-filter" title="本標題的永久連結">¶</a></h2>
+</div>
+<div class="section" id="layered-bloom-filter">
+<h2><a class="toc-backref" href="#id16">Layered Bloom Filter</a><a class="headerlink" href="#layered-bloom-filter" title="本標題的永久連結">¶</a></h2>
+</div>
+<div class="section" id="inverse-bloom-filter">
+<h2><a class="toc-backref" href="#id17">Inverse Bloom Filter</a><a class="headerlink" href="#inverse-bloom-filter" title="本標題的永久連結">¶</a></h2>
+</div>
+<div class="section" id="cuckoo-filter">
+<h2><a class="toc-backref" href="#id18">Cuckoo Filter</a><a class="headerlink" href="#cuckoo-filter" title="本標題的永久連結">¶</a></h2>
+<p>「Cuckoo Filter: Practically Better Than Bloom <a class="reference internal" href="#fan2014cuckoo" id="id3">[fan2014cuckoo]</a> 」</p>
+<p>參考：</p>
 <ul class="simple">
 <li>[2014] <a class="reference external" href="https://www.cs.cmu.edu/~dga/papers/cuckoo-conext2014.pdf">Cuckoo Filter: Practically Better Than Bloom</a></li>
-<li>[GitHub] <a class="reference external" href="https://github.com/seiflotfy/rust-cuckoofilter">rust-cuckoofilter</a></li>
 <li><a class="reference external" href="https://blog.gslin.org/archives/2016/08/08/6718/cuckoo-filter：比-bloom-filter-多了-delete/">Cuckoo Filter：比 Bloom Filter 多了 Delete</a></li>
-<li><a class="reference external" href="https://github.com/irfansharif/cfilter">cfilter: Cuckoo Filter implementation in Go</a></li>
+<li><a class="reference external" href="https://bdupras.github.io/filter-tutorial/">Probabilistic Filters By Example</a></li>
+<li>[GitHub] <a class="reference external" href="https://github.com/seiflotfy/rust-cuckoofilter">rust-cuckoofilter</a></li>
+<li>[GitHub] <a class="reference external" href="https://github.com/irfansharif/cfilter">cfilter: Cuckoo Filter implementation in Go</a></li>
 </ul>
+</div>
+<div class="section" id="linear-counting-lc">
+<h2><a class="toc-backref" href="#id19">Linear Counting (LC)</a><a class="headerlink" href="#linear-counting-lc" title="本標題的永久連結">¶</a></h2>
+<p>空間複雜度：</p>
+<img alt="../_images/o-n-max.png" src="../_images/o-n-max.png" />
+<p>在 1990 年的一篇論文
+「A Linear-Time Probabilistic Counting Algorithm for Database Applications <a class="reference internal" href="#whang1990linear" id="id4">[whang1990linear]</a> 」
+中被提出，
+屬於早期的 Cardinality Estimation 演算法，
+也因此空間複雜不不如後面出現的演算法來的好。</p>
+<p>Linear Couting 會有一個 bit vector 和 Hash 函式，
+bit vector 一開始會初始化為 0，
+資料在經過 Hash 後會變成 bit vector index，
+此時把對應的位置標為 1，
+把所有資料處理過後就可以概略估計資料內不同數值的數量。</p>
+<p>估計公式為：</p>
+<img alt="../_images/linear-counting-estimation.png" src="../_images/linear-counting-estimation.png" />
+</div>
+<div class="section" id="loglog-counting-llc">
+<h2><a class="toc-backref" href="#id20">LogLog Counting (LLC)</a><a class="headerlink" href="#loglog-counting-llc" title="本標題的永久連結">¶</a></h2>
+<p>空間複雜度：</p>
+<img alt="../_images/o-log-log-n-max.png" src="../_images/o-log-log-n-max.png" />
+<p>「Loglog Counting of Large Cardinalities <a class="reference internal" href="#durand2003loglog" id="id5">[durand2003loglog]</a> 」</p>
+</div>
+<div class="section" id="hyperloglog-counting-hllc">
+<h2><a class="toc-backref" href="#id21">HyperLogLog Counting (HLLC)</a><a class="headerlink" href="#hyperloglog-counting-hllc" title="本標題的永久連結">¶</a></h2>
+<p>空間複雜度：</p>
+<img alt="../_images/o-log-log-n-max.png" src="../_images/o-log-log-n-max.png" />
+<p>「Hyperloglog: The analysis of a near-optimal cardinality estimation algorithm <a class="reference internal" href="#flajolet2007hyperloglog" id="id6">[flajolet2007hyperloglog]</a> 」</p>
+<p>HyperLogLog 是一種解 Cardinality Estimation Problem（或稱 Count-distinct Problem）的演算法，
+用於概略估算集合中不同數值的數量。
+由於計算正確的數量需要比較多的資源與時間，
+尤其對於資料量大時尤其明顯，
+但我們在一些情況下可能可以接受誤差，
+於是就有了 HyperLogLog 這類演算法，
+HyperLogLog 更改自更早期的 LogLog 演算法，
+改善其不同數值的數量少的時候會有大誤差的問題，
+可以用極少量的記憶體來估算極大量的集合中不同數值的數量，
+使用 1.5 KB 的記憶體就可以估算 10 億筆資料（誤差為 2%）。</p>
+<p>在講 HyperLogLog 前有一個重要的性質要先知道，
+假設資料是連續均勻分佈的（Uniform Distribution），
+在這個條件下已經有人觀察到可以用數值的二元表示中最多連續的 0 作為估計來源，
+例如這一大筆資料中最多連續的 0 是 n，
+則估計有 2^n 個不同的資料。</p>
+<p>HyperLogLog 會對集合內的元素進行 Hash，
+藉此取得均勻分佈的資料，
+再套用上面提到的性質做計算，
+為了降低誤差，
+HyperLogLog 還會把資料切割成數個子集合，
+由子集合進行計算，
+最後再取調和平均數（Harmonic Mean）算出整體的結果。</p>
+<p>想法如下，
+假設我們有四個 bits，
+則總共有 16 種可能，
+其中：</p>
+<ul class="simple">
+<li>連續四個 0 的有一種：0000</li>
+<li>連續三個 0 的有兩種：0001、1000</li>
+<li>連續二個 0 的有五種：0011、1001、1100、0100、0010</li>
+<li>連續一個 0 的有七種：0111、1011、1101、1110、0101、1010、0110</li>
+<li>沒有0 的有一種：1111</li>
+</ul>
+<p>假設我們最高連續次數為三個，
+則其出現的機率為 2/16，
+加上我們的資料是平均分佈的（或使用結果平均分佈的 Hash 函式），
+所以就猜我們可能有 8 筆不同的資料。</p>
+<p>為了降低單一估計可能會有極大的偏差（Bias），
+可以把做分割後再取平均來降低，
+例如準備特定長度的 bucket vector，
+取資料的前 4 個 bits 作為 bucket index（所以各 bucket 的分佈狀況應該偏向平均），
+計算剩下資料的連續 0 數量，
+存入對應的 bucket 位置，
+最後使用 Harmonic Mean 計算平均以降低極端值（Outlier）的影響。</p>
+<p>HyperLogLog 的標準差為 <code class="docutils literal"><span class="pre">1.04</span> <span class="pre">/</span> <span class="pre">sqrt(m)</span></code> ，
+其中 m 為使用的 bucket vector 大小。</p>
+<p>實際應用：</p>
+<ul class="simple">
+<li><a class="reference external" href="http://antirez.com/news/75">Redis</a></li>
+</ul>
+<p>參考：</p>
+<ul class="simple">
+<li><a class="reference external" href="http://blog.kiip.me/engineering/sketching-scaling-everyday-hyperloglog/">Sketching &amp; Scaling: Everyday HyperLogLog</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/HyperLogLog">Wikipedia - HyperLogLog</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Count-distinct_problem">Wikipedia - Count-distinct problem</a></li>
+<li>[2013] <a class="reference external" href="https://research.google.com/pubs/pub40671.html">HyperLogLog in Practice: Algorithmic Engineering of a State of The Art Cardinality Estimation Algorithm</a></li>
+<li>[GitHub] <a class="reference external" href="https://github.com/antirez/redis/blob/unstable/src/hyperloglog.c">Redis - src/hyperloglog.c</a></li>
+</ul>
+</div>
+<div class="section" id="hyperloglog">
+<h2><a class="toc-backref" href="#id22">HyperLogLog++</a><a class="headerlink" href="#hyperloglog" title="本標題的永久連結">¶</a></h2>
+<p>參考：</p>
+<ul class="simple">
+<li><a class="reference external" href="https://research.neustar.biz/2013/01/24/hyperloglog-googles-take-on-engineering-hll/">HyperLogLog++: Google’s Take On Engineering HLL</a></li>
+</ul>
+</div>
+<div class="section" id="adaptive-counting-ac">
+<h2><a class="toc-backref" href="#id23">Adaptive Counting (AC)</a><a class="headerlink" href="#adaptive-counting-ac" title="本標題的永久連結">¶</a></h2>
+<p>「Fast and Accurate Traffic Matrix Measurement. Using Adaptive Cardinality Counting <a class="reference internal" href="#cai2005fast" id="id7">[cai2005fast]</a> 」</p>
+<p>Linear Counting 和 LogLog Counting 的組合，
+分析兩者的標準差，
+給定門檻決定要使用何者。</p>
+</div>
+<div class="section" id="count-min-sketch">
+<h2><a class="toc-backref" href="#id24">Count-Min Sketch</a><a class="headerlink" href="#count-min-sketch" title="本標題的永久連結">¶</a></h2>
+<p>類似 Bloom Filter，但是計算出現頻率</p>
+</div>
+<div class="section" id="filtered-space-saving-top-k">
+<h2><a class="toc-backref" href="#id25">Filtered-Space Saving Top-K</a><a class="headerlink" href="#filtered-space-saving-top-k" title="本標題的永久連結">¶</a></h2>
+<p>準確地估計 Stream 中 k 個出現頻率最高的資料，
+同時只使用極小的常數記憶體。</p>
+</div>
+<div class="section" id="k-minimum-values">
+<h2><a class="toc-backref" href="#id26">K-Minimum Values</a><a class="headerlink" href="#k-minimum-values" title="本標題的永久連結">¶</a></h2>
+</div>
+<div class="section" id="approximate-histograms">
+<h2><a class="toc-backref" href="#id27">Approximate Histograms</a><a class="headerlink" href="#approximate-histograms" title="本標題的永久連結">¶</a></h2>
+</div>
+<div class="section" id="skip-list">
+<h2><a class="toc-backref" href="#id28">Skip List</a><a class="headerlink" href="#skip-list" title="本標題的永久連結">¶</a></h2>
+</div>
+<div class="section" id="treaps">
+<h2><a class="toc-backref" href="#id29">Treaps</a><a class="headerlink" href="#treaps" title="本標題的永久連結">¶</a></h2>
+<p>結合 Heap 和 Binary Search Tree</p>
+</div>
+<div class="section" id="t-digest">
+<h2><a class="toc-backref" href="#id30">t-digest</a><a class="headerlink" href="#t-digest" title="本標題的永久連結">¶</a></h2>
+</div>
+<div class="section" id="id8">
+<h2><a class="toc-backref" href="#id31">參考</a><a class="headerlink" href="#id8" title="本標題的永久連結">¶</a></h2>
+<table class="docutils citation" frame="void" id="whang1990linear" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[whang1990linear]</a></td><td>[1990] <a class="reference external" href="http://organ.kaist.ac.kr/Prof/pdf/Whang1990(linear).pdf">A Linear-Time Probabilistic Counting Algorithm for Database Applications</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="durand2003loglog" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id5">[durand2003loglog]</a></td><td>[2003] <a class="reference external" href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.79.8821&amp;rep=rep1&amp;type=pdf">Loglog Counting of Large Cardinalities</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="cai2005fast" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id7">[cai2005fast]</a></td><td>[2005] <a class="reference external" href="http://gridsec.usc.edu/files/TR/TR-2005-12.pdf">Fast and Accurate Traffic Matrix Measurement. Using Adaptive Cardinality Counting</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="flajolet2007hyperloglog" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id6">[flajolet2007hyperloglog]</a></td><td>[2007] <a class="reference external" href="http://algo.inria.fr/flajolet/Publications/FlFuGaMe07.pdf">Hyperloglog: The analysis of a near-optimal cardinality estimation algorithm</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="fan2014cuckoo" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[fan2014cuckoo]</a></td><td>[2014] <a class="reference external" href="http://dl.acm.org/citation.cfm?id=2674994">Cuckoo Filter: Practically Better Than Bloom</a></td></tr>
+</tbody>
+</table>
 </div>
 </div>
 
