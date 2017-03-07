@@ -243,3 +243,63 @@ Optimizing Rc memory usage in Rust
 
 另外也有嘗試使用系統的 memoyr allocator，
 但是發現沒有比 ``jemalloc`` 來的好。
+
+
+
+What Are Sum, Product, and Pi Types?
+========================================
+
+:作者: Manish Goregaokar
+:URL: https://manishearth.github.io/blog/2017/03/04/what-are-sum-product-and-pi-types/
+
+因為最近有 Rust RFC 在討論 Pi Type，
+因此作者寫了一篇文章介紹 Sum Type、Product Type、Pi Type，
+講解名稱的來源和使用起來的樣子。
+
+基本上就是以集合的角度去看而命名的，
+Sum Type 就是數個集合組合成的大集合，
+Product Type 就是數個集合進行 Cartesian Product 的結果，
+而 Pi Type 則是數個集合進行 Infinite Product 的結果。
+
+Product Type：
+
+.. code-block:: rust
+
+    // { (x, y) : x ∈ bool, y ∈ u8 }
+    // Foo = bool × u8
+    struct Foo {
+        x: bool,
+        y: u8,
+    }
+
+
+Sum Type：
+
+.. code-block:: rust
+
+    // Foo = bool + u8
+    enum Foo {
+        Bool(bool),
+        Integer(u8),
+    }
+
+    // Bar = bool_1 + bool_2 + u8
+    enum Bar {
+        Bool1(bool),
+        Bool2(bool),
+        Integer(u8).
+    }
+
+
+Pi Type：
+
+.. code-block:: rust
+
+    // Not valid Rust sytax, yet
+
+    //               ∞
+    // make_array =  ∏  (fn() → Array<bool, x>)
+    //              x=0
+    fn make_array<const x: u8>() -> Array<bool, x> {
+       // ...
+    }
