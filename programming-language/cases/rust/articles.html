@@ -804,6 +804,7 @@
 <li><a class="reference internal" href="#ripgrep-code-review" id="id14">ripgrep code review</a></li>
 <li><a class="reference internal" href="#rust-futures-at-a-glance" id="id15">Rust futures at a glance</a></li>
 <li><a class="reference internal" href="#optimizing-rc-memory-usage-in-rust" id="id16">Optimizing Rc memory usage in Rust</a></li>
+<li><a class="reference internal" href="#what-are-sum-product-and-pi-types" id="id17">What Are Sum, Product, and Pi Types?</a></li>
 </ul>
 </li>
 </ul>
@@ -1119,6 +1120,61 @@
 <p>作者觀察型別大小的方式： <code class="docutils literal"><span class="pre">cargo</span> <span class="pre">rustc</span> <span class="pre">--release</span> <span class="pre">--</span> <span class="pre">-Z</span> <span class="pre">print-type-sizes</span></code></p>
 <p>另外也有嘗試使用系統的 memoyr allocator，
 但是發現沒有比 <code class="docutils literal"><span class="pre">jemalloc</span></code> 來的好。</p>
+</div>
+<div class="section" id="what-are-sum-product-and-pi-types">
+<h2><a class="toc-backref" href="#id17">What Are Sum, Product, and Pi Types?</a><a class="headerlink" href="#what-are-sum-product-and-pi-types" title="本標題的永久連結">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">作者:</th><td class="field-body">Manish Goregaokar</td>
+</tr>
+<tr class="field-even field"><th class="field-name">URL:</th><td class="field-body"><a class="reference external" href="https://manishearth.github.io/blog/2017/03/04/what-are-sum-product-and-pi-types/">https://manishearth.github.io/blog/2017/03/04/what-are-sum-product-and-pi-types/</a></td>
+</tr>
+</tbody>
+</table>
+<p>因為最近有 Rust RFC 在討論 Pi Type，
+因此作者寫了一篇文章介紹 Sum Type、Product Type、Pi Type，
+講解名稱的來源和使用起來的樣子。</p>
+<p>基本上就是以集合的角度去看而命名的，
+Sum Type 就是數個集合組合成的大集合，
+Product Type 就是數個集合進行 Cartesian Product 的結果，
+而 Pi Type 則是數個集合進行 Infinite Product 的結果。</p>
+<p>Product Type：</p>
+<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="c1">// { (x, y) : x ∈ bool, y ∈ u8 }</span>
+<span class="c1">// Foo = bool × u8</span>
+<span class="k">struct</span><span class="w"> </span><span class="n">Foo</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">x</span><span class="o">:</span><span class="w"> </span><span class="kt">bool</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">y</span><span class="o">:</span><span class="w"> </span><span class="kt">u8</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Sum Type：</p>
+<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="c1">// Foo = bool + u8</span>
+<span class="k">enum</span><span class="w"> </span><span class="n">Foo</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">Bool</span><span class="p">(</span><span class="kt">bool</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="n">Integer</span><span class="p">(</span><span class="kt">u8</span><span class="p">),</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="c1">// Bar = bool_1 + bool_2 + u8</span>
+<span class="k">enum</span><span class="w"> </span><span class="n">Bar</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">Bool1</span><span class="p">(</span><span class="kt">bool</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="n">Bool2</span><span class="p">(</span><span class="kt">bool</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="n">Integer</span><span class="p">(</span><span class="kt">u8</span><span class="p">).</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Pi Type：</p>
+<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="c1">// Not valid Rust sytax, yet</span>
+
+<span class="c1">//               ∞</span>
+<span class="c1">// make_array =  ∏  (fn() → Array&lt;bool, x&gt;)</span>
+<span class="c1">//              x=0</span>
+<span class="k">fn</span><span class="w"> </span><span class="n">make_array</span><span class="o">&lt;</span><span class="kr">const</span><span class="w"> </span><span class="n">x</span><span class="o">:</span><span class="w"> </span><span class="kt">u8</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Array</span><span class="o">&lt;</span><span class="kt">bool</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="c1">// ...</span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
 </div>
 </div>
 
