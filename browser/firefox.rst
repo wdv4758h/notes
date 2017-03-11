@@ -14,6 +14,7 @@ SpiderMonkey (JavaScript 引擎)
 * `Are We Fast Yet? <https://arewefastyet.com/>`_
 * `Are we e10s yet? <https://arewee10syet.com/>`_
 * `Are we WebExtensions yet? <http://arewewebextensionsyet.com/>`_
+* `Are they slim yet, round 2 <http://www.erahm.org/2017/03/10/are-they-slim-yet-round-2/>`_
 * `Tracelogger graph - a tool in the SpiderMonkey JS engine that can make execution traces <https://github.com/h4writer/tracelogger>`_
 * `MDN - SpiderMonkey <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey>`_
 
