@@ -3,9 +3,7 @@ Racket
 ========================================
 
 
-.. contents:: Table of Contents / 目錄
-
-
+.. contents:: 目錄
 
 
 歷史發展
@@ -18,18 +16,44 @@ Lisp 方言時間表
 .. image:: /images/programming-language/lisp-dialects-timeline.png
 
 
+Lisp
+------------------------------
+
+Scheme
+------------------------------
+
+Racket (PLT Scheme)
+------------------------------
+
+Racket 原本被稱為 PLT Scheme，
+在 Scheme 上加入許多方便使用的工具，
+隨著發展開始跟原生的 Scheme 有越來越多差異，
+因此更名為 Racket。
+
+Racket 有時又會被稱為「Scheme with batteries included」。
+
+
+Lazy Racket
+------------------------------
+
+
 Typed Racket
 ------------------------------
 
 Typed Racket 是在原本的 Racket 之上加了 gradually-typed 的能力，
 
 
+FrTime
+------------------------------
 
-實做
+
+Racket 介紹
 ========================================
 
-* [GitHub] `Racket <https://github.com/racket/racket>`_
-* [GitHub] `Pycket - A rudimentary Racket implementation using RPython <https://github.com/pycket/pycket>`_
+Racket 特性：
+
+* 動態語言
+* Lisp 家族
 
 
 
@@ -215,6 +239,13 @@ Fibonacci with Memoize
     165580141
 
 
+Fibonacci with Typed
+------------------------------
+
+racket -I typed/racket
+
+
+
 參考
 ========================================
 
@@ -230,8 +261,23 @@ Fibonacci with Memoize
 
 * `Learn Racket in Y Minutes <https://learnxinyminutes.com/docs/racket/>`_
 * `Beautiful Racket - learn how to make your own programming languages with Racket (and why) <http://beautifulracket.com/>`_
+* `Why Racket? Why Lisp? <http://beautifulracket.com/appendix/why-racket-why-lisp.html>`_
 * `How to Design Programs <http://htdp.org/>`_
     - 講 Scheme 的書，但是可以套用到 Racket
+* `SICP Support for DrRacket <http://www.neilvandyke.org/racket/sicp/>`_
+
+
+實做
+------------------------------
+
+* [GitHub] `Racket <https://github.com/racket/racket>`_
+* [GitHub] `Pycket - A rudimentary Racket implementation using RPython <https://github.com/pycket/pycket>`_
+
+
+投影片
+------------------------------
+
+* `Racket - Lisp beyond do Clojure by Ronie Uliana <http://slides.com/ronie/racket-beyond-clojure>`_
 
 
 論文
