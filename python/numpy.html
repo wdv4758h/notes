@@ -462,6 +462,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../memory/memory-allocators-under-the-hood.html">Memory Allocator - Under The Hood</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/memory-hardware.html">Memory Hardware</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/memory-management.html">Memory Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../memory/memory-profiler.html">Memory Profiler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/memory-profiling.html">Memory Profiling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/sanitizer.html">Sanitizer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/stack-protection.html">Stack Protection</a></li>
@@ -631,6 +632,7 @@
 <li class="toctree-l1"><a class="reference internal" href="install-packages.html">Python - Install Packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="iterator.html">Iterator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="make-packages.html">製作 Packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matplotlib.html">matplotlib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nuitka.html">Nuitka</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Numpy</a><ul>
@@ -644,6 +646,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#insert-numpy-array">Insert Numpy Array</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id1">檢查使用狀況</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#numpy-array-attributes">自己為 NumPy Array 加額外 Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#numpy-array-bytes">NumPy Array 轉 Bytes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
@@ -816,7 +819,8 @@
 <li><a class="reference internal" href="#insert-numpy-array" id="id10">Insert Numpy Array</a></li>
 <li><a class="reference internal" href="#id1" id="id11">檢查使用狀況</a></li>
 <li><a class="reference internal" href="#numpy-array-attributes" id="id12">自己為 NumPy Array 加額外 Attributes</a></li>
-<li><a class="reference internal" href="#reference" id="id13">Reference</a></li>
+<li><a class="reference internal" href="#numpy-array-bytes" id="id13">NumPy Array 轉 Bytes</a></li>
+<li><a class="reference internal" href="#reference" id="id14">Reference</a></li>
 </ul>
 </li>
 </ul>
@@ -1082,8 +1086,24 @@ index 從 0 開始 (所以第五小的值會在 index 4)</p>
 </pre></div>
 </div>
 </div>
+<div class="section" id="numpy-array-bytes">
+<h2><a class="toc-backref" href="#id13">NumPy Array 轉 Bytes</a><a class="headerlink" href="#numpy-array-bytes" title="本標題的永久連結">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="o">.</span><span class="n">tobytes</span><span class="p">()</span>
+<span class="go">b&#39;\x00\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00\x00\x00\x00\x00\x00\x02\x00\x00\x00\x00\x00\x00\x00\x03\x00\x00\x00\x00\x00\x00\x00\x04\x00\x00\x00\x00\x00\x00\x00\x05\x00\x00\x00\x00\x00\x00\x00\x06\x00\x00\x00\x00\x00\x00\x00\x07\x00\x00\x00\x00\x00\x00\x00\x08\x00\x00\x00\x00\x00\x00\x00\t\x00\x00\x00\x00\x00\x00\x00&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="s1">&#39;S8&#39;</span><span class="p">)</span>   <span class="c1"># S 表示 bytestring</span>
+<span class="go">array([b&#39;&#39;, b&#39;\x01&#39;, b&#39;\x02&#39;, b&#39;\x03&#39;, b&#39;\x04&#39;, b&#39;\x05&#39;, b&#39;\x06&#39;, b&#39;\x07&#39;,</span>
+<span class="go">       b&#39;\x08&#39;, b&#39;\t&#39;],</span>
+<span class="go">      dtype=&#39;|S8&#39;)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/arrays.dtypes.html">NumPy - Data type objects (dtype)</a></li>
+</ul>
+</div>
 <div class="section" id="reference">
-<h2><a class="toc-backref" href="#id13">Reference</a><a class="headerlink" href="#reference" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id14">Reference</a><a class="headerlink" href="#reference" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://docs.scipy.org/doc/numpy-dev/reference/">NumPy Reference</a></li>
 <li><a class="reference external" href="http://pages.physics.cornell.edu/~myers/teaching/ComputationalMethods/python/arrays.html">scipy array tip sheet</a></li>

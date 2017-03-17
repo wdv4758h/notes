@@ -198,3 +198,12 @@ Containers Come to Test Pilot
 
 新進到 Test Pilot 的 Containers 支援可以隔離不同網站間的資源，
 包含 cookies、indexedDB、localStorage、caches。
+
+
+
+LLVM - OpenMP 5.0
+========================================
+
+:URL: https://reviews.llvm.org/rL297083
+
+這個 commit 加入了 OpenMP 5.0 的 header 到 LLVM 的 runtime。

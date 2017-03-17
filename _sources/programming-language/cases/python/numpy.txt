@@ -288,6 +288,25 @@ Insert Numpy Array
 
 
 
+NumPy Array 轉 Bytes
+========================================
+
+.. code-block:: python
+
+    >>> import numpy
+    >>> data = numpy.array(range(10))
+    >>> data.tobytes()
+    b'\x00\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00\x00\x00\x00\x00\x00\x02\x00\x00\x00\x00\x00\x00\x00\x03\x00\x00\x00\x00\x00\x00\x00\x04\x00\x00\x00\x00\x00\x00\x00\x05\x00\x00\x00\x00\x00\x00\x00\x06\x00\x00\x00\x00\x00\x00\x00\x07\x00\x00\x00\x00\x00\x00\x00\x08\x00\x00\x00\x00\x00\x00\x00\t\x00\x00\x00\x00\x00\x00\x00'
+    >>> data.view('S8')   # S 表示 bytestring
+    array([b'', b'\x01', b'\x02', b'\x03', b'\x04', b'\x05', b'\x06', b'\x07',
+           b'\x08', b'\t'],
+          dtype='|S8')
+
+
+* `NumPy - Data type objects (dtype) <https://docs.scipy.org/doc/numpy/reference/arrays.dtypes.html>`_
+
+
+
 Reference
 ========================================
 

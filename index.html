@@ -461,6 +461,7 @@
 <li class="toctree-l1"><a class="reference internal" href="memory/memory-allocators-under-the-hood.html">Memory Allocator - Under The Hood</a></li>
 <li class="toctree-l1"><a class="reference internal" href="memory/memory-hardware.html">Memory Hardware</a></li>
 <li class="toctree-l1"><a class="reference internal" href="memory/memory-management.html">Memory Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="memory/memory-profiler.html">Memory Profiler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="memory/memory-profiling.html">Memory Profiling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="memory/sanitizer.html">Sanitizer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="memory/stack-protection.html">Stack Protection</a></li>
@@ -630,6 +631,7 @@
 <li class="toctree-l1"><a class="reference internal" href="python/install-packages.html">Python - Install Packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python/introduction.html">Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python/iterator.html">Iterator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python/make-packages.html">製作 Packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python/matplotlib.html">matplotlib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python/nuitka.html">Nuitka</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python/numpy.html">Numpy</a></li>
@@ -3374,6 +3376,10 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="memory/memory-profiler.html">Memory Profiler</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="memory/memory-profiler.html#heaptrack">Heaptrack</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="memory/memory-profiling.html">Memory Profiling</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="memory/memory-profiling.html#introduction">Introduction</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="memory/memory-profiling.html#tools">Tools</a></li>
@@ -3744,6 +3750,7 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="misc/articles.html#why-rethinkdb-failed">Why RethinkDB failed ?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="misc/articles.html#a-hyper-update">A hyper update</a></li>
 <li class="toctree-l2"><a class="reference internal" href="misc/articles.html#containers-come-to-test-pilot">Containers Come to Test Pilot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc/articles.html#llvm-openmp-5-0">LLVM - OpenMP 5.0</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="misc/bandwidth.html">頻寬成本</a><ul>
@@ -4383,6 +4390,15 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="python/iterator.html#reference">Reference</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="python/make-packages.html">製作 Packages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="python/make-packages.html#setup-py">基本 setup.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/make-packages.html#install-requires-requirements-txt">install_requires &amp; requirements.txt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/make-packages.html#setup-py-requirements-txt">在 setup.py 內重複利用 requirements.txt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/make-packages.html#dependencies-setup-py">額外的 dependencies 來源（setup.py）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/make-packages.html#id2">安裝額外的檔案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/make-packages.html#id3">參考</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="python/matplotlib.html">matplotlib</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="python/matplotlib.html#console-only-output-image-files">Console Only (Output Image Files)</a></li>
 </ul>
@@ -4402,6 +4418,7 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="python/numpy.html#insert-numpy-array">Insert Numpy Array</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python/numpy.html#id1">檢查使用狀況</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python/numpy.html#numpy-array-attributes">自己為 NumPy Array 加額外 Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/numpy.html#numpy-array-bytes">NumPy Array 轉 Bytes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python/numpy.html#reference">Reference</a></li>
 </ul>
 </li>
@@ -4724,6 +4741,7 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="rust/articles.html#rust-futures-at-a-glance">Rust futures at a glance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/articles.html#optimizing-rc-memory-usage-in-rust">Optimizing Rc memory usage in Rust</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/articles.html#what-are-sum-product-and-pi-types">What Are Sum, Product, and Pi Types?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/articles.html#rust-on-the-arm-cortex-m3">Rust on the ARM Cortex M3</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rust/asmjs.html">Rust to asm.js</a><ul>

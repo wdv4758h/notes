@@ -303,3 +303,13 @@ Pi Type：
     fn make_array<const x: u8>() -> Array<bool, x> {
        // ...
     }
+
+
+
+Rust on the ARM Cortex M3
+========================================
+
+:URL: http://www.acrawford.com/2017/03/09/rust-on-the-cortex-m3.html
+
+作者介紹如何在官方沒有支援的平台上編譯簡單的 Rust 程式，
+從環境建立（Cargo、rustup、xargo）到寫 Linker Script。
