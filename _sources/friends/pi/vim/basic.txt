@@ -13,6 +13,7 @@
     vim -p file1 file2 file3
 
   - 有數量上限，實測大約為 10 頁，超出的檔案不會被開啟
+  - 進入 vim 以後用 ``tabedit`` 則是沒有這個限制
 
 * 用唯讀模式開啟 ::
 
@@ -99,6 +100,12 @@
   - 把游標所在的行移到畫面中間 / 上面 / 下面
 
     + ``zz`` / ``zt`` / ``zb``
+    
+* 搜尋游標所在的字，跳到整個檔案第一次出現的地方 ::
+
+    gD
+
+  - 在 trace code 的時候很好用
 
 
 貼上
@@ -350,12 +357,6 @@ Register
 
     "ayy
 
-* 系統的剪貼簿 ::
-
-    "*
-
-  - ``vim`` 需要在編譯時開啟 ``clipboard`` module
-
 * 複製的預設 register ::
 
     "0
@@ -363,6 +364,12 @@ Register
 * 刪除 / 剪下的預設 register ::
 
     ""
+
+* 系統剪貼簿 ::
+
+  - ``"*`` - 在 Linux 以及 Windows 中複製/貼上（ ``<C-c>`` / ``<C-v>`` ）所使用的 regsiter
+  - ``"+`` - 在 Linux 中用滑鼠反白/中鍵所使用的 register
+  - ``vim`` 需要在編譯時開啟 ``clipboard`` module
 
 
 折疊
@@ -411,16 +418,6 @@ Register
 * 把本次搜尋的上色清除，但 search pattern 仍存在，故按下 ``n`` 還是可以繼續搜尋 ::
 
     :noh
-
-* ``vim`` 的 regex
-
-  - ``()`` 如果不 escape，就視為普通的括號
-
-  - ``[]`` 需要 escape 才會是普通的括號
-
-  - ``\<abc\>`` 可以只比對到 ``abc`` 單字，不會 match ``aabcc`` 中間的 ``abc``
-
-    + 是 [normal] ``#`` 預設的行為
 
 * 移除檔首的 BOM ::
 
@@ -502,3 +499,7 @@ Register
 
   - 以 行 為單位，所有符合 ``pattern`` 的行都被執行 ``cmd`` （command mode 指令）
   - 把檔案內所有成對的 ``{`` ``}`` 都刪除: ``:g/{/normal f{da{``
+
+* 用外部程式開啟檔案/目錄/URL ::
+
+    gx

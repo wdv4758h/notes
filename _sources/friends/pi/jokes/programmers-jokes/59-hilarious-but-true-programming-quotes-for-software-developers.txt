@@ -132,7 +132,7 @@
 
 34. 培養員工，即使他們有跳槽的風險。什麼都不做而留他們在公司，這樣風險更大。（Anonymous）
 
-    + Better train people and risk they leave – than do nothing and risk they stay. (Anonymous)
+    + Better train people and risk they leave - than do nothing and risk they stay. (Anonymous)
 
 35. 電腦科學的目標是做出一個東西，並且保證它至少能堅持到我們將它開發完成。（Anonymous）
 
@@ -176,15 +176,15 @@
 
 45. 程式除錯要比新編寫程式困難一倍。因此，如果你寫出了最聰明的程式，按此推算，你就缺乏更深遠的智慧來替它除錯。
 
-    + Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are–by definition–not smart enough to debug it.
+    + Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are-by definition-not smart enough to debug it.
 
 46. 想在自己的程式裡找出一個錯誤是十分困難的。而當你認為你的程式沒有錯誤時，那就更難了。（Steve McConnel）
 
     + It's hard enough to find an error in your code when you're looking for it; it's even harder when you've assumed your code is error-free. (Steve McConnel)
 
-47. 這不是個 bug——這一個未註明的功能特徵。（Anonymous）
+47. 這不是個 bug - 這是一個沒寫在文件裡的功能。（Anonymous）
 
-    + It’s not a bug – it’s an undocumented feature. (Anonymous)
+    + It’s not a bug - it’s an undocumented feature. (Anonymous)
 
 48. 沒有需求或設計，寫程式就是一種將 bug 添加到一個空白文件裡的藝術。（Louis Srygley）
 
@@ -222,9 +222,9 @@
 
     + I think Microsoft named .Net so it wouldn’t show up in a Unix directory listing. (Oktal)
 
-57. 軟體和教堂非常相似——建成之後我們就開始祈禱。（Sam Redwine）
+57. 軟體和教堂非常相似 - 建成之後我們就開始祈禱。（Sam Redwine）
 
-    + Software and cathedrals are much the same – first we build them, then we pray. (Sam Redwine)
+    + Software and cathedrals are much the same - first we build them, then we pray. (Sam Redwine)
 
 58. 除非最後一個使用者死掉，軟體是不會有完工的時候的。（Anonymous）
 

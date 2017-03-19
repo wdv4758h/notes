@@ -391,6 +391,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../computer-history-timeline.html">計算機科學時間軸</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../crontab-periodic.html">Crontab &amp; Periodic</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cygwin.html">Cygwin 筆記</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dhcp.html">DHCP</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../expect.html">expect 筆記</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../freebsd-jails.html">FreeBSD Jails</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../freebsd-nfs.html">NFS</a></li>
@@ -437,7 +438,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../python/pip.html">Python Package Index - PyPI</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../python/read-append-file-without-closing.html">在不關閉檔案的情況下讀取並新增內容</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../python/underscores.html">底線</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../python/virtualenv.html">= virtualenv =</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python/virtualenv.html">virtualenv</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../unix-commands/chflags.html"><code class="docutils literal"><span class="pre">chflags</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../unix-commands/chmod.html"><code class="docutils literal"><span class="pre">chmod</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../unix-commands/column.html"><code class="docutils literal"><span class="pre">column</span></code></a></li>
@@ -507,7 +508,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="conceal.html">隱藏顯示字元</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plugin.html">= Vim Plugin 筆記 =</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plugin.html">Vim Plugin 筆記</a></li>
 <li class="toctree-l3"><a class="reference internal" href="regex.html">= Vim Regex =</a></li>
 <li class="toctree-l3"><a class="reference internal" href="statusline.html">Vim statusline</a></li>
 <li class="toctree-l3"><a class="reference internal" href="tab.html">vim 的 tab</a></li>
@@ -824,7 +825,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/c-to-rust.html">把 C 程式轉換成 Rust 程式</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/cargo.html">Cargo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/compiler.html">Rust 編譯器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/design-pattern.html">Design Pattern</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/ecosystem.html">Rust 生態圈 (Rust Ecosystem)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/faq.html">FAQ (Frequently Asked Questions)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/features-basic.html">Rust&#8217;s Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/index.html">My Rust Articles Collection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/iterator.html">Iterator</a></li>
@@ -945,6 +948,7 @@
 </div>
 <ul class="simple">
 <li>有數量上限，實測大約為 10 頁，超出的檔案不會被開啟</li>
+<li>進入 vim 以後用 <code class="docutils literal"><span class="pre">tabedit</span></code> 則是沒有這個限制</li>
 </ul>
 </li>
 <li><p class="first">用唯讀模式開啟</p>
@@ -1053,6 +1057,14 @@
 <li><code class="docutils literal"><span class="pre">zz</span></code> / <code class="docutils literal"><span class="pre">zt</span></code> / <code class="docutils literal"><span class="pre">zb</span></code></li>
 </ul>
 </li>
+</ul>
+</li>
+<li><p class="first">搜尋游標所在的字，跳到整個檔案第一次出現的地方</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">gD</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>在 trace code 的時候很好用</li>
 </ul>
 </li>
 </ul>
@@ -1378,14 +1390,6 @@
 </pre></div>
 </div>
 </li>
-<li><p class="first">系統的剪貼簿</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;*</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">vim</span></code> 需要在編譯時開啟 <code class="docutils literal"><span class="pre">clipboard</span></code> module</li>
-</ul>
-</li>
 <li><p class="first">複製的預設 register</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;0</span>
 </pre></div>
@@ -1393,6 +1397,13 @@
 </li>
 <li><p class="first">刪除 / 剪下的預設 register</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">系統剪貼簿</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>- ``&quot;*`` - 在 Linux 以及 Windows 中複製/貼上（ ``&lt;C-c&gt;`` / ``&lt;C-v&gt;`` ）所使用的 regsiter
+- ``&quot;+`` - 在 Linux 中用滑鼠反白/中鍵所使用的 register
+- ``vim`` 需要在編譯時開啟 ``clipboard`` module
 </pre></div>
 </div>
 </li>
@@ -1459,16 +1470,6 @@
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">noh</span>
 </pre></div>
 </div>
-</li>
-<li><p class="first"><code class="docutils literal"><span class="pre">vim</span></code> 的 regex</p>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">()</span></code> 如果不 escape，就視為普通的括號</li>
-<li><code class="docutils literal"><span class="pre">[]</span></code> 需要 escape 才會是普通的括號</li>
-<li><code class="docutils literal"><span class="pre">\&lt;abc\&gt;</span></code> 可以只比對到 <code class="docutils literal"><span class="pre">abc</span></code> 單字，不會 match <code class="docutils literal"><span class="pre">aabcc</span></code> 中間的 <code class="docutils literal"><span class="pre">abc</span></code><ul>
-<li>是 [normal] <code class="docutils literal"><span class="pre">#</span></code> 預設的行為</li>
-</ul>
-</li>
-</ul>
 </li>
 <li><p class="first">移除檔首的 BOM</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">:</span><span class="nb">set</span> <span class="n">nobomb</span>
@@ -1571,6 +1572,11 @@
 <li>以 行 為單位，所有符合 <code class="docutils literal"><span class="pre">pattern</span></code> 的行都被執行 <code class="docutils literal"><span class="pre">cmd</span></code> （command mode 指令）</li>
 <li>把檔案內所有成對的 <code class="docutils literal"><span class="pre">{</span></code> <code class="docutils literal"><span class="pre">}</span></code> 都刪除: <code class="docutils literal"><span class="pre">:g/{/normal</span> <span class="pre">f{da{</span></code></li>
 </ul>
+</li>
+<li><p class="first">用外部程式開啟檔案/目錄/URL</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">gx</span>
+</pre></div>
+</div>
 </li>
 </ul>
 </div>

@@ -34,7 +34,7 @@
   
     <link rel="top" title="wdv4758h-notes latest 說明文件" href="../../../../index.html"/>
         <link rel="up" title="Notes" href="../../index.html"/>
-        <link rel="next" title="Static Function" href="static_func.html"/>
+        <link rel="next" title="Macro" href="macro.html"/>
         <link rel="prev" title="Yocto" href="../../linux/yocto.html"/> 
 
   
@@ -400,8 +400,12 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../algo/clus.html">Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../algo/dl.html">DL</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../algo/evolnn.html">Evolutionary Neuron Network</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../algo/prml.html">PRML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../compiler/index.html">Compiler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../compiler/intro.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../compiler/lex.html">lex</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../conf/pycon.html">Chapter name</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../db/cloudant.html">Cloudant</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../db/mongodb.html">MongoDB</a></li>
@@ -418,10 +422,13 @@
 <li class="toctree-l3"><a class="reference internal" href="../../project/ethereum.html">Ethereum</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/gpg.html">GnuPG</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/latex.html">LaTeX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../project/libuv.html">libuv</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/libvirt.html">Libvirt</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/make.html">Make</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../project/mxnet.html">MXNet</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/nftable.html">nftable</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/opencl.html">OpenCL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../project/pacman.html">pacman</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/sudo.html">sudo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/tensorflow.html">TensorFlow</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/zsh.html">zsh</a></li>
@@ -737,7 +744,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/c-to-rust.html">把 C 程式轉換成 Rust 程式</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/cargo.html">Cargo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/compiler.html">Rust 編譯器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rust/design-pattern.html">Design Pattern</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/ecosystem.html">Rust 生態圈 (Rust Ecosystem)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rust/faq.html">FAQ (Frequently Asked Questions)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/features-basic.html">Rust&#8217;s Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/index.html">My Rust Articles Collection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/iterator.html">Iterator</a></li>
@@ -848,9 +857,14 @@
 <h1>C<a class="headerlink" href="#c" title="本標題的永久連結">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="static_func.html">Static Function</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="static_func.html#sample">Sample</a></li>
-<li class="toctree-l2"><a class="reference internal" href="static_func.html#break-it-down">Break It Down</a></li>
+<li class="toctree-l1"><a class="reference internal" href="macro.html">Macro</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="macro.html#counter">__COUNTER__</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="static-assertion.html">Static Assertion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="static-func.html">Static Function</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="static-func.html#sample">Sample</a></li>
+<li class="toctree-l2"><a class="reference internal" href="static-func.html#break-it-down">Break It Down</a></li>
 </ul>
 </li>
 </ul>
@@ -864,7 +878,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="static_func.html" class="btn btn-neutral float-right" title="Static Function" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="macro.html" class="btn btn-neutral float-right" title="Macro" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../../linux/yocto.html" class="btn btn-neutral" title="Yocto" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>

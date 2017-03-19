@@ -391,6 +391,7 @@
 <li class="toctree-l3"><a class="reference internal" href="computer-history-timeline.html">計算機科學時間軸</a></li>
 <li class="toctree-l3"><a class="reference internal" href="crontab-periodic.html">Crontab &amp; Periodic</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cygwin.html">Cygwin 筆記</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dhcp.html">DHCP</a></li>
 <li class="toctree-l3"><a class="reference internal" href="expect.html">expect 筆記</a></li>
 <li class="toctree-l3"><a class="reference internal" href="freebsd-jails.html">FreeBSD Jails</a></li>
 <li class="toctree-l3"><a class="reference internal" href="freebsd-nfs.html">NFS</a></li>
@@ -420,7 +421,7 @@
 <li class="toctree-l3 current"><a class="current reference internal" href="#">tmux 用法及設定</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#id1">用詞</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#command-line-arguments">Command Line Arguments</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#hot-keys">Hot Keys</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#default-hot-keys">Default Hot Keys</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id2">tmux 內部指令</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id3">設定</a></li>
 </ul>
@@ -444,7 +445,7 @@
 <li class="toctree-l3"><a class="reference internal" href="python/pip.html">Python Package Index - PyPI</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/read-append-file-without-closing.html">在不關閉檔案的情況下讀取並新增內容</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/underscores.html">底線</a></li>
-<li class="toctree-l3"><a class="reference internal" href="python/virtualenv.html">= virtualenv =</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/virtualenv.html">virtualenv</a></li>
 <li class="toctree-l3"><a class="reference internal" href="unix-commands/chflags.html"><code class="docutils literal"><span class="pre">chflags</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="unix-commands/chmod.html"><code class="docutils literal"><span class="pre">chmod</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="unix-commands/column.html"><code class="docutils literal"><span class="pre">column</span></code></a></li>
@@ -503,7 +504,7 @@
 <li class="toctree-l3"><a class="reference internal" href="unix-commands/xargs.html"><code class="docutils literal"><span class="pre">xargs</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="vim/basic.html">= Vim 筆記 =</a></li>
 <li class="toctree-l3"><a class="reference internal" href="vim/conceal.html">隱藏顯示字元</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vim/plugin.html">= Vim Plugin 筆記 =</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vim/plugin.html">Vim Plugin 筆記</a></li>
 <li class="toctree-l3"><a class="reference internal" href="vim/regex.html">= Vim Regex =</a></li>
 <li class="toctree-l3"><a class="reference internal" href="vim/statusline.html">Vim statusline</a></li>
 <li class="toctree-l3"><a class="reference internal" href="vim/tab.html">vim 的 tab</a></li>
@@ -820,7 +821,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../rust/c-to-rust.html">把 C 程式轉換成 Rust 程式</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/cargo.html">Cargo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/compiler.html">Rust 編譯器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust/design-pattern.html">Design Pattern</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/ecosystem.html">Rust 生態圈 (Rust Ecosystem)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust/faq.html">FAQ (Frequently Asked Questions)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/features-basic.html">Rust&#8217;s Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/index.html">My Rust Articles Collection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/iterator.html">Iterator</a></li>
@@ -944,119 +947,53 @@
 <h2>Command Line Arguments<a class="headerlink" href="#command-line-arguments" title="本標題的永久連結">¶</a></h2>
 <ul>
 <li><p class="first">開啟一個新的 <code class="docutils literal"><span class="pre">tmux</span></code> session，並指定 session name 為 <code class="docutils literal"><span class="pre">portmaster</span></code></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">tmux</span> <span class="n">new</span> <span class="o">-</span><span class="n">s</span> <span class="n">portmaster</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ tmux new -s portmaster
 </pre></div>
 </div>
 </li>
 <li><p class="first">列出目前的 <code class="docutils literal"><span class="pre">tmux</span></code> session</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">tmux</span> <span class="n">ls</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ tmux ls
 </pre></div>
 </div>
 </li>
 <li><p class="first">開啟 tmux 後立即執行一個指令</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">tmux</span> <span class="n">new</span> <span class="n">vim</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ tmux new vim
 </pre></div>
 </div>
 </li>
 </ul>
 </div>
-<div class="section" id="hot-keys">
-<h2>Hot Keys<a class="headerlink" href="#hot-keys" title="本標題的永久連結">¶</a></h2>
-<ul>
-<li><p class="first"><code class="docutils literal"><span class="pre">tmux</span></code> 的 hot key 預設都以 <code class="docutils literal"><span class="pre">C-b</span></code> (<code class="docutils literal"><span class="pre">Ctrl</span></code> <code class="docutils literal"><span class="pre">b</span></code>) 為前綴</p>
-</li>
-<li><p class="first">Hot keys 可參考 <a class="reference external" href="http://www.dayid.org/os/notes/tm.html">http://www.dayid.org/os/notes/tm.html</a></p>
-</li>
-<li><p class="first">新增一個 <code class="docutils literal"><span class="pre">window</span></code></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">C</span><span class="o">-</span><span class="n">b</span> <span class="n">c</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">切換至下/上一個 <code class="docutils literal"><span class="pre">window</span></code></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">C</span><span class="o">-</span><span class="n">b</span> <span class="n">n</span><span class="o">/</span><span class="n">p</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">進入指令模式</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">C</span><span class="o">-</span><span class="n">b</span> <span class="p">:</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">重新命名當前的 <code class="docutils literal"><span class="pre">window</span></code></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">C</span><span class="o">-</span><span class="n">b</span> <span class="p">,</span>
-</pre></div>
-</div>
+<div class="section" id="default-hot-keys">
+<h2>Default Hot Keys<a class="headerlink" href="#default-hot-keys" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
-<li>與指令 <code class="docutils literal"><span class="pre">rename-window</span></code> 相同，可在 <code class="docutils literal"><span class="pre">C-b</span> <span class="pre">?</span></code> 中查詢到</li>
+<li><code class="docutils literal"><span class="pre">tmux</span></code> 的 hot key 預設都以 <code class="docutils literal"><span class="pre">C-b</span></code> (<code class="docutils literal"><span class="pre">Ctrl</span></code> + <code class="docutils literal"><span class="pre">b</span></code>) 為前綴</li>
+<li>Hot keys 可參考 <a class="reference external" href="http://www.dayid.org/os/notes/tm.html">http://www.dayid.org/os/notes/tm.html</a></li>
+<li>新增一個 window - <code class="docutils literal"><span class="pre">C-b</span> <span class="pre">c</span></code></li>
+<li>切換至下/上一個 window - <code class="docutils literal"><span class="pre">C-b</span> <span class="pre">n/p</span></code></li>
+<li>進入指令模式 - <code class="docutils literal"><span class="pre">C-b</span> <span class="pre">:</span></code></li>
+<li>重新命名當前的 window - <code class="docutils literal"><span class="pre">C-b</span> <span class="pre">,</span></code></li>
+<li>copy mode 相關功能<ul>
+<li>進入 copy mode - <code class="docutils literal"><span class="pre">C-b</span> <span class="pre">[</span></code></li>
+<li>開始反白文字 - <code class="docutils literal"><span class="pre">Space</span></code></li>
+<li>複製並離開 copy mode - <code class="docutils literal"><span class="pre">Enter</span></code></li>
+<li>貼上剛才複製的文字 - <code class="docutils literal"><span class="pre">C-b</span> <span class="pre">]</span></code></li>
+<li>直接離開 copy mode - <code class="docutils literal"><span class="pre">q</span></code></li>
 </ul>
 </li>
-<li><p class="first">進入 copy mode，按下 enter 或 q 離開</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">C</span><span class="o">-</span><span class="n">b</span> <span class="p">[</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">pane 相關功能</p>
-<ul>
-<li><p class="first">在當前 <code class="docutils literal"><span class="pre">window</span></code> 中新增一個水平分割的 pane</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">C</span><span class="o">-</span><span class="n">b</span> <span class="s2">&quot;</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">在當前 <code class="docutils literal"><span class="pre">window</span></code> 中新增一個垂直分割的 pane</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">C</span><span class="o">-</span><span class="n">b</span> <span class="o">%</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">切換至另一個 pane</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">C</span><span class="o">-</span><span class="n">b</span> <span class="n">o</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li>也可用 <code class="docutils literal"><span class="pre">C-b</span> <span class="pre">方向鍵</span></code> 或是 <code class="docutils literal"><span class="pre">C-b</span> <span class="pre">hjkl</span></code> 來切換</li>
+<li>pane 相關功能<ul>
+<li>在當前 window 中新增一個水平分割的 pane - <code class="docutils literal"><span class="pre">C-b</span> <span class="pre">&quot;</span></code></li>
+<li>在當前 window 中新增一個垂直分割的 pane - <code class="docutils literal"><span class="pre">C-b</span> <span class="pre">%</span></code></li>
+<li>切換至另一個 pane - <code class="docutils literal"><span class="pre">C-b</span> <span class="pre">h/j/k/l</span></code></li>
+<li>把當前 window 中的 pane 位置旋轉 - <code class="docutils literal"><span class="pre">C-b</span> <span class="pre">C-o</span></code></li>
+<li>更換 layout 方向（直的變成橫的）- <code class="docutils literal"><span class="pre">C-b</span> <span class="pre">&lt;SPACE&gt;</span></code></li>
+<li>往左/右交換 pane 的位置 - <code class="docutils literal"><span class="pre">C-b</span> <span class="pre">{/}</span></code></li>
+<li>把當前的 pane 分出去變成 window - <code class="docutils literal"><span class="pre">C-b</span> <span class="pre">!</span></code></li>
+<li>調整 pane 的大小 - <code class="docutils literal"><span class="pre">C-b</span> <span class="pre">C-(arrow</span> <span class="pre">key)</span></code></li>
+<li>顯示 pane 編號 - <code class="docutils literal"><span class="pre">C-b</span> <span class="pre">q</span></code></li>
 </ul>
 </li>
-<li><p class="first">把當前 <code class="docutils literal"><span class="pre">window</span></code> 中的 pane 位置旋轉</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">C</span><span class="o">-</span><span class="n">b</span> <span class="o">^</span><span class="n">o</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">更換 layout 方向（直的變成橫的）</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">C</span><span class="o">-</span><span class="n">b</span> <span class="o">&lt;</span><span class="n">SPACE</span><span class="o">&gt;</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">往左/右交換 pane 的位置</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">C</span><span class="o">-</span><span class="n">b</span> <span class="p">{</span><span class="o">/</span><span class="p">}</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">把當前的 pane 分出去變成 <code class="docutils literal"><span class="pre">window</span></code></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>C-b !
-</pre></div>
-</div>
-</li>
-<li><p class="first">調整 pane 的大小</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">C</span><span class="o">-</span><span class="n">b</span> <span class="n">C</span><span class="o">-</span><span class="p">(</span><span class="n">arrow</span> <span class="n">key</span><span class="p">)</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">顯示 pane 編號</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">C</span><span class="o">-</span><span class="n">b</span> <span class="n">q</span>
-</pre></div>
-</div>
-</li>
-</ul>
-</li>
-<li><p class="first">其他</p>
-<ul>
-<li><p class="first">列出 key bindings</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>C-b ?
-</pre></div>
-</div>
-<ul class="simple">
-<li>按下 enter 後離開</li>
-</ul>
-</li>
+<li>其他<ul>
+<li>列出 key bindings - <code class="docutils literal"><span class="pre">C-b</span> <span class="pre">?</span></code></li>
 </ul>
 </li>
 </ul>
@@ -1066,7 +1003,7 @@
 <ul>
 <li><p class="first"><code class="docutils literal"><span class="pre">:detach</span></code></p>
 </li>
-<li><p class="first">把當前的 <code class="docutils literal"><span class="pre">window</span></code> 重命名為 <code class="docutils literal"><span class="pre">test</span></code></p>
+<li><p class="first">把當前的 window 重命名為 <code class="docutils literal"><span class="pre">test</span></code></p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">rename</span><span class="o">-</span><span class="n">window</span> <span class="n">test</span>
 </pre></div>
 </div>

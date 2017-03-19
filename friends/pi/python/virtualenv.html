@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>= virtualenv = &mdash; wdv4758h-notes latest 說明文件</title>
+  <title>virtualenv &mdash; wdv4758h-notes latest 說明文件</title>
   
 
   
@@ -391,6 +391,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../computer-history-timeline.html">計算機科學時間軸</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../crontab-periodic.html">Crontab &amp; Periodic</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cygwin.html">Cygwin 筆記</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dhcp.html">DHCP</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../expect.html">expect 筆記</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../freebsd-jails.html">FreeBSD Jails</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../freebsd-nfs.html">NFS</a></li>
@@ -437,7 +438,7 @@
 <li class="toctree-l3"><a class="reference internal" href="pip.html">Python Package Index - PyPI</a></li>
 <li class="toctree-l3"><a class="reference internal" href="read-append-file-without-closing.html">在不關閉檔案的情況下讀取並新增內容</a></li>
 <li class="toctree-l3"><a class="reference internal" href="underscores.html">底線</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">= virtualenv =</a><ul>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">virtualenv</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#id1">概念</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id2">安裝 virtualenv</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id3">建立 virtualenv 環境</a></li>
@@ -502,7 +503,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../unix-commands/xargs.html"><code class="docutils literal"><span class="pre">xargs</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../vim/basic.html">= Vim 筆記 =</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../vim/conceal.html">隱藏顯示字元</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../vim/plugin.html">= Vim Plugin 筆記 =</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vim/plugin.html">Vim Plugin 筆記</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../vim/regex.html">= Vim Regex =</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../vim/statusline.html">Vim statusline</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../vim/tab.html">vim 的 tab</a></li>
@@ -819,7 +820,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/c-to-rust.html">把 C 程式轉換成 Rust 程式</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/cargo.html">Cargo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/compiler.html">Rust 編譯器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/design-pattern.html">Design Pattern</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/ecosystem.html">Rust 生態圈 (Rust Ecosystem)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/faq.html">FAQ (Frequently Asked Questions)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/features-basic.html">Rust&#8217;s Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/index.html">My Rust Articles Collection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/iterator.html">Iterator</a></li>
@@ -910,7 +913,7 @@
       
           <li><a href="../../README.html">朋友的筆記</a> &raquo;</li>
       
-    <li>= virtualenv =</li>
+    <li>virtualenv</li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -925,12 +928,24 @@
            <div itemprop="articleBody">
             
   <div class="section" id="virtualenv">
-<h1>= virtualenv =<a class="headerlink" href="#virtualenv" title="本標題的永久連結">¶</a></h1>
+<h1>virtualenv<a class="headerlink" href="#virtualenv" title="本標題的永久連結">¶</a></h1>
 <div class="section" id="id1">
 <h2>概念<a class="headerlink" href="#id1" title="本標題的永久連結">¶</a></h2>
-<p>在 UNIX-like 系統中，當使用者執行某個指令時，系統會根據 <code class="docutils literal"><span class="pre">$PATH</span></code> environment variable 去尋找它。virtualenv 就是透過修改 <code class="docutils literal"><span class="pre">$PATH</span></code> 的值，讓使用者可以找到特定的 Python package，這樣可以把不同的 package 隔離，避免衝突。</p>
+<p>需求</p>
+<ul class="simple">
+<li>好想裝那個 Python package，可是我沒有 root 權限...</li>
+<li>有個 Python package 好好用，新版本也好好用，可是新舊版不能一起裝...</li>
+<li>好想裝那個 Python package 玩玩看，可是它有的大堆 dependency，我怕裝了以後也跟著裝了一堆垃圾很難刪乾淨...</li>
+</ul>
+<p>virtualenv 可以讓這些需求通通都滿足。</p>
+<ul class="simple">
+<li>每建立一個 virtualenv，就可以在裡面隨便亂裝 package，通通都在一個目錄裡面，想刪就刪</li>
+<li>想同時裝某個 Python package 的新舊版本？多建立幾個 virtualenv 就好。（當然新舊版本還是得分開，不能同時用）</li>
+<li>virtualenv 可以建立在自己家（目錄），不用勞駕 root 出馬</li>
+</ul>
 <p>virtualenv 甚至可以隔離不同版本的 Python，讓 Python2.7 和 Python3.4 共存於系統中（較麻煩，後述）</p>
-<p>註：Python 3.4 開始內建 <code class="docutils literal"><span class="pre">venv</span></code> ，和底下提到的 virtualenv 功能類似，但無法隔離不同的 Python 版本</p>
+<p>在 UNIX-like 系統中，當使用者執行某個指令時，系統會根據 <code class="docutils literal"><span class="pre">$PATH</span></code> environment variable 去尋找它。virtualenv 就是透過修改 <code class="docutils literal"><span class="pre">$PATH</span></code> 的值，讓使用者可以找到特定的 Python package，這樣可以把不同的 package 隔離，避免衝突。</p>
+<p>註：Python 3.4 開始內建 <code class="docutils literal"><span class="pre">venv</span></code> ，和底下提到的 virtualenv 功能類似，但無法隔離不同的 Python 版本。</p>
 </div>
 <div class="section" id="id2">
 <h2>安裝 virtualenv<a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
@@ -946,13 +961,13 @@
 <h2>建立 virtualenv 環境<a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
 <ol class="arabic">
 <li><p class="first">建立 virtualenv 環境</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ virtualenv {{ virtualenv-name }} [--python={{ python-path }}]
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ virtualenv &lt;virtualenv-name&gt; [--python=&lt;python-path&gt;]
 </pre></div>
 </div>
 <ul>
-<li><p class="first"><code class="docutils literal"><span class="pre">{{</span> <span class="pre">virtualenv-name</span> <span class="pre">}}</span></code> 是隔離區的名字，可以將 package 集中成一包，方便管理</p>
+<li><p class="first"><code class="docutils literal"><span class="pre">&lt;virtualenv-name&gt;</span></code> 是隔離區的名字，可以將 package 集中成一包，方便管理</p>
 </li>
-<li><p class="first"><code class="docutils literal"><span class="pre">{{</span> <span class="pre">python-path</span> <span class="pre">}}</span></code> 是 Python 的直譯環境</p>
+<li><p class="first"><code class="docutils literal"><span class="pre">&lt;python-path&gt;</span></code> 是 Python 的直譯環境</p>
 </li>
 <li><p class="first">範例</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>$ virtualenv .virtualenv --python=.py27/bin/python
@@ -961,17 +976,17 @@
 </li>
 </ul>
 </li>
-<li><p class="first">套用某個 virtualenv 環境</p>
+<li><p class="first">套用剛剛建立的 virtualenv 環境</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>$ source .virtualenv/bin/activate
 </pre></div>
 </div>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">tcsh</span></code> / <code class="docutils literal"><span class="pre">csh</span></code> 請改 <code class="docutils literal"><span class="pre">source</span></code> <code class="docutils literal"><span class="pre">activate.csh</span></code></li>
-<li><code class="docutils literal"><span class="pre">fish</span></code> 請改 <code class="docutils literal"><span class="pre">source</span></code> <code class="docutils literal"><span class="pre">activate.fish</span></code></li>
+<li><code class="docutils literal"><span class="pre">tcsh</span></code> / <code class="docutils literal"><span class="pre">csh</span></code> 請改用 <code class="docutils literal"><span class="pre">source</span> <span class="pre">.virtualenv/activate.csh</span></code></li>
+<li><code class="docutils literal"><span class="pre">fish</span></code> 請改用 <code class="docutils literal"><span class="pre">source</span> <span class="pre">.virtualenv/activate.fish</span></code></li>
 </ul>
 </li>
 <li><p class="first">在套用 virtualenv 環境以後，安裝 package</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ pip install {{ package-name }}
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ pip install &lt;package-name&gt;
 </pre></div>
 </div>
 </li>

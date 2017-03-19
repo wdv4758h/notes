@@ -1,5 +1,5 @@
 *********
-uname    
+uname
 *********
 
 .. toctree::

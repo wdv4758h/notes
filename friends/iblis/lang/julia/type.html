@@ -34,7 +34,7 @@
   
     <link rel="top" title="wdv4758h-notes latest 說明文件" href="../../../../index.html"/>
         <link rel="up" title="Julia" href="index.html"/>
-        <link rel="next" title="binutils" href="../../project/binutils.html"/>
+        <link rel="next" title="Calling C Functions" href="ccall.html"/>
         <link rel="prev" title="Julia" href="index.html"/> 
 
   
@@ -400,8 +400,12 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../algo/clus.html">Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../algo/dl.html">DL</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../algo/evolnn.html">Evolutionary Neuron Network</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../algo/prml.html">PRML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../compiler/index.html">Compiler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../compiler/intro.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../compiler/lex.html">lex</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../conf/pycon.html">Chapter name</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../db/cloudant.html">Cloudant</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../db/mongodb.html">MongoDB</a></li>
@@ -418,10 +422,13 @@
 <li class="toctree-l3"><a class="reference internal" href="../../project/ethereum.html">Ethereum</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/gpg.html">GnuPG</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/latex.html">LaTeX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../project/libuv.html">libuv</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/libvirt.html">Libvirt</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/make.html">Make</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../project/mxnet.html">MXNet</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/nftable.html">nftable</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/opencl.html">OpenCL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../project/pacman.html">pacman</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/sudo.html">sudo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/tensorflow.html">TensorFlow</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/zsh.html">zsh</a></li>
@@ -737,7 +744,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/c-to-rust.html">把 C 程式轉換成 Rust 程式</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/cargo.html">Cargo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/compiler.html">Rust 編譯器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rust/design-pattern.html">Design Pattern</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/ecosystem.html">Rust 生態圈 (Rust Ecosystem)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rust/faq.html">FAQ (Frequently Asked Questions)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/features-basic.html">Rust&#8217;s Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/index.html">My Rust Articles Collection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/iterator.html">Iterator</a></li>
@@ -848,6 +857,9 @@
             
   <div class="section" id="type">
 <h1>Type<a class="headerlink" href="#type" title="本標題的永久連結">¶</a></h1>
+<ul class="simple">
+<li>optional static type</li>
+</ul>
 <div class="section" id="float">
 <h2>Float<a class="headerlink" href="#float" title="本標題的永久連結">¶</a></h2>
 <ul>
@@ -897,6 +909,230 @@
 </ul>
 </div>
 </div>
+<div class="section" id="array">
+<h2>Array<a class="headerlink" href="#array" title="本標題的永久連結">¶</a></h2>
+<div class="highlight-julia"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>    <span class="c"># 1</span>
+<span class="n">a</span><span class="p">[</span><span class="k">end</span><span class="p">]</span>  <span class="c"># 3</span>
+</pre></div>
+</div>
+<p>with type:</p>
+<div class="highlight-julia"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="kt">Float64</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">a</span> <span class="o">=</span> <span class="kt">Int</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="matrix">
+<h2>Matrix<a class="headerlink" href="#matrix" title="本標題的永久連結">¶</a></h2>
+<div class="highlight-julia"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">;</span> <span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>with type:</p>
+<div class="highlight-julia"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="kt">Int</span><span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="range">
+<h2>Range<a class="headerlink" href="#range" title="本標題的永久連結">¶</a></h2>
+<div class="highlight-julia"><div class="highlight"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+<span class="mi">1</span><span class="o">-</span><span class="n">element</span> <span class="n">Array</span><span class="p">{</span><span class="n">UnitRange</span><span class="p">{</span><span class="kt">Int64</span><span class="p">},</span><span class="mi">1</span><span class="p">}:</span>
+<span class="mi">1</span><span class="p">:</span><span class="mi">10</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">;]</span>
+<span class="mi">10</span><span class="o">-</span><span class="n">element</span> <span class="n">Array</span><span class="p">{</span><span class="kt">Int64</span><span class="p">,</span><span class="mi">1</span><span class="p">}:</span>
+<span class="mi">1</span>
+<span class="mi">2</span>
+<span class="mi">3</span>
+<span class="mi">4</span>
+<span class="mi">5</span>
+<span class="mi">6</span>
+<span class="mi">7</span>
+<span class="mi">8</span>
+<span class="mi">9</span>
+<span class="mi">10</span>
+</pre></div>
+</div>
+<div class="highlight-julia"><div class="highlight"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="mi">20</span><span class="p">;]</span>
+<span class="mi">7</span><span class="o">-</span><span class="n">element</span> <span class="n">Array</span><span class="p">{</span><span class="kt">Int64</span><span class="p">,</span><span class="mi">1</span><span class="p">}:</span>
+<span class="mi">1</span>
+<span class="mi">4</span>
+<span class="mi">7</span>
+<span class="mi">10</span>
+<span class="mi">13</span>
+<span class="mi">16</span>
+<span class="mi">19</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="dict">
+<h2>Dict<a class="headerlink" href="#dict" title="本標題的永久連結">¶</a></h2>
+<div class="highlight-julia"><div class="highlight"><pre><span></span><span class="n">Dict</span><span class="p">()</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">(</span><span class="s">&quot;foo&quot;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&quot;bar&quot;</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">keys</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+
+<span class="n">values</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+
+<span class="p">(</span><span class="s">&quot;foo&quot;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="n">∈</span> <span class="n">d</span>
+
+<span class="n">haskey</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="s">&quot;foo&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pair">
+<h2>Pair<a class="headerlink" href="#pair" title="本標題的永久連結">¶</a></h2>
+<div class="highlight-julia"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="s">&quot;foo&quot;</span> <span class="o">=&gt;</span> <span class="mi">1</span>
+<span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s">&quot;foo&quot;</span>
+<span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="typeof">
+<h2>typeof<a class="headerlink" href="#typeof" title="本標題的永久連結">¶</a></h2>
+<p>Int64:</p>
+<div class="highlight-julia"><div class="highlight"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="nb">typeof</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="kt">Int64</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="nb">typeof</span><span class="p">(</span><span class="kt">Int64</span><span class="p">)</span>
+<span class="n">DataType</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="nb">typeof</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="kt">Int64</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">supertype</span><span class="p">(</span><span class="kt">Int64</span><span class="p">)</span>
+<span class="n">Signed</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">supertype</span><span class="p">(</span><span class="n">Signed</span><span class="p">)</span>
+<span class="n">Integer</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">supertype</span><span class="p">(</span><span class="n">Integer</span><span class="p">)</span>
+<span class="n">Real</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">supertype</span><span class="p">(</span><span class="n">Real</span><span class="p">)</span>
+<span class="n">Number</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">supertype</span><span class="p">(</span><span class="n">Number</span><span class="p">)</span>
+<span class="kt">Any</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">supertype</span><span class="p">(</span><span class="kt">Any</span><span class="p">)</span>
+<span class="kt">Any</span>
+</pre></div>
+</div>
+<p>String:</p>
+<div class="highlight-julia"><div class="highlight"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="nb">typeof</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">)</span>
+<span class="n">String</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">supertype</span><span class="p">(</span><span class="n">String</span><span class="p">)</span>
+<span class="n">AbstractString</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">supertype</span><span class="p">(</span><span class="n">AbstractString</span><span class="p">)</span>
+<span class="kt">Any</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="class">
+<h2>Class<a class="headerlink" href="#class" title="本標題的永久連結">¶</a></h2>
+<div class="highlight-julia"><div class="highlight"><pre><span></span><span class="k">type</span><span class="nc"> Cat</span>
+    <span class="n">name</span><span class="p">::</span><span class="n">String</span>
+    <span class="n">age</span><span class="p">::</span><span class="kt">Int</span>
+<span class="k">end</span>
+
+<span class="n">Cat</span><span class="p">(</span><span class="s">&quot;meow&quot;</span><span class="p">,</span> <span class="kt">Int</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul>
+<li><p class="first">note that <code class="docutils literal"><span class="pre">::</span></code> is type annotation.</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">a::C</span></code> can read as &#8220;a is an instance of C&#8221;.</p>
+</li>
+<li><p class="first">concrete type cannot have subtype:</p>
+<div class="highlight-julia"><div class="highlight"><pre><span></span><span class="n">struct</span> <span class="n">S</span>
+    <span class="o">...</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">struct</span></code> are immutable</p>
+</li>
+</ul>
+</div>
+<div class="section" id="type-assertion">
+<h2>Type Assertion<a class="headerlink" href="#type-assertion" title="本標題的永久連結">¶</a></h2>
+<div class="highlight-julia"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)::</span><span class="kt">Int</span>
+
+<span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)::</span><span class="kt">Float64</span>  <span class="c"># error</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="type-declaration">
+<h2>Type Declaration<a class="headerlink" href="#type-declaration" title="本標題的永久連結">¶</a></h2>
+<div class="highlight-julia"><div class="highlight"><pre><span></span>julia&gt; function λ()
+        x::Int8 = 10
+        x
+    end
+λ (generic function with 2 methods)
+
+julia&gt; λ()
+10
+
+julia&gt; typeof(λ())
+Int8
+</pre></div>
+</div>
+<p>On function definition:</p>
+<div class="highlight-julia"><div class="highlight"><pre><span></span>julia&gt; function λ()::Int64
+        42.0
+    end
+λ (generic function with 1 method)
+
+julia&gt; λ()
+42           # alway be converted to Int64
+</pre></div>
+</div>
+</div>
+<div class="section" id="abstract-types">
+<h2>Abstract Types<a class="headerlink" href="#abstract-types" title="本標題的永久連結">¶</a></h2>
+<p>Declaration:</p>
+<div class="highlight-julia"><div class="highlight"><pre><span></span><span class="k">abstract</span><span class="nc"> type</span> <span class="n">MyType</span> <span class="k">end</span>
+<span class="k">abstract</span><span class="nc"> type</span> <span class="n">MyType</span> <span class="o">&lt;:</span> <span class="n">MySupperType</span> <span class="k">end</span>
+</pre></div>
+</div>
+<ul>
+<li><p class="first"><code class="docutils literal"><span class="pre">&lt;:</span></code> can read as &#8220;is subtype of&#8221;:</p>
+<div class="highlight-julia"><div class="highlight"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="kt">Int64</span> <span class="o">&lt;:</span> <span class="kt">Int</span>
+<span class="n">true</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="kt">Int64</span> <span class="o">&lt;:</span> <span class="n">Real</span>
+<span class="n">true</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="kt">Int64</span> <span class="o">&lt;:</span> <span class="kt">Float64</span>
+<span class="n">false</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">function will be compiled on demand with concrete type:</p>
+<div class="highlight-julia"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>means:</p>
+<div class="highlight-julia"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">::</span><span class="kt">Any</span><span class="p">)</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<p>If we invoke <code class="docutils literal"><span class="pre">f(1)</span></code>, the function <code class="docutils literal"><span class="pre">f(x::Int)</span> <span class="pre">=</span> <span class="pre">...</span></code> will be compiled.</p>
+</div>
+<div class="section" id="parametric-types">
+<h2>Parametric Types<a class="headerlink" href="#parametric-types" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li>like template in C++</li>
+<li>Generic programming: <a class="reference external" href="https://en.wikipedia.org/wiki/Generic_programming">https://en.wikipedia.org/wiki/Generic_programming</a></li>
+</ul>
+</div>
 </div>
 
 
@@ -906,7 +1142,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../project/binutils.html" class="btn btn-neutral float-right" title="binutils" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="ccall.html" class="btn btn-neutral float-right" title="Calling C Functions" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral" title="Julia" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>

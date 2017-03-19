@@ -391,6 +391,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../computer-history-timeline.html">計算機科學時間軸</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../crontab-periodic.html">Crontab &amp; Periodic</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cygwin.html">Cygwin 筆記</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dhcp.html">DHCP</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../expect.html">expect 筆記</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../freebsd-jails.html">FreeBSD Jails</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../freebsd-nfs.html">NFS</a></li>
@@ -437,7 +438,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../python/pip.html">Python Package Index - PyPI</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../python/read-append-file-without-closing.html">在不關閉檔案的情況下讀取並新增內容</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../python/underscores.html">底線</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../python/virtualenv.html">= virtualenv =</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python/virtualenv.html">virtualenv</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../unix-commands/chflags.html"><code class="docutils literal"><span class="pre">chflags</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../unix-commands/chmod.html"><code class="docutils literal"><span class="pre">chmod</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../unix-commands/column.html"><code class="docutils literal"><span class="pre">column</span></code></a></li>
@@ -496,7 +497,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../unix-commands/xargs.html"><code class="docutils literal"><span class="pre">xargs</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="basic.html">= Vim 筆記 =</a></li>
 <li class="toctree-l3"><a class="reference internal" href="conceal.html">隱藏顯示字元</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plugin.html">= Vim Plugin 筆記 =</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plugin.html">Vim Plugin 筆記</a></li>
 <li class="toctree-l3"><a class="reference internal" href="regex.html">= Vim Regex =</a></li>
 <li class="toctree-l3"><a class="reference internal" href="statusline.html">Vim statusline</a></li>
 <li class="toctree-l3"><a class="reference internal" href="tab.html">vim 的 tab</a></li>
@@ -506,7 +507,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#id2">語法</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id3">字串</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#functional-programming">Functional Programming</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id6">其他</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">其他</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="why-viml-not-good.html">為什麼 VimL 不是個好語言</a></li>
@@ -820,7 +821,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/c-to-rust.html">把 C 程式轉換成 Rust 程式</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/cargo.html">Cargo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/compiler.html">Rust 編譯器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/design-pattern.html">Design Pattern</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/ecosystem.html">Rust 生態圈 (Rust Ecosystem)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/faq.html">FAQ (Frequently Asked Questions)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/features-basic.html">Rust&#8217;s Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/index.html">My Rust Articles Collection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/iterator.html">Iterator</a></li>
@@ -995,14 +998,14 @@ endfunction
 <div class="section" id="id3">
 <h2>字串<a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
 <ul>
-<li><p class="first">Literal string</p>
+<li><p class="first">Literal &lt;expr&gt;</p>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">&quot;abc\n&quot;</span></code> - 一般字串， <code class="docutils literal"><span class="pre">\n</span></code> 會被 interprete 成 newline 字元<ul>
-<li>在一般字串中要跳脫 double quote 字元（ <code class="docutils literal"><span class="pre">&quot;</span></code> ）的話用 <code class="docutils literal"><span class="pre">\&quot;</span></code> ，例如 <code class="docutils literal"><span class="pre">&quot;Here</span> <span class="pre">comes</span> <span class="pre">a</span> <span class="pre">\&quot;string\&quot;&quot;</span></code></li>
+<li>在一般字串中要跳脫 double quote 字元（ <code class="docutils literal"><span class="pre">&quot;</span></code> ）的話用 <code class="docutils literal"><span class="pre">\&quot;</span></code> ，例如 <code class="docutils literal"><span class="pre">&quot;Here</span> <span class="pre">comes</span> <span class="pre">a</span> <span class="pre">\&quot;&lt;expr&gt;\&quot;&quot;</span></code></li>
 </ul>
 </li>
-<li><code class="docutils literal"><span class="pre">'abc\n'</span></code> - literal string，類似 Python 的 raw string<ul>
-<li>在 literal string 中要跳脫 single quote 字元（ <code class="docutils literal"><span class="pre">'</span></code> ）的話用 <code class="docutils literal"><span class="pre">''</span></code> ，例如 <code class="docutils literal"><span class="pre">'Here</span> <span class="pre">comes</span> <span class="pre">a</span> <span class="pre">''string'''</span></code></li>
+<li><code class="docutils literal"><span class="pre">'abc\n'</span></code> - literal &lt;expr&gt;，類似 Python 的 raw &lt;expr&gt;<ul>
+<li>在 literal &lt;expr&gt; 中要跳脫 single quote 字元（ <code class="docutils literal"><span class="pre">'</span></code> ）的話用 <code class="docutils literal"><span class="pre">''</span></code> ，例如 <code class="docutils literal"><span class="pre">'Here</span> <span class="pre">comes</span> <span class="pre">a</span> <span class="pre">''&lt;expr&gt;'''</span></code></li>
 </ul>
 </li>
 </ul>
@@ -1090,25 +1093,41 @@ endfunction
 <li><code class="docutils literal"><span class="pre">char2nr</span></code> 會回傳第一個字的 code point（ <code class="docutils literal"><span class="pre">中</span></code> → U+4e2d → 20013）</li>
 </ul>
 </li>
+<li><p class="first">路徑處理</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">fnamemodify</span><span class="p">(</span><span class="n">l</span><span class="p">:</span><span class="n">fpath</span><span class="p">,</span> <span class="s1">&#39;&lt;modifier&gt;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">&lt;modifier&gt;</span></code><ul>
+<li><code class="docutils literal"><span class="pre">:p</span></code> - 展開為完整路徑</li>
+<li><code class="docutils literal"><span class="pre">:h</span></code> - 相當於 <code class="docutils literal"><span class="pre">dirname</span></code></li>
+<li><code class="docutils literal"><span class="pre">:t</span></code> - 相當於 <code class="docutils literal"><span class="pre">basename</span></code></li>
+<li><code class="docutils literal"><span class="pre">:r</span></code> - 去除副檔名</li>
+<li>可連續合併使用</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="section" id="functional-programming">
 <h2>Functional Programming<a class="headerlink" href="#functional-programming" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">filter(&lt;list-or-dict&gt;,</span> <span class="pre">string)</span></code><ul>
-<li><code class="docutils literal"><span class="pre">&lt;list-or-dict&gt;</span></code> 內的每個元素依序被代入 <code class="docutils literal"><span class="pre">string</span></code> 的 <code class="docutils literal"><span class="pre">v:val</span></code> ，然後 <code class="docutils literal"><span class="pre">string</span></code> 被 eval，若結果為 0 則該元素被移除</li>
+<li><code class="docutils literal"><span class="pre">filter(&lt;list-or-dict&gt;,</span> <span class="pre">&lt;expr&gt;)</span></code><ul>
+<li><code class="docutils literal"><span class="pre">&lt;list-or-dict&gt;</span></code> 內的每個元素依序被代入 <code class="docutils literal"><span class="pre">&lt;expr&gt;</span></code> 的 <code class="docutils literal"><span class="pre">v:val</span></code> ，然後 <code class="docutils literal"><span class="pre">&lt;expr&gt;</span></code> 被 eval，若結果為 0 則該元素被 <strong>inplace 移除</strong></li>
+<li><code class="docutils literal"><span class="pre">v:key</span></code> 為 key/index</li>
 <li>Metaprogramming</li>
 </ul>
 </li>
-<li><code class="docutils literal"><span class="pre">map(&lt;list-or-dict&gt;,</span> <span class="pre">string)</span></code><ul>
-<li>，所有元素被 <strong>inplace 取代</strong> 為 <a href="#id4"><span class="problematic" id="id5">``</span></a>string eval 的結果</li>
+<li><code class="docutils literal"><span class="pre">map(&lt;list-or-dict&gt;,</span> <span class="pre">&lt;expr&gt;)</span></code><ul>
+<li>所有元素被 <strong>inplace 取代</strong> 為 <code class="docutils literal"><span class="pre">&lt;expr&gt;</span></code> eval 的結果</li>
 <li>Metaprogramming</li>
 </ul>
 </li>
 </ul>
 </div>
-<div class="section" id="id6">
-<h2>其他<a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="id4">
+<h2>其他<a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h2>
 <ul>
 <li><p class="first">不定數量參數的函式</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>function! foo(arg1, ...)

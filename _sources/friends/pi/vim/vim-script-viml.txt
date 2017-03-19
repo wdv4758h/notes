@@ -56,16 +56,16 @@
 
 字串
 -----
-* Literal string
+* Literal <expr>
 
   - ``"abc\n"`` - 一般字串， ``\n`` 會被 interprete 成 newline 字元
-  
-    + 在一般字串中要跳脫 double quote 字元（ ``"`` ）的話用 ``\"`` ，例如 ``"Here comes a \"string\""``
 
-  - ``'abc\n'`` - literal string，類似 Python 的 raw string
-  
-    + 在 literal string 中要跳脫 single quote 字元（ ``'`` ）的話用 ``''`` ，例如 ``'Here comes a ''string'''``
-  
+    + 在一般字串中要跳脫 double quote 字元（ ``"`` ）的話用 ``\"`` ，例如 ``"Here comes a \"<expr>\""``
+
+  - ``'abc\n'`` - literal <expr>，類似 Python 的 raw <expr>
+
+    + 在 literal <expr> 中要跳脫 single quote 字元（ ``'`` ）的話用 ``''`` ，例如 ``'Here comes a ''<expr>'''``
+
 * 字串比對
 
   - 避免使用 ``==`` ，因為其 case sensitive 設定是根據 set ignorecase
@@ -128,17 +128,30 @@
 
   - ``char2nr`` 會回傳第一個字的 code point（ ``中`` → U+4e2d → 20013）
 
+* 路徑處理 ::
+
+    fnamemodify(l:fpath, '<modifier>')
+
+  - ``<modifier>``
+
+    + ``:p`` - 展開為完整路徑
+    + ``:h`` - 相當於 ``dirname``
+    + ``:t`` - 相當於 ``basename``
+    + ``:r`` - 去除副檔名
+    + 可連續合併使用
+
 
 Functional Programming
 -----------------------
-* ``filter(<list-or-dict>, string)``
+* ``filter(<list-or-dict>, <expr>)``
 
-  - ``<list-or-dict>`` 內的每個元素依序被代入 ``string`` 的 ``v:val`` ，然後 ``string`` 被 eval，若結果為 0 則該元素被移除
+  - ``<list-or-dict>`` 內的每個元素依序被代入 ``<expr>`` 的 ``v:val`` ，然後 ``<expr>`` 被 eval，若結果為 0 則該元素被 **inplace 移除**
+  - ``v:key`` 為 key/index
   - Metaprogramming
-  
-* ``map(<list-or-dict>, string)``
 
-  - ，所有元素被 **inplace 取代** 為 ``string eval 的結果
+* ``map(<list-or-dict>, <expr>)``
+
+  - 所有元素被 **inplace 取代** 為 ``<expr>`` eval 的結果
   - Metaprogramming
 
 其他

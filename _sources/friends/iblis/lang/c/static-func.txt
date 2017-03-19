@@ -19,7 +19,7 @@ Static Function
 Sample
 ----------------------------------------------------------------------
 
-https://github.com/iblis17/notes/tree/master/lang/c/static_func
+https://github.com/iblis17/notes/tree/master/lang/c/static-func
 
 ::
 

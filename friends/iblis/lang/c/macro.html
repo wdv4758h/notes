@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Static Function &mdash; wdv4758h-notes latest 說明文件</title>
+  <title>Macro &mdash; wdv4758h-notes latest 說明文件</title>
   
 
   
@@ -34,7 +34,7 @@
   
     <link rel="top" title="wdv4758h-notes latest 說明文件" href="../../../../index.html"/>
         <link rel="up" title="C" href="index.html"/>
-        <link rel="next" title="Erlang" href="../erlang/index.html"/>
+        <link rel="next" title="Static Assertion" href="static-assertion.html"/>
         <link rel="prev" title="C" href="index.html"/> 
 
   
@@ -400,8 +400,12 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../algo/clus.html">Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../algo/dl.html">DL</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../algo/evolnn.html">Evolutionary Neuron Network</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../algo/prml.html">PRML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../compiler/index.html">Compiler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../compiler/intro.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../compiler/lex.html">lex</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../conf/pycon.html">Chapter name</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../db/cloudant.html">Cloudant</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../db/mongodb.html">MongoDB</a></li>
@@ -418,10 +422,13 @@
 <li class="toctree-l3"><a class="reference internal" href="../../project/ethereum.html">Ethereum</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/gpg.html">GnuPG</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/latex.html">LaTeX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../project/libuv.html">libuv</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/libvirt.html">Libvirt</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/make.html">Make</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../project/mxnet.html">MXNet</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/nftable.html">nftable</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/opencl.html">OpenCL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../project/pacman.html">pacman</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/sudo.html">sudo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/tensorflow.html">TensorFlow</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/zsh.html">zsh</a></li>
@@ -737,7 +744,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/c-to-rust.html">把 C 程式轉換成 Rust 程式</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/cargo.html">Cargo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/compiler.html">Rust 編譯器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rust/design-pattern.html">Design Pattern</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/ecosystem.html">Rust 生態圈 (Rust Ecosystem)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rust/faq.html">FAQ (Frequently Asked Questions)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/features-basic.html">Rust&#8217;s Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/index.html">My Rust Articles Collection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/iterator.html">Iterator</a></li>
@@ -832,11 +841,11 @@
       
           <li><a href="index.html">C</a> &raquo;</li>
       
-    <li>Static Function</li>
+    <li>Macro</li>
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="https://github.com/wdv4758h/notes/blob/master/./friends/iblis/lang/c/static_func.rst" class="fa fa-github"> Edit on GitHub</a>
+            <a href="https://github.com/wdv4758h/notes/blob/master/./friends/iblis/lang/c/macro.rst" class="fa fa-github"> Edit on GitHub</a>
           
         
       </li>
@@ -846,31 +855,21 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="static-function">
-<h1>Static Function<a class="headerlink" href="#static-function" title="本標題的永久連結">¶</a></h1>
-<ul class="simple">
-<li>scope limited to current source file</li>
-</ul>
-<blockquote>
-<div>If the function or variable is visible <em>outside</em> of the current source file,
-it is said to have <em>global</em>, or <em>external</em> scope.</div></blockquote>
-<blockquote>
-<div>If the function or variable is <em>not</em> visible outside of the current source file,
-it is said to have <em>local</em>, or <em>static</em> scope.</div></blockquote>
-<div class="section" id="sample">
-<h2>Sample<a class="headerlink" href="#sample" title="本標題的永久連結">¶</a></h2>
-<p><a class="reference external" href="https://github.com/iblis17/notes/tree/master/lang/c/static_func">https://github.com/iblis17/notes/tree/master/lang/c/static_func</a></p>
-<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> make
-<span class="go">cc -O2 -pipe   -Wall -c foo.c</span>
-<span class="go">cc -O2 -pipe   -Wall main.c foo.o -o main</span>
-<span class="gp">$</span> ./main
-<span class="go">func f</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="break-it-down">
-<h2>Break It Down<a class="headerlink" href="#break-it-down" title="本標題的永久連結">¶</a></h2>
-<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> make <span class="nb">break</span>
+  <div class="section" id="macro">
+<h1>Macro<a class="headerlink" href="#macro" title="本標題的永久連結">¶</a></h1>
+<p>ref: <a class="reference external" href="http://clang.llvm.org/docs/LanguageExtensions.html#builtin-macros">http://clang.llvm.org/docs/LanguageExtensions.html#builtin-macros</a></p>
+<div class="section" id="counter">
+<h2>__COUNTER__<a class="headerlink" href="#counter" title="本標題的永久連結">¶</a></h2>
+<p>Useful for createing <a class="reference internal" href="static-assertion.html#static-assertion"><span class="std std-ref">Static Assertion</span></a> in C.</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">__COUNTER__</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">__COUNTER__</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">__COUNTER__</span><span class="p">);</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -883,7 +882,7 @@ it is said to have <em>local</em>, or <em>static</em> scope.</div></blockquote>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../erlang/index.html" class="btn btn-neutral float-right" title="Erlang" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="static-assertion.html" class="btn btn-neutral float-right" title="Static Assertion" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral" title="C" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>

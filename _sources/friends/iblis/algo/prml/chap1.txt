@@ -25,7 +25,7 @@ the error function.
 
 .. math::
 
-    E(\vec{w}) = \text{squart error} + \text{regularization}
+    E(\vec{w}) = \text{square error} + \text{regularization}
 
 
 .. math::

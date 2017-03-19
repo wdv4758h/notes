@@ -1,23 +1,18 @@
-===================
-= Vim Plugin 筆記 =
-===================
+===============================================================================
+Vim Plugin 筆記
+===============================================================================
 
 vim 設定檔目錄結構
-------------------
+-------------------------------------------------------------------------------
 
 ::
 
   ~/.vim/
-  ├── bundle/
   ├── filetype.vim
   ├── ftplugin/
   ├── plugin/
   ├── syntax/
   └── vimrc
-
-* ``bundle``
-
-  - 包含你所安裝的 plugin
 
 * ``filetype.vim``
 
@@ -25,7 +20,7 @@ vim 設定檔目錄結構
 
       au BufNewFile,BufRead *.todo setf todo
 
-    + 定義了一個 filetype ``todo``
+    + 這裡定義了副檔名 ``todo`` 的 filetype 為 ``todo``
 
 * ``ftplugin/``
 
@@ -42,10 +37,11 @@ vim 設定檔目錄結構
 * ``vimrc``
 
   - 和 ``~/.vimrc`` 相同用途
+  - Windows 7 x Vim 7.3 需改名為 ``_vimrc`` ，請用 ``:version`` 確認
+
 
 自己寫 Plugin
--------------
-
+-------------------------------------------------------------------------------
 現在已經有很成熟的套件管理系統可以使用，例如 Vundle_
 
 ..  _Vundle: https://github.com/gmarik/Vundle.vim
@@ -70,3 +66,28 @@ vim 設定檔目錄結構
 
   - 內部使用的 function 用 ``s:func`` 命名，使其 scope 限定在該 script 內
   - 開放給使用者的 function 用 ``pluginname#func`` 命名，使其能夠被 autoload
+  - **注意** ：autoload 並不是在所有狀況下都能使用 ::
+
+      echom boshiamy#wide#type
+      function! s:foo ()
+          echom boshiamy#wide#type
+      endfunction
+      call s:foo()
+      echom boshiamy#wide#type
+
+    + 根據測試，上面這段 code snippet， ``s:foo()`` 內 **找不到** ``boshiamy#wide#type`` ，但外面（global scope）都可以
+    + 目前不確定是 autoload 只對 function 而言有用，或是對 function 和變數的行為不一樣
+
+
+寫 Plugin 可以用的技巧
+-------------------------------------------------------------------------------
+* 把 buffer 拿來當顯示資訊用的區域，但不用來存檔（例如 `scrooloose/nerdtree <https://github.com/scrooloose/nerdtree>`_ ） ::
+
+    setlocal buftype=nofile
+    file <title>
+    let t:localtablabel = 'cim'
+    execute 'set guitablabel='. &guitablabel
+
+  - 把 ``buftype`` 設成 ``nofile`` ，就可以當成一個暫存區使用
+  - ``<title>`` 可以設成任意值
+  - ``guitablabel`` 是 gVim 使用的
