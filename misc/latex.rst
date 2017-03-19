@@ -15,7 +15,7 @@ LaTeX 教學
 基本語法
 ========================================
 
-範例一 — 非中文內容）
+範例一 - 非中文內容
 ------------------------------
 
 撰寫：
@@ -51,7 +51,7 @@ LaTeX 教學
     # TODO: SVG
 
 
-範例二 — 稍微完整一點的架構
+範例二 - 稍微完整一點的架構
 ------------------------------
 
 撰寫：
@@ -76,7 +76,7 @@ LaTeX 教學
     \end{document}
 
 
-範例三 — 數學式子
+範例三 - 數學式子
 ------------------------------
 
 數學模式分成兩種，
@@ -136,7 +136,7 @@ display 則是把數學獨立置中，
 .. image:: /images/latex/math-example0.png
 
 
-範例四 — 中文支援
+範例四 - 中文支援
 ------------------------------
 
 要支援中文要設定兩個東西，
@@ -191,7 +191,7 @@ display 則是把數學獨立置中，
     $ xelatex chinese.tex
 
 
-範例五 — 不同中文字體用不同字型
+範例五 - 不同中文字體用不同字型
 -------------------------------
 
 通常我們會對不同的字體選用不同的字型，
@@ -253,10 +253,10 @@ display 則是把數學獨立置中，
     $ xelatex chinese.tex
 
 
-範例六 — 英文字型
+範例六 - 英文字型
 -------------------------------
 
-範例七 — AMS-LaTeX
+範例七 - AMS-LaTeX
 -------------------------------
 
 AMS-LaTeX 是由美國數學學會（American Mathematical Society）開發的套件，
@@ -537,7 +537,7 @@ amsthm 還支援不同的定理風格，
 
 
 
-範例八 — 嵌入圖片
+範例八 - 嵌入圖片
 -------------------------------
 
 要插入圖片可以使用 graphicx 套件：
@@ -632,7 +632,7 @@ amsthm 還支援不同的定理風格，
     \end{document}
 
 
-範例九 — 列表
+範例九 - 列表
 -------------------------------
 
 .. code-block:: tex
@@ -706,7 +706,7 @@ amsthm 還支援不同的定理風格，
 .. image:: /images/latex/math-example5.png
 
 
-範例十 — 陣列和表格
+範例十 - 陣列和表格
 -------------------------------
 
 .. code-block:: tex
@@ -797,11 +797,29 @@ amsthm 還支援不同的定理風格，
 （我們可以用 ``\mbox`` 在數學式中輸入純文字）
 
 
-範例十一 — BibTeX
+範例十一 - BibTeX
 -------------------------------
 
-範例十二 — 繪圖
+範例十二 - 繪圖
 -------------------------------
+
+
+可點的連結
+-------------------------------
+
+.. code-block:: tex
+
+    \url{https://github.com/wdv4758h/notes/}
+
+
+
+顏色 (Color)
+========================================
+
+* `ShareLaTeX - Using colours in LaTeX <https://www.sharelatex.com/learn/Using_colours_in_LaTeX>`_
+* `LaTeX Color Definitions <http://latexcolor.com/>`_
+* xcolor
+
 
 
 TeX 家族
@@ -842,6 +860,14 @@ Vim
 
 
 
+Web Render
+========================================
+
+* `MathJax <https://www.mathjax.org/>`_
+* `KaTeX <https://khan.github.io/KaTeX/>`_
+
+
+
 參考
 ========================================
 
@@ -853,3 +879,4 @@ Vim
 * `Awesome LaTeX <https://github.com/egeerardyn/awesome-LaTeX>`_
 * `Awesome CV <https://github.com/posquit0/Awesome-CV>`_
 * `Wikipedia - TeX <https://en.wikipedia.org/wiki/TeX>`_
+* `Arch Wiki - TeX Live <https://wiki.archlinux.org/index.php/TeX_Live>`_
