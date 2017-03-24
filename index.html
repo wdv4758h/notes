@@ -693,6 +693,7 @@
 <li class="toctree-l1"><a class="reference internal" href="rust/iterator.html">Iterator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/kernel.html">Rust Kernel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/libraries.html">Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rust/logging.html">Logging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/macro.html">Macro</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/make-parity-work-on-freebsd.html">Make Parity work on FreeBSD</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/mir.html">MIR (Mid-level Intermediate Representation)</a></li>
@@ -703,6 +704,7 @@
 <li class="toctree-l1"><a class="reference internal" href="rust/orm.html">ORM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/os.html">Rust in OS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/packages.html">Some Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rust/pattern-matching.html">Pattern Matching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/performance.html">Rust&#8217;s Performance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/resource.html">Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/rfcs.html">Rust RFCs</a></li>
@@ -710,6 +712,7 @@
 <li class="toctree-l1"><a class="reference internal" href="rust/rust-vim-plugin.html">Rust Vim Plugin</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/std.html">Rust&#8217;s std</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/tagged-unions.html">Tagged Unions (Sum Type)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rust/testing.html">測試 (Testing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/tips.html">Rust Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/todo.html">Todo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/type-system.html">Rust&#8217;s Type System</a></li>
@@ -722,6 +725,7 @@
 <li class="toctree-l1"><a class="reference internal" href="security/security.html">Security</a></li>
 <li class="toctree-l1"><a class="reference internal" href="simd/algorithm.html">運用 SIMD 來加速的演算法</a></li>
 <li class="toctree-l1"><a class="reference internal" href="simd/status.html">SIMD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="streaming/rtsp.html">RTSP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="synchronization/introduction.html">同步 (Synchronization)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="systemd/networkctl.html">networkctl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="testing/server-validation.html">檢查伺服器設定</a></li>
@@ -4909,6 +4913,11 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="rust/libraries.html#log-logging-implementation-for-rust">log - Logging implementation for Rust</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="rust/logging.html">Logging</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rust/logging.html#id2">介紹</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/logging.html#env-logger">env_logger</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="rust/macro.html">Macro</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="rust/macro.html#id2">介紹</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="rust/macro.html#id3">基本觀念</a></li>
@@ -4967,6 +4976,25 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l1"><a class="reference internal" href="rust/orm.html">ORM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/os.html">Rust in OS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/packages.html">Some Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rust/pattern-matching.html">Pattern Matching</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rust/pattern-matching.html#id2">範例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rust/pattern-matching.html#match">match</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rust/pattern-matching.html#match-assign">match + assign</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rust/pattern-matching.html#match-enum-destructing">match + enum &amp; destructing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rust/pattern-matching.html#match-ignoring-binding">match + ignoring binding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rust/pattern-matching.html#multiple-pattern">multiple pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rust/pattern-matching.html#match-ref-ref-mut">match + ref/ref mut</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rust/pattern-matching.html#match-ranges">match + ranges</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rust/pattern-matching.html#match-binding">match + binding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rust/pattern-matching.html#match-guards">match + guards</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rust/pattern-matching.html#if-let">if let</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rust/pattern-matching.html#while-let">while let</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rust/pattern-matching.html#fizzbuzz">FizzBuzz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rust/pattern-matching.html#fibonacci">Fibonacci</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="rust/performance.html">Rust&#8217;s Performance</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="rust/performance.html#interesting-topic">Interesting Topic</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/performance.html#iterator">Iterator</a><ul>
@@ -5020,6 +5048,14 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l1"><a class="reference internal" href="rust/tagged-unions.html">Tagged Unions (Sum Type)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="rust/tagged-unions.html#id2">介紹</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/tagged-unions.html#id3">參考</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rust/testing.html">測試 (Testing)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rust/testing.html#coverage">涵蓋率 (Coverage)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rust/testing.html#kcov">kcov</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rust/testing.html#id2">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rust/tips.html">Rust Tips</a><ul>
@@ -5147,6 +5183,32 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l1"><a class="reference internal" href="simd/status.html">SIMD</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="simd/status.html#armv8-a-sve">ARMv8-A - SVE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="simd/status.html#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="streaming/rtsp.html">RTSP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="streaming/rtsp.html#rtsp-1-0-rfc-2326-1998">RTSP 1.0 (RFC 2326) (1998)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streaming/rtsp.html#rtsp-2-0-rfc-7826-2016">RTSP 2.0 (RFC 7826) (2016)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streaming/rtsp.html#rtp">RTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streaming/rtsp.html#live555">LIVE555</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="streaming/rtsp.html#live555-media-server">LIVE555 Media Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="streaming/rtsp.html#openrtsp">openRTSP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="streaming/rtsp.html#live555-proxy-server">LIVE555 Proxy Server</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="streaming/rtsp.html#gstreamer">GStreamer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="streaming/rtsp.html#gstreamer-rtsp-client">GStreamer RTSP Client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="streaming/rtsp.html#gstreamer-rtsp-server">GStreamer RTSP Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="streaming/rtsp.html#python-binding">Python Binding</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="streaming/rtsp.html#ffmpeg">FFmpeg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streaming/rtsp.html#vlc">VLC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streaming/rtsp.html#rtsp-udp-hole-punching">RTSP + UDP Hole Punching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streaming/rtsp.html#latency">Latency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streaming/rtsp.html#tcpdump">tcpdump</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streaming/rtsp.html#rtsp-client">測試用 RTSP Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streaming/rtsp.html#rtsp-server">測試用 RTSP Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streaming/rtsp.html#id2">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="synchronization/introduction.html">同步 (Synchronization)</a><ul>
