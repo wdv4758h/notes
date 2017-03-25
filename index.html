@@ -681,12 +681,14 @@
 <li class="toctree-l1"><a class="reference internal" href="rust/any.html">Rust&#8217;s runtime reflection - &#8220;Any&#8221; type trait</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/articles.html">文章閱讀（Articles）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/asmjs.html">Rust to asm.js</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rust/asynchronous.html">Asynchronous</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/books.html">Rust 相關書籍</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/c-to-rust.html">把 C 程式轉換成 Rust 程式</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/cargo.html">Cargo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/compiler.html">Rust 編譯器</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/design-pattern.html">Design Pattern</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/ecosystem.html">Rust 生態圈 (Rust Ecosystem)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rust/error-handling.html">錯誤處理 (Error Handling)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/faq.html">FAQ (Frequently Asked Questions)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/features-basic.html">Rust&#8217;s Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/index.html">My Rust Articles Collection</a></li>
@@ -4710,17 +4712,17 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rust/README.html">Rust 相關文章</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/README.html#rust-tips">Rust Tips</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rust/README.html#id2">輸出中間產物</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/README.html#id5">輸出中間產物</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#counter-by-hashmap">Counter By HashMap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#slices-join-concat">Slices join/concat</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rust/README.html#id3">字串轉特定型別</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rust/README.html#id4">把相依套件抓下來</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/README.html#id6">字串轉特定型別</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/README.html#id7">把相依套件抓下來</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#conditional-attribute">Conditional Attribute</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#libraries">指定連結的 Libraries</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#rustc">建立 rustc 內部文件</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#re-export">re-export</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#ffi-foreign-function-interface">FFI (Foreign Function Interface)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="rust/README.html#id6">範例一，傳入字串、回傳字串</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rust/README.html#id9">範例一，傳入字串、回傳字串</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#pretty-print-debug">Pretty Print Debug</a></li>
@@ -4729,7 +4731,7 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#is-empty"><code class="docutils literal"><span class="pre">is_empty()</span></code> 或 <code class="docutils literal"><span class="pre">==</span> <span class="pre">&quot;&quot;</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#cfg-condition">cfg! Condition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#i-o">I/O 處理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rust/README.html#id7">執行檔大小</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/README.html#id10">執行檔大小</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#iterator-over-contigunous-windows-of-specific-length">Iterator over contigunous windows of specific length</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#ascii">ASCII 相關操作</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#asref-asmut-into-from-borrow">AsRef/AsMut/Into/From &amp; Borrow</a></li>
@@ -4737,7 +4739,7 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#atomic-rwlock-mutex">Atomic* &amp; RwLock &amp; Mutex</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#unsafecell">UnsafeCell</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#llvm-sanitizer">LLVM Sanitizer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rust/README.html#id10">編譯靜態連結的執行檔</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/README.html#id13">編譯靜態連結的執行檔</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#cargo-template">Cargo Template</a></li>
 </ul>
 </li>
@@ -4772,6 +4774,20 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="rust/asmjs.html#id4">參考</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rust/asynchronous.html">Asynchronous</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rust/asynchronous.html#futures">Futures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/asynchronous.html#mio">Mio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/asynchronous.html#tokio">Tokio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/asynchronous.html#id4">範例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rust/asynchronous.html#id5">Futures 簡單範例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rust/asynchronous.html#futures-tokio-timer">Futures + Tokio Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rust/asynchronous.html#tokio-echo-server">Tokio: Echo Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rust/asynchronous.html#tokio-database">Tokio: Database</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rust/asynchronous.html#id6">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rust/books.html">Rust 相關書籍</a></li>
@@ -4858,6 +4874,20 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="rust/ecosystem.html#serialization">Serialization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/ecosystem.html#id8">網站開發</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/ecosystem.html#id9">參考</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rust/error-handling.html">錯誤處理 (Error Handling)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rust/error-handling.html#panic">panic!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/error-handling.html#option">Option</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/error-handling.html#result">Result</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/error-handling.html#try">try! &amp; ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/error-handling.html#error-chain">error_chain</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rust/error-handling.html#id3">範例一 - 最簡單的程式碼生成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rust/error-handling.html#id4">範例二 - 客製化錯誤</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rust/error-handling.html#id5">範例三 - 客製化錯誤輸出</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rust/error-handling.html#id6">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rust/faq.html">FAQ (Frequently Asked Questions)</a><ul>
