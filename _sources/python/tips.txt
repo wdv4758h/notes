@@ -82,6 +82,23 @@ Python 的 bool 可以拿來做運算
 造成記憶體不夠。
 
 
+
+一次存取多個 Index 或 Value
+========================================
+
+.. code-block:: python
+
+    >>> from operator import itemgetter
+    >>> a = [-2, 1, 5, 3, 8, 5, 6]
+    >>> b = [1, 2, 5]
+    >>> itemgetter(*b)(a)
+    (1, 5, 5)
+    >>> d = {'a': 1, 'b': 2, 'c': 3}
+    >>> itemgetter('a', 'c')(d)
+    (1, 3)
+
+
+
 Others
 ========================================
 
