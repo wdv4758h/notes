@@ -392,6 +392,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../crontab-periodic.html">Crontab &amp; Periodic</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cygwin.html">Cygwin 筆記</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../dhcp.html">DHCP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../early-return.html">Early return</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../expect.html">expect 筆記</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../freebsd-jails.html">FreeBSD Jails</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../freebsd-nfs.html">NFS</a></li>
@@ -423,6 +424,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../url-urn-uri.html">URL / URN / URI</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../vbscript.html">VBScript</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../vue-js.html">Vue.js</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../windows-hotkeys.html">Windows Hotkeys</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../zfs.html">ZFS 筆記</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../zsh-completion.html">Zsh 補完系統筆記</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../android/activity-lifecycle.html">Lifecycle of Android Activities</a></li>
@@ -881,6 +883,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/office.html">Office</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/sway.html">Sway</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/tips.html">Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/tools.html">工具</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../valgrind/android.html">Valgrind on Android Platform</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../valgrind/collection.html">Valgrind Resource Collection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../valgrind/dynamic-binary-instrumentation.html">Valgrind: A Framework for Heavyweight Dynamic Binary Instrumentation</a></li>
@@ -947,7 +950,7 @@
 <li>Dictionary 的 <code class="docutils literal"><span class="pre">[&quot;key&quot;]</span></code> 可以用 <code class="docutils literal"><span class="pre">.key</span></code> 存取，這點像 JavaScript</li>
 <li>有內建的 <code class="docutils literal"><span class="pre">map</span></code> 和 <code class="docutils literal"><span class="pre">filter</span></code> ，這點像函數式語言，不過其他特性仍然是指令式的</li>
 </ul>
-<p>但它的缺點真的不少</p>
+<p>但它的缺點真的不少（有些是我的主觀認定，但有些不是）</p>
 <ul class="simple">
 <li>字串比對（ <code class="docutils literal"><span class="pre">==</span></code> ）的行為會根據使用者的 <code class="docutils literal"><span class="pre">ignorecase</span></code> 設定改變<ul>
 <li>請改用 <code class="docutils literal"><span class="pre">==#</span></code> 和 <code class="docutils literal"><span class="pre">==?</span></code></li>
@@ -966,7 +969,7 @@
 <li>如果是語法出錯，訊息不會報在附近，而是在很遠的地方報錯</li>
 </ul>
 </li>
-<li>若有個函式沒有回傳值，要用 <code class="docutils literal"><span class="pre">call</span></code> 來 call 它，但會回傳東西的函式不能這樣 call<ul>
+<li>若有個函式沒有回傳值，要用 <code class="docutils literal"><span class="pre">call</span></code> 來 call 它，但有回傳值的函式不能這樣使用<ul>
 <li>一樣，要是用錯方式，使用者不會直接從錯誤訊息看出來</li>
 </ul>
 </li>
@@ -977,7 +980,9 @@
 <li><code class="docutils literal"><span class="pre">range(a,</span> <span class="pre">b)</span></code> 卻會回傳 <code class="docutils literal"><span class="pre">[a,</span> <span class="pre">a+1,</span> <span class="pre">...,</span> <span class="pre">b]</span></code></li>
 </ul>
 </li>
-<li>map 只能把 list 變成字串，而且是 in-place 的</li>
+<li>map 是 in-place 的</li>
+<li>List 可以用 <code class="docutils literal"><span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">list</span></code> 做迭代，但字串不行</li>
+<li>字串和數字在運算時可能會自己轉換：不論 <code class="docutils literal"><span class="pre">var</span></code> 的 type 是 <code class="docutils literal"><span class="pre">dict</span></code> 或 <code class="docutils literal"><span class="pre">string</span></code> ， <code class="docutils literal"><span class="pre">var['f']</span></code> 都可以執行，只是結果和你預期的不一定相同</li>
 </ul>
 </div>
 

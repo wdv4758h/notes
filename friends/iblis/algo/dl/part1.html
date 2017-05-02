@@ -34,7 +34,7 @@
   
     <link rel="top" title="wdv4758h-notes latest 說明文件" href="../../../../index.html"/>
         <link rel="up" title="DL" href="../dl.html"/>
-        <link rel="next" title="Evolutionary Neuron Network" href="../evolnn.html"/>
+        <link rel="next" title="Regularization" href="chap7.html"/>
         <link rel="prev" title="DL" href="../dl.html"/> 
 
   
@@ -392,6 +392,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../index.html#freebsd">FreeBSD</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../index.html#linux">Linux</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../index.html#language">Language</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../index.html#math">Math</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../index.html#id1">Project</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../index.html#trading">Trading</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../index.html#web">Web</a></li>
@@ -402,13 +403,16 @@
 <li class="toctree-l3"><a class="reference internal" href="../clus.html">Clustering</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../dl.html">DL</a><ul class="current">
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Part I</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chap7.html">Regularization</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../evolnn.html">Evolutionary Neuron Network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../paper.html">Paper</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../prml.html">PRML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../compiler/01-intro.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../compiler/02-lex.html">lex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../compiler/05-cfg.html">Context Free Grammar</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../compiler/index.html">Compiler</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../compiler/intro.html">Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../compiler/lex.html">lex</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../conf/pycon.html">Chapter name</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../db/cloudant.html">Cloudant</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../db/mongodb.html">MongoDB</a></li>
@@ -417,6 +421,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../linux/fuse.html">Fuse</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../linux/x11.html">X11</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../linux/yocto.html">Yocto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../math/linalg.html">Linear Algebra</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../misc/fonts.html">Fonts</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/binutils.html">binutils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/bitcoin.html">Bitcoin</a></li>
@@ -430,6 +435,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../project/make.html">Make</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/mxnet.html">MXNet</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/nftable.html">nftable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../project/ntp.html">NTP</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/opencl.html">OpenCL</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/pacman.html">pacman</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/sudo.html">sudo</a></li>
@@ -814,6 +820,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../unix-like-environment/office.html">Office</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../unix-like-environment/sway.html">Sway</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../unix-like-environment/tips.html">Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../unix-like-environment/tools.html">工具</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../valgrind/android.html">Valgrind on Android Platform</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../valgrind/collection.html">Valgrind Resource Collection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../valgrind/dynamic-binary-instrumentation.html">Valgrind: A Framework for Heavyweight Dynamic Binary Instrumentation</a></li>
@@ -877,6 +884,156 @@
   <div class="section" id="part-i">
 <h1>Part I<a class="headerlink" href="#part-i" title="本標題的永久連結">¶</a></h1>
 <p>Math basic</p>
+<div class="section" id="machine-learning">
+<h2>Machine Learning<a class="headerlink" href="#machine-learning" title="本標題的永久連結">¶</a></h2>
+<p>Problem setting:</p>
+<ol class="arabic">
+<li><p class="first">已知有 meta-rule ，但 meta-rule 難以量化或是量化過程繁雜。
+e.g. 人臉辨識；人腦能夠辨識，有 meta-rule ，但人們難以敘述此 meta-rule</p>
+</li>
+<li><p class="first">我們相信  為  的成因之一。希望透過 learning 的
+optimization 來得到關係。</p>
+<blockquote>
+<div><p>e.g. DNS and cancer</p>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="linear-model">
+<h2>Linear Model<a class="headerlink" href="#linear-model" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li>經典的 XOR 問題，無法用 linear model 解。需要做高維度的 feature extraction
+或是 NN 的轉換 座標空間 來解。</li>
+</ul>
+</div>
+<div class="section" id="linear-regression">
+<h2>Linear Regression<a class="headerlink" href="#linear-regression" title="本標題的永久連結">¶</a></h2>
+<p>Multivariate Linear Regression:</p>
+<ul class="simple">
+<li>常用 MSE 作為 cost function</li>
+</ul>
+<p>這個 cost function 是由 
+決定； data set  要先給定才有  。即，給不同的
+data set 會有不同的  ， 
+前面的常數項會不同，但都是二次式。</p>
+<ul>
+<li><p class="first">這個 cost function 有 close form solution, 可使用 <a class="reference internal" href="#normal-equation-method"><span class="std std-ref">Normal Equation Method</span></a>
+求解，但是在高維度會用 GD， why ?</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="http://stats.stackexchange.com/questions/23128">http://stats.stackexchange.com/questions/23128</a></li>
+<li>inverse matrix 的計算量是 </li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="section" id="univariable-linear-regression">
+<h3>Univariable Linear Regression<a class="headerlink" href="#univariable-linear-regression" title="本標題的永久連結">¶</a></h3>
+<ul class="simple">
+<li>Univariable -&gt; 單變數</li>
+</ul>
+<p>Assume:</p>
+<p>The cost function will be:</p>
+<p>Then, if we simplify , let ,</p>
+<p>Objective function:</p>
+<p>It looks like this:</p>
+<img alt="../../../../_images/uni_linreg_cost.png" src="../../../../_images/uni_linreg_cost.png" />
+<p>This objective function is <em>convex</em> and has a close form solution.</p>
+</div>
+</div>
+<div class="section" id="polynomial-regression">
+<h2>Polynomial Regression<a class="headerlink" href="#polynomial-regression" title="本標題的永久連結">¶</a></h2>
+<p>Change linear to higher-order ploynomial model</p>
+<p>e.g.</p>
+</div>
+<div class="section" id="gradian-descent">
+<h2>Gradian Descent<a class="headerlink" href="#gradian-descent" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li>learning rate  對 linear regression 的影響：<ul>
+<li>在接近 minimum 而且  過大時，下一次 iteration 會穿過 minimum
+然後 cost function 的微分量可能會更大，若更大會造成後續 iteration 發散。</li>
+</ul>
+</li>
+<li>Batch Gradian Descent, 對所有的 training set 都考慮後的計算。</li>
+<li><a class="reference external" href="http://mccormickml.com/2014/03/04/gradient-descent-derivation/">http://mccormickml.com/2014/03/04/gradient-descent-derivation/</a></li>
+</ul>
+</div>
+<div class="section" id="logistic-regression">
+<h2>Logistic Regression<a class="headerlink" href="#logistic-regression" title="本標題的永久連結">¶</a></h2>
+<p>實際上是 classifcation algo.</p>
+<p>outcome</p>
+<p>Sigmoid function (logistic function):</p>
+<img alt="../../../../_images/sigmoid.png" src="../../../../_images/sigmoid.png" />
+<p>Model</p>
+<div class="section" id="logistic-regression-with-mse">
+<h3>Logistic Regression with MSE<a class="headerlink" href="#logistic-regression-with-mse" title="本標題的永久連結">¶</a></h3>
+<p>If we select MSE as cost function,
+we will obtain non-convex cost function.</p>
+<img alt="../../../../_images/logistic-mse.png" src="../../../../_images/logistic-mse.png" />
+<p>在上圖中會看到  附近的點出現了 local optima；
+在  附近的點有 global optima 。</p>
+<p>所以顯然 MSE 在 Logistic Regression 身上不上很好的選擇。</p>
+</div>
+<div class="section" id="logistic-regression-cost-function">
+<h3>Logistic Regression Cost Function<a class="headerlink" href="#logistic-regression-cost-function" title="本標題的永久連結">¶</a></h3>
+<p>In case of </p>
+<img alt="../../../../_images/logistic-cost-1.png" src="../../../../_images/logistic-cost-1.png" />
+<p>此圖橫軸為  , 而  的值域為
+ ， 所以在此圖的 Domain 為  ，
+而對於 0 到 1 的數值取 負 log 得到 convex function</p>
+<p>In case of </p>
+<img alt="../../../../_images/logistic-cost-2.png" src="../../../../_images/logistic-cost-2.png" />
+<dl class="docutils">
+<dt>Differentiation</dt>
+<dd>長得跟 Linear Regression with MSE 一樣
+why?</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="normal-equation-method">
+<span id="id1"></span><h2>Normal Equation Method<a class="headerlink" href="#normal-equation-method" title="本標題的永久連結">¶</a></h2>
+<p>Julia code:</p>
+<div class="highlight-julia"><div class="highlight"><pre><span></span><span class="n">pinv</span><span class="p">(</span><span class="n">X</span><span class="o">&#39;</span> <span class="o">*</span> <span class="n">X</span><span class="p">)</span> <span class="o">*</span> <span class="n">X</span><span class="o">&#39;</span> <span class="o">*</span> <span class="n">y</span>
+</pre></div>
+</div>
+<div class="section" id="if-non-interible">
+<h3>If Non-interible<a class="headerlink" href="#if-non-interible" title="本標題的永久連結">¶</a></h3>
+<ul>
+<li><p class="first"><code class="docutils literal"><span class="pre">pinv</span></code> vs <code class="docutils literal"><span class="pre">inv</span></code> 的差別？</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">pinv</span></code> &#8211; psudo-inverse</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>causes:</p>
+<blockquote>
+<div><ul>
+<li><dl class="first docutils">
+<dt>Redundant feature &#8211; linear dependent (?)</dt>
+<dd><ul class="first last simple">
+<li>e.g. </li>
+<li>如果這個發生在 GD 上面？
+還是可以得到 cost function  ，照算</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Too many feature</dt>
+<dd><ul class="first last simple">
+<li>換句話說， training 的 data 筆數不夠。</li>
+<li>在 linear regression 之下， feature 數目即  的量，
+在 parameter 過多之下需要 <a class="reference internal" href="chap7.html#dl-regularization"><span class="std std-ref">Regularization</span></a></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
 <div class="section" id="relu">
 <h2>ReLU<a class="headerlink" href="#relu" title="本標題的永久連結">¶</a></h2>
 <div class="highlight-julia"><div class="highlight"><pre><span></span><span class="n">relu</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">?</span> <span class="n">x</span> <span class="p">:</span> <span class="mi">0</span>
@@ -893,6 +1050,43 @@ sigmoid 跟 <code class="docutils literal"><span class="pre">tanh</span></code> 
 拔掉。</li>
 </ul>
 </div>
+<div class="section" id="feature-scaling">
+<h2>Feature Scaling<a class="headerlink" href="#feature-scaling" title="本標題的永久連結">¶</a></h2>
+<dl class="docutils">
+<dt>Linear Regression:</dt>
+<dd>Linear Regression 的 MSE 做 GD ，如果你的 feature 之間的 scale 差太多，
+cost function 會出現很扁的山谷，使 GD 收斂效果差。 Rescaling 之後可以是
+cost function 接近圓，而 GD 收斂比較好。</dd>
+</dl>
+<div class="section" id="mean-normalization">
+<h3>Mean Normalization<a class="headerlink" href="#mean-normalization" title="本標題的永久連結">¶</a></h3>
+<p>或是分母亦可以用 standard deviation</p>
+<p>model 使用上，必須用當時的  進行還原得到最後的結果。</p>
+</div>
+</div>
+<div class="section" id="data">
+<h2>Data 量的問題<a class="headerlink" href="#data" title="本標題的永久連結">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt>以 face detection 舉例：</dt>
+<dd><ul class="first last simple">
+<li>我的資料中給你整張臉，這個資料量很充足，做 learning 沒問題。</li>
+<li>資料有缺損，給你半張臉，或許還是 learn 的出來。</li>
+<li>資料中，只給你兩根頭髮，這根本無法 learning ，前提不足。</li>
+<li>那麼 financial data 的資料量完整性足夠嗎？</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="learning-rate-selection">
+<h2>Learning Rate Selection<a class="headerlink" href="#learning-rate-selection" title="本標題的永久連結">¶</a></h2>
+<p>Learning rate  是個 hyper parameter，必須在啟動 algo 之前就決定。
+而在 linear regression 之下使用 fixed learning rate 已可以使 GD 收斂。
+過大過過小的  都會造成發散。建議透過觀測 cost function 在
+iteration/epoch 的 plotting 來調整 learning rate。</p>
+</div>
 </div>
 
 
@@ -902,7 +1096,7 @@ sigmoid 跟 <code class="docutils literal"><span class="pre">tanh</span></code> 
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../evolnn.html" class="btn btn-neutral float-right" title="Evolutionary Neuron Network" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="chap7.html" class="btn btn-neutral float-right" title="Regularization" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../dl.html" class="btn btn-neutral" title="DL" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>

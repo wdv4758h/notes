@@ -23,6 +23,17 @@ CPU 上面支援監控效能相關的 CPU 事件, 如 instruction fetch, L2 cach
   - linux kernel module ``msr``, ``/dev/cpu/<x>/msr``
   - user-space tool ``msr-tool``
 
+Example
+-------
+- mozilla RR says "Insns-retired counter is imprecise. Use precise retired-branch counter instead". `link <http://rr-project.org/rr.html#23.0>`_
+
+  Hardware Performance Counter Issues: http://web.eece.maine.edu/~vweaver/projects/perf_counters/index.html
+ 
+  it tell somewhat about instruction retired counter issue, seems like non-determinism.
+  there is a paper[1] with detail information.
+  
+  [1] `Can Hardware Performance Counters be Trusted? <http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.620.9917&rep=rep1&type=pdf>`_ 
+
 reference
 ---------
 - `model-specific register - wikipedia <https://www.wikiwand.com/en/Model-specific_register>`_

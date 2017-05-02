@@ -16,6 +16,11 @@ Introduction
 
 - `feature extraction`: data pre-processing.
 
+- deal with *over-fitting*
+    - 用 Regularization term
+    - 提高資料量
+    - 導入 Bayesian approach
+
 
 Regularization
 ----------------------------------------------------------------------
@@ -34,6 +39,7 @@ the error function.
 
 通常會忽略 w_0, w_0 圖上位移的常數。
 
+- L2 Norm
 - 上述做法統計學上叫做 *shrinkage*
 - Neuro network 裡叫做 *weight decay*
 

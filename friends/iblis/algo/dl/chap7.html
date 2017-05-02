@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Classification &mdash; wdv4758h-notes latest 說明文件</title>
+  <title>Regularization &mdash; wdv4758h-notes latest 說明文件</title>
   
 
   
@@ -33,9 +33,9 @@
 
   
     <link rel="top" title="wdv4758h-notes latest 說明文件" href="../../../../index.html"/>
-        <link rel="up" title="PRML" href="../prml.html"/>
-        <link rel="next" title="Kernel Method" href="chap6.html"/>
-        <link rel="prev" title="Introduction" href="chap1.html"/> 
+        <link rel="up" title="DL" href="../dl.html"/>
+        <link rel="next" title="Evolutionary Neuron Network" href="../evolnn.html"/>
+        <link rel="prev" title="Part I" href="part1.html"/> 
 
   
   <script src="../../../../_static/js/modernizr.min.js"></script>
@@ -392,6 +392,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../index.html#freebsd">FreeBSD</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../index.html#linux">Linux</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../index.html#language">Language</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../index.html#math">Math</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../index.html#id1">Project</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../index.html#trading">Trading</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../index.html#web">Web</a></li>
@@ -400,17 +401,18 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../clus.html">Clustering</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../dl.html">DL</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../evolnn.html">Evolutionary Neuron Network</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../prml.html">PRML</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="chap1.html">Introduction</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Classification</a></li>
-<li class="toctree-l4"><a class="reference internal" href="chap6.html">Kernel Method</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../dl.html">DL</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="part1.html">Part I</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Regularization</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../evolnn.html">Evolutionary Neuron Network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../paper.html">Paper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../prml.html">PRML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../compiler/01-intro.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../compiler/02-lex.html">lex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../compiler/05-cfg.html">Context Free Grammar</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../compiler/index.html">Compiler</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../compiler/intro.html">Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../compiler/lex.html">lex</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../conf/pycon.html">Chapter name</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../db/cloudant.html">Cloudant</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../db/mongodb.html">MongoDB</a></li>
@@ -419,6 +421,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../linux/fuse.html">Fuse</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../linux/x11.html">X11</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../linux/yocto.html">Yocto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../math/linalg.html">Linear Algebra</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../misc/fonts.html">Fonts</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/binutils.html">binutils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/bitcoin.html">Bitcoin</a></li>
@@ -432,6 +435,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../project/make.html">Make</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/mxnet.html">MXNet</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/nftable.html">nftable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../project/ntp.html">NTP</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/opencl.html">OpenCL</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/pacman.html">pacman</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/sudo.html">sudo</a></li>
@@ -816,6 +820,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../unix-like-environment/office.html">Office</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../unix-like-environment/sway.html">Sway</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../unix-like-environment/tips.html">Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../unix-like-environment/tools.html">工具</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../valgrind/android.html">Valgrind on Android Platform</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../valgrind/collection.html">Valgrind Resource Collection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../valgrind/dynamic-binary-instrumentation.html">Valgrind: A Framework for Heavyweight Dynamic Binary Instrumentation</a></li>
@@ -860,13 +865,13 @@
       
           <li><a href="../../index.html">Notes</a> &raquo;</li>
       
-          <li><a href="../prml.html">PRML</a> &raquo;</li>
+          <li><a href="../dl.html">DL</a> &raquo;</li>
       
-    <li>Classification</li>
+    <li>Regularization</li>
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="https://github.com/wdv4758h/notes/blob/master/./friends/iblis/algo/prml/chap4.rst" class="fa fa-github"> Edit on GitHub</a>
+            <a href="https://github.com/wdv4758h/notes/blob/master/./friends/iblis/algo/dl/chap7.rst" class="fa fa-github"> Edit on GitHub</a>
           
         
       </li>
@@ -876,98 +881,42 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="classification">
-<h1>Classification<a class="headerlink" href="#classification" title="本標題的永久連結">¶</a></h1>
-<div class="section" id="discriminant-function">
-<h2>Discriminant Function<a class="headerlink" href="#discriminant-function" title="本標題的永久連結">¶</a></h2>
-<div class="section" id="two-classes">
-<h3>Two Classes<a class="headerlink" href="#two-classes" title="本標題的永久連結">¶</a></h3>
-<p> is <cite>bias</cite>, sometimes a negative  is called <cite>threshold</cite></p>
-</div>
-<div class="section" id="multiple-classes">
-<h3>Multiple Classes<a class="headerlink" href="#multiple-classes" title="本標題的永久連結">¶</a></h3>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">problem:</th><td class="field-body">如果現在要分 3 類，而此時我們選用兩個 <cite>one-versus-the-rest</cite>
-classifier 形成的 hyperplane 做切割，在 feature space 上是兩條
-decision boundary ，而這兩條 boundary 會切出 4 個
-decision region ，但是我們只有 3 類，會有一塊在 testing 時是未知的區域。
-(p183. Figure 4.2)</td>
-</tr>
-<tr class="field-even field"><th class="field-name">sol:</th><td class="field-body">Single K-class discriminant function, 然後用 K 個組合起來。</td>
-</tr>
-</tbody>
-</table>
-<p>e.g. 假設要分 3 類 , , </p>
-<p>Let </p>
-<p>Decision boundary 產生在  時</p>
-</div>
-</div>
-<div class="section" id="perceptron">
-<h2>Perceptron<a class="headerlink" href="#perceptron" title="本標題的永久連結">¶</a></h2>
-<p>Perceptron criterion</p>
-<blockquote>
-<div><p>分對的 </p>
-<p>E 用 SGD 去調，每個 iter 都調一次</p>
-</div></blockquote>
-<p>證明 converge: </p>
-<p>(4.57) 用 同除分子
-(4.57) 即 sigmoid function</p>
-<p>(4.72) 取 log 而來</p>
-</div>
-<div class="section" id="section-name">
-<h2>Section name<a class="headerlink" href="#section-name" title="本標題的永久連結">¶</a></h2>
-<p>maximum likelihood</p>
-<p>4.2.1 why gaussian?</p>
-<p>what is share variance?</p>
-</div>
-<div class="section" id="discriminative-model">
-<h2>Discriminative Model<a class="headerlink" href="#discriminative-model" title="本標題的永久連結">¶</a></h2>
-<p>直接假設 model 是 linear
-maximum posterior</p>
-<p>4.87</p>
-<p>logistic function 是來自 posterior</p>
-<p>(4.89) 是 likelihood 沒差，但是展開的  是來自 posterior</p>
-<p>(4.91) cross-entropy (?) 我們想讓 entropy 越小越好
-(4.91) AKA cross-entropy error function</p>
-<p>sigmoid function 微分 </p>
-<div class="section" id="irls">
-<h3>IRLS<a class="headerlink" href="#irls" title="本標題的永久連結">¶</a></h3>
-<p>用 Newton-Raphon method
-是 二次近似</p>
-<p>(而 Gradient Descent 是一次近似)</p>
-</div>
-</div>
-<div class="section" id="generative-model-and-discriminative-model">
-<h2>Generative Model and Discriminative Model<a class="headerlink" href="#generative-model-and-discriminative-model" title="本標題的永久連結">¶</a></h2>
-<p>給定一個分兩類的問題，</p>
+  <div class="section" id="regularization">
+<span id="dl-regularization"></span><h1>Regularization<a class="headerlink" href="#regularization" title="本標題的永久連結">¶</a></h1>
 <ul class="simple">
-<li> 為 output</li>
-<li> 為 data, input</li>
+<li> regularization:
+透過 penalty term 對 loss function 下手</li>
+<li>Data Augmented: 對 data 加入 noise 達到 model 的 robustness</li>
+<li>Share Weight</li>
+<li>Bigging, boosting</li>
+<li>DropOut: for NN
+<a class="reference external" href="http://cs.nyu.edu/~wanli/dropc/">http://cs.nyu.edu/~wanli/dropc/</a></li>
 </ul>
-<p>以 <a class="reference external" href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier">Naive Bayes classifier</a> 與 Logistic Regression 為例：</p>
-<ul class="simple">
-<li>Naive Bayes 是 Generative Model</li>
-<li>Logistic Regression 是 Discriminative Model</li>
+<div class="section" id="single-hidden-layer-mlp">
+<h2>Single Hidden Layer MLP<a class="headerlink" href="#single-hidden-layer-mlp" title="本標題的永久連結">¶</a></h2>
+<p>給定 Input tuple 的數量，用到足夠數量的 hidden layer node <em>必定</em> 可以切開
+所有 sample，這個效果在 input domain -&gt; label domain 的 space 上看起來像是
+隔出蜂窩狀的格子。概念上接近建立巨大 dictionary table，這個巨大的 table
+正可能造成 overfitting。</p>
+<p>而這樣的參數量 (w) 大， generalization 並不好，</p>
+</div>
+<div class="section" id="data-augmented">
+<h2>Data Augmented<a class="headerlink" href="#data-augmented" title="本標題的永久連結">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt>Image deformation: 加入了旋轉、抖動等 noise</dt>
+<dd><ul class="first last simple">
+<li><a class="reference internal" href="../paper.html#deep-nn-mnist"><span class="std std-ref">Deep Big Simple Neural Nets Excel on Hand-written Digit Recognition</span></a></li>
 </ul>
-<div class="section" id="id1">
-<h3>Naive Bayes classifier<a class="headerlink" href="#id1" title="本標題的永久連結">¶</a></h3>
-<p>從找 posterior 出發， 「給 data 問 class」 即 
-，這個問題是分兩類，所以比較兩個 posterior 即可的出結果。</p>
-<p>Build model 的部分:</p>
-<p>分母  的部分相同，在比較上可以不管。
-所以問題變成 model joint probability</p>
-<p>對  再展開</p>
-<p>Naive Bayes 在這裡計算時，用了一個很強的假設，每個  之間獨立，
-這樣  的計算即全部連乘。計算量大。</p>
+</dd>
+</dl>
+</li>
+</ul>
 </div>
-<div class="section" id="logistic-regression">
-<h3>Logistic Regression<a class="headerlink" href="#logistic-regression" title="本標題的永久連結">¶</a></h3>
-<p>做了一個 model 為 linear model 的假設。</p>
-<p>直接給出 posterior 的 formula</p>
-</div>
+<div class="section" id="share-weight">
+<h2>Share Weight<a class="headerlink" href="#share-weight" title="本標題的永久連結">¶</a></h2>
+<p>降低 parameter (or weight in NN context) 來避免 overfitting。
+如： CNN</p>
 </div>
 </div>
 
@@ -978,10 +927,10 @@ maximum posterior</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="chap6.html" class="btn btn-neutral float-right" title="Kernel Method" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../evolnn.html" class="btn btn-neutral float-right" title="Evolutionary Neuron Network" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="chap1.html" class="btn btn-neutral" title="Introduction" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="part1.html" class="btn btn-neutral" title="Part I" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

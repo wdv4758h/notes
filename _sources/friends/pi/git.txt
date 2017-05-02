@@ -267,9 +267,9 @@ Bare repository
       * 先 ``git fetch`` 抓下遠端的 master branch
       * 再使用 ``git rebase origin/master`` ，更改 Local 的 master
 
-* 壓縮一串 commits ::
+* 壓縮 (squash) 一串 commits ::
 
-    git rebase -i {after-this-commit}
+    git rebase -i {after-and-not-include-this-commit}
 
 
 Branch 相關

@@ -423,7 +423,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../cli/xinput_method.html#im-config-tool">im-config tool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../compiler/llvm_materials.html">LLVM learning material</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">PMU(Performance Monitoring Unit)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#reference">reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="x86_pat.html">Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="x86_pat.html#reference">Reference</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../desktop/desktop_todo.html">Table Of Content</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../desktop/desktop_todo.html#common">common</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../desktop/desktop_todo.html#me">me</a></li>
@@ -886,6 +889,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/office.html">Office</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/sway.html">Sway</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/tips.html">Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/tools.html">工具</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../valgrind/android.html">Valgrind on Android Platform</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../valgrind/collection.html">Valgrind Resource Collection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../valgrind/dynamic-binary-instrumentation.html">Valgrind: A Framework for Heavyweight Dynamic Binary Instrumentation</a></li>
@@ -965,6 +969,17 @@
 <li>linux kernel module <code class="docutils literal"><span class="pre">msr</span></code>, <code class="docutils literal"><span class="pre">/dev/cpu/&lt;x&gt;/msr</span></code></li>
 <li>user-space tool <code class="docutils literal"><span class="pre">msr-tool</span></code></li>
 </ul>
+</li>
+</ul>
+</div>
+<div class="section" id="example">
+<h1>Example<a class="headerlink" href="#example" title="本標題的永久連結">¶</a></h1>
+<ul>
+<li><p class="first">mozilla RR says &#8220;Insns-retired counter is imprecise. Use precise retired-branch counter instead&#8221;. <a class="reference external" href="http://rr-project.org/rr.html#23.0">link</a></p>
+<p>Hardware Performance Counter Issues: <a class="reference external" href="http://web.eece.maine.edu/~vweaver/projects/perf_counters/index.html">http://web.eece.maine.edu/~vweaver/projects/perf_counters/index.html</a></p>
+<p>it tell somewhat about instruction retired counter issue, seems like non-determinism.
+there is a paper[1] with detail information.</p>
+<p>[1] <a class="reference external" href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.620.9917&amp;rep=rep1&amp;type=pdf">Can Hardware Performance Counters be Trusted?</a></p>
 </li>
 </ul>
 </div>

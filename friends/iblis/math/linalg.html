@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Introduction &mdash; wdv4758h-notes latest 說明文件</title>
+  <title>Linear Algebra &mdash; wdv4758h-notes latest 說明文件</title>
   
 
   
@@ -33,9 +33,9 @@
 
   
     <link rel="top" title="wdv4758h-notes latest 說明文件" href="../../../index.html"/>
-        <link rel="up" title="Compiler" href="index.html"/>
-        <link rel="next" title="lex" href="lex.html"/>
-        <link rel="prev" title="Compiler" href="index.html"/> 
+        <link rel="up" title="Notes" href="../index.html"/>
+        <link rel="next" title="Parametric Representations of Lines" href="linalg/param-line.html"/>
+        <link rel="prev" title="Scope of Variables" href="../lang/julia/scope.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -392,7 +392,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../index.html#freebsd">FreeBSD</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../index.html#linux">Linux</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../index.html#language">Language</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="../index.html#id1">Project</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html#math">Math</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#id1">Project</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../index.html#trading">Trading</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../index.html#web">Web</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../index.html#misc">Misc</a></li>
@@ -402,20 +403,12 @@
 <li class="toctree-l3"><a class="reference internal" href="../algo/clus.html">Clustering</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../algo/dl.html">DL</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../algo/evolnn.html">Evolutionary Neuron Network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../algo/paper.html">Paper</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../algo/prml.html">PRML</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="index.html">Compiler</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="index.html#dragon-book">Dragon book</a></li>
-</ul>
-</li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Introduction</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#generate-object-file">Generate Object File</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#structure-of-compiler">Structure of Compiler</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#phases-and-passes">Phases and Passes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#toolchains">Toolchains</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#misc">Misc</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="lex.html">lex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../compiler/01-intro.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../compiler/02-lex.html">lex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../compiler/05-cfg.html">Context Free Grammar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../compiler/index.html">Compiler</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../conf/pycon.html">Chapter name</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../db/cloudant.html">Cloudant</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../db/mongodb.html">MongoDB</a></li>
@@ -424,6 +417,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../linux/fuse.html">Fuse</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../linux/x11.html">X11</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../linux/yocto.html">Yocto</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Linear Algebra</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linalg/param-line.html">Parametric Representations of Lines</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../misc/fonts.html">Fonts</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../project/binutils.html">binutils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../project/bitcoin.html">Bitcoin</a></li>
@@ -437,6 +434,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../project/make.html">Make</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../project/mxnet.html">MXNet</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../project/nftable.html">nftable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../project/ntp.html">NTP</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../project/opencl.html">OpenCL</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../project/pacman.html">pacman</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../project/sudo.html">sudo</a></li>
@@ -821,6 +819,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/office.html">Office</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/sway.html">Sway</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/tips.html">Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/tools.html">工具</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../valgrind/android.html">Valgrind on Android Platform</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../valgrind/collection.html">Valgrind Resource Collection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../valgrind/dynamic-binary-instrumentation.html">Valgrind: A Framework for Heavyweight Dynamic Binary Instrumentation</a></li>
@@ -865,13 +864,11 @@
       
           <li><a href="../index.html">Notes</a> &raquo;</li>
       
-          <li><a href="index.html">Compiler</a> &raquo;</li>
-      
-    <li>Introduction</li>
+    <li>Linear Algebra</li>
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="https://github.com/wdv4758h/notes/blob/master/./friends/iblis/compiler/intro.rst" class="fa fa-github"> Edit on GitHub</a>
+            <a href="https://github.com/wdv4758h/notes/blob/master/./friends/iblis/math/linalg.rst" class="fa fa-github"> Edit on GitHub</a>
           
         
       </li>
@@ -881,195 +878,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="本標題的永久連結">¶</a></h1>
-<p>Parts of compiler:</p>
+  <div class="section" id="linear-algebra">
+<h1>Linear Algebra<a class="headerlink" href="#linear-algebra" title="本標題的永久連結">¶</a></h1>
+<div class="toctree-wrapper compound">
 <ul>
-<li><dl class="first docutils">
-<dt>Front-end</dt>
-<dd><ul class="first last simple">
-<li>generate IR (itermediate representation)</li>
-<li>通常複雜度低</li>
+<li class="toctree-l1"><a class="reference internal" href="linalg/param-line.html">Parametric Representations of Lines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linalg/param-line.html#parametric-representations">Parametric Representations</a></li>
 </ul>
-</dd>
-</dl>
 </li>
-<li><p class="first">Mid-end</p>
-</li>
-<li><dl class="first docutils">
-<dt>Back-end</dt>
-<dd><ul class="first last simple">
-<li>通常複雜度高</li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-<div class="section" id="generate-object-file">
-<h2>Generate Object File<a class="headerlink" href="#generate-object-file" title="本標題的永久連結">¶</a></h2>
-<p><code class="docutils literal"><span class="pre">prog.c</span></code> -&gt; pre-proccessing -&gt; <code class="docutils literal"><span class="pre">prog.s</span></code></p>
-<p>Quote from <code class="docutils literal"><span class="pre">clang(1)</span></code>:</p>
-<blockquote>
-<div><p>Stage Selection Options</p>
-<blockquote>
-<div><table class="docutils option-list" frame="void" rules="none">
-<col class="option" />
-<col class="description" />
-<tbody valign="top">
-<tr><td class="option-group">
-<kbd><span class="option">-E</span></kbd></td>
-<td>Run the preprocessor stage.</td></tr>
-<tr><td class="option-group">
-<kbd><span class="option">-f<var>syntax-only</var></span></kbd></td>
-<td>Run the preprocessor, parser and type checking stages.</td></tr>
-<tr><td class="option-group">
-<kbd><span class="option">-S</span></kbd></td>
-<td>Run the previous stages as well as LLVM generation and
-optimization stages and target-specific code generation,
-producing an assembly file.</td></tr>
-<tr><td class="option-group">
-<kbd><span class="option">-c</span></kbd></td>
-<td>Run all of the above, plus the assembler, generating a target
-&#8221;.o&#8221; object file.</td></tr>
-</tbody>
-</table>
-</div></blockquote>
-</div></blockquote>
-</div>
-<div class="section" id="structure-of-compiler">
-<h2>Structure of Compiler<a class="headerlink" href="#structure-of-compiler" title="本標題的永久連結">¶</a></h2>
-<ul class="simple">
-<li>token stream</li>
-<li>AST</li>
-<li>IR: 常用 <em>three address code</em>. 然後 optimizer 就對 IR 做優化。</li>
-<li>target native code</li>
-<li>symbol table</li>
-</ul>
-</div>
-<div class="section" id="phases-and-passes">
-<h2>Phases and Passes<a class="headerlink" href="#phases-and-passes" title="本標題的永久連結">¶</a></h2>
-<dl class="docutils">
-<dt>phase</dt>
-<dd>是 compiler 在邏輯上操作的切分</dd>
-<dt>pass</dt>
-<dd>把多個 phase group 起來， compiler 完成一次的 read file -&gt; write file</dd>
-<dt>front-end pass</dt>
-<dd><ul class="first last">
-<li><table class="first docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">lexical analysis:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">output token</td>
-</tr>
-</tbody>
-</table>
-</li>
-<li><table class="first docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">syntax analysis:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">or <em>parsing</em></td>
-</tr>
-</tbody>
-</table>
-</li>
-<li><table class="first docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">semantic analysis:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">蒐集 type 資訊做檢查， <em>type checking</em>;</td>
-</tr>
-</tbody>
-</table>
-<p>語言定義的 type conversion &#8211; <em>coercions</em></p>
-</li>
-<li><dl class="first docutils">
-<dt>IR code gen:</dt>
-<dd><ul class="first last simple">
-<li>syntax tree is a form of IR</li>
-<li>three address code</li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><p class="first">symbol table management</p>
-</li>
-</ul>
-</dd>
-<dt>optional pass</dt>
-<dd><ul class="first last">
-<li><dl class="first docutils">
-<dt>optimization</dt>
-<dd><ul class="first last simple">
-<li>data-flow optimizations</li>
-<li>instruction level parallelism, e.g. re-order instruction, SIMD</li>
-<li>proccessor level parallelism</li>
-<li>optimization for memory hierarchy</li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-</dd>
-<dt>back-end pass</dt>
-<dd><ul class="first last simple">
-<li>code gen</li>
-</ul>
-</dd>
-</dl>
-</div>
-<div class="section" id="toolchains">
-<h2>Toolchains<a class="headerlink" href="#toolchains" title="本標題的永久連結">¶</a></h2>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">parser generator:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><a class="reference external" href="https://pegjs.org/">PEG.js</a></li>
-<li><a class="reference external" href="https://github.com/pointlander/peg">peg</a></li>
-<li>YACC</li>
-<li><a class="reference external" href="https://www.gnu.org/software/bison/">Bison</a></li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">scanner generator:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li>lex</li>
-<li><a class="reference external" href="https://github.com/westes/flex.git">flex</a></li>
-</ul>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">syntax-directed translation engine:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"></td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">code-generator generator:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"></td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">data-flow analysis engine:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"></td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">compiler-contruction toolkits:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
-<li><a class="reference external" href="https://rpython.readthedocs.io/en/latest/">RPython</a></li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="misc">
-<h2>Misc<a class="headerlink" href="#misc" title="本標題的永久連結">¶</a></h2>
-<ul class="simple">
-<li>compiler-rt 可以對相容的 platform (e.g. x86 &amp; amd64) 提高
-object file portability. 或是對 cross-compiling 做處理</li>
-<li>這個年代的 low-level resource allocation 做的很好了，如， C 有 <code class="docutils literal"><span class="pre">register</span></code>
-這個 keyword 讓 programmer 自己控制 register 相關操作；但實際上，使用
-<code class="docutils literal"><span class="pre">register</span></code> 的效果反而容易造成效能損失，因為現代的 compiler 對 register
-management 已經有自己一套很好的 policy 了。</li>
 </ul>
 </div>
 </div>
@@ -1081,10 +897,10 @@ management 已經有自己一套很好的 policy 了。</li>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="lex.html" class="btn btn-neutral float-right" title="lex" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="linalg/param-line.html" class="btn btn-neutral float-right" title="Parametric Representations of Lines" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="Compiler" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../lang/julia/scope.html" class="btn btn-neutral" title="Scope of Variables" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
