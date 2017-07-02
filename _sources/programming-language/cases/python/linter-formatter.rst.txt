@@ -6,8 +6,44 @@ Linter & Formatter
 .. contents:: 目錄
 
 
-Flake8
+Linter
 ========================================
+
+檢查程式的問題，比較嚴重的例如」使用沒宣告的變數」，
+比較沒那麼嚴重的例如「Coding Style 不符合規定」。
+
+
+Pylint
+------------------------------
+
+`Pylint <https://github.com/PyCQA/pylint>`_ 是一個豐富且有彈性的 Python Linter，
+可以設定各種功能。
+
+只回報嚴重錯誤：
+
+.. code-block:: sh
+
+    $ pylint -E foo.py
+
+
+回報完整訊息（包含 Coding Style 檢查）：
+
+.. code-block:: sh
+
+    $ pylint foo.py
+
+
+輸出結果報告：
+
+.. code-block:: sh
+
+    $ pylint -r y foo.py
+
+
+
+
+Flake8
+------------------------------
 
 `Flake8 <https://github.com/PyCQA/flake8>`_ 是一套結合許多工具的包裝，
 除了內建的整合外，
@@ -23,8 +59,11 @@ Flake8
 
 
 
-YAPF
+Formatter
 ========================================
+
+YAPF
+------------------------------
 
 `YAPF <https://github.com/google/yapf>`_
 是一套自動排版 Python 程式碼的工具，

@@ -648,6 +648,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../README.html">程式語言理論 (Programming Language Theory) (PLT)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../pypy/brief.html">簡單介紹</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../pypy/resource.html">RPython Toolchain 相關資源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/README.html">Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../python/ast.html">Python AST</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../python/async-await.html">Python - async &amp; await</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../python/benchmark.html">Benchmark</a></li>
@@ -862,19 +863,47 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
            <div itemprop="articleBody">
             
   <div class="section" id="linter-formatter">
-<h1><a class="toc-backref" href="#id4">Linter &amp; Formatter</a><a class="headerlink" href="#linter-formatter" title="本標題的永久連結">¶</a></h1>
+<h1><a class="toc-backref" href="#id5">Linter &amp; Formatter</a><a class="headerlink" href="#linter-formatter" title="本標題的永久連結">¶</a></h1>
 <div class="contents topic" id="id1">
 <p class="topic-title first">目錄</p>
 <ul class="simple">
-<li><a class="reference internal" href="#linter-formatter" id="id4">Linter &amp; Formatter</a><ul>
-<li><a class="reference internal" href="#flake8" id="id5">Flake8</a></li>
-<li><a class="reference internal" href="#yapf" id="id6">YAPF</a></li>
+<li><a class="reference internal" href="#linter-formatter" id="id5">Linter &amp; Formatter</a><ul>
+<li><a class="reference internal" href="#linter" id="id6">Linter</a><ul>
+<li><a class="reference internal" href="#pylint" id="id7">Pylint</a></li>
+<li><a class="reference internal" href="#flake8" id="id8">Flake8</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#formatter" id="id9">Formatter</a><ul>
+<li><a class="reference internal" href="#yapf" id="id10">YAPF</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </div>
+<div class="section" id="linter">
+<h2><a class="toc-backref" href="#id6">Linter</a><a class="headerlink" href="#linter" title="本標題的永久連結">¶</a></h2>
+<p>檢查程式的問題，比較嚴重的例如」使用沒宣告的變數」，
+比較沒那麼嚴重的例如「Coding Style 不符合規定」。</p>
+<div class="section" id="pylint">
+<h3><a class="toc-backref" href="#id7">Pylint</a><a class="headerlink" href="#pylint" title="本標題的永久連結">¶</a></h3>
+<p><a class="reference external" href="https://github.com/PyCQA/pylint">Pylint</a> 是一個豐富且有彈性的 Python Linter，
+可以設定各種功能。</p>
+<p>只回報嚴重錯誤：</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ pylint -E foo.py
+</pre></div>
+</div>
+<p>回報完整訊息（包含 Coding Style 檢查）：</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ pylint foo.py
+</pre></div>
+</div>
+<p>輸出結果報告：</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ pylint -r y foo.py
+</pre></div>
+</div>
+</div>
 <div class="section" id="flake8">
-<h2><a class="toc-backref" href="#id5">Flake8</a><a class="headerlink" href="#flake8" title="本標題的永久連結">¶</a></h2>
+<h3><a class="toc-backref" href="#id8">Flake8</a><a class="headerlink" href="#flake8" title="本標題的永久連結">¶</a></h3>
 <p><a class="reference external" href="https://github.com/PyCQA/flake8">Flake8</a> 是一套結合許多工具的包裝，
 除了內建的整合外，
 也提供擴充其他工具的機制，
@@ -884,11 +913,15 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </pre></div>
 </div>
 </div>
+</div>
+<div class="section" id="formatter">
+<h2><a class="toc-backref" href="#id9">Formatter</a><a class="headerlink" href="#formatter" title="本標題的永久連結">¶</a></h2>
 <div class="section" id="yapf">
-<h2><a class="toc-backref" href="#id6">YAPF</a><a class="headerlink" href="#yapf" title="本標題的永久連結">¶</a></h2>
+<h3><a class="toc-backref" href="#id10">YAPF</a><a class="headerlink" href="#yapf" title="本標題的永久連結">¶</a></h3>
 <p><a class="reference external" href="https://github.com/google/yapf">YAPF</a>
 是一套自動排版 Python 程式碼的工具，
 用來自動化地改善程式碼的風格。</p>
+</div>
 </div>
 </div>
 
