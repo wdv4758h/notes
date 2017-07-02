@@ -83,7 +83,50 @@ Pipeline
 
 
 
+Source
+========================================
+
+稍微列出一些常見的 Source：
+
+* 第三方應用程式（用於利用 GStreamer 撰寫自己的程式）: appsrc
+* RTSP: rtspsrc
+* UDP: udpsrc
+
+
+自己系統目前支援的 Source 的完整清單：
+
+.. code-block:: sh
+
+    $ gst-inspect-1.0 | rg src
+
+
+Sink
+========================================
+
+稍微列出一些常見的 Source：
+
+* 第三方應用程式（用於利用 GStreamer 撰寫自己的程式）: appsink
+* 檔案: filesink
+* UDP: udpsink
+
+
+自己系統目前支援的 Sink 的完整清單：
+
+.. code-block:: sh
+
+    $ gst-inspect-1.0 | rg src
+
+
+
+License
+========================================
+
+LGPL
+
+
+
 參考
 ========================================
 
+* `Licensing your applications and plugins for use with GStreamer <https://gstreamer.freedesktop.org/documentation/licensing.html>`_
 * `gst-instruments - Easy-to-use profiler for GStreamer <https://github.com/kirushyk/gst-instruments>`_
