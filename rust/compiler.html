@@ -13,6 +13,8 @@
 
   
   
+  
+  
 
   
 
@@ -28,10 +30,11 @@
   
     <link rel="stylesheet" href="https://media.readthedocs.org/css/sphinx_rtd_theme.css" type="text/css" />
   
-    <link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
-  
 
   
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="搜尋" href="../search.html"/>
     <link rel="top" title="wdv4758h-notes latest 說明文件" href="../index.html"/>
         <link rel="next" title="Database" href="database.html"/>
         <link rel="prev" title="Cargo" href="cargo.html"/> 
@@ -39,10 +42,32 @@
   
   <script src="../_static/js/modernizr.min.js"></script>
 
-</head>
+
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/rust/compiler.html" />
+
+<link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = 'rust/compiler' 		
+READTHEDOCS_DATA['source_suffix'] = '.rst'
+</script>
+
+<script type="text/javascript" src="../_static/readthedocs-dynamic-include.js"></script>
+
+<!-- end RTD <extrahead> --></head>
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -84,7 +109,10 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/README.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/adt.html">ADT (Abstract Data Type)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/algorithm-concept.html">演算法相關概念</a></li>
@@ -101,7 +129,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../android/android.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/android-emulator.html">Android Emulator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/android-images.html">Android Images</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../android/binder.html">Android&#8217;s Binder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../android/apps.html">Android Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../android/binder.html">Android’s Binder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/busybox-mv.html">BysyBox 的 mv</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/cheat-sheet.html">Android Cheat Sheet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/cts.html">Android CTS (Compatibility Test Suite)</a></li>
@@ -121,6 +150,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/pacman.html">Pacman</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/performance.html">Performance Tuning For Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/printer.html">Printer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archlinux/timezone.html">Timezone</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/video-audio-through-hdmi.html">利用 HDMI 播放影音</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/video-player.html">Video Player</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/x11-forwarding.html">X11 Forwarding</a></li>
@@ -174,7 +204,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../blog/openmp.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#tutorial">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#id4">額外紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#id5">額外紀錄</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/python-benchmark.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/python-benchmark.html#hello-world">Hello World</a></li>
@@ -201,7 +231,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../blog/qemu-first-step.html#qemu-with-kvm">QEMU with KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html">Syntax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closure">Closure 和外部變數</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#move-closures">&#8220;move&#8221; closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#move-closures">「move」 closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closure-implementation">Closure implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closures-as-arguments">closures as arguments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#returning-closures">returning closures</a></li>
@@ -248,7 +278,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../blog/xorg-with-libinput.html#id1">近況</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/xorg-with-libinput.html#users">Users</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/xorg-with-libinput.html#reference">Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../books/ISBN-13|978-1-59327-385-9|A Bug Hunter's Diary.html">A Bug Hunter&#8217;s Diary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../books/ISBN-13|978-1-59327-385-9|A Bug Hunter's Diary.html">A Bug Hunter’s Diary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../books/README.html">書籍紀錄</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../browser/cdm.html">CDM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../browser/chrome.html">Chrome</a></li>
@@ -267,7 +297,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../c/c.html">C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../c/cheat-sheet.html">C Cheat Sheet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../c/exception.html">Exceptions in C</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../c/features.html">Some C&#8217;s features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c/features.html">Some C’s features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../c/gnu-extension.html">GNU Extension</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../c/internal_and_external_linkage_in_C.html">Internal and External Linkage in C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../c/mmap.html">mmap</a></li>
@@ -313,6 +343,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../computer-vision/books.html">電腦視覺相關書籍</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computer-vision/object-detection.html">Object Detection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computer-vision/panaorma.html">Panorama (Image Stitching)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../continuous-integration/jenkins.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/64bits-problem.html">64 Bits Problem</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/README.html">C++</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/SFINAE.html">SFINAE (Substitution Failure Is Not An Error)</a></li>
@@ -367,6 +398,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../database/mariadb.html">MariaDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/javascript.html">Debugger for JavaScript</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/kernel.html">Debugging a Kernel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/record-replay.html">Record Replay</a></li>
@@ -404,7 +436,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../graphics/mesa.html">Mesa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../graphics/resource.html">Graphic Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/hardware-and-programming.html">Hardware &amp; Programming</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../hardware/history.html">Hardware&#8217;s History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hardware/history.html">Hardware’s History</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/intel-mic.html">Intel MIC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/kindle.html">Kindle</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/my-devices.html">Hardware</a></li>
@@ -607,7 +639,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../non-cs/skateboard.html">滑板</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../non-cs/spanish.html">西班牙文及相關文化</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../non-cs/taiwan-education.html">臺灣教育與國族認同</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../non-cs/taiwan-opendata.html">臺灣開放資料（Taiwan&#8217;s Open Data）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../non-cs/taiwan-opendata.html">臺灣開放資料（Taiwan’s Open Data）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../non-cs/taiwan-rocket.html">臺灣的火箭 - ARRC (前瞻火箭研究中心)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../non-cs/todo.html">Todo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../non-cs/visa-bitcon.html">VISA &amp; Bitcoin</a></li>
@@ -622,7 +654,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../python/async-await.html">Python - async &amp; await</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/benchmark.html">Benchmark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/best-practice.html">Best Practice</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python/concurrency.html">Python&#8217;s Concurrency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/concurrency.html">Python’s Concurrency</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/contextlib.html">contextlib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/cpython.html">CPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/cpython-equality.html">CPython Equality</a></li>
@@ -682,7 +714,7 @@
 <li class="toctree-l1"><a class="reference internal" href="README.html">Rust 相關文章</a></li>
 <li class="toctree-l1"><a class="reference internal" href="README.html#rust-tips">Rust Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="abbreviation.html">縮寫</a></li>
-<li class="toctree-l1"><a class="reference internal" href="any.html">Rust&#8217;s runtime reflection - &#8220;Any&#8221; type trait</a></li>
+<li class="toctree-l1"><a class="reference internal" href="any.html">Rust’s runtime reflection - 「Any」 type trait</a></li>
 <li class="toctree-l1"><a class="reference internal" href="articles.html">文章閱讀（Articles）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="asmjs.html">Rust to asm.js</a></li>
 <li class="toctree-l1"><a class="reference internal" href="asynchronous.html">Asynchronous</a></li>
@@ -707,7 +739,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ecosystem.html">Rust 生態圈 (Rust Ecosystem)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="error-handling.html">錯誤處理 (Error Handling)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ (Frequently Asked Questions)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="features-basic.html">Rust&#8217;s Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features-basic.html">Rust’s Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fuzz-testing.html">Fuzz Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="graphic.html">Graphic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html">My Rust Articles Collection</a></li>
@@ -727,18 +759,18 @@
 <li class="toctree-l1"><a class="reference internal" href="os.html">Rust in OS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="packages.html">Some Packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pattern-matching.html">Pattern Matching</a></li>
-<li class="toctree-l1"><a class="reference internal" href="performance.html">Rust&#8217;s Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">Rust’s Performance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="regex.html">Regex (Regular Expression)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resource.html">Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rfcs.html">Rust RFCs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust.html">Rust</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust-vim-plugin.html">Rust Vim Plugin</a></li>
-<li class="toctree-l1"><a class="reference internal" href="std.html">Rust&#8217;s std</a></li>
+<li class="toctree-l1"><a class="reference internal" href="std.html">Rust’s std</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tagged-unions.html">Tagged Unions (Sum Type)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="testing.html">測試 (Testing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tips.html">Rust Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="todo.html">Todo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="type-system.html">Rust&#8217;s Type System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="type-system.html">Rust’s Type System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="use.html">use</a></li>
 <li class="toctree-l1"><a class="reference internal" href="videos.html">Rust Videos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="web.html">Rust &amp; Web</a></li>
@@ -749,6 +781,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../simd/algorithm.html">運用 SIMD 來加速的演算法</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../simd/status.html">SIMD</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../streaming/audio.html">Audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../streaming/gstreamer.html">GStreamer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../streaming/rtsp.html">RTSP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../synchronization/introduction.html">同步 (Synchronization)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../systemd/networkctl.html">networkctl</a></li>
@@ -763,6 +796,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/keymap.html">xmodmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/keymap.html#setxkbmap">setxkbmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/office.html">Office</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/ssh-config.html">SSH Config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/sway.html">Sway</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/tips.html">Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/tools.html">工具</a></li>
@@ -788,8 +822,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">wdv4758h-notes</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">wdv4758h-notes</a>
+        
       </nav>
 
 
@@ -798,23 +834,42 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Docs</a> &raquo;</li>
-      
-    <li>Rust 編譯器</li>
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Rust 編譯器</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="https://github.com/wdv4758h/notes/blob/master/./rust/compiler.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+            
+              <a href="https://github.com/wdv4758h/notes/blob/master/./rust/compiler.rst" class="fa fa-github"> Edit on GitHub</a>
+            
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -882,17 +937,15 @@ $ python -m http.server
 <li><a class="reference external" href="https://github.com/rust-lang/rust/pull/36369">IBM s390x</a></li>
 </ul>
 <p>修改內容：</p>
-<ol class="arabic">
-<li><p class="first">新增平台名稱到 <code class="docutils literal"><span class="pre">configure</span></code> 內的 <code class="docutils literal"><span class="pre">$CFG_CPUTYPE</span></code></p>
-</li>
-<li><p class="first">設定 Toolchain （例如 <code class="docutils literal"><span class="pre">mk/cfg/s390x-unknown-linux-gnu.mk</span></code> ）</p>
-</li>
+<ol class="arabic simple">
+<li>新增平台名稱到 <code class="docutils literal"><span class="pre">configure</span></code> 內的 <code class="docutils literal"><span class="pre">$CFG_CPUTYPE</span></code></li>
+<li>設定 Toolchain （例如 <code class="docutils literal"><span class="pre">mk/cfg/s390x-unknown-linux-gnu.mk</span></code> ）</li>
 <li><dl class="first docutils">
 <dt>在各處設定對應的選擇（以 <code class="docutils literal"><span class="pre">s390x</span></code> 為例）</dt>
 <dd><ul class="first last">
 <li><dl class="first docutils">
 <dt>src/liballoc_jemalloc/lib.rs</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>設定 <code class="docutils literal"><span class="pre">MIN_ALIGN</span></code></li>
 </ul>
 </dd>
@@ -900,7 +953,7 @@ $ python -m http.server
 </li>
 <li><dl class="first docutils">
 <dt>src/liballoc_system/lib.rs</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>設定 <code class="docutils literal"><span class="pre">MIN_ALIGN</span></code></li>
 </ul>
 </dd>
@@ -909,11 +962,10 @@ $ python -m http.server
 <li><dl class="first docutils">
 <dt>src/liblibc</dt>
 <dd><ul class="first last">
-<li><p class="first">[liblibc] src/lib.rs</p>
-</li>
+<li>[liblibc] src/lib.rs</li>
 <li><dl class="first docutils">
 <dt>[liblibc] src/unix/notbsd/linux/mod.rs</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>設定 <code class="docutils literal"><span class="pre">pthread_mutexattr_t</span></code></li>
 <li>設定數個變數和函式</li>
 </ul>
@@ -922,7 +974,7 @@ $ python -m http.server
 </li>
 <li><dl class="first docutils">
 <dt>[liblibc] src/unix/notbsd/linux/s390x.rs</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>設定許多 Type 的大小</li>
 <li>定義數個函式界面</li>
 </ul>
@@ -935,7 +987,7 @@ $ python -m http.server
 </li>
 <li><dl class="first docutils">
 <dt>src/libpanic_unwind/gcc.rs</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>設定 <code class="docutils literal"><span class="pre">UNWIND_DATA_REG</span></code></li>
 </ul>
 </dd>
@@ -943,18 +995,18 @@ $ python -m http.server
 </li>
 <li><dl class="first docutils">
 <dt>src/librustc_back/target/s390x_unknown_linux_gnu.rs</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>LLVM target</li>
 <li>target endian</li>
 <li>data layout</li>
-<li>...</li>
+<li>…</li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>src/librustc_trans/abi.rs</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>選擇使用 <code class="docutils literal"><span class="pre">cabi_s390x</span></code> 內的功能</li>
 </ul>
 </dd>
@@ -962,7 +1014,7 @@ $ python -m http.server
 </li>
 <li><dl class="first docutils">
 <dt>src/librustc_trans/cabi_s390x.rs</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>各 Type 的大小以及 Alignment 設定</li>
 </ul>
 </dd>
@@ -970,7 +1022,7 @@ $ python -m http.server
 </li>
 <li><dl class="first docutils">
 <dt>src/librustc_trans/lib.rs</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>加入 <code class="docutils literal"><span class="pre">cabi_s390x.rs</span></code></li>
 </ul>
 </dd>
@@ -978,7 +1030,7 @@ $ python -m http.server
 </li>
 <li><dl class="first docutils">
 <dt>src/libstd/env.rs</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>設定 <code class="docutils literal"><span class="pre">ARCH</span></code></li>
 </ul>
 </dd>
@@ -986,7 +1038,7 @@ $ python -m http.server
 </li>
 <li><dl class="first docutils">
 <dt>src/libstd/os/linux/raw.rs</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>將 libc 的資訊重新 expose 出去</li>
 </ul>
 </dd>
@@ -994,7 +1046,7 @@ $ python -m http.server
 </li>
 <li><dl class="first docutils">
 <dt>src/libstd/os/raw.rs</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>設定數個 Type 的大小</li>
 </ul>
 </dd>
@@ -1002,7 +1054,7 @@ $ python -m http.server
 </li>
 <li><dl class="first docutils">
 <dt>src/libstd/sys/unix/rand.rs</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>設定 syscall 數值</li>
 <li>把能提供的功能打開</li>
 </ul>
@@ -1011,7 +1063,7 @@ $ python -m http.server
 </li>
 <li><dl class="first docutils">
 <dt>src/libunwind/libunwind.rs</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>設定 <code class="docutils literal"><span class="pre">unwinder_private_data_size</span></code></li>
 </ul>
 </dd>
@@ -1019,7 +1071,7 @@ $ python -m http.server
 </li>
 <li><dl class="first docutils">
 <dt>設定數個需要忽略的測試</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>src/test/compile-fail/asm-bad-clobber.rs</li>
 <li>src/test/compile-fail/asm-in-bad-modifier.rs</li>
 <li>src/test/compile-fail/asm-misplaced-option.rs</li>
@@ -1034,7 +1086,7 @@ $ python -m http.server
 </li>
 <li><dl class="first docutils">
 <dt>設定、實做數個需要開啟的測試</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>src/test/run-make/atomic-lock-free/Makefile</li>
 <li>src/test/run-pass/conditional-compile-arch.rs</li>
 </ul>
@@ -1043,7 +1095,7 @@ $ python -m http.server
 </li>
 <li><dl class="first docutils">
 <dt>src/tools/compiletest/src/util.rs</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>設定平台的對應</li>
 </ul>
 </dd>
@@ -1061,70 +1113,67 @@ $ python -m http.server
 <li><a class="reference external" href="https://github.com/rust-lang/rust/pull/36727">Haiku OS</a></li>
 </ul>
 <p>修改內容：</p>
-<ol class="arabic">
-<li><p class="first">新增平台名稱到 <code class="docutils literal"><span class="pre">configure</span></code> 內的 <code class="docutils literal"><span class="pre">$CFG_CPUTYPE</span></code></p>
-</li>
-<li><p class="first">設定 Toolchain （例如 <code class="docutils literal"><span class="pre">mk/cfg/i686-unknown-haiku.mk</span></code> 、 <code class="docutils literal"><span class="pre">mk/cfg/x86_64-unknown-haiku.mk</span></code> 和 <code class="docutils literal"><span class="pre">mk/main.mk</span></code> ）</p>
-</li>
+<ol class="arabic simple">
+<li>新增平台名稱到 <code class="docutils literal"><span class="pre">configure</span></code> 內的 <code class="docutils literal"><span class="pre">$CFG_CPUTYPE</span></code></li>
+<li>設定 Toolchain （例如 <code class="docutils literal"><span class="pre">mk/cfg/i686-unknown-haiku.mk</span></code> 、 <code class="docutils literal"><span class="pre">mk/cfg/x86_64-unknown-haiku.mk</span></code> 和 <code class="docutils literal"><span class="pre">mk/main.mk</span></code> ）</li>
 <li><dl class="first docutils">
 <dt>設定 OS</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>src/etc/local_stage0.sh</li>
 </ul>
 </dd>
 </dl>
 </li>
 </ol>
-<ol class="arabic" start="3">
+<ol class="arabic simple" start="3">
 <li><dl class="first docutils">
 <dt>在各處設定對應的選擇</dt>
 <dd><ul class="first last">
 <li><dl class="first docutils">
 <dt>src/librustc_back/target/haiku_base.rs</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>Linker</li>
 <li>rpath</li>
-<li>...</li>
+<li>…</li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>src/librustc_back/target/i686_unknown_haiku.rs</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>LLVM target</li>
 <li>target endian</li>
 <li>data layout</li>
-<li>...</li>
+<li>…</li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>src/librustc_back/target/x86_64_unknown_haiku.rs</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>LLVM target</li>
 <li>target endian</li>
 <li>data layout</li>
-<li>...</li>
+<li>…</li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>src/librustc_back/target/mod.rs</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>加入 <code class="docutils literal"><span class="pre">haiku_base</span></code></li>
 <li>target 對應</li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><p class="first">src/librustc_data_structures/flock.rs</p>
-</li>
+<li>src/librustc_data_structures/flock.rs</li>
 <li><dl class="first docutils">
 <dt>src/libstd/env.rs</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>設定 <code class="docutils literal"><span class="pre">FAMILY</span></code> 、 <code class="docutils literal"><span class="pre">OS</span></code> 、 <code class="docutils literal"><span class="pre">DLL_SUFFIX</span></code> 、 <code class="docutils literal"><span class="pre">EXE_SUFFIX</span></code> 等</li>
 </ul>
 </dd>
@@ -1132,7 +1181,7 @@ $ python -m http.server
 </li>
 <li><dl class="first docutils">
 <dt>src/libstd/os/haiku/fs.rs</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>設定對應的檔案系統 metadata</li>
 </ul>
 </dd>
@@ -1140,7 +1189,7 @@ $ python -m http.server
 </li>
 <li><dl class="first docutils">
 <dt>src/libstd/os/haiku/raw.rs</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>設定對應的 Type 大小</li>
 </ul>
 </dd>
@@ -1148,7 +1197,7 @@ $ python -m http.server
 </li>
 <li><dl class="first docutils">
 <dt>src/libstd/os/mod.rs</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>加入 <code class="docutils literal"><span class="pre">haiku</span></code></li>
 </ul>
 </dd>
@@ -1156,7 +1205,7 @@ $ python -m http.server
 </li>
 <li><dl class="first docutils">
 <dt>src/libstd/rtdeps.rs</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>設定平台的 runtime dependencies 的 link attributes</li>
 </ul>
 </dd>
@@ -1164,7 +1213,7 @@ $ python -m http.server
 </li>
 <li><dl class="first docutils">
 <dt>src/libstd/sys/common/args.rs</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>開啟 CLI 參數的 storage 的相關支援</li>
 </ul>
 </dd>
@@ -1172,7 +1221,7 @@ $ python -m http.server
 </li>
 <li><dl class="first docutils">
 <dt>src/libstd/sys/common/net.rs</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>設定網路相關資訊</li>
 </ul>
 </dd>
@@ -1180,7 +1229,7 @@ $ python -m http.server
 </li>
 <li><dl class="first docutils">
 <dt>src/libstd/sys/unix/fd.rs</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>設定 File Descriptor 相關資訊</li>
 </ul>
 </dd>
@@ -1188,7 +1237,7 @@ $ python -m http.server
 </li>
 <li><dl class="first docutils">
 <dt>src/libstd/sys/unix/fs.rs</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>設定檔案系統相關資訊</li>
 </ul>
 </dd>
@@ -1196,7 +1245,7 @@ $ python -m http.server
 </li>
 <li><dl class="first docutils">
 <dt>src/libstd/sys/unix/os.rs</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>設定作業系統相關資訊</li>
 </ul>
 </dd>
@@ -1204,7 +1253,7 @@ $ python -m http.server
 </li>
 <li><dl class="first docutils">
 <dt>src/libstd/sys/unix/thread.rs</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>設定 Thread 相關資訊</li>
 </ul>
 </dd>
@@ -1212,7 +1261,7 @@ $ python -m http.server
 </li>
 <li><dl class="first docutils">
 <dt>src/libstd/sys/unix/mod.rs</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>加入 <code class="docutils literal"><span class="pre">os::haiku</span></code></li>
 </ul>
 </dd>
@@ -1220,7 +1269,7 @@ $ python -m http.server
 </li>
 <li><dl class="first docutils">
 <dt>src/libsyntax/abi.rs</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>加入 <code class="docutils literal"><span class="pre">Haiku</span></code> 的 ABI</li>
 </ul>
 </dd>
@@ -1228,7 +1277,7 @@ $ python -m http.server
 </li>
 <li><dl class="first docutils">
 <dt>src/libterm/terminfo/searcher.rs</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>設定 terminfo 位址</li>
 </ul>
 </dd>
@@ -1236,7 +1285,7 @@ $ python -m http.server
 </li>
 <li><dl class="first docutils">
 <dt>src/libtest/lib.rs</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>標示尚未實做的功能</li>
 </ul>
 </dd>
@@ -1244,7 +1293,7 @@ $ python -m http.server
 </li>
 <li><dl class="first docutils">
 <dt>src/libunwind/libunwind.rs</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>設定 unwinding 方式</li>
 </ul>
 </dd>
@@ -1252,7 +1301,7 @@ $ python -m http.server
 </li>
 <li><dl class="first docutils">
 <dt>src/test/run-pass/fds-are-cloexec.rs</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>設定需要忽略的測試</li>
 </ul>
 </dd>
@@ -1260,7 +1309,7 @@ $ python -m http.server
 </li>
 <li><dl class="first docutils">
 <dt>src/tools/compiletest/src/util.rs</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>設定平台的對應</li>
 </ul>
 </dd>
@@ -1278,12 +1327,11 @@ $ python -m http.server
 <li><a class="reference external" href="https://github.com/rust-lang/rust/commit/18d49288d546efaceab7c4c6d71a868b575bd00f">PTX support</a></li>
 <li><a class="reference external" href="https://github.com/rust-lang/rust/pull/38559">PTX support, take 2</a></li>
 </ul>
-<ol class="arabic">
-<li><p class="first">新增平台選擇（NVPTX）到 <code class="docutils literal"><span class="pre">src/bootstrap/native.rs</span></code></p>
-</li>
+<ol class="arabic simple">
+<li>新增平台選擇（NVPTX）到 <code class="docutils literal"><span class="pre">src/bootstrap/native.rs</span></code></li>
 <li><dl class="first docutils">
 <dt>新增平台 Intrinsics</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>src/etc/platform-intrinsics/nvptx/cuda.json</li>
 <li>src/etc/platform-intrinsics/nvptx/info.json</li>
 <li>src/etc/platform-intrinsics/nvptx/sreg.json</li>
@@ -1291,11 +1339,10 @@ $ python -m http.server
 </dd>
 </dl>
 </li>
-<li><p class="first">新增平台選擇（nvptx）到 <code class="docutils literal"><span class="pre">src/librustc_llvm/build.rs</span></code></p>
-</li>
+<li>新增平台選擇（nvptx）到 <code class="docutils literal"><span class="pre">src/librustc_llvm/build.rs</span></code></li>
 <li><dl class="first docutils">
 <dt>新增平台在 LLVM 的 Calling Convension ID 和相關設定</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>src/librustc_llvm/ffi.rs</li>
 <li>src/librustc_llvm/lib.rs</li>
 </ul>
@@ -1304,7 +1351,7 @@ $ python -m http.server
 </li>
 <li><dl class="first docutils">
 <dt>新增 extern 內可使用的 Intrinsics 的 functions</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>src/librustc_platform_intrinsics/lib.rs</li>
 <li>src/librustc_platform_intrinsics/nvptx.rs</li>
 </ul>
@@ -1313,7 +1360,7 @@ $ python -m http.server
 </li>
 <li><dl class="first docutils">
 <dt>新增 ABI</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>src/librustc_trans/abi.rs</li>
 <li>src/librustc_trans/cabi_nvptx.rs</li>
 <li>src/librustc_trans/cabi_nvptx64.rs</li>
@@ -1325,7 +1372,7 @@ $ python -m http.server
 </li>
 <li><dl class="first docutils">
 <dt>新增相關的 Feature Gate</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>src/libsyntax/feature_gate.rs</li>
 <li><code class="docutils literal"><span class="pre">extern</span> <span class="pre">&quot;ptx-*&quot;</span> <span class="pre">fn()</span></code></li>
 </ul>
@@ -1334,7 +1381,7 @@ $ python -m http.server
 </li>
 <li><dl class="first docutils">
 <dt>新增測試</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>src/test/ui/codemap_tests/unicode.stderr</li>
 </ul>
 </dd>
@@ -1377,15 +1424,18 @@ $ python -m http.server
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="database.html" class="btn btn-neutral float-right" title="Database" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="database.html" class="btn btn-neutral float-right" title="Database" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="cargo.html" class="btn btn-neutral" title="Cargo" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="cargo.html" class="btn btn-neutral" title="Cargo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -1394,7 +1444,7 @@ $ python -m http.server
 
   <div role="contentinfo">
     <p>
-        &copy; 版權所有 2016.
+        &copy; Copyright 2016.
 
     </p>
   </div>
@@ -1454,7 +1504,8 @@ $ python -m http.server
             VERSION:'latest',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-2.0.3.min.js"></script>

@@ -13,6 +13,8 @@
 
   
   
+  
+  
 
   
 
@@ -28,10 +30,11 @@
   
     <link rel="stylesheet" href="https://media.readthedocs.org/css/sphinx_rtd_theme.css" type="text/css" />
   
-    <link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
-  
 
   
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="搜尋" href="../search.html"/>
     <link rel="top" title="wdv4758h-notes latest 說明文件" href="../index.html"/>
         <link rel="next" title="Introduction" href="python-benchmark.html"/>
         <link rel="prev" title="Introduction" href="openmp.html"/> 
@@ -39,10 +42,32 @@
   
   <script src="../_static/js/modernizr.min.js"></script>
 
-</head>
+
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/blog/pypy-brainfuck.html" />
+
+<link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = 'blog/pypy-brainfuck' 		
+READTHEDOCS_DATA['source_suffix'] = '.rst'
+</script>
+
+<script type="text/javascript" src="../_static/readthedocs-dynamic-include.js"></script>
+
+<!-- end RTD <extrahead> --></head>
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -84,7 +109,10 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/README.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/adt.html">ADT (Abstract Data Type)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/algorithm-concept.html">演算法相關概念</a></li>
@@ -101,7 +129,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../android/android.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/android-emulator.html">Android Emulator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/android-images.html">Android Images</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../android/binder.html">Android&#8217;s Binder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../android/apps.html">Android Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../android/binder.html">Android’s Binder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/busybox-mv.html">BysyBox 的 mv</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/cheat-sheet.html">Android Cheat Sheet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/cts.html">Android CTS (Compatibility Test Suite)</a></li>
@@ -121,6 +150,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/pacman.html">Pacman</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/performance.html">Performance Tuning For Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/printer.html">Printer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archlinux/timezone.html">Timezone</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/video-audio-through-hdmi.html">利用 HDMI 播放影音</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/video-player.html">Video Player</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/x11-forwarding.html">X11 Forwarding</a></li>
@@ -193,14 +223,14 @@
 <li class="toctree-l3"><a class="reference internal" href="#compact">Compact</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">總結</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">總結</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#id4">額外紀錄</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="#id5">額外紀錄</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#with-statement-in-rpython">with statement in RPython</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#rpython-s-print-statement">RPython&#8217;s print statement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rpython-s-print-statement">RPython’s print statement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#comple-with-clang">Comple with Clang</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#if-elif">if ... elif</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#if-elif">if … elif</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#string-replace">string replace</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#rpython-rlib-jit-py">rpython/rlib/jit.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#embedding-pypy">Embedding PyPy</a></li>
@@ -232,7 +262,7 @@
 <li class="toctree-l1"><a class="reference internal" href="qemu-first-step.html#qemu-with-kvm">QEMU with KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust-closure.html">Syntax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust-closure.html#closure">Closure 和外部變數</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rust-closure.html#move-closures">&#8220;move&#8221; closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rust-closure.html#move-closures">「move」 closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust-closure.html#closure-implementation">Closure implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust-closure.html#closures-as-arguments">closures as arguments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust-closure.html#returning-closures">returning closures</a></li>
@@ -279,7 +309,7 @@
 <li class="toctree-l1"><a class="reference internal" href="xorg-with-libinput.html#id1">近況</a></li>
 <li class="toctree-l1"><a class="reference internal" href="xorg-with-libinput.html#users">Users</a></li>
 <li class="toctree-l1"><a class="reference internal" href="xorg-with-libinput.html#reference">Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../books/ISBN-13|978-1-59327-385-9|A Bug Hunter's Diary.html">A Bug Hunter&#8217;s Diary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../books/ISBN-13|978-1-59327-385-9|A Bug Hunter's Diary.html">A Bug Hunter’s Diary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../books/README.html">書籍紀錄</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../browser/cdm.html">CDM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../browser/chrome.html">Chrome</a></li>
@@ -298,7 +328,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../c/c.html">C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../c/cheat-sheet.html">C Cheat Sheet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../c/exception.html">Exceptions in C</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../c/features.html">Some C&#8217;s features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c/features.html">Some C’s features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../c/gnu-extension.html">GNU Extension</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../c/internal_and_external_linkage_in_C.html">Internal and External Linkage in C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../c/mmap.html">mmap</a></li>
@@ -344,6 +374,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../computer-vision/books.html">電腦視覺相關書籍</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computer-vision/object-detection.html">Object Detection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computer-vision/panaorma.html">Panorama (Image Stitching)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../continuous-integration/jenkins.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/64bits-problem.html">64 Bits Problem</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/README.html">C++</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/SFINAE.html">SFINAE (Substitution Failure Is Not An Error)</a></li>
@@ -398,6 +429,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../database/mariadb.html">MariaDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/javascript.html">Debugger for JavaScript</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/kernel.html">Debugging a Kernel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/record-replay.html">Record Replay</a></li>
@@ -435,7 +467,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../graphics/mesa.html">Mesa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../graphics/resource.html">Graphic Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/hardware-and-programming.html">Hardware &amp; Programming</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../hardware/history.html">Hardware&#8217;s History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hardware/history.html">Hardware’s History</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/intel-mic.html">Intel MIC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/kindle.html">Kindle</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/my-devices.html">Hardware</a></li>
@@ -638,7 +670,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../non-cs/skateboard.html">滑板</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../non-cs/spanish.html">西班牙文及相關文化</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../non-cs/taiwan-education.html">臺灣教育與國族認同</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../non-cs/taiwan-opendata.html">臺灣開放資料（Taiwan&#8217;s Open Data）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../non-cs/taiwan-opendata.html">臺灣開放資料（Taiwan’s Open Data）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../non-cs/taiwan-rocket.html">臺灣的火箭 - ARRC (前瞻火箭研究中心)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../non-cs/todo.html">Todo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../non-cs/visa-bitcon.html">VISA &amp; Bitcoin</a></li>
@@ -653,7 +685,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../python/async-await.html">Python - async &amp; await</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/benchmark.html">Benchmark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/best-practice.html">Best Practice</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python/concurrency.html">Python&#8217;s Concurrency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/concurrency.html">Python’s Concurrency</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/contextlib.html">contextlib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/cpython.html">CPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/cpython-equality.html">CPython Equality</a></li>
@@ -713,7 +745,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../rust/README.html">Rust 相關文章</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/README.html#rust-tips">Rust Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/abbreviation.html">縮寫</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rust/any.html">Rust&#8217;s runtime reflection - &#8220;Any&#8221; type trait</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/any.html">Rust’s runtime reflection - 「Any」 type trait</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/articles.html">文章閱讀（Articles）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/asmjs.html">Rust to asm.js</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/asynchronous.html">Asynchronous</a></li>
@@ -726,7 +758,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../rust/ecosystem.html">Rust 生態圈 (Rust Ecosystem)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/error-handling.html">錯誤處理 (Error Handling)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/faq.html">FAQ (Frequently Asked Questions)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rust/features-basic.html">Rust&#8217;s Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/features-basic.html">Rust’s Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/fuzz-testing.html">Fuzz Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/graphic.html">Graphic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/index.html">My Rust Articles Collection</a></li>
@@ -746,18 +778,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../rust/os.html">Rust in OS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/packages.html">Some Packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/pattern-matching.html">Pattern Matching</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rust/performance.html">Rust&#8217;s Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/performance.html">Rust’s Performance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/regex.html">Regex (Regular Expression)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/resource.html">Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/rfcs.html">Rust RFCs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/rust.html">Rust</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/rust-vim-plugin.html">Rust Vim Plugin</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rust/std.html">Rust&#8217;s std</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/std.html">Rust’s std</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/tagged-unions.html">Tagged Unions (Sum Type)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/testing.html">測試 (Testing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/tips.html">Rust Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/todo.html">Todo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rust/type-system.html">Rust&#8217;s Type System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/type-system.html">Rust’s Type System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/use.html">use</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/videos.html">Rust Videos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/web.html">Rust &amp; Web</a></li>
@@ -768,6 +800,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../simd/algorithm.html">運用 SIMD 來加速的演算法</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../simd/status.html">SIMD</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../streaming/audio.html">Audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../streaming/gstreamer.html">GStreamer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../streaming/rtsp.html">RTSP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../synchronization/introduction.html">同步 (Synchronization)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../systemd/networkctl.html">networkctl</a></li>
@@ -782,6 +815,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/keymap.html">xmodmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/keymap.html#setxkbmap">setxkbmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/office.html">Office</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/ssh-config.html">SSH Config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/sway.html">Sway</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/tips.html">Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/tools.html">工具</a></li>
@@ -807,8 +841,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">wdv4758h-notes</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">wdv4758h-notes</a>
+        
       </nav>
 
 
@@ -817,70 +853,89 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Docs</a> &raquo;</li>
-      
-    <li>Introduction</li>
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Introduction</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="https://github.com/wdv4758h/notes/blob/master/./blog/pypy-brainfuck.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+            
+              <a href="https://github.com/wdv4758h/notes/blob/master/./blog/pypy-brainfuck.rst" class="fa fa-github"> Edit on GitHub</a>
+            
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="contents topic" id="contents">
-<p class="topic-title first">Contents</p>
+  <div class="contents topic" id="id1">
+<p class="topic-title first">目錄</p>
 <ul class="simple">
-<li><a class="reference internal" href="#introduction" id="id5">Introduction</a></li>
-<li><a class="reference internal" href="#tutorial" id="id6">Tutorial</a><ul>
-<li><a class="reference internal" href="#brainfuck-interpreter-begin" id="id7">Brainfuck Interpreter - Begin</a><ul>
-<li><a class="reference internal" href="#pypy-translation" id="id8">PyPy Translation</a></li>
-<li><a class="reference internal" href="#compile-with-clang" id="id9">Compile with Clang</a></li>
-<li><a class="reference internal" href="#more-jobs" id="id10">More Jobs</a></li>
-<li><a class="reference internal" href="#garbage-collection" id="id11">Garbage Collection</a></li>
+<li><a class="reference internal" href="#introduction" id="id6">Introduction</a></li>
+<li><a class="reference internal" href="#tutorial" id="id7">Tutorial</a><ul>
+<li><a class="reference internal" href="#brainfuck-interpreter-begin" id="id8">Brainfuck Interpreter - Begin</a><ul>
+<li><a class="reference internal" href="#pypy-translation" id="id9">PyPy Translation</a></li>
+<li><a class="reference internal" href="#compile-with-clang" id="id10">Compile with Clang</a></li>
+<li><a class="reference internal" href="#more-jobs" id="id11">More Jobs</a></li>
+<li><a class="reference internal" href="#garbage-collection" id="id12">Garbage Collection</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#brainfuck-interpreter-jit" id="id12">Brainfuck Interpreter - JIT</a></li>
-<li><a class="reference internal" href="#tracing-jit" id="id13">Tracing JIT</a><ul>
-<li><a class="reference internal" href="#debug-and-trace-log" id="id14">Debug and Trace Log</a></li>
+<li><a class="reference internal" href="#brainfuck-interpreter-jit" id="id13">Brainfuck Interpreter - JIT</a></li>
+<li><a class="reference internal" href="#tracing-jit" id="id14">Tracing JIT</a><ul>
+<li><a class="reference internal" href="#debug-and-trace-log" id="id15">Debug and Trace Log</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#optimize" id="id15">Optimize</a><ul>
-<li><a class="reference internal" href="#elidable-old-purefunction" id="id16">elidable (old : purefunction)</a></li>
-<li><a class="reference internal" href="#delay-output" id="id17">Delay Output</a></li>
-<li><a class="reference internal" href="#zero" id="id18">Zero</a></li>
-<li><a class="reference internal" href="#compact" id="id19">Compact</a></li>
+<li><a class="reference internal" href="#optimize" id="id16">Optimize</a><ul>
+<li><a class="reference internal" href="#elidable-old-purefunction" id="id17">elidable (old : purefunction)</a></li>
+<li><a class="reference internal" href="#delay-output" id="id18">Delay Output</a></li>
+<li><a class="reference internal" href="#zero" id="id19">Zero</a></li>
+<li><a class="reference internal" href="#compact" id="id20">Compact</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id2" id="id20">總結</a></li>
+<li><a class="reference internal" href="#id3" id="id21">總結</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id4" id="id21">額外紀錄</a><ul>
-<li><a class="reference internal" href="#with-statement-in-rpython" id="id22">with statement in RPython</a></li>
-<li><a class="reference internal" href="#rpython-s-print-statement" id="id23">RPython&#8217;s print statement</a></li>
-<li><a class="reference internal" href="#comple-with-clang" id="id24">Comple with Clang</a></li>
-<li><a class="reference internal" href="#if-elif" id="id25">if ... elif</a></li>
-<li><a class="reference internal" href="#string-replace" id="id26">string replace</a></li>
-<li><a class="reference internal" href="#rpython-rlib-jit-py" id="id27">rpython/rlib/jit.py</a></li>
-<li><a class="reference internal" href="#embedding-pypy" id="id28">Embedding PyPy</a></li>
+<li><a class="reference internal" href="#id5" id="id22">額外紀錄</a><ul>
+<li><a class="reference internal" href="#with-statement-in-rpython" id="id23">with statement in RPython</a></li>
+<li><a class="reference internal" href="#rpython-s-print-statement" id="id24">RPython’s print statement</a></li>
+<li><a class="reference internal" href="#comple-with-clang" id="id25">Comple with Clang</a></li>
+<li><a class="reference internal" href="#if-elif" id="id26">if … elif</a></li>
+<li><a class="reference internal" href="#string-replace" id="id27">string replace</a></li>
+<li><a class="reference internal" href="#rpython-rlib-jit-py" id="id28">rpython/rlib/jit.py</a></li>
+<li><a class="reference internal" href="#embedding-pypy" id="id29">Embedding PyPy</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#reference" id="id29">Reference</a></li>
+<li><a class="reference internal" href="#reference" id="id30">Reference</a></li>
 </ul>
 </div>
 <div class="section" id="introduction">
-<h1><a class="toc-backref" href="#id5">Introduction</a><a class="headerlink" href="#introduction" title="本標題的永久連結">¶</a></h1>
+<h1><a class="toc-backref" href="#id6">Introduction</a><a class="headerlink" href="#introduction" title="本標題的永久連結">¶</a></h1>
 <p>Python 是一個 Dynamic Language，
 官方提供了一個叫作 CPython 的 Interpreter 實作，
 Interpreter 讓這類 Dynamic Language 不用事先 compile 過才可以執行，
@@ -911,7 +966,7 @@ PyPy 的效能來自於 JIT、更有效率 Garbage Collection、更有效率的 
 不過專案目前還在早期開發中，就靜觀其變囉。</p>
 </div>
 <div class="section" id="tutorial">
-<h1><a class="toc-backref" href="#id6">Tutorial</a><a class="headerlink" href="#tutorial" title="本標題的永久連結">¶</a></h1>
+<h1><a class="toc-backref" href="#id7">Tutorial</a><a class="headerlink" href="#tutorial" title="本標題的永久連結">¶</a></h1>
 <p>PyPy 的官方 Blog 上，
 在 2011 年發了兩篇由 Andrew Brown 撰寫用 PyPy 來實作 Brainfuck Interpreter 的 Tutorial，
 時至今日，已經來到了 2015 年，中間也經過了許多 release，
@@ -927,8 +982,8 @@ PyPy 的效能來自於 JIT、更有效率 Garbage Collection、更有效率的 
 <li>Python 的 Interpreter 實作</li>
 <li>撰寫 Dynamic Languages 的 Interpreter 的 framework</li>
 </ul>
-<p>&#8220;Interpreter 的 framework&#8221; 是 PyPy 這 project 最特別的地方，
-接下來這篇的重點將會放在 &#8220;撰寫 Interpreter&#8221;</p>
+<p>「Interpreter 的 framework」 是 PyPy 這 project 最特別的地方，
+接下來這篇的重點將會放在 「撰寫 Interpreter」</p>
 <p>要做一個 Language 的 Interpreter 會需要以下事情</p>
 <ul class="simple">
 <li>source code parser</li>
@@ -941,7 +996,7 @@ PyPy 的效能來自於 JIT、更有效率 Garbage Collection、更有效率的 
 <p>如果可以用一個高階一點的語言來實作，那前面提到的事情就可以大幅化簡，
 可以利用到一些高階語言的特色，
 像是不用自己考慮記 Memory 管理、有好用的 Data Type 等，
-但是講到這，想必有人就會想到這個實作的速度應該會 &#8220;很慢&#8221;，
+但是講到這，想必有人就會想到這個實作的速度應該會 「很慢」，
 在高階語言上在建一層來實作自己的語言，
 速度會比原本可能就不快的高階語言還來的更慢，
 所以 PyPy 就是來解決這部份的問題啦。</p>
@@ -955,12 +1010,12 @@ PyPy 的效能來自於 JIT、更有效率 Garbage Collection、更有效率的 
 藉此你可以獲得 native code 的 interpreter，所以會跑的比原本疊在 interpreter 上的 interpreter 來的快，
 在這當中 PyPy 還可以幫你處理 Garbage Collecion 和 JIT。</p>
 <p>關於 RPython 的內容，有興趣的話可以看
-2007 年 &#8220;<strong>RPython: a Step Towards Reconciling Dynamically and Statically Typed OO Languages</strong>&#8221;
+2007 年 「<strong>RPython: a Step Towards Reconciling Dynamically and Statically Typed OO Languages</strong>」
 這篇 paper 裡的內容 (Bibtex key : AACM-DLS07)，
 或是這邊有 <a class="reference external" href="https://speakerdeck.com/antocuni/rpython-a-step-towards-reconciling-dynamically-and-statically-typed-object-oriented-languages">slide 版本</a> 。</p>
 <p>關於 PyPy 裡面用到的 JIT 技術可以看這篇 <a class="reference external" href="https://speakerdeck.com/antocuni/pypy-jit-under-the-hood">(2012) PyPy JIT under the hood</a> 當作入門。</p>
 <div class="section" id="brainfuck-interpreter-begin">
-<h2><a class="toc-backref" href="#id7">Brainfuck Interpreter - Begin</a><a class="headerlink" href="#brainfuck-interpreter-begin" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id8">Brainfuck Interpreter - Begin</a><a class="headerlink" href="#brainfuck-interpreter-begin" title="本標題的永久連結">¶</a></h2>
 <p>Brainfuck spec :</p>
 <table border="1" class="table table-bordered docutils">
 <colgroup>
@@ -1018,7 +1073,7 @@ PyPy 的效能來自於 JIT、更有效率 Garbage Collection、更有效率的 
 </tr>
 </tbody>
 </table>
-<p>Brainfuck to C (assuming &#8220;ptr&#8221; is of type &#8220;unsigned char*&#8221;) :</p>
+<p>Brainfuck to C (assuming 「ptr」 is of type 「unsigned char*」) :</p>
 <table border="1" class="table table-bordered docutils">
 <colgroup>
 <col width="30%" />
@@ -1125,7 +1180,7 @@ PyPy 的效能來自於 JIT、更有效率 Garbage Collection、更有效率的 
 <span class="sd">    所以有這個 class 來處理所有 action</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">thetape</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="mi">0</span>
 
@@ -1215,12 +1270,12 @@ PyPy 的效能來自於 JIT、更有效率 Garbage Collection、更有效率的 
 
     <span class="n">main_loop</span><span class="p">(</span><span class="n">program</span><span class="p">,</span> <span class="n">bracket_map</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">run</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 <div class="section" id="pypy-translation">
-<h3><a class="toc-backref" href="#id8">PyPy Translation</a><a class="headerlink" href="#pypy-translation" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id9">PyPy Translation</a><a class="headerlink" href="#pypy-translation" title="本標題的永久連結">¶</a></h3>
 <p>在 PyPy repo 的 <code class="docutils literal"><span class="pre">pypy/rpython/translator/goal/</span></code> 裡有一些範例，
 其中 <code class="docutils literal"><span class="pre">targetnopstandalone.py</span></code> 是簡單的 Hello World</p>
 <p>在這邊，我們需要一個叫做 <code class="docutils literal"><span class="pre">target</span></code> 的 function，
@@ -1248,7 +1303,7 @@ call 它後從它回傳的 function 開始翻譯，
 <span class="k">def</span> <span class="nf">target</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">entry_point</span>
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">entry_point</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1331,16 +1386,16 @@ call 它後從它回傳的 function 開始翻譯，
 <a class="reference external" href="https://pypy.readthedocs.org/en/latest/config/commandline.html">這裡</a></p>
 </div>
 <div class="section" id="compile-with-clang">
-<h3><a class="toc-backref" href="#id9">Compile with Clang</a><a class="headerlink" href="#compile-with-clang" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id10">Compile with Clang</a><a class="headerlink" href="#compile-with-clang" title="本標題的永久連結">¶</a></h3>
 <p>參數 : <code class="docutils literal"><span class="pre">--cc=clang</span></code></p>
 </div>
 <div class="section" id="more-jobs">
-<h3><a class="toc-backref" href="#id10">More Jobs</a><a class="headerlink" href="#more-jobs" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id11">More Jobs</a><a class="headerlink" href="#more-jobs" title="本標題的永久連結">¶</a></h3>
 <p>參數 : <code class="docutils literal"><span class="pre">--make-jobs=8</span></code></p>
 <p>(針對 C backend compile 時的 <code class="docutils literal"><span class="pre">-j</span></code> 參數)</p>
 </div>
 <div class="section" id="garbage-collection">
-<h3><a class="toc-backref" href="#id11">Garbage Collection</a><a class="headerlink" href="#garbage-collection" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id12">Garbage Collection</a><a class="headerlink" href="#garbage-collection" title="本標題的永久連結">¶</a></h3>
 <p>參數 : <code class="docutils literal"><span class="pre">--gc=incminimark</span></code></p>
 <p>目前可用的選項 :</p>
 <ul class="simple">
@@ -1357,7 +1412,7 @@ call 它後從它回傳的 function 開始翻譯，
 </div>
 </div>
 <div class="section" id="brainfuck-interpreter-jit">
-<h2><a class="toc-backref" href="#id12">Brainfuck Interpreter - JIT</a><a class="headerlink" href="#brainfuck-interpreter-jit" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id13">Brainfuck Interpreter - JIT</a><a class="headerlink" href="#brainfuck-interpreter-jit" title="本標題的永久連結">¶</a></h2>
 <p>前面試過了利用 PyPy 的 RPython toolchain 幫我們把 RPython code 轉成 C 去 compile，
 接下來是利用 PyPy 幫我們做 JIT 出來，
 感謝 PyPy 開發者的努力，我們要在 RPython 上做出 JIT 並不難，
@@ -1375,9 +1430,9 @@ call 它後從它回傳的 function 開始翻譯，
 在我們的 Brainfuck Interpreter 中並沒有真的 stack frame，
 這問題就變成在執行一個 command 的時候，
 哪些東西是不變的，哪些是會變的，
-不變的被稱做 &#8220;<strong>green</strong>&#8220;，會變的稱做 &#8220;<strong>red</strong>&#8220;，
-在我們的例子中，green 有 &#8220;pc&#8221;、&#8221;program&#8221;、&#8221;brakcet_map&#8221;，
-red 有 &#8220;tape&#8221;，
+不變的被稱做 「<strong>green</strong>」，會變的稱做 「<strong>red</strong>」，
+在我們的例子中，green 有 「pc」、」program」、」brakcet_map」，
+red 有 「tape」，
 接著就從 <code class="docutils literal"><span class="pre">rpython.rlib.jit</span></code> 取得 <code class="docutils literal"><span class="pre">JitDriver</span></code> 這個 metaclass 來生出我們需要要的 class</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rpython.rlib.jit</span> <span class="kn">import</span> <span class="n">JitDriver</span>
 <span class="n">jitdriver</span> <span class="o">=</span> <span class="n">JitDriver</span><span class="p">(</span><span class="n">greens</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;pc&#39;</span><span class="p">,</span> <span class="s1">&#39;program&#39;</span><span class="p">,</span> <span class="s1">&#39;bracket_map&#39;</span><span class="p">],</span> <span class="n">reds</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;tape&#39;</span><span class="p">])</span>
@@ -1444,12 +1499,12 @@ red 有 &#8220;tape&#8221;，
 </div>
 </div>
 <div class="section" id="tracing-jit">
-<h2><a class="toc-backref" href="#id13">Tracing JIT</a><a class="headerlink" href="#tracing-jit" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id14">Tracing JIT</a><a class="headerlink" href="#tracing-jit" title="本標題的永久連結">¶</a></h2>
 <p>在試完生出的 JIT 的速度後，
 來了解一下它是怎麼運作的。</p>
 <p>Interpreter 執行的是我們寫的 interpreter code，
 當發現 target laugange (Brainfuck) 寫的某段 code 很常跑時，
-會把這部份標成 &#8220;Hot&#8221;，並且會做追蹤，當下一次進到這個循環的時候，
+會把這部份標成 「Hot」，並且會做追蹤，當下一次進到這個循環的時候，
 interpreter 會進入 tracing mode，把每個指令紀錄下來，循環結束後，
 tracing mode 就停止，把追蹤紀錄丟給 optimizer，
 接著丟給 assembler，產生 machine code 在之後執行時使用。</p>
@@ -1458,7 +1513,7 @@ tracing mode 就停止，把追蹤紀錄丟給 optimizer，
 因此生出的 machine code 會包含一些 guard 做驗證，
 驗證失敗的話就退回去使用原本 interpreter 的 code。</p>
 <div class="section" id="debug-and-trace-log">
-<h3><a class="toc-backref" href="#id14">Debug and Trace Log</a><a class="headerlink" href="#debug-and-trace-log" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id15">Debug and Trace Log</a><a class="headerlink" href="#debug-and-trace-log" title="本標題的永久連結">¶</a></h3>
 <p>雖然前面已經生出了不錯的結果，
 但是總是會想要知道還能不能更好，
 所以我們需要知道 JIT 做了些什麼事，
@@ -1497,9 +1552,9 @@ tracing mode 就停止，把追蹤紀錄丟給 optimizer，
 </div>
 </div>
 <div class="section" id="optimize">
-<h2><a class="toc-backref" href="#id15">Optimize</a><a class="headerlink" href="#optimize" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id16">Optimize</a><a class="headerlink" href="#optimize" title="本標題的永久連結">¶</a></h2>
 <div class="section" id="elidable-old-purefunction">
-<h3><a class="toc-backref" href="#id16">elidable (old : purefunction)</a><a class="headerlink" href="#elidable-old-purefunction" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id17">elidable (old : purefunction)</a><a class="headerlink" href="#elidable-old-purefunction" title="本標題的永久連結">¶</a></h3>
 <p>由於每次的 loop 都會去 dictionary 裡查對應的位址，
 但是其實這個 dictionary 裡的資訊是不會變的，
 所以是可以直接編成 machine code 來加速，
@@ -1550,12 +1605,12 @@ tracing mode 就停止，把追蹤紀錄丟給 optimizer，
 <p>結果從 27.64 s 降到了 9.58 s</p>
 </div>
 <div class="section" id="delay-output">
-<h3><a class="toc-backref" href="#id17">Delay Output</a><a class="headerlink" href="#delay-output" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id18">Delay Output</a><a class="headerlink" href="#delay-output" title="本標題的永久連結">¶</a></h3>
 <p>對電腦來說 I/O 是很慢的，所以原本每個 byte 這樣讀讀寫寫也會有一點效能損失，
 所以可以把直先存起來，之後再一次 output，
 對於有大量 output 的 brainfuck 程式可能可以有一點點的幫助 (不多)</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Tape</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">thetape</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">output</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
@@ -1604,23 +1659,23 @@ tracing mode 就停止，把追蹤紀錄丟給 optimizer，
 </div>
 </div>
 <div class="section" id="zero">
-<h3><a class="toc-backref" href="#id18">Zero</a><a class="headerlink" href="#zero" title="本標題的永久連結">¶</a></h3>
-<p>Brainfuck code 裡面的 &#8220;[-]&#8221; 這樣的 loop 其實就是把目前指到的值歸零，
+<h3><a class="toc-backref" href="#id19">Zero</a><a class="headerlink" href="#zero" title="本標題的永久連結">¶</a></h3>
+<p>Brainfuck code 裡面的 「[-]」 這樣的 loop 其實就是把目前指到的值歸零，
 所以可以直接把它 assign 成零，不要再慢慢減了，
 這樣換掉後可以有些許的提升</p>
 </div>
 <div class="section" id="compact">
-<h3><a class="toc-backref" href="#id19">Compact</a><a class="headerlink" href="#compact" title="本標題的永久連結">¶</a></h3>
-<p>Brainfuck 的 code 裡面常常會出現連續的 &#8220;+&#8221; 或 &#8220;-&#8221; 或 &#8220;&lt;&#8221; 或 &#8220;&gt;&#8221;，
-但是這是可以一次完成的 (連續的 &#8220;&gt;&#8221;、&#8221;&lt;&#8221; 都可以和起來，&#8221;+&#8221;、&#8221;-&#8221; 也可以)，
+<h3><a class="toc-backref" href="#id20">Compact</a><a class="headerlink" href="#compact" title="本標題的永久連結">¶</a></h3>
+<p>Brainfuck 的 code 裡面常常會出現連續的 「+」 或 「-」 或 「&lt;」 或 「&gt;」，
+但是這是可以一次完成的 (連續的 「&gt;」、」&lt;」 都可以和起來，」+」、」-」 也可以)，
 不需要一個一個慢慢加、一個一個慢慢移，
 所以如果把這部份處理掉，
 做更有效率的計算，
 可以獲得一部份的效能提升 ~</p>
 </div>
 </div>
-<div class="section" id="id2">
-<h2><a class="toc-backref" href="#id20">總結</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id21">總結</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
 <p>這個 Tutorial 做的只是簡單的 Brainfuck Interpreter，
 離真正實用的語言的 interpreter 還有很大的差距，
 但這邊可以讓我們看出在還沒化很多心力下去調整效能前，
@@ -1635,8 +1690,8 @@ tracing mode 就停止，把追蹤紀錄丟給 optimizer，
 速度也可能更快，
 背後 backend 也可能更多樣 (LLVM backend 好像碰到一些障礙要先幫 LLVM 上 patch 才能接起來？)，
 諸如此類的問題，
-總結一個問題就是 ... 缺錢，
-就像是 StackOverflow 上 <a class="reference external" href="http://stackoverflow.com/a/5172833">這篇</a> 的答案一樣 ...</p>
+總結一個問題就是 … 缺錢，
+就像是 StackOverflow 上 <a class="reference external" href="http://stackoverflow.com/a/5172833">這篇</a> 的答案一樣 …</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>What blocks Ruby, Python to get Javascript V8 speed?
 
 Nothing.
@@ -1658,14 +1713,14 @@ Well, okay: money. (And time, people, resources, but if you have money, you can 
 <li>用 RPython 寫你的 Interpreter (需要有 target function)</li>
 <li>針對 main loop 把變數分類、call JIT 的 Driver class</li>
 <li>丟下去 toolchain 轉換</li>
-<li>效能還不夠時，找出不會變得地方用 &#8220;<strong>elidable</strong>&#8221; decorator 做告知</li>
+<li>效能還不夠時，找出不會變得地方用 「<strong>elidable</strong>」 decorator 做告知</li>
 </ol>
 </div>
 </div>
-<div class="section" id="id4">
-<h1><a class="toc-backref" href="#id21">額外紀錄</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h1>
+<div class="section" id="id5">
+<h1><a class="toc-backref" href="#id22">額外紀錄</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h1>
 <div class="section" id="with-statement-in-rpython">
-<h2><a class="toc-backref" href="#id22">with statement in RPython</a><a class="headerlink" href="#with-statement-in-rpython" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id23">with statement in RPython</a><a class="headerlink" href="#with-statement-in-rpython" title="本標題的永久連結">¶</a></h2>
 <p>在寫 example 的時候，我開檔案那邊用的是 with statement 來幫我 handle，
 結果發現丟下去轉換的時候不會過，去 PyPy irc 問了後，
 發現其實 RPython 是有支援 with statement 的，
@@ -1679,11 +1734,11 @@ RPython 的 RFile 實作的是完整的 Python files 的 subset，
 于是乎，我可以繼續用 with statement 丟下去給 PyPy 轉了 ~</p>
 </div>
 <div class="section" id="rpython-s-print-statement">
-<h2><a class="toc-backref" href="#id23">RPython&#8217;s print statement</a><a class="headerlink" href="#rpython-s-print-statement" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id24">RPython’s print statement</a><a class="headerlink" href="#rpython-s-print-statement" title="本標題的永久連結">¶</a></h2>
 <p>RPython 裡面其實是有支援 print statement 的，
 但是那大多只用於 debug，
 多數情況都用 os.read / os.write，
-不過其實可以用類似 &#8220;os.fdopen(1)&#8221; 的方法來拿到 stdout
+不過其實可以用類似 「os.fdopen(1)」 的方法來拿到 stdout
 (不過要在 RPython function 裡，而不是 module global)，
 所以其實可以做到當我在 RPython 用 sys.stdout 時其實後面是 call rfile.py 裡面類似 getstdout() 的 function，
 它會取得並且 cache 用 os.fdopen() 取得的 rfile。</p>
@@ -1695,7 +1750,7 @@ RPython 的 RFile 實作的是完整的 Python files 的 subset，
 暫時就先這樣吧，等看看哪天有人 contribute XD</p>
 </div>
 <div class="section" id="comple-with-clang">
-<h2><a class="toc-backref" href="#id24">Comple with Clang</a><a class="headerlink" href="#comple-with-clang" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id25">Comple with Clang</a><a class="headerlink" href="#comple-with-clang" title="本標題的永久連結">¶</a></h2>
 <p>雖然前面有提到可以用 <code class="docutils literal"><span class="pre">--cc=clang</span></code> 來用 clang compile，
 但其實我在試的時候有出現問題，
 不過到 irc 上尋問後得到了解法，
@@ -1711,15 +1766,15 @@ RPython 的 RFile 實作的是完整的 Python files 的 subset，
 </div>
 </div>
 <div class="section" id="if-elif">
-<h2><a class="toc-backref" href="#id25">if ... elif</a><a class="headerlink" href="#if-elif" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id26">if … elif</a><a class="headerlink" href="#if-elif" title="本標題的永久連結">¶</a></h2>
 <p>在翻參數的時候，發現有個優化參數叫作 <code class="docutils literal"><span class="pre">merge_if_blocks</span></code> ，
-顧名思義就是把 Python 多層的 if ... elif block 合成 C 裡 switch 的形式，
+顧名思義就是把 Python 多層的 if … elif block 合成 C 裡 switch 的形式，
 可以看
 <a class="reference external" href="https://pypy.readthedocs.org/en/latest/config/translation.backendopt.merge_if_blocks.html">documentation 裡的說明</a>
 裡面有示意圖 XD</p>
 </div>
 <div class="section" id="string-replace">
-<h2><a class="toc-backref" href="#id26">string replace</a><a class="headerlink" href="#string-replace" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id27">string replace</a><a class="headerlink" href="#string-replace" title="本標題的永久連結">¶</a></h2>
 <p>RPython 裡的 str 目前只支援 char 的 replace，
 但是可以從 <code class="docutils literal"><span class="pre">rpython/rlib/rstring.py</span></code> 裡找到 replace function 來替代，
 <code class="docutils literal"><span class="pre">from</span> <span class="pre">rpython.rlib.rstring</span> <span class="pre">import</span> <span class="pre">replace</span></code> ，
@@ -1734,20 +1789,20 @@ RPython 的 RFile 實作的是完整的 Python files 的 subset，
 </div>
 </div>
 <div class="section" id="rpython-rlib-jit-py">
-<h2><a class="toc-backref" href="#id27">rpython/rlib/jit.py</a><a class="headerlink" href="#rpython-rlib-jit-py" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id28">rpython/rlib/jit.py</a><a class="headerlink" href="#rpython-rlib-jit-py" title="本標題的永久連結">¶</a></h2>
 <p>由於在看前面的 <code class="docutils literal"><span class="pre">rpython/rlib/rstring.py</span></code> 裡的 replace function 時，
 發現上面有一些 decorator，其中一個是 <code class="docutils literal"><span class="pre">jit.elidable</span></code> ，
 覺得好奇就去翻了一下，不翻還好，
 億翻發現就 tutorial 上寫的 <code class="docutils literal"><span class="pre">purefunction</span></code> 已經 deprecated 了 XD，
-現在要用剛剛看到的 &#8220;<strong>elidable</strong>&#8220;，
+現在要用剛剛看到的 「<strong>elidable</strong>」，
 趕快來改一下 ~</p>
 </div>
 <div class="section" id="embedding-pypy">
-<h2><a class="toc-backref" href="#id28">Embedding PyPy</a><a class="headerlink" href="#embedding-pypy" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id29">Embedding PyPy</a><a class="headerlink" href="#embedding-pypy" title="本標題的永久連結">¶</a></h2>
 <p>在 irc 上問問題的時候，剛好看到前面有人問了 <code class="docutils literal"><span class="pre">libpypy-c.so</span></code> 是幹嘛用的，
 原來是近期 PyPy 提供的功能，可以把 PyPy 嵌入其他地方，
 <a class="reference external" href="http://pypy.readthedocs.org/en/latest/embedding.html">官方 Document</a>
-有寫了簡單的 C 範例，include &#8220;PyPy.h&#8221; 後，
+有寫了簡單的 C 範例，include 「PyPy.h」 後，
 把在 C 程式裡的 Python code char array 丟進去執行，
 甚至可以把丟參數給 Python 端的 function，
 提供了未來把 PyPy 嵌入別的地方的機會 ~</p>
@@ -1761,7 +1816,7 @@ RPython 的 RFile 實作的是完整的 Python files 的 subset，
 </div>
 </div>
 <div class="section" id="reference">
-<h1><a class="toc-backref" href="#id29">Reference</a><a class="headerlink" href="#reference" title="本標題的永久連結">¶</a></h1>
+<h1><a class="toc-backref" href="#id30">Reference</a><a class="headerlink" href="#reference" title="本標題的永久連結">¶</a></h1>
 <ul class="simple">
 <li><a class="reference external" href="http://en.wikipedia.org/wiki/Just-in-time_compilation">Wikipedia - Just-in-time compilation</a></li>
 <li><a class="reference external" href="http://en.wikipedia.org/wiki/Tracing_just-in-time_compilation">Wikipedia - Tracing just-in-time compilation</a></li>
@@ -1777,23 +1832,26 @@ RPython 的 RFile 實作的是完整的 Python files 的 subset，
 <li><a class="reference external" href="http://www.nayuki.io/page/optimizing-brainfuck-compiler">Optimizing brainfuck compiler</a></li>
 <li><a class="reference external" href="http://copy.sh/brainfuck/">Brainfuck Interpreter</a></li>
 <li><a class="reference external" href="http://www.stups.uni-duesseldorf.de/mediawiki/images/1/18/Pub-BoCuFiRi09_246.pdf">Tracing the Meta-Level: PyPy’s Tracing JIT Compiler</a></li>
-<li><a class="reference external" href="http://cfbolz.de/">Carl Friedrich Bolz&#8217;s site</a></li>
+<li><a class="reference external" href="http://cfbolz.de/">Carl Friedrich Bolz’s site</a></li>
 <li><a class="reference external" href="https://speakerdeck.com/antocuni/rpython-a-step-towards-reconciling-dynamically-and-statically-typed-object-oriented-languages">RPython: a Step Towards Reconciling Dynamically and Statically Typed OO Languages</a></li>
-<li><a class="reference external" href="http://llvm.org/pubs/2006-10-DLS-PyPy.pdf">PyPy&#8217;s Approach to Virtual Machine Construction</a></li>
+<li><a class="reference external" href="http://llvm.org/pubs/2006-10-DLS-PyPy.pdf">PyPy’s Approach to Virtual Machine Construction</a></li>
 </ul>
 </div>
 
 
+           </div>
+           <div class="articleComments">
+            
            </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="python-benchmark.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="python-benchmark.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="openmp.html" class="btn btn-neutral" title="Introduction" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="openmp.html" class="btn btn-neutral" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -1802,7 +1860,7 @@ RPython 的 RFile 實作的是完整的 Python files 的 subset，
 
   <div role="contentinfo">
     <p>
-        &copy; 版權所有 2016.
+        &copy; Copyright 2016.
 
     </p>
   </div>
@@ -1862,7 +1920,8 @@ RPython 的 RFile 實作的是完整的 Python files 的 subset，
             VERSION:'latest',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-2.0.3.min.js"></script>

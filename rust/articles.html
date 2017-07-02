@@ -13,6 +13,8 @@
 
   
   
+  
+  
 
   
 
@@ -28,21 +30,44 @@
   
     <link rel="stylesheet" href="https://media.readthedocs.org/css/sphinx_rtd_theme.css" type="text/css" />
   
-    <link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
-  
 
   
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="搜尋" href="../search.html"/>
     <link rel="top" title="wdv4758h-notes latest 說明文件" href="../index.html"/>
         <link rel="next" title="Rust to asm.js" href="asmjs.html"/>
-        <link rel="prev" title="Rust’s runtime reflection - “Any” type trait" href="any.html"/> 
+        <link rel="prev" title="Rust’s runtime reflection - 「Any」 type trait" href="any.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
 
-</head>
+
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/rust/articles.html" />
+
+<link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = 'rust/articles' 		
+READTHEDOCS_DATA['source_suffix'] = '.rst'
+</script>
+
+<script type="text/javascript" src="../_static/readthedocs-dynamic-include.js"></script>
+
+<!-- end RTD <extrahead> --></head>
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -84,7 +109,10 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/README.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/adt.html">ADT (Abstract Data Type)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/algorithm-concept.html">演算法相關概念</a></li>
@@ -101,7 +129,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../android/android.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/android-emulator.html">Android Emulator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/android-images.html">Android Images</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../android/binder.html">Android&#8217;s Binder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../android/apps.html">Android Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../android/binder.html">Android’s Binder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/busybox-mv.html">BysyBox 的 mv</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/cheat-sheet.html">Android Cheat Sheet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/cts.html">Android CTS (Compatibility Test Suite)</a></li>
@@ -121,6 +150,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/pacman.html">Pacman</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/performance.html">Performance Tuning For Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/printer.html">Printer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archlinux/timezone.html">Timezone</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/video-audio-through-hdmi.html">利用 HDMI 播放影音</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/video-player.html">Video Player</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/x11-forwarding.html">X11 Forwarding</a></li>
@@ -174,7 +204,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../blog/openmp.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#tutorial">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#id4">額外紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#id5">額外紀錄</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/python-benchmark.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/python-benchmark.html#hello-world">Hello World</a></li>
@@ -201,7 +231,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../blog/qemu-first-step.html#qemu-with-kvm">QEMU with KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html">Syntax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closure">Closure 和外部變數</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#move-closures">&#8220;move&#8221; closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#move-closures">「move」 closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closure-implementation">Closure implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closures-as-arguments">closures as arguments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#returning-closures">returning closures</a></li>
@@ -248,7 +278,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../blog/xorg-with-libinput.html#id1">近況</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/xorg-with-libinput.html#users">Users</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/xorg-with-libinput.html#reference">Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../books/ISBN-13|978-1-59327-385-9|A Bug Hunter's Diary.html">A Bug Hunter&#8217;s Diary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../books/ISBN-13|978-1-59327-385-9|A Bug Hunter's Diary.html">A Bug Hunter’s Diary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../books/README.html">書籍紀錄</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../browser/cdm.html">CDM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../browser/chrome.html">Chrome</a></li>
@@ -267,7 +297,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../c/c.html">C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../c/cheat-sheet.html">C Cheat Sheet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../c/exception.html">Exceptions in C</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../c/features.html">Some C&#8217;s features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c/features.html">Some C’s features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../c/gnu-extension.html">GNU Extension</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../c/internal_and_external_linkage_in_C.html">Internal and External Linkage in C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../c/mmap.html">mmap</a></li>
@@ -313,6 +343,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../computer-vision/books.html">電腦視覺相關書籍</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computer-vision/object-detection.html">Object Detection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computer-vision/panaorma.html">Panorama (Image Stitching)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../continuous-integration/jenkins.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/64bits-problem.html">64 Bits Problem</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/README.html">C++</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/SFINAE.html">SFINAE (Substitution Failure Is Not An Error)</a></li>
@@ -367,6 +398,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../database/mariadb.html">MariaDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/javascript.html">Debugger for JavaScript</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/kernel.html">Debugging a Kernel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/record-replay.html">Record Replay</a></li>
@@ -404,7 +436,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../graphics/mesa.html">Mesa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../graphics/resource.html">Graphic Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/hardware-and-programming.html">Hardware &amp; Programming</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../hardware/history.html">Hardware&#8217;s History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hardware/history.html">Hardware’s History</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/intel-mic.html">Intel MIC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/kindle.html">Kindle</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/my-devices.html">Hardware</a></li>
@@ -607,7 +639,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../non-cs/skateboard.html">滑板</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../non-cs/spanish.html">西班牙文及相關文化</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../non-cs/taiwan-education.html">臺灣教育與國族認同</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../non-cs/taiwan-opendata.html">臺灣開放資料（Taiwan&#8217;s Open Data）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../non-cs/taiwan-opendata.html">臺灣開放資料（Taiwan’s Open Data）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../non-cs/taiwan-rocket.html">臺灣的火箭 - ARRC (前瞻火箭研究中心)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../non-cs/todo.html">Todo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../non-cs/visa-bitcon.html">VISA &amp; Bitcoin</a></li>
@@ -622,7 +654,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../python/async-await.html">Python - async &amp; await</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/benchmark.html">Benchmark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/best-practice.html">Best Practice</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python/concurrency.html">Python&#8217;s Concurrency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/concurrency.html">Python’s Concurrency</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/contextlib.html">contextlib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/cpython.html">CPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/cpython-equality.html">CPython Equality</a></li>
@@ -682,7 +714,7 @@
 <li class="toctree-l1"><a class="reference internal" href="README.html">Rust 相關文章</a></li>
 <li class="toctree-l1"><a class="reference internal" href="README.html#rust-tips">Rust Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="abbreviation.html">縮寫</a></li>
-<li class="toctree-l1"><a class="reference internal" href="any.html">Rust&#8217;s runtime reflection - &#8220;Any&#8221; type trait</a></li>
+<li class="toctree-l1"><a class="reference internal" href="any.html">Rust’s runtime reflection - 「Any」 type trait</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">文章閱讀（Articles）</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#lossless-compression-with-brotli-in-rust-for-a-bit-of-pied-piper-on-the-backend">Lossless compression with Brotli in Rust for a bit of Pied Piper on the backend</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ripgrep-is-faster-than-grep-ag-git-grep-ucg-pt-sift">ripgrep is faster than {grep, ag, git grep, ucg, pt, sift}</a></li>
@@ -693,7 +725,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#refactoring-std-for-ultimate-portability-libs-rust-internals">Refactoring std for ultimate portability - libs - Rust Internals</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#rust-commercial-user-survey-results">2016 Rust Commercial User Survey Results</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#paradigms-of-rust-for-the-go-developer">Paradigms of Rust for the Go developer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#sccache-mozilla-s-distributed-compiler-cache-now-written-in-rust">sccache, Mozilla&#8217;s distributed compiler cache, now written in Rust</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sccache-mozilla-s-distributed-compiler-cache-now-written-in-rust">sccache, Mozilla’s distributed compiler cache, now written in Rust</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#webvr-coming-to-servo-architecture-and-latency-optimizations">WebVR coming to Servo: Architecture and latency optimizations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ripgrep-code-review">ripgrep code review</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#rust-futures-at-a-glance">Rust futures at a glance</a></li>
@@ -713,7 +745,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ecosystem.html">Rust 生態圈 (Rust Ecosystem)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="error-handling.html">錯誤處理 (Error Handling)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ (Frequently Asked Questions)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="features-basic.html">Rust&#8217;s Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features-basic.html">Rust’s Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fuzz-testing.html">Fuzz Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="graphic.html">Graphic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html">My Rust Articles Collection</a></li>
@@ -733,18 +765,18 @@
 <li class="toctree-l1"><a class="reference internal" href="os.html">Rust in OS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="packages.html">Some Packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pattern-matching.html">Pattern Matching</a></li>
-<li class="toctree-l1"><a class="reference internal" href="performance.html">Rust&#8217;s Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">Rust’s Performance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="regex.html">Regex (Regular Expression)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resource.html">Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rfcs.html">Rust RFCs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust.html">Rust</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust-vim-plugin.html">Rust Vim Plugin</a></li>
-<li class="toctree-l1"><a class="reference internal" href="std.html">Rust&#8217;s std</a></li>
+<li class="toctree-l1"><a class="reference internal" href="std.html">Rust’s std</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tagged-unions.html">Tagged Unions (Sum Type)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="testing.html">測試 (Testing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tips.html">Rust Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="todo.html">Todo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="type-system.html">Rust&#8217;s Type System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="type-system.html">Rust’s Type System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="use.html">use</a></li>
 <li class="toctree-l1"><a class="reference internal" href="videos.html">Rust Videos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="web.html">Rust &amp; Web</a></li>
@@ -755,6 +787,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../simd/algorithm.html">運用 SIMD 來加速的演算法</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../simd/status.html">SIMD</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../streaming/audio.html">Audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../streaming/gstreamer.html">GStreamer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../streaming/rtsp.html">RTSP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../synchronization/introduction.html">同步 (Synchronization)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../systemd/networkctl.html">networkctl</a></li>
@@ -769,6 +802,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/keymap.html">xmodmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/keymap.html#setxkbmap">setxkbmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/office.html">Office</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/ssh-config.html">SSH Config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/sway.html">Sway</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/tips.html">Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/tools.html">工具</a></li>
@@ -794,8 +828,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">wdv4758h-notes</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">wdv4758h-notes</a>
+        
       </nav>
 
 
@@ -804,23 +840,42 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Docs</a> &raquo;</li>
-      
-    <li>文章閱讀（Articles）</li>
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>文章閱讀（Articles）</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="https://github.com/wdv4758h/notes/blob/master/./rust/articles.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+            
+              <a href="https://github.com/wdv4758h/notes/blob/master/./rust/articles.rst" class="fa fa-github"> Edit on GitHub</a>
+            
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -841,7 +896,7 @@
 <li><a class="reference internal" href="#refactoring-std-for-ultimate-portability-libs-rust-internals" id="id9">Refactoring std for ultimate portability - libs - Rust Internals</a></li>
 <li><a class="reference internal" href="#rust-commercial-user-survey-results" id="id10">2016 Rust Commercial User Survey Results</a></li>
 <li><a class="reference internal" href="#paradigms-of-rust-for-the-go-developer" id="id11">Paradigms of Rust for the Go developer</a></li>
-<li><a class="reference internal" href="#sccache-mozilla-s-distributed-compiler-cache-now-written-in-rust" id="id12">sccache, Mozilla&#8217;s distributed compiler cache, now written in Rust</a></li>
+<li><a class="reference internal" href="#sccache-mozilla-s-distributed-compiler-cache-now-written-in-rust" id="id12">sccache, Mozilla’s distributed compiler cache, now written in Rust</a></li>
 <li><a class="reference internal" href="#webvr-coming-to-servo-architecture-and-latency-optimizations" id="id13">WebVR coming to Servo: Architecture and latency optimizations</a></li>
 <li><a class="reference internal" href="#ripgrep-code-review" id="id14">ripgrep code review</a></li>
 <li><a class="reference internal" href="#rust-futures-at-a-glance" id="id15">Rust futures at a glance</a></li>
@@ -1026,7 +1081,7 @@
 最後建立出沒有 data race 的程式碼。</p>
 </div>
 <div class="section" id="sccache-mozilla-s-distributed-compiler-cache-now-written-in-rust">
-<h2><a class="toc-backref" href="#id12">sccache, Mozilla&#8217;s distributed compiler cache, now written in Rust</a><a class="headerlink" href="#sccache-mozilla-s-distributed-compiler-cache-now-written-in-rust" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id12">sccache, Mozilla’s distributed compiler cache, now written in Rust</a><a class="headerlink" href="#sccache-mozilla-s-distributed-compiler-cache-now-written-in-rust" title="本標題的永久連結">¶</a></h2>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1087,19 +1142,16 @@
 </table>
 <p>介紹 Rust 的 Async IO 以及 Futures 的概念和使用。</p>
 <p>相關資源：</p>
-<ul>
-<li><p class="first"><a class="reference external" href="https://github.com/tokio-rs">Tokio</a></p>
-</li>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/tokio-rs">Tokio</a></li>
 <li><dl class="first docutils">
 <dt><a class="reference external" href="https://github.com/rust-lang/rfcs/blob/master/text/1522-conservative-impl-trait.md">RFC 1522 - conservative impl trait</a></dt>
 <dd><ul class="first last">
-<li><p class="first">Abstract return types allow a function to hide a concrete return type behind a trait interface similar to trait objects, while still generating the same statically dispatched code as with concrete types.</p>
-</li>
-<li><p class="first"><code class="docutils literal"><span class="pre">#![feature(conservative_impl_trait)]</span></code></p>
-</li>
+<li>Abstract return types allow a function to hide a concrete return type behind a trait interface similar to trait objects, while still generating the same statically dispatched code as with concrete types.</li>
+<li><code class="docutils literal"><span class="pre">#![feature(conservative_impl_trait)]</span></code></li>
 <li><dl class="first docutils">
 <dt>合法的操作</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li><a class="reference external" href="https://github.com/rust-lang/rust/tree/master/src/test/run-pass/impl-trait">https://github.com/rust-lang/rust/tree/master/src/test/run-pass/impl-trait</a></li>
 </ul>
 </dd>
@@ -1107,7 +1159,7 @@
 </li>
 <li><dl class="first docutils">
 <dt>不合法的操作</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li><a class="reference external" href="https://github.com/rust-lang/rust/tree/master/src/test/compile-fail/impl-trait">https://github.com/rust-lang/rust/tree/master/src/test/compile-fail/impl-trait</a></li>
 </ul>
 </dd>
@@ -1117,8 +1169,7 @@
 </dd>
 </dl>
 </li>
-<li><p class="first"><a class="reference external" href="https://github.com/rust-lang/rfcs/blob/master/text/0019-opt-in-builtin-traits.md#default-and-negative-impls">RFC 0019 - Opt-in builtin traits (OIBITs)</a></p>
-</li>
+<li><a class="reference external" href="https://github.com/rust-lang/rfcs/blob/master/text/0019-opt-in-builtin-traits.md#default-and-negative-impls">RFC 0019 - Opt-in builtin traits (OIBITs)</a></li>
 </ul>
 </div>
 <div class="section" id="optimizing-rc-memory-usage-in-rust">
@@ -1136,11 +1187,11 @@
 <p>作者想要降低他程式所使用的記憶體，
 並以他程式中常使用的 Arc 著手觀察。</p>
 <p>這是他研究的程式碼：</p>
-<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="n">LongStr</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="nc">LongStr</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">Leaf</span><span class="p">(</span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">u8</span><span class="o">&gt;</span><span class="p">),</span><span class="w"></span>
 <span class="w">    </span><span class="n">Concat</span><span class="p">(</span><span class="n">RcStr</span><span class="p">,</span><span class="w"> </span><span class="n">RcStr</span><span class="p">),</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
-<span class="k">type</span><span class="w"> </span><span class="n">RcStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arc</span><span class="o">&lt;</span><span class="n">LongStr</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="k">type</span> <span class="nc">RcStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arc</span><span class="o">&lt;</span><span class="n">LongStr</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>一開始猜測他沒用到的 Arc 中的 weak reference 會佔用額外的記憶體，
@@ -1153,11 +1204,11 @@
 這兩個欄位對作者的狀況來說是不需要的，
 所以可以用更單純的方式代替，
 於是程式碼就變成這樣：</p>
-<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="n">LongStr</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="nc">LongStr</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">Leaf</span><span class="p">(</span><span class="nb">Box</span><span class="o">&lt;</span><span class="p">[</span><span class="kt">u8</span><span class="p">]</span><span class="o">&gt;</span><span class="p">),</span><span class="w"></span>
 <span class="w">    </span><span class="n">Concat</span><span class="p">(</span><span class="n">RcStr</span><span class="p">,</span><span class="w"> </span><span class="n">RcStr</span><span class="p">),</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
-<span class="k">type</span><span class="w"> </span><span class="n">RcStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arc</span><span class="o">&lt;</span><span class="n">LongStr</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="k">type</span> <span class="nc">RcStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arc</span><span class="o">&lt;</span><span class="n">LongStr</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>作者觀察型別大小的方式： <code class="docutils literal"><span class="pre">cargo</span> <span class="pre">rustc</span> <span class="pre">--release</span> <span class="pre">--</span> <span class="pre">-Z</span> <span class="pre">print-type-sizes</span></code></p>
@@ -1186,21 +1237,21 @@ Product Type 就是數個集合進行 Cartesian Product 的結果，
 <p>Product Type：</p>
 <div class="highlight-rust"><div class="highlight"><pre><span></span><span class="c1">// { (x, y) : x ∈ bool, y ∈ u8 }</span>
 <span class="c1">// Foo = bool × u8</span>
-<span class="k">struct</span><span class="w"> </span><span class="n">Foo</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">x</span><span class="o">:</span><span class="w"> </span><span class="kt">bool</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="n">y</span><span class="o">:</span><span class="w"> </span><span class="kt">u8</span><span class="p">,</span><span class="w"></span>
+<span class="k">struct</span> <span class="nc">Foo</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">x</span>: <span class="kt">bool</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">y</span>: <span class="kt">u8</span><span class="p">,</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Sum Type：</p>
 <div class="highlight-rust"><div class="highlight"><pre><span></span><span class="c1">// Foo = bool + u8</span>
-<span class="k">enum</span><span class="w"> </span><span class="n">Foo</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">enum</span> <span class="nc">Foo</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">Bool</span><span class="p">(</span><span class="kt">bool</span><span class="p">),</span><span class="w"></span>
 <span class="w">    </span><span class="n">Integer</span><span class="p">(</span><span class="kt">u8</span><span class="p">),</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 
 <span class="c1">// Bar = bool_1 + bool_2 + u8</span>
-<span class="k">enum</span><span class="w"> </span><span class="n">Bar</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">enum</span> <span class="nc">Bar</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">Bool1</span><span class="p">(</span><span class="kt">bool</span><span class="p">),</span><span class="w"></span>
 <span class="w">    </span><span class="n">Bool2</span><span class="p">(</span><span class="kt">bool</span><span class="p">),</span><span class="w"></span>
 <span class="w">    </span><span class="n">Integer</span><span class="p">(</span><span class="kt">u8</span><span class="p">).</span><span class="w"></span>
@@ -1213,7 +1264,7 @@ Product Type 就是數個集合進行 Cartesian Product 的結果，
 <span class="c1">//               ∞</span>
 <span class="c1">// make_array =  ∏  (fn() → Array&lt;bool, x&gt;)</span>
 <span class="c1">//              x=0</span>
-<span class="k">fn</span><span class="w"> </span><span class="n">make_array</span><span class="o">&lt;</span><span class="kr">const</span><span class="w"> </span><span class="n">x</span><span class="o">:</span><span class="w"> </span><span class="kt">u8</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Array</span><span class="o">&lt;</span><span class="kt">bool</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">fn</span> <span class="nf">make_array</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">x</span>: <span class="kt">u8</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span>-&gt; <span class="nc">Array</span><span class="o">&lt;</span><span class="kt">bool</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">   </span><span class="c1">// ...</span>
 <span class="p">}</span><span class="w"></span>
 </pre></div>
@@ -1236,15 +1287,18 @@ Product Type 就是數個集合進行 Cartesian Product 的結果，
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="asmjs.html" class="btn btn-neutral float-right" title="Rust to asm.js" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="asmjs.html" class="btn btn-neutral float-right" title="Rust to asm.js" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="any.html" class="btn btn-neutral" title="Rust’s runtime reflection - “Any” type trait" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="any.html" class="btn btn-neutral" title="Rust’s runtime reflection - 「Any」 type trait" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -1253,7 +1307,7 @@ Product Type 就是數個集合進行 Cartesian Product 的結果，
 
   <div role="contentinfo">
     <p>
-        &copy; 版權所有 2016.
+        &copy; Copyright 2016.
 
     </p>
   </div>
@@ -1313,7 +1367,8 @@ Product Type 就是數個集合進行 Cartesian Product 的結果，
             VERSION:'latest',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-2.0.3.min.js"></script>

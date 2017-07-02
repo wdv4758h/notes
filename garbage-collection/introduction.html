@@ -13,6 +13,8 @@
 
   
   
+  
+  
 
   
 
@@ -28,10 +30,11 @@
   
     <link rel="stylesheet" href="https://media.readthedocs.org/css/sphinx_rtd_theme.css" type="text/css" />
   
-    <link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
-  
 
   
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="搜尋" href="../search.html"/>
     <link rel="top" title="wdv4758h-notes latest 說明文件" href="../index.html"/>
         <link rel="next" title="Resource" href="resource.html"/>
         <link rel="prev" title="Role-playing Games (RPG)" href="../games/rpg.html"/> 
@@ -39,10 +42,32 @@
   
   <script src="../_static/js/modernizr.min.js"></script>
 
-</head>
+
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/garbage-collection/introduction.html" />
+
+<link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = 'garbage-collection/introduction' 		
+READTHEDOCS_DATA['source_suffix'] = '.rst'
+</script>
+
+<script type="text/javascript" src="../_static/readthedocs-dynamic-include.js"></script>
+
+<!-- end RTD <extrahead> --></head>
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -84,7 +109,10 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/README.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/adt.html">ADT (Abstract Data Type)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/algorithm-concept.html">演算法相關概念</a></li>
@@ -101,7 +129,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../android/android.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/android-emulator.html">Android Emulator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/android-images.html">Android Images</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../android/binder.html">Android&#8217;s Binder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../android/apps.html">Android Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../android/binder.html">Android’s Binder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/busybox-mv.html">BysyBox 的 mv</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/cheat-sheet.html">Android Cheat Sheet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/cts.html">Android CTS (Compatibility Test Suite)</a></li>
@@ -121,6 +150,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/pacman.html">Pacman</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/performance.html">Performance Tuning For Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/printer.html">Printer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archlinux/timezone.html">Timezone</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/video-audio-through-hdmi.html">利用 HDMI 播放影音</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/video-player.html">Video Player</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/x11-forwarding.html">X11 Forwarding</a></li>
@@ -174,7 +204,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../blog/openmp.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#tutorial">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#id4">額外紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#id5">額外紀錄</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/python-benchmark.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/python-benchmark.html#hello-world">Hello World</a></li>
@@ -201,7 +231,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../blog/qemu-first-step.html#qemu-with-kvm">QEMU with KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html">Syntax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closure">Closure 和外部變數</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#move-closures">&#8220;move&#8221; closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#move-closures">「move」 closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closure-implementation">Closure implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closures-as-arguments">closures as arguments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#returning-closures">returning closures</a></li>
@@ -248,7 +278,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../blog/xorg-with-libinput.html#id1">近況</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/xorg-with-libinput.html#users">Users</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/xorg-with-libinput.html#reference">Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../books/ISBN-13|978-1-59327-385-9|A Bug Hunter's Diary.html">A Bug Hunter&#8217;s Diary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../books/ISBN-13|978-1-59327-385-9|A Bug Hunter's Diary.html">A Bug Hunter’s Diary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../books/README.html">書籍紀錄</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../browser/cdm.html">CDM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../browser/chrome.html">Chrome</a></li>
@@ -267,7 +297,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../c/c.html">C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../c/cheat-sheet.html">C Cheat Sheet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../c/exception.html">Exceptions in C</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../c/features.html">Some C&#8217;s features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c/features.html">Some C’s features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../c/gnu-extension.html">GNU Extension</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../c/internal_and_external_linkage_in_C.html">Internal and External Linkage in C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../c/mmap.html">mmap</a></li>
@@ -313,6 +343,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../computer-vision/books.html">電腦視覺相關書籍</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computer-vision/object-detection.html">Object Detection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computer-vision/panaorma.html">Panorama (Image Stitching)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../continuous-integration/jenkins.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/64bits-problem.html">64 Bits Problem</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/README.html">C++</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/SFINAE.html">SFINAE (Substitution Failure Is Not An Error)</a></li>
@@ -367,6 +398,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../database/mariadb.html">MariaDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/javascript.html">Debugger for JavaScript</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/kernel.html">Debugging a Kernel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/record-replay.html">Record Replay</a></li>
@@ -500,7 +532,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../graphics/mesa.html">Mesa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../graphics/resource.html">Graphic Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/hardware-and-programming.html">Hardware &amp; Programming</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../hardware/history.html">Hardware&#8217;s History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hardware/history.html">Hardware’s History</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/intel-mic.html">Intel MIC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/kindle.html">Kindle</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/my-devices.html">Hardware</a></li>
@@ -703,7 +735,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../non-cs/skateboard.html">滑板</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../non-cs/spanish.html">西班牙文及相關文化</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../non-cs/taiwan-education.html">臺灣教育與國族認同</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../non-cs/taiwan-opendata.html">臺灣開放資料（Taiwan&#8217;s Open Data）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../non-cs/taiwan-opendata.html">臺灣開放資料（Taiwan’s Open Data）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../non-cs/taiwan-rocket.html">臺灣的火箭 - ARRC (前瞻火箭研究中心)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../non-cs/todo.html">Todo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../non-cs/visa-bitcon.html">VISA &amp; Bitcoin</a></li>
@@ -718,7 +750,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../python/async-await.html">Python - async &amp; await</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/benchmark.html">Benchmark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/best-practice.html">Best Practice</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python/concurrency.html">Python&#8217;s Concurrency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/concurrency.html">Python’s Concurrency</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/contextlib.html">contextlib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/cpython.html">CPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/cpython-equality.html">CPython Equality</a></li>
@@ -778,7 +810,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../rust/README.html">Rust 相關文章</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/README.html#rust-tips">Rust Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/abbreviation.html">縮寫</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rust/any.html">Rust&#8217;s runtime reflection - &#8220;Any&#8221; type trait</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/any.html">Rust’s runtime reflection - 「Any」 type trait</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/articles.html">文章閱讀（Articles）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/asmjs.html">Rust to asm.js</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/asynchronous.html">Asynchronous</a></li>
@@ -791,7 +823,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../rust/ecosystem.html">Rust 生態圈 (Rust Ecosystem)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/error-handling.html">錯誤處理 (Error Handling)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/faq.html">FAQ (Frequently Asked Questions)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rust/features-basic.html">Rust&#8217;s Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/features-basic.html">Rust’s Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/fuzz-testing.html">Fuzz Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/graphic.html">Graphic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/index.html">My Rust Articles Collection</a></li>
@@ -811,18 +843,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../rust/os.html">Rust in OS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/packages.html">Some Packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/pattern-matching.html">Pattern Matching</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rust/performance.html">Rust&#8217;s Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/performance.html">Rust’s Performance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/regex.html">Regex (Regular Expression)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/resource.html">Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/rfcs.html">Rust RFCs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/rust.html">Rust</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/rust-vim-plugin.html">Rust Vim Plugin</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rust/std.html">Rust&#8217;s std</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/std.html">Rust’s std</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/tagged-unions.html">Tagged Unions (Sum Type)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/testing.html">測試 (Testing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/tips.html">Rust Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/todo.html">Todo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rust/type-system.html">Rust&#8217;s Type System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/type-system.html">Rust’s Type System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/use.html">use</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/videos.html">Rust Videos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/web.html">Rust &amp; Web</a></li>
@@ -833,6 +865,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../simd/algorithm.html">運用 SIMD 來加速的演算法</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../simd/status.html">SIMD</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../streaming/audio.html">Audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../streaming/gstreamer.html">GStreamer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../streaming/rtsp.html">RTSP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../synchronization/introduction.html">同步 (Synchronization)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../systemd/networkctl.html">networkctl</a></li>
@@ -847,6 +880,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/keymap.html">xmodmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/keymap.html#setxkbmap">setxkbmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/office.html">Office</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/ssh-config.html">SSH Config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/sway.html">Sway</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/tips.html">Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/tools.html">工具</a></li>
@@ -872,8 +906,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">wdv4758h-notes</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">wdv4758h-notes</a>
+        
       </nav>
 
 
@@ -882,23 +918,42 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Docs</a> &raquo;</li>
-      
-    <li>Garbage Collection 介紹</li>
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Garbage Collection 介紹</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="https://github.com/wdv4758h/notes/blob/master/./garbage-collection/introduction.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+            
+              <a href="https://github.com/wdv4758h/notes/blob/master/./garbage-collection/introduction.rst" class="fa fa-github"> Edit on GitHub</a>
+            
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -1279,7 +1334,7 @@ GC 在運作時會把 Live Objects 從 fromspace 移到 tospace，
 <li><a class="reference external" href="http://openjdk.java.net/jeps/189">JEP 189: Shenandoah: An Ultra-Low-Pause-Time Garbage Collector</a></li>
 <li><a class="reference external" href="http://openjdk.java.net/jeps/248">JEP 248: Make G1 the Default Garbage Collector</a></li>
 <li><a class="reference external" href="http://openjdk.java.net/jeps/291">JEP 291: Deprecate the Concurrent Mark Sweep (CMS) Garbage Collector</a></li>
-<li>[2014][YouTube] <a class="reference external" href="https://www.youtube.com/watch?v=QcwyKLlmXeY">&#8220;Shenandoah: An open source pauseless GC for OpenJDK.&#8221; by Christine Flood</a></li>
+<li>[2014][YouTube] <a class="reference external" href="https://www.youtube.com/watch?v=QcwyKLlmXeY">「Shenandoah: An open source pauseless GC for OpenJDK.」 by Christine Flood</a></li>
 <li>[2016] <a class="reference external" href="http://www.slideshare.net/RedHatDevelopers/shenandoah-gc-java-without-the-garbage-collection-hiccups-christine-flood">Shenandoah GC: Java Without The Garbage Collection Hiccups (Christine Flood)</a></li>
 </ul>
 <div class="section" id="serialgc">
@@ -1352,7 +1407,7 @@ Shenandoah 則是讓 Compaction 也可以 Concurrent 地進行。</p>
 <h3><a class="toc-backref" href="#id55">Go</a><a class="headerlink" href="#go" title="本標題的永久連結">¶</a></h3>
 <p>參考：</p>
 <ul class="simple">
-<li><a class="reference external" href="https://blog.pusher.com/golangs-real-time-gc-in-theory-and-practice/">Golang&#8217;s Real-time GC in Theory and Practice</a></li>
+<li><a class="reference external" href="https://blog.pusher.com/golangs-real-time-gc-in-theory-and-practice/">Golang’s Real-time GC in Theory and Practice</a></li>
 </ul>
 </div>
 <div class="section" id="python-cpython">
@@ -1404,7 +1459,7 @@ STM 是概念類似資料庫 Transaction 的 Concurrent 機制，
 <h3><a class="toc-backref" href="#id61">GHC (Glasgow Haskell Compiler)</a><a class="headerlink" href="#ghc-glasgow-haskell-compiler" title="本標題的永久連結">¶</a></h3>
 <p>參考：</p>
 <ul class="simple">
-<li><a class="reference external" href="https://blog.pusher.com/latency-working-set-ghc-gc-pick-two/">Low latency, large working set, and GHC&#8217;s garbage collector: pick two of three</a></li>
+<li><a class="reference external" href="https://blog.pusher.com/latency-working-set-ghc-gc-pick-two/">Low latency, large working set, and GHC’s garbage collector: pick two of three</a></li>
 </ul>
 </div>
 <div class="section" id="erlang-beam-vm">
@@ -1491,10 +1546,10 @@ Repo 內的這些地方是主要跟 GC 相關的部份：</p>
 <div class="section" id="php-hhvm">
 <h3><a class="toc-backref" href="#id73">PHP - HHVM</a><a class="headerlink" href="#php-hhvm" title="本標題的永久連結">¶</a></h3>
 <p>參考：</p>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt><a class="reference external" href="https://docs.hhvm.com/hhvm/configuration/INI-settings#garbage-collector-settings">HHVM - Garbage Collector Settings</a></dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>HHVM 3.18 加入 GC 開關的選項</li>
 </ul>
 </dd>
@@ -1547,17 +1602,17 @@ Repo 內的這些地方是主要跟 GC 相關的部份：</p>
 <h3><a class="toc-backref" href="#id80">Rust - Rc - Non-Thread-Safe Reference Counting</a><a class="headerlink" href="#rust-rc-non-thread-safe-reference-counting" title="本標題的永久連結">¶</a></h3>
 <p>Rust 有一個 single-threaded reference-counting 實做在 <code class="docutils literal"><span class="pre">src/liballoc/rc.rs</span></code> ，
 以下對於實做的程式碼進行研究。</p>
-<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="kn">use</span><span class="w"> </span><span class="n">core</span><span class="o">::</span><span class="n">cell</span><span class="o">::</span><span class="n">Cell</span><span class="p">;</span><span class="w"></span>
-<span class="kn">use</span><span class="w"> </span><span class="n">core</span><span class="o">::</span><span class="n">ptr</span><span class="o">::</span><span class="p">{</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">Shared</span><span class="p">};</span><span class="w"></span>
+<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">use</span><span class="w"> </span><span class="n">core</span>::<span class="n">cell</span>::<span class="n">Cell</span><span class="p">;</span><span class="w"></span>
+<span class="k">use</span><span class="w"> </span><span class="n">core</span>::<span class="n">ptr</span>::<span class="p">{</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">Shared</span><span class="p">};</span><span class="w"></span>
 
-<span class="k">struct</span><span class="w"> </span><span class="n">RcBox</span><span class="o">&lt;</span><span class="n">T</span><span class="o">:</span><span class="w"> </span><span class="o">?</span><span class="nb">Sized</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">strong</span><span class="o">:</span><span class="w"> </span><span class="n">Cell</span><span class="o">&lt;</span><span class="kt">usize</span><span class="o">&gt;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="n">weak</span><span class="o">:</span><span class="w"> </span><span class="n">Cell</span><span class="o">&lt;</span><span class="kt">usize</span><span class="o">&gt;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="n">value</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"></span>
+<span class="k">struct</span> <span class="nc">RcBox</span><span class="o">&lt;</span><span class="n">T</span>: <span class="o">?</span><span class="nb">Sized</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">strong</span>: <span class="nc">Cell</span><span class="o">&lt;</span><span class="kt">usize</span><span class="o">&gt;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">weak</span>: <span class="nc">Cell</span><span class="o">&lt;</span><span class="kt">usize</span><span class="o">&gt;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">value</span>: <span class="nc">T</span><span class="p">,</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 
-<span class="k">pub</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="n">Rc</span><span class="o">&lt;</span><span class="n">T</span><span class="o">:</span><span class="w"> </span><span class="o">?</span><span class="nb">Sized</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">ptr</span><span class="o">:</span><span class="w"> </span><span class="n">Shared</span><span class="o">&lt;</span><span class="n">RcBox</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="p">,</span><span class="w"></span>
+<span class="k">pub</span><span class="w"> </span><span class="k">struct</span> <span class="nc">Rc</span><span class="o">&lt;</span><span class="n">T</span>: <span class="o">?</span><span class="nb">Sized</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">ptr</span>: <span class="nc">Shared</span><span class="o">&lt;</span><span class="n">RcBox</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="p">,</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
@@ -1590,17 +1645,17 @@ Repo 內的這些地方是主要跟 GC 相關的部份：</p>
 <span class="w">    </span><span class="sd">/// let five = Rc::new(5);</span>
 <span class="w">    </span><span class="sd">/// ```</span>
 <span class="w">    </span><span class="cp">#[stable(feature = </span><span class="s">&quot;rust1&quot;</span><span class="cp">, since = </span><span class="s">&quot;1.0.0&quot;</span><span class="cp">)]</span><span class="w"></span>
-<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">new</span><span class="p">(</span><span class="n">value</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Rc</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">new</span><span class="p">(</span><span class="n">value</span>: <span class="nc">T</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">Rc</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">            </span><span class="n">Rc</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">                </span><span class="c1">// there is an implicit weak pointer owned by all the strong</span>
 <span class="w">                </span><span class="c1">// pointers, which ensures that the weak destructor never frees</span>
 <span class="w">                </span><span class="c1">// the allocation while the strong destructor is running, even</span>
 <span class="w">                </span><span class="c1">// if the weak pointer is stored inside the strong one.</span>
-<span class="w">                </span><span class="n">ptr</span><span class="o">:</span><span class="w"> </span><span class="n">Shared</span><span class="o">::</span><span class="n">new</span><span class="p">(</span><span class="nb">Box</span><span class="o">::</span><span class="n">into_raw</span><span class="p">(</span><span class="k">box</span><span class="w"> </span><span class="n">RcBox</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                    </span><span class="n">strong</span><span class="o">:</span><span class="w"> </span><span class="n">Cell</span><span class="o">::</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"></span>
-<span class="w">                    </span><span class="n">weak</span><span class="o">:</span><span class="w"> </span><span class="n">Cell</span><span class="o">::</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"></span>
-<span class="w">                    </span><span class="n">value</span><span class="o">:</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="n">ptr</span>: <span class="nc">Shared</span>::<span class="n">new</span><span class="p">(</span><span class="nb">Box</span>::<span class="n">into_raw</span><span class="p">(</span><span class="k">box</span><span class="w"> </span><span class="n">RcBox</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="n">strong</span>: <span class="nc">Cell</span>::<span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"></span>
+<span class="w">                    </span><span class="n">weak</span>: <span class="nc">Cell</span>::<span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"></span>
+<span class="w">                    </span><span class="n">value</span>: <span class="nc">value</span><span class="p">,</span><span class="w"></span>
 <span class="w">                </span><span class="p">})),</span><span class="w"></span>
 <span class="w">            </span><span class="p">}</span><span class="w"></span>
 <span class="w">        </span><span class="p">}</span><span class="w"></span>
@@ -1620,51 +1675,51 @@ Repo 內的這些地方是主要跟 GC 相關的部份：</p>
 這個 Trait 定義了各種我們想要的功能，
 包含 Strong Reference 和 Weak Reference 的取得、增加、減少，
 所以只要我們的 <code class="docutils literal"><span class="pre">Rc</span></code> struct 實做這個 Trait 就可以擁有我們 Reference Counting 需要的基本功能。</p>
-<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">trait</span><span class="w"> </span><span class="n">RcBoxPtr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">:</span><span class="w"> </span><span class="o">?</span><span class="nb">Sized</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">inner</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">RcBox</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">trait</span><span class="w"> </span><span class="n">RcBoxPtr</span><span class="o">&lt;</span><span class="n">T</span>: <span class="o">?</span><span class="nb">Sized</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">inner</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kp">&amp;</span><span class="nc">RcBox</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
 
 <span class="w">    </span><span class="cp">#[inline]</span><span class="w"></span>
-<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">strong</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">usize</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">strong</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">usize</span> <span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">inner</span><span class="p">().</span><span class="n">strong</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 
 <span class="w">    </span><span class="cp">#[inline]</span><span class="w"></span>
-<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">inc_strong</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">inc_strong</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">inner</span><span class="p">().</span><span class="n">strong</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">strong</span><span class="p">().</span><span class="n">checked_add</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="n">unwrap_or_else</span><span class="p">(</span><span class="o">||</span><span class="w"> </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">abort</span><span class="p">()</span><span class="w"> </span><span class="p">}));</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 
 <span class="w">    </span><span class="cp">#[inline]</span><span class="w"></span>
-<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">dec_strong</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">dec_strong</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">inner</span><span class="p">().</span><span class="n">strong</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">strong</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 
 <span class="w">    </span><span class="cp">#[inline]</span><span class="w"></span>
-<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">weak</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">usize</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">weak</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">usize</span> <span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">inner</span><span class="p">().</span><span class="n">weak</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 
 <span class="w">    </span><span class="cp">#[inline]</span><span class="w"></span>
-<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">inc_weak</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">inc_weak</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">inner</span><span class="p">().</span><span class="n">weak</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">weak</span><span class="p">().</span><span class="n">checked_add</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="n">unwrap_or_else</span><span class="p">(</span><span class="o">||</span><span class="w"> </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">abort</span><span class="p">()</span><span class="w"> </span><span class="p">}));</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 
 <span class="w">    </span><span class="cp">#[inline]</span><span class="w"></span>
-<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">dec_weak</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">dec_weak</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">inner</span><span class="p">().</span><span class="n">weak</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">weak</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>接著我們可以在下方馬上找到 <code class="docutils literal"><span class="pre">Rc</span></code> 對於 <code class="docutils literal"><span class="pre">RcBoxPtr</span></code> 的實做：</p>
-<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">impl</span><span class="o">&lt;</span><span class="n">T</span><span class="o">:</span><span class="w"> </span><span class="o">?</span><span class="nb">Sized</span><span class="o">&gt;</span><span class="w"> </span><span class="n">RcBoxPtr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Rc</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">impl</span><span class="o">&lt;</span><span class="n">T</span>: <span class="o">?</span><span class="nb">Sized</span><span class="o">&gt;</span><span class="w"> </span><span class="n">RcBoxPtr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Rc</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="cp">#[inline(always)]</span><span class="w"></span>
-<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">inner</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">RcBox</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">inner</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kp">&amp;</span><span class="nc">RcBox</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">            </span><span class="c1">// Safe to assume this here, as if it weren&#39;t true, we&#39;d be breaking</span>
 <span class="w">            </span><span class="c1">// the contract anyway.</span>
 <span class="w">            </span><span class="c1">// This allows the null check to be elided in the destructor if we</span>
 <span class="w">            </span><span class="c1">// manipulated the reference count in the same function.</span>
-<span class="w">            </span><span class="n">assume</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">.</span><span class="n">ptr</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="o">*</span><span class="kr">const</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="o">*</span><span class="kr">const</span><span class="w"> </span><span class="o">*</span><span class="kr">const</span><span class="w"> </span><span class="p">())).</span><span class="n">is_null</span><span class="p">());</span><span class="w"></span>
+<span class="w">            </span><span class="n">assume</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">.</span><span class="n">ptr</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="o">*</span><span class="k">const</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="o">*</span><span class="k">const</span><span class="w"> </span><span class="o">*</span><span class="k">const</span><span class="w"> </span><span class="p">())).</span><span class="n">is_null</span><span class="p">());</span><span class="w"></span>
 <span class="w">            </span><span class="o">&amp;</span><span class="p">(</span><span class="o">**</span><span class="bp">self</span><span class="p">.</span><span class="n">ptr</span><span class="p">)</span><span class="w"></span>
 <span class="w">        </span><span class="p">}</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
@@ -1674,7 +1729,7 @@ Repo 內的這些地方是主要跟 GC 相關的部份：</p>
 <p>至此到一個段落，
 接下來只要 <code class="docutils literal"><span class="pre">Rc</span></code> 在進行操作時呼叫對應的函式即可，
 例如 clone 時要使用 <code class="docutils literal"><span class="pre">inc_strong</span></code> ：</p>
-<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">impl</span><span class="o">&lt;</span><span class="n">T</span><span class="o">:</span><span class="w"> </span><span class="o">?</span><span class="nb">Sized</span><span class="o">&gt;</span><span class="w"> </span><span class="nb">Clone</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Rc</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">impl</span><span class="o">&lt;</span><span class="n">T</span>: <span class="o">?</span><span class="nb">Sized</span><span class="o">&gt;</span><span class="w"> </span><span class="nb">Clone</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Rc</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="sd">/// Makes a clone of the `Rc` pointer.</span>
 <span class="w">    </span><span class="sd">///</span>
 <span class="w">    </span><span class="sd">/// This creates another pointer to the same inner value, increasing the</span>
@@ -1690,18 +1745,18 @@ Repo 內的這些地方是主要跟 GC 相關的部份：</p>
 <span class="w">    </span><span class="sd">/// five.clone();</span>
 <span class="w">    </span><span class="sd">/// ```</span>
 <span class="w">    </span><span class="cp">#[inline]</span><span class="w"></span>
-<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">clone</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Rc</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">clone</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">Rc</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">inc_strong</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="n">Rc</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">ptr</span><span class="o">:</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">ptr</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="n">Rc</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">ptr</span>: <span class="nc">self</span><span class="p">.</span><span class="n">ptr</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>drop 時要呼叫 <code class="docutils literal"><span class="pre">dec_strong</span></code> 並判斷是否要回收記憶體：</p>
-<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="kn">use</span><span class="w"> </span><span class="n">core</span><span class="o">::</span><span class="n">mem</span><span class="o">::</span><span class="p">{</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">align_of_val</span><span class="p">,</span><span class="w"> </span><span class="n">size_of_val</span><span class="p">};</span><span class="w"></span>
-<span class="kn">use</span><span class="w"> </span><span class="n">heap</span><span class="o">::</span><span class="n">deallocate</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">use</span><span class="w"> </span><span class="n">core</span>::<span class="n">mem</span>::<span class="p">{</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">align_of_val</span><span class="p">,</span><span class="w"> </span><span class="n">size_of_val</span><span class="p">};</span><span class="w"></span>
+<span class="k">use</span><span class="w"> </span><span class="n">heap</span>::<span class="n">deallocate</span><span class="p">;</span><span class="w"></span>
 
-<span class="k">impl</span><span class="o">&lt;</span><span class="n">T</span><span class="o">:</span><span class="w"> </span><span class="o">?</span><span class="nb">Sized</span><span class="o">&gt;</span><span class="w"> </span><span class="nb">Drop</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Rc</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">impl</span><span class="o">&lt;</span><span class="n">T</span>: <span class="o">?</span><span class="nb">Sized</span><span class="o">&gt;</span><span class="w"> </span><span class="nb">Drop</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Rc</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="sd">/// Drops the `Rc`.</span>
 <span class="w">    </span><span class="sd">///</span>
 <span class="w">    </span><span class="sd">/// This will decrement the strong reference count. If the strong reference</span>
@@ -1730,14 +1785,14 @@ Repo 內的這些地方是主要跟 GC 相關的部份：</p>
 <span class="w">    </span><span class="sd">/// drop(foo2);   // Prints &quot;dropped!&quot;</span>
 <span class="w">    </span><span class="sd">/// ```</span>
 <span class="w">    </span><span class="cp">#[unsafe_destructor_blind_to_params]</span><span class="w"></span>
-<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="nb">drop</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">drop</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="bp">self</span><span class="p">.</span><span class="n">ptr</span><span class="p">;</span><span class="w"></span>
 
 <span class="w">            </span><span class="bp">self</span><span class="p">.</span><span class="n">dec_strong</span><span class="p">();</span><span class="w"></span>
 <span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">strong</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">                </span><span class="c1">// destroy the contained object</span>
-<span class="w">                </span><span class="n">ptr</span><span class="o">::</span><span class="n">drop_in_place</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">ptr</span><span class="p">).</span><span class="n">value</span><span class="p">);</span><span class="w"></span>
+<span class="w">                </span><span class="n">ptr</span>::<span class="n">drop_in_place</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">ptr</span><span class="p">).</span><span class="n">value</span><span class="p">);</span><span class="w"></span>
 
 <span class="w">                </span><span class="c1">// remove the implicit &quot;strong weak&quot; pointer now that we&#39;ve</span>
 <span class="w">                </span><span class="c1">// destroyed the contents.</span>
@@ -1770,22 +1825,22 @@ Rust 中還有另外一個 Reference Counting 實做是可以在 Thread 間傳�
 實做的檔案在 <code class="docutils literal"><span class="pre">src/liballoc/arc.rs</span></code> ，
 以下接續研究。</p>
 <p>一樣直接先來看 <code class="docutils literal"><span class="pre">Arc</span></code> struct：</p>
-<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="kn">use</span><span class="w"> </span><span class="n">core</span><span class="o">::</span><span class="n">sync</span><span class="o">::</span><span class="n">atomic</span><span class="p">;</span><span class="w"></span>
-<span class="kn">use</span><span class="w"> </span><span class="n">core</span><span class="o">::</span><span class="n">ptr</span><span class="o">::</span><span class="p">{</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">Shared</span><span class="p">};</span><span class="w"></span>
+<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">use</span><span class="w"> </span><span class="n">core</span>::<span class="n">sync</span>::<span class="n">atomic</span><span class="p">;</span><span class="w"></span>
+<span class="k">use</span><span class="w"> </span><span class="n">core</span>::<span class="n">ptr</span>::<span class="p">{</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">Shared</span><span class="p">};</span><span class="w"></span>
 
-<span class="k">struct</span><span class="w"> </span><span class="n">ArcInner</span><span class="o">&lt;</span><span class="n">T</span><span class="o">:</span><span class="w"> </span><span class="o">?</span><span class="nb">Sized</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">strong</span><span class="o">:</span><span class="w"> </span><span class="n">atomic</span><span class="o">::</span><span class="n">AtomicUsize</span><span class="p">,</span><span class="w"></span>
+<span class="k">struct</span> <span class="nc">ArcInner</span><span class="o">&lt;</span><span class="n">T</span>: <span class="o">?</span><span class="nb">Sized</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">strong</span>: <span class="nc">atomic</span>::<span class="n">AtomicUsize</span><span class="p">,</span><span class="w"></span>
 
 <span class="w">    </span><span class="c1">// the value usize::MAX acts as a sentinel for temporarily &quot;locking&quot; the</span>
 <span class="w">    </span><span class="c1">// ability to upgrade weak pointers or downgrade strong ones; this is used</span>
 <span class="w">    </span><span class="c1">// to avoid races in `make_mut` and `get_mut`.</span>
-<span class="w">    </span><span class="n">weak</span><span class="o">:</span><span class="w"> </span><span class="n">atomic</span><span class="o">::</span><span class="n">AtomicUsize</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">weak</span>: <span class="nc">atomic</span>::<span class="n">AtomicUsize</span><span class="p">,</span><span class="w"></span>
 
-<span class="w">    </span><span class="n">data</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">data</span>: <span class="nc">T</span><span class="p">,</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 
-<span class="k">pub</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="n">Arc</span><span class="o">&lt;</span><span class="n">T</span><span class="o">:</span><span class="w"> </span><span class="o">?</span><span class="nb">Sized</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">ptr</span><span class="o">:</span><span class="w"> </span><span class="n">Shared</span><span class="o">&lt;</span><span class="n">ArcInner</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="p">,</span><span class="w"></span>
+<span class="k">pub</span><span class="w"> </span><span class="k">struct</span> <span class="nc">Arc</span><span class="o">&lt;</span><span class="n">T</span>: <span class="o">?</span><span class="nb">Sized</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">ptr</span>: <span class="nc">Shared</span><span class="o">&lt;</span><span class="n">ArcInner</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="p">,</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
@@ -1813,35 +1868,35 @@ Rust 中還有另外一個 Reference Counting 實做是可以在 Thread 間傳�
 如此一來只要呼叫 macro 就可以實做好幾個數值的 Atomic 版本，
 我們立馬來看這 macro 做了什麼（為了減少篇幅這邊刪去了不少註解）：</p>
 <div class="highlight-rust"><div class="highlight"><pre><span></span><span class="n">macro_rules</span><span class="o">!</span><span class="w"> </span><span class="n">atomic_int</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="p">(</span><span class="cp">$stable</span><span class="o">:</span><span class="n">meta</span><span class="p">,</span><span class="w"></span>
-<span class="w">     </span><span class="cp">$stable_cxchg</span><span class="o">:</span><span class="n">meta</span><span class="p">,</span><span class="w"></span>
-<span class="w">     </span><span class="cp">$stable_debug</span><span class="o">:</span><span class="n">meta</span><span class="p">,</span><span class="w"></span>
-<span class="w">     </span><span class="cp">$stable_access</span><span class="o">:</span><span class="n">meta</span><span class="p">,</span><span class="w"></span>
-<span class="w">     </span><span class="cp">$int_type</span><span class="o">:</span><span class="n">ident</span><span class="w"> </span><span class="cp">$atomic_type</span><span class="o">:</span><span class="n">ident</span><span class="w"> </span><span class="cp">$atomic_init</span><span class="o">:</span><span class="n">ident</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="p">(</span><span class="cp">$stable</span>:<span class="nc">meta</span><span class="p">,</span><span class="w"></span>
+<span class="w">     </span><span class="cp">$stable_cxchg</span>:<span class="nc">meta</span><span class="p">,</span><span class="w"></span>
+<span class="w">     </span><span class="cp">$stable_debug</span>:<span class="nc">meta</span><span class="p">,</span><span class="w"></span>
+<span class="w">     </span><span class="cp">$stable_access</span>:<span class="nc">meta</span><span class="p">,</span><span class="w"></span>
+<span class="w">     </span><span class="cp">$int_type</span>:<span class="nc">ident</span><span class="w"> </span><span class="cp">$atomic_type</span>:<span class="nc">ident</span><span class="w"> </span><span class="cp">$atomic_init</span>:<span class="nc">ident</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="sd">/// An integer type which can be safely shared between threads.</span>
 <span class="w">        </span><span class="sd">///</span>
 <span class="w">        </span><span class="sd">/// This type has the same in-memory representation as the underlying integer type.</span>
 <span class="w">        </span><span class="cp">#[$stable]</span><span class="w"></span>
-<span class="w">        </span><span class="k">pub</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="cp">$atomic_type</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">v</span><span class="o">:</span><span class="w"> </span><span class="n">UnsafeCell</span><span class="o">&lt;</span><span class="cp">$int_type</span><span class="o">&gt;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="k">pub</span><span class="w"> </span><span class="k">struct</span> <span class="cp">$atomic_type</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">v</span>: <span class="nc">UnsafeCell</span><span class="o">&lt;</span><span class="cp">$int_type</span><span class="o">&gt;</span><span class="p">,</span><span class="w"></span>
 <span class="w">        </span><span class="p">}</span><span class="w"></span>
 
 <span class="w">        </span><span class="sd">/// An atomic integer initialized to `0`.</span>
 <span class="w">        </span><span class="cp">#[$stable]</span><span class="w"></span>
-<span class="w">        </span><span class="k">pub</span><span class="w"> </span><span class="kr">const</span><span class="w"> </span><span class="cp">$atomic_init</span><span class="o">:</span><span class="w"> </span><span class="cp">$atomic_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="cp">$atomic_type</span><span class="o">::</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">pub</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="cp">$atomic_init</span>: <span class="cp">$atomic_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="cp">$atomic_type</span>::<span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
 
 <span class="w">        </span><span class="cp">#[$stable]</span><span class="w"></span>
 <span class="w">        </span><span class="k">impl</span><span class="w"> </span><span class="nb">Default</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="cp">$atomic_type</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="k">fn</span><span class="w"> </span><span class="n">default</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Self</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="n">Self</span><span class="o">::</span><span class="n">new</span><span class="p">(</span><span class="nb">Default</span><span class="o">::</span><span class="n">default</span><span class="p">())</span><span class="w"></span>
+<span class="w">            </span><span class="k">fn</span> <span class="nf">default</span><span class="p">()</span><span class="w"> </span>-&gt; <span class="nc">Self</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">Self</span>::<span class="n">new</span><span class="p">(</span><span class="nb">Default</span>::<span class="n">default</span><span class="p">())</span><span class="w"></span>
 <span class="w">            </span><span class="p">}</span><span class="w"></span>
 <span class="w">        </span><span class="p">}</span><span class="w"></span>
 
 <span class="w">        </span><span class="cp">#[$stable_debug]</span><span class="w"></span>
-<span class="w">        </span><span class="k">impl</span><span class="w"> </span><span class="n">fmt</span><span class="o">::</span><span class="n">Debug</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="cp">$atomic_type</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="k">fn</span><span class="w"> </span><span class="n">fmt</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="o">:</span><span class="w"> </span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">fmt</span><span class="o">::</span><span class="n">Formatter</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">fmt</span><span class="o">::</span><span class="nb">Result</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">impl</span><span class="w"> </span><span class="n">fmt</span>::<span class="n">Debug</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="cp">$atomic_type</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">fn</span> <span class="nf">fmt</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">f</span>: <span class="kp">&amp;</span><span class="nc">mut</span><span class="w"> </span><span class="n">fmt</span>::<span class="n">Formatter</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">fmt</span>::<span class="nb">Result</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">                </span><span class="n">f</span><span class="p">.</span><span class="n">debug_tuple</span><span class="p">(</span><span class="n">stringify</span><span class="o">!</span><span class="p">(</span><span class="cp">$atomic_type</span><span class="p">))</span><span class="w"></span>
-<span class="w">                 </span><span class="p">.</span><span class="n">field</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">Ordering</span><span class="o">::</span><span class="n">SeqCst</span><span class="p">))</span><span class="w"></span>
+<span class="w">                 </span><span class="p">.</span><span class="n">field</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">Ordering</span>::<span class="n">SeqCst</span><span class="p">))</span><span class="w"></span>
 <span class="w">                 </span><span class="p">.</span><span class="n">finish</span><span class="p">()</span><span class="w"></span>
 <span class="w">            </span><span class="p">}</span><span class="w"></span>
 <span class="w">        </span><span class="p">}</span><span class="w"></span>
@@ -1853,8 +1908,8 @@ Rust 中還有另外一個 Reference Counting 實做是可以在 Thread 間傳�
 <span class="w">        </span><span class="k">impl</span><span class="w"> </span><span class="cp">$atomic_type</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">            </span><span class="cp">#[inline]</span><span class="w"></span>
 <span class="w">            </span><span class="cp">#[$stable]</span><span class="w"></span>
-<span class="w">            </span><span class="k">pub</span><span class="w"> </span><span class="kr">const</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">new</span><span class="p">(</span><span class="n">v</span><span class="o">:</span><span class="w"> </span><span class="cp">$int_type</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Self</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="cp">$atomic_type</span><span class="w"> </span><span class="p">{</span><span class="n">v</span><span class="o">:</span><span class="w"> </span><span class="n">UnsafeCell</span><span class="o">::</span><span class="n">new</span><span class="p">(</span><span class="n">v</span><span class="p">)}</span><span class="w"></span>
+<span class="w">            </span><span class="k">pub</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">fn</span> <span class="nf">new</span><span class="p">(</span><span class="n">v</span>: <span class="cp">$int_type</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">Self</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="cp">$atomic_type</span><span class="w"> </span><span class="p">{</span><span class="n">v</span>: <span class="nc">UnsafeCell</span>::<span class="n">new</span><span class="p">(</span><span class="n">v</span><span class="p">)}</span><span class="w"></span>
 <span class="w">            </span><span class="p">}</span><span class="w"></span>
 
 <span class="w">            </span><span class="sd">/// Returns a mutable reference to the underlying integer.</span>
@@ -1863,7 +1918,7 @@ Rust 中還有另外一個 Reference Counting 實做是可以在 Thread 間傳�
 <span class="w">            </span><span class="sd">/// concurrently accessing the atomic data.</span>
 <span class="w">            </span><span class="cp">#[inline]</span><span class="w"></span>
 <span class="w">            </span><span class="cp">#[$stable_access]</span><span class="w"></span>
-<span class="w">            </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">get_mut</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="cp">$int_type</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">get_mut</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kp">&amp;</span><span class="nc">mut</span><span class="w"> </span><span class="cp">$int_type</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">                </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="o">*</span><span class="bp">self</span><span class="p">.</span><span class="n">v</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">            </span><span class="p">}</span><span class="w"></span>
 
@@ -1873,28 +1928,28 @@ Rust 中還有另外一個 Reference Counting 實做是可以在 Thread 間傳�
 <span class="w">            </span><span class="sd">/// concurrently accessing the atomic data.</span>
 <span class="w">            </span><span class="cp">#[inline]</span><span class="w"></span>
 <span class="w">            </span><span class="cp">#[$stable_access]</span><span class="w"></span>
-<span class="w">            </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">into_inner</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="cp">$int_type</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">into_inner</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="cp">$int_type</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">                </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">v</span><span class="p">.</span><span class="n">into_inner</span><span class="p">()</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">            </span><span class="p">}</span><span class="w"></span>
 
 <span class="w">            </span><span class="sd">/// Loads a value from the atomic integer.</span>
 <span class="w">            </span><span class="cp">#[inline]</span><span class="w"></span>
 <span class="w">            </span><span class="cp">#[$stable]</span><span class="w"></span>
-<span class="w">            </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">load</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">order</span><span class="o">:</span><span class="w"> </span><span class="n">Ordering</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="cp">$int_type</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">load</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">order</span>: <span class="nc">Ordering</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="cp">$int_type</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">                </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">atomic_load</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">v</span><span class="p">.</span><span class="n">get</span><span class="p">(),</span><span class="w"> </span><span class="n">order</span><span class="p">)</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">            </span><span class="p">}</span><span class="w"></span>
 
 <span class="w">            </span><span class="sd">/// Stores a value into the atomic integer.</span>
 <span class="w">            </span><span class="cp">#[inline]</span><span class="w"></span>
 <span class="w">            </span><span class="cp">#[$stable]</span><span class="w"></span>
-<span class="w">            </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">store</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="o">:</span><span class="w"> </span><span class="cp">$int_type</span><span class="p">,</span><span class="w"> </span><span class="n">order</span><span class="o">:</span><span class="w"> </span><span class="n">Ordering</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">store</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">val</span>: <span class="cp">$int_type</span><span class="p">,</span><span class="w"> </span><span class="n">order</span>: <span class="nc">Ordering</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">                </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">atomic_store</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">v</span><span class="p">.</span><span class="n">get</span><span class="p">(),</span><span class="w"> </span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="n">order</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">            </span><span class="p">}</span><span class="w"></span>
 
 <span class="w">            </span><span class="sd">/// Stores a value into the atomic integer, returning the old value.</span>
 <span class="w">            </span><span class="cp">#[inline]</span><span class="w"></span>
 <span class="w">            </span><span class="cp">#[$stable]</span><span class="w"></span>
-<span class="w">            </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">swap</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="o">:</span><span class="w"> </span><span class="cp">$int_type</span><span class="p">,</span><span class="w"> </span><span class="n">order</span><span class="o">:</span><span class="w"> </span><span class="n">Ordering</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="cp">$int_type</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">swap</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">val</span>: <span class="cp">$int_type</span><span class="p">,</span><span class="w"> </span><span class="n">order</span>: <span class="nc">Ordering</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="cp">$int_type</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">                </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">atomic_swap</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">v</span><span class="p">.</span><span class="n">get</span><span class="p">(),</span><span class="w"> </span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="n">order</span><span class="p">)</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">            </span><span class="p">}</span><span class="w"></span>
 
@@ -1905,10 +1960,10 @@ Rust 中還有另外一個 Reference Counting 實做是可以在 Thread 間傳�
 <span class="w">            </span><span class="sd">/// value was updated.</span>
 <span class="w">            </span><span class="cp">#[inline]</span><span class="w"></span>
 <span class="w">            </span><span class="cp">#[$stable]</span><span class="w"></span>
-<span class="w">            </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">compare_and_swap</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">,</span><span class="w"></span>
-<span class="w">                                    </span><span class="n">current</span><span class="o">:</span><span class="w"> </span><span class="cp">$int_type</span><span class="p">,</span><span class="w"></span>
-<span class="w">                                    </span><span class="n">new</span><span class="o">:</span><span class="w"> </span><span class="cp">$int_type</span><span class="p">,</span><span class="w"></span>
-<span class="w">                                    </span><span class="n">order</span><span class="o">:</span><span class="w"> </span><span class="n">Ordering</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="cp">$int_type</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">compare_and_swap</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                    </span><span class="n">current</span>: <span class="cp">$int_type</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                    </span><span class="n">new</span>: <span class="cp">$int_type</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                    </span><span class="n">order</span>: <span class="nc">Ordering</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="cp">$int_type</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">                </span><span class="k">match</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">compare_exchange</span><span class="p">(</span><span class="n">current</span><span class="p">,</span><span class="w"></span>
 <span class="w">                                            </span><span class="n">new</span><span class="p">,</span><span class="w"></span>
 <span class="w">                                            </span><span class="n">order</span><span class="p">,</span><span class="w"></span>
@@ -1932,11 +1987,11 @@ Rust 中還有另外一個 Reference Counting 實做是可以在 Thread 間傳�
 <span class="w">            </span><span class="sd">/// must be equivalent or weaker than the success ordering.</span>
 <span class="w">            </span><span class="cp">#[inline]</span><span class="w"></span>
 <span class="w">            </span><span class="cp">#[$stable_cxchg]</span><span class="w"></span>
-<span class="w">            </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">compare_exchange</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">,</span><span class="w"></span>
-<span class="w">                                    </span><span class="n">current</span><span class="o">:</span><span class="w"> </span><span class="cp">$int_type</span><span class="p">,</span><span class="w"></span>
-<span class="w">                                    </span><span class="n">new</span><span class="o">:</span><span class="w"> </span><span class="cp">$int_type</span><span class="p">,</span><span class="w"></span>
-<span class="w">                                    </span><span class="n">success</span><span class="o">:</span><span class="w"> </span><span class="n">Ordering</span><span class="p">,</span><span class="w"></span>
-<span class="w">                                    </span><span class="n">failure</span><span class="o">:</span><span class="w"> </span><span class="n">Ordering</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb">Result</span><span class="o">&lt;</span><span class="cp">$int_type</span><span class="p">,</span><span class="w"> </span><span class="cp">$int_type</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">compare_exchange</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                    </span><span class="n">current</span>: <span class="cp">$int_type</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                    </span><span class="n">new</span>: <span class="cp">$int_type</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                    </span><span class="n">success</span>: <span class="nc">Ordering</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                    </span><span class="n">failure</span>: <span class="nc">Ordering</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nb">Result</span><span class="o">&lt;</span><span class="cp">$int_type</span><span class="p">,</span><span class="w"> </span><span class="cp">$int_type</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">                </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">atomic_compare_exchange</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">v</span><span class="p">.</span><span class="n">get</span><span class="p">(),</span><span class="w"> </span><span class="n">current</span><span class="p">,</span><span class="w"> </span><span class="n">new</span><span class="p">,</span><span class="w"> </span><span class="n">success</span><span class="p">,</span><span class="w"> </span><span class="n">failure</span><span class="p">)</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">            </span><span class="p">}</span><span class="w"></span>
 
@@ -1955,11 +2010,11 @@ Rust 中還有另外一個 Reference Counting 實做是可以在 Thread 間傳�
 <span class="w">            </span><span class="sd">/// must be equivalent or weaker than the success ordering.</span>
 <span class="w">            </span><span class="cp">#[inline]</span><span class="w"></span>
 <span class="w">            </span><span class="cp">#[$stable_cxchg]</span><span class="w"></span>
-<span class="w">            </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">compare_exchange_weak</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">,</span><span class="w"></span>
-<span class="w">                                         </span><span class="n">current</span><span class="o">:</span><span class="w"> </span><span class="cp">$int_type</span><span class="p">,</span><span class="w"></span>
-<span class="w">                                         </span><span class="n">new</span><span class="o">:</span><span class="w"> </span><span class="cp">$int_type</span><span class="p">,</span><span class="w"></span>
-<span class="w">                                         </span><span class="n">success</span><span class="o">:</span><span class="w"> </span><span class="n">Ordering</span><span class="p">,</span><span class="w"></span>
-<span class="w">                                         </span><span class="n">failure</span><span class="o">:</span><span class="w"> </span><span class="n">Ordering</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb">Result</span><span class="o">&lt;</span><span class="cp">$int_type</span><span class="p">,</span><span class="w"> </span><span class="cp">$int_type</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">compare_exchange_weak</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                         </span><span class="n">current</span>: <span class="cp">$int_type</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                         </span><span class="n">new</span>: <span class="cp">$int_type</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                         </span><span class="n">success</span>: <span class="nc">Ordering</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                         </span><span class="n">failure</span>: <span class="nc">Ordering</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nb">Result</span><span class="o">&lt;</span><span class="cp">$int_type</span><span class="p">,</span><span class="w"> </span><span class="cp">$int_type</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">                </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">                    </span><span class="n">atomic_compare_exchange_weak</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">v</span><span class="p">.</span><span class="n">get</span><span class="p">(),</span><span class="w"> </span><span class="n">current</span><span class="p">,</span><span class="w"> </span><span class="n">new</span><span class="p">,</span><span class="w"> </span><span class="n">success</span><span class="p">,</span><span class="w"> </span><span class="n">failure</span><span class="p">)</span><span class="w"></span>
 <span class="w">                </span><span class="p">}</span><span class="w"></span>
@@ -1968,35 +2023,35 @@ Rust 中還有另外一個 Reference Counting 實做是可以在 Thread 間傳�
 <span class="w">            </span><span class="sd">/// Add to the current value, returning the previous value.</span>
 <span class="w">            </span><span class="cp">#[inline]</span><span class="w"></span>
 <span class="w">            </span><span class="cp">#[$stable]</span><span class="w"></span>
-<span class="w">            </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">fetch_add</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="o">:</span><span class="w"> </span><span class="cp">$int_type</span><span class="p">,</span><span class="w"> </span><span class="n">order</span><span class="o">:</span><span class="w"> </span><span class="n">Ordering</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="cp">$int_type</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">fetch_add</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">val</span>: <span class="cp">$int_type</span><span class="p">,</span><span class="w"> </span><span class="n">order</span>: <span class="nc">Ordering</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="cp">$int_type</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">                </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">atomic_add</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">v</span><span class="p">.</span><span class="n">get</span><span class="p">(),</span><span class="w"> </span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="n">order</span><span class="p">)</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">            </span><span class="p">}</span><span class="w"></span>
 
 <span class="w">            </span><span class="sd">/// Subtract from the current value, returning the previous value.</span>
 <span class="w">            </span><span class="cp">#[inline]</span><span class="w"></span>
 <span class="w">            </span><span class="cp">#[$stable]</span><span class="w"></span>
-<span class="w">            </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">fetch_sub</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="o">:</span><span class="w"> </span><span class="cp">$int_type</span><span class="p">,</span><span class="w"> </span><span class="n">order</span><span class="o">:</span><span class="w"> </span><span class="n">Ordering</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="cp">$int_type</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">fetch_sub</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">val</span>: <span class="cp">$int_type</span><span class="p">,</span><span class="w"> </span><span class="n">order</span>: <span class="nc">Ordering</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="cp">$int_type</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">                </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">atomic_sub</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">v</span><span class="p">.</span><span class="n">get</span><span class="p">(),</span><span class="w"> </span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="n">order</span><span class="p">)</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">            </span><span class="p">}</span><span class="w"></span>
 
 <span class="w">            </span><span class="sd">/// Bitwise and with the current value, returning the previous value.</span>
 <span class="w">            </span><span class="cp">#[inline]</span><span class="w"></span>
 <span class="w">            </span><span class="cp">#[$stable]</span><span class="w"></span>
-<span class="w">            </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">fetch_and</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="o">:</span><span class="w"> </span><span class="cp">$int_type</span><span class="p">,</span><span class="w"> </span><span class="n">order</span><span class="o">:</span><span class="w"> </span><span class="n">Ordering</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="cp">$int_type</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">fetch_and</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">val</span>: <span class="cp">$int_type</span><span class="p">,</span><span class="w"> </span><span class="n">order</span>: <span class="nc">Ordering</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="cp">$int_type</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">                </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">atomic_and</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">v</span><span class="p">.</span><span class="n">get</span><span class="p">(),</span><span class="w"> </span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="n">order</span><span class="p">)</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">            </span><span class="p">}</span><span class="w"></span>
 
 <span class="w">            </span><span class="sd">/// Bitwise or with the current value, returning the previous value.</span>
 <span class="w">            </span><span class="cp">#[inline]</span><span class="w"></span>
 <span class="w">            </span><span class="cp">#[$stable]</span><span class="w"></span>
-<span class="w">            </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">fetch_or</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="o">:</span><span class="w"> </span><span class="cp">$int_type</span><span class="p">,</span><span class="w"> </span><span class="n">order</span><span class="o">:</span><span class="w"> </span><span class="n">Ordering</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="cp">$int_type</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">fetch_or</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">val</span>: <span class="cp">$int_type</span><span class="p">,</span><span class="w"> </span><span class="n">order</span>: <span class="nc">Ordering</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="cp">$int_type</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">                </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">atomic_or</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">v</span><span class="p">.</span><span class="n">get</span><span class="p">(),</span><span class="w"> </span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="n">order</span><span class="p">)</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">            </span><span class="p">}</span><span class="w"></span>
 
 <span class="w">            </span><span class="sd">/// Bitwise xor with the current value, returning the previous value.</span>
 <span class="w">            </span><span class="cp">#[inline]</span><span class="w"></span>
 <span class="w">            </span><span class="cp">#[$stable]</span><span class="w"></span>
-<span class="w">            </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">fetch_xor</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="o">:</span><span class="w"> </span><span class="cp">$int_type</span><span class="p">,</span><span class="w"> </span><span class="n">order</span><span class="o">:</span><span class="w"> </span><span class="n">Ordering</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="cp">$int_type</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">fetch_xor</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">val</span>: <span class="cp">$int_type</span><span class="p">,</span><span class="w"> </span><span class="n">order</span>: <span class="nc">Ordering</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="cp">$int_type</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">                </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">atomic_xor</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">v</span><span class="p">.</span><span class="n">get</span><span class="p">(),</span><span class="w"> </span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="n">order</span><span class="p">)</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">            </span><span class="p">}</span><span class="w"></span>
 <span class="w">        </span><span class="p">}</span><span class="w"></span>
@@ -2029,13 +2084,13 @@ Rust 中還有另外一個 Reference Counting 實做是可以在 Thread 間傳�
 搜尋後可以找到這段程式碼：</p>
 <div class="highlight-rust"><div class="highlight"><pre><span></span><span class="sd">/// Returns the old value (like __sync_fetch_and_add).</span>
 <span class="cp">#[inline]</span><span class="w"></span>
-<span class="k">unsafe</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">atomic_add</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">dst</span><span class="o">:</span><span class="w"> </span><span class="o">*</span><span class="k">mut</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">order</span><span class="o">:</span><span class="w"> </span><span class="n">Ordering</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">unsafe</span><span class="w"> </span><span class="k">fn</span> <span class="nf">atomic_add</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">dst</span>: <span class="o">*</span><span class="k">mut</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">val</span>: <span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="n">order</span>: <span class="nc">Ordering</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">T</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">match</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">Acquire</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">intrinsics</span><span class="o">::</span><span class="n">atomic_xadd_acq</span><span class="p">(</span><span class="n">dst</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">),</span><span class="w"></span>
-<span class="w">        </span><span class="n">Release</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">intrinsics</span><span class="o">::</span><span class="n">atomic_xadd_rel</span><span class="p">(</span><span class="n">dst</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">),</span><span class="w"></span>
-<span class="w">        </span><span class="n">AcqRel</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">intrinsics</span><span class="o">::</span><span class="n">atomic_xadd_acqrel</span><span class="p">(</span><span class="n">dst</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">),</span><span class="w"></span>
-<span class="w">        </span><span class="n">Relaxed</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">intrinsics</span><span class="o">::</span><span class="n">atomic_xadd_relaxed</span><span class="p">(</span><span class="n">dst</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">),</span><span class="w"></span>
-<span class="w">        </span><span class="n">SeqCst</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">intrinsics</span><span class="o">::</span><span class="n">atomic_xadd</span><span class="p">(</span><span class="n">dst</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">),</span><span class="w"></span>
+<span class="w">        </span><span class="n">Acquire</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">intrinsics</span>::<span class="n">atomic_xadd_acq</span><span class="p">(</span><span class="n">dst</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">),</span><span class="w"></span>
+<span class="w">        </span><span class="n">Release</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">intrinsics</span>::<span class="n">atomic_xadd_rel</span><span class="p">(</span><span class="n">dst</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">),</span><span class="w"></span>
+<span class="w">        </span><span class="n">AcqRel</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">intrinsics</span>::<span class="n">atomic_xadd_acqrel</span><span class="p">(</span><span class="n">dst</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">),</span><span class="w"></span>
+<span class="w">        </span><span class="n">Relaxed</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">intrinsics</span>::<span class="n">atomic_xadd_relaxed</span><span class="p">(</span><span class="n">dst</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">),</span><span class="w"></span>
+<span class="w">        </span><span class="n">SeqCst</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">intrinsics</span>::<span class="n">atomic_xadd</span><span class="p">(</span><span class="n">dst</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">),</span><span class="w"></span>
 <span class="w">        </span><span class="n">__Nonexhaustive</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">panic</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;invalid memory ordering&quot;</span><span class="p">),</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
@@ -2051,11 +2106,11 @@ Rust 中還有另外一個 Reference Counting 實做是可以在 Thread 間傳�
 而實際上的定義在 <code class="docutils literal"><span class="pre">src/libcore/intrinsics.rs</span></code> ：</p>
 <div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">extern</span><span class="w"> </span><span class="s">&quot;rust-intrinsic&quot;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="p">...</span><span class="w"></span>
-<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">atomic_xadd</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">dst</span><span class="o">:</span><span class="w"> </span><span class="o">*</span><span class="k">mut</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">src</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">T</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">atomic_xadd_acq</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">dst</span><span class="o">:</span><span class="w"> </span><span class="o">*</span><span class="k">mut</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">src</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">T</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">atomic_xadd_rel</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">dst</span><span class="o">:</span><span class="w"> </span><span class="o">*</span><span class="k">mut</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">src</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">T</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">atomic_xadd_acqrel</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">dst</span><span class="o">:</span><span class="w"> </span><span class="o">*</span><span class="k">mut</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">src</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">T</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">atomic_xadd_relaxed</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">dst</span><span class="o">:</span><span class="w"> </span><span class="o">*</span><span class="k">mut</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">src</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">T</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">atomic_xadd</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">dst</span>: <span class="o">*</span><span class="k">mut</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">src</span>: <span class="nc">T</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">T</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">atomic_xadd_acq</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">dst</span>: <span class="o">*</span><span class="k">mut</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">src</span>: <span class="nc">T</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">T</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">atomic_xadd_rel</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">dst</span>: <span class="o">*</span><span class="k">mut</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">src</span>: <span class="nc">T</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">T</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">atomic_xadd_acqrel</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">dst</span>: <span class="o">*</span><span class="k">mut</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">src</span>: <span class="nc">T</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">T</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">atomic_xadd_relaxed</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">dst</span>: <span class="o">*</span><span class="k">mut</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">src</span>: <span class="nc">T</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">T</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="p">...</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </pre></div>
@@ -2079,15 +2134,15 @@ Rust 中還有另外一個 Reference Counting 實做是可以在 Thread 間傳�
 <span class="w">    </span><span class="sd">/// ```</span>
 <span class="w">    </span><span class="cp">#[inline]</span><span class="w"></span>
 <span class="w">    </span><span class="cp">#[stable(feature = </span><span class="s">&quot;rust1&quot;</span><span class="cp">, since = </span><span class="s">&quot;1.0.0&quot;</span><span class="cp">)]</span><span class="w"></span>
-<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">new</span><span class="p">(</span><span class="n">data</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Arc</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">new</span><span class="p">(</span><span class="n">data</span>: <span class="nc">T</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">Arc</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="c1">// Start the weak pointer count as 1 which is the weak pointer that&#39;s</span>
 <span class="w">        </span><span class="c1">// held by all the strong pointers (kinda), see std/rc.rs for more info</span>
-<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">x</span><span class="o">:</span><span class="w"> </span><span class="nb">Box</span><span class="o">&lt;</span><span class="n">_</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">box</span><span class="w"> </span><span class="n">ArcInner</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">strong</span><span class="o">:</span><span class="w"> </span><span class="n">atomic</span><span class="o">::</span><span class="n">AtomicUsize</span><span class="o">::</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"></span>
-<span class="w">            </span><span class="n">weak</span><span class="o">:</span><span class="w"> </span><span class="n">atomic</span><span class="o">::</span><span class="n">AtomicUsize</span><span class="o">::</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"></span>
-<span class="w">            </span><span class="n">data</span><span class="o">:</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">x</span>: <span class="nb">Box</span><span class="o">&lt;</span><span class="n">_</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">box</span><span class="w"> </span><span class="n">ArcInner</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">strong</span>: <span class="nc">atomic</span>::<span class="n">AtomicUsize</span>::<span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"></span>
+<span class="w">            </span><span class="n">weak</span>: <span class="nc">atomic</span>::<span class="n">AtomicUsize</span>::<span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"></span>
+<span class="w">            </span><span class="n">data</span>: <span class="nc">data</span><span class="p">,</span><span class="w"></span>
 <span class="w">        </span><span class="p">};</span><span class="w"></span>
-<span class="w">        </span><span class="n">Arc</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">ptr</span><span class="o">:</span><span class="w"> </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Shared</span><span class="o">::</span><span class="n">new</span><span class="p">(</span><span class="nb">Box</span><span class="o">::</span><span class="n">into_raw</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="n">Arc</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">ptr</span>: <span class="nc">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Shared</span>::<span class="n">new</span><span class="p">(</span><span class="nb">Box</span>::<span class="n">into_raw</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 
 <span class="w">    </span><span class="p">...</span><span class="w"></span>
@@ -2098,11 +2153,11 @@ Rust 中還有另外一個 Reference Counting 實做是可以在 Thread 間傳�
 所要提供的函式 <code class="docutils literal"><span class="pre">inner</span></code> ，
 但是 <code class="docutils literal"><span class="pre">Arc</span></code> 這邊沒有對應的 Trait 要實做，
 不過 <code class="docutils literal"><span class="pre">inner</span></code> 函式要做的事還是相似的：</p>
-<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">impl</span><span class="o">&lt;</span><span class="n">T</span><span class="o">:</span><span class="w"> </span><span class="o">?</span><span class="nb">Sized</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Arc</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">impl</span><span class="o">&lt;</span><span class="n">T</span>: <span class="o">?</span><span class="nb">Sized</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Arc</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="p">...</span><span class="w"></span>
 
 <span class="w">    </span><span class="cp">#[inline]</span><span class="w"></span>
-<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">inner</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">ArcInner</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">inner</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kp">&amp;</span><span class="nc">ArcInner</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="c1">// This unsafety is ok because while this arc is alive we&#39;re guaranteed</span>
 <span class="w">        </span><span class="c1">// that the inner pointer is valid. Furthermore, we know that the</span>
 <span class="w">        </span><span class="c1">// `ArcInner` structure itself is `Sync` because the inner data is</span>
@@ -2134,7 +2189,7 @@ Rust 中還有另外一個 Reference Counting 實做是可以在 Thread 間傳�
 （這邊有引用到 C++ Boost Library 的說明，
 在 Reference Counting 的 Context 下，
 這邊的操作是可以選擇 <code class="docutils literal"><span class="pre">Relaxed</span></code> 的）：</p>
-<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">impl</span><span class="o">&lt;</span><span class="n">T</span><span class="o">:</span><span class="w"> </span><span class="o">?</span><span class="nb">Sized</span><span class="o">&gt;</span><span class="w"> </span><span class="nb">Clone</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Arc</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">impl</span><span class="o">&lt;</span><span class="n">T</span>: <span class="o">?</span><span class="nb">Sized</span><span class="o">&gt;</span><span class="w"> </span><span class="nb">Clone</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Arc</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="sd">/// Makes a clone of the `Arc` pointer.</span>
 <span class="w">    </span><span class="sd">///</span>
 <span class="w">    </span><span class="sd">/// This creates another pointer to the same inner value, increasing the</span>
@@ -2150,7 +2205,7 @@ Rust 中還有另外一個 Reference Counting 實做是可以在 Thread 間傳�
 <span class="w">    </span><span class="sd">/// five.clone();</span>
 <span class="w">    </span><span class="sd">/// ```</span>
 <span class="w">    </span><span class="cp">#[inline]</span><span class="w"></span>
-<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">clone</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Arc</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">clone</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">Arc</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="c1">// Using a relaxed ordering is alright here, as knowledge of the</span>
 <span class="w">        </span><span class="c1">// original reference prevents other threads from erroneously deleting</span>
 <span class="w">        </span><span class="c1">// the object.</span>
@@ -2179,13 +2234,13 @@ Rust 中還有另外一個 Reference Counting 實做是可以在 Thread 間傳�
 <span class="w">            </span><span class="p">}</span><span class="w"></span>
 <span class="w">        </span><span class="p">}</span><span class="w"></span>
 
-<span class="w">        </span><span class="n">Arc</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">ptr</span><span class="o">:</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">ptr</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="n">Arc</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">ptr</span>: <span class="nc">self</span><span class="p">.</span><span class="n">ptr</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>實做 drop，並檢查是否需要清除記憶體：</p>
-<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">impl</span><span class="o">&lt;</span><span class="n">T</span><span class="o">:</span><span class="w"> </span><span class="o">?</span><span class="nb">Sized</span><span class="o">&gt;</span><span class="w"> </span><span class="nb">Drop</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Arc</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">impl</span><span class="o">&lt;</span><span class="n">T</span>: <span class="o">?</span><span class="nb">Sized</span><span class="o">&gt;</span><span class="w"> </span><span class="nb">Drop</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Arc</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="sd">/// Drops the `Arc`.</span>
 <span class="w">    </span><span class="sd">///</span>
 <span class="w">    </span><span class="sd">/// This will decrement the strong reference count. If the strong reference</span>
@@ -2215,7 +2270,7 @@ Rust 中還有另外一個 Reference Counting 實做是可以在 Thread 間傳�
 <span class="w">    </span><span class="sd">/// ```</span>
 <span class="w">    </span><span class="cp">#[unsafe_destructor_blind_to_params]</span><span class="w"></span>
 <span class="w">    </span><span class="cp">#[inline]</span><span class="w"></span>
-<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="nb">drop</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">drop</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="c1">// Because `fetch_sub` is already atomic, we do not need to synchronize</span>
 <span class="w">        </span><span class="c1">// with other threads unless we are going to delete the object. This</span>
 <span class="w">        </span><span class="c1">// same logic applies to the below `fetch_sub` to the `weak` count.</span>
@@ -2240,7 +2295,7 @@ Rust 中還有另外一個 Reference Counting 實做是可以在 Thread 間傳�
 <span class="w">        </span><span class="c1">// &gt; &quot;acquire&quot; operation before deleting the object.</span>
 <span class="w">        </span><span class="c1">//</span>
 <span class="w">        </span><span class="c1">// [1]: (www.boost.org/doc/libs/1_55_0/doc/html/atomic/usage_examples.html)</span>
-<span class="w">        </span><span class="n">atomic</span><span class="o">::</span><span class="n">fence</span><span class="p">(</span><span class="n">Acquire</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">atomic</span>::<span class="n">fence</span><span class="p">(</span><span class="n">Acquire</span><span class="p">);</span><span class="w"></span>
 
 <span class="w">        </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">            </span><span class="bp">self</span><span class="p">.</span><span class="n">drop_slow</span><span class="p">();</span><span class="w"></span>
@@ -2250,19 +2305,19 @@ Rust 中還有另外一個 Reference Counting 實做是可以在 Thread 間傳�
 </pre></div>
 </div>
 <p>而實際上回收記憶體的程式碼在這裡：</p>
-<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">impl</span><span class="o">&lt;</span><span class="n">T</span><span class="o">:</span><span class="w"> </span><span class="o">?</span><span class="nb">Sized</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Arc</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">impl</span><span class="o">&lt;</span><span class="n">T</span>: <span class="o">?</span><span class="nb">Sized</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Arc</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="p">...</span><span class="w"></span>
 
 <span class="w">    </span><span class="cp">#[inline(never)]</span><span class="w"></span>
-<span class="w">    </span><span class="k">unsafe</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">drop_slow</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">unsafe</span><span class="w"> </span><span class="k">fn</span> <span class="nf">drop_slow</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="bp">self</span><span class="p">.</span><span class="n">ptr</span><span class="p">;</span><span class="w"></span>
 
 <span class="w">        </span><span class="c1">// Destroy the data at this time, even though we may not free the box</span>
 <span class="w">        </span><span class="c1">// allocation itself (there may still be weak pointers lying around).</span>
-<span class="w">        </span><span class="n">ptr</span><span class="o">::</span><span class="n">drop_in_place</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">ptr</span><span class="p">).</span><span class="n">data</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">ptr</span>::<span class="n">drop_in_place</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">ptr</span><span class="p">).</span><span class="n">data</span><span class="p">);</span><span class="w"></span>
 
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">inner</span><span class="p">().</span><span class="n">weak</span><span class="p">.</span><span class="n">fetch_sub</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">Release</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">atomic</span><span class="o">::</span><span class="n">fence</span><span class="p">(</span><span class="n">Acquire</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="n">atomic</span>::<span class="n">fence</span><span class="p">(</span><span class="n">Acquire</span><span class="p">);</span><span class="w"></span>
 <span class="w">            </span><span class="n">deallocate</span><span class="p">(</span><span class="n">ptr</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="o">*</span><span class="k">mut</span><span class="w"> </span><span class="kt">u8</span><span class="p">,</span><span class="w"> </span><span class="n">size_of_val</span><span class="p">(</span><span class="o">&amp;*</span><span class="n">ptr</span><span class="p">),</span><span class="w"> </span><span class="n">align_of_val</span><span class="p">(</span><span class="o">&amp;*</span><span class="n">ptr</span><span class="p">))</span><span class="w"></span>
 <span class="w">        </span><span class="p">}</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
@@ -2326,15 +2381,18 @@ Rust 中還有另外一個 Reference Counting 實做是可以在 Thread 間傳�
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="resource.html" class="btn btn-neutral float-right" title="Resource" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="resource.html" class="btn btn-neutral float-right" title="Resource" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../games/rpg.html" class="btn btn-neutral" title="Role-playing Games (RPG)" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../games/rpg.html" class="btn btn-neutral" title="Role-playing Games (RPG)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -2343,7 +2401,7 @@ Rust 中還有另外一個 Reference Counting 實做是可以在 Thread 間傳�
 
   <div role="contentinfo">
     <p>
-        &copy; 版權所有 2016.
+        &copy; Copyright 2016.
 
     </p>
   </div>
@@ -2403,7 +2461,8 @@ Rust 中還有另外一個 Reference Counting 實做是可以在 Thread 間傳�
             VERSION:'latest',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-2.0.3.min.js"></script>
