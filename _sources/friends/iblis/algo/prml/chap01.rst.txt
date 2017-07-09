@@ -51,7 +51,7 @@ Probability Theorem
 
 - Two rules:
 
-    - sum rule
+    - sum rule: 即 :ref:`prob-total-prob`
 
     - product rule
 
@@ -81,6 +81,12 @@ Joint Probability
 .. math::
 
     p(X=x_i, Y=y_j) = \frac{n_{ij}}{N}
+
+or
+
+.. math::
+
+    P(X \cap Y)
 
 e.g.
 
@@ -195,44 +201,146 @@ Probability Density
 
     p(x \in (a, b)) = \int_a^b p(x) dx
 
+.. note::
+
+    原本的離散的 :math:`p(x)` 稱為 *probability mass function*
+
+
+Transformation of Probability Densities
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+運用在微積分上變數代換的技巧。
+
+令 :math:`x = g(y)` 是 :math:`x` 與 :math:`y` 之間的非線性轉換
+
+.. math::
+
+    \begin{align}
+        p_y(y) dy & = p_x(x) dx \\
+        p_y(y)    & = p_x(x) \frac{dx}{dy} \\
+                  & = p_x(x) g'(y) \\
+                  & = p_x(g(y)) g'(y)
+    \end{align}
+
+ref: https://www.cl.cam.ac.uk/teaching/2003/Probability/prob11.pdf
+
 
 Cummulative Distribution Function
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+:math:`p(x)` 拿去積分是 :math:`P(x)` ，換句話說 :math:`P'(x)` 是 :math:`p(x)`
 
 .. math::
 
     P(z) = \int_{-\infty}^z p(x) dx
 
 
-Condictional Expectation
+Multi-variable
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+推廣到多變量 :math:`\vec{x} = [x_1, x_2, \dots, x_D]` 都是
+continueous variable
+
+現在這個叫做 *join probability density function*:
+
+.. math::
+
+    p(\vec{x}) = p(x_1, \dots, x_D)
+
+仍要滿足機率公理:
+
+.. math::
+
+    p(\vec{x}) \ge 0
+
+.. math::
+
+    \int p(\vec{x}) d\vec{x} = 1
+
+Sum Rule and Product Rule:
+
+.. math::
+
+    \begin{align}
+        p(x)    & = \int p(x, y) dy \\
+        p(x, y) & = p(y|x)p(x)
+    \end{align}
+
+證明需透過 *measure theory*
+
+
+Expectation
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+目的是計算 加權平均。
+
+首先我們有 function :math:`f(x)`,
+計算 :math:`f(x)` under :math:`p(x)` 的加權平均。
+
+discrete 版本:
+
+.. math::
+
+    \mathbb{E}[f] = \sum_x p(x) f(x)
+
+
+continueous 版本:
+
+.. math::
+
+    \mathbb{E}[f] = \int p(x) f(x) dx
+
+在 continueous 的 probability density function 取點 N 點做近似。
+想象一下，取越多點，原來 :math:`p(x)` 比較高的 :math:`x` 就會比較多:
+
+.. math::
+
+    \mathbb{E}[f] \simeq \frac{1}{N} \sum_{n=1}^N f(x_n)
+
+
+multi-variable 是用下標代表對哪個變數做加權平均(積分)，
+在下面的例子中， :math:`x` 會被積分掉，所以下式實際上積分後是個 y 的 function:
+
+.. math::
+
+    \mathbb{E}_x[f(x, y)]
+
+
+Conditional Expectation
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. math::
 
-    E[f|y] = \sum_x p(x|y)f(x)
+    \mathbb{E}[f|y] = \sum_x p(x|y)f(x)
 
 
 Variance
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+variance of :math:`f(x)`
+
 
 .. math::
 
-    var[x] = E[x^2] - E[x]^2
+    var[f] = \mathbb{E}[(f(x) - \mathbb{E}[f(x)])^2]
+
+即 :math:`value - mean` 是差量，差量平方的 mean
 
 
 Covariance
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+有兩 random variables :math:`x, y`
+
 .. math::
 
-    cov[x, y] = E_{x, y}[xy] - E[x]E[y]
+    cov[x, y] = \mathbb{E}_{x, y}[xy] - \mathbb{E}[x]E[y]
 
 Matrix version:
 
 .. math::
 
-    cov[X, Y] = E_{X, Y}[XY^T] - E[X]E[Y^T]
+    cov[X, Y] = \mathbb{E}_{X, Y}[XY^T] - \mathbb{E}[X]E[Y^T]
 
 
 Bayesian Probability
@@ -244,22 +352,27 @@ Aka, Subjective Probability.
 來解釋。 e.g. 某人被雷打中的機率，這個機率顯然不能透過觀測頻率而得到。
 
 :Curve fitting problem:
+    在原本是用 frequentist 的方法。
+    而這裡我們希望 model parameter :math:`w` 的 uncertainty
+
+    觀察是從 prior probability 到 posterior probability 的過程。
+
     我們有多項式參數 :math:`\vec{w}` 跟一些已知的 data point
-    :math:`D = \{t_1, t_2, \dots, t_n \}` 。
+    :math:`\mathcal{D} = \{t_1, t_2, \dots, t_n \}` 。
     在這個 curve fitting 的問題中，我們關心的是 :math:`\vec{w}`
 
 :posterior probability:
-    在我們觀察到 :math:`D` 之後所得。
+    在我們觀察到 :math:`\mathcal{D}` 之後所得。
 
     一個 隨機事件 (Event) 的 posterior probability 是給出相關證據後的條件機率。
 
 .. math::
 
-    p(\vec{w}|D) = \frac{p(D|\vec{w})p(w)}{p(D)}
+    p(\vec{w}|\mathcal{D}) = \frac{p(\mathcal{D}|\vec{w})p(w)}{p(\mathcal{D})}
 
-其中，上述 right-hand side 的 :math:`p(D|\vec{w})` 被稱為
+其中，上述 right-hand side 的 :math:`p(\mathcal{D}|\vec{w})` 被稱為
 `likelihood function` ，這個 function 的 parameter 為 :math:`\vec{w}` 。
-其表達了 :math:`D` 對於不同 :math:`\vec{w}` 的合理程度（原文用： probable）。
+其表達了 :math:`\mathcal{D}` 對於不同 :math:`\vec{w}` 的合理程度（原文用： probable）。
 
 我們可以得到
 
@@ -267,21 +380,54 @@ Aka, Subjective Probability.
 
     \text{posterior} \propto \text{likelihood} \times \text{prior}
 
+
+上式中所有 function 都是 :math:`\vec{w}` 的 function 。
+只有分母 :math:`p(\mathcal{D})` 是作為 normalization constant 用的。
+分母是為了讓 :math:`p(\vec{w}|\mathcal{D})` sum 起來是 1 。
+觀察:
+
+.. math::
+
+    p(\mathcal{D}) = \int p(\mathcal{D}|\vec{w}) p(\vec{w}) dw
+
+這個分母可以透過 *likelihood function* 對 :math:`\vec{w}` 積分，
+:math:`\vec{w}` 會被積分掉，
+整個 :math:`p(\mathcal{D})` 中就沒有 :math:`\vec{w}` 。
+觀察上式的 :math:`p(\vec{w})` 是個 distribution ，
+想象一下有各種的 :math:`\vec{w}` ，
+:math:`\vec{w}` 有各種可能性、不確定性 (uncertainty) ；
+比起 frequentist 是使用的 fixed parameter
+，是透過估算 error 來決定 :math:`\vec{w}` 。
+
+
 :maximum likelihood:
-    最大化 likelihood function 的函數值
+    frequentist 的技術： 最大化 likelihood function 的函數值
+
+    * ref: https://stats.stackexchange.com/questions/74082/
+    * ref: https://stats.stackexchange.com/questions/180420/
+
+    要導入整個 data set 下去得到一個 error function 的 outcome
 
 :error function:
     通常是將 likelihood function 的函數值取負號作為 error function。
     而為了計算上方便，會先取 log 在負號。
 
-    為何取 log ? 在計算 :math:`p(D|\vec{w})` 時，其中 D 是多次的實驗結果
+    maximizing likelihood 相當於 minimizing error function 。
+
+    為何取 log ?
+    在計算 :math:`p(\mathcal{D}|\vec{w})` 時，其中 D 是多次的實驗結果
     :math:`\{t_1, \dots. t_n\}` 。
 
     .. math::
 
         p(D|\vec{w}) = \frac{p(D=t_1) p(D=t_2) \dots p(D=t_n)}{p(\vec{w})}
 
-    取 log 會使得分子的連乘改為連加，且意義不變。
+    取 log 會使得分子的連乘改為連加， log function 是 monotonically decreasing
+    function, 會 convex, 而 maximum likelihood 的意義不變。
+
+
+以 Bayesian 的觀點，會把 prior 考慮進來，而不只有 likelihood 。
+可以解決 overfitting 的問題。
 
 :hyperparamter: :math:`\vec{w}` 是 model, 而決定 model 的 parameter 稱為
                 hyperparamter.
@@ -304,6 +450,8 @@ Aka, Subjective Probability.
 
 Data Sets Bootstrap
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+其他 frequentist 的手法
 
 :Original data set:
     :math:`X = \{ x_1, \dots, x_N \}`

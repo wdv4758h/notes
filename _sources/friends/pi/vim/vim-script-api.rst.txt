@@ -142,3 +142,4 @@ Menu
 其他
 -----
 * ``set guitablabel`` 和 ``set tabline`` 可以指定 tab 顯示的 title
+* [Windows gVim] ``call system("cmd /C start /B ". glob(l:path))`` 可以不產生小黑窗就開啟目錄

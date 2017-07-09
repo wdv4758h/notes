@@ -23,3 +23,10 @@ Objective function:
     arg \min_{\phi, \psi} \| X - \psi (\phi (X)) \|^2
 
 
+:Undercomplete Autoencoder:
+    hidden coding 的維度是降低的. 在 non-linear 能力過好的
+    undercomplete autoencoder 一樣會很 overfitting，
+    如同建立字典，而無 generization
+
+:Overcomplete Autoencoder:
+    coding 維度提高

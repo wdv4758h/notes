@@ -10,3 +10,7 @@
     $ diff -y -W <width> <file1> <file2>
 
   - ``sdiff`` 和 ``diff -y`` 效果相同
+
+* 產生 patch 檔 ::
+
+    $ diff -u file1 file2

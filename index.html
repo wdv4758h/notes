@@ -149,6 +149,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="archlinux/pacman.html">Pacman</a></li>
 <li class="toctree-l1"><a class="reference internal" href="archlinux/performance.html">Performance Tuning For Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="archlinux/printer.html">Printer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archlinux/record.html">錄螢幕、攝影機、Terminal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="archlinux/timezone.html">Timezone</a></li>
 <li class="toctree-l1"><a class="reference internal" href="archlinux/video-audio-through-hdmi.html">利用 HDMI 播放影音</a></li>
 <li class="toctree-l1"><a class="reference internal" href="archlinux/video-player.html">Video Player</a></li>
@@ -658,6 +659,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="python/contextlib.html">contextlib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python/cpython.html">CPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python/cpython-equality.html">CPython Equality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python/debugger.html">Debugger</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python/deprecated.html">Some Deprecated Things</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python/django.html">Django</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python/gil.html">CPython GIL (Global Interpreter Lock)</a></li>
@@ -785,6 +787,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="unix-like-environment/keymap.html#setxkbmap">setxkbmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="unix-like-environment/office.html">Office</a></li>
 <li class="toctree-l1"><a class="reference internal" href="unix-like-environment/ssh-config.html">SSH Config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unix-like-environment/sudo.html">sudo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="unix-like-environment/sway.html">Sway</a></li>
 <li class="toctree-l1"><a class="reference internal" href="unix-like-environment/tips.html">Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="unix-like-environment/tools.html">工具</a></li>
@@ -1458,6 +1461,12 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l1"><a class="reference internal" href="archlinux/printer.html">Printer</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="archlinux/printer.html#id1">安裝和使用</a></li>
 <li class="toctree-l2"><a class="reference internal" href="archlinux/printer.html#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="archlinux/record.html">錄螢幕、攝影機、Terminal</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="archlinux/record.html#obs-open-broadcaster-software">OBS (Open Broadcaster Software)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archlinux/record.html#asciinema-terminal">asciinema (專錄 Terminal）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archlinux/record.html#id2">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="archlinux/timezone.html">Timezone</a><ul>
@@ -2576,6 +2585,8 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l3"><a class="reference internal" href="friends/susu/clang_format.html#reference">reference</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/susu/iverilog_note.html">icarus verilog</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/susu/os_scheduler_timer.html">Preemptive Scheduler and Timer Interrupt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="friends/susu/realtime_java.html">Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="friends/susu/realtime_java.html#related">Related</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/susu/RFC/rfc_intro.html">Related Work</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/susu/SA/centos7.html">first usage</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/susu/SA/user_manage_cmd.html">User management commands (LinuxMint 16)</a></li>
@@ -2705,11 +2716,14 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l3"><a class="reference internal" href="friends/pi/LaTeX.html">LaTeX 語法筆記</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/pi/README.html">= pi314.notes =</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/pi/apache-virtualhost-proxy.html">使用 Apache 的 Virtualhost &amp; Proxy 處理 Django 的網站</a></li>
+<li class="toctree-l3"><a class="reference internal" href="friends/pi/bash-completion.html">bash completion</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/pi/bitcoin.html">Bitcoin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="friends/pi/cin-cout-vs-scanf-printf.html">cin/cout v.s. scanf/printf</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/pi/computer-history-timeline.html">計算機科學時間軸</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/pi/crontab-periodic.html">Crontab &amp; Periodic</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/pi/cygwin.html">Cygwin 筆記</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/pi/dhcp.html">DHCP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="friends/pi/dnssec.html">DNSSEC</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/pi/early-return.html">Early return</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/pi/expect.html">expect 筆記</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/pi/freebsd-jails.html">FreeBSD Jails</a></li>
@@ -2717,6 +2731,7 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l3"><a class="reference internal" href="friends/pi/freebsd-settings.html">FreeBSD 各種設定</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/pi/freebsd-update.html">Freebsd Update</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/pi/git.html">= Git 筆記 =</a></li>
+<li class="toctree-l3"><a class="reference internal" href="friends/pi/github-rst-markup.html">github reStructuredText 支援</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/pi/google-spreadsheet.html">Google Spreadsheet 筆記</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/pi/gplusplus-gdb.html">g++ &amp; gdb 用法筆記</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/pi/io-redirection.html">輸入輸出重導向</a></li>
@@ -2756,6 +2771,7 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l3"><a class="reference internal" href="friends/pi/python/format-string.note.html">= Python format string =</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/pi/python/freebsd-python-default-version.html">FreeBSD Ports 系統對 Python 版本的判斷</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/pi/python/pip.html">Python Package Index - PyPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="friends/pi/python/python-module-how-to.html">Python module how to</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/pi/python/read-append-file-without-closing.html">在不關閉檔案的情況下讀取並新增內容</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/pi/python/underscores.html">底線</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/pi/python/virtualenv.html">virtualenv</a></li>
@@ -2834,6 +2850,7 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l3"><a class="reference internal" href="friends/iblis/algo/evolnn.html">Evolutionary Neuron Network</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/iblis/algo/paper.html">Paper</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/iblis/algo/prml.html">PRML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="friends/iblis/algo/rl.html">Reinforcement Learning</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/iblis/compiler/01-intro.html">Introduction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/iblis/compiler/02-lex.html">lex</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/iblis/compiler/05-cfg.html">Context Free Grammar</a></li>
@@ -2846,7 +2863,9 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l3"><a class="reference internal" href="friends/iblis/linux/fuse.html">Fuse</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/iblis/linux/x11.html">X11</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/iblis/linux/yocto.html">Yocto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="friends/iblis/math/calculus.html">Calculus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/iblis/math/linalg.html">Linear Algebra</a></li>
+<li class="toctree-l3"><a class="reference internal" href="friends/iblis/math/prob.html">Probability</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/iblis/misc/fonts.html">Fonts</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/iblis/project/binutils.html">binutils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/iblis/project/bitcoin.html">Bitcoin</a></li>
@@ -2866,6 +2885,7 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l3"><a class="reference internal" href="friends/iblis/project/sudo.html">sudo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/iblis/project/tensorflow.html">TensorFlow</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/iblis/project/zsh.html">zsh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="friends/iblis/read/ts.html">Analysis of Financial Time Series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/iblis/trading/mkt-in-profile.html">Market in Profile</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/iblis/web/jwt.html">JWT</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/iblis/web/vue.html">Vue</a></li>
@@ -4473,6 +4493,13 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="python/cpython-equality.html">CPython Equality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python/debugger.html">Debugger</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="python/debugger.html#pdb-python-debugger">pdb - Python Debugger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/debugger.html#ipdb-ipython-pdb">ipdb - IPython + pdb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/debugger.html#revpdb-reverse-debugging-for-python">RevPDB - Reverse Debugging for Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/debugger.html#id2">參考</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="python/deprecated.html">Some Deprecated Things</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="python/deprecated.html#use-argparse-instead-of-optparse">use 「argparse」 instead of 「optparse」</a></li>
 </ul>
@@ -5525,6 +5552,15 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="unix-like-environment/ssh-config.html#socks5-proxy">SOCKS5 Proxy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="unix-like-environment/ssh-config.html#jump-host">Jump Host</a></li>
 <li class="toctree-l2"><a class="reference internal" href="unix-like-environment/ssh-config.html#id4">參考</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="unix-like-environment/sudo.html">sudo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="unix-like-environment/sudo.html#id2">底層</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unix-like-environment/sudo.html#id3">注意</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="unix-like-environment/sudo.html#sudo-fork">sudo 會使用 fork</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="unix-like-environment/sudo.html#id4">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="unix-like-environment/sway.html">Sway</a><ul>

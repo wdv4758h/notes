@@ -148,6 +148,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../../../archlinux/pacman.html">Pacman</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../archlinux/performance.html">Performance Tuning For Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../archlinux/printer.html">Printer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../archlinux/record.html">錄螢幕、攝影機、Terminal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../archlinux/timezone.html">Timezone</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../archlinux/video-audio-through-hdmi.html">利用 HDMI 播放影音</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../archlinux/video-player.html">Video Player</a></li>
@@ -657,6 +658,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../../../python/contextlib.html">contextlib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../python/cpython.html">CPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../python/cpython-equality.html">CPython Equality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../python/debugger.html">Debugger</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../python/deprecated.html">Some Deprecated Things</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../python/django.html">Django</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../python/gil.html">CPython GIL (Global Interpreter Lock)</a></li>
@@ -784,6 +786,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../../../unix-like-environment/keymap.html#setxkbmap">setxkbmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../unix-like-environment/office.html">Office</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../unix-like-environment/ssh-config.html">SSH Config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../unix-like-environment/sudo.html">sudo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../unix-like-environment/sway.html">Sway</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../unix-like-environment/tips.html">Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../unix-like-environment/tools.html">工具</a></li>
@@ -866,6 +869,21 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <h1>Standard Lib<a class="headerlink" href="#standard-lib" title="本標題的永久連結">¶</a></h1>
 <div class="section" id="collections">
 <h2>Collections<a class="headerlink" href="#collections" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="array">
+<h3>Array<a class="headerlink" href="#array" title="本標題的永久連結">¶</a></h3>
+<ul>
+<li><p class="first"><code class="docutils literal"><span class="pre">fill(&quot;&quot;,</span> <span class="pre">10)</span></code>: like <code class="docutils literal"><span class="pre">[&quot;&quot;]</span> <span class="pre">*</span> <span class="pre">10</span></code> in python.</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">mapslices(f,</span> <span class="pre">A,</span> <span class="pre">dims)</span></code>:
+把 Array 做 slice 後丟進去 <code class="docutils literal"><span class="pre">f</span></code> 。
+<code class="docutils literal"><span class="pre">dims</span></code> 用來選第幾個維度要用 <code class="docutils literal"><span class="pre">:</span></code> 做 slice 。</p>
+<p>假設 <code class="docutils literal"><span class="pre">f</span></code> 是  ，
+<code class="docutils literal"><span class="pre">dim</span> <span class="pre">=</span> <span class="pre">[3,</span> <span class="pre">4]</span></code> 會看到 <code class="docutils literal"><span class="pre">[i,</span> <span class="pre">j,</span> <span class="pre">:,</span> <span class="pre">:]</span></code></p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">foreach</span></code>: 但 <code class="docutils literal"><span class="pre">map</span></code> 的 outcome 不需要時建議用這個。</p>
+</li>
+</ul>
+</div>
 <div class="section" id="iterations">
 <h3>Iterations<a class="headerlink" href="#iterations" title="本標題的永久連結">¶</a></h3>
 <p>An iterable object interface:</p>
@@ -914,14 +932,42 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
  <span class="mi">2017</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">01</span>
 </pre></div>
 </div>
+<ul>
+<li><p class="first"><code class="docutils literal"><span class="pre">TimeDate</span></code> with <code class="docutils literal"><span class="pre">StepRange</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">DateTime</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span><span class="n">Dates</span><span class="o">.</span><span class="n">Hour</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span><span class="n">DateTime</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
 </div>
 </div>
 <div class="section" id="filesystem">
 <h2>Filesystem<a class="headerlink" href="#filesystem" title="本標題的永久連結">¶</a></h2>
-<p>like python’s <code class="docutils literal"><span class="pre">__file</span></code>:</p>
+<p>like python’s <code class="docutils literal"><span class="pre">__file__</span></code>:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">dirname</span><span class="p">(</span><span class="nd">@__FILE__</span><span class="p">)</span>
 </pre></div>
 </div>
+<ul class="simple">
+<li>0.6+ has <code class="docutils literal"><span class="pre">&#64;__DIR__</span></code></li>
+</ul>
+</div>
+<div class="section" id="network">
+<h2>Network<a class="headerlink" href="#network" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">download</span></code></li>
+</ul>
+</div>
+<div class="section" id="os-utils">
+<h2>OS Utils<a class="headerlink" href="#os-utils" title="本標題的永久連結">¶</a></h2>
+<ul>
+<li><p class="first"><code class="docutils literal"><span class="pre">withenv</span></code>: temporary change env var(s):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">withenv</span><span class="p">(</span><span class="s2">&quot;PWD&quot;</span> <span class="o">=&gt;</span> <span class="n">nothing</span><span class="p">)</span> <span class="n">do</span>  <span class="c1"># ``nothing`` can delete the var</span>
+    <span class="n">println</span><span class="p">(</span><span class="n">ENV</span><span class="p">[</span><span class="s2">&quot;PWD&quot;</span><span class="p">])</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+</li>
+</ul>
 </div>
 </div>
 

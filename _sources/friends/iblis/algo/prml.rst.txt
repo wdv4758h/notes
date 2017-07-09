@@ -7,3 +7,13 @@ PRML
    :glob:
 
    prml/chap*
+
+
+Misc
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. toctree::
+   :maxdepth: 2
+   :glob:
+
+   prml/misc/*

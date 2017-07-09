@@ -151,6 +151,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../archlinux/pacman.html">Pacman</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../archlinux/performance.html">Performance Tuning For Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../archlinux/printer.html">Printer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../archlinux/record.html">錄螢幕、攝影機、Terminal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../archlinux/timezone.html">Timezone</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../archlinux/video-audio-through-hdmi.html">利用 HDMI 播放影音</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../archlinux/video-player.html">Video Player</a></li>
@@ -419,11 +420,14 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l3"><a class="reference internal" href="LaTeX.html">LaTeX 語法筆記</a></li>
 <li class="toctree-l3"><a class="reference internal" href="README.html">= pi314.notes =</a></li>
 <li class="toctree-l3"><a class="reference internal" href="apache-virtualhost-proxy.html">使用 Apache 的 Virtualhost &amp; Proxy 處理 Django 的網站</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bash-completion.html">bash completion</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bitcoin.html">Bitcoin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cin-cout-vs-scanf-printf.html">cin/cout v.s. scanf/printf</a></li>
 <li class="toctree-l3"><a class="reference internal" href="computer-history-timeline.html">計算機科學時間軸</a></li>
 <li class="toctree-l3"><a class="reference internal" href="crontab-periodic.html">Crontab &amp; Periodic</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cygwin.html">Cygwin 筆記</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dhcp.html">DHCP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dnssec.html">DNSSEC</a></li>
 <li class="toctree-l3"><a class="reference internal" href="early-return.html">Early return</a></li>
 <li class="toctree-l3"><a class="reference internal" href="expect.html">expect 筆記</a></li>
 <li class="toctree-l3"><a class="reference internal" href="freebsd-jails.html">FreeBSD Jails</a></li>
@@ -431,6 +435,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l3"><a class="reference internal" href="freebsd-settings.html">FreeBSD 各種設定</a></li>
 <li class="toctree-l3"><a class="reference internal" href="freebsd-update.html">Freebsd Update</a></li>
 <li class="toctree-l3"><a class="reference internal" href="git.html">= Git 筆記 =</a></li>
+<li class="toctree-l3"><a class="reference internal" href="github-rst-markup.html">github reStructuredText 支援</a></li>
 <li class="toctree-l3"><a class="reference internal" href="google-spreadsheet.html">Google Spreadsheet 筆記</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gplusplus-gdb.html">g++ &amp; gdb 用法筆記</a></li>
 <li class="toctree-l3"><a class="reference internal" href="io-redirection.html">輸入輸出重導向</a></li>
@@ -464,6 +469,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l4"><a class="reference internal" href="#alternative"><code class="docutils literal"><span class="pre">_alternative</span></code> 基本使用方式</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#arguments"><code class="docutils literal"><span class="pre">_arguments</span></code> 基本使用方式</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#action"><code class="docutils literal"><span class="pre">ACTION</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#values"><code class="docutils literal"><span class="pre">_values</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#compadd"><code class="docutils literal"><span class="pre">compadd</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#zstyle"><code class="docutils literal"><span class="pre">zstyle</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id2">其他</a></li>
@@ -482,6 +488,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l3"><a class="reference internal" href="python/format-string.note.html">= Python format string =</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/freebsd-python-default-version.html">FreeBSD Ports 系統對 Python 版本的判斷</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/pip.html">Python Package Index - PyPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/python-module-how-to.html">Python module how to</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/read-append-file-without-closing.html">在不關閉檔案的情況下讀取並新增內容</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/underscores.html">底線</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/virtualenv.html">virtualenv</a></li>
@@ -801,6 +808,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../python/contextlib.html">contextlib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python/cpython.html">CPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python/cpython-equality.html">CPython Equality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/debugger.html">Debugger</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python/deprecated.html">Some Deprecated Things</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python/django.html">Django</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python/gil.html">CPython GIL (Global Interpreter Lock)</a></li>
@@ -928,6 +936,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../unix-like-environment/keymap.html#setxkbmap">setxkbmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../unix-like-environment/office.html">Office</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../unix-like-environment/ssh-config.html">SSH Config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unix-like-environment/sudo.html">sudo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../unix-like-environment/sway.html">Sway</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../unix-like-environment/tips.html">Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../unix-like-environment/tools.html">工具</a></li>
@@ -1175,8 +1184,9 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </ul>
 </li>
 </ul>
+</div>
 <div class="section" id="values">
-<h3><code class="docutils literal"><span class="pre">_values</span></code><a class="headerlink" href="#values" title="本標題的永久連結">¶</a></h3>
+<h2><code class="docutils literal"><span class="pre">_values</span></code><a class="headerlink" href="#values" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li>補完以逗點分隔的選項： <code class="docutils literal"><span class="pre">{_values</span> <span class="pre">-s</span> <span class="pre">,</span> <span class="pre">dicts</span> <span class="pre">urban</span> <span class="pre">yahoo</span> <span class="pre">all</span> <span class="pre">moe}</span></code><ul>
 <li><code class="docutils literal"><span class="pre">dicts</span></code> 是說明而不是選項之一，但用途未知</li>
@@ -1185,7 +1195,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </li>
 <li>補完 <code class="docutils literal"><span class="pre">foo&#64;news:woo</span></code> 格式的字串： <code class="docutils literal"><span class="pre">_sep_parts</span> <span class="pre">'(foo</span> <span class="pre">bar)'</span> <span class="pre">&#64;</span> <span class="pre">'(news</span> <span class="pre">ftp)'</span> <span class="pre">:</span> <span class="pre">'(woo</span> <span class="pre">laa)'</span></code></li>
 </ul>
-</div>
 </div>
 <div class="section" id="compadd">
 <h2><code class="docutils literal"><span class="pre">compadd</span></code><a class="headerlink" href="#compadd" title="本標題的永久連結">¶</a></h2>
@@ -1224,10 +1233,18 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </div>
 <div class="section" id="id2">
 <h2>其他<a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">$BUFFER</span></code> 儲存整行指令的內容</li>
-<li><code class="docutils literal"><span class="pre">$PREFIX</span></code> 儲存目前游標所在的單字</li>
-<li><code class="docutils literal"><span class="pre">_hosts</span></code> 基本上是查看 <code class="docutils literal"><span class="pre">~/.ssh/known_hosts</span></code> 的內容，zsh 只在開啟時載入一次（並非每次補完時都查看）</li>
+<ul>
+<li><p class="first"><code class="docutils literal"><span class="pre">$BUFFER</span></code> 儲存整行指令的內容</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">$PREFIX</span></code> 儲存目前游標所在的單字</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">_hosts</span></code> 基本上是查看 <code class="docutils literal"><span class="pre">~/.ssh/known_hosts</span></code> 的內容，zsh 只在開啟時載入一次（並非每次補完時都查看）</p>
+</li>
+<li><p class="first">若選項字串包含了空白字元，可以使用 <code class="docutils literal"><span class="pre">(f)</span></code> modifier 用 <code class="docutils literal"><span class="pre">\</span></code> 來跳脫它們:</p>
+<div class="code sh highlight-default"><div class="highlight"><pre><span></span><span class="n">_arguments</span> <span class="s1">&#39;1: :(${(f)&quot;$(_split_pwd)&quot;})&#39;</span>
+</pre></div>
+</div>
+</li>
 </ul>
 </div>
 <div class="section" id="id3">

@@ -37,7 +37,7 @@
         <link rel="search" title="搜尋" href="../../../search.html"/>
     <link rel="top" title="wdv4758h-notes latest 說明文件" href="../../../index.html"/>
         <link rel="up" title="朋友的筆記" href="../../README.html"/>
-        <link rel="next" title="在不關閉檔案的情況下讀取並新增內容" href="read-append-file-without-closing.html"/>
+        <link rel="next" title="Python module how to" href="python-module-how-to.html"/>
         <link rel="prev" title="FreeBSD Ports 系統對 Python 版本的判斷" href="freebsd-python-default-version.html"/> 
 
   
@@ -151,6 +151,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../../archlinux/pacman.html">Pacman</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../archlinux/performance.html">Performance Tuning For Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../archlinux/printer.html">Printer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../archlinux/record.html">錄螢幕、攝影機、Terminal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../archlinux/timezone.html">Timezone</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../archlinux/video-audio-through-hdmi.html">利用 HDMI 播放影音</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../archlinux/video-player.html">Video Player</a></li>
@@ -419,11 +420,14 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l3"><a class="reference internal" href="../LaTeX.html">LaTeX 語法筆記</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../README.html">= pi314.notes =</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../apache-virtualhost-proxy.html">使用 Apache 的 Virtualhost &amp; Proxy 處理 Django 的網站</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bash-completion.html">bash completion</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../bitcoin.html">Bitcoin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cin-cout-vs-scanf-printf.html">cin/cout v.s. scanf/printf</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../computer-history-timeline.html">計算機科學時間軸</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../crontab-periodic.html">Crontab &amp; Periodic</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cygwin.html">Cygwin 筆記</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../dhcp.html">DHCP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dnssec.html">DNSSEC</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../early-return.html">Early return</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../expect.html">expect 筆記</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../freebsd-jails.html">FreeBSD Jails</a></li>
@@ -431,6 +435,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l3"><a class="reference internal" href="../freebsd-settings.html">FreeBSD 各種設定</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../freebsd-update.html">Freebsd Update</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../git.html">= Git 筆記 =</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../github-rst-markup.html">github reStructuredText 支援</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../google-spreadsheet.html">Google Spreadsheet 筆記</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../gplusplus-gdb.html">g++ &amp; gdb 用法筆記</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../io-redirection.html">輸入輸出重導向</a></li>
@@ -475,6 +480,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l4"><a class="reference internal" href="#id3">進階使用</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="python-module-how-to.html">Python module how to</a></li>
 <li class="toctree-l3"><a class="reference internal" href="read-append-file-without-closing.html">在不關閉檔案的情況下讀取並新增內容</a></li>
 <li class="toctree-l3"><a class="reference internal" href="underscores.html">底線</a></li>
 <li class="toctree-l3"><a class="reference internal" href="virtualenv.html">virtualenv</a></li>
@@ -794,6 +800,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../../python/contextlib.html">contextlib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../python/cpython.html">CPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../python/cpython-equality.html">CPython Equality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/debugger.html">Debugger</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../python/deprecated.html">Some Deprecated Things</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../python/django.html">Django</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../python/gil.html">CPython GIL (Global Interpreter Lock)</a></li>
@@ -921,6 +928,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/keymap.html#setxkbmap">setxkbmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/office.html">Office</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/ssh-config.html">SSH Config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/sudo.html">sudo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/sway.html">Sway</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/tips.html">Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/tools.html">工具</a></li>
@@ -1049,7 +1057,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="read-append-file-without-closing.html" class="btn btn-neutral float-right" title="在不關閉檔案的情況下讀取並新增內容" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="python-module-how-to.html" class="btn btn-neutral float-right" title="Python module how to" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="freebsd-python-default-version.html" class="btn btn-neutral" title="FreeBSD Ports 系統對 Python 版本的判斷" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

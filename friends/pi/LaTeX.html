@@ -151,6 +151,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../archlinux/pacman.html">Pacman</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../archlinux/performance.html">Performance Tuning For Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../archlinux/printer.html">Printer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../archlinux/record.html">錄螢幕、攝影機、Terminal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../archlinux/timezone.html">Timezone</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../archlinux/video-audio-through-hdmi.html">利用 HDMI 播放影音</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../archlinux/video-player.html">Video Player</a></li>
@@ -419,11 +420,14 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l3 current"><a class="current reference internal" href="#">LaTeX 語法筆記</a></li>
 <li class="toctree-l3"><a class="reference internal" href="README.html">= pi314.notes =</a></li>
 <li class="toctree-l3"><a class="reference internal" href="apache-virtualhost-proxy.html">使用 Apache 的 Virtualhost &amp; Proxy 處理 Django 的網站</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bash-completion.html">bash completion</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bitcoin.html">Bitcoin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cin-cout-vs-scanf-printf.html">cin/cout v.s. scanf/printf</a></li>
 <li class="toctree-l3"><a class="reference internal" href="computer-history-timeline.html">計算機科學時間軸</a></li>
 <li class="toctree-l3"><a class="reference internal" href="crontab-periodic.html">Crontab &amp; Periodic</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cygwin.html">Cygwin 筆記</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dhcp.html">DHCP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dnssec.html">DNSSEC</a></li>
 <li class="toctree-l3"><a class="reference internal" href="early-return.html">Early return</a></li>
 <li class="toctree-l3"><a class="reference internal" href="expect.html">expect 筆記</a></li>
 <li class="toctree-l3"><a class="reference internal" href="freebsd-jails.html">FreeBSD Jails</a></li>
@@ -431,6 +435,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l3"><a class="reference internal" href="freebsd-settings.html">FreeBSD 各種設定</a></li>
 <li class="toctree-l3"><a class="reference internal" href="freebsd-update.html">Freebsd Update</a></li>
 <li class="toctree-l3"><a class="reference internal" href="git.html">= Git 筆記 =</a></li>
+<li class="toctree-l3"><a class="reference internal" href="github-rst-markup.html">github reStructuredText 支援</a></li>
 <li class="toctree-l3"><a class="reference internal" href="google-spreadsheet.html">Google Spreadsheet 筆記</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gplusplus-gdb.html">g++ &amp; gdb 用法筆記</a></li>
 <li class="toctree-l3"><a class="reference internal" href="io-redirection.html">輸入輸出重導向</a></li>
@@ -470,6 +475,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l3"><a class="reference internal" href="python/format-string.note.html">= Python format string =</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/freebsd-python-default-version.html">FreeBSD Ports 系統對 Python 版本的判斷</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/pip.html">Python Package Index - PyPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/python-module-how-to.html">Python module how to</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/read-append-file-without-closing.html">在不關閉檔案的情況下讀取並新增內容</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/underscores.html">底線</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/virtualenv.html">virtualenv</a></li>
@@ -789,6 +795,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../python/contextlib.html">contextlib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python/cpython.html">CPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python/cpython-equality.html">CPython Equality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/debugger.html">Debugger</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python/deprecated.html">Some Deprecated Things</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python/django.html">Django</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python/gil.html">CPython GIL (Global Interpreter Lock)</a></li>
@@ -916,6 +923,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../unix-like-environment/keymap.html#setxkbmap">setxkbmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../unix-like-environment/office.html">Office</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../unix-like-environment/ssh-config.html">SSH Config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../unix-like-environment/sudo.html">sudo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../unix-like-environment/sway.html">Sway</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../unix-like-environment/tips.html">Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../unix-like-environment/tools.html">工具</a></li>

@@ -4,6 +4,21 @@ Standard Lib
 Collections
 ----------------------------------------------------------------------
 
+Array
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+* ``fill("", 10)``: like ``[""] * 10`` in python.
+
+* ``mapslices(f, A, dims)``:
+  把 Array 做 slice 後丟進去 ``f`` 。
+  ``dims`` 用來選第幾個維度要用 ``:`` 做 slice 。
+
+  假設 ``f`` 是 :math:`2 \times 3 \times 4 \times 5` ，
+  ``dim = [3, 4]`` 會看到 ``[i, j, :, :]``
+
+* ``foreach``: 但 ``map`` 的 outcome 不需要時建議用這個。
+
+
 Iterations
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -58,9 +73,33 @@ Date
      2017-01-31
      2017-02-01
 
+
+* ``TimeDate`` with ``StepRange``::
+
+    DateTime(2017, 1, 1, 8, 0, 0):Dates.Hour(2):DateTime(2017, 1, 1, 20, 0, 0)
+
+
 Filesystem
 ----------------------------------------------------------------------
 
-like python's ``__file``::
+like python's ``__file__``::
 
     dirname(@__FILE__)
+
+* 0.6+ has ``@__DIR__``
+
+
+Network
+----------------------------------------------------------------------
+
+* ``download``
+
+
+OS Utils
+----------------------------------------------------------------------
+
+* ``withenv``: temporary change env var(s)::
+
+    withenv("PWD" => nothing) do  # ``nothing`` can delete the var
+        println(ENV["PWD"])
+    end

@@ -16,6 +16,7 @@ TCP/UDP Port Number 列表
 * 143, TCP: Internet Message Access Protocol (IMAP) Server
 * 161, UDP: Simple Network Management Protocol
 * 443, TCP: HTTPS
+* 445, TCP: Microsoft SMB
 * 989, TCP: FTP over TLS/SSL Data Transfer
 * 990, TCP: FTP over TLS/SSL Control
 * 992, TCP: Telnet over TLS/SSL
