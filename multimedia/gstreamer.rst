@@ -118,6 +118,36 @@ Sink
 
 
 
+Python Binding
+========================================
+
+安裝：
+
+.. code-block:: sh
+
+    $ sudo pacman -S gst-python
+
+
+使用：
+
+.. code-block:: python
+
+    import gi
+
+    # 在 import Gst 之前要先指定版本限制。
+    gi.require_version('Gst', '1.0')
+
+    from gi.repository import Gst
+
+    Gst.init(None)
+
+    # 可以使用 GST_DEBUG 環境變數來開啟除錯訊息，
+    # 或是使用下面兩行：
+    # Gst.debug_set_active(True)
+    # Gst.debug_set_default_threshold(5)
+
+
+
 License
 ========================================
 
