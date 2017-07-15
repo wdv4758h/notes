@@ -618,6 +618,8 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../../misc/vulkan.html">Vulkan</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../mpi/mpi.html">MPI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../multimedia/ffmpeg.html">ffmpeg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../multimedia/gstreamer.html">GStreamer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../multimedia/opencv.html">OpenCV</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../network/dns.html">DNS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../network/resource.html">資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../network/rpc.html">RPC</a></li>
@@ -749,7 +751,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../../simd/algorithm.html">運用 SIMD 來加速的演算法</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../simd/status.html">SIMD</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../streaming/audio.html">Audio</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../streaming/gstreamer.html">GStreamer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../streaming/rtsp.html">RTSP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../synchronization/introduction.html">同步 (Synchronization)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../systemd/networkctl.html">networkctl</a></li>
@@ -917,6 +918,33 @@ def func(self):
 <span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">itemgetter</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">)(</span><span class="n">d</span><span class="p">)</span>
 <span class="go">(1, 3)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="subprocess-ffplay">
+<h2>subprocess + ffplay<a class="headerlink" href="#subprocess-ffplay" title="本標題的永久連結">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
+
+<span class="n">cmd</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ffplay&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">]</span>
+<span class="n">ffplay</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">stdin</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;test.mp4&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">ffplay</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>簡單地週期性執行特定函式<a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">threading</span>
+
+<span class="k">def</span> <span class="nf">run_periodically</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+  <span class="k">def</span> <span class="nf">_func</span><span class="p">():</span>
+    <span class="n">func</span><span class="p">()</span>
+    <span class="n">threading</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">interval</span><span class="p">,</span> <span class="n">_func</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>  <span class="c1"># new timer</span>
+  <span class="n">_func</span><span class="p">()</span>
+
+<span class="c1"># simple usage, print &quot;42&quot; every 5 seconds</span>
+<span class="n">run_periodically</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="mi">42</span><span class="p">),</span> <span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

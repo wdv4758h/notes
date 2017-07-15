@@ -99,6 +99,39 @@ Python 的 bool 可以拿來做運算
 
 
 
+subprocess + ffplay
+========================================
+
+.. code-block:: python
+
+    import subprocess
+
+    cmd = ['ffplay', '-']
+    ffplay = subprocess.Popen(cmd, stdin=subprocess.PIPE)
+
+    with open("test.mp4", "rb") as f:
+        ffplay.stdin.write(f.read())
+
+
+
+簡單地週期性執行特定函式
+========================================
+
+.. code-block:: python
+
+    import threading
+
+    def run_periodically(func, interval=1):
+      def _func():
+        func()
+        threading.Timer(interval, _func).start()  # new timer
+      _func()
+
+    # simple usage, print "42" every 5 seconds
+    run_periodically(lambda: print(42), 5)
+
+
+
 Others
 ========================================
 

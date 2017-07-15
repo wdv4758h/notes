@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>GStreamer &mdash; wdv4758h-notes latest 說明文件</title>
+  <title>OpenCV &mdash; wdv4758h-notes latest 說明文件</title>
   
 
   
@@ -36,8 +36,8 @@
               href="../genindex.html"/>
         <link rel="search" title="搜尋" href="../search.html"/>
     <link rel="top" title="wdv4758h-notes latest 說明文件" href="../index.html"/>
-        <link rel="next" title="RTSP" href="rtsp.html"/>
-        <link rel="prev" title="Audio" href="audio.html"/> 
+        <link rel="next" title="DNS" href="../network/dns.html"/>
+        <link rel="prev" title="GStreamer" href="gstreamer.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -49,7 +49,7 @@
 Always link to the latest version, as canonical.
 http://docs.readthedocs.org/en/latest/canonical.html
 -->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/streaming/gstreamer.html" />
+<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/multimedia/opencv.html" />
 
 <link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
 
@@ -57,7 +57,7 @@ http://docs.readthedocs.org/en/latest/canonical.html
 
 <!-- Add page-specific data, which must exist in the page js, not global -->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = 'streaming/gstreamer' 		
+READTHEDOCS_DATA['page'] = 'multimedia/opencv' 		
 READTHEDOCS_DATA['source_suffix'] = '.rst'
 </script>
 
@@ -619,7 +619,14 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../misc/videos.html">一些 Talk 的影片</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/vulkan.html">Vulkan</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mpi/mpi.html">MPI</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../multimedia/ffmpeg.html">ffmpeg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ffmpeg.html">ffmpeg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gstreamer.html">GStreamer</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">OpenCV</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">編譯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#misc">Misc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">參考</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../network/dns.html">DNS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/resource.html">資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/rpc.html">RPC</a></li>
@@ -750,22 +757,8 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../security/security.html">Security</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../simd/algorithm.html">運用 SIMD 來加速的演算法</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../simd/status.html">SIMD</a></li>
-<li class="toctree-l1"><a class="reference internal" href="audio.html">Audio</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">GStreamer</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#pipeline">Pipeline</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id2">基本介紹</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">產生 Pipeline 流程圖</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">檢查目前系統的支援</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">除錯</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#source">Source</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#sink">Sink</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#license">License</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id6">參考</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="rtsp.html">RTSP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../streaming/audio.html">Audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../streaming/rtsp.html">RTSP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../synchronization/introduction.html">同步 (Synchronization)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../systemd/networkctl.html">networkctl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../testing/server-validation.html">檢查伺服器設定</a></li>
@@ -838,14 +831,14 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>GStreamer</li>
+      <li>OpenCV</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
             
-              <a href="https://github.com/wdv4758h/notes/blob/master/./streaming/gstreamer.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/wdv4758h/notes/blob/master/./multimedia/opencv.rst" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -859,122 +852,47 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="gstreamer">
-<h1><a class="toc-backref" href="#id7">GStreamer</a><a class="headerlink" href="#gstreamer" title="本標題的永久連結">¶</a></h1>
+  <div class="section" id="opencv">
+<h1><a class="toc-backref" href="#id4">OpenCV</a><a class="headerlink" href="#opencv" title="本標題的永久連結">¶</a></h1>
 <div class="contents topic" id="id1">
 <p class="topic-title first">目錄</p>
 <ul class="simple">
-<li><a class="reference internal" href="#gstreamer" id="id7">GStreamer</a><ul>
-<li><a class="reference internal" href="#pipeline" id="id8">Pipeline</a><ul>
-<li><a class="reference internal" href="#id2" id="id9">基本介紹</a></li>
-<li><a class="reference internal" href="#id3" id="id10">產生 Pipeline 流程圖</a></li>
-<li><a class="reference internal" href="#id4" id="id11">檢查目前系統的支援</a></li>
-<li><a class="reference internal" href="#id5" id="id12">除錯</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#source" id="id13">Source</a></li>
-<li><a class="reference internal" href="#sink" id="id14">Sink</a></li>
-<li><a class="reference internal" href="#license" id="id15">License</a></li>
-<li><a class="reference internal" href="#id6" id="id16">參考</a></li>
+<li><a class="reference internal" href="#opencv" id="id4">OpenCV</a><ul>
+<li><a class="reference internal" href="#id2" id="id5">編譯</a></li>
+<li><a class="reference internal" href="#misc" id="id6">Misc</a></li>
+<li><a class="reference internal" href="#id3" id="id7">參考</a></li>
 </ul>
 </li>
 </ul>
 </div>
-<div class="section" id="pipeline">
-<h2><a class="toc-backref" href="#id8">Pipeline</a><a class="headerlink" href="#pipeline" title="本標題的永久連結">¶</a></h2>
 <div class="section" id="id2">
-<h3><a class="toc-backref" href="#id9">基本介紹</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h3>
-<p>基本流程：</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Source</span> <span class="o">-&gt;</span> <span class="n">中間處理</span> <span class="o">-&gt;</span> <span class="n">Sink</span>
+<h2><a class="toc-backref" href="#id5">編譯</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ git clone https://github.com/opencv/opencv
+$ git clone https://github.com/opencv/opencv_contrib
+$ <span class="nb">cd</span> opencv/
+$ mkdir build/
+$ <span class="nb">cd</span> build/
+<span class="c1"># 自行更改要開啟的設定</span>
+$ cmake -D <span class="nv">OPENCV_EXTRA_MODULES_PATH</span><span class="o">=</span>../../opencv_contrib/modules/ <span class="se">\</span>
+        -D <span class="nv">ENABLE_SSE3</span><span class="o">=</span>ON <span class="se">\</span>
+        -D <span class="nv">WITH_GSTREAMER</span><span class="o">=</span>ON <span class="se">\</span>
+        -D <span class="nv">WITH_FFMPEG</span><span class="o">=</span>ON <span class="se">\</span>
+        -D <span class="nv">WITH_OPENGL</span><span class="o">=</span>ON <span class="se">\</span>
+        -D <span class="nv">WITH_OPENCL</span><span class="o">=</span>ON <span class="se">\</span>
+        -D <span class="nv">WITH_CUDA</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">CMAKE_BUILD_TYPE</span><span class="o">=</span>Release <span class="se">\</span>
+        ../
+
+<span class="c1"># 編好後可以在 lib/python3/ 內找到給 Python 3 的 Shared Library</span>
 </pre></div>
 </div>
-<p>範例：</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># 以 local 的 sample.mp4 當作媒體來源</span>
-<span class="c1"># 把影像轉成 H264 並包在 RTP 封包裡面</span>
-<span class="c1"># 以 UDP 送出到指定的位置</span>
-$ gst-launch-1.0 filesrc <span class="nv">location</span><span class="o">=</span>sample.mp4 ! qtdemux ! rtph264pay config-interval<span class="o">=</span><span class="m">1</span> ! udpsink <span class="nv">host</span><span class="o">=</span><span class="m">127</span>.0.0.1 <span class="nv">port</span><span class="o">=</span><span class="m">5566</span>
-</pre></div>
 </div>
+<div class="section" id="misc">
+<h2><a class="toc-backref" href="#id6">Misc</a><a class="headerlink" href="#misc" title="本標題的永久連結">¶</a></h2>
+<p>OpenCV 的 <code class="docutils literal"><span class="pre">VideoCapture</span></code> 、 <code class="docutils literal"><span class="pre">VideoWrite</span></code> 可以直接放入 GStreamer Pipeline 來用</p>
 </div>
 <div class="section" id="id3">
-<h3><a class="toc-backref" href="#id10">產生 Pipeline 流程圖</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h3>
-<p>使用 <code class="docutils literal"><span class="pre">GST_DEBUG_DUMP_DOT_DIR</span></code> 來指定 DOT 描述語言的輸出資料夾。</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ env <span class="nv">GST_DEBUG_DUMP_DOT_DIR</span><span class="o">=</span>/tmp/dot/ gst-launch-1.0 filesrc <span class="nv">location</span><span class="o">=</span>sample.mp4 ! qtdemux ! rtph264pay config-interval<span class="o">=</span><span class="m">1</span> ! udpsink <span class="nv">host</span><span class="o">=</span><span class="m">127</span>.0.0.1 <span class="nv">port</span><span class="o">=</span><span class="m">5566</span>
-</pre></div>
-</div>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ sudo pacman -S xdot
-$ xdot /tmp/dot/0.00.00.023250085-gst-launch.PAUSED_PLAYING.dot
-</pre></div>
-</div>
-</div>
-<div class="section" id="id4">
-<h3><a class="toc-backref" href="#id11">檢查目前系統的支援</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h3>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ gst-inspect-1.0
-...
-
-$ gst-inspect-1.0 x264
-Plugin Details:
-  Name                     x264
-  Description              libx264-based H264 plugins
-  Filename                 /usr/lib/gstreamer-1.0/libgstx264.so
-  Version                  <span class="m">1</span>.12.1
-  License                  GPL
-  Source module            gst-plugins-ugly
-  Source release date      <span class="m">2017</span>-06-20
-  Binary package           GStreamer Ugly Plugins <span class="o">(</span>Arch Linux<span class="o">)</span>
-  Origin URL               http://www.archlinux.org/
-
-  x264enc: x264enc
-
-  <span class="m">1</span> features:
-  +-- <span class="m">1</span> elements
-</pre></div>
-</div>
-</div>
-<div class="section" id="id5">
-<h3><a class="toc-backref" href="#id12">除錯</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h3>
-<p>可以利用 <code class="docutils literal"><span class="pre">GST_DEBUG</span></code> 設定全域的資訊層級或是特定元件的資訊層級。</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ env <span class="nv">GST_DEBUG</span><span class="o">=</span><span class="m">4</span> gst-launch-1.0 filesrc <span class="nv">location</span><span class="o">=</span>sample.mp4 ! qtdemux ! rtph264pay config-interval<span class="o">=</span><span class="m">1</span> ! udpsink <span class="nv">host</span><span class="o">=</span><span class="m">127</span>.0.0.1 <span class="nv">port</span><span class="o">=</span><span class="m">5566</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="source">
-<h2><a class="toc-backref" href="#id13">Source</a><a class="headerlink" href="#source" title="本標題的永久連結">¶</a></h2>
-<p>稍微列出一些常見的 Source：</p>
-<ul class="simple">
-<li>第三方應用程式（用於利用 GStreamer 撰寫自己的程式）: appsrc</li>
-<li>RTSP: rtspsrc</li>
-<li>UDP: udpsrc</li>
-</ul>
-<p>自己系統目前支援的 Source 的完整清單：</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ gst-inspect-1.0 <span class="p">|</span> rg src
-</pre></div>
-</div>
-</div>
-<div class="section" id="sink">
-<h2><a class="toc-backref" href="#id14">Sink</a><a class="headerlink" href="#sink" title="本標題的永久連結">¶</a></h2>
-<p>稍微列出一些常見的 Source：</p>
-<ul class="simple">
-<li>第三方應用程式（用於利用 GStreamer 撰寫自己的程式）: appsink</li>
-<li>檔案: filesink</li>
-<li>UDP: udpsink</li>
-</ul>
-<p>自己系統目前支援的 Sink 的完整清單：</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ gst-inspect-1.0 <span class="p">|</span> rg src
-</pre></div>
-</div>
-</div>
-<div class="section" id="license">
-<h2><a class="toc-backref" href="#id15">License</a><a class="headerlink" href="#license" title="本標題的永久連結">¶</a></h2>
-<p>LGPL</p>
-</div>
-<div class="section" id="id6">
-<h2><a class="toc-backref" href="#id16">參考</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h2>
-<ul class="simple">
-<li><a class="reference external" href="https://gstreamer.freedesktop.org/documentation/licensing.html">Licensing your applications and plugins for use with GStreamer</a></li>
-<li><a class="reference external" href="https://github.com/kirushyk/gst-instruments">gst-instruments - Easy-to-use profiler for GStreamer</a></li>
-</ul>
+<h2><a class="toc-backref" href="#id7">參考</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
 </div>
 </div>
 
@@ -988,10 +906,10 @@ Plugin Details:
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="rtsp.html" class="btn btn-neutral float-right" title="RTSP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../network/dns.html" class="btn btn-neutral float-right" title="DNS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="audio.html" class="btn btn-neutral" title="Audio" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="gstreamer.html" class="btn btn-neutral" title="GStreamer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

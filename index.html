@@ -619,6 +619,8 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="misc/vulkan.html">Vulkan</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mpi/mpi.html">MPI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multimedia/ffmpeg.html">ffmpeg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multimedia/gstreamer.html">GStreamer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multimedia/opencv.html">OpenCV</a></li>
 <li class="toctree-l1"><a class="reference internal" href="network/dns.html">DNS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="network/resource.html">資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="network/rpc.html">RPC</a></li>
@@ -750,7 +752,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="simd/algorithm.html">運用 SIMD 來加速的演算法</a></li>
 <li class="toctree-l1"><a class="reference internal" href="simd/status.html">SIMD</a></li>
 <li class="toctree-l1"><a class="reference internal" href="streaming/audio.html">Audio</a></li>
-<li class="toctree-l1"><a class="reference internal" href="streaming/gstreamer.html">GStreamer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="streaming/rtsp.html">RTSP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="synchronization/introduction.html">同步 (Synchronization)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="systemd/networkctl.html">networkctl</a></li>
@@ -4151,6 +4152,27 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="multimedia/ffmpeg.html">ffmpeg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multimedia/gstreamer.html">GStreamer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#pipeline">Pipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#id2">基本介紹</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#id3">產生 Pipeline 流程圖</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#id4">檢查目前系統的支援</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#id5">除錯</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#source">Source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#sink">Sink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#python-binding">Python Binding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#license">License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#id6">參考</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="multimedia/opencv.html">OpenCV</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/opencv.html#id2">編譯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/opencv.html#misc">Misc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/opencv.html#id3">參考</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="network/dns.html">DNS</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="network/dns.html#id1">運作流程</a></li>
 </ul>
@@ -4431,6 +4453,8 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="python/tips.html#class-decorator-method">套用自己 class 內的 decorator 到其他 method</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python/tips.html#id1">更改遞迴深度限制</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python/tips.html#index-value">一次存取多個 Index 或 Value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/tips.html#subprocess-ffplay">subprocess + ffplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/tips.html#id2">簡單地週期性執行特定函式</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python/tips.html#others">Others</a></li>
 </ul>
 </li>
@@ -5192,20 +5216,6 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="streaming/audio.html#ogg">Ogg</a></li>
 <li class="toctree-l2"><a class="reference internal" href="streaming/audio.html#opus">Opus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="streaming/audio.html#id3">參考</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="streaming/gstreamer.html">GStreamer</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="streaming/gstreamer.html#pipeline">Pipeline</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="streaming/gstreamer.html#id2">基本介紹</a></li>
-<li class="toctree-l3"><a class="reference internal" href="streaming/gstreamer.html#id3">產生 Pipeline 流程圖</a></li>
-<li class="toctree-l3"><a class="reference internal" href="streaming/gstreamer.html#id4">檢查目前系統的支援</a></li>
-<li class="toctree-l3"><a class="reference internal" href="streaming/gstreamer.html#id5">除錯</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="streaming/gstreamer.html#source">Source</a></li>
-<li class="toctree-l2"><a class="reference internal" href="streaming/gstreamer.html#sink">Sink</a></li>
-<li class="toctree-l2"><a class="reference internal" href="streaming/gstreamer.html#license">License</a></li>
-<li class="toctree-l2"><a class="reference internal" href="streaming/gstreamer.html#id6">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="streaming/rtsp.html">RTSP</a><ul>
