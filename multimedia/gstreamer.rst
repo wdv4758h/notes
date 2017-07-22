@@ -173,6 +173,32 @@ Pipeline Branch - tee
     $ gst-launch-1.0 -q videotestsrc pattern=ball ! video/x-raw,height=320,width=240,framerate=30/1,format=RGB ! fdsink | ffplay -f rawvideo -pixel_format rgb24 -video_size 240x320 -i -
 
 
+從指定的 File Descriptor 讀入 - fdsrc
+-------------------------------------
+
+.. code-block:: sh
+
+    $ echo "Hello GStreamer" | gst-launch-1.0 -v fdsrc ! fakesink dump=true
+    Setting pipeline to PAUSED ...
+    Pipeline is PREROLLING ...
+    Pipeline is PREROLLED ...
+    Setting pipeline to PLAYING ...
+    New clock: GstSystemClock
+    00000000 (0x7f9fd8004890): 48 65 6c 6c 6f 20 47 53 74 72 65 61 6d 65 72 0a  Hello GStreamer.
+    Got EOS from element "pipeline0".
+    Execution ended after 0:00:00.000123950
+    Setting pipeline to PAUSED ...
+    Setting pipeline to READY ...
+    Setting pipeline to NULL ...
+    Freeing pipeline ...
+
+
+
+Pipeline 除錯
+========================================
+
+* [GitHub] `gst-devtools <https://github.com/GStreamer/gst-devtools>`_
+
 
 
 Hardware Acceleration
@@ -273,6 +299,35 @@ Write Plugin
 * `Writing GStreamer Elements in Rust (Part 2) - Don’t panic, we have better assertions now <https://coaxion.net/blog/2016/09/writing-gstreamer-elements-in-rust-part-2-dont-panic-we-have-better-assertions-now-and-other-updates/>`_
 * `Writing GStreamer Elements in Rust (Part 3) - Parsing data from untrusted sources like it’s 2016 <https://coaxion.net/blog/2016/11/writing-gstreamer-elements-in-rust-part-3-parsing-data-from-untrusted-sources-like-its-2016/>`_
 * `Writing GStreamer Elements in Rust (Part 4) - Logging, COWs and Plugins <https://coaxion.net/blog/2017/03/writing-gstreamer-elements-in-rust-part-4-logging-cows-and-plugins/>`_
+
+
+
+Real-Time Streaming
+========================================
+
+* rtspsrc
+    - ``latency=0``
+    - ``timeout=0``
+    - ``drop-on-latency=true``
+    - https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-good-plugins/html/gst-plugins-good-plugins-rtspsrc.html
+
+* x264enc
+    - ``tune=zerolatency``
+    - ``speed-preset=superfast``
+
+* gstrtpjitterbuffer
+    - ``drop-on-latency=false``
+    - ``latency=500``
+
+* appsink
+    - ``drop=true``
+    - ``max-buffers=1``
+    - https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-base-plugins/html/gst-plugins-base-plugins-appsink.html
+
+* udpsrc
+    - ``reuse=true``
+    - ``retrieve-sender-address=false``
+    - https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-good-plugins/html/gst-plugins-good-plugins-udpsrc.html
 
 
 
