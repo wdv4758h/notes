@@ -151,6 +151,9 @@ Python Binding
 核心元件
 ========================================
 
+`coreelements <https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer-plugins/html/gstreamer-plugins-plugin-coreelements.html>`_
+
+
 Pipeline Branch - tee
 ------------------------------
 
@@ -194,10 +197,98 @@ Pipeline Branch - tee
 
 
 
+其他元件
+========================================
+
+TCP
+------------------------------
+
+* tcpserversrc
+* tcpserversink
+* tcpclientsrc
+* tcpclientsink
+
+
 Pipeline 除錯
 ========================================
 
 * [GitHub] `gst-devtools <https://github.com/GStreamer/gst-devtools>`_
+* `gst-validate <https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-validate/html/gst-validate.html>`_
+
+.. code-block:: sh
+
+    $ git clone https://github.com/GStreamer/gst-devtools
+    $ cd gst-devtools
+    $ meson . build
+    $ cd build
+    $ ninja
+
+    $ validate/tools/gst-validate-1.0 playbin file:///path/to/a/video.mkv
+    Starting pipeline
+    Pipeline started
+         issue : EOS events that are part of the same pipeline 'operation' should have the same seqnum
+                 Detected on <matroskademux0:video_0>
+                 Detected on <multiqueue0:sink_0>
+                 Detected on <matroskademux0:audio_0>
+                 Detected on <multiqueue0:sink_1>
+                 Detected on <multiqueue0:src_1>
+                 Detected on <ac3parse0:sink>
+                 Detected on <ac3parse0:src>
+                 Detected on <capsfilter2:sink>
+                 Detected on <capsfilter2:src>
+                 Detected on <a52dec0:sink>
+                 Detected on <a52dec0:src>
+                 Detected on <inputselector1:sink_0>
+                 Detected on <inputselector1:src>
+                 Detected on <audiotee:sink>
+                 Detected on <audiotee:src_0>
+                 Detected on <streamsynchronizer0:sink_1>
+                 Detected on <multiqueue0:src_0>
+                 Detected on <h264parse0:sink>
+                 Detected on <h264parse0:src>
+                 Detected on <capsfilter0:sink>
+                 Detected on <capsfilter0:src>
+                 Detected on <vaapidecode0:sink>
+                 Detected on <vaapidecode0:src>
+                 Detected on <vaapi-queue:sink>
+                 Detected on <vaapi-queue:src>
+                 Detected on <capsfilter1:sink>
+                 Detected on <capsfilter1:src>
+                 Detected on <vaapipostproc0:sink>
+                 Detected on <vaapipostproc0:src>
+                 Detected on <inputselector0:sink_0>
+                 Detected on <inputselector0:src>
+                 Detected on <streamsynchronizer0:sink_0>
+                 Detected on <streamsynchronizer0:src_0>
+                 Detected on <vdconv:sink>
+                 Detected on <vdconv:src>
+                 Detected on <deinterlace:sink>
+                 Detected on <streamsynchronizer0:src_1>
+                 Detected on <deinterlace:src>
+                 Detected on <aqueue:sink>
+                 Detected on <vqueue:sink>
+                 Detected on <aqueue:src>
+                 Detected on <conv:sink>
+                 Detected on <conv:src>
+                 Detected on <resample:sink>
+                 Detected on <resample:src>
+                 Detected on <pulsesink2:sink>
+                 Detected on <vqueue:src>
+                 Detected on <conv:sink>
+                 Detected on <conv:src>
+                 Detected on <scale:sink>
+                 Detected on <scale:src>
+                 Detected on <vaapisink0:sink>
+                 Description : when events/messages are created from another event/message, they should have their seqnums set to the original event/message seqnum
+
+       warning : received the same caps twice
+                 Detected on <h264parse0:sink>
+                 Detected on <ac3parse0:sink>
+                 Detected on <a52dec0:sink>
+
+    Issues found: 2
+
+    =======> Test PASSED (Return value: 0)
 
 
 
