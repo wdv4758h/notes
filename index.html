@@ -396,6 +396,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="crypto/resource.html">Crypto</a></li>
 <li class="toctree-l1"><a class="reference internal" href="crypto/sha.html">SHA (Secure Hash Algorithm)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database/mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="database/resource.html">Database (資料庫)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="database/sqlite.html">SQLite</a></li>
@@ -753,6 +754,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="simd/algorithm.html">運用 SIMD 來加速的演算法</a></li>
 <li class="toctree-l1"><a class="reference internal" href="simd/status.html">SIMD</a></li>
 <li class="toctree-l1"><a class="reference internal" href="streaming/audio.html">Audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="streaming/conference-call.html">Conference Call</a></li>
 <li class="toctree-l1"><a class="reference internal" href="streaming/rtsp.html">RTSP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="synchronization/introduction.html">同步 (Synchronization)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="systemd/networkctl.html">networkctl</a></li>
@@ -2501,6 +2503,15 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="database/mariadb.html#id6">參考</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="database/mysql.html">MySQL</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="database/mysql.html#id2">重置密碼</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database/mysql.html#id3">備份</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database/mysql.html#id4">建立帳號</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database/mysql.html#id5">插入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database/mysql.html#event">Event</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database/mysql.html#id6">參考</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="database/postgresql.html">Database</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="database/postgresql.html#postgresql">PostgreSQL</a></li>
 </ul>
@@ -4164,8 +4175,33 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#source">Source</a></li>
 <li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#sink">Sink</a></li>
 <li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#python-binding">Python Binding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#id6">核心元件</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#pipeline-branch-tee">Pipeline Branch - tee</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#file-descriptor-fdsink">寫到指定的 File Descriptor - fdsink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#file-descriptor-fdsrc">從指定的 File Descriptor 讀入 - fdsrc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#input-selector">input-selector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#identity">identity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#funnel">funnel</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#id7">其他元件</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#tcp">TCP</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#id8">Pipeline 除錯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#hardware-acceleration">Hardware Acceleration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#va-api">VA-API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#vdpau">VDPAU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#intel-media-sdk">Intel Media SDK</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#benchmark-profiling">Benchmark &amp; Profiling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#term">Term</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#id9">設計重點</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#write-plugin">Write Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#real-time-streaming">Real-Time Streaming</a></li>
 <li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#license">License</a></li>
-<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#id6">參考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#id10">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="multimedia/opencv.html">OpenCV</a><ul>
@@ -4461,6 +4497,7 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="python/tips.html#index-value">一次存取多個 Index 或 Value</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python/tips.html#subprocess-ffplay">subprocess + ffplay</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python/tips.html#id2">簡單地週期性執行特定函式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/tips.html#format-map">format_map</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python/tips.html#others">Others</a></li>
 </ul>
 </li>
@@ -5222,6 +5259,11 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="streaming/audio.html#ogg">Ogg</a></li>
 <li class="toctree-l2"><a class="reference internal" href="streaming/audio.html#opus">Opus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="streaming/audio.html#id3">參考</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="streaming/conference-call.html">Conference Call</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="streaming/conference-call.html#appear-in">appear.in</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streaming/conference-call.html#id2">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="streaming/rtsp.html">RTSP</a><ul>

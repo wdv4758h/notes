@@ -397,6 +397,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../crypto/resource.html">Crypto</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../crypto/sha.html">SHA (Secure Hash Algorithm)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/resource.html">Database (資料庫)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sqlite.html">SQLite</a></li>
@@ -631,8 +632,33 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l2"><a class="reference internal" href="#source">Source</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#sink">Sink</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#python-binding">Python Binding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">核心元件</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pipeline-branch-tee">Pipeline Branch - tee</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#file-descriptor-fdsink">寫到指定的 File Descriptor - fdsink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#file-descriptor-fdsrc">從指定的 File Descriptor 讀入 - fdsrc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#input-selector">input-selector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#identity">identity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#funnel">funnel</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">其他元件</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tcp">TCP</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">Pipeline 除錯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hardware-acceleration">Hardware Acceleration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#va-api">VA-API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vdpau">VDPAU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#intel-media-sdk">Intel Media SDK</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#benchmark-profiling">Benchmark &amp; Profiling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#term">Term</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">設計重點</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#write-plugin">Write Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#real-time-streaming">Real-Time Streaming</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#license">License</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id6">參考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="opencv.html">OpenCV</a></li>
@@ -768,6 +794,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../simd/algorithm.html">運用 SIMD 來加速的演算法</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../simd/status.html">SIMD</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../streaming/audio.html">Audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../streaming/conference-call.html">Conference Call</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../streaming/rtsp.html">RTSP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../synchronization/introduction.html">同步 (Synchronization)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../systemd/networkctl.html">networkctl</a></li>
@@ -863,31 +890,56 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
            <div itemprop="articleBody">
             
   <div class="section" id="gstreamer">
-<h1><a class="toc-backref" href="#id7">GStreamer</a><a class="headerlink" href="#gstreamer" title="本標題的永久連結">¶</a></h1>
+<h1><a class="toc-backref" href="#id11">GStreamer</a><a class="headerlink" href="#gstreamer" title="本標題的永久連結">¶</a></h1>
 <div class="contents topic" id="id1">
 <p class="topic-title first">目錄</p>
 <ul class="simple">
-<li><a class="reference internal" href="#gstreamer" id="id7">GStreamer</a><ul>
-<li><a class="reference internal" href="#pipeline" id="id8">Pipeline</a><ul>
-<li><a class="reference internal" href="#id2" id="id9">基本介紹</a></li>
-<li><a class="reference internal" href="#id3" id="id10">產生 Pipeline 流程圖</a></li>
-<li><a class="reference internal" href="#id4" id="id11">檢查目前系統的支援</a></li>
-<li><a class="reference internal" href="#id5" id="id12">除錯</a></li>
+<li><a class="reference internal" href="#gstreamer" id="id11">GStreamer</a><ul>
+<li><a class="reference internal" href="#pipeline" id="id12">Pipeline</a><ul>
+<li><a class="reference internal" href="#id2" id="id13">基本介紹</a></li>
+<li><a class="reference internal" href="#id3" id="id14">產生 Pipeline 流程圖</a></li>
+<li><a class="reference internal" href="#id4" id="id15">檢查目前系統的支援</a></li>
+<li><a class="reference internal" href="#id5" id="id16">除錯</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#source" id="id13">Source</a></li>
-<li><a class="reference internal" href="#sink" id="id14">Sink</a></li>
-<li><a class="reference internal" href="#python-binding" id="id15">Python Binding</a></li>
-<li><a class="reference internal" href="#license" id="id16">License</a></li>
-<li><a class="reference internal" href="#id6" id="id17">參考</a></li>
+<li><a class="reference internal" href="#source" id="id17">Source</a></li>
+<li><a class="reference internal" href="#sink" id="id18">Sink</a></li>
+<li><a class="reference internal" href="#python-binding" id="id19">Python Binding</a></li>
+<li><a class="reference internal" href="#id6" id="id20">核心元件</a><ul>
+<li><a class="reference internal" href="#pipeline-branch-tee" id="id21">Pipeline Branch - tee</a></li>
+<li><a class="reference internal" href="#file-descriptor-fdsink" id="id22">寫到指定的 File Descriptor - fdsink</a></li>
+<li><a class="reference internal" href="#file-descriptor-fdsrc" id="id23">從指定的 File Descriptor 讀入 - fdsrc</a></li>
+<li><a class="reference internal" href="#input-selector" id="id24">input-selector</a></li>
+<li><a class="reference internal" href="#identity" id="id25">identity</a></li>
+<li><a class="reference internal" href="#funnel" id="id26">funnel</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id7" id="id27">其他元件</a><ul>
+<li><a class="reference internal" href="#tcp" id="id28">TCP</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id8" id="id29">Pipeline 除錯</a></li>
+<li><a class="reference internal" href="#hardware-acceleration" id="id30">Hardware Acceleration</a><ul>
+<li><a class="reference internal" href="#va-api" id="id31">VA-API</a></li>
+<li><a class="reference internal" href="#vdpau" id="id32">VDPAU</a></li>
+<li><a class="reference internal" href="#intel-media-sdk" id="id33">Intel Media SDK</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#benchmark-profiling" id="id34">Benchmark &amp; Profiling</a></li>
+<li><a class="reference internal" href="#term" id="id35">Term</a></li>
+<li><a class="reference internal" href="#id9" id="id36">設計重點</a></li>
+<li><a class="reference internal" href="#write-plugin" id="id37">Write Plugin</a></li>
+<li><a class="reference internal" href="#real-time-streaming" id="id38">Real-Time Streaming</a></li>
+<li><a class="reference internal" href="#license" id="id39">License</a></li>
+<li><a class="reference internal" href="#id10" id="id40">參考</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="pipeline">
-<h2><a class="toc-backref" href="#id8">Pipeline</a><a class="headerlink" href="#pipeline" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id12">Pipeline</a><a class="headerlink" href="#pipeline" title="本標題的永久連結">¶</a></h2>
 <div class="section" id="id2">
-<h3><a class="toc-backref" href="#id9">基本介紹</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id13">基本介紹</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h3>
 <p>基本流程：</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Source</span> <span class="o">-&gt;</span> <span class="n">中間處理</span> <span class="o">-&gt;</span> <span class="n">Sink</span>
 </pre></div>
@@ -901,7 +953,7 @@ $ gst-launch-1.0 filesrc <span class="nv">location</span><span class="o">=</span
 </div>
 </div>
 <div class="section" id="id3">
-<h3><a class="toc-backref" href="#id10">產生 Pipeline 流程圖</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id14">產生 Pipeline 流程圖</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h3>
 <p>使用 <code class="docutils literal"><span class="pre">GST_DEBUG_DUMP_DOT_DIR</span></code> 來指定 DOT 描述語言的輸出資料夾。</p>
 <div class="highlight-sh"><div class="highlight"><pre><span></span>$ env <span class="nv">GST_DEBUG_DUMP_DOT_DIR</span><span class="o">=</span>/tmp/dot/ gst-launch-1.0 filesrc <span class="nv">location</span><span class="o">=</span>sample.mp4 ! qtdemux ! rtph264pay config-interval<span class="o">=</span><span class="m">1</span> ! udpsink <span class="nv">host</span><span class="o">=</span><span class="m">127</span>.0.0.1 <span class="nv">port</span><span class="o">=</span><span class="m">5566</span>
 </pre></div>
@@ -912,7 +964,7 @@ $ xdot /tmp/dot/0.00.00.023250085-gst-launch.PAUSED_PLAYING.dot
 </div>
 </div>
 <div class="section" id="id4">
-<h3><a class="toc-backref" href="#id11">檢查目前系統的支援</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id15">檢查目前系統的支援</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h3>
 <div class="highlight-sh"><div class="highlight"><pre><span></span>$ gst-inspect-1.0
 ...
 
@@ -936,7 +988,7 @@ Plugin Details:
 </div>
 </div>
 <div class="section" id="id5">
-<h3><a class="toc-backref" href="#id12">除錯</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id16">除錯</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h3>
 <p>可以利用 <code class="docutils literal"><span class="pre">GST_DEBUG</span></code> 設定全域的資訊層級或是特定元件的資訊層級。</p>
 <div class="highlight-sh"><div class="highlight"><pre><span></span>$ env <span class="nv">GST_DEBUG</span><span class="o">=</span><span class="m">4</span> gst-launch-1.0 filesrc <span class="nv">location</span><span class="o">=</span>sample.mp4 ! qtdemux ! rtph264pay config-interval<span class="o">=</span><span class="m">1</span> ! udpsink <span class="nv">host</span><span class="o">=</span><span class="m">127</span>.0.0.1 <span class="nv">port</span><span class="o">=</span><span class="m">5566</span>
 </pre></div>
@@ -944,7 +996,7 @@ Plugin Details:
 </div>
 </div>
 <div class="section" id="source">
-<h2><a class="toc-backref" href="#id13">Source</a><a class="headerlink" href="#source" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id17">Source</a><a class="headerlink" href="#source" title="本標題的永久連結">¶</a></h2>
 <p>稍微列出一些常見的 Source：</p>
 <ul class="simple">
 <li>第三方應用程式（用於利用 GStreamer 撰寫自己的程式）: appsrc</li>
@@ -957,7 +1009,7 @@ Plugin Details:
 </div>
 </div>
 <div class="section" id="sink">
-<h2><a class="toc-backref" href="#id14">Sink</a><a class="headerlink" href="#sink" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id18">Sink</a><a class="headerlink" href="#sink" title="本標題的永久連結">¶</a></h2>
 <p>稍微列出一些常見的 Source：</p>
 <ul class="simple">
 <li>第三方應用程式（用於利用 GStreamer 撰寫自己的程式）: appsink</li>
@@ -970,7 +1022,7 @@ Plugin Details:
 </div>
 </div>
 <div class="section" id="python-binding">
-<h2><a class="toc-backref" href="#id15">Python Binding</a><a class="headerlink" href="#python-binding" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id19">Python Binding</a><a class="headerlink" href="#python-binding" title="本標題的永久連結">¶</a></h2>
 <p>安裝：</p>
 <div class="highlight-sh"><div class="highlight"><pre><span></span>$ sudo pacman -S gst-python
 </pre></div>
@@ -992,15 +1044,377 @@ Plugin Details:
 </pre></div>
 </div>
 </div>
+<div class="section" id="id6">
+<h2><a class="toc-backref" href="#id20">核心元件</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h2>
+<p><a class="reference external" href="https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer-plugins/html/gstreamer-plugins-plugin-coreelements.html">core elements</a></p>
+<div class="section" id="pipeline-branch-tee">
+<h3><a class="toc-backref" href="#id21">Pipeline Branch - tee</a><a class="headerlink" href="#pipeline-branch-tee" title="本標題的永久連結">¶</a></h3>
+<p><a class="reference external" href="https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer-plugins/html/gstreamer-plugins-tee.html">tee</a>
+會從原本的 Pipeline 切出 Branch，
+範例：</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ gst-launch-1.0 filesrc <span class="nv">location</span><span class="o">=</span>song.ogg ! decodebin ! <span class="se">\</span>
+    tee <span class="nv">name</span><span class="o">=</span>t ! queue ! audioconvert ! audioresample ! autoaudiosink <span class="se">\</span>
+            t. ! queue ! audioconvert ! goom ! videoconvert ! autovideosink
+</pre></div>
+</div>
+</div>
+<div class="section" id="file-descriptor-fdsink">
+<h3><a class="toc-backref" href="#id22">寫到指定的 File Descriptor - fdsink</a><a class="headerlink" href="#file-descriptor-fdsink" title="本標題的永久連結">¶</a></h3>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ gst-launch-1.0 -q videotestsrc <span class="nv">pattern</span><span class="o">=</span>ball ! video/x-raw,height<span class="o">=</span><span class="m">320</span>,width<span class="o">=</span><span class="m">240</span>,framerate<span class="o">=</span><span class="m">30</span>/1,format<span class="o">=</span>RGB ! fdsink <span class="p">|</span> ffplay -f rawvideo -pixel_format rgb24 -video_size 240x320 -i -
+</pre></div>
+</div>
+</div>
+<div class="section" id="file-descriptor-fdsrc">
+<h3><a class="toc-backref" href="#id23">從指定的 File Descriptor 讀入 - fdsrc</a><a class="headerlink" href="#file-descriptor-fdsrc" title="本標題的永久連結">¶</a></h3>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ <span class="nb">echo</span> <span class="s2">&quot;Hello GStreamer&quot;</span> <span class="p">|</span> gst-launch-1.0 -v fdsrc ! fakesink <span class="nv">dump</span><span class="o">=</span><span class="nb">true</span>
+Setting pipeline to PAUSED ...
+Pipeline is PREROLLING ...
+Pipeline is PREROLLED ...
+Setting pipeline to PLAYING ...
+New clock: GstSystemClock
+<span class="m">00000000</span> <span class="o">(</span>0x7f9fd8004890<span class="o">)</span>: <span class="m">48</span> <span class="m">65</span> 6c 6c 6f <span class="m">20</span> <span class="m">47</span> <span class="m">53</span> <span class="m">74</span> <span class="m">72</span> <span class="m">65</span> <span class="m">61</span> 6d <span class="m">65</span> <span class="m">72</span> 0a  Hello GStreamer.
+Got EOS from element <span class="s2">&quot;pipeline0&quot;</span>.
+Execution ended after <span class="m">0</span>:00:00.000123950
+Setting pipeline to PAUSED ...
+Setting pipeline to READY ...
+Setting pipeline to NULL ...
+Freeing pipeline ...
+</pre></div>
+</div>
+</div>
+<div class="section" id="input-selector">
+<h3><a class="toc-backref" href="#id24">input-selector</a><a class="headerlink" href="#input-selector" title="本標題的永久連結">¶</a></h3>
+</div>
+<div class="section" id="identity">
+<h3><a class="toc-backref" href="#id25">identity</a><a class="headerlink" href="#identity" title="本標題的永久連結">¶</a></h3>
+</div>
+<div class="section" id="funnel">
+<h3><a class="toc-backref" href="#id26">funnel</a><a class="headerlink" href="#funnel" title="本標題的永久連結">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id7">
+<h2><a class="toc-backref" href="#id27">其他元件</a><a class="headerlink" href="#id7" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="tcp">
+<h3><a class="toc-backref" href="#id28">TCP</a><a class="headerlink" href="#tcp" title="本標題的永久連結">¶</a></h3>
+<ul class="simple">
+<li>tcpserversrc</li>
+<li>tcpserversink</li>
+<li>tcpclientsrc</li>
+<li>tcpclientsink</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id8">
+<h2><a class="toc-backref" href="#id29">Pipeline 除錯</a><a class="headerlink" href="#id8" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li>[GitHub] <a class="reference external" href="https://github.com/GStreamer/gst-devtools">gst-devtools</a></li>
+<li><a class="reference external" href="https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-validate/html/gst-validate.html">gst-validate</a></li>
+</ul>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ git clone https://github.com/GStreamer/gst-devtools
+$ <span class="nb">cd</span> gst-devtools
+$ meson . build
+$ <span class="nb">cd</span> build
+$ ninja
+
+$ validate/tools/gst-validate-1.0 playbin file:///path/to/a/video.mkv
+Starting pipeline
+Pipeline started
+     issue : EOS events that are part of the same pipeline <span class="s1">&#39;operation&#39;</span> should have the same seqnum
+             Detected on &lt;matroskademux0:video_0&gt;
+             Detected on &lt;multiqueue0:sink_0&gt;
+             Detected on &lt;matroskademux0:audio_0&gt;
+             Detected on &lt;multiqueue0:sink_1&gt;
+             Detected on &lt;multiqueue0:src_1&gt;
+             Detected on &lt;ac3parse0:sink&gt;
+             Detected on &lt;ac3parse0:src&gt;
+             Detected on &lt;capsfilter2:sink&gt;
+             Detected on &lt;capsfilter2:src&gt;
+             Detected on &lt;a52dec0:sink&gt;
+             Detected on &lt;a52dec0:src&gt;
+             Detected on &lt;inputselector1:sink_0&gt;
+             Detected on &lt;inputselector1:src&gt;
+             Detected on &lt;audiotee:sink&gt;
+             Detected on &lt;audiotee:src_0&gt;
+             Detected on &lt;streamsynchronizer0:sink_1&gt;
+             Detected on &lt;multiqueue0:src_0&gt;
+             Detected on &lt;h264parse0:sink&gt;
+             Detected on &lt;h264parse0:src&gt;
+             Detected on &lt;capsfilter0:sink&gt;
+             Detected on &lt;capsfilter0:src&gt;
+             Detected on &lt;vaapidecode0:sink&gt;
+             Detected on &lt;vaapidecode0:src&gt;
+             Detected on &lt;vaapi-queue:sink&gt;
+             Detected on &lt;vaapi-queue:src&gt;
+             Detected on &lt;capsfilter1:sink&gt;
+             Detected on &lt;capsfilter1:src&gt;
+             Detected on &lt;vaapipostproc0:sink&gt;
+             Detected on &lt;vaapipostproc0:src&gt;
+             Detected on &lt;inputselector0:sink_0&gt;
+             Detected on &lt;inputselector0:src&gt;
+             Detected on &lt;streamsynchronizer0:sink_0&gt;
+             Detected on &lt;streamsynchronizer0:src_0&gt;
+             Detected on &lt;vdconv:sink&gt;
+             Detected on &lt;vdconv:src&gt;
+             Detected on &lt;deinterlace:sink&gt;
+             Detected on &lt;streamsynchronizer0:src_1&gt;
+             Detected on &lt;deinterlace:src&gt;
+             Detected on &lt;aqueue:sink&gt;
+             Detected on &lt;vqueue:sink&gt;
+             Detected on &lt;aqueue:src&gt;
+             Detected on &lt;conv:sink&gt;
+             Detected on &lt;conv:src&gt;
+             Detected on &lt;resample:sink&gt;
+             Detected on &lt;resample:src&gt;
+             Detected on &lt;pulsesink2:sink&gt;
+             Detected on &lt;vqueue:src&gt;
+             Detected on &lt;conv:sink&gt;
+             Detected on &lt;conv:src&gt;
+             Detected on &lt;scale:sink&gt;
+             Detected on &lt;scale:src&gt;
+             Detected on &lt;vaapisink0:sink&gt;
+             Description : when events/messages are created from another event/message, they should have their seqnums <span class="nb">set</span> to the original event/message seqnum
+
+   warning : received the same caps twice
+             Detected on &lt;h264parse0:sink&gt;
+             Detected on &lt;ac3parse0:sink&gt;
+             Detected on &lt;a52dec0:sink&gt;
+
+Issues found: <span class="nv">2</span>
+
+<span class="o">=======</span>&gt; Test PASSED <span class="o">(</span>Return value: <span class="m">0</span><span class="o">)</span>
+
+$ validate/tools/gst-validate-1.0 audiotestsrc ! input-selector ! capsfilter <span class="nv">name</span><span class="o">=</span>capsfilter <span class="nv">caps</span><span class="o">=</span>video/x-raw ! fakesink
+Starting pipeline
+Pipeline started
+   warning : EOS received without segment event before
+             Detected on &lt;audiotestsrc0:src&gt;
+             Detected on &lt;inputselector0:sink_0&gt;
+             Detected on &lt;inputselector0:src&gt;
+             Detected on &lt;capsfilter:sink&gt;
+             Detected on &lt;capsfilter:src&gt;
+             Description : A segment event should always be sent before data flow EOS being some kind of data flow, there is no exception in that regard
+
+  critical : a NOT NEGOTIATED message has been posted on the bus.
+             Detected on &lt;pipeline0&gt;
+             Details : Error message posted by: audiotestsrc0
+                      Caps negotiation failed starting from pad <span class="s1">&#39;capsfilter:sink&#39;</span> as the QUERY_CAPS returned EMPTY caps <span class="k">for</span> the following possible reasons:
+                         -&gt; Downstream caps struct <span class="m">0</span> name <span class="s1">&#39;video/x-raw&#39;</span> differs from filter caps struct <span class="m">0</span> name <span class="s1">&#39;audio/x-raw&#39;</span>. The exact reason could not be determined but here is the gathered information:
+                      - capsfilter:sink last query caps filter: audio/x-raw, <span class="nv">format</span><span class="o">=(</span>string<span class="o">){</span> S16LE, S16BE, U16LE, U16BE, S24_32LE, S24_32BE, U24_32LE, U24_32BE, S32LE, S32BE, U32LE, U32BE, S24LE, S24BE, U24LE, U24BE, S20LE, S20BE, U20LE, U20BE, S18LE, S18BE, U18LE, U18BE, F32LE, F32BE, F64LE, F64BE, S8, U8 <span class="o">}</span>, <span class="nv">layout</span><span class="o">=(</span>string<span class="o">)</span>interleaved, <span class="nv">rate</span><span class="o">=(</span>int<span class="o">)[</span> <span class="m">1</span>, <span class="m">2147483647</span> <span class="o">]</span>, <span class="nv">channels</span><span class="o">=(</span>int<span class="o">)[</span> <span class="m">1</span>, <span class="m">2147483647</span> <span class="o">]</span>
+                      - capsfilter:sink possible caps <span class="o">(</span>as returned by a query on it without filter<span class="o">)</span>: video/x-raw
+
+             dotfile : no dotfile produced as GST_DEBUG_DUMP_DOT_DIR is not set.
+             backtrace :
+               gst_debug_get_stack_trace <span class="o">(</span>/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b56683c05<span class="o">)</span>
+               gst_validate_report_new <span class="o">(</span>/home/dv/zone/gst-devtools/build/validate/gst/validate/libgstvalidate-1.0.so.0.1202.0:0x7f3b56974df0<span class="o">)</span>
+               gst_validate_report_valist <span class="o">(</span>/home/dv/zone/gst-devtools/build/validate/gst/validate/libgstvalidate-1.0.so.0.1202.0:0x7f3b5696559d<span class="o">)</span>
+               gst_validate_report <span class="o">(</span>/home/dv/zone/gst-devtools/build/validate/gst/validate/libgstvalidate-1.0.so.0.1202.0:0x7f3b56965ab6<span class="o">)</span>
+               _bus_handler <span class="o">(</span>/home/dv/zone/gst-devtools/build/validate/gst/validate/libgstvalidate-1.0.so.0.1202.0:0x7f3b56969021<span class="o">)</span>
+               ffi_call_unix64 <span class="o">(</span>/usr/lib/libffi.so.6.0.4:0x7f3b543711c4<span class="o">)</span>
+               ffi_call <span class="o">(</span>/usr/lib/libffi.so.6.0.4:0x7f3b54370c26<span class="o">)</span>
+               g_cclosure_marshal_generic <span class="o">(</span>/usr/lib/libgobject-2.0.so.0.5200.3:0x7f3b563d86a5<span class="o">)</span>
+               g_closure_invoke <span class="o">(</span>/usr/lib/libgobject-2.0.so.0.5200.3:0x7f3b563d7ea9<span class="o">)</span>
+               ?? <span class="o">(</span>/usr/lib/libgobject-2.0.so.0.5200.3:0x7f3b563ea4aa<span class="o">)</span>
+               g_signal_emit_valist <span class="o">(</span>/usr/lib/libgobject-2.0.so.0.5200.3:0x7f3b563f2c81<span class="o">)</span>
+               g_signal_emit <span class="o">(</span>/usr/lib/libgobject-2.0.so.0.5200.3:0x7f3b563f369b<span class="o">)</span>
+               gst_bus_sync_signal_handler <span class="o">(</span>/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b5665c964<span class="o">)</span>
+               gst_bus_post <span class="o">(</span>/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b5665cc4a<span class="o">)</span>
+               ?? <span class="o">(</span>/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b56672bd8<span class="o">)</span>
+               ?? <span class="o">(</span>/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b5664e6da<span class="o">)</span>
+               gst_element_post_message <span class="o">(</span>/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b56675a2c<span class="o">)</span>
+               ?? <span class="o">(</span>/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b5664ea27<span class="o">)</span>
+               ?? <span class="o">(</span>/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b5669c4ee<span class="o">)</span>
+               ?? <span class="o">(</span>/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b5664c094<span class="o">)</span>
+               gst_bus_post <span class="o">(</span>/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b5665cc20<span class="o">)</span>
+               ?? <span class="o">(</span>/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b56672bd8<span class="o">)</span>
+               gst_element_post_message <span class="o">(</span>/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b56675a2c<span class="o">)</span>
+               gst_element_message_full_with_details <span class="o">(</span>/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b5667610c<span class="o">)</span>
+               ?? <span class="o">(</span>/usr/lib/libgstbase-1.0.so.0.1202.0:0x7f3b5310c047<span class="o">)</span>
+               ?? <span class="o">(</span>/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b566c407f<span class="o">)</span>
+               ?? <span class="o">(</span>/usr/lib/libglib-2.0.so.0.5200.3:0x7f3b561274ac<span class="o">)</span>
+               ?? <span class="o">(</span>/usr/lib/libglib-2.0.so.0.5200.3:0x7f3b56126ae1<span class="o">)</span>
+               start_thread <span class="o">(</span>/usr/lib/libpthread-2.25.so:0x7f3b54de9045<span class="o">)</span>
+               __clone <span class="o">(</span>/usr/lib/libc-2.25.so:0x7f3b55a61f0b<span class="o">)</span>
+
+
+
+
+<span class="o">====</span> Got criticals. Return value <span class="nb">set</span> to <span class="nv">18</span> <span class="o">====</span>
+     Critical error Error message posted by: audiotestsrc0
+ Caps negotiation failed starting from pad <span class="s1">&#39;capsfilter:sink&#39;</span> as the QUERY_CAPS returned EMPTY caps <span class="k">for</span> the following possible reasons:
+    -&gt; Downstream caps struct <span class="m">0</span> name <span class="s1">&#39;video/x-raw&#39;</span> differs from filter caps struct <span class="m">0</span> name <span class="s1">&#39;audio/x-raw&#39;</span>. The exact reason could not be determined but here is the gathered information:
+ - capsfilter:sink last query caps filter: audio/x-raw, <span class="nv">format</span><span class="o">=(</span>string<span class="o">){</span> S16LE, S16BE, U16LE, U16BE, S24_32LE, S24_32BE, U24_32LE, U24_32BE, S32LE, S32BE, U32LE, U32BE, S24LE, S24BE, U24LE, U24BE, S20LE, S20BE, U20LE, U20BE, S18LE, S18BE, U18LE, U18BE, F32LE, F32BE, F64LE, F64BE, S8, U8 <span class="o">}</span>, <span class="nv">layout</span><span class="o">=(</span>string<span class="o">)</span>interleaved, <span class="nv">rate</span><span class="o">=(</span>int<span class="o">)[</span> <span class="m">1</span>, <span class="m">2147483647</span> <span class="o">]</span>, <span class="nv">channels</span><span class="o">=(</span>int<span class="o">)[</span> <span class="m">1</span>, <span class="m">2147483647</span> <span class="o">]</span>
+ - capsfilter:sink possible caps <span class="o">(</span>as returned by a query on it without filter<span class="o">)</span>: video/x-raw
+
+
+Issues found: <span class="m">2</span>
+Returning <span class="m">18</span> as errors were <span class="nv">found</span>
+
+<span class="o">=======</span>&gt; Test FAILED <span class="o">(</span>Return value: <span class="m">18</span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="hardware-acceleration">
+<h2><a class="toc-backref" href="#id30">Hardware Acceleration</a><a class="headerlink" href="#hardware-acceleration" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="va-api">
+<h3><a class="toc-backref" href="#id31">VA-API</a><a class="headerlink" href="#va-api" title="本標題的永久連結">¶</a></h3>
+<p>VA-API 是一套開源的 Library 和 API 定義（由 Intel 主推的），
+提供一個抽象層來使用硬體處理影像，
+硬體廠商可以為這套 API 實做自己的硬體支援。</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.freedesktop.org/wiki/Software/vaapi/">freedesktop.org - VAAPI</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Video_Acceleration_API">Wikipedia - Video Acceleration API</a></li>
+<li><a class="reference external" href="https://wiki.gentoo.org/wiki/VAAPI">Gentoo Wiki - VAAPI</a></li>
+<li><a class="reference external" href="https://wiki.archlinux.org/index.php/Hardware_video_acceleration">Arch Wiki - Hardware video acceleration</a></li>
+<li>[GitHub] <a class="reference external" href="https://github.com/GStreamer/gstreamer-vaapi">gstreamer-vaapi</a></li>
+</ul>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ sudo pacman -S libva libva-utils
+$ sudo pacman -S libva-intel-driver   <span class="c1"># for Intel</span>
+$ vainfo
+libva info: VA-API version <span class="m">0</span>.40.0
+libva info: va_getDriverName<span class="o">()</span> returns <span class="m">0</span>
+libva info: Trying to open /usr/lib/dri/i965_drv_video.so
+libva info: Found init <span class="k">function</span> __vaDriverInit_0_40
+libva info: va_openDriver<span class="o">()</span> returns <span class="m">0</span>
+vainfo: VA-API version: <span class="m">0</span>.40 <span class="o">(</span>libva <span class="o">)</span>
+vainfo: Driver version: Intel i965 driver <span class="k">for</span> Intel<span class="o">(</span>R<span class="o">)</span> Skylake - <span class="m">1</span>.8.2
+vainfo: Supported profile and entrypoints
+      VAProfileMPEG2Simple            :     VAEntrypointVLD
+      VAProfileMPEG2Simple            :     VAEntrypointEncSlice
+      VAProfileMPEG2Main              :     VAEntrypointVLD
+      VAProfileMPEG2Main              :     VAEntrypointEncSlice
+      VAProfileH264ConstrainedBaseline:     VAEntrypointVLD
+      VAProfileH264ConstrainedBaseline:     VAEntrypointEncSlice
+      VAProfileH264ConstrainedBaseline:     VAEntrypointEncSliceLP
+      VAProfileH264Main               :     VAEntrypointVLD
+      VAProfileH264Main               :     VAEntrypointEncSlice
+      VAProfileH264Main               :     VAEntrypointEncSliceLP
+      VAProfileH264High               :     VAEntrypointVLD
+      VAProfileH264High               :     VAEntrypointEncSlice
+      VAProfileH264High               :     VAEntrypointEncSliceLP
+      VAProfileH264MultiviewHigh      :     VAEntrypointVLD
+      VAProfileH264MultiviewHigh      :     VAEntrypointEncSlice
+      VAProfileH264StereoHigh         :     VAEntrypointVLD
+      VAProfileH264StereoHigh         :     VAEntrypointEncSlice
+      VAProfileVC1Simple              :     VAEntrypointVLD
+      VAProfileVC1Main                :     VAEntrypointVLD
+      VAProfileVC1Advanced            :     VAEntrypointVLD
+      VAProfileNone                   :     VAEntrypointVideoProc
+      VAProfileJPEGBaseline           :     VAEntrypointVLD
+      VAProfileJPEGBaseline           :     VAEntrypointEncPicture
+      VAProfileVP8Version0_3          :     VAEntrypointVLD
+      VAProfileVP8Version0_3          :     VAEntrypointEncSlice
+      VAProfileHEVCMain               :     VAEntrypointVLD
+      VAProfileHEVCMain               :     VAEntrypointEncSlice
+</pre></div>
+</div>
+</div>
+<div class="section" id="vdpau">
+<h3><a class="toc-backref" href="#id32">VDPAU</a><a class="headerlink" href="#vdpau" title="本標題的永久連結">¶</a></h3>
+</div>
+<div class="section" id="intel-media-sdk">
+<h3><a class="toc-backref" href="#id33">Intel Media SDK</a><a class="headerlink" href="#intel-media-sdk" title="本標題的永久連結">¶</a></h3>
+</div>
+</div>
+<div class="section" id="benchmark-profiling">
+<h2><a class="toc-backref" href="#id34">Benchmark &amp; Profiling</a><a class="headerlink" href="#benchmark-profiling" title="本標題的永久連結">¶</a></h2>
+</div>
+<div class="section" id="term">
+<h2><a class="toc-backref" href="#id35">Term</a><a class="headerlink" href="#term" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li>source</li>
+<li>sink</li>
+<li>pad</li>
+<li>bin</li>
+<li>pipeline</li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h2><a class="toc-backref" href="#id36">設計重點</a><a class="headerlink" href="#id9" title="本標題的永久連結">¶</a></h2>
+<p>Pipeline</p>
+</div>
+<div class="section" id="write-plugin">
+<h2><a class="toc-backref" href="#id37">Write Plugin</a><a class="headerlink" href="#write-plugin" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://coaxion.net/blog/2016/05/writing-gstreamer-plugins-and-elements-in-rust/">Writing GStreamer plugins and elements in Rust</a></li>
+<li><a class="reference external" href="https://coaxion.net/blog/2016/09/writing-gstreamer-elements-in-rust-part-2-dont-panic-we-have-better-assertions-now-and-other-updates/">Writing GStreamer Elements in Rust (Part 2) - Don’t panic, we have better assertions now</a></li>
+<li><a class="reference external" href="https://coaxion.net/blog/2016/11/writing-gstreamer-elements-in-rust-part-3-parsing-data-from-untrusted-sources-like-its-2016/">Writing GStreamer Elements in Rust (Part 3) - Parsing data from untrusted sources like it’s 2016</a></li>
+<li><a class="reference external" href="https://coaxion.net/blog/2017/03/writing-gstreamer-elements-in-rust-part-4-logging-cows-and-plugins/">Writing GStreamer Elements in Rust (Part 4) - Logging, COWs and Plugins</a></li>
+</ul>
+</div>
+<div class="section" id="real-time-streaming">
+<h2><a class="toc-backref" href="#id38">Real-Time Streaming</a><a class="headerlink" href="#real-time-streaming" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>rtspsrc</dt>
+<dd><ul class="first last">
+<li><code class="docutils literal"><span class="pre">latency=0</span></code></li>
+<li><code class="docutils literal"><span class="pre">timeout=0</span></code></li>
+<li><code class="docutils literal"><span class="pre">drop-on-latency=true</span></code></li>
+<li><a class="reference external" href="https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-good-plugins/html/gst-plugins-good-plugins-rtspsrc.html">https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-good-plugins/html/gst-plugins-good-plugins-rtspsrc.html</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>x264enc</dt>
+<dd><ul class="first last">
+<li><code class="docutils literal"><span class="pre">tune=zerolatency</span></code></li>
+<li><code class="docutils literal"><span class="pre">speed-preset=superfast</span></code></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>gstrtpjitterbuffer</dt>
+<dd><ul class="first last">
+<li><code class="docutils literal"><span class="pre">drop-on-latency=false</span></code></li>
+<li><code class="docutils literal"><span class="pre">latency=500</span></code></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>appsink</dt>
+<dd><ul class="first last">
+<li><code class="docutils literal"><span class="pre">drop=true</span></code></li>
+<li><code class="docutils literal"><span class="pre">max-buffers=1</span></code></li>
+<li><a class="reference external" href="https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-base-plugins/html/gst-plugins-base-plugins-appsink.html">https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-base-plugins/html/gst-plugins-base-plugins-appsink.html</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>udpsrc</dt>
+<dd><ul class="first last">
+<li><code class="docutils literal"><span class="pre">reuse=true</span></code></li>
+<li><code class="docutils literal"><span class="pre">retrieve-sender-address=false</span></code></li>
+<li><a class="reference external" href="https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-good-plugins/html/gst-plugins-good-plugins-udpsrc.html">https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-good-plugins/html/gst-plugins-good-plugins-udpsrc.html</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
 <div class="section" id="license">
-<h2><a class="toc-backref" href="#id16">License</a><a class="headerlink" href="#license" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id39">License</a><a class="headerlink" href="#license" title="本標題的永久連結">¶</a></h2>
 <p>LGPL</p>
 </div>
-<div class="section" id="id6">
-<h2><a class="toc-backref" href="#id17">參考</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="id10">
+<h2><a class="toc-backref" href="#id40">參考</a><a class="headerlink" href="#id10" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://gstreamer.freedesktop.org/documentation/licensing.html">Licensing your applications and plugins for use with GStreamer</a></li>
 <li><a class="reference external" href="https://github.com/kirushyk/gst-instruments">gst-instruments - Easy-to-use profiler for GStreamer</a></li>
+<li><a class="reference external" href="https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer-plugins/html/gstreamer-plugins-plugin-coreelements.html#plugin-coreelements">GStreamer - core elements</a></li>
+<li><cite>GStreamer Conference &lt;https://gstreamer.freedesktop.org/conference/&gt;</cite>-</li>
+</ul>
+<p>Talks:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.youtube.com/watch?v=W_mnFFqpMpQ">Sebastian Dröge &amp; Luis de Bethencourt - GStreamer &amp; Rust – A perfect match</a></li>
+</ul>
+<p>Articles:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://blogs.s-osg.org/gstreamer-to-gain-the-first-rtsp-2-0-implementation/">GStreamer to Gain the First RTSP 2.0 Implementation!</a></li>
+<li><a class="reference external" href="https://blogs.s-osg.org/creating-scenarios-gst-validate/">How to Test GStreamer Pipelines with gst-validate Scenarios</a></li>
 </ul>
 </div>
 </div>

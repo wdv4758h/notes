@@ -148,6 +148,361 @@ Python Binding
 
 
 
+核心元件
+========================================
+
+`core elements <https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer-plugins/html/gstreamer-plugins-plugin-coreelements.html>`_
+
+
+Pipeline Branch - tee
+------------------------------
+
+`tee <https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer-plugins/html/gstreamer-plugins-tee.html>`_
+會從原本的 Pipeline 切出 Branch，
+範例：
+
+.. code-block:: sh
+
+    $ gst-launch-1.0 filesrc location=song.ogg ! decodebin ! \
+        tee name=t ! queue ! audioconvert ! audioresample ! autoaudiosink \
+                t. ! queue ! audioconvert ! goom ! videoconvert ! autovideosink
+
+
+寫到指定的 File Descriptor - fdsink
+-----------------------------------
+
+.. code-block:: sh
+
+    $ gst-launch-1.0 -q videotestsrc pattern=ball ! video/x-raw,height=320,width=240,framerate=30/1,format=RGB ! fdsink | ffplay -f rawvideo -pixel_format rgb24 -video_size 240x320 -i -
+
+
+從指定的 File Descriptor 讀入 - fdsrc
+-------------------------------------
+
+.. code-block:: sh
+
+    $ echo "Hello GStreamer" | gst-launch-1.0 -v fdsrc ! fakesink dump=true
+    Setting pipeline to PAUSED ...
+    Pipeline is PREROLLING ...
+    Pipeline is PREROLLED ...
+    Setting pipeline to PLAYING ...
+    New clock: GstSystemClock
+    00000000 (0x7f9fd8004890): 48 65 6c 6c 6f 20 47 53 74 72 65 61 6d 65 72 0a  Hello GStreamer.
+    Got EOS from element "pipeline0".
+    Execution ended after 0:00:00.000123950
+    Setting pipeline to PAUSED ...
+    Setting pipeline to READY ...
+    Setting pipeline to NULL ...
+    Freeing pipeline ...
+
+
+input-selector
+------------------------------
+
+
+identity
+------------------------------
+
+
+funnel
+------------------------------
+
+
+
+其他元件
+========================================
+
+TCP
+------------------------------
+
+* tcpserversrc
+* tcpserversink
+* tcpclientsrc
+* tcpclientsink
+
+
+Pipeline 除錯
+========================================
+
+* [GitHub] `gst-devtools <https://github.com/GStreamer/gst-devtools>`_
+* `gst-validate <https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-validate/html/gst-validate.html>`_
+
+.. code-block:: sh
+
+    $ git clone https://github.com/GStreamer/gst-devtools
+    $ cd gst-devtools
+    $ meson . build
+    $ cd build
+    $ ninja
+
+    $ validate/tools/gst-validate-1.0 playbin file:///path/to/a/video.mkv
+    Starting pipeline
+    Pipeline started
+         issue : EOS events that are part of the same pipeline 'operation' should have the same seqnum
+                 Detected on <matroskademux0:video_0>
+                 Detected on <multiqueue0:sink_0>
+                 Detected on <matroskademux0:audio_0>
+                 Detected on <multiqueue0:sink_1>
+                 Detected on <multiqueue0:src_1>
+                 Detected on <ac3parse0:sink>
+                 Detected on <ac3parse0:src>
+                 Detected on <capsfilter2:sink>
+                 Detected on <capsfilter2:src>
+                 Detected on <a52dec0:sink>
+                 Detected on <a52dec0:src>
+                 Detected on <inputselector1:sink_0>
+                 Detected on <inputselector1:src>
+                 Detected on <audiotee:sink>
+                 Detected on <audiotee:src_0>
+                 Detected on <streamsynchronizer0:sink_1>
+                 Detected on <multiqueue0:src_0>
+                 Detected on <h264parse0:sink>
+                 Detected on <h264parse0:src>
+                 Detected on <capsfilter0:sink>
+                 Detected on <capsfilter0:src>
+                 Detected on <vaapidecode0:sink>
+                 Detected on <vaapidecode0:src>
+                 Detected on <vaapi-queue:sink>
+                 Detected on <vaapi-queue:src>
+                 Detected on <capsfilter1:sink>
+                 Detected on <capsfilter1:src>
+                 Detected on <vaapipostproc0:sink>
+                 Detected on <vaapipostproc0:src>
+                 Detected on <inputselector0:sink_0>
+                 Detected on <inputselector0:src>
+                 Detected on <streamsynchronizer0:sink_0>
+                 Detected on <streamsynchronizer0:src_0>
+                 Detected on <vdconv:sink>
+                 Detected on <vdconv:src>
+                 Detected on <deinterlace:sink>
+                 Detected on <streamsynchronizer0:src_1>
+                 Detected on <deinterlace:src>
+                 Detected on <aqueue:sink>
+                 Detected on <vqueue:sink>
+                 Detected on <aqueue:src>
+                 Detected on <conv:sink>
+                 Detected on <conv:src>
+                 Detected on <resample:sink>
+                 Detected on <resample:src>
+                 Detected on <pulsesink2:sink>
+                 Detected on <vqueue:src>
+                 Detected on <conv:sink>
+                 Detected on <conv:src>
+                 Detected on <scale:sink>
+                 Detected on <scale:src>
+                 Detected on <vaapisink0:sink>
+                 Description : when events/messages are created from another event/message, they should have their seqnums set to the original event/message seqnum
+
+       warning : received the same caps twice
+                 Detected on <h264parse0:sink>
+                 Detected on <ac3parse0:sink>
+                 Detected on <a52dec0:sink>
+
+    Issues found: 2
+
+    =======> Test PASSED (Return value: 0)
+
+    $ validate/tools/gst-validate-1.0 audiotestsrc ! input-selector ! capsfilter name=capsfilter caps=video/x-raw ! fakesink
+    Starting pipeline
+    Pipeline started
+       warning : EOS received without segment event before
+                 Detected on <audiotestsrc0:src>
+                 Detected on <inputselector0:sink_0>
+                 Detected on <inputselector0:src>
+                 Detected on <capsfilter:sink>
+                 Detected on <capsfilter:src>
+                 Description : A segment event should always be sent before data flow EOS being some kind of data flow, there is no exception in that regard
+
+      critical : a NOT NEGOTIATED message has been posted on the bus.
+                 Detected on <pipeline0>
+                 Details : Error message posted by: audiotestsrc0
+                          Caps negotiation failed starting from pad 'capsfilter:sink' as the QUERY_CAPS returned EMPTY caps for the following possible reasons:
+                             -> Downstream caps struct 0 name 'video/x-raw' differs from filter caps struct 0 name 'audio/x-raw'. The exact reason could not be determined but here is the gathered information:
+                          - capsfilter:sink last query caps filter: audio/x-raw, format=(string){ S16LE, S16BE, U16LE, U16BE, S24_32LE, S24_32BE, U24_32LE, U24_32BE, S32LE, S32BE, U32LE, U32BE, S24LE, S24BE, U24LE, U24BE, S20LE, S20BE, U20LE, U20BE, S18LE, S18BE, U18LE, U18BE, F32LE, F32BE, F64LE, F64BE, S8, U8 }, layout=(string)interleaved, rate=(int)[ 1, 2147483647 ], channels=(int)[ 1, 2147483647 ]
+                          - capsfilter:sink possible caps (as returned by a query on it without filter): video/x-raw
+
+                 dotfile : no dotfile produced as GST_DEBUG_DUMP_DOT_DIR is not set.
+                 backtrace :
+                   gst_debug_get_stack_trace (/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b56683c05)
+                   gst_validate_report_new (/home/dv/zone/gst-devtools/build/validate/gst/validate/libgstvalidate-1.0.so.0.1202.0:0x7f3b56974df0)
+                   gst_validate_report_valist (/home/dv/zone/gst-devtools/build/validate/gst/validate/libgstvalidate-1.0.so.0.1202.0:0x7f3b5696559d)
+                   gst_validate_report (/home/dv/zone/gst-devtools/build/validate/gst/validate/libgstvalidate-1.0.so.0.1202.0:0x7f3b56965ab6)
+                   _bus_handler (/home/dv/zone/gst-devtools/build/validate/gst/validate/libgstvalidate-1.0.so.0.1202.0:0x7f3b56969021)
+                   ffi_call_unix64 (/usr/lib/libffi.so.6.0.4:0x7f3b543711c4)
+                   ffi_call (/usr/lib/libffi.so.6.0.4:0x7f3b54370c26)
+                   g_cclosure_marshal_generic (/usr/lib/libgobject-2.0.so.0.5200.3:0x7f3b563d86a5)
+                   g_closure_invoke (/usr/lib/libgobject-2.0.so.0.5200.3:0x7f3b563d7ea9)
+                   ?? (/usr/lib/libgobject-2.0.so.0.5200.3:0x7f3b563ea4aa)
+                   g_signal_emit_valist (/usr/lib/libgobject-2.0.so.0.5200.3:0x7f3b563f2c81)
+                   g_signal_emit (/usr/lib/libgobject-2.0.so.0.5200.3:0x7f3b563f369b)
+                   gst_bus_sync_signal_handler (/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b5665c964)
+                   gst_bus_post (/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b5665cc4a)
+                   ?? (/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b56672bd8)
+                   ?? (/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b5664e6da)
+                   gst_element_post_message (/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b56675a2c)
+                   ?? (/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b5664ea27)
+                   ?? (/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b5669c4ee)
+                   ?? (/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b5664c094)
+                   gst_bus_post (/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b5665cc20)
+                   ?? (/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b56672bd8)
+                   gst_element_post_message (/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b56675a2c)
+                   gst_element_message_full_with_details (/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b5667610c)
+                   ?? (/usr/lib/libgstbase-1.0.so.0.1202.0:0x7f3b5310c047)
+                   ?? (/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b566c407f)
+                   ?? (/usr/lib/libglib-2.0.so.0.5200.3:0x7f3b561274ac)
+                   ?? (/usr/lib/libglib-2.0.so.0.5200.3:0x7f3b56126ae1)
+                   start_thread (/usr/lib/libpthread-2.25.so:0x7f3b54de9045)
+                   __clone (/usr/lib/libc-2.25.so:0x7f3b55a61f0b)
+
+
+
+
+    ==== Got criticals. Return value set to 18 ====
+         Critical error Error message posted by: audiotestsrc0
+     Caps negotiation failed starting from pad 'capsfilter:sink' as the QUERY_CAPS returned EMPTY caps for the following possible reasons:
+        -> Downstream caps struct 0 name 'video/x-raw' differs from filter caps struct 0 name 'audio/x-raw'. The exact reason could not be determined but here is the gathered information:
+     - capsfilter:sink last query caps filter: audio/x-raw, format=(string){ S16LE, S16BE, U16LE, U16BE, S24_32LE, S24_32BE, U24_32LE, U24_32BE, S32LE, S32BE, U32LE, U32BE, S24LE, S24BE, U24LE, U24BE, S20LE, S20BE, U20LE, U20BE, S18LE, S18BE, U18LE, U18BE, F32LE, F32BE, F64LE, F64BE, S8, U8 }, layout=(string)interleaved, rate=(int)[ 1, 2147483647 ], channels=(int)[ 1, 2147483647 ]
+     - capsfilter:sink possible caps (as returned by a query on it without filter): video/x-raw
+
+
+    Issues found: 2
+    Returning 18 as errors were found
+
+    =======> Test FAILED (Return value: 18)
+
+
+
+
+Hardware Acceleration
+========================================
+
+VA-API
+------------------------------
+
+VA-API 是一套開源的 Library 和 API 定義（由 Intel 主推的），
+提供一個抽象層來使用硬體處理影像，
+硬體廠商可以為這套 API 實做自己的硬體支援。
+
+* `freedesktop.org - VAAPI <https://www.freedesktop.org/wiki/Software/vaapi/>`_
+* `Wikipedia - Video Acceleration API <https://en.wikipedia.org/wiki/Video_Acceleration_API>`_
+* `Gentoo Wiki - VAAPI <https://wiki.gentoo.org/wiki/VAAPI>`_
+* `Arch Wiki - Hardware video acceleration <https://wiki.archlinux.org/index.php/Hardware_video_acceleration>`_
+* [GitHub] `gstreamer-vaapi <https://github.com/GStreamer/gstreamer-vaapi>`_
+
+
+.. code-block:: sh
+
+    $ sudo pacman -S libva libva-utils
+    $ sudo pacman -S libva-intel-driver   # for Intel
+    $ vainfo
+    libva info: VA-API version 0.40.0
+    libva info: va_getDriverName() returns 0
+    libva info: Trying to open /usr/lib/dri/i965_drv_video.so
+    libva info: Found init function __vaDriverInit_0_40
+    libva info: va_openDriver() returns 0
+    vainfo: VA-API version: 0.40 (libva )
+    vainfo: Driver version: Intel i965 driver for Intel(R) Skylake - 1.8.2
+    vainfo: Supported profile and entrypoints
+          VAProfileMPEG2Simple            :	VAEntrypointVLD
+          VAProfileMPEG2Simple            :	VAEntrypointEncSlice
+          VAProfileMPEG2Main              :	VAEntrypointVLD
+          VAProfileMPEG2Main              :	VAEntrypointEncSlice
+          VAProfileH264ConstrainedBaseline:	VAEntrypointVLD
+          VAProfileH264ConstrainedBaseline:	VAEntrypointEncSlice
+          VAProfileH264ConstrainedBaseline:	VAEntrypointEncSliceLP
+          VAProfileH264Main               :	VAEntrypointVLD
+          VAProfileH264Main               :	VAEntrypointEncSlice
+          VAProfileH264Main               :	VAEntrypointEncSliceLP
+          VAProfileH264High               :	VAEntrypointVLD
+          VAProfileH264High               :	VAEntrypointEncSlice
+          VAProfileH264High               :	VAEntrypointEncSliceLP
+          VAProfileH264MultiviewHigh      :	VAEntrypointVLD
+          VAProfileH264MultiviewHigh      :	VAEntrypointEncSlice
+          VAProfileH264StereoHigh         :	VAEntrypointVLD
+          VAProfileH264StereoHigh         :	VAEntrypointEncSlice
+          VAProfileVC1Simple              :	VAEntrypointVLD
+          VAProfileVC1Main                :	VAEntrypointVLD
+          VAProfileVC1Advanced            :	VAEntrypointVLD
+          VAProfileNone                   :	VAEntrypointVideoProc
+          VAProfileJPEGBaseline           :	VAEntrypointVLD
+          VAProfileJPEGBaseline           :	VAEntrypointEncPicture
+          VAProfileVP8Version0_3          :	VAEntrypointVLD
+          VAProfileVP8Version0_3          :	VAEntrypointEncSlice
+          VAProfileHEVCMain               :	VAEntrypointVLD
+          VAProfileHEVCMain               :	VAEntrypointEncSlice
+
+
+VDPAU
+------------------------------
+
+
+Intel Media SDK
+------------------------------
+
+
+
+Benchmark & Profiling
+========================================
+
+
+
+Term
+========================================
+
+* source
+* sink
+* pad
+* bin
+* pipeline
+
+
+
+設計重點
+========================================
+
+Pipeline
+
+
+
+Write Plugin
+========================================
+
+* `Writing GStreamer plugins and elements in Rust <https://coaxion.net/blog/2016/05/writing-gstreamer-plugins-and-elements-in-rust/>`_
+* `Writing GStreamer Elements in Rust (Part 2) - Don’t panic, we have better assertions now <https://coaxion.net/blog/2016/09/writing-gstreamer-elements-in-rust-part-2-dont-panic-we-have-better-assertions-now-and-other-updates/>`_
+* `Writing GStreamer Elements in Rust (Part 3) - Parsing data from untrusted sources like it’s 2016 <https://coaxion.net/blog/2016/11/writing-gstreamer-elements-in-rust-part-3-parsing-data-from-untrusted-sources-like-its-2016/>`_
+* `Writing GStreamer Elements in Rust (Part 4) - Logging, COWs and Plugins <https://coaxion.net/blog/2017/03/writing-gstreamer-elements-in-rust-part-4-logging-cows-and-plugins/>`_
+
+
+
+Real-Time Streaming
+========================================
+
+* rtspsrc
+    - ``latency=0``
+    - ``timeout=0``
+    - ``drop-on-latency=true``
+    - https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-good-plugins/html/gst-plugins-good-plugins-rtspsrc.html
+
+* x264enc
+    - ``tune=zerolatency``
+    - ``speed-preset=superfast``
+
+* gstrtpjitterbuffer
+    - ``drop-on-latency=false``
+    - ``latency=500``
+
+* appsink
+    - ``drop=true``
+    - ``max-buffers=1``
+    - https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-base-plugins/html/gst-plugins-base-plugins-appsink.html
+
+* udpsrc
+    - ``reuse=true``
+    - ``retrieve-sender-address=false``
+    - https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-good-plugins/html/gst-plugins-good-plugins-udpsrc.html
+
+
+
 License
 ========================================
 
@@ -160,3 +515,16 @@ LGPL
 
 * `Licensing your applications and plugins for use with GStreamer <https://gstreamer.freedesktop.org/documentation/licensing.html>`_
 * `gst-instruments - Easy-to-use profiler for GStreamer <https://github.com/kirushyk/gst-instruments>`_
+* `GStreamer - core elements <https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer-plugins/html/gstreamer-plugins-plugin-coreelements.html#plugin-coreelements>`_
+* `GStreamer Conference <https://gstreamer.freedesktop.org/conference/>`-
+
+
+Talks:
+
+* `Sebastian Dröge & Luis de Bethencourt - GStreamer & Rust – A perfect match <https://www.youtube.com/watch?v=W_mnFFqpMpQ>`_
+
+
+Articles:
+
+* `GStreamer to Gain the First RTSP 2.0 Implementation! <https://blogs.s-osg.org/gstreamer-to-gain-the-first-rtsp-2-0-implementation/>`_
+* `How to Test GStreamer Pipelines with gst-validate Scenarios <https://blogs.s-osg.org/creating-scenarios-gst-validate/>`_
