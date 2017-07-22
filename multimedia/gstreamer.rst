@@ -151,7 +151,7 @@ Python Binding
 核心元件
 ========================================
 
-`coreelements <https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer-plugins/html/gstreamer-plugins-plugin-coreelements.html>`_
+`core elements <https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer-plugins/html/gstreamer-plugins-plugin-coreelements.html>`_
 
 
 Pipeline Branch - tee
@@ -194,6 +194,18 @@ Pipeline Branch - tee
     Setting pipeline to READY ...
     Setting pipeline to NULL ...
     Freeing pipeline ...
+
+
+input-selector
+------------------------------
+
+
+identity
+------------------------------
+
+
+funnel
+------------------------------
 
 
 
@@ -289,6 +301,75 @@ Pipeline 除錯
     Issues found: 2
 
     =======> Test PASSED (Return value: 0)
+
+    $ validate/tools/gst-validate-1.0 audiotestsrc ! input-selector ! capsfilter name=capsfilter caps=video/x-raw ! fakesink
+    Starting pipeline
+    Pipeline started
+       warning : EOS received without segment event before
+                 Detected on <audiotestsrc0:src>
+                 Detected on <inputselector0:sink_0>
+                 Detected on <inputselector0:src>
+                 Detected on <capsfilter:sink>
+                 Detected on <capsfilter:src>
+                 Description : A segment event should always be sent before data flow EOS being some kind of data flow, there is no exception in that regard
+
+      critical : a NOT NEGOTIATED message has been posted on the bus.
+                 Detected on <pipeline0>
+                 Details : Error message posted by: audiotestsrc0
+                          Caps negotiation failed starting from pad 'capsfilter:sink' as the QUERY_CAPS returned EMPTY caps for the following possible reasons:
+                             -> Downstream caps struct 0 name 'video/x-raw' differs from filter caps struct 0 name 'audio/x-raw'. The exact reason could not be determined but here is the gathered information:
+                          - capsfilter:sink last query caps filter: audio/x-raw, format=(string){ S16LE, S16BE, U16LE, U16BE, S24_32LE, S24_32BE, U24_32LE, U24_32BE, S32LE, S32BE, U32LE, U32BE, S24LE, S24BE, U24LE, U24BE, S20LE, S20BE, U20LE, U20BE, S18LE, S18BE, U18LE, U18BE, F32LE, F32BE, F64LE, F64BE, S8, U8 }, layout=(string)interleaved, rate=(int)[ 1, 2147483647 ], channels=(int)[ 1, 2147483647 ]
+                          - capsfilter:sink possible caps (as returned by a query on it without filter): video/x-raw
+
+                 dotfile : no dotfile produced as GST_DEBUG_DUMP_DOT_DIR is not set.
+                 backtrace :
+                   gst_debug_get_stack_trace (/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b56683c05)
+                   gst_validate_report_new (/home/dv/zone/gst-devtools/build/validate/gst/validate/libgstvalidate-1.0.so.0.1202.0:0x7f3b56974df0)
+                   gst_validate_report_valist (/home/dv/zone/gst-devtools/build/validate/gst/validate/libgstvalidate-1.0.so.0.1202.0:0x7f3b5696559d)
+                   gst_validate_report (/home/dv/zone/gst-devtools/build/validate/gst/validate/libgstvalidate-1.0.so.0.1202.0:0x7f3b56965ab6)
+                   _bus_handler (/home/dv/zone/gst-devtools/build/validate/gst/validate/libgstvalidate-1.0.so.0.1202.0:0x7f3b56969021)
+                   ffi_call_unix64 (/usr/lib/libffi.so.6.0.4:0x7f3b543711c4)
+                   ffi_call (/usr/lib/libffi.so.6.0.4:0x7f3b54370c26)
+                   g_cclosure_marshal_generic (/usr/lib/libgobject-2.0.so.0.5200.3:0x7f3b563d86a5)
+                   g_closure_invoke (/usr/lib/libgobject-2.0.so.0.5200.3:0x7f3b563d7ea9)
+                   ?? (/usr/lib/libgobject-2.0.so.0.5200.3:0x7f3b563ea4aa)
+                   g_signal_emit_valist (/usr/lib/libgobject-2.0.so.0.5200.3:0x7f3b563f2c81)
+                   g_signal_emit (/usr/lib/libgobject-2.0.so.0.5200.3:0x7f3b563f369b)
+                   gst_bus_sync_signal_handler (/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b5665c964)
+                   gst_bus_post (/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b5665cc4a)
+                   ?? (/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b56672bd8)
+                   ?? (/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b5664e6da)
+                   gst_element_post_message (/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b56675a2c)
+                   ?? (/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b5664ea27)
+                   ?? (/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b5669c4ee)
+                   ?? (/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b5664c094)
+                   gst_bus_post (/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b5665cc20)
+                   ?? (/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b56672bd8)
+                   gst_element_post_message (/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b56675a2c)
+                   gst_element_message_full_with_details (/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b5667610c)
+                   ?? (/usr/lib/libgstbase-1.0.so.0.1202.0:0x7f3b5310c047)
+                   ?? (/usr/lib/libgstreamer-1.0.so.0.1202.0:0x7f3b566c407f)
+                   ?? (/usr/lib/libglib-2.0.so.0.5200.3:0x7f3b561274ac)
+                   ?? (/usr/lib/libglib-2.0.so.0.5200.3:0x7f3b56126ae1)
+                   start_thread (/usr/lib/libpthread-2.25.so:0x7f3b54de9045)
+                   __clone (/usr/lib/libc-2.25.so:0x7f3b55a61f0b)
+
+
+
+
+    ==== Got criticals. Return value set to 18 ====
+         Critical error Error message posted by: audiotestsrc0
+     Caps negotiation failed starting from pad 'capsfilter:sink' as the QUERY_CAPS returned EMPTY caps for the following possible reasons:
+        -> Downstream caps struct 0 name 'video/x-raw' differs from filter caps struct 0 name 'audio/x-raw'. The exact reason could not be determined but here is the gathered information:
+     - capsfilter:sink last query caps filter: audio/x-raw, format=(string){ S16LE, S16BE, U16LE, U16BE, S24_32LE, S24_32BE, U24_32LE, U24_32BE, S32LE, S32BE, U32LE, U32BE, S24LE, S24BE, U24LE, U24BE, S20LE, S20BE, U20LE, U20BE, S18LE, S18BE, U18LE, U18BE, F32LE, F32BE, F64LE, F64BE, S8, U8 }, layout=(string)interleaved, rate=(int)[ 1, 2147483647 ], channels=(int)[ 1, 2147483647 ]
+     - capsfilter:sink possible caps (as returned by a query on it without filter): video/x-raw
+
+
+    Issues found: 2
+    Returning 18 as errors were found
+
+    =======> Test FAILED (Return value: 18)
+
 
 
 
@@ -434,3 +515,16 @@ LGPL
 
 * `Licensing your applications and plugins for use with GStreamer <https://gstreamer.freedesktop.org/documentation/licensing.html>`_
 * `gst-instruments - Easy-to-use profiler for GStreamer <https://github.com/kirushyk/gst-instruments>`_
+* `GStreamer - core elements <https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer-plugins/html/gstreamer-plugins-plugin-coreelements.html#plugin-coreelements>`_
+* `GStreamer Conference <https://gstreamer.freedesktop.org/conference/>`-
+
+
+Talks:
+
+* `Sebastian Dröge & Luis de Bethencourt - GStreamer & Rust – A perfect match <https://www.youtube.com/watch?v=W_mnFFqpMpQ>`_
+
+
+Articles:
+
+* `GStreamer to Gain the First RTSP 2.0 Implementation! <https://blogs.s-osg.org/gstreamer-to-gain-the-first-rtsp-2-0-implementation/>`_
+* `How to Test GStreamer Pipelines with gst-validate Scenarios <https://blogs.s-osg.org/creating-scenarios-gst-validate/>`_
