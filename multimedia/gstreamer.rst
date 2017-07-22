@@ -148,6 +148,134 @@ Python Binding
 
 
 
+核心元件
+========================================
+
+Pipeline Branch - tee
+------------------------------
+
+`tee <https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer-plugins/html/gstreamer-plugins-tee.html>`_
+會從原本的 Pipeline 切出 Branch，
+範例：
+
+.. code-block:: sh
+
+    $ gst-launch-1.0 filesrc location=song.ogg ! decodebin ! \
+        tee name=t ! queue ! audioconvert ! audioresample ! autoaudiosink \
+                t. ! queue ! audioconvert ! goom ! videoconvert ! autovideosink
+
+
+寫到指定的 File Descriptor - fdsink
+-----------------------------------
+
+.. code-block:: sh
+
+    $ gst-launch-1.0 -q videotestsrc pattern=ball ! video/x-raw,height=320,width=240,framerate=30/1,format=RGB ! fdsink | ffplay -f rawvideo -pixel_format rgb24 -video_size 240x320 -i -
+
+
+
+
+Hardware Acceleration
+========================================
+
+VA-API
+------------------------------
+
+VA-API 是一套開源的 Library 和 API 定義（由 Intel 主推的），
+提供一個抽象層來使用硬體處理影像，
+硬體廠商可以為這套 API 實做自己的硬體支援。
+
+* `freedesktop.org - VAAPI <https://www.freedesktop.org/wiki/Software/vaapi/>`_
+* `Wikipedia - Video Acceleration API <https://en.wikipedia.org/wiki/Video_Acceleration_API>`_
+* `Gentoo Wiki - VAAPI <https://wiki.gentoo.org/wiki/VAAPI>`_
+* `Arch Wiki - Hardware video acceleration <https://wiki.archlinux.org/index.php/Hardware_video_acceleration>`_
+* [GitHub] `gstreamer-vaapi <https://github.com/GStreamer/gstreamer-vaapi>`_
+
+
+.. code-block:: sh
+
+    $ sudo pacman -S libva libva-utils
+    $ sudo pacman -S libva-intel-driver   # for Intel
+    $ vainfo
+    libva info: VA-API version 0.40.0
+    libva info: va_getDriverName() returns 0
+    libva info: Trying to open /usr/lib/dri/i965_drv_video.so
+    libva info: Found init function __vaDriverInit_0_40
+    libva info: va_openDriver() returns 0
+    vainfo: VA-API version: 0.40 (libva )
+    vainfo: Driver version: Intel i965 driver for Intel(R) Skylake - 1.8.2
+    vainfo: Supported profile and entrypoints
+          VAProfileMPEG2Simple            :	VAEntrypointVLD
+          VAProfileMPEG2Simple            :	VAEntrypointEncSlice
+          VAProfileMPEG2Main              :	VAEntrypointVLD
+          VAProfileMPEG2Main              :	VAEntrypointEncSlice
+          VAProfileH264ConstrainedBaseline:	VAEntrypointVLD
+          VAProfileH264ConstrainedBaseline:	VAEntrypointEncSlice
+          VAProfileH264ConstrainedBaseline:	VAEntrypointEncSliceLP
+          VAProfileH264Main               :	VAEntrypointVLD
+          VAProfileH264Main               :	VAEntrypointEncSlice
+          VAProfileH264Main               :	VAEntrypointEncSliceLP
+          VAProfileH264High               :	VAEntrypointVLD
+          VAProfileH264High               :	VAEntrypointEncSlice
+          VAProfileH264High               :	VAEntrypointEncSliceLP
+          VAProfileH264MultiviewHigh      :	VAEntrypointVLD
+          VAProfileH264MultiviewHigh      :	VAEntrypointEncSlice
+          VAProfileH264StereoHigh         :	VAEntrypointVLD
+          VAProfileH264StereoHigh         :	VAEntrypointEncSlice
+          VAProfileVC1Simple              :	VAEntrypointVLD
+          VAProfileVC1Main                :	VAEntrypointVLD
+          VAProfileVC1Advanced            :	VAEntrypointVLD
+          VAProfileNone                   :	VAEntrypointVideoProc
+          VAProfileJPEGBaseline           :	VAEntrypointVLD
+          VAProfileJPEGBaseline           :	VAEntrypointEncPicture
+          VAProfileVP8Version0_3          :	VAEntrypointVLD
+          VAProfileVP8Version0_3          :	VAEntrypointEncSlice
+          VAProfileHEVCMain               :	VAEntrypointVLD
+          VAProfileHEVCMain               :	VAEntrypointEncSlice
+
+
+VDPAU
+------------------------------
+
+
+Intel Media SDK
+------------------------------
+
+
+
+Benchmark & Profiling
+========================================
+
+
+
+Term
+========================================
+
+* source
+* sink
+* pad
+* bin
+* pipeline
+
+
+
+設計重點
+========================================
+
+Pipeline
+
+
+
+Write Plugin
+========================================
+
+* `Writing GStreamer plugins and elements in Rust <https://coaxion.net/blog/2016/05/writing-gstreamer-plugins-and-elements-in-rust/>`_
+* `Writing GStreamer Elements in Rust (Part 2) - Don’t panic, we have better assertions now <https://coaxion.net/blog/2016/09/writing-gstreamer-elements-in-rust-part-2-dont-panic-we-have-better-assertions-now-and-other-updates/>`_
+* `Writing GStreamer Elements in Rust (Part 3) - Parsing data from untrusted sources like it’s 2016 <https://coaxion.net/blog/2016/11/writing-gstreamer-elements-in-rust-part-3-parsing-data-from-untrusted-sources-like-its-2016/>`_
+* `Writing GStreamer Elements in Rust (Part 4) - Logging, COWs and Plugins <https://coaxion.net/blog/2017/03/writing-gstreamer-elements-in-rust-part-4-logging-cows-and-plugins/>`_
+
+
+
 License
 ========================================
 
