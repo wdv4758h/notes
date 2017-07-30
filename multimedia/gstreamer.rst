@@ -503,6 +503,55 @@ Real-Time Streaming
 
 
 
+Cheatsheet
+========================================
+
+Check Receiving
+------------------------------
+
+用 ``fakesink dump=true`` 會把收到的資料以十六進位的方式輸出
+
+.. code-block:: sh
+
+    # 從 RTSP
+    gst-launch-1.0 rtspsrc location=rtsp://... ! fakesink dump=true
+
+
+Play Directly
+------------------------------
+
+.. code-block:: sh
+
+    # 從攝影機
+    gst-launch-1.0 v4l2src ! autovideosink
+
+    # 從 RTSP
+    gst-launch-1.0 rtspsrc location=rtsp://... ! decodebin ! autovideosink
+
+
+    # 透過 playbin
+    gst-launch-1.0 playbin uri=file:///path/to/video
+    gst-launch-1.0 playbin uri=rtsp://...
+
+
+Record
+------------------------------
+
+注意 ``-e``
+
+.. code-block:: sh
+
+    # 從攝影機
+    gst-launch-1.0 -e v4l2src ! x264enc ! mp4mux ! filesink location=/tmp/sample.mp4
+
+    # 從 RTSP
+    gst-launch-1.0 -e rtspsrc location=rtsp://... ! decodebin ! x264enc ! mp4mux ! filesink location=/tmp/sample.mp4
+
+    # 從 RTP
+    gst-launch-1.0 -e udpsrc address=0.0.0.0 port=5566 ! application/x-rtp,media=video,payload=96,encoding-name=H264 ! rtph264depay ! decodebin ! x264enc ! mp4mux ! filesink location=/tmp/sample.mp4
+
+
+
 License
 ========================================
 
@@ -517,6 +566,7 @@ LGPL
 * `gst-instruments - Easy-to-use profiler for GStreamer <https://github.com/kirushyk/gst-instruments>`_
 * `GStreamer - core elements <https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer-plugins/html/gstreamer-plugins-plugin-coreelements.html#plugin-coreelements>`_
 * `GStreamer Conference <https://gstreamer.freedesktop.org/conference/>`-
+* `Arch Wiki - GStreamer <https://wiki.archlinux.org/index.php/GStreamer>`_
 
 
 Talks:
@@ -528,3 +578,4 @@ Articles:
 
 * `GStreamer to Gain the First RTSP 2.0 Implementation! <https://blogs.s-osg.org/gstreamer-to-gain-the-first-rtsp-2-0-implementation/>`_
 * `How to Test GStreamer Pipelines with gst-validate Scenarios <https://blogs.s-osg.org/creating-scenarios-gst-validate/>`_
+* `Herostratus’ legacy - tag: gstreamer <https://blogs.igalia.com/vjaquez/tag/gstreamer/>`_
