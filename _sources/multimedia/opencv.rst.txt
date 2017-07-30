@@ -38,5 +38,12 @@ OpenCV 的 ``VideoCapture`` 、 ``VideoWrite`` 可以直接放入 GStreamer Pipe
 
 
 
+Machine Learning + OpenCV
+========================================
+
+* `Machine Learning for OpenCV <https://github.com/mbeyeler/opencv-machine-learning>`_
+
+
+
 參考
 ========================================

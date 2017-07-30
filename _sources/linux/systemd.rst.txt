@@ -2,6 +2,20 @@
 systemd
 ========================================
 
+
+.. contents:: 目錄
+
+
+systemd-resolve
+========================================
+
+.. code-block:: sh
+
+    # DNS Server 查詢的狀態
+    $ systemd-resolve --status
+
+
+
 Reference
 ========================================
 
