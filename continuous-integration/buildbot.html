@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Panorama (Image Stitching) &mdash; wdv4758h-notes latest 說明文件</title>
+  <title>Buildbot &mdash; wdv4758h-notes latest 說明文件</title>
   
 
   
@@ -36,8 +36,8 @@
               href="../genindex.html"/>
         <link rel="search" title="搜尋" href="../search.html"/>
     <link rel="top" title="wdv4758h-notes latest 說明文件" href="../index.html"/>
-        <link rel="next" title="Jenkins" href="../continuous-integration/jenkins.html"/>
-        <link rel="prev" title="Object Detection" href="object-detection.html"/> 
+        <link rel="next" title="Jenkins" href="jenkins.html"/>
+        <link rel="prev" title="Visual Question Answering" href="../computer-vision/visual-question-answering.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -49,7 +49,7 @@
 Always link to the latest version, as canonical.
 http://docs.readthedocs.org/en/latest/canonical.html
 -->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/computer-vision/panaorma.html" />
+<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/continuous-integration/buildbot.html" />
 
 <link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
 
@@ -57,7 +57,7 @@ http://docs.readthedocs.org/en/latest/canonical.html
 
 <!-- Add page-specific data, which must exist in the page js, not global -->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = 'computer-vision/panaorma' 		
+READTHEDOCS_DATA['page'] = 'continuous-integration/buildbot' 		
 READTHEDOCS_DATA['source_suffix'] = '.rst'
 </script>
 
@@ -342,12 +342,21 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../compression/jpeg.html">JPEG Compression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compression/png.html">PNG Compression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compression/resource.html">資料壓縮相關資源</a></li>
-<li class="toctree-l1"><a class="reference internal" href="README.html">電腦視覺</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SIFT.html">SIFT</a></li>
-<li class="toctree-l1"><a class="reference internal" href="books.html">電腦視覺相關書籍</a></li>
-<li class="toctree-l1"><a class="reference internal" href="object-detection.html">Object Detection</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Panorama (Image Stitching)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../continuous-integration/jenkins.html">Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computer-vision/README.html">電腦視覺 (Computer Vision)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computer-vision/SIFT.html">SIFT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computer-vision/books.html">電腦視覺相關書籍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computer-vision/image-segmentation.html">Image Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computer-vision/object-detection.html">Object Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computer-vision/panorama.html">Panorama (Image Stitching)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computer-vision/super-resolution.html">Super Resolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computer-vision/video-tracking.html">Video Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computer-vision/visual-question-answering.html">Visual Question Answering</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Buildbot</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">介紹</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">參考</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jenkins.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/64bits-problem.html">64 Bits Problem</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/README.html">C++</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/SFINAE.html">SFINAE (Substitution Failure Is Not An Error)</a></li>
@@ -842,14 +851,14 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Panorama (Image Stitching)</li>
+      <li>Buildbot</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
             
-              <a href="https://github.com/wdv4758h/notes/blob/master/./computer-vision/panaorma.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/wdv4758h/notes/blob/master/./continuous-integration/buildbot.rst" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -863,9 +872,29 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="panorama-image-stitching">
-<h1>Panorama (Image Stitching)<a class="headerlink" href="#panorama-image-stitching" title="本標題的永久連結">¶</a></h1>
-<p>[待補]</p>
+  <div class="section" id="buildbot">
+<h1><a class="toc-backref" href="#id5">Buildbot</a><a class="headerlink" href="#buildbot" title="本標題的永久連結">¶</a></h1>
+<div class="contents topic" id="id1">
+<p class="topic-title first">目錄</p>
+<ul class="simple">
+<li><a class="reference internal" href="#buildbot" id="id5">Buildbot</a><ul>
+<li><a class="reference internal" href="#id2" id="id6">介紹</a></li>
+<li><a class="reference internal" href="#id3" id="id7">參考</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id6">介紹</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<p>Buildbot 在 0.9 版之後有改了 UI，
+現在的 UI 叫做 <a class="reference external" href="https://buildbot.github.io/guanlecoja-ui/">Guanlecoja</a> 。</p>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id7">參考</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/buildbot">Buildbot</a></li>
+</ul>
+</div>
 </div>
 
 
@@ -878,10 +907,10 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../continuous-integration/jenkins.html" class="btn btn-neutral float-right" title="Jenkins" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="jenkins.html" class="btn btn-neutral float-right" title="Jenkins" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="object-detection.html" class="btn btn-neutral" title="Object Detection" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../computer-vision/visual-question-answering.html" class="btn btn-neutral" title="Visual Question Answering" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

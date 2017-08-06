@@ -2,6 +2,10 @@
 Object Detection
 ========================================
 
+
+.. contents:: 目錄
+
+
 Viola–Jones object detection framework
 ========================================
 
@@ -259,7 +263,37 @@ Reference
 * `OpenCV Face Detection: Visualized <https://vimeo.com/12774628>`_
 
 
+
+YOLO (You Only Look Once)
+========================================
+
+`YOLO <https://pjreddie.com/darknet/yolo/>`_ 是目前 Real-Time Object Detection System 的 state-of-the-art，
+可以非常快速地偵測影像中的物件並上標籤。
+
+
+YOLO
+------------------------------
+
+
+YOLO9000
+------------------------------
+
+
+參考
+------------------------------
+
+* `YOLO9000: Better, Faster, Stronger - Real-Time Object Detection <https://arxiv.org/abs/1612.08242>`_
+
+
+
 Fun
 ========================================
 
 * `PyCON APC 2015 - Marsface Project: Detecting Pseudo-artificial Structures on Mars <https://www.youtube.com/watch?v=XsinyMyoZPU>`_
+
+
+
+參考
+========================================
+
+* `Wikipedia - Object Detection <https://en.wikipedia.org/wiki/Object_detection>`_
