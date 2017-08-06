@@ -3,12 +3,6 @@
 ========================================
 
 
-.. contents:: 目錄
-
-
-主題
-========================================
-
 * `Object Detection <object-detection.rst>`_ : 物體偵測
 * `Super Resolution <super-resolution.rst>`_ : 改善影像品質
 * `Video Tracking <video-tracking.rst>`_ : 動作追蹤
