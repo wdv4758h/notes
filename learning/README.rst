@@ -4,3 +4,4 @@
 
 
 * `Dlib <dlib.rst>`_
+* `Darknet <darknet.rst>`_
