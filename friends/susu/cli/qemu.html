@@ -294,6 +294,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../../browser/firefox-settings.html">Firefox 設定</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../browser/html.html">HTML</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../browser/issues.html">Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../browser/privacy.html">隱私和個資</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../browser/service-worker.html">Service Worker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../browser/servo.html">Servo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../browser/webassembly.html">WebAssembly</a></li>
@@ -451,13 +452,22 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l3"><a class="reference internal" href="ffmpeg.html#other-video-tools">Other video tools</a></li>
 <li class="toctree-l3"><a class="reference internal" href="hardware_info.html">examples</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">network</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#mechanism">mechanism</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#network-backend">network backend</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#virtual-network-device">virtual network device</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example">example</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#block-device">block device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#remote-control">remote control</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#monitor-mode">monitor mode</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#related-tool">related tool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#monitor-mode">monitor mode</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#qemu-hot-snapshot">Qemu hot snapshot</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#related-tool">related tool</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#qemu-img">qemu-img</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#qemu-nbd">qemu-nbd</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#misc">Misc</a></li>
 <li class="toctree-l3"><a class="reference internal" href="tc_cgroup.html">reference</a></li>
 <li class="toctree-l3"><a class="reference internal" href="tc_cgroup.html#misc">Misc</a></li>
@@ -493,6 +503,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l3"><a class="reference internal" href="../graphic/streaming_gpu.html#nvidia-grid-vgpu">NVIDIA Grid vGPU</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../graphic/streaming_gpu.html#misc">Misc</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../history/POSIX.html">Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../history/XSI_compliant.html">XSI compliant</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../history/computer.html">early company</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../history/computer.html#event">event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../history/reading_macosx_history.html">Misc</a></li>
@@ -599,27 +610,8 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../../jit/asmjit.html">asmjit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../jit/introduction.html">JIT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../jit/resource.html">JIT 相關資源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../kernel/security-kernel.html">Security in Kernel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../language-virtual-machines/resource.html">資源</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../learning/ann-history.html">Artificial Neural Network History</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../learning/artificial-neural-network.html">Artificial Neural Network</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../learning/cheatsheet.html">Cheat Sheet</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../learning/clustering.html">Clustering</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../learning/decision-tree.html">決策樹學習 （Decision Tree）</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../learning/deep-learning.html">Deep Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../learning/dimensionality-reduction.html">Dimensionality Reduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../learning/face-recognition.html">人臉辨識</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../learning/instance-based.html">Instance Based</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../learning/learning.html">Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../learning/lip-reading.html">Lip Reading</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../learning/naive-bayes-classifier.html">樸素貝葉斯分類器 （Naïve Bayesian Classifier）</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../learning/question-answering.html">Question Answering</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../learning/regression.html">Regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../learning/regularization.html">Regularization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../learning/resource.html">機器學習相關資源</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../learning/rule-system.html">Rule System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../learning/svm.html">SVM</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../learning/t-SNE.html">t-SNE</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../learning/todo.html">Todo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../license/resource.html">相關資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../linux/bfq.html">BFQ - Budget Fair Queueing Storage-I/O Scheduler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../linux/clear-linux.html">Intel Clear Linux</a></li>
@@ -627,6 +619,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../../linux/file-system.html">File System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../linux/firmware.html">Firmware</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../linux/gimp.html">Gimp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../linux/gui.html">GUI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../linux/hotplug-cpu.html">Hotplug CPU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../linux/ipc.html">IPC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../linux/kernel-module.html">Kernel Module</a></li>
@@ -639,6 +632,29 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../../linux/tickless.html">Tickless</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../linux/ubuntu.html">Ubuntu</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../linux/vdso.html">vDSO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../machine-learning/README.html">機器學習 (Machine Learning)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../machine-learning/ann-history.html">Artificial Neural Network History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../machine-learning/artificial-neural-network.html">Artificial Neural Network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../machine-learning/cheatsheet.html">Cheat Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../machine-learning/clustering.html">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../machine-learning/darknet.html">Darknet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../machine-learning/decision-tree.html">決策樹學習 （Decision Tree）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../machine-learning/deep-learning.html">Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../machine-learning/dimensionality-reduction.html">Dimensionality Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../machine-learning/dlib.html">Dlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../machine-learning/face-recognition.html">人臉辨識</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../machine-learning/instance-based.html">Instance Based</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../machine-learning/learning.html">Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../machine-learning/lip-reading.html">Lip Reading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../machine-learning/naive-bayes-classifier.html">樸素貝葉斯分類器 （Naïve Bayesian Classifier）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../machine-learning/question-answering.html">Question Answering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../machine-learning/regression.html">Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../machine-learning/regularization.html">Regularization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../machine-learning/resource.html">機器學習相關資源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../machine-learning/rule-system.html">Rule System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../machine-learning/svm.html">SVM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../machine-learning/t-SNE.html">t-SNE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../machine-learning/todo.html">Todo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../math/math.html">Math</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../math/math-on-web.html">Math on Web</a></li>
@@ -884,6 +900,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/misc.html">Rust - Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/monomorphization.html">Monomorphization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/multirust.html">multirust</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rust/network.html">Network</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/numeric.html">Numeric</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/object-safety.html">Object Safety</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/orm.html">ORM</a></li>
@@ -921,6 +938,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../../testing/server-validation.html">檢查伺服器設定</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/256-color.html">256 color</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/README.html">常用軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/bash.html">Bash</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/find.html">find</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/input-method.html">Input Method</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../unix-like-environment/installer.html">Installer</a></li>
@@ -1020,9 +1038,11 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <ul class="simple">
 <li>usage example</li>
 </ul>
-<div class="code sh highlight-default"><div class="highlight"><pre><span></span><span class="n">qemu</span> <span class="o">-</span><span class="n">enable</span><span class="o">-</span><span class="n">kvm</span> <span class="o">-</span><span class="n">hda</span> <span class="o">&lt;</span><span class="n">image</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">vga</span> <span class="n">std</span> <span class="o">-</span><span class="n">cpu</span> <span class="n">host</span> <span class="o">-</span><span class="n">smp</span> <span class="mi">2</span> <span class="o">-</span><span class="n">m</span> <span class="mi">512</span><span class="n">MB</span> \
+<div class="code sh highlight-default"><div class="highlight"><pre><span></span><span class="n">qemu</span> <span class="o">-</span><span class="n">enable</span><span class="o">-</span><span class="n">kvm</span> <span class="o">-</span><span class="n">cpu</span> <span class="n">host</span> <span class="o">-</span><span class="n">smp</span> <span class="mi">2</span> <span class="o">-</span><span class="n">m</span> <span class="mi">512</span><span class="n">MB</span> \
+<span class="o">-</span><span class="n">hda</span> <span class="o">&lt;</span><span class="n">image</span><span class="o">&gt;</span> \
 <span class="o">-</span><span class="n">net</span> <span class="n">nic</span><span class="p">,</span><span class="n">vlan</span><span class="o">=</span><span class="mi">0</span> \
 <span class="o">-</span><span class="n">net</span> <span class="n">user</span><span class="p">,</span><span class="n">hostfwd</span><span class="o">=</span><span class="n">tcp</span><span class="p">:</span><span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span><span class="p">:</span><span class="mi">50022</span><span class="o">-</span><span class="p">:</span><span class="mi">22</span> \
+<span class="o">-</span><span class="n">vga</span> <span class="n">std</span> \
 <span class="o">-</span><span class="n">monitor</span> <span class="n">telnet</span><span class="p">:</span><span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">60023</span><span class="p">,</span><span class="n">server</span><span class="p">,</span><span class="n">nowait</span>
 </pre></div>
 </div>
@@ -1035,31 +1055,66 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </ul>
 <div class="section" id="network">
 <h1>network<a class="headerlink" href="#network" title="本標題的永久連結">¶</a></h1>
-<p><a class="reference external" href="http://en.wikibooks.org/wiki/QEMU/Networking">http://en.wikibooks.org/wiki/QEMU/Networking</a>
-<a class="reference external" href="http://wiki.qemu.org/Documentation/Networking">http://wiki.qemu.org/Documentation/Networking</a></p>
 <ul class="simple">
-<li>usermode (default)<ul>
-<li>redirection</li>
+<li><a class="reference external" href="http://wiki.qemu.org/Documentation/Networking">http://wiki.qemu.org/Documentation/Networking</a></li>
 </ul>
-</li>
-<li>TAP networking</li>
-<li>VDE networking</li>
+<p>There are 2 parts to networking in QEMU</p>
+<ul class="simple">
+<li>virtual network device: <code class="docutils literal"><span class="pre">-device</span> <span class="pre">&lt;device&gt;,netdev=&lt;id&gt;</span></code></li>
+<li>network backend: <code class="docutils literal"><span class="pre">-netdev</span> <span class="pre">&lt;backend&gt;,id=&lt;id&gt;</span></code></li>
 </ul>
-<p>redirection example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">net</span> <span class="n">user</span><span class="p">,</span><span class="n">hostfwd</span><span class="o">=</span><span class="n">tcp</span><span class="p">:</span><span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span><span class="p">:</span><span class="mi">2522</span><span class="o">-</span><span class="p">:</span><span class="mi">22</span>
+<div class="section" id="network-backend">
+<h2>network backend<a class="headerlink" href="#network-backend" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li>usermode: <code class="docutils literal"><span class="pre">&lt;backend&gt;=user</span></code></li>
+<li>TAP networking: <code class="docutils literal"><span class="pre">&lt;backend&gt;=tap</span></code></li>
+<li>VDE networking:</li>
+<li>socket networking: <code class="docutils literal"><span class="pre">&lt;backend&gt;=socket</span></code></li>
+</ul>
+<p>redirection in user backend:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">netdev</span> <span class="n">user</span><span class="p">,</span><span class="nb">id</span><span class="o">=</span><span class="n">net0</span><span class="p">,</span><span class="n">hostfwd</span><span class="o">=</span><span class="n">tcp</span><span class="p">:</span><span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span><span class="p">:</span><span class="mi">2522</span><span class="o">-</span><span class="p">:</span><span class="mi">22</span>
 <span class="c1"># host(127.0.0.1):2522 -&gt; guest:22</span>
 <span class="c1"># hostfwd=[&lt;host_ip&gt;]:&lt;host_port&gt;-[&lt;guest_ip&gt;]:&lt;guest_port&gt;</span>
 </pre></div>
 </div>
-<p>[not reading] <a class="reference external" href="https://people.gnome.org/~markmc/qemu-networking.html">https://people.gnome.org/~markmc/qemu-networking.html</a></p>
-<div class="section" id="mechanism">
-<h2>mechanism<a class="headerlink" href="#mechanism" title="本標題的永久連結">¶</a></h2>
-<ul class="simple">
-<li>usermode<ol class="arabic">
-<li>emulated NIC provided to guest</li>
-<li>network backend in host (put guest packets onto host’s network)</li>
-</ol>
+</div>
+<div class="section" id="virtual-network-device">
+<h2>virtual network device<a class="headerlink" href="#virtual-network-device" title="本標題的永久連結">¶</a></h2>
+<ul>
+<li><p class="first">device type:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">bash</span><span class="o">&gt;</span> <span class="n">qemu</span><span class="o">-</span><span class="n">system</span><span class="o">-</span><span class="n">x86_64</span> <span class="o">-</span><span class="n">device</span> <span class="n">help</span> <span class="o">|&amp;</span> <span class="n">less</span>
+<span class="c1"># search &#39;Network&#39;</span>
+<span class="n">name</span> <span class="s2">&quot;e1000&quot;</span><span class="p">,</span> <span class="n">bus</span> <span class="n">PCI</span><span class="p">,</span> <span class="n">alias</span> <span class="s2">&quot;e1000-82540em&quot;</span><span class="p">,</span> <span class="n">desc</span> <span class="s2">&quot;Intel Gigabit Ethernet&quot;</span>
+<span class="n">name</span> <span class="s2">&quot;e1000-82544gc&quot;</span><span class="p">,</span> <span class="n">bus</span> <span class="n">PCI</span><span class="p">,</span> <span class="n">desc</span> <span class="s2">&quot;Intel Gigabit Ethernet&quot;</span>
+<span class="n">name</span> <span class="s2">&quot;e1000-82545em&quot;</span><span class="p">,</span> <span class="n">bus</span> <span class="n">PCI</span><span class="p">,</span> <span class="n">desc</span> <span class="s2">&quot;Intel Gigabit Ethernet&quot;</span>
+<span class="n">name</span> <span class="s2">&quot;e1000e&quot;</span><span class="p">,</span> <span class="n">bus</span> <span class="n">PCI</span><span class="p">,</span> <span class="n">desc</span> <span class="s2">&quot;Intel 82574L GbE Controller&quot;</span>
+<span class="n">name</span> <span class="s2">&quot;i82550&quot;</span><span class="p">,</span> <span class="n">bus</span> <span class="n">PCI</span><span class="p">,</span> <span class="n">desc</span> <span class="s2">&quot;Intel i82550 Ethernet&quot;</span>
+<span class="n">name</span> <span class="s2">&quot;rtl8139&quot;</span><span class="p">,</span> <span class="n">bus</span> <span class="n">PCI</span>
+<span class="n">name</span> <span class="s2">&quot;virtio-net-device&quot;</span><span class="p">,</span> <span class="n">bus</span> <span class="n">virtio</span><span class="o">-</span><span class="n">bus</span>
+<span class="n">name</span> <span class="s2">&quot;virtio-net-pci&quot;</span><span class="p">,</span> <span class="n">bus</span> <span class="n">PCI</span><span class="p">,</span> <span class="n">alias</span> <span class="s2">&quot;virtio-net&quot;</span>
+<span class="o">...</span>
+</pre></div>
+</div>
 </li>
+</ul>
+</div>
+<div class="section" id="example">
+<h2>example<a class="headerlink" href="#example" title="本標題的永久連結">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># virtio net</span>
+<span class="o">-</span><span class="n">netdev</span> <span class="n">user</span><span class="p">,</span><span class="nb">id</span><span class="o">=</span><span class="n">net0</span> \
+<span class="o">-</span><span class="n">device</span> <span class="n">virtio</span><span class="o">-</span><span class="n">net</span><span class="p">,</span><span class="n">netdev</span><span class="o">=</span><span class="n">net0</span>
+
+<span class="c1"># trap-and-emulate, e1000</span>
+<span class="o">-</span><span class="n">netdev</span> <span class="n">user</span><span class="p">,</span><span class="nb">id</span><span class="o">=</span><span class="n">net0</span> \
+<span class="o">-</span><span class="n">device</span> <span class="n">e1000</span><span class="p">,</span><span class="n">netdev</span><span class="o">=</span><span class="n">net0</span>
+
+<span class="c1"># hostfwd</span>
+<span class="o">-</span><span class="n">netdev</span> <span class="n">user</span><span class="p">,</span><span class="nb">id</span><span class="o">=&lt;</span><span class="nb">id</span><span class="o">&gt;</span><span class="p">,</span><span class="n">hostfwd</span><span class="o">=</span><span class="n">tcp</span><span class="p">:</span><span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span><span class="p">:</span><span class="mi">2522</span><span class="o">-</span><span class="p">:</span><span class="mi">22</span>
+</pre></div>
+</div>
+<p>not reading</p>
+<ul class="simple">
+<li><a class="reference external" href="https://people.gnome.org/~markmc/qemu-networking.html">https://people.gnome.org/~markmc/qemu-networking.html</a></li>
 </ul>
 </div>
 </div>
@@ -1085,14 +1140,22 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <div class="section" id="remote-control">
 <h1>remote control<a class="headerlink" href="#remote-control" title="本標題的永久連結">¶</a></h1>
 <p>qemu VM using spice</p>
+<ul>
+<li><p class="first">qemu VM (server)</p>
 <ul class="simple">
-<li>qemu VM (server)<ul>
+<li>examples<ul>
 <li><code class="docutils literal"><span class="pre">qemu-system-x86_64</span> <span class="pre">-enable-kvm</span> <span class="pre">-hda</span> <span class="pre">ubuntu_14_04_3.qcow2</span> <span class="pre">-vga</span> <span class="pre">qxl</span> <span class="pre">-spice</span> <span class="pre">port=45900,disable-ticketing</span></code></li>
 <li><code class="docutils literal"><span class="pre">qemu-system-x86_64</span> <span class="pre">-enable-kvm</span> <span class="pre">-hda</span> <span class="pre">ubuntu_14_04_3.qcow2</span> <span class="pre">-vga</span> <span class="pre">qxl</span> <span class="pre">-spice</span> <span class="pre">port=45900,addr=127.0.0.1,disable-ticketing</span></code></li>
 <li><code class="docutils literal"><span class="pre">qemu-system-x86_64</span> <span class="pre">-enable-kvm</span> <span class="pre">-hda</span> <span class="pre">ubuntu_14_04_3.qcow2</span> <span class="pre">-vga</span> <span class="pre">qxl</span> <span class="pre">-spice</span> <span class="pre">port=45900,password=&lt;secret&gt;</span></code></li>
 </ul>
 </li>
-<li>client (gtk-based)<ul>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">vga</span> <span class="n">qxl</span> <span class="o">-</span><span class="n">spice</span> <span class="n">port</span><span class="o">=</span><span class="mi">45900</span><span class="p">,[</span><span class="n">addr</span><span class="o">=</span><span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span><span class="p">],[</span><span class="n">password</span><span class="o">=&lt;</span><span class="n">secret</span><span class="o">&gt;|</span><span class="n">disable</span><span class="o">-</span><span class="n">ticketing</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">client (gtk-based)</p>
+<ul class="simple">
 <li><code class="docutils literal"><span class="pre">spicy</span> <span class="pre">-h</span> <span class="pre">&lt;host&gt;</span> <span class="pre">-p</span> <span class="pre">&lt;port&gt;</span></code></li>
 </ul>
 </li>
@@ -1125,9 +1188,20 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </pre></div>
 </div>
 <p>monitor mode 下的 <code class="docutils literal"><span class="pre">hostfwd_add</span> <span class="pre">tcp:127.0.0.1:8000-:8000</span></code> command 似乎無效, 待尋找原因.</p>
+<div class="section" id="qemu-hot-snapshot">
+<h2>Qemu hot snapshot<a class="headerlink" href="#qemu-hot-snapshot" title="本標題的永久連結">¶</a></h2>
+<p>use qemu monitor commands</p>
+<ul class="simple">
+<li>savevm</li>
+<li>info snapshots</li>
+<li>loadvm [tag|id]</li>
+</ul>
+</div>
 </div>
 <div class="section" id="related-tool">
 <h1>related tool<a class="headerlink" href="#related-tool" title="本標題的永久連結">¶</a></h1>
+<div class="section" id="qemu-img">
+<h2>qemu-img<a class="headerlink" href="#qemu-img" title="本標題的永久連結">¶</a></h2>
 <p>qemu-img [command] [options]</p>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">-f</span> <span class="pre">[format]</span> <span class="pre">#</span> <span class="pre">raw</span> <span class="pre">|</span> <span class="pre">qcow2</span> <span class="pre">...</span> <span class="pre">etc</span></code></li>
@@ -1137,10 +1211,41 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <span class="n">qemu</span><span class="o">-</span><span class="n">img</span> <span class="n">convert</span> <span class="o">-</span><span class="n">f</span> <span class="n">raw</span> <span class="o">-</span><span class="n">O</span> <span class="n">qcow2</span> <span class="n">xxx</span><span class="o">.</span><span class="n">img</span> <span class="n">xxx</span><span class="o">.</span><span class="n">qcow2</span>
 </pre></div>
 </div>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">qemu-img</span> <span class="pre">resize</span></code> 可用於增大不足的 image 空間 (e.g. ubuntu official 的 cloud image 大小只有 5G)<ul>
+<li><a class="reference external" href="https://gist.github.com/larsks/3933980">https://gist.github.com/larsks/3933980</a>: qemu-img resize 增大 image + fdisk 重切 MBR + resizefs 增大 ext4.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="qemu-nbd">
+<h2>qemu-nbd<a class="headerlink" href="#qemu-nbd" title="本標題的永久連結">¶</a></h2>
+<p><a class="reference external" href="http://newtoypia.blogspot.tw/2015/03/qcow2.html">http://newtoypia.blogspot.tw/2015/03/qcow2.html</a></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># load host kernel module</span>
+<span class="n">lsmod</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">nbd</span>
+<span class="n">modprobe</span> <span class="n">nbd</span> <span class="n">max_part</span><span class="o">=</span><span class="mi">16</span>
+
+<span class="c1"># attach qemu block device</span>
+<span class="n">qemu</span><span class="o">-</span><span class="n">nbd</span> <span class="o">-</span><span class="n">c</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">nbd0</span> <span class="n">test</span><span class="o">.</span><span class="n">qcow2</span>
+<span class="c1"># detach qemu block device</span>
+<span class="n">qemu</span><span class="o">-</span><span class="n">nbd</span> <span class="o">-</span><span class="n">d</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">nbd0</span>
+
+<span class="c1"># general block device</span>
+<span class="n">lsblk</span>
+<span class="n">fdisk</span> <span class="o">-</span><span class="n">l</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">nbd0</span>
+<span class="n">fdisk</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">nbd0</span>
+<span class="n">mkfs</span><span class="o">.</span><span class="n">ext4</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">nbd0p1</span>
+<span class="n">mount</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">nbd0p1</span> <span class="n">mnt</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="misc">
 <h1>Misc<a class="headerlink" href="#misc" title="本標題的永久連結">¶</a></h1>
-<p>QEMU + GDB debug linux 0.11: <a class="reference external" href="https://wwssllabcd.github.io/blog/2012/08/03/compile-linux011/">https://wwssllabcd.github.io/blog/2012/08/03/compile-linux011/</a></p>
+<ul class="simple">
+<li>QEMU + GDB debug linux 0.11: <a class="reference external" href="https://wwssllabcd.github.io/blog/2012/08/03/compile-linux011/">https://wwssllabcd.github.io/blog/2012/08/03/compile-linux011/</a></li>
+<li><code class="docutils literal"><span class="pre">-vga</span> <span class="pre">virtio</span> <span class="pre">-display</span> <span class="pre">gtk,gl=on</span></code></li>
+</ul>
 </div>
 
 

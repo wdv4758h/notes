@@ -3,6 +3,8 @@ Makefile 筆記
 =============
 Makefile 可以處理 Task 之間的 Dependency，讓編譯過程自動化
 
+重要觀念： ``make`` 預設會把所有 target 都當成檔案，新增/刪除檔案會造成 **目錄** 的修改時間被更新
+
 基本語法
 --------
 ::
@@ -21,6 +23,8 @@ Makefile 可以處理 Task 之間的 Dependency，讓編譯過程自動化
 * ``command4`` 和 ``command5`` 透過 ``\`` 連接在一起，會被解讀成連續的一行
 
 ``make target`` 前會自動把所有 dependency 都 ``make`` 完成
+
+**[GNU make only]** ``target: dependency | order-only-dependency`` 可以加上目錄 dependency
 
 變數
 ----

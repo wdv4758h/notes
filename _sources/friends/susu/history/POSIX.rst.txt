@@ -1,7 +1,9 @@
-https://www.wikiwand.com/en/POSIX
-https://www.wikiwand.com/en/Single_UNIX_Specification
-Unix 95/98/03?: http://www.unix.org/questions_answers.html#7
-POSIX 2013: https://lwn.net/Articles/581858
+
+
+- `wiki - POSIX <https://www.wikiwand.com/en/POSIX>`_
+- `wiki - SUS <https://www.wikiwand.com/en/Single_UNIX_Specification>`_
+- `The Unix System -- Q&A: difference between Unix 95/98/03 <http://www.unix.org/questions_answers.html#7>`_
+- `POSIX.1-2013 man pages for Linux <https://lwn.net/Articles/581858>`_
 
 POSIX <=> IEEE Std 1003
 
@@ -20,6 +22,7 @@ Data
 
     - POSIX:2013 = POSIX:2008 + 1 TC
 
+----
 
 - 1988 POSIX/IEEE 1003 (ISO/IEC 9945)
 - 1990s: Spec 1170

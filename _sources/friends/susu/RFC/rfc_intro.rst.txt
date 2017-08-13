@@ -1,9 +1,9 @@
 reference
 
-- wiki: https://www.wikiwand.com/en/Request_for_Comments
-- STD/FYI/BCP/IEN/RTR: http://www.livinginternet.com/i/ia_rfc_ref.htm
-- Internet RFC/STD/FYI/BCP Archives: http://www.faqs.org/rfcs/
-- Internet STD index: http://www.faqs.org/rfcs/std/std-index.html
+- `wiki <https://www.wikiwand.com/en/Request_for_Comments>`_
+- `STD/FYI/BCP/IEN/RTR <http://www.livinginternet.com/i/ia_rfc_ref.htm>`_
+- `Internet RFC/STD/FYI/BCP Archives: <http://www.faqs.org/rfcs/>`_
+- `Internet STD index <http://www.faqs.org/rfcs/std/std-index.html>`_
 
 terminology
 
