@@ -7,6 +7,7 @@
     - `Dlib <dlib.rst>`_
     - `Darknet <darknet.rst>`_
     - `Keras <keras.rst>`_
+    - `TensorFlow <tensorflow.rst>`_
 
 * Technique
     - `Decision Tree <decision-tree.rst>`_
