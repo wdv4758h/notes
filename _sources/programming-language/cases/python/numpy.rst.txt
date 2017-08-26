@@ -307,6 +307,62 @@ NumPy Array 轉 Bytes
 
 
 
+效能
+========================================
+
+不管幾維的資料，記憶體內的儲存方式都是一維，
+存放順序則會跟 layout 方式有關，
+C-order 是 Row Major Order，
+會依序先存 row 1 再存 row 2，
+Fortran-order 是 Column Major Order，
+會依序先存 column 1 再存 column 2。
+
+.. image:: /images/numpy/numpy-order.png
+
+
+.. code-block:: python
+
+    import numpy as np
+
+    col_major = np.zeros((10,10), order='C')    # C
+    row_major = np.zeros((10,10), order='F')    # Fortran
+
+
+講求效能的話要注意用的 method 是 copy 還是 view 版本。
+
+.. code-block:: python
+
+    > import numpy as np
+
+    > a = np.zeros((200, 200), order='C')
+    > b = np.zeros((200, 200), order='F')
+    > np.concatenate((a, a), axis=0)
+    > np.concatenate((b, b), axis=0)
+
+    # 在 IPython 內
+    > %timeit np.concatenate((a, a), axis=0)
+    10000 loops, best of 3: 20.8 µs per loop
+
+    > %timeit np.concatenate((b, b), axis=0)
+    10000 loops, best of 3: 32.8 µs per loop
+
+
+    > %timeit np.vstack((a, a))
+    10000 loops, best of 3: 23.8 µs per loop
+
+    > %timeit np.vstack((b, b))
+    10000 loops, best of 3: 34.8 µs per loop
+
+
+    > %timeit a.ravel()     # flat, no copy
+    1000000 loops, best of 3: 234 ns per loop   # 1 ns = 0.001 µs
+
+    > %timeit a.flatten()   # flat, copy
+    100000 loops, best of 3: 10.3 µs per loop
+
+
+
+
 Reference
 ========================================
 

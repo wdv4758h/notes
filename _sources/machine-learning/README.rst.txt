@@ -23,6 +23,7 @@
     - `Regression <regression.rst>`_
     - `SVM <svm.rst>`_
     - `t-SNE <t-SNE.rst>`_
+    - `Transfer Learning <transfer-learning.rst>`_
 
 
 
