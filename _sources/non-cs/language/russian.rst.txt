@@ -208,7 +208,7 @@
 * утром, in the morning
 * урок, lesson/class
 * подруга, friend (woman)
-* друт, friend (man)
+* друг, friend (man)
 * клуб, club
 * город, city
 * муха, fly (蒼蠅)
@@ -222,13 +222,17 @@
 * слово, word
 * сумка, bag
 * завтра, tomorrow
+* завтрак, breakfast
 * Москва, Moscow
 * страна, country
 * завод, plant
 * рассказ, story
 * автобус, bus
+* вас, you
 * минуту, minute
+* собака, dog
 * спасибо, thank you
+* зовут, name
 
 * много, many
 * мало, few
