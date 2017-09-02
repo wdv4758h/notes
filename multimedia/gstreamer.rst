@@ -118,14 +118,28 @@ Sink
 
 
 
-Python Binding
+Binding
 ========================================
+
+Python
+------------------------------
+
+:Repo: https://github.com/GStreamer/gst-python
+
+利用 `PyGObject <https://git.gnome.org/browse/pygobject/>`_ 做成的 binding，
+涵蓋大部分 GStreamer 的功能。
+`PyGObject 文件 <https://pygobject.readthedocs.io/en/latest/>`_ 。
+
 
 安裝：
 
 .. code-block:: sh
 
+    # 系統安裝
     $ sudo pacman -S gst-python
+
+    # 用 pip 安裝
+    $ pip install "git+https://git.gnome.org/browse/pygobject@3.24.1"
 
 
 使用：
@@ -145,6 +159,20 @@ Python Binding
     # 或是使用下面兩行：
     # Gst.debug_set_active(True)
     # Gst.debug_set_default_threshold(5)
+
+
+Rust
+------------------------------
+
+:Repo: https://github.com/sdroege/gstreamer-rs
+:Docs: https://sdroege.github.io/rustdoc/gstreamer/gstreamer/
+
+
+利用 `GIR <https://github.com/gtk-rs/gir/>`_ 從 GStreamer 專案
+提供的 GObject-Introspection API metadata 來自動產生 binding，
+已經涵蓋大部分 GStreamer 的功能。
+
+`GTK 系列 Rust binding 網站 <http://gtk-rs.org/>`_ 。
 
 
 
@@ -549,6 +577,19 @@ Record
 
     # 從 RTP
     gst-launch-1.0 -e udpsrc address=0.0.0.0 port=5566 ! application/x-rtp,media=video,payload=96,encoding-name=H264 ! rtph264depay ! decodebin ! x264enc ! mp4mux ! filesink location=/tmp/sample.mp4
+
+
+Restart Pipeline in Application
+========================================
+
+先把 pipeline 的狀態設成 ``NULL`` ，
+接著再設成 ``PLAYING`` ，
+這樣就能把整個 pipeline 重啟。
+
+.. code-block:: python
+
+    pipeline.set_state(Gst.State.NULL)
+    pipeline.set_state(Gst.State.PLAYING)
 
 
 
