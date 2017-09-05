@@ -477,6 +477,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="linux/kernel-module.html">Kernel Module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="linux/nmcli.html">nmcli</a></li>
 <li class="toctree-l1"><a class="reference internal" href="linux/resource.html">資源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/seccomp.html">seccomp -  operate on Secure Computing state of the process</a></li>
 <li class="toctree-l1"><a class="reference internal" href="linux/selinux.html">SELinux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="linux/sendfile.html">sendfile - transfer data between file descriptors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="linux/sound.html">聲音 (Sound)</a></li>
@@ -491,6 +492,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="machine-learning/cheatsheet.html">Cheat Sheet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="machine-learning/clustering.html">Clustering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="machine-learning/darknet.html">Darknet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="machine-learning/data-set.html">Data Set</a></li>
 <li class="toctree-l1"><a class="reference internal" href="machine-learning/decision-tree.html">決策樹學習 （Decision Tree）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="machine-learning/deep-learning.html">Deep Learning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="machine-learning/dimensionality-reduction.html">Dimensionality Reduction</a></li>
@@ -3305,6 +3307,11 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l1"><a class="reference internal" href="linux/kernel-module.html">Kernel Module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="linux/nmcli.html">nmcli</a></li>
 <li class="toctree-l1"><a class="reference internal" href="linux/resource.html">資源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/seccomp.html">seccomp -  operate on Secure Computing state of the process</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linux/seccomp.html#id2">介紹</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/seccomp.html#id3">參考</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="linux/selinux.html">SELinux</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="linux/selinux.html#id2">參考</a></li>
 </ul>
@@ -3371,6 +3378,10 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="machine-learning/darknet.html#id4">編譯</a></li>
 <li class="toctree-l2"><a class="reference internal" href="machine-learning/darknet.html#yolo">YOLO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="machine-learning/darknet.html#id5">參考</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="machine-learning/data-set.html">Data Set</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="machine-learning/data-set.html#id2">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="machine-learning/decision-tree.html">決策樹學習 （Decision Tree）</a><ul>
@@ -4359,8 +4370,12 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </li>
 <li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#source">Source</a></li>
 <li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#sink">Sink</a></li>
-<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#python-binding">Python Binding</a></li>
-<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#id6">核心元件</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#binding">Binding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#python">Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#rust">Rust</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#id7">核心元件</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#pipeline-branch-tee">Pipeline Branch - tee</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#file-descriptor-fdsink">寫到指定的 File Descriptor - fdsink</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#file-descriptor-fdsrc">從指定的 File Descriptor 讀入 - fdsrc</a></li>
@@ -4369,11 +4384,11 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#funnel">funnel</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#id7">其他元件</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#id8">其他元件</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#tcp">TCP</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#id8">Pipeline 除錯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#id9">Pipeline 除錯</a></li>
 <li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#hardware-acceleration">Hardware Acceleration</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#va-api">VA-API</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#vdpau">VDPAU</a></li>
@@ -4382,7 +4397,7 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </li>
 <li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#benchmark-profiling">Benchmark &amp; Profiling</a></li>
 <li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#term">Term</a></li>
-<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#id9">設計重點</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#id10">設計重點</a></li>
 <li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#write-plugin">Write Plugin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#real-time-streaming">Real-Time Streaming</a></li>
 <li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#cheatsheet">Cheatsheet</a><ul>
@@ -4391,8 +4406,9 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#record">Record</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#restart-pipeline-in-application">Restart Pipeline in Application</a></li>
 <li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#license">License</a></li>
-<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#id10">參考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#id11">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="multimedia/opencv.html">OpenCV</a><ul>
@@ -4492,13 +4508,20 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="python/asynchronous.html">Asynchronous</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="python/asynchronous.html#asyncio">asyncio</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python/asynchronous.html#uvloop">uvloop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/asynchronous.html#aiohttp-async-http-client-server-framework">aiohttp - Async HTTP client/server framework</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python/asynchronous.html#id2">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="python/benchmark.html">Benchmark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python/best-practice.html">Best Practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python/concurrency.html">Python’s Concurrency</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="python/concurrency.html#concurrent-futures">concurrent.futures</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="python/concurrency.html#id2">基本使用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/concurrency.html#timeout">timeout</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="python/concurrency.html#reference">Reference</a></li>
 </ul>
 </li>

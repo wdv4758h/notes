@@ -478,6 +478,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../linux/kernel-module.html">Kernel Module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/nmcli.html">nmcli</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/resource.html">資源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/seccomp.html">seccomp -  operate on Secure Computing state of the process</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/selinux.html">SELinux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/sendfile.html">sendfile - transfer data between file descriptors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/sound.html">聲音 (Sound)</a></li>
@@ -492,6 +493,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/cheatsheet.html">Cheat Sheet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/clustering.html">Clustering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/darknet.html">Darknet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../machine-learning/data-set.html">Data Set</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/decision-tree.html">決策樹學習 （Decision Tree）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/deep-learning.html">Deep Learning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/dimensionality-reduction.html">Dimensionality Reduction</a></li>
@@ -666,7 +668,9 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="ast.html">Python AST</a></li>
 <li class="toctree-l1"><a class="reference internal" href="async-await.html">Python - async &amp; await</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Asynchronous</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#asyncio">asyncio</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#uvloop">uvloop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aiohttp-async-http-client-server-framework">aiohttp - Async HTTP client/server framework</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id2">參考</a></li>
 </ul>
 </li>
@@ -896,14 +900,28 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <p class="topic-title first">目錄</p>
 <ul class="simple">
 <li><a class="reference internal" href="#asynchronous" id="id3">Asynchronous</a><ul>
-<li><a class="reference internal" href="#uvloop" id="id4">uvloop</a></li>
-<li><a class="reference internal" href="#id2" id="id5">參考</a></li>
+<li><a class="reference internal" href="#asyncio" id="id4">asyncio</a></li>
+<li><a class="reference internal" href="#uvloop" id="id5">uvloop</a></li>
+<li><a class="reference internal" href="#aiohttp-async-http-client-server-framework" id="id6">aiohttp - Async HTTP client/server framework</a></li>
+<li><a class="reference internal" href="#id2" id="id7">參考</a></li>
 </ul>
 </li>
 </ul>
 </div>
+<div class="section" id="asyncio">
+<h2><a class="toc-backref" href="#id4">asyncio</a><a class="headerlink" href="#asyncio" title="本標題的永久連結">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Docs:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/asyncio.html">https://docs.python.org/3/library/asyncio.html</a></td>
+</tr>
+</tbody>
+</table>
+<p>asyncio 的 event loop 實做是可以自己替換的。</p>
+</div>
 <div class="section" id="uvloop">
-<h2><a class="toc-backref" href="#id4">uvloop</a><a class="headerlink" href="#uvloop" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id5">uvloop</a><a class="headerlink" href="#uvloop" title="本標題的永久連結">¶</a></h2>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -916,8 +934,28 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 目的是直接取代 Standard Library 內的 <code class="docutils literal"><span class="pre">asyncio</span></code> ，
 需要 Python 3.5 以上。</p>
 </div>
+<div class="section" id="aiohttp-async-http-client-server-framework">
+<h2><a class="toc-backref" href="#id6">aiohttp - Async HTTP client/server framework</a><a class="headerlink" href="#aiohttp-async-http-client-server-framework" title="本標題的永久連結">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Repo:</th><td class="field-body"><a class="reference external" href="https://github.com/aio-libs/aiohttp">https://github.com/aio-libs/aiohttp</a></td>
+</tr>
+</tbody>
+</table>
+<p>底下的 Worker 目前有：</p>
+<ul class="simple">
+<li>GunicornWebWorker</li>
+<li>GunicornUVLoopWebWorker</li>
+<li>GunicornTokioWebWorker</li>
+</ul>
+<p><code class="docutils literal"><span class="pre">GunicornTokioWebWorker</span></code> 是基於 Rust 的 <a class="reference external" href="https://github.com/PyO3/tokio">Tokio 的 Python 包裝</a> ，
+這個 Worker 目前還在實驗、開發中，
+其他 Worker 則是穩定發行了。</p>
+</div>
 <div class="section" id="id2">
-<h2><a class="toc-backref" href="#id5">參考</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id7">參考</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://docs.python.org/3/library/asyncio.html">asyncio — Asynchronous I/O, event loop, coroutines and tasks</a></li>
 <li><a class="reference external" href="https://magic.io/blog/uvloop-blazing-fast-python-networking/">uvloop - Blazing fast Python networking — magicstack</a></li>
