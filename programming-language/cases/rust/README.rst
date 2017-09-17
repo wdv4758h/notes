@@ -49,6 +49,7 @@ Rust 相關文章
 * JIT
 * Profiling
 * SIMD
+* `GUI <gui.rst>`_
 
 
 ---
