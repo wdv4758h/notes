@@ -38,7 +38,7 @@ Rust 相關文章
 * Unsafe
 * `Regular Expression <regex.rst>`_
 * Documentation
-* Serialization
+* `Serialization <serialization.rst>`_
 * `Network <network.rst>`_
 * `Asynchronous <asynchronous.rst>`_
 * `Database <database.rst>`_
