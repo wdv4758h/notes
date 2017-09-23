@@ -103,3 +103,10 @@ OS Utils
     withenv("PWD" => nothing) do  # ``nothing`` can delete the var
         println(ENV["PWD"])
     end
+
+
+Broadcast
+----------------------------------------------------------------------
+
+* ``broadcast_getindex``: 就是原本 ``getindex`` 只能一次取出一個東西，
+  現在能一次取出一堆東西 (透過 ``broadcast`` ) 。

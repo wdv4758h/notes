@@ -6,11 +6,6 @@ Basic
 
 .. toctree::
    :maxdepth: 2
+   :glob:
 
-   type
-   ccall
-   funcs
-   flow
-   meta
-   module
-   scope
+   *

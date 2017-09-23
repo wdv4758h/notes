@@ -7,8 +7,6 @@ Guide
   - [10] unrestricted guest: logical processor directly in real mode, require EPT: https://2013.asiabsdcon.org/papers/abc2013-P5A-paper.pdf
   - [13] VMCS shadowing: accelerate nested virtualization of VMMs. The techique like shadow page table.
   
-    - https://www-ssl.intel.com/content/dam/www/public/us/en/documents/white-papers/intel-vmcs-shadowing-paper.pdf
-
 Content
 -------
 - VMX instructions

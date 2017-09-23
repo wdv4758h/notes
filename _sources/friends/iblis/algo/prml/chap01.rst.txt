@@ -462,6 +462,56 @@ Data Sets Bootstrap
     抽到 10 個為止，即形成 :math:`X_B`
 
 
+Model Selection
+----------------------------------------------------------------------
+
+假設 model 為 order :math:`M` ploynomial model
+
+.. math::
+
+    y = p(x)
+
+而 :math:`M` 的覺得也是個 hyperparamter。
+
+:math:`M` 太大就容易有 over-fitting 的問題。
+
+
+Cross-Validation
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+可用於檢驗 over-fitting
+
+舉例，所有的 data point 是 100%， 拆成
+
+- train set
+
+- validation set
+
+- test set
+
+通常先拆成 8:2 = (train + validation):test
+
+而 train + validation 裡面在拆，如 4:1
+
+在 4:1 的 case，這個部分的 data 有 5 段，
+就會做 5 個 training run，每次 run 都選一段作為 validation set。
+
+但是這樣的缺點是每個 :math:`M` 的 computation 量都增加 5 倍。
+
+
+Akaike Information Criterion (AIC)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+我們覺得 cross-validation 的計算量增加太多了。
+
+.. math::
+
+    \ln p(\mathcal{D} | \vec{w}_{ML}) - M
+
+我們有好多個 :math:`M` 要選一個。
+每個 :math:`M` 都有自己的 max likelihood 的那個 :math:`\vec{w}` 。
+
+
 Decision Theory
 ----------------------------------------------------------------------
 
@@ -495,7 +545,8 @@ Information Theory
 我們想要尋找一個 `Monotonic function`_ :math:`h(x)` 來代表觀測 x 後，有多少的
 information gain ，或是說有多 suprise
 
-先想象，假設 :math:`x, y` 為獨立的 random variable, :math:`h(x, y)` 應該長成:
+先想象，假設 :math:`x, y` 為獨立 (independent) 的 random variable,
+:math:`h(x, y)` 應該長成:
 
 .. math::
 
@@ -538,4 +589,18 @@ Continueous Var
 
     H(\vec{x}) = - \int p(\vec{x}) \ln p(\vec{x}) d\vec{x}
 
-上式稱為 :math:`differential entropy`
+上式稱為 `differential entropy`
+
+
+Mutual Information
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+描述兩份資訊（兩個 random variables）dependent 的多寡。
+
+換句話說，量測兩個 random variables 之間 share 了多少資訊。
+讓我們在已知其中一個的狀態下，可以去除多少另一個 variable 的不確定選項。
+
+.. math::
+
+    I(X; Y) = \sum_{x \in X} \sum_{y \in Y} p(x, y)
+        \log \Big( \frac{p(x, y)}{p(x)p(y)} \Big)

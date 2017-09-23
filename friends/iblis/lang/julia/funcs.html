@@ -37,8 +37,8 @@
         <link rel="search" title="搜尋" href="../../../../search.html"/>
     <link rel="top" title="wdv4758h-notes latest 說明文件" href="../../../../index.html"/>
         <link rel="up" title="Julia" href="index.html"/>
-        <link rel="next" title="Flow Control" href="flow.html"/>
-        <link rel="prev" title="Calling C Functions" href="ccall.html"/> 
+        <link rel="next" title="Meta Programming" href="meta.html"/>
+        <link rel="prev" title="Flow Control" href="flow.html"/> 
 
   
   <script src="../../../../_static/js/modernizr.min.js"></script>
@@ -456,6 +456,8 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l3"><a class="reference internal" href="../../compiler/01-intro.html">Introduction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../compiler/02-lex.html">lex</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../compiler/05-cfg.html">Context Free Grammar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../compiler/06-parsing.html">Parsing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../compiler/09-semantic-analysis.html">Semantic Analysis</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../compiler/index.html">Compiler</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../conf/pycon.html">Chapter name</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../db/cloudant.html">Cloudant</a></li>
@@ -466,8 +468,10 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l3"><a class="reference internal" href="../../linux/x11.html">X11</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../linux/yocto.html">Yocto</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../math/calculus.html">Calculus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../math/diff-eq.html">Differential Equations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../math/linalg.html">Linear Algebra</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../math/prob.html">Probability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../math/stats.html">Statistic</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../misc/fonts.html">Fonts</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/binutils.html">binutils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../project/bitcoin.html">Bitcoin</a></li>
@@ -518,7 +522,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../../../graphics/mesa.html">Mesa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../graphics/resource.html">Graphic Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../hardware/arduino.html">Arduino</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../hardware/cpu-insturction.html">CPU Instruction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../hardware/cpu.html">CPU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../hardware/hardware-and-programming.html">Hardware &amp; Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../hardware/history.html">Hardware’s History</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../hardware/intel-mic.html">Intel MIC</a></li>
@@ -718,9 +722,13 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../../../misc/videos.html">一些 Talk 的影片</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../misc/vulkan.html">Vulkan</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../mpi/mpi.html">MPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../multimedia/audio.html">Audio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../multimedia/ffmpeg.html">ffmpeg</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../multimedia/gstreamer.html">GStreamer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../multimedia/kodi.html">Kodi - Open Source Home Theater Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../multimedia/opencv.html">OpenCV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../multimedia/pulseaudio.html">PulseAudio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../multimedia/video.html">Video</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../network/ddos.html">DDoS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../network/dns.html">DNS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../network/nginx.html">Nginx</a></li>
@@ -817,6 +825,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/features-basic.html">Rust’s Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/fuzz-testing.html">Fuzz Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/graphic.html">Graphic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rust/gui.html">GUI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/index.html">My Rust Articles Collection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/iterator.html">Iterator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/kernel.html">Rust Kernel</a></li>
@@ -841,6 +850,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/rfcs.html">Rust RFCs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/rust.html">Rust</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/rust-vim-plugin.html">Rust Vim Plugin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rust/serialization.html">Serialization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/std.html">Rust’s std</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/tagged-unions.html">Tagged Unions (Sum Type)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/testing.html">測試 (Testing)</a></li>
@@ -856,9 +866,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../../../security/security.html">Security</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../simd/algorithm.html">運用 SIMD 來加速的演算法</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../simd/status.html">SIMD</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../streaming/audio.html">Audio</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../streaming/conference-call.html">Conference Call</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../streaming/rtsp.html">RTSP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../synchronization/introduction.html">同步 (Synchronization)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../systemd/networkctl.html">networkctl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../testing/fuzzer.html">Fuzzer</a></li>
@@ -1019,6 +1026,20 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <span class="n">λ</span> <span class="p">(</span><span class="n">generic</span> <span class="k">function</span> <span class="n">with</span> <span class="mi">2</span> <span class="n">methods</span><span class="p">)</span>
 </pre></div>
 </div>
+<div class="section" id="val-c">
+<h3><code class="docutils literal"><span class="pre">Val{c}</span></code><a class="headerlink" href="#val-c" title="本標題的永久連結">¶</a></h3>
+<p>為 const c 建立一個 type 為 <code class="docutils literal"><span class="pre">Val{c}</span></code></p>
+<p>透過 Multiple dispatch 能不用對 c 在 run-time 做測試</p>
+<p>e.g.:</p>
+<div class="highlight-julia"><div class="highlight"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">f</span><span class="p">(</span><span class="o">::</span><span class="kt">Type</span><span class="p">{</span><span class="kt">Val</span><span class="p">{</span><span class="kc">true</span><span class="p">}})</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="n">f</span> <span class="p">(</span><span class="n">generic</span> <span class="k">function</span> <span class="n">with</span> <span class="mi">1</span> <span class="n">methods</span><span class="p">)</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">f</span><span class="p">(</span><span class="kt">Val</span><span class="p">{</span><span class="kc">true</span><span class="p">})</span>
+<span class="mi">42</span>
+</pre></div>
+</div>
+<p>idea: 做個類似 pattern matching 的東西？</p>
+</div>
 </div>
 </div>
 
@@ -1032,10 +1053,10 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="flow.html" class="btn btn-neutral float-right" title="Flow Control" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="meta.html" class="btn btn-neutral float-right" title="Meta Programming" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="ccall.html" class="btn btn-neutral" title="Calling C Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="flow.html" class="btn btn-neutral" title="Flow Control" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

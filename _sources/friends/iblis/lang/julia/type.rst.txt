@@ -216,6 +216,9 @@ Class
 Type Assertion
 ----------------------------------------------------------------------
 
+Assertion
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 ::
 
     (1 + 2)::Int
@@ -225,6 +228,16 @@ Type Assertion
 
 Type Declaration
 ----------------------------------------------------------------------
+
+* 用 ``@code_typed`` & ``@code_lowerd`` 來 check type stability
+
+* 可以用 `ResultTypes.jl <https://github.com/iamed2/ResultTypes.jl>`_
+  省掉 backtrace
+
+
+Annotation (Declaration)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 
 ::
 
@@ -240,6 +253,23 @@ Type Declaration
     julia> typeof(λ())
     Int8
 
+only allowed in non-global scope::
+
+    function f()
+        x::Int = 4
+        y::Float64 = 3.14
+        z::Float16 = 2
+
+        x, y, z
+    end
+
+    julia> f()
+    (4, 3.14, Float16(2.0))
+
+
+Return Type Annotation
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 On function definition::
 
     julia> function λ()::Int64
@@ -249,6 +279,34 @@ On function definition::
 
     julia> λ()
     42           # alway be converted to Int64
+
+
+"This method must return a T"::
+
+    function f()::Int
+        42
+    end
+
+
+It can be parametrize as well::
+
+    function f(v::Vector{T})::T where {T <: Real}
+        ...
+    end
+
+
+It can be expression, e.g. using the return value of a function call::
+
+    function f(v::Vector{T})::promote_type(T) where {T <: Real}
+        ...
+    end
+
+
+It can be depend on argument::
+
+    function f(x)::eltype(x)
+        ...
+    end
 
 
 Abstract Types
@@ -362,3 +420,21 @@ Tuple Type
 ----------------------------------------------------------------------
 
 https://docs.julialang.org/en/latest/manual/types.html#Tuple-Types-1
+
+:NTuple: 如果 Tuple 裡面的 type 一致，有 compact representation::
+
+    julia> NTuple{3, Int}
+    Tuple{Int64,Int64,Int64}
+
+    julia> NTuple{6, Int}
+    NTuple{6,Int64}
+
+
+* 是 covariant
+
+* ``Vararg`` 跟 ``Tuple`` 都是 covariant
+
+::
+
+    julia> Vararg{Int, 3} <: Vararg{Integer, 3}
+    true

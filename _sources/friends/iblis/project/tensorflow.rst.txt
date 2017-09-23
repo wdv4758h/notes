@@ -105,3 +105,13 @@ Patches
     # to be fixed, maybe with auto-detection?
     +  cxx_builtin_include_directory: "/home/iblis/git/tensorflow/third_party/gpus/cuda/include"
     +  cxx_builtin_include_directory: "/opt/cuda/include"}
+
+
+2D Conv
+----------------------------------------------------------------------
+
+input 的圖片是 128x128 然後 rgb 3 channel，所以 input tensor 是 128x128x3
+
+若 filter 是 5x5 然後有 64 片 filter -> filter tensor 5x5x64
+
+conv 出來的東西應該是 128x128x3x64 之類的。 just guessing

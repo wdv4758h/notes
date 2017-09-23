@@ -13,7 +13,7 @@ virtualization basic
 
 x86 hardware-assisted virtualization
 ------------------------------------
-index: ./x86/intro.rst
+index: ./x86/index.rst
 
 - intel VT-x and VT-i: VT for x86 and itanium(IA 64)
 - intel VT-d: Virtualization of Direct IO

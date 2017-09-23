@@ -213,6 +213,33 @@ Julia code:
     pinv(X' * X) * X' * y
 
 
+Example
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+給定 (x, y) = (1, 2), (2, 4), (3, 6)
+
+人腦可直觀看出 :math:`y = 2x`
+
+.. code-block:: julia
+
+	julia> X = A[:, 1:2]
+	3×2 Array{Int64,2}:
+	1  1
+	2  1
+	3  1
+
+	julia> Y = A[:, 3]
+	3-element Array{Int64,1}:
+	2
+	4
+	6
+
+	julia> pinv(X' * X) * X' * Y
+	2-element Array{Float64,1}:
+	2.0
+	-1.02141e-14
+
+
 If Non-interible
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 

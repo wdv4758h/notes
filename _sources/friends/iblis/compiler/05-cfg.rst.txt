@@ -18,3 +18,12 @@ Example
 
     沒 associativity 也爛掉， :math:`1 + 2 + 3`
 
+
+Left Recursion
+----------------------------------------------------------------------
+
+immediate left recursion
+    Eliminating formula: why?
+
+
+

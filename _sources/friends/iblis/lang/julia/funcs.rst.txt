@@ -62,3 +62,21 @@ Multiple-Dispatch
             a * b
         end
     λ (generic function with 2 methods)
+
+
+``Val{c}``
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+為 const c 建立一個 type 為 ``Val{c}``
+
+透過 Multiple dispatch 能不用對 c 在 run-time 做測試
+
+e.g.::
+
+    julia> f(::Type{Val{true}}) = 42
+    f (generic function with 1 methods)
+
+    julia> f(Val{true})
+    42
+
+idea: 做個類似 pattern matching 的東西？

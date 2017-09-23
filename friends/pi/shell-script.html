@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>= Shell Script Syntax Note = &mdash; wdv4758h-notes latest 說明文件</title>
+  <title>Shell Script Syntax Note &mdash; wdv4758h-notes latest 說明文件</title>
   
 
   
@@ -464,12 +464,16 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l3"><a class="reference internal" href="screen.html">= screen 用法及設定 =</a></li>
 <li class="toctree-l3"><a class="reference internal" href="setup.html">安裝設定懶人包</a></li>
 <li class="toctree-l3"><a class="reference internal" href="shadowsocks.html">shadowsocks</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">= Shell Script Syntax Note =</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#bourne-sh">bourne sh</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Shell Script Syntax Note</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">指令的串接</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#if"><code class="docutils literal"><span class="pre">if</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#while"><code class="docutils literal"><span class="pre">while</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#for-loop"><code class="docutils literal"><span class="pre">for</span></code> loop</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#case"><code class="docutils literal"><span class="pre">case</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#function"><code class="docutils literal"><span class="pre">function</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id1">字串處理</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">字串處理</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#io">IO 重導向</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id2">其他</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">環境變數</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#csh-tcsh">csh/tcsh</a></li>
 </ul>
 </li>
@@ -593,7 +597,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../graphics/mesa.html">Mesa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../graphics/resource.html">Graphic Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../hardware/arduino.html">Arduino</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../hardware/cpu-insturction.html">CPU Instruction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware/cpu.html">CPU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../hardware/hardware-and-programming.html">Hardware &amp; Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../hardware/history.html">Hardware’s History</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../hardware/intel-mic.html">Intel MIC</a></li>
@@ -793,9 +797,13 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../misc/videos.html">一些 Talk 的影片</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../misc/vulkan.html">Vulkan</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../mpi/mpi.html">MPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../multimedia/audio.html">Audio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../multimedia/ffmpeg.html">ffmpeg</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../multimedia/gstreamer.html">GStreamer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../multimedia/kodi.html">Kodi - Open Source Home Theater Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../multimedia/opencv.html">OpenCV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../multimedia/pulseaudio.html">PulseAudio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../multimedia/video.html">Video</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../network/ddos.html">DDoS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../network/dns.html">DNS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../network/nginx.html">Nginx</a></li>
@@ -892,6 +900,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../rust/features-basic.html">Rust’s Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/fuzz-testing.html">Fuzz Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/graphic.html">Graphic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust/gui.html">GUI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/index.html">My Rust Articles Collection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/iterator.html">Iterator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/kernel.html">Rust Kernel</a></li>
@@ -916,6 +925,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../rust/rfcs.html">Rust RFCs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/rust.html">Rust</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/rust-vim-plugin.html">Rust Vim Plugin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust/serialization.html">Serialization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/std.html">Rust’s std</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/tagged-unions.html">Tagged Unions (Sum Type)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/testing.html">測試 (Testing)</a></li>
@@ -931,9 +941,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../security/security.html">Security</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../simd/algorithm.html">運用 SIMD 來加速的演算法</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../simd/status.html">SIMD</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../streaming/audio.html">Audio</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../streaming/conference-call.html">Conference Call</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../streaming/rtsp.html">RTSP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../synchronization/introduction.html">同步 (Synchronization)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../systemd/networkctl.html">networkctl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../testing/fuzzer.html">Fuzzer</a></li>
@@ -1012,7 +1019,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
         
           <li><a href="../README.html">朋友的筆記</a> &raquo;</li>
         
-      <li>= Shell Script Syntax Note =</li>
+      <li>Shell Script Syntax Note</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -1034,32 +1041,56 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
            <div itemprop="articleBody">
             
   <div class="section" id="shell-script-syntax-note">
-<h1>= Shell Script Syntax Note =<a class="headerlink" href="#shell-script-syntax-note" title="本標題的永久連結">¶</a></h1>
-<div class="section" id="bourne-sh">
-<h2>bourne sh<a class="headerlink" href="#bourne-sh" title="本標題的永久連結">¶</a></h2>
+<h1>Shell Script Syntax Note<a class="headerlink" href="#shell-script-syntax-note" title="本標題的永久連結">¶</a></h1>
+<p>除了最後一個 section 為 csh/tcsh 以外，其他均以 bourne shell 為主</p>
+<p>名詞定義：</p>
+<ul class="simple">
+<li>指令：command</li>
+<li>退出狀態：exit status, return code, return status<ul>
+<li>一般來說，退出狀態為 0 代表程式執行成功，非 0 則代表失敗</li>
+<li>常見在 C 裡面， <code class="docutils literal"><span class="pre">main()</span></code> 的 return 0 就是這個</li>
+</ul>
+</li>
+</ul>
+<div class="section" id="id1">
+<h2>指令的串接<a class="headerlink" href="#id1" title="本標題的永久連結">¶</a></h2>
+<p>語法</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">cmd</span><span class="o">&gt;</span> <span class="p">;</span> <span class="o">&lt;</span><span class="n">cmd</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">cmd</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span> <span class="o">&lt;</span><span class="n">cmd</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">cmd</span><span class="o">&gt;</span> <span class="o">||</span> <span class="o">&lt;</span><span class="n">cmd</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">cmd</span><span class="o">&gt;</span> <span class="o">|</span> <span class="o">&lt;</span><span class="n">cmd</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>以 <code class="docutils literal"><span class="pre">;</span></code> 串接起來的指令會依序被執行。</p>
+<p>以 <code class="docutils literal"><span class="pre">&amp;&amp;</span></code> 串接起來的指令會依序被執行，
+但若中間有任何一個指令的退出狀態為非 0，
+後續的指令就不會被執行。</p>
+<p>以 <code class="docutils literal"><span class="pre">||</span></code> 串接起來的指令會依序被執行，
+但若中間有任何一個指令的退出狀態為 0，
+後續的指令就不會被執行。</p>
+<p>以 <code class="docutils literal"><span class="pre">|</span></code> 串接起來的指令會依序被執行，
+且每個指令的 stdout 會被接上下一個指令的 stdin。</p>
+<p>最後一個指令的退出狀態會被視為是整串指令的退出狀態。
+退出狀態可以用 <code class="docutils literal"><span class="pre">$?</span></code> 取得。</p>
+</div>
 <div class="section" id="if">
-<h3><code class="docutils literal"><span class="pre">if</span></code><a class="headerlink" href="#if" title="本標題的永久連結">¶</a></h3>
+<h2><code class="docutils literal"><span class="pre">if</span></code><a class="headerlink" href="#if" title="本標題的永久連結">¶</a></h2>
 <ul>
 <li><p class="first">語法</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">cmd</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">&lt;</span><span class="n">cmd</span><span class="o">&gt;</span>
 <span class="n">then</span>
-  <span class="o">...</span>
-<span class="k">elif</span> <span class="n">cmd</span>
+  <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+<span class="k">elif</span> <span class="o">&lt;</span><span class="n">cmd</span><span class="o">&gt;</span>
 <span class="n">then</span>
-  <span class="o">...</span>
+  <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
 <span class="k">else</span>
-  <span class="o">...</span>
+  <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
 <span class="n">fi</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">if</span></code> 會執行 <code class="docutils literal"><span class="pre">cmd</span></code> ，若 Return Status 為 <code class="docutils literal"><span class="pre">0</span></code> 則條件成立。</li>
-<li>Return Status (Exit Status)<ul>
-<li>一個「指令」可以由多個指令組成</li>
-<li>數個指令依序執行時，最後一個指令的 Return Status 為整串指令的 Return Status</li>
-<li>數個指令用 pipe (<code class="docutils literal"><span class="pre">|</span></code>)、And (<code class="docutils literal"><span class="pre">&amp;&amp;</span></code>)、Or (<code class="docutils literal"><span class="pre">||</span></code>) 串起來執行時亦同</li>
-</ul>
-</li>
+<li><code class="docutils literal"><span class="pre">if</span></code> 會執行 <code class="docutils literal"><span class="pre">&lt;cmd&gt;</span></code> ，若退出狀態為 <code class="docutils literal"><span class="pre">0</span></code> 則條件成立，接下來執行 <code class="docutils literal"><span class="pre">&lt;body&gt;</span></code></li>
+<li><code class="docutils literal"><span class="pre">&lt;body&gt;</span></code> 不可為空，若有需要暫時放空，可以用 <code class="docutils literal"><span class="pre">true</span></code> 或是 <code class="docutils literal"><span class="pre">false</span></code> 指令</li>
 </ul>
 </li>
 <li><p class="first"><code class="docutils literal"><span class="pre">[</span></code> / <code class="docutils literal"><span class="pre">test</span></code></p>
@@ -1077,7 +1108,17 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </div>
 </li>
 <li><p class="first">And Operator</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>if [ $# -eq 1 ] &amp;&amp; [ $? -eq 0 ]
+<div class="highlight-default"><div class="highlight"><pre><span></span>[ $# -eq 1 ] &amp;&amp; [ $? -eq 0 ]
+</pre></div>
+</div>
+</li>
+<li><p class="first">檢查字串是否相等</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span> <span class="s2">&quot;$str&quot;</span> <span class="o">=</span> <span class="s2">&quot;a&quot;</span> <span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">檢查 stdin 是否為 terminal</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span> <span class="o">-</span><span class="n">t</span> <span class="mi">0</span> <span class="p">]</span>
 </pre></div>
 </div>
 </li>
@@ -1088,11 +1129,12 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </ul>
 </div>
 <div class="section" id="while">
-<h3><code class="docutils literal"><span class="pre">while</span></code><a class="headerlink" href="#while" title="本標題的永久連結">¶</a></h3>
+<h2><code class="docutils literal"><span class="pre">while</span></code><a class="headerlink" href="#while" title="本標題的永久連結">¶</a></h2>
 <ul>
 <li><p class="first">語法</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="p">[</span> <span class="mi">1</span> <span class="p">];</span> <span class="n">do</span>
-  <span class="o">...</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="o">&lt;</span><span class="n">cmd</span><span class="o">&gt;</span>
+<span class="n">do</span>
+  <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
 <span class="n">done</span>
 </pre></div>
 </div>
@@ -1100,7 +1142,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </ul>
 </div>
 <div class="section" id="for-loop">
-<h3><code class="docutils literal"><span class="pre">for</span></code> loop<a class="headerlink" href="#for-loop" title="本標題的永久連結">¶</a></h3>
+<h2><code class="docutils literal"><span class="pre">for</span></code> loop<a class="headerlink" href="#for-loop" title="本標題的永久連結">¶</a></h2>
 <ul>
 <li><p class="first">語法</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>for i in 1 2 3; do
@@ -1119,12 +1161,12 @@ done
 </ul>
 </div>
 <div class="section" id="case">
-<h3><code class="docutils literal"><span class="pre">case</span></code><a class="headerlink" href="#case" title="本標題的永久連結">¶</a></h3>
+<h2><code class="docutils literal"><span class="pre">case</span></code><a class="headerlink" href="#case" title="本標題的永久連結">¶</a></h2>
 <ul>
 <li><p class="first">範例</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>while [ $# -gt 0 ]; do
   case &quot;$1&quot; in
-    -f) force_replace=1;;
+    -f|-F) force_replace=1;;
     -a) echo &quot;a&quot;; echo &quot;b&quot;;;
   esac
   shift
@@ -1134,39 +1176,28 @@ done
 </li>
 </ul>
 </div>
-</div>
 <div class="section" id="function">
 <h2><code class="docutils literal"><span class="pre">function</span></code><a class="headerlink" href="#function" title="本標題的永久連結">¶</a></h2>
 <p>語法</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">function_name</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="o">...</span>
+  <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li>Bash 允許在 function 名稱前加上 <code class="docutils literal"><span class="pre">function</span></code> 關鍵字，但這不是 POSIX 的規範</li>
-<li>內容不可以是空的</li>
-<li>可以用 <code class="docutils literal"><span class="pre">return</span></code> 指令來指定 Return Status</li>
+<li><code class="docutils literal"><span class="pre">&lt;body&gt;</span></code> 不可為空</li>
+<li>可以用 <code class="docutils literal"><span class="pre">return</span></code> 指令來指定退出狀態</li>
 </ul>
 </div>
-<div class="section" id="id1">
-<h2>字串處理<a class="headerlink" href="#id1" title="本標題的永久連結">¶</a></h2>
-<ul>
-<li><p class="first">字串相等</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">[</span> <span class="s2">&quot;$str&quot;</span> <span class="o">=</span> <span class="s2">&quot;a&quot;</span> <span class="p">];</span> <span class="n">then</span>
-<span class="n">fi</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li>不是雙等號</li>
-</ul>
-</li>
-<li><p class="first">以下範例使用假設</p>
+<div class="section" id="id2">
+<h2>字串處理<a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<p>以下範例使用假設</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="ch">#!/usr/local/env sh</span>
 <span class="n">var</span><span class="o">=</span><span class="n">foodforthought</span><span class="o">.</span><span class="n">jpg</span>
 </pre></div>
 </div>
-</li>
+<ul>
 <li><p class="first">切掉左邊</p>
 <ul>
 <li><p class="first">從左邊開始尋找 <code class="docutils literal"><span class="pre">fo</span></code> ，找到最後一個 <code class="docutils literal"><span class="pre">fo</span></code> ，右邊剩下的字串為結果 (不包含比對到的 <code class="docutils literal"><span class="pre">fo</span></code>)</p>
@@ -1210,7 +1241,7 @@ done
 <h2>IO 重導向<a class="headerlink" href="#io" title="本標題的永久連結">¶</a></h2>
 <ul>
 <li><p class="first">去除 stderr</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ command 2&gt;less
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ command 2&gt;/dev/null
 </pre></div>
 </div>
 </li>
@@ -1221,10 +1252,8 @@ done
 </li>
 </ul>
 </div>
-<div class="section" id="id2">
-<h2>其他<a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
-<ul>
-<li><p class="first">把 local 變數傳給 subprocess</p>
+<div class="section" id="id3">
+<h2>環境變數<a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
 <ul>
 <li><p class="first">把 <code class="docutils literal"><span class="pre">var</span></code> 變為自己的環境變數 (才可以傳給 subprocess)</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">var</span>
@@ -1235,8 +1264,6 @@ done
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">unset</span> <span class="n">var</span>
 </pre></div>
 </div>
-</li>
-</ul>
 </li>
 </ul>
 </div>

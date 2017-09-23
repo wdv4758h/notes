@@ -1,4 +1,4 @@
-https://www.wikiwand.com/en/X86_virtualization
+- https://www.wikiwand.com/en/X86_virtualization
 
 x86 hardware virtualization: allows multiple operating systems to simultaneously share x86 processor resources in a safe and efficient manner.
 
@@ -10,11 +10,15 @@ Guide
 
   - [05] CPU virtualization: VMX root mode, VMX instruction
   - [08] EPT: page-table virtualization 
-  - [10] unrestricted guest: logical processor directly in real mode, require EPT: https://2013.asiabsdcon.org/papers/abc2013-P5A-paper.pdf
+  - [10] unrestricted guest: logical processor directly in real mode, it requires EPT.
+
+    - `Implements BIOS emulation support forBHyVe: A BSD Hypervisor <https://2013.asiabsdcon.org/papers/abc2013-P5A-paper.pdf>`_
   - [13] VMCS shadowing: accelerate nested virtualization of VMMs. The techique like shadow page table.
   
-    - https://www-ssl.intel.com/content/dam/www/public/us/en/documents/white-papers/intel-vmcs-shadowing-paper.pdf
-    - ``Documentation/virtual/kvm/nested-vmx.txt``, The Turtles Project (OSDI 10): https://www.kernel.org/doc/Documentation/virtual/kvm/nested-vmx.txt
+- [supplement] nested virtualization
+  
+  - `[OSDI 10] The Turtles Project <https://www.kernel.org/doc/Documentation/virtual/kvm/nested-vmx.txt>`_
+  - ``Documentation/virtual/kvm/nested-vmx.txt``
 
 - [12] intel APICv
 
@@ -42,18 +46,21 @@ Guide
   - address translation services(ATS): native IOV across PCI-E via address translation
   - SR-IOV: native IOV in existing single-root complex PCI Express topologies
   - MR-IOV: native IOV in new topologies (for example, blade servers), by building on SR-IOV to provide multiple root complexes which share a common PCI Express hierarchy.
+
+- SR-IOV resources
+
   - SR-IOV in Xen: https://www.usenix.org/conference/wiov-08/sr-iov-networking-xen-architecture-design-and-implementation
   - Intro to Intel flexible port partitioning using SR-IOV: http://www.intel.com/content/dam/www/public/us/en/documents/solution-briefs/10-gbe-ethernet-flexible-port-partitioning-brief.pdf
   - http://blogs.scalablelogic.com/2013/12/enhanced-networking-in-aws-cloud.html
 
-----
+interesting
+-----------
 
-- interesting
+- x86_64 因為不支援 segmentation, 所以要做純 software emulation 有困難. (Qemu?)
 
-  - x86_64 因為不支援 segmentation, 所以要做純 software emulation 有困難. (Qemu?)
+reference
+---------
 
-ref
-+++
 - intel VT instructions: 
 
   - http://linasm.sourceforge.net/docs/instructions/vmx.php

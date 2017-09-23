@@ -448,7 +448,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../../../graphics/mesa.html">Mesa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../graphics/resource.html">Graphic Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../hardware/arduino.html">Arduino</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../hardware/cpu-insturction.html">CPU Instruction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../hardware/cpu.html">CPU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../hardware/hardware-and-programming.html">Hardware &amp; Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../hardware/history.html">Hardware’s History</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../hardware/intel-mic.html">Intel MIC</a></li>
@@ -648,9 +648,13 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../../../misc/videos.html">一些 Talk 的影片</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../misc/vulkan.html">Vulkan</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../mpi/mpi.html">MPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../multimedia/audio.html">Audio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../multimedia/ffmpeg.html">ffmpeg</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../multimedia/gstreamer.html">GStreamer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../multimedia/kodi.html">Kodi - Open Source Home Theater Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../multimedia/opencv.html">OpenCV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../multimedia/pulseaudio.html">PulseAudio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../multimedia/video.html">Video</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../network/ddos.html">DDoS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../network/dns.html">DNS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../network/nginx.html">Nginx</a></li>
@@ -747,6 +751,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/features-basic.html">Rust’s Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/fuzz-testing.html">Fuzz Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/graphic.html">Graphic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rust/gui.html">GUI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/index.html">My Rust Articles Collection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/iterator.html">Iterator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/kernel.html">Rust Kernel</a></li>
@@ -771,6 +776,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/rfcs.html">Rust RFCs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/rust.html">Rust</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/rust-vim-plugin.html">Rust Vim Plugin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rust/serialization.html">Serialization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/std.html">Rust’s std</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/tagged-unions.html">Tagged Unions (Sum Type)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/testing.html">測試 (Testing)</a></li>
@@ -786,9 +792,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../../../security/security.html">Security</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../simd/algorithm.html">運用 SIMD 來加速的演算法</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../simd/status.html">SIMD</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../streaming/audio.html">Audio</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../streaming/conference-call.html">Conference Call</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../streaming/rtsp.html">RTSP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../synchronization/introduction.html">同步 (Synchronization)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../systemd/networkctl.html">networkctl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../testing/fuzzer.html">Fuzzer</a></li>
@@ -886,7 +889,9 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p><a class="reference external" href="https://www.wikiwand.com/en/X86_virtualization">https://www.wikiwand.com/en/X86_virtualization</a></p>
+  <ul class="simple">
+<li><a class="reference external" href="https://www.wikiwand.com/en/X86_virtualization">https://www.wikiwand.com/en/X86_virtualization</a></li>
+</ul>
 <p>x86 hardware virtualization: allows multiple operating systems to simultaneously share x86 processor resources in a safe and efficient manner.</p>
 <ul class="simple">
 <li>keyword: OSs share processor resources, safe, efficient</li>
@@ -897,12 +902,16 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li>intel VT-x<ul>
 <li>[05] CPU virtualization: VMX root mode, VMX instruction</li>
 <li>[08] EPT: page-table virtualization</li>
-<li>[10] unrestricted guest: logical processor directly in real mode, require EPT: <a class="reference external" href="https://2013.asiabsdcon.org/papers/abc2013-P5A-paper.pdf">https://2013.asiabsdcon.org/papers/abc2013-P5A-paper.pdf</a></li>
-<li>[13] VMCS shadowing: accelerate nested virtualization of VMMs. The techique like shadow page table.<ul>
-<li><a class="reference external" href="https://www-ssl.intel.com/content/dam/www/public/us/en/documents/white-papers/intel-vmcs-shadowing-paper.pdf">https://www-ssl.intel.com/content/dam/www/public/us/en/documents/white-papers/intel-vmcs-shadowing-paper.pdf</a></li>
-<li><code class="docutils literal"><span class="pre">Documentation/virtual/kvm/nested-vmx.txt</span></code>, The Turtles Project (OSDI 10): <a class="reference external" href="https://www.kernel.org/doc/Documentation/virtual/kvm/nested-vmx.txt">https://www.kernel.org/doc/Documentation/virtual/kvm/nested-vmx.txt</a></li>
+<li>[10] unrestricted guest: logical processor directly in real mode, it requires EPT.<ul>
+<li><a class="reference external" href="https://2013.asiabsdcon.org/papers/abc2013-P5A-paper.pdf">Implements BIOS emulation support forBHyVe: A BSD Hypervisor</a></li>
 </ul>
 </li>
+<li>[13] VMCS shadowing: accelerate nested virtualization of VMMs. The techique like shadow page table.</li>
+</ul>
+</li>
+<li>[supplement] nested virtualization<ul>
+<li><a class="reference external" href="https://www.kernel.org/doc/Documentation/virtual/kvm/nested-vmx.txt">[OSDI 10] The Turtles Project</a></li>
+<li><code class="docutils literal"><span class="pre">Documentation/virtual/kvm/nested-vmx.txt</span></code></li>
 </ul>
 </li>
 <li>[12] intel APICv<ul>
@@ -930,21 +939,24 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li>address translation services(ATS): native IOV across PCI-E via address translation</li>
 <li>SR-IOV: native IOV in existing single-root complex PCI Express topologies</li>
 <li>MR-IOV: native IOV in new topologies (for example, blade servers), by building on SR-IOV to provide multiple root complexes which share a common PCI Express hierarchy.</li>
+</ul>
+</li>
+<li>SR-IOV resources<ul>
 <li>SR-IOV in Xen: <a class="reference external" href="https://www.usenix.org/conference/wiov-08/sr-iov-networking-xen-architecture-design-and-implementation">https://www.usenix.org/conference/wiov-08/sr-iov-networking-xen-architecture-design-and-implementation</a></li>
 <li>Intro to Intel flexible port partitioning using SR-IOV: <a class="reference external" href="http://www.intel.com/content/dam/www/public/us/en/documents/solution-briefs/10-gbe-ethernet-flexible-port-partitioning-brief.pdf">http://www.intel.com/content/dam/www/public/us/en/documents/solution-briefs/10-gbe-ethernet-flexible-port-partitioning-brief.pdf</a></li>
 <li><a class="reference external" href="http://blogs.scalablelogic.com/2013/12/enhanced-networking-in-aws-cloud.html">http://blogs.scalablelogic.com/2013/12/enhanced-networking-in-aws-cloud.html</a></li>
 </ul>
 </li>
 </ul>
-<hr class="docutils" />
+</div>
+<div class="section" id="interesting">
+<h1>interesting<a class="headerlink" href="#interesting" title="本標題的永久連結">¶</a></h1>
 <ul class="simple">
-<li>interesting<ul>
 <li>x86_64 因為不支援 segmentation, 所以要做純 software emulation 有困難. (Qemu?)</li>
 </ul>
-</li>
-</ul>
-<div class="section" id="ref">
-<h2>ref<a class="headerlink" href="#ref" title="本標題的永久連結">¶</a></h2>
+</div>
+<div class="section" id="reference">
+<h1>reference<a class="headerlink" href="#reference" title="本標題的永久連結">¶</a></h1>
 <ul class="simple">
 <li>intel VT instructions:<ul>
 <li><a class="reference external" href="http://linasm.sourceforge.net/docs/instructions/vmx.php">http://linasm.sourceforge.net/docs/instructions/vmx.php</a></li>
@@ -954,7 +966,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li>Advanced x86: Intel Hardware Assisted Virtualization Slides: <a class="reference external" href="https://drive.google.com/folderview?pli=1&amp;ddrp=1&amp;id=0B25hHW4ATym7Z1pTUUs0cEhOMHc">https://drive.google.com/folderview?pli=1&amp;ddrp=1&amp;id=0B25hHW4ATym7Z1pTUUs0cEhOMHc</a></li>
 <li>Intel Developer Manual Volume 3, Ch20 ~ Ch29</li>
 </ul>
-</div>
 </div>
 
 

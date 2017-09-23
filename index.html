@@ -449,7 +449,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="graphics/mesa.html">Mesa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="graphics/resource.html">Graphic Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hardware/arduino.html">Arduino</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hardware/cpu-insturction.html">CPU Instruction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware/cpu.html">CPU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hardware/hardware-and-programming.html">Hardware &amp; Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hardware/history.html">Hardware’s History</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hardware/intel-mic.html">Intel MIC</a></li>
@@ -649,9 +649,13 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="misc/videos.html">一些 Talk 的影片</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/vulkan.html">Vulkan</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mpi/mpi.html">MPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multimedia/audio.html">Audio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multimedia/ffmpeg.html">ffmpeg</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multimedia/gstreamer.html">GStreamer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multimedia/kodi.html">Kodi - Open Source Home Theater Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multimedia/opencv.html">OpenCV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multimedia/pulseaudio.html">PulseAudio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multimedia/video.html">Video</a></li>
 <li class="toctree-l1"><a class="reference internal" href="network/ddos.html">DDoS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="network/dns.html">DNS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="network/nginx.html">Nginx</a></li>
@@ -748,6 +752,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="rust/features-basic.html">Rust’s Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/fuzz-testing.html">Fuzz Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/graphic.html">Graphic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rust/gui.html">GUI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/index.html">My Rust Articles Collection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/iterator.html">Iterator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/kernel.html">Rust Kernel</a></li>
@@ -772,6 +777,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="rust/rfcs.html">Rust RFCs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/rust.html">Rust</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/rust-vim-plugin.html">Rust Vim Plugin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rust/serialization.html">Serialization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/std.html">Rust’s std</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/tagged-unions.html">Tagged Unions (Sum Type)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/testing.html">測試 (Testing)</a></li>
@@ -787,9 +793,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="security/security.html">Security</a></li>
 <li class="toctree-l1"><a class="reference internal" href="simd/algorithm.html">運用 SIMD 來加速的演算法</a></li>
 <li class="toctree-l1"><a class="reference internal" href="simd/status.html">SIMD</a></li>
-<li class="toctree-l1"><a class="reference internal" href="streaming/audio.html">Audio</a></li>
-<li class="toctree-l1"><a class="reference internal" href="streaming/conference-call.html">Conference Call</a></li>
-<li class="toctree-l1"><a class="reference internal" href="streaming/rtsp.html">RTSP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="synchronization/introduction.html">同步 (Synchronization)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="systemd/networkctl.html">networkctl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="testing/fuzzer.html">Fuzzer</a></li>
@@ -2665,8 +2668,9 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l3"><a class="reference internal" href="friends/susu/clang_format.html#reference">reference</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/susu/iverilog_note.html">icarus verilog</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/susu/os_scheduler_timer.html">Preemptive Scheduler and Timer Interrupt</a></li>
-<li class="toctree-l3"><a class="reference internal" href="friends/susu/realtime_java.html">Reference</a></li>
-<li class="toctree-l3"><a class="reference internal" href="friends/susu/realtime_java.html#related">Related</a></li>
+<li class="toctree-l3"><a class="reference internal" href="friends/susu/pci.html">Conventional PCI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="friends/susu/pci.html#pci-e">PCI-E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="friends/susu/pci.html#reference">Reference</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/susu/RFC/rfc_intro.html">Related Work</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/susu/SA/centos7.html">first usage</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/susu/SA/user_manage_cmd.html">User management commands (LinuxMint 16)</a></li>
@@ -2685,12 +2689,7 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l3"><a class="reference internal" href="friends/susu/cli/ffmpeg.html#issue">Issue</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/susu/cli/ffmpeg.html#other-video-tools">Other video tools</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/susu/cli/hardware_info.html">examples</a></li>
-<li class="toctree-l3"><a class="reference internal" href="friends/susu/cli/qemu.html">network</a></li>
-<li class="toctree-l3"><a class="reference internal" href="friends/susu/cli/qemu.html#block-device">block device</a></li>
-<li class="toctree-l3"><a class="reference internal" href="friends/susu/cli/qemu.html#remote-control">remote control</a></li>
-<li class="toctree-l3"><a class="reference internal" href="friends/susu/cli/qemu.html#monitor-mode">monitor mode</a></li>
-<li class="toctree-l3"><a class="reference internal" href="friends/susu/cli/qemu.html#related-tool">related tool</a></li>
-<li class="toctree-l3"><a class="reference internal" href="friends/susu/cli/qemu.html#misc">Misc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="friends/susu/cli/qemu.html">QEMU CLI options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/susu/cli/tc_cgroup.html">reference</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/susu/cli/tc_cgroup.html#misc">Misc</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/susu/cli/tc_cgroup.html#some-data">some data</a></li>
@@ -2706,6 +2705,7 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l3"><a class="reference internal" href="friends/susu/cpu/PMU.html#reference">reference</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/susu/cpu/x86_pat.html">Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/susu/cpu/x86_pat.html#reference">Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="friends/susu/database/2pc.html">2 phase commit in database</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/susu/desktop/desktop_todo.html">Table Of Content</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/susu/desktop/desktop_todo.html#common">common</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/susu/desktop/desktop_todo.html#me">me</a></li>
@@ -2756,7 +2756,14 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l3"><a class="reference internal" href="friends/susu/paper/io_paravirtualization_device_file_boundary.html">Contents note</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/susu/problem/vbox_hanging.html">Misc</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/susu/programming/rust.html">Misc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="friends/susu/realtime/realtime_java.html">Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="friends/susu/realtime/realtime_java.html#related">Related</a></li>
+<li class="toctree-l3"><a class="reference internal" href="friends/susu/realtime/zephyr.html">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="friends/susu/realtime/zephyr.html#features">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="friends/susu/realtime/zephyr.html#nanokernel-and-microkernel">Nanokernel and Microkernel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="friends/susu/realtime/zephyr.html#supplement">supplement</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/susu/system/DMA.html">DMA 英文 wiki</a></li>
+<li class="toctree-l3"><a class="reference internal" href="friends/susu/system/TLB_bugs.html">TLB Bugs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/susu/system/cgroup_and_sandbox.html">libcgroup/libcg</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/susu/system/cgroup_and_sandbox.html#misc">Misc</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/susu/system/channel_IO.html">Channel IO</a></li>
@@ -2769,28 +2776,16 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l3"><a class="reference internal" href="friends/susu/system/linux_graphic.html">DRM</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/susu/system/xv6_write.html">tracing xv6 write system call</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/susu/talk/internal_and_external_linkage_in_C.html">Internal and External Linkage in C</a></li>
+<li class="toctree-l3"><a class="reference internal" href="friends/susu/tmp/virtual_appliance.html">實際範例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="friends/susu/tmp/virtual_appliance.html#id2">學理分析</a></li>
+<li class="toctree-l3"><a class="reference internal" href="friends/susu/tmp/virtual_appliance.html#data">實際 data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/susu/vim/folding.html">reference</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/susu/vim/vim_config.html">filetype.vim</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/susu/vim/vim_config.html#manual-in-vim-terminal">manual in vim terminal</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/susu/vim/vim_config.html#vim-variables-scoping">vim variables scoping</a></li>
-<li class="toctree-l3"><a class="reference internal" href="friends/susu/virt/kvm.html">kvm</a></li>
-<li class="toctree-l3"><a class="reference internal" href="friends/susu/virt/kvm.html#reference">Reference</a></li>
-<li class="toctree-l3"><a class="reference internal" href="friends/susu/virt/qemu_live_migration.html">Quick</a></li>
-<li class="toctree-l3"><a class="reference internal" href="friends/susu/virt/qemu_live_migration.html#source-code">source code</a></li>
-<li class="toctree-l3"><a class="reference internal" href="friends/susu/virt/qemu_live_migration.html#live-migration">live migration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="friends/susu/virt/qemu_source.html">Source Code</a></li>
-<li class="toctree-l3"><a class="reference internal" href="friends/susu/virt/qemu_source.html#qemu-interaction-with-kvm-ioctl">QEMU interaction with KVM(ioctl)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="friends/susu/virt/qemu_source.html#qemu-kvm-architecture-control-flow">QEMU KVM architecture &amp; control flow</a></li>
-<li class="toctree-l3"><a class="reference internal" href="friends/susu/virt/qemu_source.html#address-translation">address translation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="friends/susu/virt/qemu_source.html#qemu-tcg-and-kvm-mode">QEMU TCG and KVM mode</a></li>
-<li class="toctree-l3"><a class="reference internal" href="friends/susu/virt/qemu_source.html#qemu-programming-technique-architecture">QEMU programming technique/architecture</a></li>
-<li class="toctree-l3"><a class="reference internal" href="friends/susu/virt/qemu_source.html#reference">reference</a></li>
-<li class="toctree-l3"><a class="reference internal" href="friends/susu/virt/virtual_appliance.html">實際範例</a></li>
-<li class="toctree-l3"><a class="reference internal" href="friends/susu/virt/virtual_appliance.html#id2">學理分析</a></li>
-<li class="toctree-l3"><a class="reference internal" href="friends/susu/virt/virtual_appliance.html#data">實際 data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="friends/susu/virt/para_virt.html">Para-Virtualization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/susu/virt/virtualization.html">virtualization basic</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/susu/virt/virtualization.html#x86-hardware-assisted-virtualization">x86 hardware-assisted virtualization</a></li>
-<li class="toctree-l3"><a class="reference internal" href="friends/susu/virt/virtualization_talk.html">Thinking</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="friends/README.html#pi">pi</a><ul>
@@ -2828,7 +2823,7 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l3"><a class="reference internal" href="friends/pi/screen.html">= screen 用法及設定 =</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/pi/setup.html">安裝設定懶人包</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/pi/shadowsocks.html">shadowsocks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="friends/pi/shell-script.html">= Shell Script Syntax Note =</a></li>
+<li class="toctree-l3"><a class="reference internal" href="friends/pi/shell-script.html">Shell Script Syntax Note</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/pi/sqlite3.html">SQLite 語法筆記</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/pi/ssh-key-gen.html">SSH key gen</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/pi/svg.html">Scalable Vector Graphics 筆記</a></li>
@@ -2935,6 +2930,8 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l3"><a class="reference internal" href="friends/iblis/compiler/01-intro.html">Introduction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/iblis/compiler/02-lex.html">lex</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/iblis/compiler/05-cfg.html">Context Free Grammar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="friends/iblis/compiler/06-parsing.html">Parsing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="friends/iblis/compiler/09-semantic-analysis.html">Semantic Analysis</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/iblis/compiler/index.html">Compiler</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/iblis/conf/pycon.html">Chapter name</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/iblis/db/cloudant.html">Cloudant</a></li>
@@ -2945,8 +2942,10 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l3"><a class="reference internal" href="friends/iblis/linux/x11.html">X11</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/iblis/linux/yocto.html">Yocto</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/iblis/math/calculus.html">Calculus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="friends/iblis/math/diff-eq.html">Differential Equations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/iblis/math/linalg.html">Linear Algebra</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/iblis/math/prob.html">Probability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="friends/iblis/math/stats.html">Statistic</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/iblis/misc/fonts.html">Fonts</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/iblis/project/binutils.html">binutils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friends/iblis/project/bitcoin.html">Bitcoin</a></li>
@@ -3174,9 +3173,9 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="hardware/arduino.html#id2">參考</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="hardware/cpu-insturction.html">CPU Instruction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="hardware/cpu-insturction.html#fuzzer">Fuzzer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hardware/cpu-insturction.html#id2">參考</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware/cpu.html">CPU</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hardware/cpu.html#fuzzer">Fuzzer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware/cpu.html#id2">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="hardware/hardware-and-programming.html">Hardware &amp; Programming</a></li>
@@ -4359,6 +4358,27 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="mpi/mpi.html#reference">Reference</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="multimedia/audio.html">Audio</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/audio.html#id2">介紹</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/audio.html#mp3">MP3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/audio.html#aac-advanced-audio-coding">AAC (Advanced Audio Coding)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/audio.html#adts-audio-data-transport-stream">ADTS (Audio Data Transport Stream)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/audio.html#adif-audio-data-interchange-format">ADIF (Audio Data Interchange Format)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/audio.html#latm-low-overhead-mpeg-4-audio-transport-multiplex">LATM (Low-overhead MPEG-4 Audio Transport Multiplex)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/audio.html#loas-low-overhead-audio-stream">LOAS (Low Overhead Audio Stream)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/audio.html#mpeg-2-transport-stream">MPEG-2 Transport Stream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/audio.html#rfc-3016">RFC 3016</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/audio.html#rfc-3640">RFC 3640</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/audio.html#mp4ff-mp4-file-format">MP4FF (MP4 File Format)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/audio.html#gp-file-format">3GP File Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/audio.html#license-patents">License 和 Patents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/audio.html#ogg">Ogg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/audio.html#opus">Opus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/audio.html#id3">參考</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="multimedia/ffmpeg.html">ffmpeg</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multimedia/gstreamer.html">GStreamer</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#pipeline">Pipeline</a><ul>
@@ -4411,11 +4431,27 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#id11">參考</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="multimedia/kodi.html">Kodi - Open Source Home Theater Software</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/kodi.html#id2">介紹</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/kodi.html#id3">參考</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="multimedia/opencv.html">OpenCV</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="multimedia/opencv.html#id2">編譯</a></li>
 <li class="toctree-l2"><a class="reference internal" href="multimedia/opencv.html#misc">Misc</a></li>
 <li class="toctree-l2"><a class="reference internal" href="multimedia/opencv.html#machine-learning-opencv">Machine Learning + OpenCV</a></li>
 <li class="toctree-l2"><a class="reference internal" href="multimedia/opencv.html#id3">參考</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="multimedia/pulseaudio.html">PulseAudio</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/pulseaudio.html#gui">GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/pulseaudio.html#id2">參考</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="multimedia/video.html">Video</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/video.html#hevc">HEVC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/video.html#av1">AV1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/video.html#id2">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="network/ddos.html">DDoS</a><ul>
@@ -5150,6 +5186,12 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="rust/gui.html">GUI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rust/gui.html#gtk">GTK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/gui.html#qt">Qt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/gui.html#id2">參考</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="rust/index.html">My Rust Articles Collection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/iterator.html">Iterator</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="rust/iterator.html#normal-use">Normal Use</a></li>
@@ -5347,6 +5389,16 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="rust/rust-vim-plugin.html#vim-racer-plugin">Vim Racer Plugin</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="rust/serialization.html">Serialization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rust/serialization.html#serde">Serde</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rust/serialization.html#id3">案例研究</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rust/serialization.html#id4">支援新格式</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rust/serialization.html#pikkr">Pikkr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/serialization.html#id5">參考</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="rust/std.html">Rust’s std</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="rust/std.html#liballoc">liballoc</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="rust/std.html#oom-out-of-memory">OOM (Out Of Memory)</a></li>
@@ -5492,59 +5544,6 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l1"><a class="reference internal" href="simd/status.html">SIMD</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="simd/status.html#armv8-a-sve">ARMv8-A - SVE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="simd/status.html#reference">Reference</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="streaming/audio.html">Audio</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="streaming/audio.html#id2">介紹</a></li>
-<li class="toctree-l2"><a class="reference internal" href="streaming/audio.html#mp3">MP3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="streaming/audio.html#aac-advanced-audio-coding">AAC (Advanced Audio Coding)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="streaming/audio.html#adts-audio-data-transport-stream">ADTS (Audio Data Transport Stream)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="streaming/audio.html#adif-audio-data-interchange-format">ADIF (Audio Data Interchange Format)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="streaming/audio.html#latm-low-overhead-mpeg-4-audio-transport-multiplex">LATM (Low-overhead MPEG-4 Audio Transport Multiplex)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="streaming/audio.html#loas-low-overhead-audio-stream">LOAS (Low Overhead Audio Stream)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="streaming/audio.html#mpeg-2-transport-stream">MPEG-2 Transport Stream</a></li>
-<li class="toctree-l3"><a class="reference internal" href="streaming/audio.html#rfc-3016">RFC 3016</a></li>
-<li class="toctree-l3"><a class="reference internal" href="streaming/audio.html#rfc-3640">RFC 3640</a></li>
-<li class="toctree-l3"><a class="reference internal" href="streaming/audio.html#mp4ff-mp4-file-format">MP4FF (MP4 File Format)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="streaming/audio.html#gp-file-format">3GP File Format</a></li>
-<li class="toctree-l3"><a class="reference internal" href="streaming/audio.html#license-patents">License 和 Patents</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="streaming/audio.html#ogg">Ogg</a></li>
-<li class="toctree-l2"><a class="reference internal" href="streaming/audio.html#opus">Opus</a></li>
-<li class="toctree-l2"><a class="reference internal" href="streaming/audio.html#id3">參考</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="streaming/conference-call.html">Conference Call</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="streaming/conference-call.html#appear-in">appear.in</a></li>
-<li class="toctree-l2"><a class="reference internal" href="streaming/conference-call.html#zoom-us">Zoom.us</a></li>
-<li class="toctree-l2"><a class="reference internal" href="streaming/conference-call.html#id2">參考</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="streaming/rtsp.html">RTSP</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="streaming/rtsp.html#rtsp-1-0-rfc-2326-1998">RTSP 1.0 (RFC 2326) (1998)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="streaming/rtsp.html#rtsp-2-0-rfc-7826-2016">RTSP 2.0 (RFC 7826) (2016)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="streaming/rtsp.html#rtp">RTP</a></li>
-<li class="toctree-l2"><a class="reference internal" href="streaming/rtsp.html#live555">LIVE555</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="streaming/rtsp.html#live555-media-server">LIVE555 Media Server</a></li>
-<li class="toctree-l3"><a class="reference internal" href="streaming/rtsp.html#openrtsp">openRTSP</a></li>
-<li class="toctree-l3"><a class="reference internal" href="streaming/rtsp.html#live555-proxy-server">LIVE555 Proxy Server</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="streaming/rtsp.html#gstreamer">GStreamer</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="streaming/rtsp.html#gstreamer-rtsp-client">GStreamer RTSP Client</a></li>
-<li class="toctree-l3"><a class="reference internal" href="streaming/rtsp.html#gstreamer-rtsp-server">GStreamer RTSP Server</a></li>
-<li class="toctree-l3"><a class="reference internal" href="streaming/rtsp.html#python-binding">Python Binding</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="streaming/rtsp.html#ffmpeg">FFmpeg</a></li>
-<li class="toctree-l2"><a class="reference internal" href="streaming/rtsp.html#vlc">VLC</a></li>
-<li class="toctree-l2"><a class="reference internal" href="streaming/rtsp.html#rtsp-udp-hole-punching">RTSP + UDP Hole Punching</a></li>
-<li class="toctree-l2"><a class="reference internal" href="streaming/rtsp.html#latency">Latency</a></li>
-<li class="toctree-l2"><a class="reference internal" href="streaming/rtsp.html#tcpdump">tcpdump</a></li>
-<li class="toctree-l2"><a class="reference internal" href="streaming/rtsp.html#rtsp-client">測試用 RTSP Client</a></li>
-<li class="toctree-l2"><a class="reference internal" href="streaming/rtsp.html#rtsp-server">測試用 RTSP Server</a></li>
-<li class="toctree-l2"><a class="reference internal" href="streaming/rtsp.html#id2">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="synchronization/introduction.html">同步 (Synchronization)</a><ul>
