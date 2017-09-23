@@ -1,1 +1,0 @@
-multimedia/gstreamer.rst
