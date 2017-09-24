@@ -304,9 +304,84 @@ cherry-pick 別的地方的 branch
 * https://help.github.com/articles/changing-author-info/
 
 
+
 更新所有 submodules
 ========================================
 
 .. code-block:: sh
 
     git submodule foreach --recursive git pull origin master
+
+
+
+只 push 到特定 commits
+========================================
+
+.. code-block:: sh
+
+    $ git push origin master~3:master     # 3 個 commits 前
+
+
+.. code-block:: sh
+
+    $ git checkout -b tocommit HEAD~3
+    $ git push origin tocommit:master
+
+
+
+修改先前 commit 的方式
+========================================
+
+可能的方式有：
+
+* ``git commit --amend`` 直接修改之前的 commit
+* 建新 commit 後，再用 rebase 設定成 ``fixup``
+* 在 commit 時使用 ``--fixup`` ，rebase 時會自動設定為 ``fixup``
+
+
+.. code-block:: sh
+
+    $ mkdir tmp
+    $ cd tmp
+    $ git init
+    $ touch anything
+    $ git add anything
+    $ git ci -m "init"
+
+    $ touch foo
+    $ git add foo
+    $ git commit -m "test1"
+
+    $ touch bar
+    $ git add bar
+    $ git commit --fixup HEAD
+
+    $ touch bar2
+    $ git add bar2
+    $ git commit --fixup HEAD
+
+    $ touch foo2
+    $ git add foo2
+    $ git commit -m "test2"
+
+    $ touch bar3
+    $ git add bar3
+    $ git commit --fixup HEAD~1
+
+    # * 520c15a - (8 seconds ago) fixup! fixup! fixup! test1
+    # * 62d378e - (8 seconds ago) test2
+    # * c4b89ca - (8 seconds ago) fixup! fixup! test1
+    # * 9b13673 - (8 seconds ago) fixup! test1
+    # * 8164a64 - (8 seconds ago) test1
+    # * c120efd - (11 seconds ago) init
+
+    $ git rebase -i --autosquash
+    # pick 8164a64 test1
+    # fixup 9b13673 fixup! test1
+    # fixup c4b89ca fixup! fixup! test1
+    # fixup 520c15a fixup! fixup! fixup! test1
+    # pick 62d378e test2
+
+    # e275095 - (3 minutes ago) test2
+    # d07c467 - (3 minutes ago) test1
+    # c120efd - (3 minutes ago) init

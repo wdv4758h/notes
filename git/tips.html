@@ -455,6 +455,8 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l2"><a class="reference internal" href="#cherry-pick-branch">cherry-pick 別的地方的 branch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#commit-author">想修改數個 commit 的 Author 資訊</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#submodules">更新所有 submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#push-commits">只 push 到特定 commits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#commit">修改先前 commit 的方式</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../gpgpu/arrayfire.html">ArrayFire</a></li>
@@ -668,6 +670,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../misc/videos.html">一些 Talk 的影片</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/vulkan.html">Vulkan</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mpi/mpi.html">MPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../multimedia/README.html">多媒體 (Multimedia)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/audio.html">Audio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/ffmpeg.html">ffmpeg</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/gstreamer.html">GStreamer</a></li>
@@ -805,7 +808,8 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../rust/type-system.html">Rust’s Type System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/use.html">use</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/videos.html">Rust Videos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rust/web.html">Rust &amp; Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/web.html">Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../search-engine/README.html">搜尋引擎 (Search Engine)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../security/javascript-engine.html">Security issues in JavaScript Engine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../security/resource.html">資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../security/secure-guard-extensions.html">SGX (Secure Guard Extensions)</a></li>
@@ -1166,6 +1170,71 @@ git rebase --continue
 <div class="section" id="submodules">
 <h2>更新所有 submodules<a class="headerlink" href="#submodules" title="本標題的永久連結">¶</a></h2>
 <div class="highlight-sh"><div class="highlight"><pre><span></span>git submodule foreach --recursive git pull origin master
+</pre></div>
+</div>
+</div>
+<div class="section" id="push-commits">
+<h2>只 push 到特定 commits<a class="headerlink" href="#push-commits" title="本標題的永久連結">¶</a></h2>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ git push origin master~3:master     <span class="c1"># 3 個 commits 前</span>
+</pre></div>
+</div>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ git checkout -b tocommit HEAD~3
+$ git push origin tocommit:master
+</pre></div>
+</div>
+</div>
+<div class="section" id="commit">
+<h2>修改先前 commit 的方式<a class="headerlink" href="#commit" title="本標題的永久連結">¶</a></h2>
+<p>可能的方式有：</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">--amend</span></code> 直接修改之前的 commit</li>
+<li>建新 commit 後，再用 rebase 設定成 <code class="docutils literal"><span class="pre">fixup</span></code></li>
+<li>在 commit 時使用 <code class="docutils literal"><span class="pre">--fixup</span></code> ，rebase 時會自動設定為 <code class="docutils literal"><span class="pre">fixup</span></code></li>
+</ul>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ mkdir tmp
+$ <span class="nb">cd</span> tmp
+$ git init
+$ touch anything
+$ git add anything
+$ git ci -m <span class="s2">&quot;init&quot;</span>
+
+$ touch foo
+$ git add foo
+$ git commit -m <span class="s2">&quot;test1&quot;</span>
+
+$ touch bar
+$ git add bar
+$ git commit --fixup HEAD
+
+$ touch bar2
+$ git add bar2
+$ git commit --fixup HEAD
+
+$ touch foo2
+$ git add foo2
+$ git commit -m <span class="s2">&quot;test2&quot;</span>
+
+$ touch bar3
+$ git add bar3
+$ git commit --fixup HEAD~1
+
+<span class="c1"># * 520c15a - (8 seconds ago) fixup! fixup! fixup! test1</span>
+<span class="c1"># * 62d378e - (8 seconds ago) test2</span>
+<span class="c1"># * c4b89ca - (8 seconds ago) fixup! fixup! test1</span>
+<span class="c1"># * 9b13673 - (8 seconds ago) fixup! test1</span>
+<span class="c1"># * 8164a64 - (8 seconds ago) test1</span>
+<span class="c1"># * c120efd - (11 seconds ago) init</span>
+
+$ git rebase -i --autosquash
+<span class="c1"># pick 8164a64 test1</span>
+<span class="c1"># fixup 9b13673 fixup! test1</span>
+<span class="c1"># fixup c4b89ca fixup! fixup! test1</span>
+<span class="c1"># fixup 520c15a fixup! fixup! fixup! test1</span>
+<span class="c1"># pick 62d378e test2</span>
+
+<span class="c1"># e275095 - (3 minutes ago) test2</span>
+<span class="c1"># d07c467 - (3 minutes ago) test1</span>
+<span class="c1"># c120efd - (3 minutes ago) init</span>
 </pre></div>
 </div>
 </div>

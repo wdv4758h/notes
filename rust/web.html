@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Rust &amp; Web &mdash; wdv4758h-notes latest 說明文件</title>
+  <title>Web &mdash; wdv4758h-notes latest 說明文件</title>
   
 
   
@@ -36,7 +36,7 @@
               href="../genindex.html"/>
         <link rel="search" title="搜尋" href="../search.html"/>
     <link rel="top" title="wdv4758h-notes latest 說明文件" href="../index.html"/>
-        <link rel="next" title="Security issues in JavaScript Engine" href="../security/javascript-engine.html"/>
+        <link rel="next" title="搜尋引擎 (Search Engine)" href="../search-engine/README.html"/>
         <link rel="prev" title="Rust Videos" href="videos.html"/> 
 
   
@@ -650,6 +650,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../misc/videos.html">一些 Talk 的影片</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/vulkan.html">Vulkan</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mpi/mpi.html">MPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../multimedia/README.html">多媒體 (Multimedia)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/audio.html">Audio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/ffmpeg.html">ffmpeg</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/gstreamer.html">GStreamer</a></li>
@@ -787,12 +788,22 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="type-system.html">Rust’s Type System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="use.html">use</a></li>
 <li class="toctree-l1"><a class="reference internal" href="videos.html">Rust Videos</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Rust &amp; Web</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#todo">Todo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#asynchronous-i-o">Asynchronous I/O</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Web</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#asynchronous-i-o">Asynchronous I/O</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#standard-library">Standard Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tokio">Tokio</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#template-engine">Template Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#framework">Framework</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#iron">Iron</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocket">Rocket</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../search-engine/README.html">搜尋引擎 (Search Engine)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../security/javascript-engine.html">Security issues in JavaScript Engine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../security/resource.html">資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../security/secure-guard-extensions.html">SGX (Secure Guard Extensions)</a></li>
@@ -875,7 +886,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Rust &amp; Web</li>
+      <li>Web</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -896,34 +907,68 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="rust-web">
-<h1>Rust &amp; Web<a class="headerlink" href="#rust-web" title="本標題的永久連結">¶</a></h1>
-<div class="section" id="todo">
-<h2>Todo<a class="headerlink" href="#todo" title="本標題的永久連結">¶</a></h2>
+  <div class="section" id="web">
+<h1><a class="toc-backref" href="#id2">Web</a><a class="headerlink" href="#web" title="本標題的永久連結">¶</a></h1>
+<div class="contents topic" id="id1">
+<p class="topic-title first">目錄</p>
 <ul class="simple">
-<li><dl class="first docutils">
-<dt>Python Simple HTTP Server in Rust</dt>
-<dd><ul class="first last">
-<li>multithread</li>
-<li>HTTPS</li>
+<li><a class="reference internal" href="#web" id="id2">Web</a><ul>
+<li><a class="reference internal" href="#asynchronous-i-o" id="id3">Asynchronous I/O</a><ul>
+<li><a class="reference internal" href="#standard-library" id="id4">Standard Library</a></li>
+<li><a class="reference internal" href="#tokio" id="id5">Tokio</a></li>
 </ul>
-</dd>
-</dl>
+</li>
+<li><a class="reference internal" href="#template-engine" id="id6">Template Engine</a></li>
+<li><a class="reference internal" href="#framework" id="id7">Framework</a><ul>
+<li><a class="reference internal" href="#iron" id="id8">Iron</a></li>
+<li><a class="reference internal" href="#rocket" id="id9">Rocket</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#reference" id="id10">Reference</a></li>
+</ul>
 </li>
 </ul>
 </div>
 <div class="section" id="asynchronous-i-o">
-<h2>Asynchronous I/O<a class="headerlink" href="#asynchronous-i-o" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id3">Asynchronous I/O</a><a class="headerlink" href="#asynchronous-i-o" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="standard-library">
+<h3><a class="toc-backref" href="#id4">Standard Library</a><a class="headerlink" href="#standard-library" title="本標題的永久連結">¶</a></h3>
 <p>目前 Rust 的 standard library 還沒加入 asynchronous 的支援，
 等後續加入吧 …</p>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/rust-lang/rfcs/issues/1081">Rust - rfcs - Async IO #1081</a></li>
+<li><a class="reference external" href="https://github.com/rust-lang/rfcs/blob/master/text/2033-experimental-coroutines.md">RFC 2033 - experimental coroutines</a></li>
 </ul>
 </div>
+<div class="section" id="tokio">
+<h3><a class="toc-backref" href="#id5">Tokio</a><a class="headerlink" href="#tokio" title="本標題的永久連結">¶</a></h3>
+</div>
+</div>
+<div class="section" id="template-engine">
+<h2><a class="toc-backref" href="#id6">Template Engine</a><a class="headerlink" href="#template-engine" title="本標題的永久連結">¶</a></h2>
+</div>
+<div class="section" id="framework">
+<h2><a class="toc-backref" href="#id7">Framework</a><a class="headerlink" href="#framework" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="iron">
+<h3><a class="toc-backref" href="#id8">Iron</a><a class="headerlink" href="#iron" title="本標題的永久連結">¶</a></h3>
+</div>
+<div class="section" id="rocket">
+<h3><a class="toc-backref" href="#id9">Rocket</a><a class="headerlink" href="#rocket" title="本標題的永久連結">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Repo:</th><td class="field-body"><a class="reference external" href="https://github.com/SergioBenitez/Rocket">https://github.com/SergioBenitez/Rocket</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <div class="section" id="reference">
-<h2>Reference<a class="headerlink" href="#reference" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id10">Reference</a><a class="headerlink" href="#reference" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://arewewebyet.com/">Are we web yet? Getting there.</a></li>
+<li><a class="reference external" href="https://github.com/flosse/rust-web-framework-comparison">Rust web framework comparison</a></li>
 <li><a class="reference external" href="https://users.rust-lang.org/t/support-rust-create-a-todobackend-implementation/1300">Support Rust, create a todobackend implementation</a></li>
 <li><a class="reference external" href="http://todobackend.com/">Todo-Backend - a shared example to showcase backend tech stacks</a></li>
 </ul>
@@ -940,7 +985,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../security/javascript-engine.html" class="btn btn-neutral float-right" title="Security issues in JavaScript Engine" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../search-engine/README.html" class="btn btn-neutral float-right" title="搜尋引擎 (Search Engine)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="videos.html" class="btn btn-neutral" title="Rust Videos" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

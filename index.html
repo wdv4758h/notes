@@ -649,6 +649,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="misc/videos.html">一些 Talk 的影片</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/vulkan.html">Vulkan</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mpi/mpi.html">MPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multimedia/README.html">多媒體 (Multimedia)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multimedia/audio.html">Audio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multimedia/ffmpeg.html">ffmpeg</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multimedia/gstreamer.html">GStreamer</a></li>
@@ -786,7 +787,8 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="rust/type-system.html">Rust’s Type System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/use.html">use</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/videos.html">Rust Videos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rust/web.html">Rust &amp; Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rust/web.html">Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="search-engine/README.html">搜尋引擎 (Search Engine)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="security/javascript-engine.html">Security issues in JavaScript Engine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="security/resource.html">資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="security/secure-guard-extensions.html">SGX (Secure Guard Extensions)</a></li>
@@ -1924,9 +1926,22 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l1"><a class="reference internal" href="browser/design.html">How Browser Work</a></li>
 <li class="toctree-l1"><a class="reference internal" href="browser/extensions.html">WebExtensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="browser/firefox.html">Firefox</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="browser/firefox.html#gecko">Gecko</a></li>
+<li class="toctree-l2"><a class="reference internal" href="browser/firefox.html#gecko">Gecko</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="browser/firefox.html#id2">設定</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="browser/firefox.html#spidermonkey-javascript">SpiderMonkey (JavaScript 引擎)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="browser/firefox.html#id1">參考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="browser/firefox.html#quantum">Quantum</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="browser/firefox.html#quantum-css-stylo">Quantum CSS (Stylo)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="browser/firefox.html#quantum-dom">Quantum DOM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="browser/firefox.html#quantum-render">Quantum Render</a></li>
+<li class="toctree-l3"><a class="reference internal" href="browser/firefox.html#quantum-compositor">Quantum Compositor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="browser/firefox.html#quantum-flow">Quantum Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="browser/firefox.html#quantum-network">Quantum Network</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="browser/firefox.html#firefox-focus">Firefox Focus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="browser/firefox.html#id7">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="browser/firefox-settings.html">Firefox 設定</a><ul>
@@ -3097,6 +3112,8 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="git/tips.html#cherry-pick-branch">cherry-pick 別的地方的 branch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="git/tips.html#commit-author">想修改數個 commit 的 Author 資訊</a></li>
 <li class="toctree-l2"><a class="reference internal" href="git/tips.html#submodules">更新所有 submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git/tips.html#push-commits">只 push 到特定 commits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git/tips.html#commit">修改先前 commit 的方式</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="gpgpu/arrayfire.html">ArrayFire</a><ul>
@@ -4358,6 +4375,7 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="mpi/mpi.html#reference">Reference</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="multimedia/README.html">多媒體 (Multimedia)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multimedia/audio.html">Audio</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="multimedia/audio.html#id2">介紹</a></li>
 <li class="toctree-l2"><a class="reference internal" href="multimedia/audio.html#mp3">MP3</a></li>
@@ -5366,7 +5384,9 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rust/rfcs.html">Rust RFCs</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="rust/rfcs.html#rfc">別人提 RFC 的經驗</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/rfcs.html#rfc-1444-union">RFC 1444 - union</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/rfcs.html#rfc-1504-int128">RFC 1504 - int128</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/rfcs.html#rfc-2025-enable-nested-method-calls">RFC 2025 - Enable Nested Method Calls</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/rfcs.html#misc">Misc</a></li>
 </ul>
 </li>
@@ -5479,10 +5499,23 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rust/videos.html">Rust Videos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rust/web.html">Rust &amp; Web</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rust/web.html#todo">Todo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rust/web.html#asynchronous-i-o">Asynchronous I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rust/web.html">Web</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rust/web.html#asynchronous-i-o">Asynchronous I/O</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rust/web.html#standard-library">Standard Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rust/web.html#tokio">Tokio</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rust/web.html#template-engine">Template Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/web.html#framework">Framework</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rust/web.html#iron">Iron</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rust/web.html#rocket">Rocket</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="rust/web.html#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="search-engine/README.html">搜尋引擎 (Search Engine)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="search-engine/README.html#duckduckgo">DuckDuckGo</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="security/javascript-engine.html">Security issues in JavaScript Engine</a></li>
