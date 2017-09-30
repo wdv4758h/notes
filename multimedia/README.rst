@@ -7,12 +7,20 @@
 
 * `Audio <audio.rst>`_
 * `Video <video.rst>`_
+* `降噪 (Noise Cancellation) <noise-cancellation.rst>`_
 
 
 架構、工具：
 
-* `GStreamer <gstreamer.rst>`_
-* PulseAudio
+* `Linux Sound System <linux-sound-system.rst>`_
 * ALSA
-* FFmpeg
-* OpenCV
+* `PulseAudio <pulseaudio.rst>`_
+* JACK
+* `GStreamer <gstreamer.rst>`_
+* `FFmpeg <ffmpeg.rst>`_
+* `OpenCV <opencv.rst>`_
+
+
+給 End User 的軟體：
+
+* `Kodi <kodi.rst>`_
