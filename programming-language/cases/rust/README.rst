@@ -50,6 +50,7 @@ Rust 相關文章
 * Profiling
 * SIMD
 * `GUI <gui.rst>`_
+* `Syntax Highlighting <syntax-highlighting.rst>`_
 
 
 ---
