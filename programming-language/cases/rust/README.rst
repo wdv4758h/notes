@@ -43,7 +43,6 @@ Rust 相關文章
 * `Asynchronous <asynchronous.rst>`_
 * `Database <database.rst>`_
 * `Development Tools <development-tools.rst>`_
-    - Linter
 * Coroutines
 * Garbage Collection
 * JIT
