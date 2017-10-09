@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>OpenCL &mdash; wdv4758h-notes latest 說明文件</title>
+  <title>OpenCL (Open Computing Language) &mdash; wdv4758h-notes latest 說明文件</title>
   
 
   
@@ -122,6 +122,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/inverse-square-root.html">Inverse Square Root</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/random-number-generator.html">Random Number Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/resource.html">演算法</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/substring-searching.html">Substring Searching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../android/android.html">Android</a></li>
@@ -665,6 +666,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../network/nginx.html">Nginx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../network/resource.html">資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../network/rpc.html">RPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../operating-system/linux-distro.html">Linux Distro</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../parallel/openhmpp.html">OpenHMPP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../parallel/openmp.html">OpenMP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../parallel/resource.html">平行化相關資源</a></li>
@@ -757,6 +759,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../rust/fuzz-testing.html">Fuzz Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/graphic.html">Graphic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/gui.html">GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust/image-manipulation.html">圖片處理 (Image Manipulation)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/index.html">My Rust Articles Collection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/iterator.html">Iterator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/kernel.html">Rust Kernel</a></li>
@@ -783,6 +786,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../rust/rust-vim-plugin.html">Rust Vim Plugin</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/serialization.html">Serialization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/std.html">Rust’s std</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust/syntax-highlighting.html">Syntax Highlighting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/tagged-unions.html">Tagged Unions (Sum Type)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/testing.html">測試 (Testing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/tips.html">Rust Tips</a></li>
@@ -874,7 +878,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-      <li>OpenCL</li>
+      <li>OpenCL (Open Computing Language)</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -895,23 +899,174 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="opencl">
-<h1>OpenCL<a class="headerlink" href="#opencl" title="本標題的永久連結">¶</a></h1>
+  <div class="section" id="opencl-open-computing-language">
+<h1><a class="toc-backref" href="#id3">OpenCL (Open Computing Language)</a><a class="headerlink" href="#opencl-open-computing-language" title="本標題的永久連結">¶</a></h1>
+<div class="contents topic" id="id1">
+<p class="topic-title first">目錄</p>
+<ul class="simple">
+<li><a class="reference internal" href="#opencl-open-computing-language" id="id3">OpenCL (Open Computing Language)</a><ul>
+<li><a class="reference internal" href="#installation" id="id4">Installation</a></li>
+<li><a class="reference internal" href="#id2" id="id5">概念學習</a><ul>
+<li><a class="reference internal" href="#heterogeneous-parallel-computing" id="id6">異質運算 (Heterogeneous Parallel Computing)</a></li>
+<li><a class="reference internal" href="#opencl" id="id7">OpenCL 概念</a><ul>
+<li><a class="reference internal" href="#platform-info" id="id8">Platform Info</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#opencl-2-0" id="id9">OpenCL 2.0</a></li>
+<li><a class="reference internal" href="#reference" id="id10">Reference</a></li>
+</ul>
+</li>
+</ul>
+</div>
 <div class="section" id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id4">Installation</a><a class="headerlink" href="#installation" title="本標題的永久連結">¶</a></h2>
 <div class="highlight-sh"><div class="highlight"><pre><span></span>$ sudo pacman -S opencl-nvidia  <span class="c1"># NVIDIA</span>
 $ sudo yaourt -S beignet        <span class="c1"># Intel</span>
 </pre></div>
 </div>
 </div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id5">概念學習</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="heterogeneous-parallel-computing">
+<h3><a class="toc-backref" href="#id6">異質運算 (Heterogeneous Parallel Computing)</a><a class="headerlink" href="#heterogeneous-parallel-computing" title="本標題的永久連結">¶</a></h3>
+</div>
+<div class="section" id="opencl">
+<h3><a class="toc-backref" href="#id7">OpenCL 概念</a><a class="headerlink" href="#opencl" title="本標題的永久連結">¶</a></h3>
+<p>現今的運算平台通常都具有多種運算元件，
+可能是多個 CPU、GPU、DSP、加速器等等，
+OpenCL 的目標是提供一個統一且方便的方式來撰寫程式以善用這些資源。</p>
+<p>OpenCL 支援各式各樣的平台（相較之下 CUDA 只支援 NVIDIA 自家的平台），
+為了要區分每個裝置所需要使用的 library，
+OpenCL 的 runtime 會使用 ICD。
+如果程式碼是針對 generic runtime 編譯的，
+那 ICD 會 load 正確的平台 runtime。
+runtime 的資料會被放在 <code class="docutils literal"><span class="pre">/etc/OpenCL/vendors/</span></code> 裡，
+例如 <code class="docutils literal"><span class="pre">/etc/OpenCL/vendors/intel-beignet.icd</span></code> 。</p>
+<p>常見 Runtime 安裝：</p>
+<ul class="simple">
+<li>Intel:  <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">pacman</span> <span class="pre">-S</span> <span class="pre">beignet</span></code></li>
+<li>AMD:    <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">pacman</span> <span class="pre">-S</span> <span class="pre">opencl-mesa</span></code></li>
+<li>NVIDIA: <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">pacman</span> <span class="pre">-S</span> <span class="pre">opencl-nvidia</span></code></li>
+<li><a class="reference external" href="https://wiki.archlinux.org/index.php/GPGPU">Arch Wiki - GPGPU</a></li>
+</ul>
+<p>通常平台供應商都會提供 ICD loader （libOpenCL.so），
+而這些 loader 也不具有平台依賴性，
+loader 實做理論上也可以用在其他平台，
+但是這些 loader 通常不是最新的，
+因此可以使用 <code class="docutils literal"><span class="pre">ocl-icd</span></code> 來負責這塊。</p>
+<p>檢查目前機器上已經可以使用的 OpenCL 實做（相關套件已經裝了）：</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ ls /etc/OpenCL/vendors
+</pre></div>
+</div>
+<p>要知道更多詳細的資訊可以安裝 <code class="docutils literal"><span class="pre">clinfo</span></code> ：</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ sudo pacman -S clinfo
+$ clinfo
+</pre></div>
+</div>
+<p>OpenCL 平台模型：</p>
+<ul class="simple">
+<li>Host：控制整隻程式執行的平台</li>
+<li>OpenCL Device：Host 可以利用的裝置，一個 Host 可以有多個 OpenCL Device</li>
+<li>Compute Unit：一個 OpenCL Device 可以有多個 Compute Unit</li>
+<li>Processing Element：一個 Compute Unit 可以有多個 Processing Element</li>
+</ul>
+<p>範例：
+一台機器上同時插了兩個 CPU 和兩個 GPU，
+則所有 CPU 會被視為一個 OpenCL Device，
+每個 CPU core 是一個 Compute Unit，
+每個 Compute Unit 則是一個 Processing Element，
+如果有 SIMD 的話則看 SIMD 寬度，
+一個 Compute Unit 擁有 n 個 Processing Element。
+另外每個 GPU 都各自視為 OpenCL Device，
+可以利用 OpenCL 來 concurrent 地控制 CPU 和 GPU。</p>
+<div class="section" id="platform-info">
+<h4><a class="toc-backref" href="#id8">Platform Info</a><a class="headerlink" href="#platform-info" title="本標題的永久連結">¶</a></h4>
+<p>C:</p>
+<p>C++:</p>
+<p>Python:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Show the OpenCL information on the machine.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="kn">import</span> <span class="nn">pyopencl</span> <span class="kn">as</span> <span class="nn">cl</span>
+
+
+<span class="k">def</span> <span class="nf">get_platform_info</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get OpenCL platform info.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">platforms</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">get_platforms</span><span class="p">()</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Number of platform: {len(platforms)}&#39;</span><span class="p">)</span>
+    <span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;│  &#39;</span>
+    <span class="n">prefix_head</span> <span class="o">=</span> <span class="s1">&#39;├──&#39;</span>
+    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">platform</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">platforms</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">platforms</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;   &#39;</span>
+            <span class="n">prefix_head</span> <span class="o">=</span> <span class="s1">&#39;└──&#39;</span>
+        <span class="n">devices</span> <span class="o">=</span> <span class="n">platform</span><span class="o">.</span><span class="n">get_devices</span><span class="p">()</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">extend</span><span class="p">((</span>
+            <span class="n">f</span><span class="s1">&#39;{prefix_head}Platform: {platform.name}&#39;</span><span class="p">,</span>
+            <span class="n">f</span><span class="s1">&#39;{prefix}Vendor: {platform.vendor}&#39;</span><span class="p">,</span>
+            <span class="n">f</span><span class="s1">&#39;{prefix}Version: {platform.version}&#39;</span><span class="p">,</span>
+            <span class="n">f</span><span class="s1">&#39;{prefix}Number of devices: {len(devices)}&#39;</span><span class="p">,</span>
+        <span class="p">))</span>
+        <span class="n">subprefix</span> <span class="o">=</span> <span class="n">prefix</span> <span class="o">+</span> <span class="s1">&#39;│  &#39;</span>
+        <span class="n">subprefix_head</span> <span class="o">=</span> <span class="n">prefix</span> <span class="o">+</span> <span class="s1">&#39;├──&#39;</span>
+        <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">device</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">devices</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">devices</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">subprefix</span> <span class="o">=</span> <span class="n">prefix</span> <span class="o">+</span> <span class="s1">&#39;   &#39;</span>
+                <span class="n">subprefix_head</span> <span class="o">=</span> <span class="n">prefix</span> <span class="o">+</span> <span class="s1">&#39;└──&#39;</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">extend</span><span class="p">((</span>
+                <span class="n">f</span><span class="s1">&#39;{subprefix_head}Name: {device.name}&#39;</span><span class="p">,</span>
+                <span class="n">f</span><span class="s1">&#39;{subprefix}Version: {device.opencl_c_version}&#39;</span><span class="p">,</span>
+                <span class="n">f</span><span class="s1">&#39;{subprefix}Max Compute Units: {device.max_compute_units}&#39;</span><span class="p">,</span>
+                <span class="n">f</span><span class="s1">&#39;{subprefix}Local Memory Size: {device.local_mem_size/1024} KB&#39;</span><span class="p">,</span>
+                <span class="n">f</span><span class="s1">&#39;{subprefix}Global Memory Size: {device.global_mem_size/(1024*1024)} MB&#39;</span><span class="p">,</span>
+                <span class="n">f</span><span class="s1">&#39;{subprefix}Max Alloc Size: {device.max_mem_alloc_size/(1024*1024)} MB&#39;</span><span class="p">,</span>
+                <span class="n">f</span><span class="s1">&#39;{subprefix}Max Work-group Total Size: {device.max_work_group_size}&#39;</span><span class="p">,</span>
+                <span class="n">f</span><span class="s1">&#39;{subprefix}Max Work-group Dims: {device.max_work_item_sizes}&#39;</span><span class="p">,</span>
+            <span class="p">))</span>
+    <span class="k">return</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">get_platform_info</span><span class="p">())</span>
+</pre></div>
+</div>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ python cl-platform-info.py
+Number of platform: <span class="m">1</span>
+└──Platform: Intel Gen OCL Driver
+   Vendor: Intel
+   Version: OpenCL <span class="m">2</span>.0 beignet <span class="m">1</span>.3
+   Number of devices: <span class="m">1</span>
+   └──Name: Intel<span class="o">(</span>R<span class="o">)</span> HD Graphics Skylake ULT GT2
+      Version: OpenCL C <span class="m">2</span>.0 beignet <span class="m">1</span>.3
+      Max Compute Units: <span class="m">24</span>
+      Local Memory Size: <span class="m">64</span>.0 KB
+      Global Memory Size: <span class="m">3959</span>.0 MB
+      Max Alloc Size: <span class="m">2969</span>.0 MB
+      Max Work-group Total Size: <span class="m">512</span>
+      Max Work-group Dims: <span class="o">[</span><span class="m">512</span>, <span class="m">512</span>, <span class="m">512</span><span class="o">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 <div class="section" id="opencl-2-0">
-<h2>OpenCL 2.0<a class="headerlink" href="#opencl-2-0" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id9">OpenCL 2.0</a><a class="headerlink" href="#opencl-2-0" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://developer.amd.com/community/blog/2014/11/17/opencl-2-0-device-enqueue/">OpenCL™ 2.0: Device Enqueue and Workgroup Built-in Functions</a></li>
 </ul>
 </div>
 <div class="section" id="reference">
-<h2>Reference<a class="headerlink" href="#reference" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id10">Reference</a><a class="headerlink" href="#reference" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://www.khronos.org/opencl/resources/opencl-applications-using-opencl">Khronos - OpenCL Resources</a></li>
 <li><a class="reference external" href="http://www.khronos.org/registry/cl/">Khronos OpenCL Registry - OpenCL specification and headers</a></li>

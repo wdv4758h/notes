@@ -123,6 +123,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="algorithm/inverse-square-root.html">Inverse Square Root</a></li>
 <li class="toctree-l1"><a class="reference internal" href="algorithm/misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="algorithm/random-number-generator.html">Random Number Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="algorithm/resource.html">演算法</a></li>
 <li class="toctree-l1"><a class="reference internal" href="algorithm/substring-searching.html">Substring Searching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="android/android.html">Android</a></li>
@@ -666,6 +667,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="network/nginx.html">Nginx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="network/resource.html">資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="network/rpc.html">RPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operating-system/linux-distro.html">Linux Distro</a></li>
 <li class="toctree-l1"><a class="reference internal" href="parallel/openhmpp.html">OpenHMPP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="parallel/openmp.html">OpenMP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="parallel/resource.html">平行化相關資源</a></li>
@@ -758,6 +760,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="rust/fuzz-testing.html">Fuzz Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/graphic.html">Graphic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/gui.html">GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rust/image-manipulation.html">圖片處理 (Image Manipulation)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/index.html">My Rust Articles Collection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/iterator.html">Iterator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/kernel.html">Rust Kernel</a></li>
@@ -784,6 +787,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="rust/rust-vim-plugin.html">Rust Vim Plugin</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/serialization.html">Serialization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/std.html">Rust’s std</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rust/syntax-highlighting.html">Syntax Highlighting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/tagged-unions.html">Tagged Unions (Sum Type)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/testing.html">測試 (Testing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/tips.html">Rust Tips</a></li>
@@ -1350,6 +1354,11 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="algorithm/probabilistic-data-structure.html#treaps">Treaps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="algorithm/probabilistic-data-structure.html#t-digest">t-digest</a></li>
 <li class="toctree-l2"><a class="reference internal" href="algorithm/probabilistic-data-structure.html#id8">參考</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="algorithm/random-number-generator.html">Random Number Generator</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="algorithm/random-number-generator.html#id2">介紹</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algorithm/random-number-generator.html#id3">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="algorithm/resource.html">演算法</a><ul>
@@ -3261,7 +3270,10 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l1"><a class="reference internal" href="hardware/speaker.html">喇叭 (Speaker)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="hardware/speaker.html#id2">介紹</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hardware/speaker.html#sony">Sony</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="hardware/speaker.html#id3">2017</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hardware/speaker.html#id3">2014</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hardware/speaker.html#id4">2015</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hardware/speaker.html#id5">2016</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hardware/speaker.html#id6">2017</a></li>
 </ul>
 </li>
 </ul>
@@ -4419,11 +4431,12 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </li>
 <li class="toctree-l1"><a class="reference internal" href="multimedia/ffmpeg.html">ffmpeg</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multimedia/gstreamer.html">GStreamer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#id2">文件</a></li>
 <li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#pipeline">Pipeline</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#id2">基本介紹</a></li>
-<li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#id3">產生 Pipeline 流程圖</a></li>
-<li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#id4">檢查目前系統的支援</a></li>
-<li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#id5">除錯</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#id3">基本介紹</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#id4">產生 Pipeline 流程圖</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#id5">檢查目前系統的支援</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#id6">除錯</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#source">Source</a></li>
@@ -4433,7 +4446,7 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#rust">Rust</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#id7">核心元件</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#id8">核心元件</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#pipeline-branch-tee">Pipeline Branch - tee</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#file-descriptor-fdsink">寫到指定的 File Descriptor - fdsink</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#file-descriptor-fdsrc">從指定的 File Descriptor 讀入 - fdsrc</a></li>
@@ -4442,20 +4455,21 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#funnel">funnel</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#id8">其他元件</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#id9">其他元件</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#tcp">TCP</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#id9">Pipeline 除錯</a></li>
-<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#hardware-acceleration">Hardware Acceleration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#id10">Pipeline 除錯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#hardware-acceleration">硬體加速 (Hardware Acceleration)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#va-api">VA-API</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#vdpau">VDPAU</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#intel-media-sdk">Intel Media SDK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/gstreamer.html#omx">OMX</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#benchmark-profiling">Benchmark &amp; Profiling</a></li>
 <li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#term">Term</a></li>
-<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#id10">設計重點</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#id11">設計重點</a></li>
 <li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#write-plugin">Write Plugin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#real-time-streaming">Real-Time Streaming</a></li>
 <li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#cheatsheet">Cheatsheet</a><ul>
@@ -4466,7 +4480,7 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </li>
 <li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#restart-pipeline-in-application">Restart Pipeline in Application</a></li>
 <li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#license">License</a></li>
-<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#id11">參考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#id12">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="multimedia/kodi.html">Kodi - Open Source Home Theater Software</a><ul>
@@ -4532,6 +4546,10 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="network/rpc.html#serialization">選擇 Serialization 方案</a></li>
 <li class="toctree-l2"><a class="reference internal" href="network/rpc.html#id4">相關專案</a></li>
 <li class="toctree-l2"><a class="reference internal" href="network/rpc.html#id5">參考</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="operating-system/linux-distro.html">Linux Distro</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="operating-system/linux-distro.html#liri">Liri</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="parallel/openhmpp.html">OpenHMPP</a><ul>
@@ -4990,17 +5008,17 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rust/README.html">Rust 相關文章</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/README.html#rust-tips">Rust Tips</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rust/README.html#id5">輸出中間產物</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/README.html#id6">輸出中間產物</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#counter-by-hashmap">Counter By HashMap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#slices-join-concat">Slices join/concat</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rust/README.html#id6">字串轉特定型別</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rust/README.html#id7">把相依套件抓下來</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/README.html#id7">字串轉特定型別</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/README.html#id8">把相依套件抓下來</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#conditional-attribute">Conditional Attribute</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#libraries">指定連結的 Libraries</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#rustc">建立 rustc 內部文件</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#re-export">re-export</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#ffi-foreign-function-interface">FFI (Foreign Function Interface)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="rust/README.html#id9">範例一，傳入字串、回傳字串</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rust/README.html#id10">範例一，傳入字串、回傳字串</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#pretty-print-debug">Pretty Print Debug</a></li>
@@ -5009,7 +5027,7 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#is-empty"><code class="docutils literal"><span class="pre">is_empty()</span></code> 或 <code class="docutils literal"><span class="pre">==</span> <span class="pre">&quot;&quot;</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#cfg-condition">cfg! Condition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#i-o">I/O 處理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rust/README.html#id10">執行檔大小</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/README.html#id11">執行檔大小</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#iterator-over-contigunous-windows-of-specific-length">Iterator over contigunous windows of specific length</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#ascii">ASCII 相關操作</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#asref-asmut-into-from-borrow">AsRef/AsMut/Into/From &amp; Borrow</a></li>
@@ -5017,7 +5035,7 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#atomic-rwlock-mutex">Atomic* &amp; RwLock &amp; Mutex</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#unsafecell">UnsafeCell</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#llvm-sanitizer">LLVM Sanitizer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rust/README.html#id13">編譯靜態連結的執行檔</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/README.html#id14">編譯靜態連結的執行檔</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/README.html#cargo-template">Cargo Template</a></li>
 </ul>
 </li>
@@ -5148,7 +5166,10 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rust/development-tools.html">Development Tools</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rust/development-tools.html#rls-rust-language-server">RLS (Rust Language Server)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/development-tools.html#rustfmt-formatting-rust-code-according-to-style-guidelines">rustfmt - formatting Rust code according to style guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/development-tools.html#racer-code-completion-for-rust">Racer - code completion for Rust</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/development-tools.html#rls-rust-language-server">RLS - Rust Language Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/development-tools.html#clippy-lints-to-improve-rust-code">Clippy - lints to improve Rust code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/development-tools.html#id2">參考</a></li>
 </ul>
 </li>
@@ -5238,6 +5259,12 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="rust/gui.html#gtk">GTK</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/gui.html#qt">Qt</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/gui.html#id2">參考</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rust/image-manipulation.html">圖片處理 (Image Manipulation)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rust/image-manipulation.html#imageflow">imageflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/image-manipulation.html#image-encoding-and-decoding-images">Image - encoding and decoding images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/image-manipulation.html#oxipng-png-optimizer">Oxipng - PNG optimizer</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rust/index.html">My Rust Articles Collection</a></li>
@@ -5454,6 +5481,10 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l3"><a class="reference internal" href="rust/std.html#oom-out-of-memory">OOM (Out Of Memory)</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rust/syntax-highlighting.html">Syntax Highlighting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rust/syntax-highlighting.html#syntect">syntect</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rust/tagged-unions.html">Tagged Unions (Sum Type)</a><ul>

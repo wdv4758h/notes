@@ -6,6 +6,15 @@ GStreamer
 .. contents:: 目錄
 
 
+文件
+========================================
+
+* `PyGObject API Reference - Gst <https://lazka.github.io/pgi-docs/#Gst-1.0/>`_
+* `GStreamer Core Reference Manual <https://gstreamer.freedesktop.org/data/doc/gstreamer/stable/gstreamer/html/>`_
+* `Valadoc - Gst <https://valadoc.org/gstreamer-1.0/Gst.html>`_
+
+
+
 Pipeline
 ========================================
 
@@ -249,6 +258,7 @@ TCP
 * tcpclientsink
 
 
+
 Pipeline 除錯
 ========================================
 
@@ -401,7 +411,7 @@ Pipeline 除錯
 
 
 
-Hardware Acceleration
+硬體加速 (Hardware Acceleration)
 ========================================
 
 VA-API
@@ -466,6 +476,12 @@ VDPAU
 
 Intel Media SDK
 ------------------------------
+
+
+OMX
+------------------------------
+
+:Repo: https://github.com/GStreamer/gst-omx
 
 
 
