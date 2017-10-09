@@ -50,6 +50,7 @@ Rust 相關文章
 * SIMD
 * `GUI <gui.rst>`_
 * `Syntax Highlighting <syntax-highlighting.rst>`_
+* `圖像處理 <image-manipulation.rst>`_
 
 
 ---
