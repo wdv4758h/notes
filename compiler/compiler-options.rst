@@ -22,6 +22,10 @@ Common
     - may be a little bit faster
 * ``-march=native -Q --help=target`` : 輸出 GCC 在目前機器上使用 ``-march=native`` 參數會打開的優化選項
     - ``-Q --help=target`` 只適用於 GCC
+    - ``-march=native -Q --help=target``
+    - ``-march=native -Q --help=target -v``
+* ``-dM -E -`` ：輸出可以開啟的 define
+    - ``gcc -march=native -dM -E - < /dev/null``
 * ``-fdump-tree-original``
 * ``-D_FORTIFY_SOURCE``
     - http://stackoverflow.com/questions/13517526/difference-between-gcc-d-fortify-source-1-and-d-fortify-source-2
