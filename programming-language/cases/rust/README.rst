@@ -51,6 +51,7 @@ Rust 相關文章
 * `GUI <gui.rst>`_
 * `Syntax Highlighting <syntax-highlighting.rst>`_
 * `圖像處理 <image-manipulation.rst>`_
+* `機器學習 <machine-learning.rst>`_
 
 
 ---
