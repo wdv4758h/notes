@@ -341,6 +341,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="llvm-help-testing.html">LLVM 輔助測試</a></li>
 <li class="toctree-l1"><a class="reference internal" href="llvm-ir.html">LLVM IR</a></li>
 <li class="toctree-l1"><a class="reference internal" href="llvm-python.html">LLVM &amp; Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="llvm-to-vhdl-verilog.html">LLVM to VHDL/Verilog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lto.html">LTO - Link Time Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="obfuscator.html">Obfuscator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="optimizations.html">Optimizations</a></li>
@@ -355,6 +356,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../compression/resource.html">資料壓縮相關資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computer-vision/README.html">電腦視覺 (Computer Vision)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computer-vision/SIFT.html">SIFT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computer-vision/background-subtraction.html">Background Subtraction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computer-vision/books.html">電腦視覺相關書籍</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computer-vision/image-segmentation.html">Image Segmentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computer-vision/object-detection.html">Object Detection</a></li>
@@ -481,6 +483,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../linux/bfq.html">BFQ - Budget Fair Queueing Storage-I/O Scheduler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/clear-linux.html">Intel Clear Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/dd.html">dd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/driver.html">Driver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/file-system.html">File System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/firmware.html">Firmware</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/gimp.html">Gimp</a></li>
@@ -502,6 +505,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/README.html">機器學習 (Machine Learning)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/ann-history.html">Artificial Neural Network History</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/artificial-neural-network.html">Artificial Neural Network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../machine-learning/chainer.html">Chainer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/cheatsheet.html">Cheat Sheet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/clustering.html">Clustering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/darknet.html">Darknet</a></li>
@@ -673,6 +677,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/pulseaudio.html">PulseAudio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/video.html">Video</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/ddos.html">DDoS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/distributed.html">Distributed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/dns.html">DNS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/nginx.html">Nginx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/resource.html">資源</a></li>
@@ -776,6 +781,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../rust/kernel.html">Rust Kernel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/libraries.html">Libraries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/logging.html">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/machine-learning.html">機器學習 (Machine Learning)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/macro.html">Macro</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/make-parity-work-on-freebsd.html">Make Parity work on FreeBSD</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/mir.html">MIR (Mid-level Intermediate Representation)</a></li>
@@ -951,6 +957,16 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <dt><code class="docutils literal"><span class="pre">-march=native</span> <span class="pre">-Q</span> <span class="pre">--help=target</span></code> <span class="classifier-delimiter">:</span> <span class="classifier">輸出 GCC 在目前機器上使用 <code class="docutils literal"><span class="pre">-march=native</span></code> 參數會打開的優化選項</span></dt>
 <dd><ul class="first last simple">
 <li><code class="docutils literal"><span class="pre">-Q</span> <span class="pre">--help=target</span></code> 只適用於 GCC</li>
+<li><code class="docutils literal"><span class="pre">-march=native</span> <span class="pre">-Q</span> <span class="pre">--help=target</span></code></li>
+<li><code class="docutils literal"><span class="pre">-march=native</span> <span class="pre">-Q</span> <span class="pre">--help=target</span> <span class="pre">-v</span></code></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">-dM</span> <span class="pre">-E</span> <span class="pre">-</span></code> ：輸出可以開啟的 define</dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">gcc</span> <span class="pre">-march=native</span> <span class="pre">-dM</span> <span class="pre">-E</span> <span class="pre">-</span> <span class="pre">&lt;</span> <span class="pre">/dev/null</span></code></li>
 </ul>
 </dd>
 </dl>

@@ -332,6 +332,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../compiler/llvm-help-testing.html">LLVM 輔助測試</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/llvm-ir.html">LLVM IR</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/llvm-python.html">LLVM &amp; Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/llvm-to-vhdl-verilog.html">LLVM to VHDL/Verilog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/lto.html">LTO - Link Time Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/obfuscator.html">Obfuscator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/optimizations.html">Optimizations</a></li>
@@ -346,6 +347,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../compression/resource.html">資料壓縮相關資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computer-vision/README.html">電腦視覺 (Computer Vision)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computer-vision/SIFT.html">SIFT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computer-vision/background-subtraction.html">Background Subtraction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computer-vision/books.html">電腦視覺相關書籍</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computer-vision/image-segmentation.html">Image Segmentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computer-vision/object-detection.html">Object Detection</a></li>
@@ -472,13 +474,19 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="bfq.html">BFQ - Budget Fair Queueing Storage-I/O Scheduler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="clear-linux.html">Intel Clear Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dd.html">dd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="driver.html">Driver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="file-system.html">File System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="firmware.html">Firmware</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gimp.html">Gimp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gui.html">GUI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hotplug-cpu.html">Hotplug CPU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipc.html">IPC</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Kernel Module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Kernel Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#kernel">看目前 kernel 的編譯設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">系統 Kernel Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">參考</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="nmcli.html">nmcli</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resource.html">資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="seccomp.html">seccomp -  operate on Secure Computing state of the process</a></li>
@@ -493,6 +501,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/README.html">機器學習 (Machine Learning)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/ann-history.html">Artificial Neural Network History</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/artificial-neural-network.html">Artificial Neural Network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../machine-learning/chainer.html">Chainer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/cheatsheet.html">Cheat Sheet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/clustering.html">Clustering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/darknet.html">Darknet</a></li>
@@ -664,6 +673,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/pulseaudio.html">PulseAudio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/video.html">Video</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/ddos.html">DDoS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/distributed.html">Distributed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/dns.html">DNS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/nginx.html">Nginx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/resource.html">資源</a></li>
@@ -767,6 +777,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../rust/kernel.html">Rust Kernel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/libraries.html">Libraries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/logging.html">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/machine-learning.html">機器學習 (Machine Learning)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/macro.html">Macro</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/make-parity-work-on-freebsd.html">Make Parity work on FreeBSD</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/mir.html">MIR (Mid-level Intermediate Representation)</a></li>
@@ -902,7 +913,56 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
            <div itemprop="articleBody">
             
   <div class="section" id="kernel-module">
-<h1>Kernel Module<a class="headerlink" href="#kernel-module" title="本標題的永久連結">¶</a></h1>
+<h1><a class="toc-backref" href="#id4">Kernel Module</a><a class="headerlink" href="#kernel-module" title="本標題的永久連結">¶</a></h1>
+<div class="contents topic" id="id1">
+<p class="topic-title first">目錄</p>
+<ul class="simple">
+<li><a class="reference internal" href="#kernel-module" id="id4">Kernel Module</a><ul>
+<li><a class="reference internal" href="#kernel" id="id5">看目前 kernel 的編譯設定</a></li>
+<li><a class="reference internal" href="#id2" id="id6">系統 Kernel Module</a></li>
+<li><a class="reference internal" href="#id3" id="id7">參考</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="kernel">
+<h2><a class="toc-backref" href="#id5">看目前 kernel 的編譯設定</a><a class="headerlink" href="#kernel" title="本標題的永久連結">¶</a></h2>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ zgrep VIRTIO /proc/config.gz
+<span class="nv">CONFIG_BLK_MQ_VIRTIO</span><span class="o">=</span>y
+<span class="nv">CONFIG_VIRTIO_VSOCKETS</span><span class="o">=</span>m
+<span class="nv">CONFIG_VIRTIO_VSOCKETS_COMMON</span><span class="o">=</span>m
+<span class="nv">CONFIG_NET_9P_VIRTIO</span><span class="o">=</span>m
+<span class="nv">CONFIG_VIRTIO_BLK</span><span class="o">=</span>m
+<span class="c1"># CONFIG_VIRTIO_BLK_SCSI is not set</span>
+<span class="nv">CONFIG_SCSI_VIRTIO</span><span class="o">=</span>m
+<span class="nv">CONFIG_VIRTIO_NET</span><span class="o">=</span>m
+<span class="nv">CONFIG_CAIF_VIRTIO</span><span class="o">=</span>m
+<span class="nv">CONFIG_VIRTIO_CONSOLE</span><span class="o">=</span>m
+<span class="nv">CONFIG_HW_RANDOM_VIRTIO</span><span class="o">=</span>m
+<span class="nv">CONFIG_DRM_VIRTIO_GPU</span><span class="o">=</span>m
+<span class="nv">CONFIG_VIRTIO</span><span class="o">=</span>m
+<span class="nv">CONFIG_VIRTIO_PCI</span><span class="o">=</span>m
+<span class="nv">CONFIG_VIRTIO_PCI_LEGACY</span><span class="o">=</span>y
+<span class="nv">CONFIG_VIRTIO_BALLOON</span><span class="o">=</span>m
+<span class="nv">CONFIG_VIRTIO_INPUT</span><span class="o">=</span>m
+<span class="nv">CONFIG_VIRTIO_MMIO</span><span class="o">=</span>m
+<span class="nv">CONFIG_VIRTIO_MMIO_CMDLINE_DEVICES</span><span class="o">=</span>y
+<span class="nv">CONFIG_CRYPTO_DEV_VIRTIO</span><span class="o">=</span>m
+</pre></div>
+</div>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ zgrep AVX /proc/config.gz
+<span class="nv">CONFIG_CRYPTO_CAMELLIA_AESNI_AVX_X86_64</span><span class="o">=</span>m
+<span class="nv">CONFIG_CRYPTO_CAMELLIA_AESNI_AVX2_X86_64</span><span class="o">=</span>m
+<span class="nv">CONFIG_CRYPTO_CAST5_AVX_X86_64</span><span class="o">=</span>m
+<span class="nv">CONFIG_CRYPTO_CAST6_AVX_X86_64</span><span class="o">=</span>m
+<span class="nv">CONFIG_CRYPTO_SERPENT_AVX_X86_64</span><span class="o">=</span>m
+<span class="nv">CONFIG_CRYPTO_SERPENT_AVX2_X86_64</span><span class="o">=</span>m
+<span class="nv">CONFIG_CRYPTO_TWOFISH_AVX_X86_64</span><span class="o">=</span>m
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id6">系統 Kernel Module</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
 <div class="highlight-sh"><div class="highlight"><pre><span></span>$ lsmod <span class="p">|</span> grep psmouse
 psmouse               <span class="m">118784</span>  <span class="m">0</span>
 libps2                 <span class="m">16384</span>  <span class="m">2</span> atkbd,psmouse
@@ -946,9 +1006,13 @@ $ depmod --dry-run
 $ sudo depmod
 </pre></div>
 </div>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id7">參考</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://wiki.archlinux.org/index.php/Kernel_parameters">Arch Wiki - Kernel parameters</a></li>
 </ul>
+</div>
 </div>
 
 

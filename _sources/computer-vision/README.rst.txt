@@ -16,6 +16,7 @@
 * `Image Segmentation <image-segmentation.rst>`_ : 辨別場景和物件界線
 * `Visual Question Answering <visual-question-answering.rst>`_ : 分析影像內容來回答問題
 * `Panorama <panorama.rst>`_
+* `Background Subtraction <background-subtraction.rst>`_
 
 * Object Recognition
 * OCR (Optical Character Recognition)
