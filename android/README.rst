@@ -10,3 +10,4 @@ Android
 * `Binder <binder.rst>`_
 * `SurfaceFlinger <surfaceflinger.rst>`_
 * `Compatibility Test Suite <cts.rst>`_
+* `libhybris <libhybris.rst>`_
