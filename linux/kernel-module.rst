@@ -1,5 +1,5 @@
 ========================================
-Kernel Module
+Linux Kernel Module
 ========================================
 
 
@@ -100,3 +100,4 @@ Kernel Module
 ========================================
 
 * `Arch Wiki - Kernel parameters <https://wiki.archlinux.org/index.php/Kernel_parameters>`_
+* `Arch Wiki - Kernel modules <https://wiki.archlinux.org/index.php/Kernel_modules>`_
