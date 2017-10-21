@@ -2,7 +2,8 @@
 Android NDK
 ========================================
 
-.. contents:: Table of Contents
+
+.. contents:: 目錄
 
 
 Introduction
@@ -12,6 +13,7 @@ Android NDK 裡面會附上 Cross Compile 用的程式，
 例如 ``toolchains/`` 資料夾裡面就包含不同平台的 GCC Cross Compiler 的執行檔，
 另外則含有 Clang 的 Makefile 設定。
 (GCC 的 Cross Compile 需要先編成不同的 GCC Binary，Clang 則是有更好的支援，使用 ``-target`` 參數選擇即可)
+
 
 
 Build Standalone Clang Cross Compile Toolchain
@@ -37,6 +39,7 @@ Build Standalone Clang Cross Compile Toolchain
     /tmp/arm-linux-androideabi-4.8.tar.bz2: bzip2 compressed data, block size = 900k
 
 
+
 compiler-rt
 ========================================
 
@@ -58,8 +61,10 @@ compiler-rt
     android-ndk-r10e/toolchains/llvm-3.6/prebuilt/linux-x86_64/lib/clang/3.6/lib/linux/libclang_rt.asan-arm-android.so: ELF 32-bit LSB shared object, ARM, EABI5 version 1 (SYSV), dynamically linked, interpreter /system/bin/linker, BuildID[sha1]=414a26fe76bb09de2d0d101e3ed6200da5d1cadc, not stripped
 
 
+
 Build LLVM From Source For Android
 ========================================
+
 
 
 "cpufeatures" Library
@@ -68,8 +73,20 @@ Build LLVM From Source For Android
 * `The cpufeatures Library <https://developer.android.com/ndk/guides/cpu-features.html>`_
 
 
+
 Build Your NDK
 ========================================
+
+
+
+CrystaX NDK
+========================================
+
+:Site: https://www.crystax.net/en/
+
+CrystaX NDK 是一套第三方的 Android NDK，
+目的是要提供更多的功能來輔助 Android 相關開發。
+
 
 
 Reference
