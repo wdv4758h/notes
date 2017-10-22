@@ -57,3 +57,4 @@ Papers
         + 可以方便地從原始碼轉成 IR
         + Dispatch 很重要，Direct Threaded Code 是不錯的實做方式
 * [2005] `Virtual Machine Showdown: Stack Versus Registers <https://www.usenix.org/legacy/events/vee05/full_papers/p153-yunhe.pdf>`_
+* [2017] `Virtual Machine Warmup Blows Hot and Cold <http://soft-dev.org/pubs/html/barrett_bolz-tereick_killick_mount_tratt__virtual_machine_warmup_blows_hot_and_cold_v6/>`_
