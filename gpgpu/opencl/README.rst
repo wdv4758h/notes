@@ -212,13 +212,47 @@ Python:
         c[id] = a[id] * b[id];
     }
 
-    // -std=cl2.0 -lOpenCL
 
 * Global Dimension
 * Local Dimension
 * work-items
 * work-groups
 
+
+OpenCL 程式的編譯分成兩種：
+
+* Online Compilation: OpenCL kernel 在執行期間才會編譯，只須在執行前先編譯好其他部份的程式即可
+* Offline Compilation: OpenCL kernel 在執行前就編譯好，執行期間直接使用編譯好的 kernel
+
+
+Online Compilation:
+
+.. code-block:: sh
+
+    $ clang -lOpenCL main-online.c
+
+
+Offline Compilation:
+
+.. code-block:: sh
+
+    # 會生出 SPIR (Standard Portable Intermediate Representation)
+    $ clang -include clc/clc.h -std=cl2.0 -S -emit-llvm -target nvptx64-nvidia-nvcl kernel.cl
+    $ llvm-link /usr/lib/clc/nvptx64--nvidiacl.bc kernel.ll -o kernel.linked.bc
+    $ clang -target nvptx64-nvidia-nvcl kernel.linked.bc -S -o kernel.nvptx.s
+    $ clang -lOpenCL main-offline.c
+
+稍微把 Offline Compilation 的變動地方抽出來：
+
+.. code-block:: sh
+
+    $ export TARGET="nvptx64-nvidia-nvcl"
+    $ export TARGET_BIT_CODE="/usr/lib/clc/nvptx64--nvidiacl.bc"
+    # 會生出 SPIR (Standard Portable Intermediate Representation)
+    $ clang -include clc/clc.h -std=cl2.0 -S -emit-llvm -target $TARGET kernel.cl
+    $ llvm-link $TARGET_BIT_CODE kernel.ll -o kernel.linked.bc
+    $ clang -target $TARGET kernel.linked.bc -S -o kernel.s
+    $ clang -lOpenCL main-offline.c
 
 
 同步
@@ -241,19 +275,14 @@ OpenCL 1.2
 OpenCL 2.0
 ------------------------------
 
+* `OpenCL™ 2.0: Device Enqueue and Workgroup Built-in Functions <http://developer.amd.com/community/blog/2014/11/17/opencl-2-0-device-enqueue/>`_
+
+
 OpenCL 2.1
 ------------------------------
 
 OpenCL 2.2
 ------------------------------
-
-
-
-OpenCL 2.0
-========================================
-
-* `OpenCL™ 2.0: Device Enqueue and Workgroup Built-in Functions <http://developer.amd.com/community/blog/2014/11/17/opencl-2-0-device-enqueue/>`_
-
 
 
 libclc
@@ -283,6 +312,7 @@ General
 * `Wikipedia - OpenCL <https://en.wikipedia.org/wiki/OpenCL>`_
 * `Khronos - OpenCL Resources <https://www.khronos.org/opencl/resources/opencl-applications-using-opencl>`_
 * `Khronos OpenCL Registry - OpenCL specification and headers <http://www.khronos.org/registry/cl/>`_
+* `Khronos - SPIR (Standard Portable Intermediate Representation) <https://www.khronos.org/spir/>`_
 * `Hands On OpenCL - An open source two-day lecture course for teaching and learning OpenCL <https://handsonopencl.github.io/>`_
 * `Porting CUDA to OpenCL <https://www.sharcnet.ca/help/index.php/Porting_CUDA_to_OpenCL>`_
 * [GitHub] `Chlorine <https://github.com/Polytonic/Chlorine>`_
@@ -297,6 +327,7 @@ General
 Intel
 ------------------------------
 
+* `Intel SDK for OpenCL™ Applications <https://software.intel.com/en-us/intel-opencl>`_
 * `Intel FPGA SDK for OpenCL <https://www.altera.com/products/design-software/embedded-software-developers/opencl/overview.html>`_
 
 
