@@ -12,7 +12,14 @@ Installation
 .. code-block:: sh
 
     $ sudo pacman -S opencl-nvidia  # NVIDIA
-    $ sudo yaourt -S beignet        # Intel
+    $ sudo pacman -S beignet        # Intel
+
+
+* AMD CPU/GPU/APU
+* Intel CPU/GPU
+* NVIDIA GPU
+* ARM
+
 
 
 概念學習
@@ -23,6 +30,9 @@ Installation
 
 OpenCL 概念
 ------------------------------
+
+基本介紹
+++++++++++++++++++++
 
 現今的運算平台通常都具有多種運算元件，
 可能是多個 CPU、GPU、DSP、加速器等等，
@@ -73,6 +83,8 @@ OpenCL 平台模型：
 * OpenCL Device：Host 可以利用的裝置，一個 Host 可以有多個 OpenCL Device
 * Compute Unit：一個 OpenCL Device 可以有多個 Compute Unit
 * Processing Element：一個 Compute Unit 可以有多個 Processing Element
+* 記憶體分為 Host Memory 和 Device Memory
+
 
 範例：
 一台機器上同時插了兩個 CPU 和兩個 GPU，
@@ -86,7 +98,7 @@ OpenCL 平台模型：
 
 
 Platform Info
-++++++++++++++++++++++++++++++
+++++++++++++++++++++
 
 C:
 
@@ -168,6 +180,74 @@ Python:
           Max Work-group Dims: [512, 512, 512]
 
 
+改寫
+++++++++++++++++++++
+
+假設原本有這樣的 C 程式：
+
+.. code-block:: c
+
+    void mul(const int length,
+             const float *a,
+             const float *b,
+             float *c) {
+        int i;
+        for (i = 0; i < length; i++) {
+            c[i] = a[i] * b[i];
+        }
+    }
+
+
+用 OpenCL 重寫：
+
+.. code-block:: opencl
+
+    // this is called "kernel"
+    // every instance of kernel is called "work-item"
+    // the "work-items" will be executed in parallel
+    __kernel void mul(__global const float *a,
+                      __global const float *b,
+                      __global float *c) {
+        int id = get_global_id(0);
+        c[id] = a[id] * b[id];
+    }
+
+    // -std=cl2.0 -lOpenCL
+
+* Global Dimension
+* Local Dimension
+* work-items
+* work-groups
+
+
+
+同步
+------------------------------
+
+
+
+OpenCL 演進
+========================================
+
+OpenCL 1.0
+------------------------------
+
+OpenCL 1.1
+------------------------------
+
+OpenCL 1.2
+------------------------------
+
+OpenCL 2.0
+------------------------------
+
+OpenCL 2.1
+------------------------------
+
+OpenCL 2.2
+------------------------------
+
+
 
 OpenCL 2.0
 ========================================
@@ -176,9 +256,31 @@ OpenCL 2.0
 
 
 
-Reference
+libclc
 ========================================
 
+:Site: https://libclc.llvm.org/
+:Repo: https://github.com/llvm-mirror/libclc
+
+
+libclc 是 LLVM 中對 OpenCL 的實做，
+以 Clang 作為前端做處理，
+目前支援 AMDGCN 和 NVPTX。
+
+
+
+CUDA to OpenCL
+========================================
+
+
+
+參考
+========================================
+
+General
+------------------------------
+
+* `Wikipedia - OpenCL <https://en.wikipedia.org/wiki/OpenCL>`_
 * `Khronos - OpenCL Resources <https://www.khronos.org/opencl/resources/opencl-applications-using-opencl>`_
 * `Khronos OpenCL Registry - OpenCL specification and headers <http://www.khronos.org/registry/cl/>`_
 * `Hands On OpenCL - An open source two-day lecture course for teaching and learning OpenCL <https://handsonopencl.github.io/>`_
@@ -187,8 +289,20 @@ Reference
 * `OpenCL™ Zone – Accelerate Your Applications <http://developer.amd.com/tools-and-sdks/opencl-zone/>`_
 * `pocl - Portable Computing Language <http://portablecl.org/>`_
     - Clang as frontend and LLVM for kernel compiler implementation
+* `Gentoo Wiki - OpenCL <https://wiki.gentoo.org/wiki/OpenCL>`_
+* `Arch Wiki - GPGPU <https://wiki.archlinux.org/index.php/GPGPU>`_
+* `ROCm - Platform for GPU-Enabled HPC and Ultrascale Computing <https://rocm.github.io/>`_
 
-----
 
+Intel
+------------------------------
+
+* `Intel FPGA SDK for OpenCL <https://www.altera.com/products/design-software/embedded-software-developers/opencl/overview.html>`_
+
+
+Tutorial
+------------------------------
+
+* `Hands On OpenCL <https://handsonopencl.github.io/>`_
 * `Getting started with OpenCL, Part #1 <https://anteru.net/2012/11/03/2009/>`_
 * `Adventures in OpenCL: Part 1, Getting Started <http://enja.org/2010/07/13/adventures-in-opencl-part-1-getting-started/>`_
