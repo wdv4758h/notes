@@ -6,7 +6,7 @@ Android NDK
 .. contents:: 目錄
 
 
-Introduction
+介紹 (Introduction)
 ========================================
 
 Android NDK 裡面會附上 Cross Compile 用的程式，
@@ -37,6 +37,20 @@ Build Standalone Clang Cross Compile Toolchain
     Done.
     $ file /tmp/arm-linux-androideabi-4.8.tar.bz2
     /tmp/arm-linux-androideabi-4.8.tar.bz2: bzip2 compressed data, block size = 900k
+
+
+
+C++ 支援
+========================================
+
+* libc++
+    - 來自 LLVM，會是未來唯一的選擇
+* gnustl
+    - GNU C++ Library，在其他平台叫做 libstdc++，Android 上因為避免混淆而重新命名
+* STLport
+    - STLport 的 Android porting，已經沒有再持續開發
+* system
+    - /system/lib/libstdc++.so
 
 
 
@@ -97,6 +111,7 @@ Reference
 * `AOSP - NDK <https://android.googlesource.com/platform/ndk>`_
 * `AOSP - Prebuilts NDK <https://android.googlesource.com/platform/prebuilts/ndk>`_
 * `NDK - Release Notes <https://developer.android.com/ndk/downloads/index.html#rel>`_
+* `NDK - C++ support <https://developer.android.com/ndk/guides/cpp-support.html>`_
 
 * `AOSP - LLVM <https://android.googlesource.com/platform/external/llvm/>`_
 * `AOSP - compiler-rt <https://android.googlesource.com/platform/external/compiler-rt/>`_
