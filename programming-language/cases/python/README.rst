@@ -11,3 +11,5 @@ Python
 * Package Settings
 * `Asynchronous I/O <asynchronous.rst>`_
 * FFI
+* `NumPy <numpy.rst>`_
+* `SciPy <scipy.rst>`_
