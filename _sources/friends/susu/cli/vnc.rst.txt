@@ -18,7 +18,11 @@ example::
     # tips: ``ps wwwwaux | grep auth`` may find the path of MIT-MAGIC-COOKIE.
     x11vnc -display :0 -auth /var/run/lightdm/root/:0 -usepw
 
-- other option
+other options
 
-  - ``-once``, ``-forever``: VNC server listen once/forever.
-  - ``-display :<number>``
+- ``-once``, ``-forever``: VNC server listen once/forever.
+- ``-display :<number>``
+
+other usage
+
+- ``x11vnc -localhost`` + ``ssh tunnel``: see `xvfb.rst <xvfb.rst>`_ for detail.

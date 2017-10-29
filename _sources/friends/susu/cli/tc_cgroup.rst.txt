@@ -1,7 +1,7 @@
 - 開一個 net_cls controller 的 cgroup, 並設定 net_cls.classid 為 10:1::
 
     cgcreate -t susu -a susu -g net_cls:net_test
-    cd /sys/fs/cgroups/
+    cd /sys/fs/cgroup/
     echo 0x100001 > net_cls/net_test/net_cls.classid
     # 0x100001 => 0x0010:0x0001 => 10:1
     
@@ -12,7 +12,7 @@
     tc filter add dev wlp2s0 parent 10: protocol ip prio 10 handle 1: cgroup
 
     # check
-    # tc [qdisk|class|filter] show dev wlp2s0
+    # tc [qdisc|class|filter] show dev wlp2s0
 
     # change the upload rate
     tc class add dev wlp2s0 parent 10: classid 10:1 htb rate <rate>
@@ -79,7 +79,7 @@ tc
   - sfq: Stochastic Fairness Queueing
   - tbf: Token Bucket Filter
 
-----
+cgroups
 
 - cgroups v1 net_cls
 - cgroups v2 io

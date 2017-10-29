@@ -54,6 +54,17 @@ History
 Linker Script
 ========================================
 
+* `ld - Linker Scripts <https://sourceware.org/binutils/docs/ld/Scripts.html>`_
+* `GNU ld 的 linker script 簡介 <https://www.slideshare.net/zzz00072/gnu-ldlinker-script>`_
+* `Linker Script 初探 - GNU Linker LD 手冊略讀 <http://wen00072.github.io/blog/2014/03/14/study-on-the-linker-script/>`_
+* `OSDev - Linker Scripts <http://wiki.osdev.org/Linker_Scripts>`_
+* Linux kernel 的 vmlinuz.lds
+* ``/usr/lib/ldscripts/``
+* `MCLinker - script parser <https://github.com/mclinker/mclinker/blob/master/lib/Script/ScriptParser.yy>`_
+* LLD
+    - `lld/ELF/LinkerScript.h <https://github.com/llvm-mirror/lld/blob/master/ELF/LinkerScript.h>`_
+    - `lld/ELF/LinkerScript.cpp <https://github.com/llvm-mirror/lld/blob/master/ELF/LinkerScript.cpp>`_
+
 
 
 LLD Linker
@@ -111,6 +122,14 @@ Identical Code Folding
 
 
 
+參數
+========================================
+
+--as-needed
+------------------------------
+
+
+
 Reference
 ========================================
 
@@ -124,6 +143,12 @@ Reference
 * `Wikipedia - gold (linker) <https://en.wikipedia.org/wiki/Gold_%28linker%29>`_
 
 
+* [2006] `Optimizing Linker Load Times <https://lwn.net/Articles/192624/>`_
+* [2016] `The Missing Link: Explaining ELF Static Linking, Semantically <http://dl.acm.org/citation.cfm?doid=2983990.2983996>`_
+
+
 * `Acronyms relevant to Executable and Linkable Format (ELF) <https://web.archive.org/web/20120922073347/http://www.acsu.buffalo.edu/~charngda/elf.html>`_
 * `StackOverflow - What do 'statically linked' and 'dynamically linked' mean? <https://stackoverflow.com/a/311889>`_
 * `musl FAQ <https://www.musl-libc.org/faq.html>`_
+
+* `Project:Quality Assurance/As-needed <https://wiki.gentoo.org/wiki/Project:Quality_Assurance/As-needed>`_

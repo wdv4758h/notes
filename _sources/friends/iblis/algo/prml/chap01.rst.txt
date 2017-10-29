@@ -105,7 +105,7 @@ e.g.
     p(X=x_i) = \sum_j p(X=x_i, Y=y_j)
 
 
-Condiction Probability
+Condition Probability
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Given :math:`X = x_i`
@@ -368,11 +368,13 @@ Aka, Subjective Probability.
 
 .. math::
 
-    p(\vec{w}|\mathcal{D}) = \frac{p(\mathcal{D}|\vec{w})p(w)}{p(\mathcal{D})}
+    p(\vec{w}|\mathcal{D}) = \frac{p(\mathcal{D}|\vec{w})p(\vec{w})}{p(\mathcal{D})}
 
 其中，上述 right-hand side 的 :math:`p(\mathcal{D}|\vec{w})` 被稱為
-`likelihood function` ，這個 function 的 parameter 為 :math:`\vec{w}` 。
-其表達了 :math:`\mathcal{D}` 對於不同 :math:`\vec{w}` 的合理程度（原文用： probable）。
+`likelihood function` ，這個 likelihood function 的 hyperparameter 為
+:math:`\vec{w}` 。
+其表達了 :math:`\mathcal{D}` 對於每一組 :math:`\vec{w}` 的合理程度
+（原文用： probable）。
 
 我們可以得到
 
@@ -388,7 +390,16 @@ Aka, Subjective Probability.
 
 .. math::
 
-    p(\mathcal{D}) = \int p(\mathcal{D}|\vec{w}) p(\vec{w}) dw
+    \begin{alignat}{2}
+    & & \int p(\vec{w}|\mathcal{D}) d\vec{w} & =
+        \int \frac{p(\mathcal{D}|\vec{w}) p(\vec{w})}{p(\mathcal{D})} d\vec{w} \\
+    & \Rightarrow & 1 & =
+        \int \frac{p(\mathcal{D}|\vec{w}) p(\vec{w})}{p(\mathcal{D})} d\vec{w} \\
+    & \Rightarrow & 1 & =
+        \frac{1}{p(\mathcal{D})}\int p(\mathcal{D}|\vec{w}) p(\vec{w}) d\vec{w} \\
+    & \Rightarrow & p(\mathcal{D}) & =
+        \int p(\mathcal{D}|\vec{w}) p(\vec{w}) d\vec{w}
+    \end{alignat}
 
 這個分母可以透過 *likelihood function* 對 :math:`\vec{w}` 積分，
 :math:`\vec{w}` 會被積分掉，
@@ -423,14 +434,19 @@ Aka, Subjective Probability.
         p(D|\vec{w}) = \frac{p(D=t_1) p(D=t_2) \dots p(D=t_n)}{p(\vec{w})}
 
     取 log 會使得分子的連乘改為連加， log function 是 monotonically decreasing
-    function, 會 convex, 而 maximum likelihood 的意義不變。
-
+    function, imply convex, 而且 maximum likelihood 的意義不變。
 
 以 Bayesian 的觀點，會把 prior 考慮進來，而不只有 likelihood 。
 可以解決 overfitting 的問題。
+舉例來說，我們丟了 3 次公正的硬幣，但剛好都是 head，
+這時如果只 maximum likelihood 會得到 :math:`p(head) = 1` 這是 overfitting。
+而相對的 Bayesian 加上了些 prior，會比單純 maximum likelihood 好。
 
-:hyperparamter: :math:`\vec{w}` 是 model, 而決定 model 的 parameter 稱為
-                hyperparamter.
+但是 frequentist 跟 Bayesian 的爭論一直很多。像是 Bayesian 有時候選擇 prior
+是為了數學上的方便，而不一定是與事實有關。
+
+:hyperparameter: :math:`\vec{w}` 是 model, 而決定 model 的 parameter 稱為
+                hyperparameter.
 
     .. math::
 
@@ -462,6 +478,136 @@ Data Sets Bootstrap
     抽到 10 個為止，即形成 :math:`X_B`
 
 
+Curve fitting Re-visited
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+再次來看看 curve fitting 問題，前面我們用 polynomial 與 frequentist 的
+maximum likelihood 的技術來得到我們的 model。
+
+Probabilistic perspective，我們用
+「單一一個 target value 現在是個 distribution」來表達 uncertainty。
+
+舉例來說，現在我們假設，（在給定 :math:`x` 之下） :math:`t` 的值 是一個
+gaussian distribution，而且這個 distribution :math:`\mu = y(x, \vec{w})`
+
+我們現在是要做 curve fitting，就是求曲線 :math:`y(x, \vec{w})` ,
+所以想象成這曲線上有無限多個 target 就有 無限多個 distribution。
+
+每個 distribution 寫成
+
+.. math::
+
+    p(t | x, \vec{w}, \beta) & = \mathcal{N}(t | \mu, \beta^{-1}) \\
+                             & = \mathcal{N}(t | y(x, \vec{w}), \beta^{-1})
+
+Where the precision :math:`\beta^{-1} = \sigma^2`
+
+然後用 training data :math:`\{\vec{x}, \vec{t}\}` maximum likelihood
+來決定 :math:`\vec{w},\ \beta` ，
+加上 i.i.d 的假設，得 likelihood function
+
+.. math::
+
+    p(\vec{t} | \vec{x}, \vec{w}, \beta) =
+        \prod_n^N \mathcal{N} (t_n | y(x_n, \vec{w}), \beta^{-1})
+
+再用 :ref:`gaussian-func` 得出的 log likelihood form
+
+.. math::
+
+    \ln p(\vec{t} | \vec{x}, \vec{w}, \beta) =
+        - \frac{\beta}{2} \sum \big( y(x_n, \vec{w}) - t_n \big)^2 +
+        \frac{N}{2} \ln \beta - \frac{N}{2} ln (2\pi)
+
+現在我們要 maximum log likelihood with respect with :math:`\vec{w}` ，
+上面式子中後面兩項與 :math:`\vec{w}` 無關，省略掉。
+而第一項中的 :math:`\beta` 可以視為常數；得
+
+.. math::
+
+    & & \max - & \frac{1}{2} \sum \big( y(x_n, \vec{w}) - t_n \big)^2 \\
+    & \Rightarrow & \min & \frac{1}{2} \sum_n^N \big( y(x_n, \vec{w}) - t_n \big)^2
+
+這就是 `sum-of-square error function` 。
+`sum-of-square error function` 正是基於 Gaussian noise distribution 的假設，
+執行 maximum likelihood 的結果。
+
+同理，求 precision
+
+.. math::
+
+    \frac{1}{\beta} = \frac{1}{N} \sum_n^N \big( y(x_n, \vec{w_{ML}}) - t_n \big)^2
+
+有了 :math:`\vec{w_{ML}},\ \beta_{ML}` ，以下給了 :math:`x`
+被稱為 predictive distribution
+
+.. math::
+
+    p(t | x, \vec{w_{ML}}, \beta_{ML}) = \mathcal{N}(t | y(x, \vec{w_{ML}}), \beta_{ML}^{-1})
+
+接下來我們導入 Bayes' theorem 中的 prior，recall this
+
+.. math::
+
+    posterior \propto likelihood \times prior
+
+假設我們的 model :math:`\vec{w}` 的 distribution 是個 D-dimension Gaussian
+
+.. math::
+
+    p(\vec{w} | \alpha)a & = \mathcal{N}(\vec{w} | \vec{0}, \alpha^{-1} I) \\
+        & = \Big( \frac{\alpha}{2\pi} \Big)^{\frac{M+1}{2}} e^{-\frac{\alpha}{2} \vec{w}^T \vec{w}}
+
+where :math:`\alpha` is the precision (:math:`\alpha^{-1} = \sigma^2`)
+
+然後我們求 :math:`\vec{w}` 透過 maximum posterior，
+取 log posterior，會得到 likelihood 的 exp 與 prior 的 exp 相加。
+
+.. math::
+
+    & & \frac{\beta}{2} \sum_n^N \big( y(x_n, \vec{w}) - t_n \big)^2 +
+    \frac{\alpha}{2} \vec{w}^T \vec{w} \\
+    & = & \frac{1}{2} \sum_n^N \big( y(x_n, \vec{w}) - t_n \big)^2 +
+    \frac{\alpha}{2\beta} \vec{w}^T \vec{w} \\
+    & = & \frac{1}{2} \sum_n^N \big( y(x_n, \vec{w}) - t_n \big)^2 +
+    \frac{\lambda}{2} \vec{w}^T \vec{w}
+
+這個就是 `sum-of-square error function with regularization term`, given
+:math:`\lambda = \frac{\alpha}{\beta}`
+
+導入的 prior 的 maximum posterior 就會得到 regularization term，可以對抗
+over-fitting problem。但這個是 Gaussian distribution 的假設之下。
+
+
+Bayesian curve fitting
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+即使我們導入了 prior distribution :math:`p(\vec{w} | \alpha)` 做了 maximum
+posterior，但這些目前都是對 :math:`\vec{w}` 做點估計（定值估計），
+還不是 Bayesian 的角度。在 Bayesian 的方法之下，會使用 product rule and
+sum rules，也就是會對 :math:`\vec{w}` 積分。
+這種積分的手法 (marginalization) 是 Bayesian method 的核心。
+
+現在考慮 predictive distribution 的拆解，裡面有 posterior
+
+.. math::
+
+    p(t | x, \vec{x}, \vec{t}) = p(t | x, \mathcal{D}) =
+    \int p(t | x, \vec{w}) p(\vec{w} | \mathcal{D}) d \vec{w}
+
+實際上還有 :math:`\alpha,\ \beta` 是 hyperparameter，省略了沒寫。
+上式中 :math:`p(\vec{w} | \mathcal{D})` 為 posterior。
+
+我們之前假設了 posterior 為 Gaussian ，而現在的 predictive distribution
+也將會是 Gaussian
+
+.. math::
+
+    p(t | x, \vec{x}, \vec{t}) = \mathcal{N}(t | m(x), s^2(x))
+
+然後 :math:`m(x),\ s^2(x)` 長得很奇怪，我們之後再證明。
+
+
 Model Selection
 ----------------------------------------------------------------------
 
@@ -471,7 +617,7 @@ Model Selection
 
     y = p(x)
 
-而 :math:`M` 的覺得也是個 hyperparamter。
+而 :math:`M` 的覺得也是個 hyperparameter。
 
 :math:`M` 太大就容易有 over-fitting 的問題。
 
@@ -512,6 +658,12 @@ Akaike Information Criterion (AIC)
 每個 :math:`M` 都有自己的 max likelihood 的那個 :math:`\vec{w}` 。
 
 
+Gaussian Distribution
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+See :ref:`gaussian-func`
+
+
 Decision Theory
 ----------------------------------------------------------------------
 
@@ -526,8 +678,201 @@ Make optimal decisions in situations involving uncertainty
     :math:`p(\vec{x}, \vec{t})` 是對於這兩個變數 summary of the uncertainty.
 
 :inference:
-    Determine the *joint probability distribution*
-    ( :math:`p(\vec{x}, \vec{t})` ) from training data set.
+    決定 *joint probability distribution* 就是 `inference` 的其中一種實作方法
+    ( :math:`p(\vec{x}, \vec{t})` from training data set).
+    但這是個很困難的問題。
+
+
+Minimizing the misclassification rate
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+假設我們現在在做兩個 class :math:`C_1, C_2` 的 classification，
+input dataset :math:`X = {\vec{x_1}, \dots, \vec{x_n}}`
+每個 data 都是 feature vector :math:`\vec{x_i}`
+
+objective function 就是要 minimizing misclassification rate，
+或是其對偶問題 maximizing correct rate
+
+.. math::
+
+    p(mistake) & = p(\vec{x} \in R_1, C_2) + p(\vec{x} \in R_2, C_1) \\
+               & = \int_{R_1} p(\vec{x}, C_2) d\vec{x} + \int_{R_2} p(\vec{x}, C_1) d\vec{x}
+
+Where :math:`R_1,\ R_2` 是 decision region，就是我們畫的。
+
+在 minimizing 完之後要做 decision，拿一個 input :math:`\vec{x}`
+就直接比較
+:math:`p(\vec{x}, C_1)` vs :math:`p(\vec{x}, C_2)`
+
+在比較的時候，可以寫成
+:math:`p(C_1|\vec{x})p(\vec{x})` vs :math:`p(C_2|\vec{x})p(\vec{x})`
+然後拿掉 :math:`p(\vec{x})` 就就是直接比較 posterior。
+
+在類別很多的時候，會需要列出太多 misclassification。
+e.g. 有 4 類，要寫 1 v {2, 3, 4}, 2 vs {3, 4}, 3 vs {4}。
+但是換成 maximizing :math:`p(correct)` 則只有 4 項
+
+.. math::
+
+    p(correct) = \sum_{k=1}^4 \int_{R_k} p(\vec{x}, C_k) d\vec{x}
+
+是對偶。
+
+
+Minimizing the expected loss
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+很多時候我們的 Type I error vs Type II error 有不同的嚴重程度。
+所以我們希望有不同的 loss 權重。
+
+e.g. 是 癌症 但是判定成 健康，這個很嚴重；是 健康 判定成 癌症，這還好
+
+.. math::
+
+    E(L) = \sum_k \sum_j \int_{R_j} L_{kj} p(\vec{x}, C_k) d\vec{x}
+
+這是 expected loss。
+
+:math:`L_{kj}` 就是 k 類但判成 j 的 loss，
+當然 :math:`k = j` 時 :math:`L_{kj} = 0`
+
+然而實際上給定了一個 input :math:`\vec{x}` 之後，這個 :math:`\vec{x}` 只會坐落
+在其中一個 :math:`R_j` ，所以我們只要求
+
+.. math::
+
+    & & \sum_k L_{kj} p(\vec{x}, C_k) \\
+    & = & \sum_k L_{kj} p(C_k | \vec{x}) p(\vec{x}) \\
+    & \Rightarrow & \sum_j L_{kj} p(C_k | \vec{x})
+
+因為做 minimizing 所以 :math:`p(\vec{x})` 就拿掉了，結果不變。
+
+
+Inference and decision
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+解決一個 classification 的問題需要兩個 stage:
+
+#. `inference`: 用 training dataset 得出 :math:`p(C_k | \vec{x})` 的 model
+
+#. `decision`: 用剛剛得到的 posterior distribution 去做 testing，選出個 class
+
+解 decision problem 的三大方法，照複雜度排序：
+
+#. 先解 class-conditional densities :math:`p(\vec{x} | C_k)` ，
+   class 有 k 個就個別解 k 次。同樣的還要找 prior :math:`p(C_k)` ，
+   然後用 Bayes' Theorem 算出所有的 posterior probabilities
+
+   .. math::
+
+       p(C_k | \vec{x}) & = \frac{p(\vec{x} | C_k) p(C_k)}{p(\vec{x})} \\
+                        & = \frac{p(\vec{x} | C_k) p(C_k)}{\sum_k p(\vec{x} | C_k) p(C_k)}
+
+   或是直接 model joint distribution :math:`p(x, C_k)` 然後 normalize 後
+   就會得到 posterior。
+
+   在找到 posterior probabilities 之後，就把 input :math:`\vec{x}` 丟入所有的
+   posterior probabilities 算算誰的值大，決定一下 class。
+
+   這種 model input 跟 output 的 distribution 的方法被稱作 `generative models`，
+   因為有 distribution 就可以 sampling 出 synthetic data point。
+
+#. 直接去 model :math:`p(C_k | \vec{x})` ，
+   這個 posterior 可能裡面就是用個 approximator。然後我們就可以用 decision stage
+   得到答案。這個被稱為 `discriminative models`
+
+#. 直接找一個 function :math:`f(\vec{x})` （被稱為 discriminant function）。
+   這個 function 的 output 就直接是 class。整個過程沒有機率。
+
+`generative models` 的優點在於我們會算出 :math:`p(x)` ，我們可以拿著這個
+:math:`p(x)` 來看看 new data 是不是 outlier
+(`outlier detection and novelty detection`)。
+
+相對的，如果我們只想做 classification，就只需要 posterior，那麼
+`discriminative models` 所需要的計算量比較小。
+
+最後，`discriminant function` 是直接用 data 求這個 function，
+直接結合 `inference` 跟 `decision` stage 成為單一的 learning problem。
+像是直接拿到一個 function，這個 function 是個切平面，平面的兩邊就是兩個 class。
+這裡就都看不到 posterior 了。
+
+然而這裡提一下 posterior 的好處：
+
+Minimizing risk
+    考慮一下，如果你的 loss matrix 會一直變動
+    (maybe in financial applications)。
+    手上有 posterior 的話，loss function (objective function)
+    就可以隨時改完算出來。如果是 discriminant function 的話，整個 model
+    要重新 training。
+
+Reject option
+    有 posterior 就可以設定個 threshold :math:`\theta` 來處理兩個 posterior
+    接近的狀況。
+
+
+Compensating form class priors
+    可以對 unbalance dataset 做處理。想象兩個 class 在 training dataset 的
+    數量是 :math:`1:1000` 。
+    首先 :math:`posterior \propto prior` 這個 prior 就是 :math:`p(C_k)` 就是
+    training class 的各個百分比。
+    那麼我們現在製作一組 balance 的 dataset 這個 prior
+    就會是 :math:`\frac{1}{K}` 。我們在這個 balance dataset 裡面求完
+    posterior 之後，只要 :math:`posterior \times K \times original\ prior`
+    然後在做 normalization，就能完成這種 unbalance 的 training。
+    不然直接 training 的 generalization 很差，因為 :math:`1:1000` 。
+
+Combining models
+    假設我們希望把問題的 size 縮小，拆成兩個問題。
+    e.g. 原本我們做 cancer detection 的 input 有 X-ray imgage 與 血液資訊。
+    那麼現在我們把 input vector :math:`\vec{x}` 拆成
+    :math:`\vec{x_I},\ \vec{x_B}` 。
+
+    現在我們做個很強烈的假設：這兩個 input vectors 是 independent。
+    得
+
+    .. math::
+
+        p(\vec{x_I}, \vec{x_B} | C_k) = p(\vec{x_I} | C_k) p(\vec{x_B} | C_k)
+
+    因為我們假設了 independent，joint probability 就是相乘，上面這個是
+    `conditional independence`
+
+    得 posterior:
+
+    .. math::
+
+        p(C_k | \vec{x_I}, \vec{x_B}) & \propto p(\vec{x_I}, \vec{x_B})p(C_k) \\
+            & \propto p(\vec{x_I}|C_k) p(\vec{x_B}|C_k) p(C_k) \\
+            & \propto \frac{p(\vec{x_I}|C_k) p(C_k) p(\vec{x_B}|C_k) p(C_k)}{p(C_k)} \\
+            & \propto \frac{p(C_k|\vec{x_I}) p(C_k | \vec{x_B})}{p(C_k)}
+
+    整個問題的 posterior 會正比於 兩個 posterior 相乘後處以
+    training data 的比例 (:math:`p(C_k)`)。最後做 normalization 就可以得到
+    精確的 posterior。
+
+    這是個 `naive Bayesian model` 的例子。
+    後面的章節會介紹不需要這個 conditional independent 假設的方法。
+
+
+Loss functions for regression
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+.. math::
+
+    E(L) = \int \int L(t, y(\vec{x})) p(\vec{x}, t) d\vec{x} dt
+
+看到 :math:`\int \int f(\cdot) d\vec{x} dt` 的意義就是：
+排列組合所有的 :math:`d\vec{x}` 跟 :math:`dt` ，每個排列組合都乘上
+:math:`f(\cdot)`
+
+舉個例子是 :math:`L(t, y(\vec{x})) = (y(\vec{x}) - t)^2` square lose function
+
+.. math::
+
+    E(L) = \int \int (y(\vec{x}) - t)^2 p(\vec{x}, t) d\vec{x} dt
+
+我們的目標時 minimizing 後選出 :math:`y(x)` (model)。
 
 
 Information Theory
@@ -604,3 +949,11 @@ Mutual Information
 
     I(X; Y) = \sum_{x \in X} \sum_{y \in Y} p(x, y)
         \log \Big( \frac{p(x, y)}{p(x)p(y)} \Big)
+
+如果 random variable 為 independent 則
+
+.. math::
+
+    \log \Big( \frac{p(x, y)}{p(x)p(y)} \Big) =
+    \log \Big( \frac{p(x)p(y)}{p(x)p(y)} \Big) = \log 1 = 0
+

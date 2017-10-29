@@ -2,8 +2,11 @@
 CPython
 ========================================
 
-Build From Source
+
+編譯 - 編譯和執行平台相同
 ========================================
+
+Debug 模式：
 
 .. code-block:: sh
 
@@ -14,10 +17,105 @@ Build From Source
     $ make -j8
     $ ./python -m test -j8
 
-* `Python Developer's Guide <https://docs.python.org/devguide/index.html>`_
-* `BuildBot: Python - Waterfall <http://buildbot.python.org/all/waterfall>`_
-* `Mercurial for git developers <https://docs.python.org/devguide/gitdevs.html>`_
-* `CPython - Code Review <https://bugs.python.org/review/>`_
+
+
+編譯 - 編譯和執行平台不同 - Android
+========================================
+
+.. code-block:: sh
+
+    # 下載 Android NDK
+    mkdir ndk
+    cd ndk
+    wget https://dl.google.com/android/repository/android-ndk-r15c-linux-x86_64.zip
+    unzip android-ndk-r15c-linux-x86_64.zip
+    cd ../
+
+    # 下載 CPython 程式碼
+    git clone https://github.com/python/cpython
+    cd cpython
+    mkdir mybuild
+
+    # 編譯 host CPython
+    # 在 Cross Compile 時需要同版本的 CPython
+    ./configure
+    make -j BUILDPYTHON=hostpython hostpython PGEN=Parser/hostpgen Parser/hostpgen
+    mv Parser/hostpgen hostpgen
+
+
+    # 設定 NDK 環境
+    # ==> 變動區域，自行根據需求更換
+    export ANDROID_NDK_ROOT="$HOME/ndk/android-ndk-r15c"
+    export ANDROID_NDK_VERSION="15"
+    export ANDROID_API="24"
+    export ANDROID_ARCH="arm"
+    export GCC_VERSION="4.9"
+    # 要執行編譯結果的機器
+    export ANDROID_HOST="arm-linux-androideabi"
+    # 負責編譯的機器
+    export ANDROID_BUILD="x86_64-pc-linux-gnu"
+    export TARGET_ABI="armeabi-v7a"
+    export TARGET="arm-none-linux-android"
+    export KERNEL=linux
+    export MACHINE=x86_64
+    # ==> 固定區域
+    export SYSROOT="$ANDROID_NDK_ROOT/platforms/android-$ANDROID_API/arch-$ANDROID_ARCH"
+    export LLVM_TOOLCHAIN="$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/$KERNEL-$MACHINE"
+    # NDK 編譯器現在是 Clang，但是底下仍然需要一些 GCC 的工具
+    export GCC_TOOLCHAIN_NAME=$ANDROID_HOST-$GCC_VERSION
+    export GCC_TOOLCHAIN="$ANDROID_NDK_ROOT/toolchains/$GCC_TOOLCHAIN_NAME/prebuilt/$KERNEL-$MACHINE"
+    export CC="$LLVM_TOOLCHAIN/bin/clang -target $TARGET -gcc-toolchain $GCC_TOOLCHAIN"
+    export CXX="$LLVM_TOOLCHAIN/bin/clang++ -target $TARGET -gcc-toolchain $GCC_TOOLCHAIN"
+    export GCC="$GCC_TOOLCHAIN/bin/$ANDROID_HOST-gcc"
+    export AR="$GCC_TOOLCHAIN/bin/$ANDROID_HOST-ar"
+    export LD="$GCC_TOOLCHAIN/bin/$ANDROID_HOST-ld"
+    export RANLIB="$GCC_TOOLCHAIN/bin/$ANDROID_HOST-ranlib"
+    export READELF="$GCC_TOOLCHAIN/bin/$ANDROID_HOST-readelf"
+    export STRIP="$GCC_TOOLCHAIN/bin/$ANDROID_HOST-strip --strip-debug --strip-unneeded"
+    export NDK_FLAGS="--sysroot=$SYSROOT -D__ANDROID_API__=$ANDROID_API -isystem $ANDROID_NDK_ROOT/sysroot/usr/include/$ANDROID_HOST -I$ANDROID_NDK_ROOT/sources/cxx-stl/llvm-libc++/include -L$ANDROID_NDK_ROOT/sources/cxx-stl/llvm-libc++/libs/$TARGET_ABI"
+    export CPPFLAGS="$CPPFLAGS $NDK_FLAGS"
+    export CFLAGS="$CFLAGS $NDK_FLAGS -Wno-unused-value -Wno-empty-body -Qunused-arguments -Wno-nullability-completeness"
+    export LDFLAGS="$LDFLAGS --sysroot=$SYSROOT"
+
+    # configure 時也要寫參數
+    ./configure CC="$CC" \
+                AR="$AR" \
+                LD="$LD" \
+                RANLIB="$RANLIB" \
+                READELF="$READELF" \
+                CPPFLAGS="$CPPFLAGS" \
+                LDFLAGS="$LDFLAGS" \
+                CFLAGS="$CFLAGS" \
+                --host=$ANDROID_HOST \
+                --build=$ANDROID_BUILD \
+                --enable-shared \
+                --enable-ipv6 \
+                --without-ensurepip \
+                ac_cv_file__dev_ptmx=yes \
+                ac_cv_file__dev_ptc=no \
+                ac_cv_little_endian_double=yes \
+                --prefix=$PWD/mybuild
+
+    # Cross Compile，並指定 host CPython
+    $ make -j CROSS_COMPILE_TARGET=yes HOSTPYTHON=./hostpython HOSTPGEN=./hostpgen
+    # 安裝到指定資料夾
+    $ make -j install CROSS_COMPILE_TARGET=yes HOSTPYTHON=./hostpython HOSTPGEN=./hostpgen
+
+
+
+* `Clang - Cross Compilation <https://clang.llvm.org/docs/CrossCompilation.html>`_
+* `OSDev wiki - LLVM Cross Compiler <http://wiki.osdev.org/LLVM_Cross-Compiler>`_
+* `llvm::Triple Class Reference <http://llvm.org/doxygen/classllvm_1_1Triple.html>`_
+* `Android NDK - Standalone Toolchains <https://developer.android.com/ndk/guides/standalone_toolchain.html>`_
+* `Building Python Statically <https://wiki.python.org/moin/BuildStatically>`_
+
+
+
+開關 CPython 內建 Extension
+========================================
+
+``Modules/Setup.dist``
+
 
 
 decimal
@@ -74,3 +172,13 @@ Other Python Implementations
     - Python implementation written in Java to integrate with JVM
 * IronPython
     - Python implementation written in C# to integrate with .NET framework
+
+
+
+參考
+========================================
+
+* `Python Developer's Guide <https://docs.python.org/devguide/index.html>`_
+* `BuildBot: Python - Waterfall <http://buildbot.python.org/all/waterfall>`_
+* `Mercurial for git developers <https://docs.python.org/devguide/gitdevs.html>`_
+* `CPython - Code Review <https://bugs.python.org/review/>`_

@@ -77,7 +77,7 @@ Markov Decision Process
 
 - 可以被視為 stochastic extension of finite automata
 
-- 雖然廣義上的 MDP 是 infinit
+- 雖然廣義上的 MDP 是 infinite
 
 - key componement
 
@@ -177,20 +177,32 @@ Task
 - continuous task
 
 
-Policy
+Policy function
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 - deterministic policy: 就直接的 mapping
 
 .. math::
 
-    \pi: S \rightarrow A
+    & \pi: S \rightarrow A \\
+    & a = \pi(s)
 
-- stochastic policy: 給 :math:`s,\ a` output 機率
+- stochastic policy: 給 :math:`s,\ a` output 機率，
+  那就就把所有的 output 拿來比較，就會得出一個 :math:`a`
 
 .. math::
 
-    \pi: S \times A \rightarrow [0, 1]
+    & \pi: S \times A \rightarrow [0, 1] \\
+    & a \sim \pi(a | s)
+
+
+- parameterized policies :math:`\pi_\theta`
+  有參數的 :math:`\pi` 。e.g. 用 NN 做 function approximator，
+  output 一組機率值。
+
+    - deterministic: :math:`a = \pi(s, \theta)`
+
+    - stochastic: :math:`a \sim \pi(a | s, \theta)`
 
 
 在整個 process 中，如果 policy function 都沒變動，那麼就是 stationary
@@ -212,7 +224,8 @@ Finite horizon: 我希望在 h 步之內(即 finite horizon) 有最大的 reward
 
     E[ \sum_{t=0}^h r_t ]
 
-導入 discount 的 finite horizon:
+導入 discount 的 finite horizon，這個 discount
+代表我們比較不喜歡未來才拿到 reward，傾向是立即的:
 
 .. math::
 
@@ -273,7 +286,7 @@ given policy :math:`\pi`, 且正在 state :math:`s`
     V^\pi(s) = E_{\pi}[ \sum_{k=0}^h \gamma^k r_{t+k} | s_t = s ] \tag{v.1}
 
 看到 :math:`r_{t+k}` 代表前面已經過了 :math:`t` ，前面就不管了。
-我們只關心往後的 :math:`k` 步
+我們只關心 *往後* 的 :math:`k` 步
 
 
 `state-action value function` :math:`Q: S \times A \rightarrow \mathbb{R}`
@@ -381,16 +394,10 @@ Relation between :math:`Q^*` and :math:`V^*`
 
 .. math::
 
-    V^*(s) = \max_a Q^*(s, a)
-
-.. math::
-
-    Q^*(s, a) = \sum_{s'} T(s, a, s')
-                \bigg( R(s, a, s') + \gamma V^*(s') \bigg)
-
-.. math::
-
-    \pi^*(s) = \arg \max_a Q^*(s, a)
+    V^*(s)    & = \max_a Q^*(s, a) \\
+    Q^*(s, a) & = \sum_{s'} T(s, a, s')
+                \bigg( R(s, a, s') + \gamma V^*(s') \bigg) \\
+    \pi^*(s)  & = \arg \max_a Q^*(s, a)
 
 
 Generalized Policy Iteration (GPI)
@@ -419,9 +426,223 @@ policy 可以根據每個 state 需要時再生出來。
 另外 value function 不需要特別精確，只需要能夠有鑑別度，
 能明確的分出最好跟次好是有差的。
 
+
+Dynamic Programming
+----------------------------------------------------------------------
+
+DP 在有完美的環境 model，就能給你 optimal policies。
+    "The term DP refers to a class of algorithms that is able to compute optimal
+    policies in the presence of a perfect model of the environment."
+
+
+Fundamental DP Algorithms
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Two core method:
+
+* `policy iteration`
+
+* `value iteration`
+
+
+Policy Iteration
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Policy Evaluation stage
+
+    這裡有點像是 decision theorem 的 inference stage。
+    這個 stage 是給定了一個 policy :math:`\pi` ，來評估看看。
+
+    首先就是算出 value function :math:`V^\pi`
+    (given a fixed policy :math:`\pi`).
+
+    如果 MDP 的 model 都知道，那麼 :math:`V^\pi`
+    就可以寫成一組方程組，未知元是 :math:`S`.
+    然後就可以用 linear programming 來解這個最佳化問題。
+
+    當然，有 iterative 的解法：把 Bellman Equation 轉成
+    一個 `update rule`: 窮舉下一個 state :math:`s'` ，
+    而且算出 horizon 縮小一步的 :math:`V_k^\pi`。
+    :math:`V_{k+1}^\pi \leftarrow F[V_k(s')]`
+
+    :math:`V_{k+1}^\pi` 的 horizon 是 :math:`k + 1`,
+    同理 :math:`V_k^\pi` 為 :math:`k` ；
+    原本的 :math:`V^\pi` 是 infinite-horizon。
+
+    .. math::
+
+        V^\pi_{k+1}(s)
+        & = E_\pi[ r_t + \gamma r_{t+1} + \dots + \gamma^{k+1} r_{t+k+1}] \\
+        & = E_\pi[ r_t + \gamma \Big( r_{t+1} + \dots + \gamma^{k} r_{t+k+1} \Big)] \\
+        & = E_\pi[ r_t + \gamma V_k^\pi(s') ] \\
+        & = \sum_{s'} T(s, \pi(s), s') \Big( R(s, \pi(s), s') + \gamma  V_k^\pi(s') \Big)
+
+    iteration 則是一直改變 :math:`k`, :math:`k=1:\inf`，一直往上算出
+    較大的 :math:`k`，來達成收斂。這樣看起來就像是在填表格，
+    從小的開始填，每次填都需要上一次的資訊，這個就很 DP。
+
+    每個 iteration（即每個 :math:`k`）裡面都要 iter 過每個 :math:`s`，才
+    選出某個最好的 :math:`s`。
+    這樣的做法被稱為 `full backup`，
+    因為我們考慮了所有 transition probabilities。
+
+    general formulation 會導入 `backup operator` :math:`B^\pi`
+    over :math:`\phi`。這個 :math:`\phi` 會 map state space 到實數值。
+    e.g. 這個 :math:`\phi` 是 value function
+
+    .. math::
+
+        (B^\pi \phi)(s) =
+            \sum_{s' \in S} T(s, \pi(s), s')
+                \Big( R(s, \pi(s), s') + \gamma \phi(s') \Big)
+
+    找 optimal value function :math:`V^*`，objective function 訂成
+
+    .. math::
+
+        & V^* = \arg \max_V \sum_{s \in S'} V(s) \\
+        & \text{s.t.} \\
+        & \forall a, \forall s, V(s) \ge (B^a V)(s)
+
+    :math:`B^a V` 直接給定 action。
+
+Policy Improvement stage
+
+    找新的 policy, s.t. :math:`V^{\pi_1}(s) \geq V^{\pi_0}(s), \forall s \in S`
+
+    :math:`\pi_0` 就是初始隨便挑的 policy，
+    e.g 走迷宮都先走右邊，然後才是下...etc
+
+Pseudo code::
+
+    k = 1  # horizon
+    pi[1] = ...  # baseline policy
+
+    while not converge
+
+        # policy evaluation
+        for s in S
+            pi[k, ...] = ...
+        end
+
+        # policy improvement
+        for s in S
+            pi[k+1, ...] = indmax(...)
+        end
+
+        k += 1
+    end
+
+
+Updating style
+----------------------------------------------------------------------
+
+Sync
+    A.k.a `Jacobi-style` 。
+    最原始的，新的值在新的 table
+
+In-place
+    如字面的意思。
+
+Async
+    extend of `in-place`, but in any order.
+
+
+Modified policy iteration (MPI)
+----------------------------------------------------------------------
+
+Two steps:
+
+- policy evaluation
+
+- policy improvement
+
+It's general method of *async update*
+
+
+Heuristics and Search
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Heuristics general 來說是 async DP。
+
+Goal-based reward function
+    只有到達 goal state 才有 positive reward。
+
+
+RL
+----------------------------------------------------------------------
+
+Model-free
+    MDP with approximation and incomplete information，然後需要 sampling、
+    exploration。
+
+    而且沒有 transition model 的 prior 或是 reword function 的 prior。
+
+    在 model-free 的解法大概有兩種，
+
+    - 學出 transition and reward models，透過跟環境互動。然後有了 model，
+      直接用 DP 解。 `indircet RL` or `model-based RL`
+
+    - `direct RL` ，直接去算 action 的 value，跳過估測 model 的動作。
+
+    - 可以混合
+        "For example, one can still do
+        model-free estimation of action values, but use an approximated model to speed up
+        value learning by using this model to perform more, and in addition, full backups
+        of values (see Section 1.7.3).""
+
+
+Temporal Difference Learning
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+TD learning 的中心思想是：我不用等到整個 episode 結束才去 update。
+舉例來說，我估計未來某個時間點的 value，如 30 分鐘後。
+隨著時間經過，我多看到了點資訊，然後不斷的 update 我對那未來時間的估測。
+
+TD 系列的 algo 透過 `bootstrapping` 來計算估測值。
+
+
+TD(0)
+**************************************************
+
+給定 policy function :math:`\pi` ，
+對 :math:`V^\pi` 的估測方，是法使用 online RL。
+
+.. math::
+
+    V_{k+1}(s) \leftarrow V_k(s) + \alpha (r + \gamma V_k(s') - V_k(s))
+
+這個 :math:`\alpha` 是 learning rate。
+
+.. note::
+
+    learning rate :math:`\alpha` 的選擇可以使用 fixed，或是隨著時間遞減的；
+    或是根據我看到 s' 的次數，次數多的 s' 用比較小的 learning rate
+    :math:`\alpha(s)`
+
+從 update rule 來看，只根據看過的 transition 來 update。
+這個跟 DP 的 `full backup` 不同，只有 `experience` ，
+是 `simple backup`
+
+在估測 :math:`V_{k+1}` 時，是只使用了單一的 :math:`s'` ，
+而不是 iter 完整的 state space。
+
+到 testing phase，拿 value function :math:`V^\pi` 做 action selection，
+是用
+
+.. math::
+
+    \pi(s) = \arg \max_a R(s, a) + V(s)
+
+然後我們的 :math:`s'` 只有一個，從 experience 來。
+若不是像 DP 用 expectation over transition distribution。
+
+
 Reference
 ----------------------------------------------------------------------
 
 * https://en.wikipedia.org/wiki/Reinforcement_learning
 
 * https://www.quora.com/What-is-the-difference-between-model-based-and-model-free-reinforcement-learning
+
+* https://ocw.mit.edu/courses/aeronautics-and-astronautics/16-410-principles-of-autonomy-and-decision-making-fall-2010/lecture-notes/MIT16_410F10_lec23.pdf

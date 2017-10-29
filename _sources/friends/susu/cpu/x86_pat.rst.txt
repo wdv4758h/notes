@@ -1,13 +1,17 @@
+x86 PAT and MTRR
+================
+
 - memory types & cache control.
 - x86 use MTRR(Memory Type and Range Registers) and PAT(Page Attribute Table) to control memory type.
 
-----
+x86 cpu spec
+------------
 
-- x86 memory types: UC, WC, WT, WB
+x86 memory types: UC, WC, WT, WB
 
   .. image:: img/x86_mem_type.png
 
-- cache control registers and bits
+cache control registers and bits
 
   - MTRR register
   - PAT
@@ -15,14 +19,33 @@
     - PAT, PCD, PWT bit in page table entry
     - IA32_PAT MSR
 
-  - G bit in page table entry
-  - CR0's CD, NW bit
-  - CR3's PCD, PWT bit
-  - CR4's PGE bit
+  - others
+
+    - G bit in page table entry
+    - CR0's CD, NW bit
+    - CR3's PCD, PWT bit
+    - CR4's PGE bit
 
   .. image:: img/x86_cache_control_regs_bits.png
 
-Linux usage::
+example of memory type setting
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+setting memory types by PAT and MTRR.
+
+  .. image:: img/set_mem_type.png
+
+Linux support
+-------------
+
+Linux Kernel Memory API and Memory types
+
+- ``ioremap()``
+- ``set_memory_*()``
+- pci sysfs resource and pci proc
+- ``/dev/mem`` ``mmap()/read()/write()``
+
+table::
     
     -------------------------------------------------------------------
     API                    |    RAM   |  ACPI,...  |  Reserved/Holes  |
@@ -64,10 +87,6 @@ Linux usage::
      MTRR says !WB         |          |            |                  |
     ------------------------------------------------------------------
 
-example memory types setting:
-
-    .. image:: img/set_mem_type.png
-
 example of MTRR and PAT in Linux::
 
     # MTRR
@@ -97,24 +116,22 @@ example of MTRR and PAT in Linux::
     uncached-minus @ 0xe0002000-0xe0003000
     ...
 
-
-
 Example
 -------
-- 如何知道在 Windbg 中得到 Memory type(也叫做caching type): http://www.cnblogs.com/aoaoblogs/archive/2009/11/19/1606067.html 
-- Cache Attribute Virtualization in Xen: http://www-archive.xenproject.org/files/xensummitboston08/Cache-Virtualization.pdf
-- Copying Accelerated Video Decode Frame Buffers: https://software.intel.com/en-us/articles/copying-accelerated-video-decode-frame-buffers/
+
+- `如何知道在 Windbg 中得到 Memory type(也叫做caching type) <http://www.cnblogs.com/aoaoblogs/archive/2009/11/19/1606067.html>`_
+- `Cache Attribute Virtualization in Xen <http://www-archive.xenproject.org/files/xensummitboston08/Cache-Virtualization.pdf>`_
+- `Copying Accelerated Video Decode Frame Buffers <https://software.intel.com/en-us/articles/copying-accelerated-video-decode-frame-buffers/>`_
 
   - Fast USWC(Uncachable Speculative Write Combine) to WB(Write Back) Memory Copy
 
 Reference
 ---------
 
-- LWN - ``Documentation/x86/pat.txt:`` https://lwn.net/Articles/278994/
-- ``Documentation/x86/pat.txt:`` https://www.kernel.org/doc/Documentation/x86/pat.txt
-- LWN - x86: Full support of PAT: https://lwn.net/Articles/618811/
-- ``Documentation/x86/mtrr.txt`` http://lxr.free-electrons.com/source/Documentation/x86/mtrr.txt?v=4.8
-- Intel Manual Vol3 
+- ``Documentation/x86/pat.txt:`` <http://elixir.free-electrons.com/linux/v4.9/source/Documentation/x86/pat.txt>
+- `LWN - x86: Full support of PAT <https://lwn.net/Articles/618811/>`_
+- ``Documentation/x86/mtrr.txt`` <http://elixir.free-electrons.com/linux/v4.9/source/Documentation/x86/mtrr.txt>
+- Intel Developer Manual Vol3 
 
   - Ch11.3 Methods of Caching Available
   - Ch11.5 Cache Controls

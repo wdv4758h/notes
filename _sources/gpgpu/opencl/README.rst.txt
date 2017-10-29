@@ -12,7 +12,14 @@ Installation
 .. code-block:: sh
 
     $ sudo pacman -S opencl-nvidia  # NVIDIA
-    $ sudo yaourt -S beignet        # Intel
+    $ sudo pacman -S beignet        # Intel
+
+
+* AMD CPU/GPU/APU
+* Intel CPU/GPU
+* NVIDIA GPU
+* ARM
+
 
 
 概念學習
@@ -23,6 +30,9 @@ Installation
 
 OpenCL 概念
 ------------------------------
+
+基本介紹
+++++++++++++++++++++
 
 現今的運算平台通常都具有多種運算元件，
 可能是多個 CPU、GPU、DSP、加速器等等，
@@ -73,6 +83,8 @@ OpenCL 平台模型：
 * OpenCL Device：Host 可以利用的裝置，一個 Host 可以有多個 OpenCL Device
 * Compute Unit：一個 OpenCL Device 可以有多個 Compute Unit
 * Processing Element：一個 Compute Unit 可以有多個 Processing Element
+* 記憶體分為 Host Memory 和 Device Memory
+
 
 範例：
 一台機器上同時插了兩個 CPU 和兩個 GPU，
@@ -86,7 +98,7 @@ OpenCL 平台模型：
 
 
 Platform Info
-++++++++++++++++++++++++++++++
+++++++++++++++++++++
 
 C:
 
@@ -168,27 +180,160 @@ Python:
           Max Work-group Dims: [512, 512, 512]
 
 
+改寫
+++++++++++++++++++++
+
+假設原本有這樣的 C 程式：
+
+.. code-block:: c
+
+    void mul(const int length,
+             const float *a,
+             const float *b,
+             float *c) {
+        int i;
+        for (i = 0; i < length; i++) {
+            c[i] = a[i] * b[i];
+        }
+    }
+
+
+用 OpenCL 重寫：
+
+.. code-block:: opencl
+
+    // this is called "kernel"
+    // every instance of kernel is called "work-item"
+    // the "work-items" will be executed in parallel
+    __kernel void mul(__global const float *a,
+                      __global const float *b,
+                      __global float *c) {
+        int id = get_global_id(0);
+        c[id] = a[id] * b[id];
+    }
+
+
+* Global Dimension
+* Local Dimension
+* work-items
+* work-groups
+
+
+OpenCL 程式的編譯分成兩種：
+
+* Online Compilation: OpenCL kernel 在執行期間才會編譯，只須在執行前先編譯好其他部份的程式即可
+* Offline Compilation: OpenCL kernel 在執行前就編譯好，執行期間直接使用編譯好的 kernel
+
+
+Online Compilation:
+
+.. code-block:: sh
+
+    $ clang -lOpenCL main-online.c
+
+
+Offline Compilation:
+
+.. code-block:: sh
+
+    # 會生出 SPIR (Standard Portable Intermediate Representation)
+    $ clang -include clc/clc.h -std=cl2.0 -S -emit-llvm -target nvptx64-nvidia-nvcl kernel.cl
+    $ llvm-link /usr/lib/clc/nvptx64--nvidiacl.bc kernel.ll -o kernel.linked.bc
+    $ clang -target nvptx64-nvidia-nvcl kernel.linked.bc -S -o kernel.nvptx.s
+    $ clang -lOpenCL main-offline.c
+
+稍微把 Offline Compilation 的變動地方抽出來：
+
+.. code-block:: sh
+
+    $ export TARGET="nvptx64-nvidia-nvcl"
+    $ export TARGET_BIT_CODE="/usr/lib/clc/nvptx64--nvidiacl.bc"
+    # 會生出 SPIR (Standard Portable Intermediate Representation)
+    $ clang -include clc/clc.h -std=cl2.0 -S -emit-llvm -target $TARGET kernel.cl
+    $ llvm-link $TARGET_BIT_CODE kernel.ll -o kernel.linked.bc
+    $ clang -target $TARGET kernel.linked.bc -S -o kernel.s
+    $ clang -lOpenCL main-offline.c
+
+
+同步
+------------------------------
+
+
+
+OpenCL 演進
+========================================
+
+OpenCL 1.0
+------------------------------
+
+OpenCL 1.1
+------------------------------
+
+OpenCL 1.2
+------------------------------
 
 OpenCL 2.0
-========================================
+------------------------------
 
 * `OpenCL™ 2.0: Device Enqueue and Workgroup Built-in Functions <http://developer.amd.com/community/blog/2014/11/17/opencl-2-0-device-enqueue/>`_
 
 
+OpenCL 2.1
+------------------------------
 
-Reference
+OpenCL 2.2
+------------------------------
+
+
+libclc
 ========================================
 
+:Site: https://libclc.llvm.org/
+:Repo: https://github.com/llvm-mirror/libclc
+
+
+libclc 是 LLVM 中對 OpenCL 的實做，
+以 Clang 作為前端做處理，
+目前支援 AMDGCN 和 NVPTX。
+
+
+
+CUDA to OpenCL
+========================================
+
+
+
+參考
+========================================
+
+General
+------------------------------
+
+* `Wikipedia - OpenCL <https://en.wikipedia.org/wiki/OpenCL>`_
 * `Khronos - OpenCL Resources <https://www.khronos.org/opencl/resources/opencl-applications-using-opencl>`_
 * `Khronos OpenCL Registry - OpenCL specification and headers <http://www.khronos.org/registry/cl/>`_
+* `Khronos - SPIR (Standard Portable Intermediate Representation) <https://www.khronos.org/spir/>`_
 * `Hands On OpenCL - An open source two-day lecture course for teaching and learning OpenCL <https://handsonopencl.github.io/>`_
 * `Porting CUDA to OpenCL <https://www.sharcnet.ca/help/index.php/Porting_CUDA_to_OpenCL>`_
 * [GitHub] `Chlorine <https://github.com/Polytonic/Chlorine>`_
 * `OpenCL™ Zone – Accelerate Your Applications <http://developer.amd.com/tools-and-sdks/opencl-zone/>`_
 * `pocl - Portable Computing Language <http://portablecl.org/>`_
     - Clang as frontend and LLVM for kernel compiler implementation
+* `Gentoo Wiki - OpenCL <https://wiki.gentoo.org/wiki/OpenCL>`_
+* `Arch Wiki - GPGPU <https://wiki.archlinux.org/index.php/GPGPU>`_
+* `ROCm - Platform for GPU-Enabled HPC and Ultrascale Computing <https://rocm.github.io/>`_
 
-----
 
+Intel
+------------------------------
+
+* `Intel SDK for OpenCL™ Applications <https://software.intel.com/en-us/intel-opencl>`_
+* `Intel FPGA SDK for OpenCL <https://www.altera.com/products/design-software/embedded-software-developers/opencl/overview.html>`_
+
+
+Tutorial
+------------------------------
+
+* `Hands On OpenCL <https://handsonopencl.github.io/>`_
 * `Getting started with OpenCL, Part #1 <https://anteru.net/2012/11/03/2009/>`_
 * `Adventures in OpenCL: Part 1, Getting Started <http://enja.org/2010/07/13/adventures-in-opencl-part-1-getting-started/>`_

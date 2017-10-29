@@ -236,8 +236,17 @@ Example
 
 	julia> pinv(X' * X) * X' * Y
 	2-element Array{Float64,1}:
-	2.0
-	-1.02141e-14
+	 2.0
+	 -1.02141e-14
+
+or
+
+.. code-block:: julia
+
+    julia> X \ Y
+    2-element Array{Float64,1}:
+     2.0
+     2.88619e-15
 
 
 If Non-interible

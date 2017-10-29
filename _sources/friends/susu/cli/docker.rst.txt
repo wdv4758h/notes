@@ -160,6 +160,7 @@ reference
 
 More
 ----
+- (docker swarm) Scaling Out with SwarmKit: https://www.linux.com/learn/scaling-out-swarmkit
 - run gui apps
   
   - http://fabiorehm.com/blog/2014/09/11/running-gui-apps-with-docker/

@@ -1,3 +1,5 @@
+.. _autocorrelation:
+
 Autocorrelation
 ===============================================================================
 
@@ -31,6 +33,14 @@ Def
 :math:`k` 是 lag。
 
 
+Partial Autocorrelation Function (PACF)
+----------------------------------------------------------------------
+
+* 實際上是 conditional correlation (?)
+
+* ``pacf`` in ``StatsBase``
+
+
 Reference
 ----------------------------------------------------------------------
 
@@ -39,3 +49,5 @@ Reference
 * https://en.wikipedia.org/wiki/Autocorrelation
 
 * PACF: https://onlinecourses.science.psu.edu/stat510/node/62
+
+* https://en.wikipedia.org/wiki/Partial_correlation

@@ -126,6 +126,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/random-number-generator.html">Random Number Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/resource.html">演算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/string-similarity.html">String Similiarity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/substring-searching.html">Substring Searching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="README.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="android.html">Android</a></li>
@@ -141,10 +142,12 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="init.html">Android - init</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">安裝新 Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="kernel.html">Android Kernel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libhybris.html">libhybris</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc.html">Android - Misc</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Android NDK</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">介紹 (Introduction)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#build-standalone-clang-cross-compile-toolchain">Build Standalone Clang Cross Compile Toolchain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#c">C++ 支援</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#compiler-rt">compiler-rt</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#build-llvm-from-source-for-android">Build LLVM From Source For Android</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#cpufeatures-library">「cpufeatures」 Library</a></li>
@@ -160,6 +163,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/arch-install-script.html">Arch Install Scripts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/aur.html">Arch Linux Arch User Repository</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/hardware.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archlinux/misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/packages.html">Packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/pacman.html">Pacman</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/performance.html">Performance Tuning For Server</a></li>
@@ -324,7 +328,9 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../c/pragma-weak.html">pragma weak</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../c/resource.html">Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../c/undefine-behavior.html">Undefined Behavior</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/README.html">編譯器</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/branch-prediction-hint.html">Branch Prediction Hint</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/clang-options.html">Clang Options</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/clang-tools.html">Clang Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/code-gen.html">Code Generation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/compiler-and-learning.html">Compiler and Learning</a></li>
@@ -348,7 +354,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../compiler/llvm-to-vhdl-verilog.html">LLVM to VHDL/Verilog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/lto.html">LTO - Link Time Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/obfuscator.html">Obfuscator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../compiler/optimizations.html">Optimizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/optimization.html">Optimizations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/porting.html">Use Compiler To Help Porting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/resource.html">Compiler Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/ssa.html">SSA</a></li>
@@ -422,6 +428,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../crypto/elliptic-curve.html">Elliptic Curve</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../crypto/resource.html">Crypto</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../crypto/sha.html">SHA (Secure Hash Algorithm)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/README.html">資料庫 (Database)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mariadb.html">MariaDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/postgresql.html">Database</a></li>
@@ -473,6 +480,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../hardware/intel-mic.html">Intel MIC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/kindle.html">Kindle</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/my-devices.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hardware/qualcomm.html">Qualcomm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/random-number-generator.html">硬體亂數產生器</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/resource.html">Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/risc-v.html">RISC-V</a></li>
@@ -485,6 +493,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../kernel/security-kernel.html">Security in Kernel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../language-virtual-machines/resource.html">資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../license/resource.html">相關資源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/README.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/bfq.html">BFQ - Budget Fair Queueing Storage-I/O Scheduler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/clear-linux.html">Intel Clear Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/dd.html">dd</a></li>
@@ -497,8 +506,9 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../linux/hotplug-cpu.html">Hotplug CPU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/ipc.html">IPC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/kernel.html">Linux Kernel</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../linux/kernel-module.html">Kernel Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/kernel-module.html">Linux Kernel Module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/nmcli.html">nmcli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/realtime.html">Realtime Linux Kernel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/resource.html">資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/seccomp.html">seccomp -  operate on Secure Computing state of the process</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/selinux.html">SELinux</a></li>
@@ -579,7 +589,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../mess/librt.html">librt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mess/libunwind.html">libunwind</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mess/libuv.html">libuv</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/linker.html">Linker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mess/linux-laptop-gpu.html">Linux Laptop GPU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mess/linux-porting.html">Linux Porting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mess/lua.html">Lua</a></li>
@@ -639,6 +648,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../misc/floating-point.html">Floating Point</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/funny-sites.html">Funny Sites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/hex-float.html">十六進位浮點數（Hex Float）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/host-block.html">Host Blocker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/http-history.html">HTTP History</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/images.html">Images</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/irc.html">IRC</a></li>
@@ -839,6 +849,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/README.html">常用軟體</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/bash.html">Bash</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/find.html">find</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/gtk.html">GTK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/input-method.html">Input Method</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/installer.html">Installer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/intro.html">Some Basic Tools</a></li>
@@ -846,6 +857,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/keymap.html">xmodmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/keymap.html#setxkbmap">setxkbmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/office.html">Office</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/rsync.html">rsync</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/ssh-config.html">SSH Config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/sudo.html">sudo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/sway.html">Sway</a></li>
@@ -932,20 +944,21 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <p class="topic-title first">目錄</p>
 <ul class="simple">
 <li><a class="reference internal" href="#android-ndk" id="id2">Android NDK</a><ul>
-<li><a class="reference internal" href="#introduction" id="id3">Introduction</a></li>
+<li><a class="reference internal" href="#introduction" id="id3">介紹 (Introduction)</a></li>
 <li><a class="reference internal" href="#build-standalone-clang-cross-compile-toolchain" id="id4">Build Standalone Clang Cross Compile Toolchain</a></li>
-<li><a class="reference internal" href="#compiler-rt" id="id5">compiler-rt</a></li>
-<li><a class="reference internal" href="#build-llvm-from-source-for-android" id="id6">Build LLVM From Source For Android</a></li>
-<li><a class="reference internal" href="#cpufeatures-library" id="id7">「cpufeatures」 Library</a></li>
-<li><a class="reference internal" href="#build-your-ndk" id="id8">Build Your NDK</a></li>
-<li><a class="reference internal" href="#crystax-ndk" id="id9">CrystaX NDK</a></li>
-<li><a class="reference internal" href="#reference" id="id10">Reference</a></li>
+<li><a class="reference internal" href="#c" id="id5">C++ 支援</a></li>
+<li><a class="reference internal" href="#compiler-rt" id="id6">compiler-rt</a></li>
+<li><a class="reference internal" href="#build-llvm-from-source-for-android" id="id7">Build LLVM From Source For Android</a></li>
+<li><a class="reference internal" href="#cpufeatures-library" id="id8">「cpufeatures」 Library</a></li>
+<li><a class="reference internal" href="#build-your-ndk" id="id9">Build Your NDK</a></li>
+<li><a class="reference internal" href="#crystax-ndk" id="id10">CrystaX NDK</a></li>
+<li><a class="reference internal" href="#reference" id="id11">Reference</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="introduction">
-<h2><a class="toc-backref" href="#id3">Introduction</a><a class="headerlink" href="#introduction" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id3">介紹 (Introduction)</a><a class="headerlink" href="#introduction" title="本標題的永久連結">¶</a></h2>
 <p>Android NDK 裡面會附上 Cross Compile 用的程式，
 例如 <code class="docutils literal"><span class="pre">toolchains/</span></code> 資料夾裡面就包含不同平台的 GCC Cross Compiler 的執行檔，
 另外則含有 Clang 的 Makefile 設定。
@@ -972,8 +985,45 @@ $ file /tmp/arm-linux-androideabi-4.8.tar.bz2
 </pre></div>
 </div>
 </div>
+<div class="section" id="c">
+<h2><a class="toc-backref" href="#id5">C++ 支援</a><a class="headerlink" href="#c" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>libc++</dt>
+<dd><ul class="first last">
+<li>來自 LLVM，會是未來唯一的選擇</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>gnustl</dt>
+<dd><ul class="first last">
+<li>GNU C++ Library，在其他平台叫做 libstdc++，Android 上因為避免混淆而重新命名</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>STLport</dt>
+<dd><ul class="first last">
+<li>STLport 的 Android porting，已經沒有再持續開發</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>system</dt>
+<dd><ul class="first last">
+<li>/system/lib/libstdc++.so</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
 <div class="section" id="compiler-rt">
-<h2><a class="toc-backref" href="#id5">compiler-rt</a><a class="headerlink" href="#compiler-rt" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id6">compiler-rt</a><a class="headerlink" href="#compiler-rt" title="本標題的永久連結">¶</a></h2>
 <div class="highlight-sh"><div class="highlight"><pre><span></span>$ ls -al arm-linux-androideabi-4.8/lib/clang/3.6/lib/linux/
 total <span class="m">7332</span>
 -rw-r----- <span class="m">1</span> dv dv <span class="m">2323826</span> Apr  <span class="m">1</span> <span class="m">06</span>:26 libclang_rt.asan-arm-android.a
@@ -992,19 +1042,19 @@ android-ndk-r10e/toolchains/llvm-3.6/prebuilt/linux-x86_64/lib/clang/3.6/lib/lin
 </div>
 </div>
 <div class="section" id="build-llvm-from-source-for-android">
-<h2><a class="toc-backref" href="#id6">Build LLVM From Source For Android</a><a class="headerlink" href="#build-llvm-from-source-for-android" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id7">Build LLVM From Source For Android</a><a class="headerlink" href="#build-llvm-from-source-for-android" title="本標題的永久連結">¶</a></h2>
 </div>
 <div class="section" id="cpufeatures-library">
-<h2><a class="toc-backref" href="#id7">「cpufeatures」 Library</a><a class="headerlink" href="#cpufeatures-library" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id8">「cpufeatures」 Library</a><a class="headerlink" href="#cpufeatures-library" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://developer.android.com/ndk/guides/cpu-features.html">The cpufeatures Library</a></li>
 </ul>
 </div>
 <div class="section" id="build-your-ndk">
-<h2><a class="toc-backref" href="#id8">Build Your NDK</a><a class="headerlink" href="#build-your-ndk" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id9">Build Your NDK</a><a class="headerlink" href="#build-your-ndk" title="本標題的永久連結">¶</a></h2>
 </div>
 <div class="section" id="crystax-ndk">
-<h2><a class="toc-backref" href="#id9">CrystaX NDK</a><a class="headerlink" href="#crystax-ndk" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id10">CrystaX NDK</a><a class="headerlink" href="#crystax-ndk" title="本標題的永久連結">¶</a></h2>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1017,13 +1067,14 @@ android-ndk-r10e/toolchains/llvm-3.6/prebuilt/linux-x86_64/lib/clang/3.6/lib/lin
 目的是要提供更多的功能來輔助 Android 相關開發。</p>
 </div>
 <div class="section" id="reference">
-<h2><a class="toc-backref" href="#id10">Reference</a><a class="headerlink" href="#reference" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id11">Reference</a><a class="headerlink" href="#reference" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://developer.android.com/ndk/guides/abis.html">Android NDK ABIs</a></li>
 <li><a class="reference external" href="https://android-review.googlesource.com/#/q/project:platform/ndk">Google Code Review - NDK</a></li>
 <li><a class="reference external" href="https://android.googlesource.com/platform/ndk">AOSP - NDK</a></li>
 <li><a class="reference external" href="https://android.googlesource.com/platform/prebuilts/ndk">AOSP - Prebuilts NDK</a></li>
 <li><a class="reference external" href="https://developer.android.com/ndk/downloads/index.html#rel">NDK - Release Notes</a></li>
+<li><a class="reference external" href="https://developer.android.com/ndk/guides/cpp-support.html">NDK - C++ support</a></li>
 <li><a class="reference external" href="https://android.googlesource.com/platform/external/llvm/">AOSP - LLVM</a></li>
 <li><a class="reference external" href="https://android.googlesource.com/platform/external/compiler-rt/">AOSP - compiler-rt</a></li>
 <li><a class="reference external" href="https://android.googlesource.com/platform/external/clang/">AOSP - Clang</a></li>

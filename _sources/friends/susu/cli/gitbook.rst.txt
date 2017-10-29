@@ -1,12 +1,14 @@
-gitbook init
-gitbook install
-gitbook build
+gitbook cli usage::
 
-gitbook serve ./BOOKDIR
-
-gitbook pdf ./BOOKDIR
-gitbook epub ./BOOKDIR
-gitbook mobi ./BOOKDIR
+    gitbook init
+    gitbook install
+    gitbook build
+    
+    gitbook serve ./BOOKDIR
+    
+    gitbook pdf ./BOOKDIR
+    gitbook epub ./BOOKDIR
+    gitbook mobi ./BOOKDIR
 
 - github flavored markdown to html
 

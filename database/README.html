@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Optimizations &mdash; wdv4758h-notes latest 說明文件</title>
+  <title>資料庫 (Database) &mdash; wdv4758h-notes latest 說明文件</title>
   
 
   
@@ -36,8 +36,8 @@
               href="../genindex.html"/>
         <link rel="search" title="搜尋" href="../search.html"/>
     <link rel="top" title="wdv4758h-notes latest 說明文件" href="../index.html"/>
-        <link rel="next" title="Use Compiler To Help Porting" href="porting.html"/>
-        <link rel="prev" title="Obfuscator" href="obfuscator.html"/> 
+        <link rel="next" title="MariaDB" href="mariadb.html"/>
+        <link rel="prev" title="SHA (Secure Hash Algorithm)" href="../crypto/sha.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -49,7 +49,7 @@
 Always link to the latest version, as canonical.
 http://docs.readthedocs.org/en/latest/canonical.html
 -->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/compiler/optimizations.html" />
+<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/database/README.html" />
 
 <link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
 
@@ -57,7 +57,7 @@ http://docs.readthedocs.org/en/latest/canonical.html
 
 <!-- Add page-specific data, which must exist in the page js, not global -->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = 'compiler/optimizations' 		
+READTHEDOCS_DATA['page'] = 'database/README' 		
 READTHEDOCS_DATA['source_suffix'] = '.rst'
 </script>
 
@@ -126,6 +126,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/random-number-generator.html">Random Number Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/resource.html">演算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/string-similarity.html">String Similiarity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/substring-searching.html">Substring Searching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/README.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/android.html">Android</a></li>
@@ -141,6 +142,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../android/init.html">Android - init</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/install.html">安裝新 Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/kernel.html">Android Kernel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../android/libhybris.html">libhybris</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/misc.html">Android - Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/ndk.html">Android NDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/surfaceflinger.html">SurfaceFlinger</a></li>
@@ -150,6 +152,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/arch-install-script.html">Arch Install Scripts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/aur.html">Arch Linux Arch User Repository</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/hardware.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archlinux/misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/packages.html">Packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/pacman.html">Pacman</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/performance.html">Performance Tuning For Server</a></li>
@@ -314,40 +317,38 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../c/pragma-weak.html">pragma weak</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../c/resource.html">Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../c/undefine-behavior.html">Undefined Behavior</a></li>
-<li class="toctree-l1"><a class="reference internal" href="branch-prediction-hint.html">Branch Prediction Hint</a></li>
-<li class="toctree-l1"><a class="reference internal" href="clang-tools.html">Clang Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="code-gen.html">Code Generation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="compiler-and-learning.html">Compiler and Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="compiler-options.html">Compiler Options</a></li>
-<li class="toctree-l1"><a class="reference internal" href="compiler-rt.html">LLVM - compiler-rt</a></li>
-<li class="toctree-l1"><a class="reference internal" href="computed-goto.html">Computed goto</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cross-compile.html">Cross Compile</a></li>
-<li class="toctree-l1"><a class="reference internal" href="crt.html">crt</a></li>
-<li class="toctree-l1"><a class="reference internal" href="environment.html">Environment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gcc-plugins.html">GCC Plugins</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gpgpu.html">GPGPU</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jump-threading.html">Jump Threading</a></li>
-<li class="toctree-l1"><a class="reference internal" href="legalization.html">Legalization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="linker.html">Linker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="llvm.html">LLVM</a></li>
-<li class="toctree-l1"><a class="reference internal" href="llvm-android.html">Android With LLVM</a></li>
-<li class="toctree-l1"><a class="reference internal" href="llvm-cuda.html">LLVM &amp; CUDA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="llvm-help-testing.html">LLVM 輔助測試</a></li>
-<li class="toctree-l1"><a class="reference internal" href="llvm-ir.html">LLVM IR</a></li>
-<li class="toctree-l1"><a class="reference internal" href="llvm-python.html">LLVM &amp; Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="llvm-to-vhdl-verilog.html">LLVM to VHDL/Verilog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lto.html">LTO - Link Time Optimization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="obfuscator.html">Obfuscator</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Optimizations</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#pgo-profile-guided-optimizations">PGO (Profile-Guided Optimizations)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ipo-interprocedural-optimization">IPO (Interprocedural Optimization)</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="porting.html">Use Compiler To Help Porting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="resource.html">Compiler Resource</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ssa.html">SSA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="streaming-compilation.html">Streaming Compilation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="transpiler.html">轉譯器 (Transpiler) (Source-to-Source Compiler)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/README.html">編譯器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/branch-prediction-hint.html">Branch Prediction Hint</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/clang-options.html">Clang Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/clang-tools.html">Clang Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/code-gen.html">Code Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/compiler-and-learning.html">Compiler and Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/compiler-options.html">Compiler Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/compiler-rt.html">LLVM - compiler-rt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/computed-goto.html">Computed goto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/cross-compile.html">Cross Compile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/crt.html">crt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/environment.html">Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/gcc-plugins.html">GCC Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/gpgpu.html">GPGPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/jump-threading.html">Jump Threading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/legalization.html">Legalization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/linker.html">Linker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/llvm.html">LLVM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/llvm-android.html">Android With LLVM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/llvm-cuda.html">LLVM &amp; CUDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/llvm-help-testing.html">LLVM 輔助測試</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/llvm-ir.html">LLVM IR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/llvm-python.html">LLVM &amp; Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/llvm-to-vhdl-verilog.html">LLVM to VHDL/Verilog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/lto.html">LTO - Link Time Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/obfuscator.html">Obfuscator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/optimization.html">Optimizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/porting.html">Use Compiler To Help Porting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/resource.html">Compiler Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/ssa.html">SSA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/streaming-compilation.html">Streaming Compilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/transpiler.html">轉譯器 (Transpiler) (Source-to-Source Compiler)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compression/introduction.html">壓縮入門</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compression/jpeg.html">JPEG Compression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compression/png.html">PNG Compression</a></li>
@@ -416,12 +417,13 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../crypto/elliptic-curve.html">Elliptic Curve</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../crypto/resource.html">Crypto</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../crypto/sha.html">SHA (Secure Hash Algorithm)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../database/mariadb.html">MariaDB</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../database/mysql.html">MySQL</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../database/postgresql.html">Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../database/redis.html">Redis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../database/resource.html">Database (資料庫)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../database/sqlite.html">SQLite</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">資料庫 (Database)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgresql.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="redis.html">Redis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/gdb.html">GDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/javascript.html">Debugger for JavaScript</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/kernel.html">Debugging a Kernel</a></li>
@@ -467,6 +469,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../hardware/intel-mic.html">Intel MIC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/kindle.html">Kindle</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/my-devices.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hardware/qualcomm.html">Qualcomm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/random-number-generator.html">硬體亂數產生器</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/resource.html">Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/risc-v.html">RISC-V</a></li>
@@ -479,6 +482,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../kernel/security-kernel.html">Security in Kernel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../language-virtual-machines/resource.html">資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../license/resource.html">相關資源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/README.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/bfq.html">BFQ - Budget Fair Queueing Storage-I/O Scheduler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/clear-linux.html">Intel Clear Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/dd.html">dd</a></li>
@@ -491,8 +495,9 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../linux/hotplug-cpu.html">Hotplug CPU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/ipc.html">IPC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/kernel.html">Linux Kernel</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../linux/kernel-module.html">Kernel Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/kernel-module.html">Linux Kernel Module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/nmcli.html">nmcli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/realtime.html">Realtime Linux Kernel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/resource.html">資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/seccomp.html">seccomp -  operate on Secure Computing state of the process</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/selinux.html">SELinux</a></li>
@@ -573,7 +578,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../mess/librt.html">librt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mess/libunwind.html">libunwind</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mess/libuv.html">libuv</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/linker.html">Linker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mess/linux-laptop-gpu.html">Linux Laptop GPU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mess/linux-porting.html">Linux Porting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mess/lua.html">Lua</a></li>
@@ -633,6 +637,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../misc/floating-point.html">Floating Point</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/funny-sites.html">Funny Sites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/hex-float.html">十六進位浮點數（Hex Float）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/host-block.html">Host Blocker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/http-history.html">HTTP History</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/images.html">Images</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/irc.html">IRC</a></li>
@@ -833,6 +838,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/README.html">常用軟體</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/bash.html">Bash</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/find.html">find</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/gtk.html">GTK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/input-method.html">Input Method</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/installer.html">Installer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/intro.html">Some Basic Tools</a></li>
@@ -840,6 +846,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/keymap.html">xmodmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/keymap.html#setxkbmap">setxkbmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/office.html">Office</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/rsync.html">rsync</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/ssh-config.html">SSH Config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/sudo.html">sudo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/sway.html">Sway</a></li>
@@ -899,14 +906,14 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Optimizations</li>
+      <li>資料庫 (Database)</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
             
-              <a href="https://github.com/wdv4758h/notes/blob/master/./compiler/optimizations.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/wdv4758h/notes/blob/master/./database/README.rst" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -920,31 +927,22 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="optimizations">
-<h1>Optimizations<a class="headerlink" href="#optimizations" title="本標題的永久連結">¶</a></h1>
-<hr class="docutils" />
-<div class="section" id="pgo-profile-guided-optimizations">
-<h2>PGO (Profile-Guided Optimizations)<a class="headerlink" href="#pgo-profile-guided-optimizations" title="本標題的永久連結">¶</a></h2>
+  <div class="section" id="database">
+<h1>資料庫 (Database)<a class="headerlink" href="#database" title="本標題的永久連結">¶</a></h1>
+<p>資料庫案例：</p>
 <ul class="simple">
-<li><a class="reference external" href="http://www.drdobbs.com/profile-guided-optimizations/184410561">Dr.Dobb’s - Profile-Guided Optimizations</a></li>
-<li><a class="reference external" href="https://en.wikipedia.org/wiki/Profile-guided_optimization">Wikipedia - Profile-guided optimization</a></li>
-<li><dl class="first docutils">
-<dt>GCC</dt>
-<dd><ul class="first last">
-<li><code class="docutils literal"><span class="pre">-fprofile-generate</span></code></li>
-<li><code class="docutils literal"><span class="pre">-fprofile-use</span></code></li>
+<li>MariaDB</li>
+<li>MySQL</li>
+<li>PostgreSQL</li>
+<li>CouchDB</li>
+<li>RethinkDB</li>
+<li>RocksDB</li>
 </ul>
-</dd>
-</dl>
-</li>
-</ul>
-</div>
-<div class="section" id="ipo-interprocedural-optimization">
-<h2>IPO (Interprocedural Optimization)<a class="headerlink" href="#ipo-interprocedural-optimization" title="本標題的永久連結">¶</a></h2>
+<p>資料結構：</p>
 <ul class="simple">
-<li><a class="reference external" href="https://en.wikipedia.org/wiki/Interprocedural_optimization">Wikipedia - Interprocedural optimization</a></li>
+<li>LSM tree (log-structured merge-tree)</li>
+<li>B+ tree</li>
 </ul>
-</div>
 </div>
 
 
@@ -957,10 +955,10 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="porting.html" class="btn btn-neutral float-right" title="Use Compiler To Help Porting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="mariadb.html" class="btn btn-neutral float-right" title="MariaDB" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="obfuscator.html" class="btn btn-neutral" title="Obfuscator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../crypto/sha.html" class="btn btn-neutral" title="SHA (Secure Hash Algorithm)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
