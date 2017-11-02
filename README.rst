@@ -47,6 +47,34 @@ I'm trying my best to increase the CS information in Traditional Chinese.)
 
 
 
+使用
+========================================
+
+推薦使用 `ripgrep <https://github.com/BurntSushi/ripgrep>`_ 和 `fd <https://github.com/sharkdp/fd>`_ ，
+但是也可以用 grep 和 find。
+
+
+安裝工具：
+
+.. code-block:: sh
+
+    $ sudo pacman -S ripgrep fd-rs
+
+
+
+搜尋：
+
+.. code-block:: sh
+
+    # 尋找檔名
+    $ fd gstreamer
+    multimedia/gstreamer.rst
+
+    # 尋找內容
+    $ rg OpenCL
+
+
+
 部份項目
 ========================================
 
@@ -216,6 +244,14 @@ Rust 的 Build System - Cargo - 內建就有許多方便的 subcommands 可以�
 * `Rust-101 <https://www.ralfj.de/projects/rust-101/main.html>`_
 * `Learning Rust With Entirely Too Many Linked Lists <http://cglab.ca/~abeinges/blah/too-many-lists/book/>`_
 * `Rust Iterator Cheat Sheet <https://danielkeep.github.io/itercheat_baked.html>`_
+
+
+GStreamer
+------------------------------
+
+GStreamer 是一套很有彈性的多媒體套件，
+每個功能都拆分成各自一個元件，
+可以很快地用各個元件組出需要的 Pipeline。
 
 
 Garbage Collection
