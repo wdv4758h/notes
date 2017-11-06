@@ -36,8 +36,8 @@
               href="../genindex.html"/>
         <link rel="search" title="搜尋" href="../search.html"/>
     <link rel="top" title="wdv4758h-notes latest 說明文件" href="../index.html"/>
-        <link rel="next" title="SHA Extensions" href="sha-extension.html"/>
-        <link rel="prev" title="用 Travis CI 自動化發佈 reStructuredText 到 GitHub Pages 上" href="../articles/travis-ci-sphinx-github-pages.html"/> 
+        <link rel="next" title="RISC-V" href="risc-v.html"/>
+        <link rel="prev" title="ARM" href="arm.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -169,7 +169,10 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../arm/intro.html">ARM Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../articles/python-need-for-speed.html">Python - Need For Speed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../articles/travis-ci-sphinx-github-pages.html">用 Travis CI 自動化發佈 reStructuredText 到 GitHub Pages 上</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">組語 (Assembly)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arm.html">ARM</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Assembly Cheat Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="risc-v.html">RISC-V</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sha-extension.html">SHA Extensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="x86.html">x86 Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/2001_A_Space_Odyssey.html">Reference</a></li>
@@ -460,6 +463,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../graphics/glsl.html">GLSL - OpenGL Shading Language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../graphics/introduction.html">Linux Graphics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../graphics/mesa.html">Mesa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphics/opengl.html">OpenGL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../graphics/resource.html">Graphic Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/arduino.html">Arduino</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/cpu.html">CPU</a></li>
@@ -486,6 +490,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../linux/bfq.html">BFQ - Budget Fair Queueing Storage-I/O Scheduler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/clear-linux.html">Intel Clear Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/dd.html">dd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/display-link.html">DisplayLink</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/distro.html">Distro</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/driver.html">Driver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/file-system.html">File System</a></li>
@@ -506,6 +511,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../linux/start-up.html">Linux Program Start Up</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/systemd.html">systemd</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/tickless.html">Tickless</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/tracing.html">Tracing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/ubuntu.html">Ubuntu</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/vdso.html">vDSO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/README.html">機器學習 (Machine Learning)</a></li>
@@ -944,10 +950,10 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="sha-extension.html" class="btn btn-neutral float-right" title="SHA Extensions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="risc-v.html" class="btn btn-neutral float-right" title="RISC-V" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../articles/travis-ci-sphinx-github-pages.html" class="btn btn-neutral" title="用 Travis CI 自動化發佈 reStructuredText 到 GitHub Pages 上" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="arm.html" class="btn btn-neutral" title="ARM" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -1014,6 +1020,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
             VERSION:'latest',
+            LANGUAGE:'zh_TW',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

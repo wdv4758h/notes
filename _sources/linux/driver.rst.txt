@@ -6,6 +6,11 @@ Driver
 .. contents:: 目錄
 
 
+Mesa
+========================================
+
+
+
 Qualcomm
 ========================================
 
@@ -24,6 +29,8 @@ Adreno 是 Qualcomm 的 GPU，
 
 參考
 ========================================
+
+* `Linux device driver labs <https://linux-kernel-labs.github.io/>`_
 
 * `Wikipedia - Free and open-source graphics device driver <https://en.wikipedia.org/wiki/Free_and_open-source_graphics_device_driver>`_
 * `Wikipedia - List of Qualcomm Snapdragon systems-on-chip <https://en.wikipedia.org/wiki/List_of_Qualcomm_Snapdragon_systems-on-chip>`_

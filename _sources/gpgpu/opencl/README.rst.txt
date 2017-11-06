@@ -285,16 +285,47 @@ OpenCL 2.2
 ------------------------------
 
 
-libclc
+
+
+
+Open Source 實做
 ========================================
+
+OpenCL 定義的是 C/C++ API 用於撰寫程式，
+要怎麼實做是另外一回事。
+目前的 Open Source 實做幾乎都是用 Clang 作為編譯器，
+把原本的程式碼轉成 IR，
+接著各個實做再拿去做處理，
+最後轉換成目標平台可以至執行的格式。
+
+Clover 的實做會把 Clang 產生的 IR 轉換成 TSGI，
+接著經由 Gallium 編譯成 GPU 的 machine code。
+
+pocl (Portable OpenCL) 則是直接把 Clang 產生的 IR 交給 LLVM 處理，
+轉換成 LLVM 支援的平台。
+
+libclc 則提供 OpenCL 需要的一些 Standard Library 函式，
+這是 Clover 和 pocl 都沒有完全支援的。
+
+
+libclc
+------------------------------
 
 :Site: https://libclc.llvm.org/
 :Repo: https://github.com/llvm-mirror/libclc
 
 
-libclc 是 LLVM 中對 OpenCL 的實做，
+libclc 是 LLVM 中對 OpenCL 語言的實做，
 以 Clang 作為前端做處理，
 目前支援 AMDGCN 和 NVPTX。
+
+
+pocl
+------------------------------
+
+
+Clover
+------------------------------
 
 
 
@@ -314,11 +345,13 @@ General
 * `Khronos OpenCL Registry - OpenCL specification and headers <http://www.khronos.org/registry/cl/>`_
 * `Khronos - SPIR (Standard Portable Intermediate Representation) <https://www.khronos.org/spir/>`_
 * `Hands On OpenCL - An open source two-day lecture course for teaching and learning OpenCL <https://handsonopencl.github.io/>`_
+* `Hands On OpenCL - C, C++ and Python Code for Exercises and Solutions <https://github.com/HandsOnOpenCL/Exercises-Solutions>`_
 * `Porting CUDA to OpenCL <https://www.sharcnet.ca/help/index.php/Porting_CUDA_to_OpenCL>`_
 * [GitHub] `Chlorine <https://github.com/Polytonic/Chlorine>`_
 * `OpenCL™ Zone – Accelerate Your Applications <http://developer.amd.com/tools-and-sdks/opencl-zone/>`_
 * `pocl - Portable Computing Language <http://portablecl.org/>`_
     - Clang as frontend and LLVM for kernel compiler implementation
+    - [GitHub] `pocl - Portable Computing Language <https://github.com/pocl/pocl>`_
 * `Gentoo Wiki - OpenCL <https://wiki.gentoo.org/wiki/OpenCL>`_
 * `Arch Wiki - GPGPU <https://wiki.archlinux.org/index.php/GPGPU>`_
 * `ROCm - Platform for GPU-Enabled HPC and Ultrascale Computing <https://rocm.github.io/>`_
@@ -329,6 +362,12 @@ Intel
 
 * `Intel SDK for OpenCL™ Applications <https://software.intel.com/en-us/intel-opencl>`_
 * `Intel FPGA SDK for OpenCL <https://www.altera.com/products/design-software/embedded-software-developers/opencl/overview.html>`_
+
+
+LLVM
+------------------------------
+
+* `LLVM - include/llvm/ADT/Triple.h <https://github.com/llvm-mirror/llvm/blob/master/include/llvm/ADT/Triple.h>`_
 
 
 Tutorial

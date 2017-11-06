@@ -169,9 +169,15 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../arm/intro.html">ARM Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../articles/python-need-for-speed.html">Python - Need For Speed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../articles/travis-ci-sphinx-github-pages.html">用 Travis CI 自動化發佈 reStructuredText 到 GitHub Pages 上</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">組語 (Assembly)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arm.html">ARM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cheat-sheet.html">Assembly Cheat Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="risc-v.html">RISC-V</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sha-extension.html">SHA Extensions</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">x86 Assembly</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">x86 Assembly</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">參考</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/2001_A_Space_Odyssey.html">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/README.html">Blog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/ann.html">Artificial Neural Network</a></li>
@@ -460,6 +466,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../graphics/glsl.html">GLSL - OpenGL Shading Language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../graphics/introduction.html">Linux Graphics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../graphics/mesa.html">Mesa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphics/opengl.html">OpenGL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../graphics/resource.html">Graphic Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/arduino.html">Arduino</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/cpu.html">CPU</a></li>
@@ -486,6 +493,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../linux/bfq.html">BFQ - Budget Fair Queueing Storage-I/O Scheduler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/clear-linux.html">Intel Clear Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/dd.html">dd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/display-link.html">DisplayLink</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/distro.html">Distro</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/driver.html">Driver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/file-system.html">File System</a></li>
@@ -506,6 +514,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../linux/start-up.html">Linux Program Start Up</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/systemd.html">systemd</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/tickless.html">Tickless</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/tracing.html">Tracing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/ubuntu.html">Ubuntu</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/vdso.html">vDSO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/README.html">機器學習 (Machine Learning)</a></li>
@@ -928,14 +937,28 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
            <div itemprop="articleBody">
             
   <div class="section" id="x86-assembly">
-<h1>x86 Assembly<a class="headerlink" href="#x86-assembly" title="本標題的永久連結">¶</a></h1>
+<h1><a class="toc-backref" href="#id3">x86 Assembly</a><a class="headerlink" href="#x86-assembly" title="本標題的永久連結">¶</a></h1>
+<div class="contents topic" id="id1">
+<p class="topic-title first">目錄</p>
+<ul class="simple">
+<li><a class="reference internal" href="#x86-assembly" id="id3">x86 Assembly</a><ul>
+<li><a class="reference internal" href="#id2" id="id4">參考</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id4">參考</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://www.nayuki.io/page/a-fundamental-introduction-to-x86-assembly-programming">A fundamental introduction to x86 assembly programming</a></li>
 <li><a class="reference external" href="https://dere.github.io/2017-02-12/beginners-assembly-part1/">A Beginner’s Guide to x86 Assembly, Part 1 of 2</a></li>
 <li><a class="reference external" href="http://www.cirosantilli.com/x86-paging/">x86 Paging Tutorial</a></li>
 <li><a class="reference external" href="https://github.com/cirosantilli/x86-assembly-cheat">x86 Assembly Cheat - x86 userland minimal examples</a></li>
 <li><a class="reference external" href="https://github.com/cirosantilli/x86-bare-metal-examples">x86 Bare Metal Examples - Dozens of minimal operating systems to learn x86 system programming</a></li>
+<li><a class="reference external" href="https://x86proved.codeplex.com/">x86proved - Coq library that supports modelling, specification, generation, and proof for x86 machine code</a></li>
+<li><a class="reference external" href="http://www.tomshardware.com/picturestory/710-history-of-intel-cpus.html">The History Of Intel CPUs</a></li>
 </ul>
+</div>
 </div>
 
 
@@ -1018,6 +1041,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
             VERSION:'latest',
+            LANGUAGE:'zh_TW',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
