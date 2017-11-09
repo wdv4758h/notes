@@ -542,6 +542,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/tensorflow.html">TensorFlow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/todo.html">Todo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/transfer-learning.html">Transfer Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/libraries.html">數學相關套件 (Math Libraries)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/math.html">Math</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/math-on-web.html">Math on Web</a></li>
@@ -688,6 +689,8 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="noise-cancellation.html">降噪 (Noise Cancellation)</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">OpenCV</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id2">編譯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#transparent-api-tapi">Transparent API (TAPI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#morphological-transformations">Morphological Transformations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#misc">Misc</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#machine-learning-opencv">Machine Learning + OpenCV</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id3">參考</a></li>
@@ -946,15 +949,18 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <ul class="simple">
 <li><a class="reference internal" href="#opencv" id="id4">OpenCV</a><ul>
 <li><a class="reference internal" href="#id2" id="id5">編譯</a></li>
-<li><a class="reference internal" href="#misc" id="id6">Misc</a></li>
-<li><a class="reference internal" href="#machine-learning-opencv" id="id7">Machine Learning + OpenCV</a></li>
-<li><a class="reference internal" href="#id3" id="id8">參考</a></li>
+<li><a class="reference internal" href="#transparent-api-tapi" id="id6">Transparent API (TAPI)</a></li>
+<li><a class="reference internal" href="#morphological-transformations" id="id7">Morphological Transformations</a></li>
+<li><a class="reference internal" href="#misc" id="id8">Misc</a></li>
+<li><a class="reference internal" href="#machine-learning-opencv" id="id9">Machine Learning + OpenCV</a></li>
+<li><a class="reference internal" href="#id3" id="id10">參考</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="id2">
 <h2><a class="toc-backref" href="#id5">編譯</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<p>基本流程：</p>
 <div class="highlight-sh"><div class="highlight"><pre><span></span>$ git clone https://github.com/opencv/opencv
 $ git clone https://github.com/opencv/opencv_contrib
 $ <span class="nb">cd</span> opencv/
@@ -962,7 +968,7 @@ $ mkdir build/
 $ <span class="nb">cd</span> build/
 <span class="c1"># 自行更改要開啟的設定</span>
 $ cmake -D <span class="nv">OPENCV_EXTRA_MODULES_PATH</span><span class="o">=</span>../../opencv_contrib/modules/ <span class="se">\</span>
-        -D <span class="nv">ENABLE_SSE3</span><span class="o">=</span>ON <span class="se">\</span>
+        -D <span class="nv">CPU_BASELINE</span><span class="o">=</span>SSE3 <span class="se">\</span>
         -D <span class="nv">WITH_GSTREAMER</span><span class="o">=</span>ON <span class="se">\</span>
         -D <span class="nv">WITH_FFMPEG</span><span class="o">=</span>ON <span class="se">\</span>
         -D <span class="nv">WITH_OPENGL</span><span class="o">=</span>ON <span class="se">\</span>
@@ -974,19 +980,207 @@ $ cmake -D <span class="nv">OPENCV_EXTRA_MODULES_PATH</span><span class="o">=</s
 <span class="c1"># 編好後可以在 lib/python3/ 內找到給 Python 3 的 Shared Library</span>
 </pre></div>
 </div>
+<p>更多編譯調整：</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># for x86_64</span>
+<span class="c1"># CPU_BASELINE 為最小需求，一定要有才可以跑</span>
+<span class="c1"># CPU_DISPATCH 則是額外支援，根據執行平台選擇</span>
+$ cmake -D <span class="nv">CMAKE_CXX_COMPILER</span><span class="o">=</span><span class="nv">$CXX</span> -D <span class="nv">CMAKE_CC_COMPILER</span><span class="o">=</span><span class="nv">$CC</span> <span class="se">\</span>
+        -D <span class="nv">PYTHON_DEFAULT_EXECUTABLE</span><span class="o">=</span>/usr/bin/python3 <span class="se">\</span>
+        -D <span class="nv">OPENCV_EXTRA_MODULES_PATH</span><span class="o">=</span>../../opencv_contrib/modules/ <span class="se">\</span>
+        -D <span class="nv">CPU_BASELINE</span><span class="o">=</span>AVX2 <span class="se">\</span>
+        -D <span class="nv">WITH_GSTREAMER</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">WITH_FFMPEG</span><span class="o">=</span>ON <span class="se">\</span>
+        -D <span class="nv">WITH_OPENGL</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">WITH_OPENCL</span><span class="o">=</span>ON <span class="se">\</span>
+        -D <span class="nv">WITH_CUDA</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">WITH_TBB</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">WITH_V4L</span><span class="o">=</span>ON <span class="se">\</span>
+        -D <span class="nv">WITH_XINE</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">WITH_GTK</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">WITH_QT</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">WITH_OPENMP</span><span class="o">=</span>ON <span class="se">\</span>
+        -D <span class="nv">BUILD_WITH_DEBUG_INFO</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">BUILD_TESTS</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">BUILD_PERF_TESTS</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">BUILD_EXAMPLES</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">INSTALL_C_EXAMPLES</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">INSTALL_PYTHON_EXAMPLES</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">CMAKE_BUILD_TYPE</span><span class="o">=</span>Release <span class="se">\</span>
+        -D <span class="nv">CMAKE_INSTALL_PREFIX</span><span class="o">=</span>/usr <span class="se">\</span>
+        -D <span class="nv">CMAKE_SKIP_RPATH</span><span class="o">=</span>ON <span class="se">\</span>
+        -D <span class="nv">BUILD_opencv_python2</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">BUILD_opencv_python3</span><span class="o">=</span>ON <span class="se">\</span>
+        -D <span class="nv">BUILD_opencv_dnn</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">BUILD_opencv_dnn_modern</span><span class="o">=</span>OFF <span class="se">\</span>
+        ../
+</pre></div>
+</div>
+<p>針對 ARM 平台：</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># for ARM</span>
+$ cmake -D <span class="nv">CMAKE_CXX_COMPILER</span><span class="o">=</span><span class="nv">$CXX</span> -D <span class="nv">CMAKE_CC_COMPILER</span><span class="o">=</span><span class="nv">$CC</span> <span class="se">\</span>
+        -D <span class="nv">OPENCV_EXTRA_MODULES_PATH</span><span class="o">=</span>../../opencv_contrib/modules/ <span class="se">\</span>
+        -D <span class="nv">CPU_BASELINE</span><span class="o">=</span>NEON <span class="se">\</span>
+        -D <span class="nv">WITH_GSTREAMER</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">WITH_FFMPEG</span><span class="o">=</span>ON <span class="se">\</span>
+        -D <span class="nv">WITH_OPENGL</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">WITH_OPENCL</span><span class="o">=</span>ON <span class="se">\</span>
+        -D <span class="nv">WITH_CUDA</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">WITH_TBB</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">WITH_V4L</span><span class="o">=</span>ON <span class="se">\</span>
+        -D <span class="nv">WITH_XINE</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">WITH_GTK</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">WITH_QT</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">BUILD_WITH_DEBUG_INFO</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">BUILD_TESTS</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">BUILD_PERF_TESTS</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">BUILD_EXAMPLES</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">INSTALL_C_EXAMPLES</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">INSTALL_PYTHON_EXAMPLES</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">CMAKE_BUILD_TYPE</span><span class="o">=</span>Release <span class="se">\</span>
+        -D <span class="nv">CMAKE_INSTALL_PREFIX</span><span class="o">=</span>/usr <span class="se">\</span>
+        -D <span class="nv">CMAKE_SKIP_RPATH</span><span class="o">=</span>ON <span class="se">\</span>
+        -D <span class="nv">BUILD_opencv_dnn</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">BUILD_opencv_dnn_modern</span><span class="o">=</span>OFF <span class="se">\</span>
+        ../
+</pre></div>
+</div>
+<p>靜態編譯（OpenCV 本身靜態編譯，一些外部相依 libraries 可能還是動態連結，需要更多調整）：</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># x86_64 Static Build</span>
+<span class="c1"># 重點是 &quot;-D BUILD_SHARED_LIBS=OFF&quot;</span>
+$ cmake -D <span class="nv">CMAKE_CXX_COMPILER</span><span class="o">=</span><span class="nv">$CXX</span> -D <span class="nv">CMAKE_CC_COMPILER</span><span class="o">=</span><span class="nv">$CC</span> <span class="se">\</span>
+        -D <span class="nv">PYTHON_DEFAULT_EXECUTABLE</span><span class="o">=</span>/usr/bin/python3 <span class="se">\</span>
+        -D <span class="nv">OPENCV_EXTRA_MODULES_PATH</span><span class="o">=</span>../../opencv_contrib/modules/ <span class="se">\</span>
+        -D <span class="nv">BUILD_SHARED_LIBS</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">CPU_BASELINE</span><span class="o">=</span>AVX2 <span class="se">\</span>
+        -D <span class="nv">WITH_GSTREAMER</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">WITH_FFMPEG</span><span class="o">=</span>ON <span class="se">\</span>
+        -D <span class="nv">WITH_OPENGL</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">WITH_OPENCL</span><span class="o">=</span>ON <span class="se">\</span>
+        -D <span class="nv">WITH_CUDA</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">WITH_TBB</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">WITH_V4L</span><span class="o">=</span>ON <span class="se">\</span>
+        -D <span class="nv">WITH_XINE</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">WITH_GTK</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">WITH_QT</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">WITH_OPENMP</span><span class="o">=</span>ON <span class="se">\</span>
+        -D <span class="nv">BUILD_WITH_DEBUG_INFO</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">BUILD_TESTS</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">BUILD_PERF_TESTS</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">BUILD_EXAMPLES</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">INSTALL_C_EXAMPLES</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">INSTALL_PYTHON_EXAMPLES</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">CMAKE_BUILD_TYPE</span><span class="o">=</span>Release <span class="se">\</span>
+        -D <span class="nv">CMAKE_INSTALL_PREFIX</span><span class="o">=</span>/usr <span class="se">\</span>
+        -D <span class="nv">CMAKE_SKIP_RPATH</span><span class="o">=</span>ON <span class="se">\</span>
+        -D <span class="nv">BUILD_opencv_python2</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">BUILD_opencv_python3</span><span class="o">=</span>ON <span class="se">\</span>
+        -D <span class="nv">BUILD_opencv_dnn</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">BUILD_opencv_dnn_modern</span><span class="o">=</span>OFF <span class="se">\</span>
+        ../
+</pre></div>
+</div>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># ARM Static Build</span>
+<span class="c1"># 重點是 &quot;-D BUILD_SHARED_LIBS=OFF&quot;</span>
+$ cmake -D <span class="nv">CMAKE_CXX_COMPILER</span><span class="o">=</span><span class="nv">$CXX</span> -D <span class="nv">CMAKE_CC_COMPILER</span><span class="o">=</span><span class="nv">$CC</span> <span class="se">\</span>
+        -D <span class="nv">OPENCV_EXTRA_MODULES_PATH</span><span class="o">=</span>../../opencv_contrib/modules/ <span class="se">\</span>
+        -D <span class="nv">PYTHON_DEFAULT_EXECUTABLE</span><span class="o">=</span>/usr/bin/python3 <span class="se">\</span>
+        -D <span class="nv">PYTHON3_NUMPY_INCLUDE_DIRS</span><span class="o">=</span>/usr/include/numpy/ <span class="se">\</span>
+        -D <span class="nv">BUILD_SHARED_LIBS</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">CPU_BASELINE</span><span class="o">=</span>NEON <span class="se">\</span>
+        -D <span class="nv">WITH_GSTREAMER</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">WITH_FFMPEG</span><span class="o">=</span>ON <span class="se">\</span>
+        -D <span class="nv">WITH_OPENGL</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">WITH_OPENCL</span><span class="o">=</span>ON <span class="se">\</span>
+        -D <span class="nv">WITH_CUDA</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">WITH_TBB</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">WITH_V4L</span><span class="o">=</span>ON <span class="se">\</span>
+        -D <span class="nv">WITH_XINE</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">WITH_GTK</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">WITH_QT</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">BUILD_WITH_DEBUG_INFO</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">BUILD_TESTS</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">BUILD_PERF_TESTS</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">BUILD_EXAMPLES</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">INSTALL_C_EXAMPLES</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">INSTALL_PYTHON_EXAMPLES</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">CMAKE_BUILD_TYPE</span><span class="o">=</span>Release <span class="se">\</span>
+        -D <span class="nv">CMAKE_INSTALL_PREFIX</span><span class="o">=</span>/usr <span class="se">\</span>
+        -D <span class="nv">CMAKE_SKIP_RPATH</span><span class="o">=</span>ON <span class="se">\</span>
+        -D <span class="nv">BUILD_opencv_python2</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">BUILD_opencv_python3</span><span class="o">=</span>ON <span class="se">\</span>
+        -D <span class="nv">BUILD_opencv_dnn</span><span class="o">=</span>OFF <span class="se">\</span>
+        -D <span class="nv">BUILD_opencv_dnn_modern</span><span class="o">=</span>OFF <span class="se">\</span>
+        ../
+</pre></div>
+</div>
+<p>Python Wheel 打包：</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># 使用 opencv-python</span>
+$ git clone https://github.com/skvark/opencv-python
+$ <span class="nb">cd</span> opencv-python
+$ rm -rf opencv
+$ ln -sf /path/to/your/opencv/code opencv
+$ python3 find_version.py   <span class="c1"># will generate cv_version.py</span>
+$ cat cv_version.py         <span class="c1"># e.g. opencv_version = &quot;3.3.1&quot;</span>
+$ cp /path/to/your/prebuilt/cv2.blabla.so cv2/
+$ python3 setup.py bdist_wheel
+$ ls dist/*.whl
+</pre></div>
+</div>
+</div>
+<div class="section" id="transparent-api-tapi">
+<h2><a class="toc-backref" href="#id6">Transparent API (TAPI)</a><a class="headerlink" href="#transparent-api-tapi" title="本標題的永久連結">¶</a></h2>
+<p>Transparent API 是 OpenCV 3 加入的一層抽象化，
+方便為現有演算法做出各平台的特製。</p>
+<p>參考：</p>
+<ul class="simple">
+<li><a class="reference external" href="https://opencv.org/platforms/opencl.html">OpenCV - OpenCL</a></li>
+<li><a class="reference external" href="https://github.com/opencv/opencv/wiki/Opencv3#transparent-api">OpenCV 3 - Transparent API</a></li>
+<li><a class="reference external" href="https://www.learnopencv.com/opencv-transparent-api/">Learn OpenCV - OpenCV Transparent API</a></li>
+<li><a class="reference external" href="https://github.com/opencv/opencv/pull/6078">T-API python support implemented by PolarNick239 · Pull Request #6078</a></li>
+</ul>
+</div>
+<div class="section" id="morphological-transformations">
+<h2><a class="toc-backref" href="#id7">Morphological Transformations</a><a class="headerlink" href="#morphological-transformations" title="本標題的永久連結">¶</a></h2>
+<p>在進行圖像處理時，
+適當套用一些 Morphological Transformations 可以改善後續處理的結果，
+例如在做物件追蹤時，先比較圖像，抽出有變動的部份（Background Subtraction），
+接著做一些 Morphological Transformations，
+再找出輪廓（findContours），
+最後丟給物件追蹤（Object Tracking），
+中間的圖像處理就可以對後續追蹤有不少的影響。</p>
+<p>常用範例：</p>
+<ul class="simple">
+<li>Erosion：變細</li>
+<li>Dilation：變粗</li>
+<li>Opening：去除外圍雜訊</li>
+<li>Closing：補足內在漏洞</li>
+<li>White Tophat</li>
+<li>Black Tophat</li>
+<li>Skeletonize</li>
+<li>Convex Hull</li>
+</ul>
+<p>參考：</p>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.opencv.org/trunk/d9/d61/tutorial_py_morphological_ops.html">OpenCV - Morphological Transformations</a></li>
+<li><a class="reference external" href="https://docs.opencv.org/trunk/d3/dc0/group__imgproc__shape.html">OpenCV - Structural Analysis and Shape Descriptors</a></li>
+<li><a class="reference external" href="http://scikit-image.org/docs/dev/auto_examples/xx_applications/plot_morphology.html">Morphological Filtering</a></li>
+</ul>
 </div>
 <div class="section" id="misc">
-<h2><a class="toc-backref" href="#id6">Misc</a><a class="headerlink" href="#misc" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id8">Misc</a><a class="headerlink" href="#misc" title="本標題的永久連結">¶</a></h2>
 <p>OpenCV 的 <code class="docutils literal"><span class="pre">VideoCapture</span></code> 、 <code class="docutils literal"><span class="pre">VideoWrite</span></code> 可以直接放入 GStreamer Pipeline 來用</p>
 </div>
 <div class="section" id="machine-learning-opencv">
-<h2><a class="toc-backref" href="#id7">Machine Learning + OpenCV</a><a class="headerlink" href="#machine-learning-opencv" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id9">Machine Learning + OpenCV</a><a class="headerlink" href="#machine-learning-opencv" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/mbeyeler/opencv-machine-learning">Machine Learning for OpenCV</a></li>
 </ul>
 </div>
 <div class="section" id="id3">
-<h2><a class="toc-backref" href="#id8">參考</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id10">參考</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/opencv/opencv/wiki/CPU-optimizations-build-options">OpenCV - CPU optimizations build options</a></li>
+</ul>
 </div>
 </div>
 
