@@ -16,5 +16,18 @@ Job Control
 
 
 
+範例
+========================================
+
+取得目前檔案的資料夾：
+
+.. code-block:: sh
+
+    echo $(dirname $0)
+
+
+
 參考
 ========================================
+
+* `The Bash Hackers Wiki <http://wiki.bash-hackers.org/start>`_
