@@ -29,7 +29,7 @@ Rust 相關文章
 * `Testing <testing.rst>`_
 * `Fuzz Testing <fuzz-testing.rst>`_
 * `Logging <logging.rst>`_
-* Benchmark
+* `Benchmark <benchmark.rst>`_
 * `套件處理 - Cargo <cargo.rst>`_
 * Collections
 * Lambda Function
