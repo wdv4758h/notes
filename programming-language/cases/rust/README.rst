@@ -34,7 +34,7 @@ Rust 相關文章
 * Collections
 * Lambda Function
 * FFI
-* Unsafe
+* `Unsafe <unsafe.rst>`_
 * `Regular Expression <regex.rst>`_
 * Documentation
 * `Serialization <serialization.rst>`_
