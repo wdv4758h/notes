@@ -30,8 +30,7 @@ Rust 相關文章
 * `Fuzz Testing <fuzz-testing.rst>`_
 * `Logging <logging.rst>`_
 * Benchmark
-* Cargo - 套件安裝與管理
-* Cargo - 套件製作
+* `套件處理 - Cargo <cargo.rst>`_
 * Collections
 * Lambda Function
 * FFI
