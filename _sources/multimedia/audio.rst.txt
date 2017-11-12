@@ -53,6 +53,8 @@ MP3
 
 
 
+
+
 AAC (Advanced Audio Coding)
 ========================================
 
@@ -230,6 +232,7 @@ Opus
 參考
 ========================================
 
+* `Arch Wiki - Codecs <https://wiki.archlinux.org/index.php/codecs>`_
 * `AAC Transport Formats <https://www.iis.fraunhofer.de/content/dam/iis/de/doc/ame/wp/FraunhoferIIS_Application-Bulletin_AAC-Transport-Formats.pdf>`_
 * `Opus Interactive Audio Codec <http://opus-codec.org/>`_
 * [GitHub] `xiph/opus <https://github.com/xiph/opus>`_

@@ -161,6 +161,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/pulsaudio.html#id3">重啟</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/pulsaudio.html#id4">參考</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/record.html">錄螢幕、攝影機、Terminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archlinux/speech.html">Speech for Arch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/timezone.html">Timezone</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/video-audio-through-hdmi.html">利用 HDMI 播放影音</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/video-player.html">Video Player</a></li>
@@ -779,11 +780,17 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="asynchronous.html">Asynchronous</a></li>
 <li class="toctree-l1"><a class="reference internal" href="books.html">Rust 相關書籍</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c-to-rust.html">把 C 程式轉換成 Rust 程式</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Cargo</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Cargo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">套件安裝</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">套件製作</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">把所有相依套件載下來管理</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="compiler.html">Rust 編譯器</a></li>
 <li class="toctree-l1"><a class="reference internal" href="database.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design-pattern.html">Design Pattern</a></li>
 <li class="toctree-l1"><a class="reference internal" href="development-tools.html">Development Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">文件 (Documentation)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ecosystem.html">Rust 生態圈 (Rust Ecosystem)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="error-handling.html">錯誤處理 (Error Handling)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ (Frequently Asked Questions)</a></li>
@@ -804,7 +811,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="misc.html">Rust - Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="monomorphization.html">Monomorphization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multirust.html">multirust</a></li>
-<li class="toctree-l1"><a class="reference internal" href="network.html">Network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network.html">網路相關 (Network)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="numeric.html">Numeric</a></li>
 <li class="toctree-l1"><a class="reference internal" href="object-safety.html">Object Safety</a></li>
 <li class="toctree-l1"><a class="reference internal" href="orm.html">ORM</a></li>
@@ -825,6 +832,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="tips.html">Rust Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="todo.html">Todo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="type-system.html">Rust’s Type System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unsafe.html">Unsafe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="use.html">use</a></li>
 <li class="toctree-l1"><a class="reference internal" href="videos.html">Rust Videos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="web.html">Web</a></li>
@@ -935,20 +943,48 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
            <div itemprop="articleBody">
             
   <div class="section" id="cargo">
-<h1>Cargo<a class="headerlink" href="#cargo" title="本標題的永久連結">¶</a></h1>
+<h1><a class="toc-backref" href="#id5">Cargo</a><a class="headerlink" href="#cargo" title="本標題的永久連結">¶</a></h1>
+<div class="contents topic" id="id1">
+<p class="topic-title first">目錄</p>
 <ul class="simple">
-<li><dl class="first docutils">
-<dt><a class="reference external" href="https://github.com/kbknapp/cargo-extras">Cargo Extras - A collection of cargo subcommands</a></dt>
-<dd><ul class="first last">
-<li><code class="docutils literal"><span class="pre">cargo</span> <span class="pre">install</span> <span class="pre">cargo-extra</span></code></li>
-<li><code class="docutils literal"><span class="pre">cargo</span> <span class="pre">graph</span></code></li>
-<li><code class="docutils literal"><span class="pre">cargo</span> <span class="pre">watch</span></code></li>
-<li><code class="docutils literal"><span class="pre">cargo</span> <span class="pre">outdated</span></code></li>
+<li><a class="reference internal" href="#cargo" id="id5">Cargo</a><ul>
+<li><a class="reference internal" href="#id2" id="id6">套件安裝</a></li>
+<li><a class="reference internal" href="#id3" id="id7">套件製作</a></li>
+<li><a class="reference internal" href="#id4" id="id8">把所有相依套件載下來管理</a></li>
 </ul>
-</dd>
-</dl>
 </li>
 </ul>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id6">套件安裝</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ cargo install NAME
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id7">套件製作</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># 安裝 cargo-edit 方便使用</span>
+<span class="c1"># https://github.com/killercup/cargo-edit</span>
+$ cargo install cargo-edit
+
+$ cargo new myproj
+$ <span class="nb">cd</span> myproj
+<span class="c1"># 把最新版 serde 加入相依套件表中 (Cargo.toml)</span>
+$ cargo add serde
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id8">把所有相依套件載下來管理</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h2>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># 安裝 cargo-vendor</span>
+<span class="c1"># https://github.com/alexcrichton/cargo-vendor</span>
+$ cargo install cargo-vendor
+
+$ <span class="nb">cd</span> some_path_to_the_project
+$ cargo vendor  <span class="c1"># 所有套件都會被放在 vendor 資料夾</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 

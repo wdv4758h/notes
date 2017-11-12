@@ -160,6 +160,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="archlinux/pulsaudio.html#id3">重啟</a></li>
 <li class="toctree-l1"><a class="reference internal" href="archlinux/pulsaudio.html#id4">參考</a></li>
 <li class="toctree-l1"><a class="reference internal" href="archlinux/record.html">錄螢幕、攝影機、Terminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archlinux/speech.html">Speech for Arch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="archlinux/timezone.html">Timezone</a></li>
 <li class="toctree-l1"><a class="reference internal" href="archlinux/video-audio-through-hdmi.html">利用 HDMI 播放影音</a></li>
 <li class="toctree-l1"><a class="reference internal" href="archlinux/video-player.html">Video Player</a></li>
@@ -783,6 +784,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="rust/database.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/design-pattern.html">Design Pattern</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/development-tools.html">Development Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rust/documentation.html">文件 (Documentation)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/ecosystem.html">Rust 生態圈 (Rust Ecosystem)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/error-handling.html">錯誤處理 (Error Handling)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/faq.html">FAQ (Frequently Asked Questions)</a></li>
@@ -803,7 +805,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="rust/misc.html">Rust - Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/monomorphization.html">Monomorphization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/multirust.html">multirust</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rust/network.html">Network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rust/network.html">網路相關 (Network)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/numeric.html">Numeric</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/object-safety.html">Object Safety</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/orm.html">ORM</a></li>
@@ -824,6 +826,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="rust/tips.html">Rust Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/todo.html">Todo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/type-system.html">Rust’s Type System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rust/unsafe.html">Unsafe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/use.html">use</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/videos.html">Rust Videos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/web.html">Web</a></li>
@@ -1597,6 +1600,10 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="archlinux/record.html#obs-open-broadcaster-software">OBS (Open Broadcaster Software)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="archlinux/record.html#asciinema-terminal">asciinema (專錄 Terminal）</a></li>
 <li class="toctree-l2"><a class="reference internal" href="archlinux/record.html#id2">參考</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="archlinux/speech.html">Speech for Arch</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="archlinux/speech.html#id2">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="archlinux/timezone.html">Timezone</a><ul>
@@ -2387,7 +2394,8 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l1"><a class="reference internal" href="computer-vision/README.html">電腦視覺 (Computer Vision)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="computer-vision/SIFT.html">SIFT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="computer-vision/background-subtraction.html">Background Subtraction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="computer-vision/background-subtraction.html#id2">參考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="computer-vision/background-subtraction.html#id2">演算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="computer-vision/background-subtraction.html#id3">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="computer-vision/books.html">電腦視覺相關書籍</a><ul>
@@ -5344,7 +5352,12 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="rust/c-to-rust.html#id8">參考</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="rust/cargo.html">Cargo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rust/cargo.html">Cargo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rust/cargo.html#id2">套件安裝</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/cargo.html#id3">套件製作</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/cargo.html#id4">把所有相依套件載下來管理</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="rust/compiler.html">Rust 編譯器</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="rust/compiler.html#id2">編譯「編譯器」</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/compiler.html#porting">平台 Porting 範例</a><ul>
@@ -5412,6 +5425,13 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="rust/development-tools.html#rls-rust-language-server">RLS - Rust Language Server</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/development-tools.html#clippy-lints-to-improve-rust-code">Clippy - lints to improve Rust code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/development-tools.html#id2">參考</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rust/documentation.html">文件 (Documentation)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rust/documentation.html#id2">介紹</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/documentation.html#rustdoc">rustdoc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/documentation.html#doc-rs">Doc.rs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/documentation.html#mdbook">mdBook</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rust/ecosystem.html">Rust 生態圈 (Rust Ecosystem)</a><ul>
@@ -5591,7 +5611,8 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rust/monomorphization.html">Monomorphization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/multirust.html">multirust</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rust/network.html">Network</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="rust/network.html">網路相關 (Network)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rust/network.html#id2">介紹</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/network.html#tcp">TCP</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/network.html#udp">UDP</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/network.html#http-https">HTTP/HTTPS</a></li>
@@ -5600,7 +5621,8 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="rust/network.html#stun">STUN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/network.html#upnp">UPNP</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/network.html#websocket">WebSocket</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rust/network.html#id2">參考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/network.html#dns">DNS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/network.html#id3">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rust/numeric.html">Numeric</a><ul>
@@ -5801,6 +5823,11 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="rust/type-system.html#reference">Reference</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="rust/unsafe.html">Unsafe</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rust/unsafe.html#id2">介紹</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/unsafe.html#id3">參考</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="rust/use.html">use</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="rust/use.html#rename">rename</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/use.html#re-export-types-under-a-different-identifier">re-export types under a different identifier</a></li>
@@ -5924,7 +5951,8 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l1"><a class="reference internal" href="unix-like-environment/README.html">常用軟體</a></li>
 <li class="toctree-l1"><a class="reference internal" href="unix-like-environment/bash.html">Bash</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="unix-like-environment/bash.html#job-control">Job Control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="unix-like-environment/bash.html#id2">參考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unix-like-environment/bash.html#id2">範例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unix-like-environment/bash.html#id3">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="unix-like-environment/find.html">find</a><ul>
