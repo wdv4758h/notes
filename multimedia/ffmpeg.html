@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>ffmpeg &mdash; wdv4758h-notes latest 說明文件</title>
+  <title>FFmpeg &mdash; wdv4758h-notes latest 說明文件</title>
   
 
   
@@ -151,6 +151,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/arch-in-ubuntu-lxc.html">Arch Linux in Ubuntu LXC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/arch-install-script.html">Arch Install Scripts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/aur.html">Arch Linux Arch User Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archlinux/firmware.html">Firmware</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/hardware.html">Hardware</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/packages.html">Packages</a></li>
@@ -489,6 +490,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../license/resource.html">相關資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/README.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/bfq.html">BFQ - Budget Fair Queueing Storage-I/O Scheduler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/build-your-own-linux-system.html">建立自己的 Linux 系統 (Build Your Own Linux System)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/clear-linux.html">Intel Clear Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/dd.html">dd</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/display-link.html">DisplayLink</a></li>
@@ -683,7 +685,11 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../mpi/mpi.html">MPI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="README.html">多媒體 (Multimedia)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="audio.html">Audio</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">ffmpeg</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">FFmpeg</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">編譯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">使用範例</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="gstreamer.html">GStreamer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="kodi.html">Kodi - Open Source Home Theater Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="linux-sound-system.html">Linux Sound System</a></li>
@@ -778,6 +784,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../rust/articles.html">文章閱讀（Articles）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/asmjs.html">Rust to asm.js</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/asynchronous.html">Asynchronous</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/benchmark.html">Benchmark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/books.html">Rust 相關書籍</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/c-to-rust.html">把 C 程式轉換成 Rust 程式</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/cargo.html">Cargo</a></li>
@@ -916,7 +923,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>ffmpeg</li>
+      <li>FFmpeg</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -938,9 +945,56 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
            <div itemprop="articleBody">
             
   <div class="section" id="ffmpeg">
-<h1>ffmpeg<a class="headerlink" href="#ffmpeg" title="本標題的永久連結">¶</a></h1>
+<h1><a class="toc-backref" href="#id4">FFmpeg</a><a class="headerlink" href="#ffmpeg" title="本標題的永久連結">¶</a></h1>
+<div class="contents topic" id="id1">
+<p class="topic-title first">目錄</p>
+<ul class="simple">
+<li><a class="reference internal" href="#ffmpeg" id="id4">FFmpeg</a><ul>
+<li><a class="reference internal" href="#id2" id="id5">編譯</a></li>
+<li><a class="reference internal" href="#id3" id="id6">使用範例</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id5">編譯</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>git clone -b release/3.4 https://github.com/FFmpeg/FFmpeg
+<span class="nb">cd</span> FFmpeg/
+<span class="c1"># 靜態編譯，產生靜態連結的 ffmpeg</span>
+./configure <span class="se">\</span>
+    --disable-debug <span class="se">\</span>
+    --enable-stripping <span class="se">\</span>
+    --disable-shared <span class="se">\</span>
+    --extra-ldexeflags<span class="o">=</span><span class="s2">&quot;-static&quot;</span> <span class="se">\</span>
+    --pkg-config-flags<span class="o">=</span><span class="s2">&quot;--static&quot;</span> <span class="se">\</span>
+    --disable-encoders <span class="se">\</span>
+    --disable-filters <span class="se">\</span>
+    --disable-decoders <span class="se">\</span>
+    --disable-muxers <span class="se">\</span>
+    --disable-demuxers <span class="se">\</span>
+    --disable-bsfs <span class="se">\</span>
+    --disable-parsers <span class="se">\</span>
+    --disable-ffplay <span class="se">\</span>
+    --disable-ffserver <span class="se">\</span>
+    --disable-ffprobe <span class="se">\</span>
+    --enable-encoder<span class="o">=</span>libx264 <span class="se">\</span>
+    --enable-encoder<span class="o">=</span>libx264rgb <span class="se">\</span>
+    --enable-encoder<span class="o">=</span>aac <span class="se">\</span>
+    --enable-decoder<span class="o">=</span>h264 <span class="se">\</span>
+    --enable-decoder<span class="o">=</span>aac <span class="se">\</span>
+    --enable-muxer<span class="o">=</span>mp4 <span class="se">\</span>
+    --enable-muxer<span class="o">=</span>h264 <span class="se">\</span>
+    --enable-demuxer<span class="o">=</span>h264 <span class="se">\</span>
+    --enable-parser<span class="o">=</span>h264
+make -j
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id6">使用範例</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
 <div class="highlight-sh"><div class="highlight"><pre><span></span>$ ffmpeg -i input.mp4 -strict experimental -vcodec libx264 output.mp4
 </pre></div>
+</div>
 </div>
 </div>
 
