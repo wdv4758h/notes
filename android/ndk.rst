@@ -54,6 +54,18 @@ C++ 支援
 
 
 
+Cross Compile 注意事項
+========================================
+
+* Android 的 libc 叫 Bionic，功能有刪減過，所以部份函式不存在
+    - librt、libpthread、libresolv 都包含在裡面，編譯時不要加上 ``-lrt`` 和 ``-lpthread``
+* Android 的 linker
+    - 只支援 PIE (Position Independent Executables)
+        + Jelly Bean 加入 PIE 支援
+        + Lollipop 移除 non-PIE 支援
+
+
+
 compiler-rt
 ========================================
 
@@ -116,3 +128,6 @@ Reference
 * `AOSP - LLVM <https://android.googlesource.com/platform/external/llvm/>`_
 * `AOSP - compiler-rt <https://android.googlesource.com/platform/external/compiler-rt/>`_
 * `AOSP - Clang <https://android.googlesource.com/platform/external/clang/>`_
+
+* `Wikipedia - Bionic (software) <https://en.wikipedia.org/wiki/Bionic_(software)>`_
+* `Wikipedia - Position-independent code <https://en.wikipedia.org/wiki/Position-independent_code>`_
