@@ -6,6 +6,32 @@ Firefox
 .. contents:: 目錄
 
 
+隱私設定
+========================================
+
+* about:preferences#privacy
+    - Tracking Protection
+        + Use Tracking Protection to block trackers
+            * Always
+            * Change Block Lists
+                - strict protection
+        + Send "Do Not Track"
+            * Always
+
+* `Firefox Multi-Account Containers <https://addons.mozilla.org/zh-TW/firefox/addon/multi-account-containers/>`_
+    - 不同網站切開到不同 Container
+    - 個人範例：
+        + Default （用過就丟，沒什麼登入）
+        + Google
+        + Twitter
+        + GitHub
+        + Bank
+        + Shopping
+
+* `uBlock Origin <https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/>`_
+
+
+
 Gecko
 ========================================
 
@@ -106,6 +132,10 @@ Firefox Focus
 
 參考
 ========================================
+
+* `Firefox Browser Architecture <https://mozilla.github.io/firefox-browser-architecture/>`_
+
+----
 
 * `Are We Fast Yet? <https://arewefastyet.com/>`_
 * `Are we e10s yet? <https://arewee10syet.com/>`_
