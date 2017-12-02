@@ -148,6 +148,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l2"><a class="reference internal" href="#introduction">介紹 (Introduction)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#build-standalone-clang-cross-compile-toolchain">Build Standalone Clang Cross Compile Toolchain</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#c">C++ 支援</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cross-compile">Cross Compile 注意事項</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#compiler-rt">compiler-rt</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#build-llvm-from-source-for-android">Build LLVM From Source For Android</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#cpufeatures-library">「cpufeatures」 Library</a></li>
@@ -347,6 +348,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../compiler/environment.html">Environment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/gcc-plugins.html">GCC Plugins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/gpgpu.html">GPGPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/introduction.html">編譯器</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/jump-threading.html">Jump Threading</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/legalization.html">Legalization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/linker.html">Linker</a></li>
@@ -445,8 +447,10 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../debug/kernel.html">Debugging a Kernel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/record-replay.html">Record Replay</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debug/strace.html">strace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dns/resource.html">DNS 相關資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../docker/docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/sphinx.html">Sphinx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../editor/emacs.html">Emacs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../embedded/resource.html">Embedded Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../embedded/stm32.html">STM32</a></li>
@@ -622,7 +626,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../mess/signal.html">Signal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mess/software-updates.html">Software Updates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mess/spark.html">Spark</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/strace.html">strace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mess/system-programming.html">System Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mess/tcg-ir.html">TCG IR - Tiny Code Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mess/tcpdump.html">tcpdump</a></li>
@@ -960,12 +963,13 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li><a class="reference internal" href="#introduction" id="id3">介紹 (Introduction)</a></li>
 <li><a class="reference internal" href="#build-standalone-clang-cross-compile-toolchain" id="id4">Build Standalone Clang Cross Compile Toolchain</a></li>
 <li><a class="reference internal" href="#c" id="id5">C++ 支援</a></li>
-<li><a class="reference internal" href="#compiler-rt" id="id6">compiler-rt</a></li>
-<li><a class="reference internal" href="#build-llvm-from-source-for-android" id="id7">Build LLVM From Source For Android</a></li>
-<li><a class="reference internal" href="#cpufeatures-library" id="id8">「cpufeatures」 Library</a></li>
-<li><a class="reference internal" href="#build-your-ndk" id="id9">Build Your NDK</a></li>
-<li><a class="reference internal" href="#crystax-ndk" id="id10">CrystaX NDK</a></li>
-<li><a class="reference internal" href="#reference" id="id11">Reference</a></li>
+<li><a class="reference internal" href="#cross-compile" id="id6">Cross Compile 注意事項</a></li>
+<li><a class="reference internal" href="#compiler-rt" id="id7">compiler-rt</a></li>
+<li><a class="reference internal" href="#build-llvm-from-source-for-android" id="id8">Build LLVM From Source For Android</a></li>
+<li><a class="reference internal" href="#cpufeatures-library" id="id9">「cpufeatures」 Library</a></li>
+<li><a class="reference internal" href="#build-your-ndk" id="id10">Build Your NDK</a></li>
+<li><a class="reference internal" href="#crystax-ndk" id="id11">CrystaX NDK</a></li>
+<li><a class="reference internal" href="#reference" id="id12">Reference</a></li>
 </ul>
 </li>
 </ul>
@@ -1035,8 +1039,37 @@ $ file /tmp/arm-linux-androideabi-4.8.tar.bz2
 </li>
 </ul>
 </div>
+<div class="section" id="cross-compile">
+<h2><a class="toc-backref" href="#id6">Cross Compile 注意事項</a><a class="headerlink" href="#cross-compile" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Android 的 libc 叫 Bionic，功能有刪減過，所以部份函式不存在</dt>
+<dd><ul class="first last">
+<li>librt、libpthread、libresolv 都包含在裡面，編譯時不要加上 <code class="docutils literal"><span class="pre">-lrt</span></code> 和 <code class="docutils literal"><span class="pre">-lpthread</span></code></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Android 的 linker</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>只支援 PIE (Position Independent Executables)</dt>
+<dd><ul class="first last">
+<li>Jelly Bean 加入 PIE 支援</li>
+<li>Lollipop 移除 non-PIE 支援</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
 <div class="section" id="compiler-rt">
-<h2><a class="toc-backref" href="#id6">compiler-rt</a><a class="headerlink" href="#compiler-rt" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id7">compiler-rt</a><a class="headerlink" href="#compiler-rt" title="本標題的永久連結">¶</a></h2>
 <div class="highlight-sh"><div class="highlight"><pre><span></span>$ ls -al arm-linux-androideabi-4.8/lib/clang/3.6/lib/linux/
 total <span class="m">7332</span>
 -rw-r----- <span class="m">1</span> dv dv <span class="m">2323826</span> Apr  <span class="m">1</span> <span class="m">06</span>:26 libclang_rt.asan-arm-android.a
@@ -1055,19 +1088,19 @@ android-ndk-r10e/toolchains/llvm-3.6/prebuilt/linux-x86_64/lib/clang/3.6/lib/lin
 </div>
 </div>
 <div class="section" id="build-llvm-from-source-for-android">
-<h2><a class="toc-backref" href="#id7">Build LLVM From Source For Android</a><a class="headerlink" href="#build-llvm-from-source-for-android" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id8">Build LLVM From Source For Android</a><a class="headerlink" href="#build-llvm-from-source-for-android" title="本標題的永久連結">¶</a></h2>
 </div>
 <div class="section" id="cpufeatures-library">
-<h2><a class="toc-backref" href="#id8">「cpufeatures」 Library</a><a class="headerlink" href="#cpufeatures-library" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id9">「cpufeatures」 Library</a><a class="headerlink" href="#cpufeatures-library" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://developer.android.com/ndk/guides/cpu-features.html">The cpufeatures Library</a></li>
 </ul>
 </div>
 <div class="section" id="build-your-ndk">
-<h2><a class="toc-backref" href="#id9">Build Your NDK</a><a class="headerlink" href="#build-your-ndk" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id10">Build Your NDK</a><a class="headerlink" href="#build-your-ndk" title="本標題的永久連結">¶</a></h2>
 </div>
 <div class="section" id="crystax-ndk">
-<h2><a class="toc-backref" href="#id10">CrystaX NDK</a><a class="headerlink" href="#crystax-ndk" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id11">CrystaX NDK</a><a class="headerlink" href="#crystax-ndk" title="本標題的永久連結">¶</a></h2>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1080,7 +1113,7 @@ android-ndk-r10e/toolchains/llvm-3.6/prebuilt/linux-x86_64/lib/clang/3.6/lib/lin
 目的是要提供更多的功能來輔助 Android 相關開發。</p>
 </div>
 <div class="section" id="reference">
-<h2><a class="toc-backref" href="#id11">Reference</a><a class="headerlink" href="#reference" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id12">Reference</a><a class="headerlink" href="#reference" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://developer.android.com/ndk/guides/abis.html">Android NDK ABIs</a></li>
 <li><a class="reference external" href="https://android-review.googlesource.com/#/q/project:platform/ndk">Google Code Review - NDK</a></li>
@@ -1091,6 +1124,8 @@ android-ndk-r10e/toolchains/llvm-3.6/prebuilt/linux-x86_64/lib/clang/3.6/lib/lin
 <li><a class="reference external" href="https://android.googlesource.com/platform/external/llvm/">AOSP - LLVM</a></li>
 <li><a class="reference external" href="https://android.googlesource.com/platform/external/compiler-rt/">AOSP - compiler-rt</a></li>
 <li><a class="reference external" href="https://android.googlesource.com/platform/external/clang/">AOSP - Clang</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Bionic_(software)">Wikipedia - Bionic (software)</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Position-independent_code">Wikipedia - Position-independent code</a></li>
 </ul>
 </div>
 </div>

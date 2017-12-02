@@ -334,6 +334,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../../compiler/environment.html">Environment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../compiler/gcc-plugins.html">GCC Plugins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../compiler/gpgpu.html">GPGPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compiler/introduction.html">編譯器</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../compiler/jump-threading.html">Jump Threading</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../compiler/legalization.html">Legalization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../compiler/linker.html">Linker</a></li>
@@ -432,8 +433,10 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../../debug/kernel.html">Debugging a Kernel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../debug/record-replay.html">Record Replay</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../debug/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../debug/strace.html">strace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dns/resource.html">DNS 相關資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../docker/docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../documentation/sphinx.html">Sphinx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../editor/emacs.html">Emacs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../embedded/resource.html">Embedded Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../embedded/stm32.html">STM32</a></li>
@@ -609,7 +612,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../../mess/signal.html">Signal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../mess/software-updates.html">Software Updates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../mess/spark.html">Spark</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../mess/strace.html">strace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../mess/system-programming.html">System Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../mess/tcg-ir.html">TCG IR - Tiny Code Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../mess/tcpdump.html">tcpdump</a></li>
@@ -958,6 +960,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li><a class="reference internal" href="#while-let" id="id15">while let</a></li>
 <li><a class="reference internal" href="#fizzbuzz" id="id16">FizzBuzz</a></li>
 <li><a class="reference internal" href="#fibonacci" id="id17">Fibonacci</a></li>
+<li><a class="reference internal" href="#nested-match" id="id18">nested match</a></li>
 </ul>
 </li>
 </ul>
@@ -1186,6 +1189,20 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <span class="w">                 </span><span class="p">.</span><span class="n">fold</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="o">|</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="n">acc</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">acc</span><span class="p">.</span><span class="mi">0</span><span class="o">+</span><span class="n">acc</span><span class="p">.</span><span class="mi">1</span><span class="p">)).</span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="nested-match">
+<h3><a class="toc-backref" href="#id18">nested match</a><a class="headerlink" href="#nested-match" title="本標題的永久連結">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">match</span></code> 是 expression，可以連續使用很多次</p>
+<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">match</span><span class="w"> </span><span class="k">match</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="mi">42</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="mi">56</span><span class="p">),</span><span class="w"></span>
+<span class="w">            </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">None</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nb">Some</span><span class="p">(</span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">val</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nb">None</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 </pre></div>
 </div>
 </div>

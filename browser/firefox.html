@@ -302,8 +302,9 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="design.html">How Browser Work</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extensions.html">WebExtensions</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Firefox</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">隱私設定</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#gecko">Gecko</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id2">設定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">設定</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#spidermonkey-javascript">SpiderMonkey (JavaScript 引擎)</a></li>
@@ -317,7 +318,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#firefox-focus">Firefox Focus</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id7">參考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="firefox-settings.html">Firefox 設定</a></li>
@@ -354,6 +355,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../compiler/environment.html">Environment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/gcc-plugins.html">GCC Plugins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/gpgpu.html">GPGPU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/introduction.html">編譯器</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/jump-threading.html">Jump Threading</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/legalization.html">Legalization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/linker.html">Linker</a></li>
@@ -452,8 +454,10 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../debug/kernel.html">Debugging a Kernel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/record-replay.html">Record Replay</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debug/strace.html">strace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dns/resource.html">DNS 相關資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../docker/docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/sphinx.html">Sphinx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../editor/emacs.html">Emacs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../embedded/resource.html">Embedded Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../embedded/stm32.html">STM32</a></li>
@@ -629,7 +633,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../mess/signal.html">Signal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mess/software-updates.html">Software Updates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mess/spark.html">Spark</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/strace.html">strace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mess/system-programming.html">System Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mess/tcg-ir.html">TCG IR - Tiny Code Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mess/tcpdump.html">tcpdump</a></li>
@@ -959,35 +962,101 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
            <div itemprop="articleBody">
             
   <div class="section" id="firefox">
-<h1><a class="toc-backref" href="#id8">Firefox</a><a class="headerlink" href="#firefox" title="本標題的永久連結">¶</a></h1>
+<h1><a class="toc-backref" href="#id9">Firefox</a><a class="headerlink" href="#firefox" title="本標題的永久連結">¶</a></h1>
 <div class="contents topic" id="id1">
 <p class="topic-title first">目錄</p>
 <ul class="simple">
-<li><a class="reference internal" href="#firefox" id="id8">Firefox</a><ul>
-<li><a class="reference internal" href="#gecko" id="id9">Gecko</a><ul>
-<li><a class="reference internal" href="#id2" id="id10">設定</a></li>
+<li><a class="reference internal" href="#firefox" id="id9">Firefox</a><ul>
+<li><a class="reference internal" href="#id2" id="id10">隱私設定</a></li>
+<li><a class="reference internal" href="#gecko" id="id11">Gecko</a><ul>
+<li><a class="reference internal" href="#id3" id="id12">設定</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#spidermonkey-javascript" id="id11">SpiderMonkey (JavaScript 引擎)</a></li>
-<li><a class="reference internal" href="#quantum" id="id12">Quantum</a><ul>
-<li><a class="reference internal" href="#quantum-css-stylo" id="id13">Quantum CSS (Stylo)</a></li>
-<li><a class="reference internal" href="#quantum-dom" id="id14">Quantum DOM</a></li>
-<li><a class="reference internal" href="#quantum-render" id="id15">Quantum Render</a></li>
-<li><a class="reference internal" href="#quantum-compositor" id="id16">Quantum Compositor</a></li>
-<li><a class="reference internal" href="#quantum-flow" id="id17">Quantum Flow</a></li>
-<li><a class="reference internal" href="#quantum-network" id="id18">Quantum Network</a></li>
+<li><a class="reference internal" href="#spidermonkey-javascript" id="id13">SpiderMonkey (JavaScript 引擎)</a></li>
+<li><a class="reference internal" href="#quantum" id="id14">Quantum</a><ul>
+<li><a class="reference internal" href="#quantum-css-stylo" id="id15">Quantum CSS (Stylo)</a></li>
+<li><a class="reference internal" href="#quantum-dom" id="id16">Quantum DOM</a></li>
+<li><a class="reference internal" href="#quantum-render" id="id17">Quantum Render</a></li>
+<li><a class="reference internal" href="#quantum-compositor" id="id18">Quantum Compositor</a></li>
+<li><a class="reference internal" href="#quantum-flow" id="id19">Quantum Flow</a></li>
+<li><a class="reference internal" href="#quantum-network" id="id20">Quantum Network</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#firefox-focus" id="id19">Firefox Focus</a></li>
-<li><a class="reference internal" href="#id7" id="id20">參考</a></li>
+<li><a class="reference internal" href="#firefox-focus" id="id21">Firefox Focus</a></li>
+<li><a class="reference internal" href="#id8" id="id22">參考</a></li>
 </ul>
 </li>
 </ul>
 </div>
-<div class="section" id="gecko">
-<h2><a class="toc-backref" href="#id9">Gecko</a><a class="headerlink" href="#gecko" title="本標題的永久連結">¶</a></h2>
 <div class="section" id="id2">
-<h3><a class="toc-backref" href="#id10">設定</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h3>
+<h2><a class="toc-backref" href="#id10">隱私設定</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt><a class="reference external" href="about:preferences#privacy">about:preferences#privacy</a></dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>Tracking Protection</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>Use Tracking Protection to block trackers</dt>
+<dd><ul class="first last">
+<li>Always</li>
+<li><dl class="first docutils">
+<dt>Change Block Lists</dt>
+<dd><ul class="first last">
+<li>strict protection</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Send 「Do Not Track」</dt>
+<dd><ul class="first last">
+<li>Always</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><a class="reference external" href="https://addons.mozilla.org/zh-TW/firefox/addon/multi-account-containers/">Firefox Multi-Account Containers</a></dt>
+<dd><ul class="first last">
+<li>不同網站切開到不同 Container</li>
+<li><dl class="first docutils">
+<dt>個人範例：</dt>
+<dd><ul class="first last">
+<li>Default （用過就丟，沒什麼登入）</li>
+<li>Google</li>
+<li>Twitter</li>
+<li>GitHub</li>
+<li>Bank</li>
+<li>Shopping</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><a class="reference external" href="https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/">uBlock Origin</a></li>
+</ul>
+</div>
+<div class="section" id="gecko">
+<h2><a class="toc-backref" href="#id11">Gecko</a><a class="headerlink" href="#gecko" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id12">設定</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="about:support">about:support</a></li>
 <li><a class="reference external" href="about:config">about:config</a></li>
@@ -998,16 +1067,16 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </div>
 </div>
 <div class="section" id="spidermonkey-javascript">
-<h2><a class="toc-backref" href="#id11">SpiderMonkey (JavaScript 引擎)</a><a class="headerlink" href="#spidermonkey-javascript" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id13">SpiderMonkey (JavaScript 引擎)</a><a class="headerlink" href="#spidermonkey-javascript" title="本標題的永久連結">¶</a></h2>
 </div>
 <div class="section" id="quantum">
-<h2><a class="toc-backref" href="#id12">Quantum</a><a class="headerlink" href="#quantum" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id14">Quantum</a><a class="headerlink" href="#quantum" title="本標題的永久連結">¶</a></h2>
 <p><a class="reference external" href="https://wiki.mozilla.org/Quantum">Quantum</a>
 是 Mozilla 的一個大計畫，
 要基於現有的 Gecko 整合 Servo 的成果進去，
 藉此來改善效能、更好地平行化和善用 GPU。</p>
 <div class="section" id="quantum-css-stylo">
-<h3><a class="toc-backref" href="#id13">Quantum CSS (Stylo)</a><a class="headerlink" href="#quantum-css-stylo" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id15">Quantum CSS (Stylo)</a><a class="headerlink" href="#quantum-css-stylo" title="本標題的永久連結">¶</a></h3>
 <p><a class="reference external" href="https://wiki.mozilla.org/Quantum/Stylo">Stylo</a>
 這專案目標是整合 Servo 的 CSS style system 到 Gecko，
 藉此可以平行化地處理 CSS style。
@@ -1019,11 +1088,11 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </ul>
 </div>
 <div class="section" id="quantum-dom">
-<h3><a class="toc-backref" href="#id14">Quantum DOM</a><a class="headerlink" href="#quantum-dom" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id16">Quantum DOM</a><a class="headerlink" href="#quantum-dom" title="本標題的永久連結">¶</a></h3>
 <p><a class="reference external" href="https://wiki.mozilla.org/Quantum/DOM">Quantum DOM</a></p>
 </div>
 <div class="section" id="quantum-render">
-<h3><a class="toc-backref" href="#id15">Quantum Render</a><a class="headerlink" href="#quantum-render" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id17">Quantum Render</a><a class="headerlink" href="#quantum-render" title="本標題的永久連結">¶</a></h3>
 <p><a class="reference external" href="https://wiki.mozilla.org/Platform/GFX/Quantum_Render">Quantum Render</a>
 這專案目標是整合 Servo 的 WebRender 到 Gecko，
 藉此可以更妥善地運用 GPU 來幫助來渲染網頁。
@@ -1034,13 +1103,13 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </ul>
 </div>
 <div class="section" id="quantum-compositor">
-<h3><a class="toc-backref" href="#id16">Quantum Compositor</a><a class="headerlink" href="#quantum-compositor" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id18">Quantum Compositor</a><a class="headerlink" href="#quantum-compositor" title="本標題的永久連結">¶</a></h3>
 <p>Quantum Compositor
 這專案的目標是把 Gecko 的 compositor 移到自己的 process，
 藉此來降低瀏覽器掛掉的機率。</p>
 </div>
 <div class="section" id="quantum-flow">
-<h3><a class="toc-backref" href="#id17">Quantum Flow</a><a class="headerlink" href="#quantum-flow" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id19">Quantum Flow</a><a class="headerlink" href="#quantum-flow" title="本標題的永久連結">¶</a></h3>
 <p><a class="reference external" href="https://wiki.mozilla.org/Quantum/Flow">Quantum Flow</a>
 這專案目標是改善瀏覽器的使用者體驗，
 讓使用者感受更順暢，
@@ -1051,7 +1120,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </ul>
 </div>
 <div class="section" id="quantum-network">
-<h3><a class="toc-backref" href="#id18">Quantum Network</a><a class="headerlink" href="#quantum-network" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id20">Quantum Network</a><a class="headerlink" href="#quantum-network" title="本標題的永久連結">¶</a></h3>
 <p>Quantum Network
 目標是要改善瀏覽器的 network stack。</p>
 <p>RCWN 是讓 local cache 和網路比看哪個資料拿的比較快，
@@ -1059,10 +1128,14 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </div>
 </div>
 <div class="section" id="firefox-focus">
-<h2><a class="toc-backref" href="#id19">Firefox Focus</a><a class="headerlink" href="#firefox-focus" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id21">Firefox Focus</a><a class="headerlink" href="#firefox-focus" title="本標題的永久連結">¶</a></h2>
 </div>
-<div class="section" id="id7">
-<h2><a class="toc-backref" href="#id20">參考</a><a class="headerlink" href="#id7" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="id8">
+<h2><a class="toc-backref" href="#id22">參考</a><a class="headerlink" href="#id8" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://mozilla.github.io/firefox-browser-architecture/">Firefox Browser Architecture</a></li>
+</ul>
+<hr class="docutils" />
 <ul class="simple">
 <li><a class="reference external" href="https://arewefastyet.com/">Are We Fast Yet?</a></li>
 <li><a class="reference external" href="https://arewee10syet.com/">Are we e10s yet?</a></li>

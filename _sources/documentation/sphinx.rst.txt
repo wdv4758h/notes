@@ -11,6 +11,11 @@ Sphinx
 
 * `使用 Sphinx 的專案們 <http://www.sphinx-doc.org/en/latest/examples.html>`_
 
+例如：
+
+* `NumPy <https://docs.scipy.org/doc/numpy/reference/>`_
+
+
 
 Linux kernel
 ------------------------------

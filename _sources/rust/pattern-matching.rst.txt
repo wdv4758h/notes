@@ -266,3 +266,20 @@ Fibonacci
                      .fold((1, 1), |acc, _| (acc.1, acc.0+acc.1)).1,
         }
     }
+
+
+nested match
+------------------------------
+
+``match`` 是 expression，可以連續使用很多次
+
+.. code-block:: rust
+
+    let x = 42;
+    let y = match match x {
+                42 => Some(56),
+                _ => None,
+            } {
+        Some(val) => val,
+        None => 0,
+    };
