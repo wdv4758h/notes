@@ -14,3 +14,4 @@ Android
 * `Compatibility Test Suite <cts.rst>`_
 * Android Debug Bridge (adb)
 * `libhybris <libhybris.rst>`_
+* `Linux environment on Android <linux-environment-on-android.rst>`_
