@@ -23,3 +23,5 @@ C++
 * `std::array <array.rst>`_
 * `explicit specifier <explicit.rst>`_
 * `Design Pattern <design-pattern.rst>`_
+
+* `C++ Core Guidelines <cpp-core-guidelines.rst>`_

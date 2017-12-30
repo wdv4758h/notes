@@ -58,6 +58,25 @@ Linux 上常見的 Sound Server 分別是 PulseAudio 和 JACK，
 
 
 
+PulseAudio
+========================================
+
+:Site: https://www.freedesktop.org/wiki/Software/PulseAudio/
+
+
+
+JACK
+========================================
+
+
+
+sndio
+========================================
+
+:Site: http://www.sndio.org/
+
+
+
 參考
 ========================================
 

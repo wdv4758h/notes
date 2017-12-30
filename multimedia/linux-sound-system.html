@@ -143,8 +143,10 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../android/install.html">安裝新 Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/kernel.html">Android Kernel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/libhybris.html">libhybris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../android/linux-environment-on-android.html">Linux environment on Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/misc.html">Android - Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/ndk.html">Android NDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../android/reflash.html">重刷 Android 版子</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/surfaceflinger.html">SurfaceFlinger</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/UEFI.html">UEFI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/abs.html">Arch Build System</a></li>
@@ -383,6 +385,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../cpp/const.html">C++ const</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/copy-elision.html">Copy Elision</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/coroutine.html">C++ Coroutine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/cpp-core-guidelines.html">C++ Core Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/crtp.html">CRTP (Curiously Recurring Template Pattern)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/ctor-dtor.html">C++ Constructors &amp; Destructors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/design-pattern.html">Design Pattern</a></li>
@@ -692,6 +695,9 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="kodi.html">Kodi - Open Source Home Theater Software</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Linux Sound System</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id2">介紹</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pulseaudio">PulseAudio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jack">JACK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sndio">sndio</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id3">參考</a></li>
 </ul>
 </li>
@@ -706,6 +712,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../network/nginx.html">Nginx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/resource.html">資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/rpc.html">RPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/security-check.html">安全性檢查</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../operating-system/linux-distro.html">Linux Distro</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../parallel/openhmpp.html">OpenHMPP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../parallel/openmp.html">OpenMP</a></li>
@@ -723,6 +730,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../python/contextlib.html">contextlib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/cpython.html">CPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/cpython-equality.html">CPython Equality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/cpython-extension.html">CPython Extension</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/debugger.html">Debugger</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/deprecated.html">Some Deprecated Things</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/django.html">Django</a></li>
@@ -953,7 +961,10 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <ul class="simple">
 <li><a class="reference internal" href="#linux-sound-system" id="id4">Linux Sound System</a><ul>
 <li><a class="reference internal" href="#id2" id="id5">介紹</a></li>
-<li><a class="reference internal" href="#id3" id="id6">參考</a></li>
+<li><a class="reference internal" href="#pulseaudio" id="id6">PulseAudio</a></li>
+<li><a class="reference internal" href="#jack" id="id7">JACK</a></li>
+<li><a class="reference internal" href="#sndio" id="id8">sndio</a></li>
+<li><a class="reference internal" href="#id3" id="id9">參考</a></li>
 </ul>
 </li>
 </ul>
@@ -1001,8 +1012,33 @@ Sound Server 負責跟音效卡溝通，
 假如傳輸距離是 12000 公里，
 那物理限制就是至少會有 40 毫秒的延遲。</p>
 </div>
+<div class="section" id="pulseaudio">
+<h2><a class="toc-backref" href="#id6">PulseAudio</a><a class="headerlink" href="#pulseaudio" title="本標題的永久連結">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Site:</th><td class="field-body"><a class="reference external" href="https://www.freedesktop.org/wiki/Software/PulseAudio/">https://www.freedesktop.org/wiki/Software/PulseAudio/</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="jack">
+<h2><a class="toc-backref" href="#id7">JACK</a><a class="headerlink" href="#jack" title="本標題的永久連結">¶</a></h2>
+</div>
+<div class="section" id="sndio">
+<h2><a class="toc-backref" href="#id8">sndio</a><a class="headerlink" href="#sndio" title="本標題的永久連結">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Site:</th><td class="field-body"><a class="reference external" href="http://www.sndio.org/">http://www.sndio.org/</a></td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="section" id="id3">
-<h2><a class="toc-backref" href="#id6">參考</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id9">參考</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://wiki.archlinux.org/index.php/Sound_system">Arch Wiki - Sound System</a></li>
 <li><a class="reference external" href="https://wiki.archlinux.org/index.php/Professional_audio">Arch Wiki - Professional Audio</a></li>

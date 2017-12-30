@@ -13,3 +13,4 @@ Python
 * FFI
 * `NumPy <numpy.rst>`_
 * `SciPy <scipy.rst>`_
+* `CPython extension <cpython-extension.rst>`_
