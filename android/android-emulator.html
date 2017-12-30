@@ -37,7 +37,7 @@
         <link rel="search" title="搜尋" href="../search.html"/>
     <link rel="top" title="wdv4758h-notes latest 說明文件" href="../index.html"/>
         <link rel="next" title="Android Images" href="android-images.html"/>
-        <link rel="prev" title="Android" href="android.html"/> 
+        <link rel="prev" title="Android" href="README.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -129,8 +129,8 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/string-similarity.html">String Similiarity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/substring-searching.html">Substring Searching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="README.html">Android</a></li>
-<li class="toctree-l1"><a class="reference internal" href="android.html">Android</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Android Emulator</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#goldfish">goldfish</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#android-sdk-android-emulator">Android SDK - Android Emulator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#genymotion">Genymotion</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
@@ -144,7 +144,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="android-images.html">Android Images</a></li>
 <li class="toctree-l1"><a class="reference internal" href="apps.html">Android Apps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="binder.html">Android’s Binder</a></li>
-<li class="toctree-l1"><a class="reference internal" href="busybox-mv.html">BysyBox 的 mv</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cheat-sheet.html">Android Cheat Sheet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cts.html">Android CTS (Compatibility Test Suite)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="google-project-butter.html">Google Project Butter</a></li>
@@ -154,7 +153,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="kernel.html">Android Kernel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="libhybris.html">libhybris</a></li>
 <li class="toctree-l1"><a class="reference internal" href="linux-environment-on-android.html">Linux environment on Android</a></li>
-<li class="toctree-l1"><a class="reference internal" href="misc.html">Android - Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ndk.html">Android NDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reflash.html">重刷 Android 版子</a></li>
 <li class="toctree-l1"><a class="reference internal" href="surfaceflinger.html">SurfaceFlinger</a></li>
@@ -958,9 +956,34 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
            <div itemprop="articleBody">
             
   <div class="section" id="android-emulator">
-<h1>Android Emulator<a class="headerlink" href="#android-emulator" title="本標題的永久連結">¶</a></h1>
+<h1><a class="toc-backref" href="#id4">Android Emulator</a><a class="headerlink" href="#android-emulator" title="本標題的永久連結">¶</a></h1>
+<div class="contents topic" id="id1">
+<p class="topic-title first">目錄</p>
+<ul class="simple">
+<li><a class="reference internal" href="#android-emulator" id="id4">Android Emulator</a><ul>
+<li><a class="reference internal" href="#goldfish" id="id5">goldfish</a></li>
+<li><a class="reference internal" href="#android-sdk-android-emulator" id="id6">Android SDK - Android Emulator</a></li>
+<li><a class="reference internal" href="#genymotion" id="id7">Genymotion</a><ul>
+<li><a class="reference internal" href="#installation" id="id8">Installation</a></li>
+<li><a class="reference internal" href="#usage" id="id9">Usage</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#bluestacks" id="id10">BlueStacks</a></li>
+<li><a class="reference internal" href="#manymo" id="id11">Manymo</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="goldfish">
+<h2><a class="toc-backref" href="#id5">goldfish</a><a class="headerlink" href="#goldfish" title="本標題的永久連結">¶</a></h2>
+<p>goldfish 是 QEMU 裡用來模擬 Android 系統的 virtual hardware 家族名稱，
+一開始只有 ARM 架構，後來有 porting 到 x86 和 MIPS virutal CPUs。</p>
+<ul class="simple">
+<li><a class="reference external" href="https://android.googlesource.com/platform/external/qemu/+/master/docs/GOLDFISH-VIRTUAL-HARDWARE.TXT">QEMU - GOLDFISH-VIRTUAL-HARDWARE.TXT</a></li>
+</ul>
+</div>
 <div class="section" id="android-sdk-android-emulator">
-<h2>Android SDK - Android Emulator<a class="headerlink" href="#android-sdk-android-emulator" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id6">Android SDK - Android Emulator</a><a class="headerlink" href="#android-sdk-android-emulator" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://developer.android.com/tools/help/emulator.html">Android SDK - Emulator</a></li>
 <li><a class="reference external" href="http://stackoverflow.com/questions/4974568/how-do-i-launch-the-android-emulator-from-the-command-line">How do I launch the Android emulator from the command line?</a></li>
@@ -973,20 +996,20 @@ Available Android Virtual Devices:
 </div>
 </div>
 <div class="section" id="genymotion">
-<h2>Genymotion<a class="headerlink" href="#genymotion" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id7">Genymotion</a><a class="headerlink" href="#genymotion" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://www.genymotion.com/">Genymotion</a></li>
 <li><a class="reference external" href="https://github.com/codepath/android_guides/wiki/Genymotion-2.0-Emulators-with-Google-Play-support">codepath/android_guides - Genymotion 2.0 Emulators with Google Play support</a></li>
 </ul>
 <p>Genymotion 後面會接 VirtualBox 來運作</p>
 <div class="section" id="installation">
-<h3>Installation<a class="headerlink" href="#installation" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id8">Installation</a><a class="headerlink" href="#installation" title="本標題的永久連結">¶</a></h3>
 <div class="highlight-sh"><div class="highlight"><pre><span></span>$ yaourt -S genymotion
 </pre></div>
 </div>
 </div>
 <div class="section" id="usage">
-<h3>Usage<a class="headerlink" href="#usage" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id9">Usage</a><a class="headerlink" href="#usage" title="本標題的永久連結">¶</a></h3>
 <p>開啟 GUI，登入帳號，選擇 device 後會開始下載檔案</p>
 <div class="highlight-sh"><div class="highlight"><pre><span></span>$ genymotion
 </pre></div>
@@ -994,10 +1017,10 @@ Available Android Virtual Devices:
 </div>
 </div>
 <div class="section" id="bluestacks">
-<h2>BlueStacks<a class="headerlink" href="#bluestacks" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id10">BlueStacks</a><a class="headerlink" href="#bluestacks" title="本標題的永久連結">¶</a></h2>
 </div>
 <div class="section" id="manymo">
-<h2>Manymo<a class="headerlink" href="#manymo" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id11">Manymo</a><a class="headerlink" href="#manymo" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://www.manymo.com/">Manymo</a></li>
 </ul>
@@ -1018,7 +1041,7 @@ Available Android Virtual Devices:
         <a href="android-images.html" class="btn btn-neutral float-right" title="Android Images" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="android.html" class="btn btn-neutral" title="Android" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="README.html" class="btn btn-neutral" title="Android" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
