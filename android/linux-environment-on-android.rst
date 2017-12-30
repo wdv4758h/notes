@@ -6,6 +6,21 @@ Linux environment on Android
 .. contents:: 目錄
 
 
+基本環境
+========================================
+
+Android 系統預設的 library 路徑通常會在：
+
+* /system/lib/
+* /system/lib64/
+* /vendor/lib/
+* /vendor/lib64/
+
+
+可以使用 LD_LIBRARY_PATH 和 LD_PRELOAD 來加入額外的 library。
+
+
+
 Termux
 ========================================
 
