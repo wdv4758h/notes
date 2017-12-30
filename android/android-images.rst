@@ -2,6 +2,5 @@
 Android Images
 ========================================
 
-* `Factory Images for Nexus Devices <https://developers.google.com/android/nexus/images>`_
-    - All Nexus Images
-    - Flashing Instructions
+* `Android developer preview <http://developer.android.com/preview/index.html>`_
+* `Android images <https://developers.google.com/android/images>`_
