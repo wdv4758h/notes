@@ -24,3 +24,4 @@ Android
 * `Project Butter <google-project-butter.rst>`_
 * `Android init <init.rst>`_
 * `Android installation <install.rst>`_
+* `移植到新硬體 (Porting to new Hardware) <porting-to-new-hardware.rst>`_
