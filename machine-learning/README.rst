@@ -25,6 +25,7 @@
     - `SVM <svm.rst>`_
     - `t-SNE <t-SNE.rst>`_
     - `Transfer Learning <transfer-learning.rst>`_
+    - `Quantization <quantization.rst>`_
 
 
 
