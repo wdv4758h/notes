@@ -37,7 +37,7 @@
         <link rel="search" title="搜尋" href="../search.html"/>
     <link rel="top" title="wdv4758h-notes latest 說明文件" href="../index.html"/>
         <link rel="next" title="Engineering Report &lt;dv&gt; - Week 28, 2015" href="../reports/2015-week-28.html"/>
-        <link rel="prev" title="Regular Expression" href="regex.html"/> 
+        <link rel="prev" title="Regular Expression Library" href="regex-lib.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -118,6 +118,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/algorithm-concept.html">演算法相關概念</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/big-o-notation.html">Big O Notation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/books.html">Books</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/cache.html">Cache</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/dict.html">Dict</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/heap.html">Heap （堆）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/introduction.html">演算法與資料結構</a></li>
@@ -147,6 +148,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../android/porting-to-new-hardware.html">移植到新硬體 (Porting to new Hardware)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/reflash.html">重刷 Android 版子</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/surfaceflinger.html">SurfaceFlinger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../arm/arm-server.html">ARM Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../arm/intro.html">ARM Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../articles/python-need-for-speed.html">Python - Need For Speed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../articles/travis-ci-sphinx-github-pages.html">用 Travis CI 自動化發佈 reStructuredText 到 GitHub Pages 上</a></li>
@@ -156,6 +158,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../assembly/risc-v.html">RISC-V</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assembly/sha-extension.html">SHA Extensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assembly/x86.html">x86 Assembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../asynchrounous/libuv.html">libuv</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/2001_A_Space_Odyssey.html">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/README.html">Blog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/ann.html">Artificial Neural Network</a></li>
@@ -312,6 +315,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../compiler/computed-goto.html">Computed goto</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/cross-compile.html">Cross Compile</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/crt.html">crt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/elf.html">ELF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/environment.html">Environment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/gcc-plugins.html">GCC Plugins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/gpgpu.html">GPGPU</a></li>
@@ -327,12 +331,15 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../compiler/llvm-python.html">LLVM &amp; Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/llvm-to-vhdl-verilog.html">LLVM to VHDL/Verilog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/lto.html">LTO - Link Time Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/name-mangling.html">Name Mangling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/obfuscator.html">Obfuscator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/objdump.html">Objdump</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/optimization.html">Optimizations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/porting.html">Use Compiler To Help Porting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/resource.html">Compiler Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/ssa.html">SSA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/streaming-compilation.html">Streaming Compilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler/tcg-ir.html">TCG IR - Tiny Code Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/transpiler.html">轉譯器 (Transpiler) (Source-to-Source Compiler)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compression/introduction.html">壓縮入門</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compression/jpeg.html">JPEG Compression</a></li>
@@ -349,8 +356,13 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../computer-vision/super-resolution.html">Super Resolution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computer-vision/video-tracking.html">Video Tracking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computer-vision/visual-question-answering.html">Visual Question Answering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concurrency/concurrency.html">Concurrency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concurrency/multithread-concurrency-parallelism.html">名詞釐清</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../container/lxc.html">Linux Containers (LXC)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/buildbot.html">Buildbot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../continuous-integration/ci.html">Continuous Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/jenkins.html">Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../continuous-integration/travis-ci.html">Travis CI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/64bits-problem.html">64 Bits Problem</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/README.html">C++</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/SFINAE.html">SFINAE (Substitution Failure Is Not An Error)</a></li>
@@ -442,15 +454,19 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../graphics/README.html">Linux Graphics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../graphics/dri.html">DRI (Direct Rendering Infrastructure)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../graphics/glsl.html">GLSL - OpenGL Shading Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphics/graphic.html">Graphic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../graphics/introduction.html">Linux Graphics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../graphics/mesa.html">Mesa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../graphics/opengl.html">OpenGL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../graphics/resource.html">Graphic Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphics/virtualgl.html">VirtualGL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphics/vulkan.html">Vulkan</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/arduino.html">Arduino</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/cpu.html">CPU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/hardware-and-programming.html">Hardware &amp; Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/headphone.html">耳機 (Headphone)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/history.html">Hardware’s History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hardware/intel.html">Intel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/intel-mic.html">Intel MIC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/kindle.html">Kindle</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/my-devices.html">Hardware</a></li>
@@ -459,9 +475,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../hardware/resource.html">Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/risc-v.html">RISC-V</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/speaker.html">喇叭 (Speaker)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../kernel/resource.html">資源</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../kernel/security-kernel.html">Security in Kernel</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../language-virtual-machines/resource.html">資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../license/resource.html">相關資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/README.html">機器學習 (Machine Learning)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/ann-history.html">Artificial Neural Network History</a></li>
@@ -486,6 +499,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/regularization.html">Regularization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/resource.html">機器學習相關資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/rule-system.html">Rule System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../machine-learning/spark.html">Spark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/svm.html">SVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/t-SNE.html">t-SNE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/tensorflow.html">TensorFlow</a></li>
@@ -507,89 +521,26 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../memory/memory-profiling.html">Memory Profiling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/sanitizer.html">Sanitizer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/stack-protection.html">Stack Protection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/arm-server.html">ARM Server</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/basic-system-utils.html">Basic System Utils</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/bugs.html">踩 Bug 紀錄 (從 2015-10-26 開始)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/busybox.html">BusyBox - 人人都該備一個在身邊的執行檔</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/cache.html">Cache</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/ci.html">Continuous Integration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/concurrency.html">Concurrency</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/contribution.html">Open Source 專案貢獻</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/coredump.html">coredump</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/data-science.html">Data Science</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/dsl.html">DSL (Domain-Specific Languages)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/elf.html">ELF</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/file.html">file command</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/free-software-in-taiwan.html">臺灣自由軟體界</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/google-on-hub.html">Google OnHub</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/graphic.html">Graphic</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/init-system.html">init systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/intel.html">Intel</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/interpreter-for-compiled-language.html">Interpreter For Compiled Language</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/jit-for-processors.html">JIT For Processors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/kvm.html">KVM</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/languages.html">Languages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/libc.html">那些 libc 們</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/librt.html">librt</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/libunwind.html">libunwind</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/libuv.html">libuv</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/linux-laptop-gpu.html">Linux Laptop GPU</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/linux-porting.html">Linux Porting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/lua.html">Lua</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/lxc.html">Linux Containers (LXC)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/modemmanager.html">ModemManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/multicall-binary.html">Multicall Binary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/multithread-concurrency-parallelism.html">名詞釐清</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/name-mangling.html">Name Mangling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/netbsd.html">NetBSD</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/objdump.html">Objdump</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/openhouse.html">Open House</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/opensource-projects-i-love.html">Open Source Porjects I Love</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/parallel.html">Parallel</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/plan-9.html">Plan 9</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/posix.html">POSIX</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/process-live-migration.html">Process Live Migration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/project-measurement.html">Project Measurement</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/realtime.html">Real Time Programming</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/regex-lib.html">Regular Expression Library</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/sandbox.html">Sandbox</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/signal.html">Signal</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/software-updates.html">Software Updates</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/spark.html">Spark</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/system-programming.html">System Programming</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/tcg-ir.html">TCG IR - Tiny Code Generator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/tcpdump.html">tcpdump</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/thread-stack.html">Thread Stack</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/todo.html">Todo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/transactional-memory.html">Transactional Memory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/trash-talk.html">技術屁話</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/travis-ci.html">Travis CI</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/turing-complete.html">Turing Compilete</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/unicode.html">Unicode</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/usenix.html">USENIX</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/virtualgl.html">VirtualGL</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/vlc.html">VLC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/vulkan.html">Vulkan</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/wayland.html">Wayland</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/wm.html">Window Manager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/yocto.html">Yocto Project - 建立自己的嵌入式 Linux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mess/zram.html">zram</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/advertisement-blocker.html">Advertisement Blocker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/archive.html">Archive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/articles.html">一些閱讀過的文章</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/bandwidth.html">頻寬成本</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/bit-hacks.html">Bit Hacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/bugs.html">踩 Bug 紀錄 (從 2015-10-26 開始)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/cad.html">CAD (Computer-Aided Design)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/calendar.html">Calendar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/chatops.html">ChatOps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/conference.html">Conference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/contribution.html">Open Source 專案貢獻</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/disk-encryption.html">Disk Encryption</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/dot-language.html">DOT Language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/easy-website-builder.html">簡易網站建立服務</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/esoteric_languages.html">Esoteric Programming Language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/fish.html">Fish Shell</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/floating-point.html">Floating Point</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/free-software-in-taiwan.html">臺灣自由軟體界</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/funny-sites.html">Funny Sites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/google-on-hub.html">Google OnHub</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/hex-float.html">十六進位浮點數（Hex Float）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/host-block.html">Host Blocker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/http-history.html">HTTP History</a></li>
@@ -601,10 +552,13 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../misc/mail-system.html">Mail System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/man-page.html">Man Page</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/misc.html">Misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/openhouse.html">Open House</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/opensource-projects-i-love.html">Open Source Porjects I Love</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/origin.html">緣由</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/papers.html">Papers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/pdf-viewers-history.html">PDF Viewer History</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/podcast.html">Podcast</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/project-measurement.html">Project Measurement</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/proxychains.html">proxychains</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/publications.html">資訊相關書籍出版社</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/reStructuredText.html">reStructuredText</a></li>
@@ -612,20 +566,23 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../misc/reverse-engineering.html">逆向工程</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/sat-smt.html">SAT/SMT Solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/sites.html">Sites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/software-updates.html">Software Updates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/ssl-tls-pki-history.html">SL/TLS 以及 PKI 的歷史</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/statifier.html">Statifier</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/task-execution-framework.html">Task Execution Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/team-collaboration.html">Team Collaboration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/todo.html">Todo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/todo-projects.html">想做的專案</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/tools.html">Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/trace-code.html">Trace Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/translation.html">翻譯 (Translation)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/trash-talk.html">技術屁話</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/turing-complete.html">Turing Complete</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/typesetting.html">Typesetting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/undergraduate-course-taken.html">大學修過的課程</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/unicode.html">Unicode 解說</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/video.html">Video</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/videos.html">一些 Talk 的影片</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/vulkan.html">Vulkan</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mpi/mpi.html">MPI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/README.html">多媒體 (Multimedia)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/audio.html">Audio</a></li>
@@ -637,6 +594,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/opencv.html">OpenCV</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/pulseaudio.html">PulseAudio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/video.html">Video</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../multimedia/vlc.html">VLC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/README.html">網路相關 (Network)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/ddos.html">DDoS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/distributed.html">Distributed</a></li>
@@ -648,11 +606,21 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../network/resource.html">資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/rpc.html">RPC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/security-check.html">安全性檢查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/tcpdump.html">tcpdump</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../operating-system/linux-distro.html">Linux Distro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../operating-system/netbsd.html">NetBSD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../operating-system/plan-9.html">Plan 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../operating-system/posix.html">POSIX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../operating-system/process-live-migration.html">Process Live Migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../operating-system/signal.html">Signal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../operating-system/thread-stack.html">Thread Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../operating-system/usenix.html">USENIX</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../parallel/openhmpp.html">OpenHMPP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../parallel/openmp.html">OpenMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parallel/parallel.html">Parallel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../parallel/resource.html">平行化相關資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../programming-language/README.html">程式語言理論 (Programming Language Theory) (PLT)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../programming-language/interpreter-for-compiled-language.html">Interpreter For Compiled Language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pypy/brief.html">簡單介紹</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pypy/resource.html">RPython Toolchain 相關資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/README.html">Python</a></li>
@@ -700,6 +668,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../quantum/intro.html">量子電腦</a></li>
 <li class="toctree-l1"><a class="reference internal" href="re2.html">RE2 - fast, safe, thread-friendly alternative to backtracking regular expression engines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="regex.html">Regular Expression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regex-lib.html">Regular Expression Library</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reports/2015-week-28.html">Engineering Report &lt;dv&gt; - Week 28, 2015</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reports/2015-week-29.html">Engineering Report &lt;dv&gt; - Week 29, 2015</a></li>
@@ -791,7 +760,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../simd/algorithm.html">運用 SIMD 來加速的演算法</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../simd/status.html">SIMD</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../synchronization/introduction.html">同步 (Synchronization)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../systemd/networkctl.html">networkctl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../testing/fuzzer.html">Fuzzer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../testing/mobile-app.html">Test Mobile App</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../testing/mutation-test.html">Mutation Test</a></li>
@@ -799,6 +767,9 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/256-color.html">256 color</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/README.html">常用軟體</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/bash.html">Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/basic-system-utils.html">Basic System Utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/busybox.html">BusyBox - 人人都該備一個在身邊的執行檔</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/file.html">file command</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/find.html">find</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/gtk.html">GTK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/input-method.html">Input Method</a></li>
@@ -822,6 +793,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../valgrind/tips.html">Valgrind Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../valgrind/valgrind-talks.html">Valgrind Talks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../virtualization/bhyve.html">bhyve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../virtualization/kvm.html">KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../virtualization/qemu.html">QEMU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../wiki/resource.html">Wiki</a></li>
 </ul>
@@ -909,7 +881,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
         <a href="../reports/2015-week-28.html" class="btn btn-neutral float-right" title="Engineering Report &lt;dv&gt; - Week 28, 2015" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="regex.html" class="btn btn-neutral" title="Regular Expression" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="regex-lib.html" class="btn btn-neutral" title="Regular Expression Library" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

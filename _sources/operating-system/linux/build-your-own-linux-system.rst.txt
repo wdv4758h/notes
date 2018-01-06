@@ -29,6 +29,9 @@ Buildroot 維護一系列設定來編譯各個專案，
 Yocto
 ========================================
 
+:Site: https://www.yoctoproject.org/
+
+
 介紹
 ------------------------------
 
@@ -43,7 +46,12 @@ Yocto 支援的平台比 Buildroot 多，
 
 參考：
 
+* `Yocto Project Quick Start <https://www.yoctoproject.org/docs/current/yocto-project-qs/yocto-project-qs.html>`_
 * `Yocto Project Reference Manual <https://www.yoctoproject.org/docs/current/ref-manual/ref-manual.html>`_
+* `Yocto - Supported Linux Distributions <http://www.yoctoproject.org/docs/2.4/ref-manual/ref-manual.html#detailed-supported-distros>`_
+* `Yocto - CROPS (leverage Docker Containers) <https://www.yoctoproject.org/docs/current/yocto-project-qs/yocto-project-qs.html#qs-crops-build-host>`_
+* `Yocto Project Development Tasks Manual <https://www.yoctoproject.org/docs/2.4/dev-manual/dev-manual.html>`_
+* `Wikipedia - Yocto Project <https://en.wikipedia.org/wiki/Yocto_Project>`_
 
 
 musl
@@ -61,6 +69,10 @@ Clang/LLVM
 
 
 Static Build
+------------------------------
+
+
+Bionic
 ------------------------------
 
 

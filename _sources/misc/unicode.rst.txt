@@ -48,3 +48,10 @@ map/filter/reduce
     O(n^c): O✋
     O(c^n): O👊
     O(n!): O🖕
+
+
+
+參考
+========================================
+
+* `Unicode Support Shootout - The Good, the Bad, & the (mostly) Ugly <https://www.azabani.com/pages/gbu/>`_
