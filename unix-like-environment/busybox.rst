@@ -2,6 +2,10 @@
 BusyBox - 人人都該備一個在身邊的執行檔
 ========================================
 
+
+.. contents:: 目錄
+
+
 Introduction
 ========================================
 
@@ -9,6 +13,29 @@ BusyBox 這專案首次釋出於 1999 年 11 月 4 日，
 目標是要為嵌入式環境提供一個迷你、單一的靜態連結執行檔，
 程式撰寫的時候也一直會考量到資源的限制，
 現在 BusyBox 已經發展成包含數百個常見指令的單一執行檔。
+
+BusyBox 是一個典型的 Multicall Binary 範例，
+Multicall Binary 指的是一個 binary 檔同時包含好幾隻不同的程式，
+依照執行這 binary 的方式而決定要跑裡面的哪種程式，
+這技巧的知名例子就是 BusyBox，
+把撰寫的許多 command 編在一起，
+共用許多部份，
+藉此達到省空間的目的 (BusyBox 的目標是跑在資源相對有限的嵌入式系統)，
+達到這效果的方式則是利用 ``argv[0]`` 來做判斷，
+如果名稱是內部程式之一的話，
+就去執行該程式的部份，
+因此可以看到諸多個指令都只是 BusyBox 的 symbolic link，
+但執行起來效果卻不同。
+
+例如這個樣子：
+
+::
+
+    -rwxr-xr-x 1 root root 931664 Aug  9 13:19 busybox*
+    lrwxrwxrwx 1 root root      7 Aug  9 13:20 ls -> busybox*
+    lrwxrwxrwx 1 root root      7 Aug  9 13:20 pwd -> busybox*
+
+
 
 安裝 & 使用
 ========================================
@@ -124,9 +151,13 @@ Build From Source
     -rwxr-xr-x 1 dv users 831440 Aug  9 12:34 busybox
 
 
+
 Reference
 ========================================
 
 * `BusyBox: The Swiss Army Knife of Embedded Linux <http://www.busybox.net/>`_
 * `BusyBox - Source Code <http://git.busybox.net/busybox/>`_
 * `Wikipedia - BusyBox <https://en.wikipedia.org/wiki/BusyBox>`_
+* `Multicall binaries <https://blog.flameeyes.eu/2009/10/multicall-binaries>`_
+* `Creating a Multi-Call Linux Binary <http://www.redbooks.ibm.com/abstracts/tips0092.html>`_
+* `[GitHub] extemporalgenome/multicall-example - Hybrid multi-call/single-call binaries in Go <https://github.com/extemporalgenome/multicall-example>`_

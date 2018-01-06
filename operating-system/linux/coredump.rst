@@ -2,12 +2,28 @@
 coredump
 ========================================
 
+
+.. contents:: 目錄
+
+
+介紹
+========================================
+
+路徑：
+
+.. code-block:: sh
+
+    # 如果以 "|" 為開頭的話，就會把後面當成指令執行
+    $ cat /proc/sys/kernel/core_pattern
+    |/usr/lib/systemd/systemd-coredump %P %u %g %s %t %c %e
+
+
+
 Arch Linux 上預設的 coredump 位置： ``/var/lib/systemd/coredump/``
 
 .. code-block:: sh
 
     $ coredumpctl gdb PATTERN
-
 
 ::
 
@@ -57,7 +73,9 @@ Arch Linux 上預設的 coredump 位置： ``/var/lib/systemd/coredump/``
     gs             0x0	0
 
 
-Reference
+
+參考
 ========================================
 
 * `Arch Wiki - Core dump <https://wiki.archlinux.org/index.php/Core_dump>`_
+* `DMTN-004 - Debugging in Docker Containers <https://dmtn-004.lsst.io/>`_
