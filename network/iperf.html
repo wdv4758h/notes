@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>DNS 相關資源 &mdash; wdv4758h-notes latest 說明文件</title>
+  <title>iperf &mdash; wdv4758h-notes latest 說明文件</title>
   
 
   
@@ -36,8 +36,8 @@
               href="../genindex.html"/>
         <link rel="search" title="搜尋" href="../search.html"/>
     <link rel="top" title="wdv4758h-notes latest 說明文件" href="../index.html"/>
-        <link rel="next" title="Docker" href="../docker/docker.html"/>
-        <link rel="prev" title="strace" href="../debug/strace.html"/> 
+        <link rel="next" title="Microservice" href="microservice.html"/>
+        <link rel="prev" title="DNS" href="dns.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -49,7 +49,7 @@
 Always link to the latest version, as canonical.
 http://docs.readthedocs.org/en/latest/canonical.html
 -->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/dns/resource.html" />
+<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/network/iperf.html" />
 
 <link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
 
@@ -57,7 +57,7 @@ http://docs.readthedocs.org/en/latest/canonical.html
 
 <!-- Add page-specific data, which must exist in the page js, not global -->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = 'dns/resource' 		
+READTHEDOCS_DATA['page'] = 'network/iperf' 		
 READTHEDOCS_DATA['source_suffix'] = '.rst'
 </script>
 
@@ -131,6 +131,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../android/README.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/android-emulator.html">Android Emulator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/android-images.html">Android Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../android/android-on-linux.html">在 GNU/Linux 上執行 Android 系統</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/apps.html">Android Apps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/binder.html">Android’s Binder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/cheat-sheet.html">Android Cheat Sheet</a></li>
@@ -143,6 +144,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../android/libhybris.html">libhybris</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/linux-environment-on-android.html">Linux environment on Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/ndk.html">Android NDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../android/porting-to-new-hardware.html">移植到新硬體 (Porting to new Hardware)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/reflash.html">重刷 Android 版子</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/surfaceflinger.html">SurfaceFlinger</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archlinux/UEFI.html">UEFI</a></li>
@@ -436,12 +438,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../debug/record-replay.html">Record Replay</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/resource.html">Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/strace.html">strace</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">DNS 相關資源</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">實做</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">效能測試</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">文章</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="../docker/docker.html">Docker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../documentation/sphinx.html">Sphinx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../editor/emacs.html">Emacs</a></li>
@@ -700,14 +696,21 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/opencv.html">OpenCV</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/pulseaudio.html">PulseAudio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/video.html">Video</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../network/ddos.html">DDoS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../network/distributed.html">Distributed</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../network/dns.html">DNS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../network/microservice.html">Microservice</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../network/nginx.html">Nginx</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../network/resource.html">資源</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../network/rpc.html">RPC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../network/security-check.html">安全性檢查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">網路相關 (Network)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ddos.html">DDoS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distributed.html">Distributed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dns.html">DNS</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">iperf</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">介紹</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">使用</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="microservice.html">Microservice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nginx.html">Nginx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="os-socket-buffer.html">OS socket buffer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resource.html">資源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rpc.html">RPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security-check.html">安全性檢查</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../operating-system/linux-distro.html">Linux Distro</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../parallel/openhmpp.html">OpenHMPP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../parallel/openmp.html">OpenMP</a></li>
@@ -928,14 +931,14 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>DNS 相關資源</li>
+      <li>iperf</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
             
-              <a href="https://github.com/wdv4758h/notes/blob/master/./dns/resource.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/wdv4758h/notes/blob/master/./network/iperf.rst" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -949,30 +952,37 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="dns">
-<h1>DNS 相關資源<a class="headerlink" href="#dns" title="本標題的永久連結">¶</a></h1>
-<div class="section" id="id1">
-<h2>實做<a class="headerlink" href="#id1" title="本標題的永久連結">¶</a></h2>
+  <div class="section" id="iperf">
+<h1><a class="toc-backref" href="#id5">iperf</a><a class="headerlink" href="#iperf" title="本標題的永久連結">¶</a></h1>
+<div class="contents topic" id="id1">
+<p class="topic-title first">目錄</p>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/CZ-NIC/knot">Knot DNS</a></li>
-<li>NSD</li>
-<li>BIND</li>
-<li>PowerDNS</li>
-<li><a class="reference external" href="https://github.com/aetrion/erl-dns/">Erl-DNS</a></li>
-<li>Unbound</li>
+<li><a class="reference internal" href="#iperf" id="id5">iperf</a><ul>
+<li><a class="reference internal" href="#id2" id="id6">介紹</a></li>
+<li><a class="reference internal" href="#id4" id="id7">使用</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="section" id="id2">
-<h2>效能測試<a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
-<ul class="simple">
-<li><a class="reference external" href="https://www.knot-dns.cz/benchmark/">Benchmark – Knot DNS</a></li>
-</ul>
+<h2><a class="toc-backref" href="#id6">介紹</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<p><a class="reference external" href="https://github.com/esnet/iperf">iperf</a> 是一套測試網路狀況的工具，
+可以用來觀察不同情況下的 packet loss。</p>
 </div>
-<div class="section" id="id3">
-<h2>文章<a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
-<ul class="simple">
-<li><a class="reference external" href="https://blog.dnsimple.com/2015/02/top-dns-servers/">The Top DNS Servers And What They Offer - DNSimple Blog</a></li>
-</ul>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id7">使用</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h2>
+<p>Server:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>iperf3 -s
+</pre></div>
+</div>
+<p>Client:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># -R: client 送，server 收</span>
+iperf3 -c <span class="nv">$IP</span> -p <span class="nv">$PORT</span> -u -b 1M -w 1M -t <span class="m">180</span>
+
+<span class="c1"># -R: server 送，client 收</span>
+iperf3 -c <span class="nv">$IP</span> -p <span class="nv">$PORT</span> -u -b 1M -w 1M -t <span class="m">180</span> -R
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -986,10 +996,10 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../docker/docker.html" class="btn btn-neutral float-right" title="Docker" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="microservice.html" class="btn btn-neutral float-right" title="Microservice" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../debug/strace.html" class="btn btn-neutral" title="strace" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="dns.html" class="btn btn-neutral" title="DNS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

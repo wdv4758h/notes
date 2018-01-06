@@ -16,6 +16,18 @@ Android NDK 裡面會附上 Cross Compile 用的程式，
 
 
 
+安裝 (Installation)
+========================================
+
+環境變數設定：
+
+.. code-block:: sh
+
+    ...
+
+
+
+
 Build Standalone Clang Cross Compile Toolchain
 ==============================================
 
@@ -59,10 +71,43 @@ Cross Compile 注意事項
 
 * Android 的 libc 叫 Bionic，功能有刪減過，所以部份函式不存在
     - librt、libpthread、libresolv 都包含在裡面，編譯時不要加上 ``-lrt`` 和 ``-lpthread``
+    - 沒有 iconv 函式
+    - NOTICE: 有些需要更新 !!!!!!
+    - 沒有 SYS V 的 shm.h/sem.h
+    - 沒有和 pwd.h 和 getpwuid_r() 等等
+    - 沒有 locale.h
+    - 沒有 IPv4/Ipv6 headers/support 例如 ``arpa/*.h``
+    - 沒有 intl/gettext 函式
+    - 沒有 i18n 支援和 wchar_t
+    - ???
+        + don't use -ldl ?
 * Android 的 linker
     - 只支援 PIE (Position Independent Executables)
         + Jelly Bean 加入 PIE 支援
         + Lollipop 移除 non-PIE 支援
+* pkg-config 設定
+
+
+
+各 Build System 的 Cross Compile
+========================================
+
+幸運的狀況是環境變數設好之後就可以成功編起來，
+麻煩一點的狀況是要加額外的設定參數，
+更麻煩的是要直接改專案的程式碼。
+
+
+單純的 Makefile
+------------------------------
+
+CMake
+------------------------------
+
+autotools
+------------------------------
+
+CPython Extension
+------------------------------
 
 
 

@@ -116,5 +116,6 @@ WebSocket support and Proxy to Unix Socket
 參考
 ========================================
 
+* `Gixy - Nginx configuration static analyzer <https://github.com/yandex/gixy>`_
 * `Awesome Nginx <https://github.com/agile6v/awesome-nginx>`_
 * `Nginx Resources <https://github.com/fcambus/nginx-resources>`_
