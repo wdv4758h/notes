@@ -66,6 +66,19 @@ Linker Script
     - `lld/ELF/LinkerScript.cpp <https://github.com/llvm-mirror/lld/blob/master/ELF/LinkerScript.cpp>`_
 
 
+* Bringing link-time optimization to the embedded world: (Thin)LTO with Linker Scripts
+    - `Slides <https://llvm.org/devmtg/2017-10/slides/LTOLinkerScriptsEdlerVonKoch.pdf>`_
+    - `Video <https://www.youtube.com/watch?v=hhaPAKUt35E>`_
+    - examples
+        + Tightly Coupled Memories (TCM)
+        + RAM / ROM placement
+        + Compressio
+    - original LTO might miss source object file name, and cause linker script generate bad binary
+    - add IR symbol table
+    - feed IR symbol table and Linker script together
+    - ThinLTO be enhanced to support path-based rules in linker scripts
+
+
 
 LLD Linker
 ========================================

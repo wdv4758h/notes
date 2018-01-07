@@ -331,6 +331,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="compiler/llvm-to-vhdl-verilog.html">LLVM to VHDL/Verilog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiler/lto.html">LTO - Link Time Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiler/name-mangling.html">Name Mangling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler/nnvm.html">NNVM - Open Compiler for AI Frameworks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiler/obfuscator.html">Obfuscator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiler/objdump.html">Objdump</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiler/optimization.html">Optimizations</a></li>
@@ -338,6 +339,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="compiler/resource.html">Compiler Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiler/ssa.html">SSA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiler/streaming-compilation.html">Streaming Compilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler/talks.html">Talks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiler/tcg-ir.html">TCG IR - Tiny Code Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiler/transpiler.html">轉譯器 (Transpiler) (Source-to-Source Compiler)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compression/introduction.html">壓縮入門</a></li>
@@ -478,18 +480,13 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="machine-learning/README.html">機器學習 (Machine Learning)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="machine-learning/ann-history.html">Artificial Neural Network History</a></li>
 <li class="toctree-l1"><a class="reference internal" href="machine-learning/artificial-neural-network.html">Artificial Neural Network</a></li>
-<li class="toctree-l1"><a class="reference internal" href="machine-learning/chainer.html">Chainer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="machine-learning/cheatsheet.html">Cheat Sheet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="machine-learning/clustering.html">Clustering</a></li>
-<li class="toctree-l1"><a class="reference internal" href="machine-learning/darknet.html">Darknet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="machine-learning/data-set.html">Data Set</a></li>
 <li class="toctree-l1"><a class="reference internal" href="machine-learning/decision-tree.html">決策樹學習 （Decision Tree）</a></li>
-<li class="toctree-l1"><a class="reference internal" href="machine-learning/deep-learning.html">Deep Learning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="machine-learning/dimensionality-reduction.html">Dimensionality Reduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="machine-learning/dlib.html">Dlib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="machine-learning/face-recognition.html">人臉辨識</a></li>
 <li class="toctree-l1"><a class="reference internal" href="machine-learning/instance-based.html">Instance Based</a></li>
-<li class="toctree-l1"><a class="reference internal" href="machine-learning/keras.html">Keras</a></li>
 <li class="toctree-l1"><a class="reference internal" href="machine-learning/learning.html">Learning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="machine-learning/lip-reading.html">Lip Reading</a></li>
 <li class="toctree-l1"><a class="reference internal" href="machine-learning/naive-bayes-classifier.html">樸素貝葉斯分類器 （Naïve Bayesian Classifier）</a></li>
@@ -501,7 +498,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="machine-learning/spark.html">Spark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="machine-learning/svm.html">SVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="machine-learning/t-SNE.html">t-SNE</a></li>
-<li class="toctree-l1"><a class="reference internal" href="machine-learning/tensorflow.html">TensorFlow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="machine-learning/todo.html">Todo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="machine-learning/transfer-learning.html">Transfer Learning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="math/libraries.html">數學相關套件 (Math Libraries)</a></li>
@@ -2227,6 +2223,11 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="compiler/name-mangling.html#reference">Reference</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="compiler/nnvm.html">NNVM - Open Compiler for AI Frameworks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="compiler/nnvm.html#id2">介紹</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compiler/nnvm.html#id3">參考</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="compiler/obfuscator.html">Obfuscator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiler/objdump.html">Objdump</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="compiler/objdump.html#get-arm-instruction-by-objdump-on-x86">Get ARM Instruction By Objdump On x86</a></li>
@@ -2250,6 +2251,10 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l1"><a class="reference internal" href="compiler/streaming-compilation.html">Streaming Compilation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="compiler/streaming-compilation.html#id2">介紹</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compiler/streaming-compilation.html#id3">參考</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="compiler/talks.html">Talks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="compiler/talks.html#compiling-cross-toolchains-with-cmake-and-runtimes-build">Compiling cross-toolchains with CMake and runtimes build</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="compiler/tcg-ir.html">TCG IR - Tiny Code Generator</a><ul>
@@ -3339,11 +3344,6 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="machine-learning/artificial-neural-network.html#id3">參考</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="machine-learning/chainer.html">Chainer</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="machine-learning/chainer.html#id2">介紹</a></li>
-<li class="toctree-l2"><a class="reference internal" href="machine-learning/chainer.html#id3">參考</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="machine-learning/cheatsheet.html">Cheat Sheet</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="machine-learning/cheatsheet.html#id2">常見架構的圖示</a></li>
 <li class="toctree-l2"><a class="reference internal" href="machine-learning/cheatsheet.html#id3">參考</a></li>
@@ -3357,13 +3357,6 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l3"><a class="reference internal" href="machine-learning/clustering.html#hierarchical-clustering">Hierarchical Clustering</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="machine-learning/darknet.html">Darknet</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="machine-learning/darknet.html#id2">介紹</a></li>
-<li class="toctree-l2"><a class="reference internal" href="machine-learning/darknet.html#id4">編譯</a></li>
-<li class="toctree-l2"><a class="reference internal" href="machine-learning/darknet.html#yolo">YOLO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="machine-learning/darknet.html#id5">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="machine-learning/data-set.html">Data Set</a><ul>
@@ -3409,17 +3402,6 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="machine-learning/decision-tree.html#id19">參考</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="machine-learning/deep-learning.html">Deep Learning</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="machine-learning/deep-learning.html#id1">演算法</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="machine-learning/deep-learning.html#deep-boltzmann-machine-dbm">Deep Boltzmann Machine (DBM)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="machine-learning/deep-learning.html#deep-belief-network-dbn">Deep Belief Network (DBN)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="machine-learning/deep-learning.html#convolutional-neural-network-cnn">Convolutional Neural Network (CNN)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="machine-learning/deep-learning.html#stacked-auto-encoders">Stacked Auto-Encoders</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="machine-learning/deep-learning.html#id2">參考</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="machine-learning/dimensionality-reduction.html">Dimensionality Reduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="machine-learning/dimensionality-reduction.html#id2">演算法</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="machine-learning/dimensionality-reduction.html#principal-component-analysis-pca">Principal Component Analysis (PCA)</a></li>
@@ -3439,14 +3421,6 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="machine-learning/dimensionality-reduction.html#id3">參考</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="machine-learning/dlib.html">Dlib</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="machine-learning/dlib.html#id2">介紹</a></li>
-<li class="toctree-l2"><a class="reference internal" href="machine-learning/dlib.html#id4">編譯</a></li>
-<li class="toctree-l2"><a class="reference internal" href="machine-learning/dlib.html#object-tracker">Object Tracker</a></li>
-<li class="toctree-l2"><a class="reference internal" href="machine-learning/dlib.html#id5">待研究</a></li>
-<li class="toctree-l2"><a class="reference internal" href="machine-learning/dlib.html#id6">參考</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="machine-learning/face-recognition.html">人臉辨識</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="machine-learning/face-recognition.html#id3">參考</a></li>
 </ul>
@@ -3459,26 +3433,6 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l3"><a class="reference internal" href="machine-learning/instance-based.html#locally-weighted-learning-lwl">Locally Weighted Learning (LWL)</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="machine-learning/keras.html">Keras</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="machine-learning/keras.html#id2">介紹</a></li>
-<li class="toctree-l2"><a class="reference internal" href="machine-learning/keras.html#model-type">Model Type</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="machine-learning/keras.html#sequential-model">Sequential Model</a></li>
-<li class="toctree-l3"><a class="reference internal" href="machine-learning/keras.html#functional-model">Functional Model</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="machine-learning/keras.html#backend">Backend</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="machine-learning/keras.html#tensorflow">TensorFlow</a></li>
-<li class="toctree-l3"><a class="reference internal" href="machine-learning/keras.html#theano">Theano</a></li>
-<li class="toctree-l3"><a class="reference internal" href="machine-learning/keras.html#cntk">CNTK</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="machine-learning/keras.html#builtin">Builtin</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="machine-learning/keras.html#relu">relu</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="machine-learning/keras.html#id4">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="machine-learning/learning.html">Learning</a><ul>
@@ -3551,20 +3505,14 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="machine-learning/spark.html">Spark</a></li>
-<li class="toctree-l1"><a class="reference internal" href="machine-learning/svm.html">SVM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="machine-learning/svm.html">SVM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="machine-learning/svm.html#id2">介紹</a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine-learning/svm.html#id3">實做</a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine-learning/svm.html#id4">參考</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="machine-learning/t-SNE.html">t-SNE</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="machine-learning/t-SNE.html#reference">Reference</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="machine-learning/tensorflow.html">TensorFlow</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="machine-learning/tensorflow.html#id2">介紹</a></li>
-<li class="toctree-l2"><a class="reference internal" href="machine-learning/tensorflow.html#id4">編譯</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="machine-learning/tensorflow.html#python-wheel">Python Wheel</a></li>
-<li class="toctree-l3"><a class="reference internal" href="machine-learning/tensorflow.html#pure-shared-library">Pure Shared Library</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="machine-learning/tensorflow.html#arm">ARM 支援</a></li>
-<li class="toctree-l2"><a class="reference internal" href="machine-learning/tensorflow.html#id5">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="machine-learning/todo.html">Todo</a></li>

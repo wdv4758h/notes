@@ -355,6 +355,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="llvm-to-vhdl-verilog.html">LLVM to VHDL/Verilog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lto.html">LTO - Link Time Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="name-mangling.html">Name Mangling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nnvm.html">NNVM - Open Compiler for AI Frameworks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="obfuscator.html">Obfuscator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="objdump.html">Objdump</a></li>
 <li class="toctree-l1"><a class="reference internal" href="optimization.html">Optimizations</a></li>
@@ -362,6 +363,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="resource.html">Compiler Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ssa.html">SSA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="streaming-compilation.html">Streaming Compilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="talks.html">Talks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tcg-ir.html">TCG IR - Tiny Code Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transpiler.html">轉譯器 (Transpiler) (Source-to-Source Compiler)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compression/introduction.html">壓縮入門</a></li>
@@ -502,18 +504,13 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/README.html">機器學習 (Machine Learning)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/ann-history.html">Artificial Neural Network History</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/artificial-neural-network.html">Artificial Neural Network</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../machine-learning/chainer.html">Chainer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/cheatsheet.html">Cheat Sheet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/clustering.html">Clustering</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../machine-learning/darknet.html">Darknet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/data-set.html">Data Set</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/decision-tree.html">決策樹學習 （Decision Tree）</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../machine-learning/deep-learning.html">Deep Learning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/dimensionality-reduction.html">Dimensionality Reduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../machine-learning/dlib.html">Dlib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/face-recognition.html">人臉辨識</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/instance-based.html">Instance Based</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../machine-learning/keras.html">Keras</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/learning.html">Learning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/lip-reading.html">Lip Reading</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/naive-bayes-classifier.html">樸素貝葉斯分類器 （Naïve Bayesian Classifier）</a></li>
@@ -525,7 +522,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/spark.html">Spark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/svm.html">SVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/t-SNE.html">t-SNE</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../machine-learning/tensorflow.html">TensorFlow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/todo.html">Todo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/transfer-learning.html">Transfer Learning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/libraries.html">數學相關套件 (Math Libraries)</a></li>
@@ -970,6 +966,29 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <dd><ul class="first last">
 <li><a class="reference external" href="https://github.com/llvm-mirror/lld/blob/master/ELF/LinkerScript.h">lld/ELF/LinkerScript.h</a></li>
 <li><a class="reference external" href="https://github.com/llvm-mirror/lld/blob/master/ELF/LinkerScript.cpp">lld/ELF/LinkerScript.cpp</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Bringing link-time optimization to the embedded world: (Thin)LTO with Linker Scripts</dt>
+<dd><ul class="first last">
+<li><a class="reference external" href="https://llvm.org/devmtg/2017-10/slides/LTOLinkerScriptsEdlerVonKoch.pdf">Slides</a></li>
+<li><a class="reference external" href="https://www.youtube.com/watch?v=hhaPAKUt35E">Video</a></li>
+<li><dl class="first docutils">
+<dt>examples</dt>
+<dd><ul class="first last">
+<li>Tightly Coupled Memories (TCM)</li>
+<li>RAM / ROM placement</li>
+<li>Compressio</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>original LTO might miss source object file name, and cause linker script generate bad binary</li>
+<li>add IR symbol table</li>
+<li>feed IR symbol table and Linker script together</li>
+<li>ThinLTO be enhanced to support path-based rules in linker scripts</li>
 </ul>
 </dd>
 </dl>
