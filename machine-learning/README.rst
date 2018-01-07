@@ -10,11 +10,11 @@
 ========================================
 
 * Library
-    - `Dlib <dlib.rst>`_
-    - `Darknet <darknet.rst>`_
-    - `Keras <keras.rst>`_
-    - `TensorFlow <tensorflow.rst>`_
-    - `Chainer <chainer.rst>`_
+    - `Dlib <library/dlib.rst>`_
+    - `Darknet <library/darknet.rst>`_
+    - `Keras <library/keras.rst>`_
+    - `TensorFlow <library/tensorflow.rst>`_
+    - `Chainer <library/chainer.rst>`_
 
 * Technique
     - `Decision Tree <decision-tree.rst>`_
@@ -24,8 +24,8 @@
     - `Regression <regression.rst>`_
     - `SVM <svm.rst>`_
     - `t-SNE <t-SNE.rst>`_
-    - `Transfer Learning <transfer-learning.rst>`_
-    - `Quantization <quantization.rst>`_
+    - `Transfer Learning <deep-learning/transfer-learning.rst>`_
+    - `Quantization <deep-learning/quantization.rst>`_
 
 
 
