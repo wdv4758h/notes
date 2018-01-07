@@ -24,7 +24,7 @@
     - `Regression <regression.rst>`_
     - `SVM <svm.rst>`_
     - `t-SNE <t-SNE.rst>`_
-    - `Transfer Learning <deep-learning/transfer-learning.rst>`_
+    - `Transfer Learning <technique/transfer-learning.rst>`_
     - `Quantization <deep-learning/quantization.rst>`_
 
 
