@@ -130,6 +130,22 @@ Sink
 Binding
 ========================================
 
+GObject Introspection
+------------------------------
+
+:Repo: https://github.com/GNOME/gobject-introspection
+
+
+* GIR: XML 格式，用於 GObject Introspection，提供共同的結構來存取 API，這格式的設計適用於各種程式語言，利用 namespace 來區分 core、language、library 的功能
+* Typelib: binary 格式的 GIR，設計原則是快、少用少量記憶體、足夠讓各個程式語言沒有原始碼的狀況下做出 binding
+* 工具:
+    - g-ir-scanner: 用於產生 GIR，可以爬 headers/GTK-Doc/libraries
+    - g-ir-compiler: GIT 轉 Typelib
+    - g-ir-generate: Typelib 轉 GIR
+    - g-ir-annotation-tool: 從程式碼截出 annotation
+    - g-ir-doc-tool: 從 GIR 產生 API 文件
+
+
 Python
 ------------------------------
 
@@ -256,6 +272,11 @@ TCP
 * tcpserversink
 * tcpclientsrc
 * tcpclientsink
+
+
+
+顯示 plugin 被放入 blacklist 的原因
+========================================
 
 
 
@@ -616,6 +637,13 @@ LGPL
 
 
 
+GStreamer 0.10 -> 1.x
+========================================
+
+https://gstreamer.freedesktop.org/documentation/application-development/appendix/porting-1-0.html
+
+
+
 參考
 ========================================
 
@@ -623,6 +651,7 @@ LGPL
 * `gst-instruments - Easy-to-use profiler for GStreamer <https://github.com/kirushyk/gst-instruments>`_
 * `GStreamer - core elements <https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer-plugins/html/gstreamer-plugins-plugin-coreelements.html#plugin-coreelements>`_
 * `GStreamer Conference <https://gstreamer.freedesktop.org/conference/>`-
+    - * `GStreamer Conference 2017 <https://gstconf.ubicast.tv/channels/#gstreamer-conference-2017>`_
 * `Arch Wiki - GStreamer <https://wiki.archlinux.org/index.php/GStreamer>`_
 
 
