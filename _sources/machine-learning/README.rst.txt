@@ -17,15 +17,16 @@
     - `Chainer <library/chainer.rst>`_
 
 * Technique
+    - `回歸 (Regression) <technique/regression.rst>`_
     - `Decision Tree <decision-tree.rst>`_
     - `Clustering <clustering.rst>`_
     - `Dimensionality Reduction <dimensionality-reduction.rst>`_
     - `Naive Bayes Classifier <naive-bayes-classifier.rst>`_
-    - `Regression <regression.rst>`_
     - `SVM <svm.rst>`_
     - `t-SNE <t-SNE.rst>`_
-    - `Transfer Learning <deep-learning/transfer-learning.rst>`_
-    - `Quantization <deep-learning/quantization.rst>`_
+    - `Transfer Learning <technique/transfer-learning.rst>`_
+    - `Ensemble Learning <technique/ensemble.rst>`_
+    - `Quantization <technique/quantization.rst>`_
 
 
 

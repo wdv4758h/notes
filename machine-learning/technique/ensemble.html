@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Quantization &mdash; wdv4758h-notes latest 說明文件</title>
+  <title>Ensemble Learning &mdash; wdv4758h-notes latest 說明文件</title>
   
 
   
@@ -47,7 +47,7 @@
 Always link to the latest version, as canonical.
 http://docs.readthedocs.org/en/latest/canonical.html
 -->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/machine-learning/deep-learning/quantization.html" />
+<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/machine-learning/technique/ensemble.html" />
 
 <link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
 
@@ -55,7 +55,7 @@ http://docs.readthedocs.org/en/latest/canonical.html
 
 <!-- Add page-specific data, which must exist in the page js, not global -->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = 'machine-learning/deep-learning/quantization' 		
+READTHEDOCS_DATA['page'] = 'machine-learning/technique/ensemble' 		
 READTHEDOCS_DATA['source_suffix'] = '.rst'
 </script>
 
@@ -490,7 +490,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../lip-reading.html">Lip Reading</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../naive-bayes-classifier.html">樸素貝葉斯分類器 （Naïve Bayesian Classifier）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../question-answering.html">Question Answering</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../regression.html">Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../regularization.html">Regularization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../resource.html">機器學習相關資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rule-system.html">Rule System</a></li>
@@ -498,7 +497,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../svm.html">SVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../t-SNE.html">t-SNE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../todo.html">Todo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../transfer-learning.html">Transfer Learning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../math/libraries.html">數學相關套件 (Math Libraries)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../math/math.html">Math</a></li>
@@ -589,6 +587,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../multimedia/pulseaudio.html">PulseAudio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../multimedia/video.html">Video</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../multimedia/vlc.html">VLC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../multimedia/webrtc.html">WebRTC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../network/README.html">網路相關 (Network)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../network/ddos.html">DDoS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../network/distributed.html">Distributed</a></li>
@@ -834,14 +833,14 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-      <li>Quantization</li>
+      <li>Ensemble Learning</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
             
-              <a href="https://github.com/wdv4758h/notes/blob/master/./machine-learning/deep-learning/quantization.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/wdv4758h/notes/blob/master/./machine-learning/technique/ensemble.rst" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -855,12 +854,12 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="quantization">
-<h1><a class="toc-backref" href="#id4">Quantization</a><a class="headerlink" href="#quantization" title="本標題的永久連結">¶</a></h1>
+  <div class="section" id="ensemble-learning">
+<h1><a class="toc-backref" href="#id4">Ensemble Learning</a><a class="headerlink" href="#ensemble-learning" title="本標題的永久連結">¶</a></h1>
 <div class="contents topic" id="id1">
 <p class="topic-title first">目錄</p>
 <ul class="simple">
-<li><a class="reference internal" href="#quantization" id="id4">Quantization</a><ul>
+<li><a class="reference internal" href="#ensemble-learning" id="id4">Ensemble Learning</a><ul>
 <li><a class="reference internal" href="#id2" id="id5">介紹</a></li>
 <li><a class="reference internal" href="#id3" id="id6">參考</a></li>
 </ul>
@@ -869,25 +868,19 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </div>
 <div class="section" id="id2">
 <h2><a class="toc-backref" href="#id5">介紹</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
-<p>量化（Quantization）指的就是把數值從一個較大的集合轉換到一個較小的集合的過程，
-例如類比訊號轉成數位訊號就是這種處理，
-又或者是把 32 位元的浮點數轉換成 8 位元的整數。</p>
-<p>量化是一個有損的過程，
-所以會影響最後的結果，
-影響可大可小，
-對於影響的衡量可以藉由計算量化誤差（Quantization Error）來管控。</p>
-<p>量化的使用範圍很多，
-ADC（類比轉數位）是其中一種，
-另外大部分的有損壓縮也是以量化作為核心發展出來的。</p>
-<p>在 Deep Learning 的領域裡討論量化時，
-通常是為了降低執行時所需要的資源量，
-藉由量化來減少記憶體需求並增加執行速度。</p>
+<p>Ensemble Learning 指的是把多個機器學習的演算法結合在一起，
+再根據整合的結果做最後判斷。</p>
+<p>常見演算法：</p>
+<ul class="simple">
+<li>Adaboost</li>
+<li>Gradient Boosting</li>
+</ul>
 </div>
 <div class="section" id="id3">
 <h2><a class="toc-backref" href="#id6">參考</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
-<li>[2016] <a class="reference external" href="https://arxiv.org/abs/1512.06473">Quantized Convolutional Neural Networks for Mobile Devices</a></li>
-<li><a class="reference external" href="https://en.wikipedia.org/wiki/Quantization_(signal_processing)">Wikipedia - Quantization (signal processing)</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Ensemble_learning">Wikipedia - Ensemble learning</a></li>
+<li>[GitHub] <a class="reference external" href="https://github.com/dmlc/xgboost">XGBoost - optimized distributed gradient boosting library</a></li>
 </ul>
 </div>
 </div>
