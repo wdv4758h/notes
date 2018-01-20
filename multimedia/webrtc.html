@@ -584,24 +584,30 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="gstreamer.html">GStreamer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="kodi.html">Kodi - Open Source Home Theater Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="linux-sound-system.html">Linux Sound System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="media-container.html">Media Container</a></li>
 <li class="toctree-l1"><a class="reference internal" href="noise-cancellation.html">降噪 (Noise Cancellation)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="opencv.html">OpenCV</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pulseaudio.html">PulseAudio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="video.html">Video</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vlc.html">VLC</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">WebRTC</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2">架構</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">WebRTC 架構</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#ice">ICE</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#bundle">Bundle</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#dtls-srtp">DTLS-SRTP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sctp-stream-control-transmission-protocol">SCTP (Stream Control Transmission Protocol)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rtcp">RTCP</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#webrtc-sdp">WebRTC SDP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#simulcast">Simulcast</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#ortc">ORTC</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#openwebrtc">OpenWebRTC</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#janus-webrtc-gateway">Janus - WebRTC gateway</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#kurento">Kurento</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#jitsi">Jitsi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#licode">Licode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gstreamer-webrtc">GStreamer &amp; WebRTC</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id3">參考</a></li>
 </ul>
 </li>
@@ -733,6 +739,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../rust/machine-learning.html">機器學習 (Machine Learning)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/macro.html">Macro</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/make-parity-work-on-freebsd.html">Make Parity work on FreeBSD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/microcontroller.html">Microcontroller</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/mir.html">MIR (Mid-level Intermediate Representation)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/misc.html">Rust - Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/monomorphization.html">Monomorphization</a></li>
@@ -877,25 +884,30 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <p class="topic-title first">目錄</p>
 <ul class="simple">
 <li><a class="reference internal" href="#webrtc" id="id5">WebRTC</a><ul>
-<li><a class="reference internal" href="#id2" id="id6">架構</a><ul>
+<li><a class="reference internal" href="#id2" id="id6">WebRTC 架構</a><ul>
 <li><a class="reference internal" href="#ice" id="id7">ICE</a></li>
 <li><a class="reference internal" href="#bundle" id="id8">Bundle</a></li>
 <li><a class="reference internal" href="#dtls-srtp" id="id9">DTLS-SRTP</a></li>
-<li><a class="reference internal" href="#webrtc-sdp" id="id10">WebRTC SDP</a></li>
+<li><a class="reference internal" href="#sctp-stream-control-transmission-protocol" id="id10">SCTP (Stream Control Transmission Protocol)</a></li>
+<li><a class="reference internal" href="#rtcp" id="id11">RTCP</a></li>
+<li><a class="reference internal" href="#webrtc-sdp" id="id12">WebRTC SDP</a></li>
+<li><a class="reference internal" href="#simulcast" id="id13">Simulcast</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#openwebrtc" id="id11">OpenWebRTC</a></li>
-<li><a class="reference internal" href="#janus-webrtc-gateway" id="id12">Janus - WebRTC gateway</a></li>
-<li><a class="reference internal" href="#kurento" id="id13">Kurento</a></li>
-<li><a class="reference internal" href="#jitsi" id="id14">Jitsi</a></li>
-<li><a class="reference internal" href="#licode" id="id15">Licode</a></li>
-<li><a class="reference internal" href="#id3" id="id16">參考</a></li>
+<li><a class="reference internal" href="#ortc" id="id14">ORTC</a></li>
+<li><a class="reference internal" href="#openwebrtc" id="id15">OpenWebRTC</a></li>
+<li><a class="reference internal" href="#janus-webrtc-gateway" id="id16">Janus - WebRTC gateway</a></li>
+<li><a class="reference internal" href="#kurento" id="id17">Kurento</a></li>
+<li><a class="reference internal" href="#jitsi" id="id18">Jitsi</a></li>
+<li><a class="reference internal" href="#licode" id="id19">Licode</a></li>
+<li><a class="reference internal" href="#gstreamer-webrtc" id="id20">GStreamer &amp; WebRTC</a></li>
+<li><a class="reference internal" href="#id3" id="id21">參考</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="id2">
-<h2><a class="toc-backref" href="#id6">架構</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id6">WebRTC 架構</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -931,6 +943,108 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </dl>
 </li>
 </ul>
+<p>Default: 4 channels</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="39%" />
+<col width="28%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">RTP</th>
+<th class="head">RTCP</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Audio</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr class="row-odd"><td>Video</td>
+<td>2</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p>Bundle: 2 channels</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="39%" />
+<col width="28%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">RTP</th>
+<th class="head">RTCP</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Audio</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr class="row-odd"><td>Video</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>RTCP-mux: 2 channels</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="39%" />
+<col width="28%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">RTP</th>
+<th class="head">RTCP</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Audio</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td>Video</td>
+<td>2</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>Bundle + RTCP-mux: 1 channels</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="39%" />
+<col width="28%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">RTP</th>
+<th class="head">RTCP</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Audio</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td>Video</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><a class="reference external" href="https://www.slideshare.net/alexpiwi5/2016-february-webrtc-conference-japan-english">https://www.slideshare.net/alexpiwi5/2016-february-webrtc-conference-japan-english</a></li>
+<li><a class="reference external" href="https://webrtcglossary.com/rtcp-mux/">https://webrtcglossary.com/rtcp-mux/</a></li>
+<li><a class="reference external" href="https://webrtcglossary.com/bundle/">https://webrtcglossary.com/bundle/</a></li>
+<li>reduce the resource needed for NAT</li>
+</ul>
 </div>
 <div class="section" id="dtls-srtp">
 <h3><a class="toc-backref" href="#id9">DTLS-SRTP</a><a class="headerlink" href="#dtls-srtp" title="本標題的永久連結">¶</a></h3>
@@ -947,18 +1061,51 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li>MIKEY</li>
 <li>ZRTP: 使用 Diffie-Hellman</li>
 <li>DTLS-SRTP</li>
+</ul>
+<p>DTLS 版本：</p>
+<ul class="simple">
+<li>DTLS 1.0: 基於 TLS 1.1</li>
+<li>DTLS 1.2: 基於 TLS 1.2</li>
+</ul>
+<p>參考：</p>
+<ul class="simple">
 <li><a class="reference external" href="https://webrtchacks.com/webrtc-must-implement-dtls-srtp-but-must-not-implement-sdes/">WebRTC MUST implement DTLS-SRTP but… MUST NOT implement SDES ?</a></li>
+<li><a class="reference external" href="https://tls.mbed.org/kb/how-to/dtls-tutorial">mbedTLS - DTLS tutorial</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Datagram_Transport_Layer_Security">Wikipedia - DTLS (Datagram Transport Layer Security)</a></li>
 </ul>
 </div>
+<div class="section" id="sctp-stream-control-transmission-protocol">
+<h3><a class="toc-backref" href="#id10">SCTP (Stream Control Transmission Protocol)</a><a class="headerlink" href="#sctp-stream-control-transmission-protocol" title="本標題的永久連結">¶</a></h3>
+<p>類似 UDP 和 TCP 的混合。</p>
+<p>WebRTC 的 Data Channel 用 SCTP 傳輸。</p>
+<ul class="simple">
+<li><a class="reference external" href="https://webrtcglossary.com/sctp/">SCTP - WebRTC Glossary</a></li>
+</ul>
+</div>
+<div class="section" id="rtcp">
+<h3><a class="toc-backref" href="#id11">RTCP</a><a class="headerlink" href="#rtcp" title="本標題的永久連結">¶</a></h3>
+<p>在 RTP 之上加入些許控制機制，
+藉此可以傳輸統計報告和流程控管，
+如此一來接收端可以提供發送端更多資訊來調整。</p>
+</div>
 <div class="section" id="webrtc-sdp">
-<h3><a class="toc-backref" href="#id10">WebRTC SDP</a><a class="headerlink" href="#webrtc-sdp" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id12">WebRTC SDP</a><a class="headerlink" href="#webrtc-sdp" title="本標題的永久連結">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="https://webrtchacks.com/sdp-anatomy/">Anatomy of a WebRTC SDP</a></li>
 </ul>
 </div>
+<div class="section" id="simulcast">
+<h3><a class="toc-backref" href="#id13">Simulcast</a><a class="headerlink" href="#simulcast" title="本標題的永久連結">¶</a></h3>
+</div>
+</div>
+<div class="section" id="ortc">
+<h2><a class="toc-backref" href="#id14">ORTC</a><a class="headerlink" href="#ortc" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://ortc.org/">Object API for RTC – Mobile, Server, Web</a></li>
+</ul>
 </div>
 <div class="section" id="openwebrtc">
-<h2><a class="toc-backref" href="#id11">OpenWebRTC</a><a class="headerlink" href="#openwebrtc" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id15">OpenWebRTC</a><a class="headerlink" href="#openwebrtc" title="本標題的永久連結">¶</a></h2>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -969,7 +1116,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </table>
 </div>
 <div class="section" id="janus-webrtc-gateway">
-<h2><a class="toc-backref" href="#id12">Janus - WebRTC gateway</a><a class="headerlink" href="#janus-webrtc-gateway" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id16">Janus - WebRTC gateway</a><a class="headerlink" href="#janus-webrtc-gateway" title="本標題的永久連結">¶</a></h2>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -990,7 +1137,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </ul>
 </div>
 <div class="section" id="kurento">
-<h2><a class="toc-backref" href="#id13">Kurento</a><a class="headerlink" href="#kurento" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id17">Kurento</a><a class="headerlink" href="#kurento" title="本標題的永久連結">¶</a></h2>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1004,7 +1151,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <p>C++ 寫的</p>
 </div>
 <div class="section" id="jitsi">
-<h2><a class="toc-backref" href="#id14">Jitsi</a><a class="headerlink" href="#jitsi" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id18">Jitsi</a><a class="headerlink" href="#jitsi" title="本標題的永久連結">¶</a></h2>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1016,7 +1163,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <p>Java 寫的</p>
 </div>
 <div class="section" id="licode">
-<h2><a class="toc-backref" href="#id15">Licode</a><a class="headerlink" href="#licode" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id19">Licode</a><a class="headerlink" href="#licode" title="本標題的永久連結">¶</a></h2>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1028,8 +1175,11 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </tbody>
 </table>
 </div>
+<div class="section" id="gstreamer-webrtc">
+<h2><a class="toc-backref" href="#id20">GStreamer &amp; WebRTC</a><a class="headerlink" href="#gstreamer-webrtc" title="本標題的永久連結">¶</a></h2>
+</div>
 <div class="section" id="id3">
-<h2><a class="toc-backref" href="#id16">參考</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id21">參考</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://www.w3.org/TR/webrtc/">WebRTC 1.0: Real-time Communication Between Browsers</a></li>
 <li><a class="reference external" href="https://github.com/webrtc/apprtc">AppRTC - WebRTC demo</a></li>

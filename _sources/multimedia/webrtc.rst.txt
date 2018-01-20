@@ -6,7 +6,7 @@ WebRTC
 .. contents:: 目錄
 
 
-架構
+WebRTC 架構
 ========================================
 
 :URL: https://webrtc.org/architecture/
@@ -26,6 +26,55 @@ Bundle
 		- 所有 media 都會經由一條 DTLS handshake 建起的連線傳輸
 * non-bundle
 		- media 會經由不同條 DTLS handshake 建起的連線傳輸
+
+
+Default: 4 channels
+
++-------+-----+------+
+|       | RTP | RTCP |
++=======+=====+======+
+| Audio | 1   | 3    |
++-------+-----+------+
+| Video | 2   | 4    |
++-------+-----+------+
+
+
+Bundle: 2 channels
+
++-------+-----+------+
+|       | RTP | RTCP |
++=======+=====+======+
+| Audio | 1   | 2    |
++-------+-----+------+
+| Video | 1   | 2    |
++-------+-----+------+
+
+RTCP-mux: 2 channels
+
++-------+-----+------+
+|       | RTP | RTCP |
++=======+=====+======+
+| Audio | 1   | 1    |
++-------+-----+------+
+| Video | 2   | 2    |
++-------+-----+------+
+
+Bundle + RTCP-mux: 1 channels
+
++-------+-----+------+
+|       | RTP | RTCP |
++=======+=====+======+
+| Audio | 1   | 1    |
++-------+-----+------+
+| Video | 1   | 1    |
++-------+-----+------+
+
+
+* https://www.slideshare.net/alexpiwi5/2016-february-webrtc-conference-japan-english
+* https://webrtcglossary.com/rtcp-mux/
+* https://webrtcglossary.com/bundle/
+* reduce the resource needed for NAT
+
 
 
 DTLS-SRTP
@@ -49,14 +98,54 @@ WebRTC 的實做一定要支援使用 RTP/SAVPF profile (RTP/SAVPF 基於 RTP/SA
 * DTLS-SRTP
 
 
+DTLS 版本：
+
+* DTLS 1.0: 基於 TLS 1.1
+* DTLS 1.2: 基於 TLS 1.2
+
+
+參考：
 
 * `WebRTC MUST implement DTLS-SRTP but… MUST NOT implement SDES ? <https://webrtchacks.com/webrtc-must-implement-dtls-srtp-but-must-not-implement-sdes/>`_
+* `mbedTLS - DTLS tutorial <https://tls.mbed.org/kb/how-to/dtls-tutorial>`_
+* `Wikipedia - DTLS (Datagram Transport Layer Security) <https://en.wikipedia.org/wiki/Datagram_Transport_Layer_Security>`_
+
+
+SCTP (Stream Control Transmission Protocol)
+-------------------------------------------
+
+類似 UDP 和 TCP 的混合。
+
+WebRTC 的 Data Channel 用 SCTP 傳輸。
+
+
+* `SCTP - WebRTC Glossary <https://webrtcglossary.com/sctp/>`_
+
+
+
+RTCP
+-------------------------------------------
+
+在 RTP 之上加入些許控制機制，
+藉此可以傳輸統計報告和流程控管，
+如此一來接收端可以提供發送端更多資訊來調整。
+
 
 
 WebRTC SDP
 ------------------------------
 
 * `Anatomy of a WebRTC SDP <https://webrtchacks.com/sdp-anatomy/>`_
+
+
+Simulcast
+------------------------------
+
+
+ORTC
+========================================
+
+* `Object API for RTC – Mobile, Server, Web <https://ortc.org/>`_
 
 
 
@@ -109,6 +198,11 @@ Licode
 
 :Repo: https://github.com/lynckia/licode
 :License: MIT
+
+
+
+GStreamer & WebRTC
+========================================
 
 
 

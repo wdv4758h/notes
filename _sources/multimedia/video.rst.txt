@@ -6,7 +6,42 @@ Video
 .. contents:: 目錄
 
 
-HEVC
+MJPEG (Motion JPEG)
+========================================
+
+
+
+VP8
+========================================
+
+
+
+VP9
+========================================
+
+
+
+H264 (AVC)
+========================================
+
+
+
+H265 (HEVC)
+========================================
+
+
+
+Thor
+========================================
+
+
+
+Theora
+========================================
+
+
+
+Daala
 ========================================
 
 
@@ -22,4 +57,7 @@ AOMedia 的成員包含 Amazon、AMD、ARM、Cisco、Google、Intel、IBM、Micr
 參考
 ========================================
 
+* `Wikipedia - Alliance for Open Media <https://en.wikipedia.org/wiki/Alliance_for_Open_Media>`_
+* `Wikipedia - AOMedia Video 1 <https://en.wikipedia.org/wiki/AOMedia_Video_1>`_
 * [GitHub] `Digital Video Introduction <https://github.com/leandromoreira/digital_video_introduction>`_
+* [GitHub] `Learn FFmpeg libav the Hard Way <https://github.com/leandromoreira/ffmpeg-libav-tutorial>`_
