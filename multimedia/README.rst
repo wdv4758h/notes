@@ -7,6 +7,7 @@
 
 * `Audio <audio.rst>`_
 * `Video <video.rst>`_
+* `Media Container <media-container.rst>`_
 * `降噪 (Noise Cancellation) <noise-cancellation.rst>`_
 
 
@@ -19,6 +20,8 @@
 * `GStreamer <gstreamer.rst>`_
 * `FFmpeg <ffmpeg.rst>`_
 * `OpenCV <opencv.rst>`_
+* `WebRTC <webrtc.rst>`_
+* MediaInfo
 
 
 給 End User 的軟體：
