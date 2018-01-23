@@ -304,6 +304,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="c/resource.html">Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c/undefine-behavior.html">Undefined Behavior</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiler/README.html">編譯器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler/autotuning.html">Compiler Autotuning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiler/branch-prediction-hint.html">Branch Prediction Hint</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiler/clang-options.html">Clang Options</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiler/clang-tools.html">Clang Tools</a></li>
@@ -651,6 +652,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="python/pypy.html">PyPy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python/python-3.5.html">Python 3.5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python/python-3.6.html">Python 3.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python/python-3.7.html">Python 3.7</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python/qt.html">Qt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python/resource.html">Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python/scipy.html">SciPy</a></li>
@@ -1914,7 +1916,8 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="browser/firefox.html#firefox-focus">Firefox Focus</a></li>
-<li class="toctree-l2"><a class="reference internal" href="browser/firefox.html#id8">參考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="browser/firefox.html#id8">編譯 Firefox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="browser/firefox.html#id9">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="browser/firefox-settings.html">Firefox 設定</a><ul>
@@ -2040,6 +2043,10 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l1"><a class="reference internal" href="c/resource.html">Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c/undefine-behavior.html">Undefined Behavior</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiler/README.html">編譯器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler/autotuning.html">Compiler Autotuning</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="compiler/autotuning.html#id2">參考</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="compiler/branch-prediction-hint.html">Branch Prediction Hint</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="compiler/branch-prediction-hint.html#llvm-branch-weight-metadata">LLVM Branch Weight Metadata</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compiler/branch-prediction-hint.html#linux-kernel-macro">Linux Kernel Macro</a></li>
@@ -4564,6 +4571,10 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="python/python-3.6.html#id2">參考</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="python/python-3.7.html">Python 3.7</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="python/python-3.7.html#import-time">import time 測量</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="python/qt.html">Qt</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="python/qt.html#pyqt-v-s-pyside">PyQt v.s. PySide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python/qt.html#reference">Reference</a></li>
@@ -4892,6 +4903,7 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rust/benchmark.html">Benchmark</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="rust/benchmark.html#cargo-benchcmp">cargo-benchcmp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/benchmark.html#hyperfine">hyperfine</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rust/books.html">Rust 相關書籍</a></li>
@@ -5088,7 +5100,7 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rust/index.html">My Rust Articles Collection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/iterator.html">Iterator</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rust/iterator.html#normal-use">Normal Use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/iterator.html#id2">一般使用</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/iterator.html#zip">zip</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="rust/iterator.html#example-1">Example 1</a></li>
 <li class="toctree-l3"><a class="reference internal" href="rust/iterator.html#example-2">Example 2</a></li>
@@ -5097,6 +5109,7 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="rust/iterator.html#peakable">Peakable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/iterator.html#for-each">for each</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/iterator.html#reference">Reference</a></li>
 </ul>
 </li>

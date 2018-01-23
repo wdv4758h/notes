@@ -130,6 +130,18 @@ Firefox Focus
 
 
 
+編譯 Firefox
+========================================
+
+設定 ``mozconfig`` ，
+用 ``mach build``
+
+
+* `Configuring Build Options - Mozilla | MDN <https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Build_Instructions/Configuring_Build_Options>`_
+* `Arch Linux - Firefox PKGBUILD <https://git.archlinux.org/svntogit/packages.git/tree/trunk/PKGBUILD?h=packages/firefox>`_
+
+
+
 參考
 ========================================
 

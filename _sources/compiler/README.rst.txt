@@ -10,3 +10,4 @@
 * `LLVM Python <llvm-python.rst>`_
 * `LLVM to VHDL/Verilog <llvm-to-vhdl-verilog.rst>`_
 * `Optimization <optimization.rst>`_
+* `Autotuning <autotuning.rst>`_

@@ -2,7 +2,11 @@
 Iterator
 ========================================
 
-Normal Use
+
+.. contents:: 目錄
+
+
+一般使用
 ========================================
 
 Python :
@@ -169,9 +173,6 @@ Example
 
 
 
-
-
-
 Peakable
 ========================================
 
@@ -196,6 +197,32 @@ Output : ::
     是 測
     測 試
     試
+
+
+
+for each
+========================================
+
+實做：
+
+.. code-block:: rust
+
+    #[inline]
+    #[stable(feature = "iterator_for_each", since = "1.21.0")]
+    fn for_each<F>(self, mut f: F) where
+        Self: Sized, F: FnMut(Self::Item),
+    {
+        self.fold((), move |(), item| f(item));
+    }
+
+
+``for_each`` 是 idiomatic 的 for loop，
+但是不允許 ``break`` 和 ``continue`` ，
+在某些情況下 ``for_each`` 可能會比 for loop 快。
+
+
+* `PR #42782 - Add Iterator::for_each <https://github.com/rust-lang/rust/pull/42782>`_
+
 
 
 Reference

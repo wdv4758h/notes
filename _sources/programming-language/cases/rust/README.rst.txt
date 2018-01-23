@@ -20,7 +20,7 @@ Rust 相關文章
     - Sort
 * Satic Dispatch & Dynamic Dispatch
 * Module
-* Iterator
+* `Iterator <iterator.rst>`_
 * Closure
 * 數學相關結構
 * I/O
