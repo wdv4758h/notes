@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Numeric &mdash; wdv4758h-notes latest 說明文件</title>
+  <title>數值相關 (Numeric) &mdash; wdv4758h-notes latest 說明文件</title>
   
 
   
@@ -562,7 +562,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../misc/sat-smt.html">SAT/SMT Solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/sites.html">Sites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/software-updates.html">Software Updates</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/ssl-tls-pki-history.html">SL/TLS 以及 PKI 的歷史</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/statifier.html">Statifier</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/task-execution-framework.html">Task Execution Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/team-collaboration.html">Team Collaboration</a></li>
@@ -727,12 +726,13 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="monomorphization.html">Monomorphization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multirust.html">multirust</a></li>
 <li class="toctree-l1"><a class="reference internal" href="network.html">網路相關 (Network)</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Numeric</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">數值相關 (Numeric)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#add-sub-mul-div-rem">Add, Sub, Mul, Div, Rem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#addassign-subassign-mulassign-divassign-remassign">AddAssign, SubAssign, MulAssign, DivAssign, RemAssign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#eq-partialeq">Eq, PartialEq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ord-partialord">Ord, PartialOrd</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#num">num</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#num-trait">Num Trait</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#integer-trait">Integer Trait</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#primint-trait">PrimInt Trait</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#bounded-trait">Bounded Trait</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#num-trait">num 所包含的 trait</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#factorial">範例：階乘 (Factorial)</a></li>
 </ul>
 </li>
@@ -767,6 +767,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../security/resource.html">資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../security/secure-guard-extensions.html">SGX (Secure Guard Extensions)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../security/security.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/security-libs.html">Security Libs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../simd/algorithm.html">運用 SIMD 來加速的演算法</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../simd/status.html">SIMD</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../synchronization/introduction.html">同步 (Synchronization)</a></li>
@@ -850,7 +851,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Numeric</li>
+      <li>數值相關 (Numeric)</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -872,69 +873,296 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
            <div itemprop="articleBody">
             
   <div class="section" id="numeric">
-<h1><a class="toc-backref" href="#id3">Numeric</a><a class="headerlink" href="#numeric" title="本標題的永久連結">¶</a></h1>
+<h1><a class="toc-backref" href="#id3">數值相關 (Numeric)</a><a class="headerlink" href="#numeric" title="本標題的永久連結">¶</a></h1>
 <div class="contents topic" id="id1">
 <p class="topic-title first">目錄</p>
 <ul class="simple">
-<li><a class="reference internal" href="#numeric" id="id3">Numeric</a><ul>
-<li><a class="reference internal" href="#num" id="id4">num</a><ul>
-<li><a class="reference internal" href="#num-trait" id="id5">Num Trait</a></li>
-<li><a class="reference internal" href="#integer-trait" id="id6">Integer Trait</a></li>
-<li><a class="reference internal" href="#primint-trait" id="id7">PrimInt Trait</a></li>
-<li><a class="reference internal" href="#bounded-trait" id="id8">Bounded Trait</a></li>
-<li><a class="reference internal" href="#factorial" id="id9">範例：階乘 (Factorial)</a></li>
+<li><a class="reference internal" href="#numeric" id="id3">數值相關 (Numeric)</a><ul>
+<li><a class="reference internal" href="#add-sub-mul-div-rem" id="id4">Add, Sub, Mul, Div, Rem</a></li>
+<li><a class="reference internal" href="#addassign-subassign-mulassign-divassign-remassign" id="id5">AddAssign, SubAssign, MulAssign, DivAssign, RemAssign</a></li>
+<li><a class="reference internal" href="#eq-partialeq" id="id6">Eq, PartialEq</a></li>
+<li><a class="reference internal" href="#ord-partialord" id="id7">Ord, PartialOrd</a></li>
+<li><a class="reference internal" href="#num" id="id8">num</a><ul>
+<li><a class="reference internal" href="#num-trait" id="id9">num 所包含的 trait</a></li>
+<li><a class="reference internal" href="#factorial" id="id10">範例：階乘 (Factorial)</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id2" id="id10">參考</a></li>
+<li><a class="reference internal" href="#id2" id="id11">參考</a></li>
 </ul>
 </li>
 </ul>
+</div>
+<div class="section" id="add-sub-mul-div-rem">
+<h2><a class="toc-backref" href="#id4">Add, Sub, Mul, Div, Rem</a><a class="headerlink" href="#add-sub-mul-div-rem" title="本標題的永久連結">¶</a></h2>
+</div>
+<div class="section" id="addassign-subassign-mulassign-divassign-remassign">
+<h2><a class="toc-backref" href="#id5">AddAssign, SubAssign, MulAssign, DivAssign, RemAssign</a><a class="headerlink" href="#addassign-subassign-mulassign-divassign-remassign" title="本標題的永久連結">¶</a></h2>
+</div>
+<div class="section" id="eq-partialeq">
+<h2><a class="toc-backref" href="#id6">Eq, PartialEq</a><a class="headerlink" href="#eq-partialeq" title="本標題的永久連結">¶</a></h2>
+</div>
+<div class="section" id="ord-partialord">
+<h2><a class="toc-backref" href="#id7">Ord, PartialOrd</a><a class="headerlink" href="#ord-partialord" title="本標題的永久連結">¶</a></h2>
 </div>
 <div class="section" id="num">
-<h2><a class="toc-backref" href="#id4">num</a><a class="headerlink" href="#num" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id8">num</a><a class="headerlink" href="#num" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="num-trait">
+<h3><a class="toc-backref" href="#id9">num 所包含的 trait</a><a class="headerlink" href="#num-trait" title="本標題的永久連結">¶</a></h3>
 <p><code class="docutils literal"><span class="pre">num</span></code> 提供了一些數值相關的型別和 Trait，
 可以藉此來撰寫數學相關函式。</p>
-<div class="section" id="num-trait">
-<h3><a class="toc-backref" href="#id5">Num Trait</a><a class="headerlink" href="#num-trait" title="本標題的永久連結">¶</a></h3>
+<p>Crates：</p>
+<ul class="simple">
+<li>num-traits:   基本數值界面，例如有號無號、加減乘除、餘數等等</li>
+<li>num-integer:  「整數」型別</li>
+<li>num-rational: 「有理數」型別，主要是可以用分數</li>
+<li>num-complex:  「複數」型別</li>
+<li>num-bigint:   實做「大數」</li>
+<li>num-iter:     支援 iterator，可以用 range</li>
+<li>num-derive:   提供 macro 來實做客製化型別和 primitive 數值的轉換</li>
+<li>num:          把以上 crates 統合打包</li>
+</ul>
+<hr class="docutils" />
+<p><code class="docutils literal"><span class="pre">Zero</span></code> 定義型別的加法單位元素 (additive identity)，
+隱含 <code class="docutils literal"><span class="pre">Sized</span></code> 、 <code class="docutils literal"><span class="pre">Add</span></code> 。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>a + 0 = a       ∀ a ∈ Self
+0 + a = a       ∀ a ∈ Self
+</pre></div>
+</div>
+<p>提供：</p>
+<ul class="simple">
+<li>zero</li>
+<li>is_zero</li>
+</ul>
+<hr class="docutils" />
+<p><code class="docutils literal"><span class="pre">One</span></code> 定義型別的乘法單位元素 (multiplicative identity)，
+隱含 <code class="docutils literal"><span class="pre">Sized</span></code> 、 <code class="docutils literal"><span class="pre">Mul</span></code> 。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>a * 1 = a       ∀ a ∈ Self
+1 * a = a       ∀ a ∈ Self
+</pre></div>
+</div>
+<p>提供：</p>
+<ul class="simple">
+<li>one</li>
+</ul>
+<hr class="docutils" />
+<p><code class="docutils literal"><span class="pre">NumOps</span></code> 表示型別支援基本運算操作，
+包含 <code class="docutils literal"><span class="pre">Add</span></code> 、 <code class="docutils literal"><span class="pre">Sub</span></code> 、 <code class="docutils literal"><span class="pre">Mul</span></code> 、 <code class="docutils literal"><span class="pre">Div</span></code> 、 <code class="docutils literal"><span class="pre">Rem</span></code> ，
+有實做以上五種 trait 的型別會自動實做了 <code class="docutils literal"><span class="pre">NumOps</span></code> ，
+算是把這幾個 trait 包起來。</p>
+<p><code class="docutils literal"><span class="pre">NumAssignOps</span></code> 表示型別支援 assign 版本的基本運算操作，
+包含 <code class="docutils literal"><span class="pre">AddAssign</span></code> 、 <code class="docutils literal"><span class="pre">SubAssign</span></code> 、 <code class="docutils literal"><span class="pre">MulAssign</span></code> 、
+<code class="docutils literal"><span class="pre">DivAssign</span></code> 、 <code class="docutils literal"><span class="pre">RemAssign</span></code> ，
+有實做以上五種 trait 的型別會自動實做了 <code class="docutils literal"><span class="pre">NumAssignOps</span></code> ，
+算是把這幾個 trait 包起來。</p>
+<hr class="docutils" />
 <p><code class="docutils literal"><span class="pre">Num</span></code> 表示型別為數值，
-隱含了定義數值的零、一、加減乘除、餘數、Partial Equal。</p>
-</div>
-<div class="section" id="integer-trait">
-<h3><a class="toc-backref" href="#id6">Integer Trait</a><a class="headerlink" href="#integer-trait" title="本標題的永久連結">¶</a></h3>
+代表定義數值的零、一、加減乘除、餘數、Partial Equal，
+隱含 <code class="docutils literal"><span class="pre">Zero</span></code> 、 <code class="docutils literal"><span class="pre">One</span></code> 、 <code class="docutils literal"><span class="pre">NumOps</span></code> 、 <code class="docutils literal"><span class="pre">PartialEq</span></code> 。</p>
+<p>提供：</p>
+<ul class="simple">
+<li>from_str_radix</li>
+</ul>
+<p><code class="docutils literal"><span class="pre">NumAssign</span></code> 表示這個型別的 <code class="docutils literal"><span class="pre">Num</span></code> 也支援 assign 相關操作，
+有實做 <code class="docutils literal"><span class="pre">Num</span></code> 和 <code class="docutils literal"><span class="pre">NumAssignOps</span></code> 的型別會自動實做 <code class="docutils literal"><span class="pre">NumAssign</span></code> ，
+算是簡易包裝。</p>
+<hr class="docutils" />
+<p><code class="docutils literal"><span class="pre">Signed</span></code> 表示這個型別的數值是有號的，
+數值可以是負，
+隱含 <code class="docutils literal"><span class="pre">Sized</span></code> 、 <code class="docutils literal"><span class="pre">Num</span></code> 、 <code class="docutils literal"><span class="pre">Neg</span></code> 。</p>
+<p>提供：</p>
+<ul class="simple">
+<li>abs</li>
+<li>abs_sub</li>
+<li>signum</li>
+<li>is_positive</li>
+<li>is_negative</li>
+</ul>
+<hr class="docutils" />
+<p><code class="docutils literal"><span class="pre">Unsigned</span></code> 表示這個型別的數值是無號的，
+隱含 <code class="docutils literal"><span class="pre">Num</span></code> ，目前沒有提供額外的 method。</p>
+<hr class="docutils" />
+<p><code class="docutils literal"><span class="pre">Real</span></code> 提供實數定義，
+但不一定需要實做浮點數相關的 NaN 和 Inf (但是 Float 有實做 Real)，
+隱含 <code class="docutils literal"><span class="pre">Num</span></code> 、 <code class="docutils literal"><span class="pre">Copy</span></code> 、 <code class="docutils literal"><span class="pre">NumCast</span></code> 、 <code class="docutils literal"><span class="pre">PartialEq</span></code> 、 <code class="docutils literal"><span class="pre">Neg</span></code> 。</p>
+<p>提供：</p>
+<ul class="simple">
+<li>min_value</li>
+<li>min_positive_value</li>
+<li>epsilon</li>
+<li>max_value</li>
+<li>floor</li>
+<li>ceil</li>
+<li>round</li>
+<li>trunc</li>
+<li>fract</li>
+<li>abs</li>
+<li>signum</li>
+<li>is_sign_positive</li>
+<li>is_sign_negative</li>
+<li>mul_add</li>
+<li>recip</li>
+<li>powi</li>
+<li>powf</li>
+<li>sqrt</li>
+<li>exp</li>
+<li>exp2</li>
+<li>ln</li>
+<li>log</li>
+<li>log2</li>
+<li>log10</li>
+<li>to_degrees</li>
+<li>to_radians</li>
+<li>max</li>
+<li>min</li>
+<li>abs_sub</li>
+<li>cbrt</li>
+<li>hypot</li>
+<li>sin</li>
+<li>cos</li>
+<li>tan</li>
+<li>asin</li>
+<li>acos</li>
+<li>atan</li>
+<li>atan2</li>
+<li>sin_cos</li>
+<li>exp_m1</li>
+<li>ln_1p</li>
+<li>sinh</li>
+<li>cosh</li>
+<li>tanh</li>
+<li>asinh</li>
+<li>acosh</li>
+<li>atanh</li>
+</ul>
+<hr class="docutils" />
+<p><code class="docutils literal"><span class="pre">Float</span></code> 提供浮點數定義，
+隱含 <code class="docutils literal"><span class="pre">NumCast</span></code> 、 <code class="docutils literal"><span class="pre">Num</span></code> 、 <code class="docutils literal"><span class="pre">Copy</span></code> 、 <code class="docutils literal"><span class="pre">Neg</span></code> 、 <code class="docutils literal"><span class="pre">PartialOrd</span></code> 。</p>
+<p>提供：</p>
+<ul class="simple">
+<li>nan</li>
+<li>infinity</li>
+<li>neg_infinity</li>
+<li>neg_zero</li>
+<li>min_value</li>
+<li>min_positive_value</li>
+<li>max_value</li>
+<li>is_nan</li>
+<li>is_infinite</li>
+<li>is_finite</li>
+<li>is_normal</li>
+<li>classify</li>
+<li>floor</li>
+<li>ceil</li>
+<li>round</li>
+<li>trunc</li>
+<li>fract</li>
+<li>abs</li>
+<li>signum</li>
+<li>is_sign_positive</li>
+<li>is_sign_negative</li>
+<li>mul_add</li>
+<li>recip</li>
+<li>powi</li>
+<li>powf</li>
+<li>sqrt</li>
+<li>exp</li>
+<li>exp2</li>
+<li>ln</li>
+<li>log</li>
+<li>log2</li>
+<li>log10</li>
+<li>max</li>
+<li>min</li>
+<li>abs_sub</li>
+<li>cbrt</li>
+<li>hypot</li>
+<li>sin</li>
+<li>cos</li>
+<li>tan</li>
+<li>asin</li>
+<li>acos</li>
+<li>atan</li>
+<li>atan2</li>
+<li>sin_cos</li>
+<li>exp_m1</li>
+<li>ln_1p</li>
+<li>sinh</li>
+<li>cosh</li>
+<li>tanh</li>
+<li>asinh</li>
+<li>acosh</li>
+<li>atanh</li>
+<li>integer_decode</li>
+<li>epsilon</li>
+<li>to_degrees</li>
+<li>to_radians</li>
+</ul>
+<hr class="docutils" />
 <p><code class="docutils literal"><span class="pre">Integer</span></code> 表示型別為整數，
-隱含 <code class="docutils literal"><span class="pre">Eq</span></code> 、 <code class="docutils literal"><span class="pre">Ord</span></code> 、 <code class="docutils literal"><span class="pre">PartialOrd</span></code> 、 <code class="docutils literal"><span class="pre">Num</span></code> 。</p>
-</div>
-<div class="section" id="primint-trait">
-<h3><a class="toc-backref" href="#id7">PrimInt Trait</a><a class="headerlink" href="#primint-trait" title="本標題的永久連結">¶</a></h3>
-<p><code class="docutils literal"><span class="pre">PrimInt</span></code> 針對一些 Primitive 的整數提供一些操作，
-例如計算 leading zeros、trailing zeros、big/little endian 轉換等等。</p>
-</div>
-<div class="section" id="bounded-trait">
-<h3><a class="toc-backref" href="#id8">Bounded Trait</a><a class="headerlink" href="#bounded-trait" title="本標題的永久連結">¶</a></h3>
+隱含 <code class="docutils literal"><span class="pre">Sized</span></code> 、 <code class="docutils literal"><span class="pre">Eq</span></code> 、 <code class="docutils literal"><span class="pre">Ord</span></code> 、 <code class="docutils literal"><span class="pre">PartialOrd</span></code> 、 <code class="docutils literal"><span class="pre">Num</span></code> 。</p>
+<p>提供：</p>
+<ul class="simple">
+<li>div_floor</li>
+<li>mod_floor</li>
+<li>gcd</li>
+<li>lcm</li>
+<li>divides</li>
+<li>is_multiple_of</li>
+<li>is_even</li>
+<li>is_odd</li>
+<li>div_rem</li>
+<li>div_mod_floor</li>
+</ul>
+<hr class="docutils" />
 <p><code class="docutils literal"><span class="pre">Bounded</span></code> 表示數值有上下界。</p>
+<p>提供：</p>
+<ul class="simple">
+<li>min_value</li>
+<li>max_value</li>
+</ul>
+<hr class="docutils" />
+<p><code class="docutils literal"><span class="pre">PrimInt</span></code> 提供一些 Primitive 的整數操作，
+例如計算 leading zeros、trailing zeros、big/little endian 轉換等等，
+隱含 <code class="docutils literal"><span class="pre">Saturating</span></code> 、 <code class="docutils literal"><span class="pre">CheckedAdd</span></code> 、 <code class="docutils literal"><span class="pre">CheckedSub</span></code> 、 <code class="docutils literal"><span class="pre">CheckedMul</span></code> 、 <code class="docutils literal"><span class="pre">CheckedDiv</span></code> 、 <code class="docutils literal"><span class="pre">Bounded</span></code> 、 <code class="docutils literal"><span class="pre">NumCast</span></code> 、 <code class="docutils literal"><span class="pre">Num</span></code> 、 <code class="docutils literal"><span class="pre">Copy</span></code> 、 <code class="docutils literal"><span class="pre">Not</span></code> 、 <code class="docutils literal"><span class="pre">BitAnd</span></code> 、 <code class="docutils literal"><span class="pre">BitOr</span></code> 、 <code class="docutils literal"><span class="pre">BitXor</span></code> 、 <code class="docutils literal"><span class="pre">Shl</span></code> 、 <code class="docutils literal"><span class="pre">Shr</span></code> 、 <code class="docutils literal"><span class="pre">Eq</span></code> 、 <code class="docutils literal"><span class="pre">Ord</span></code> 、 <code class="docutils literal"><span class="pre">PartialOrd</span></code> 。</p>
+<p>提供：</p>
+<ul class="simple">
+<li>count_ones</li>
+<li>count_zeros</li>
+<li>leading_zeros</li>
+<li>trailing_zeros</li>
+<li>rotate_left</li>
+<li>rotate_right</li>
+<li>signed_shl</li>
+<li>signed_shr</li>
+<li>unsigned_shl</li>
+<li>unsigned_shr</li>
+<li>swap_bytes</li>
+<li>from_be</li>
+<li>from_le</li>
+<li>to_be</li>
+<li>to_le</li>
+<li>pow</li>
+</ul>
 </div>
 <div class="section" id="factorial">
-<h3><a class="toc-backref" href="#id9">範例：階乘 (Factorial)</a><a class="headerlink" href="#factorial" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id10">範例：階乘 (Factorial)</a><a class="headerlink" href="#factorial" title="本標題的永久連結">¶</a></h3>
 <div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">num</span><span class="p">;</span><span class="w"></span>
 
 <span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">iter</span>::<span class="n">Product</span><span class="p">;</span><span class="w"></span>
-<span class="k">use</span><span class="w"> </span><span class="n">num</span>::<span class="p">{</span><span class="n">PrimInt</span><span class="p">,</span><span class="w"> </span><span class="n">Unsigned</span><span class="p">};</span><span class="w"></span>
+<span class="k">use</span><span class="w"> </span><span class="n">num</span>::<span class="p">{</span><span class="n">PrimInt</span><span class="p">,</span><span class="w"> </span><span class="n">one</span><span class="p">};</span><span class="w"></span>
 
 <span class="sd">/// Find the factorial of n</span>
 <span class="k">fn</span> <span class="nf">factorial</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">n</span>: <span class="nc">T</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">T</span><span class="w"></span>
-<span class="w">    </span><span class="k">where</span><span class="w"> </span><span class="n">T</span>: <span class="nc">PrimInt</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Unsigned</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Product</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">num</span>::<span class="n">range</span><span class="p">(</span><span class="n">T</span>::<span class="n">one</span><span class="p">(),</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">T</span>::<span class="n">one</span><span class="p">()).</span><span class="n">product</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="k">where</span><span class="w"> </span><span class="n">T</span>: <span class="nc">PrimInt</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Product</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">num</span>::<span class="n">range</span><span class="p">(</span><span class="n">one</span><span class="p">(),</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">one</span><span class="p">()).</span><span class="n">product</span><span class="p">()</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
-<div class="highlight-rust"><div class="highlight"><pre><span></span><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;u8: 3! = {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">factorial</span><span class="p">(</span><span class="mi">3_</span><span class="k">u8</span><span class="p">));</span><span class="w"></span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;u8:  3! = {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">factorial</span><span class="p">(</span><span class="mi">3_</span><span class="k">u8</span><span class="p">));</span><span class="w"></span>
 <span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;u16: 3! = {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">factorial</span><span class="p">(</span><span class="mi">3_</span><span class="k">u16</span><span class="p">));</span><span class="w"></span>
 <span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;u32: 3! = {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">factorial</span><span class="p">(</span><span class="mi">3_</span><span class="k">u32</span><span class="p">));</span><span class="w"></span>
 <span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;u64: 3! = {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">factorial</span><span class="p">(</span><span class="mi">3_</span><span class="k">u64</span><span class="p">));</span><span class="w"></span>
-
-<span class="w">    </span><span class="c1">// println!(&quot;u8: 9! = {}&quot;, factorial(9_u8));    // overflow</span>
+<span class="w">    </span><span class="c1">// println!(&quot;u8:  9! = {}&quot;, factorial(9_u8));   // overflow</span>
 <span class="w">    </span><span class="c1">// println!(&quot;u16: 9! = {}&quot;, factorial(9_u16));  // overflow</span>
 <span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;u32: 9! = {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">factorial</span><span class="p">(</span><span class="mi">9_</span><span class="k">u32</span><span class="p">));</span><span class="w"></span>
 <span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;u64: 9! = {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">factorial</span><span class="p">(</span><span class="mi">9_</span><span class="k">u64</span><span class="p">));</span><span class="w"></span>
@@ -944,7 +1172,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </div>
 </div>
 <div class="section" id="id2">
-<h2><a class="toc-backref" href="#id10">參考</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id11">參考</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://travisf.net/rust-generic-numbers">Generic numeric functions in safe, stable Rust with the num crate</a></li>
 </ul>

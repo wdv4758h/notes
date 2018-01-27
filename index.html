@@ -561,7 +561,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="misc/sat-smt.html">SAT/SMT Solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/sites.html">Sites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/software-updates.html">Software Updates</a></li>
-<li class="toctree-l1"><a class="reference internal" href="misc/ssl-tls-pki-history.html">SL/TLS 以及 PKI 的歷史</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/statifier.html">Statifier</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/task-execution-framework.html">Task Execution Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/team-collaboration.html">Team Collaboration</a></li>
@@ -726,7 +725,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="rust/monomorphization.html">Monomorphization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/multirust.html">multirust</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/network.html">網路相關 (Network)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rust/numeric.html">Numeric</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rust/numeric.html">數值相關 (Numeric)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/object-safety.html">Object Safety</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/orm.html">ORM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/os.html">Rust in OS</a></li>
@@ -755,6 +754,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="security/resource.html">資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="security/secure-guard-extensions.html">SGX (Secure Guard Extensions)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="security/security.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security/security-libs.html">Security Libs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="simd/algorithm.html">運用 SIMD 來加速的演算法</a></li>
 <li class="toctree-l1"><a class="reference internal" href="simd/status.html">SIMD</a></li>
 <li class="toctree-l1"><a class="reference internal" href="synchronization/introduction.html">同步 (Synchronization)</a></li>
@@ -3957,7 +3957,6 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </li>
 <li class="toctree-l1"><a class="reference internal" href="misc/sites.html">Sites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/software-updates.html">Software Updates</a></li>
-<li class="toctree-l1"><a class="reference internal" href="misc/ssl-tls-pki-history.html">SL/TLS 以及 PKI 的歷史</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/statifier.html">Statifier</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="misc/statifier.html#reference">Reference</a></li>
 </ul>
@@ -5200,12 +5199,13 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="rust/network.html#id3">參考</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="rust/numeric.html">Numeric</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="rust/numeric.html">數值相關 (Numeric)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rust/numeric.html#add-sub-mul-div-rem">Add, Sub, Mul, Div, Rem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/numeric.html#addassign-subassign-mulassign-divassign-remassign">AddAssign, SubAssign, MulAssign, DivAssign, RemAssign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/numeric.html#eq-partialeq">Eq, PartialEq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/numeric.html#ord-partialord">Ord, PartialOrd</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/numeric.html#num">num</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="rust/numeric.html#num-trait">Num Trait</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rust/numeric.html#integer-trait">Integer Trait</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rust/numeric.html#primint-trait">PrimInt Trait</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rust/numeric.html#bounded-trait">Bounded Trait</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rust/numeric.html#num-trait">num 所包含的 trait</a></li>
 <li class="toctree-l3"><a class="reference internal" href="rust/numeric.html#factorial">範例：階乘 (Factorial)</a></li>
 </ul>
 </li>
@@ -5452,6 +5452,16 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l3"><a class="reference internal" href="security/security.html#buffer-overflow-example-6">Buffer Overflow - Example 6</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="security/security-libs.html">Security Libs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="security/security-libs.html#ssl-tls-pki">SSL/TLS 以及 PKI 的歷史</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security/security-libs.html#openssl">OpenSSL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security/security-libs.html#libressl">LibreSSL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security/security-libs.html#boringssl">BoringSSL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security/security-libs.html#wolfssl">wolfSSL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security/security-libs.html#mbedtls">mbedTLS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security/security-libs.html#gnutls">GnuTLS</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="simd/algorithm.html">運用 SIMD 來加速的演算法</a><ul>

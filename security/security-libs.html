@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>SL/TLS 以及 PKI 的歷史 &mdash; wdv4758h-notes latest 說明文件</title>
+  <title>Security Libs &mdash; wdv4758h-notes latest 說明文件</title>
   
 
   
@@ -36,8 +36,8 @@
               href="../genindex.html"/>
         <link rel="search" title="搜尋" href="../search.html"/>
     <link rel="top" title="wdv4758h-notes latest 說明文件" href="../index.html"/>
-        <link rel="next" title="Statifier" href="statifier.html"/>
-        <link rel="prev" title="Software Updates" href="software-updates.html"/> 
+        <link rel="next" title="運用 SIMD 來加速的演算法" href="../simd/algorithm.html"/>
+        <link rel="prev" title="Security" href="security.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -49,7 +49,7 @@
 Always link to the latest version, as canonical.
 http://docs.readthedocs.org/en/latest/canonical.html
 -->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/misc/ssl-tls-pki-history.html" />
+<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/security/security-libs.html" />
 
 <link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
 
@@ -57,7 +57,7 @@ http://docs.readthedocs.org/en/latest/canonical.html
 
 <!-- Add page-specific data, which must exist in the page js, not global -->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = 'misc/ssl-tls-pki-history' 		
+READTHEDOCS_DATA['page'] = 'security/security-libs' 		
 READTHEDOCS_DATA['source_suffix'] = '.rst'
 </script>
 
@@ -516,68 +516,67 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../memory/memory-profiling.html">Memory Profiling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/sanitizer.html">Sanitizer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/stack-protection.html">Stack Protection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="advertisement-blocker.html">Advertisement Blocker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="archive.html">Archive</a></li>
-<li class="toctree-l1"><a class="reference internal" href="articles.html">一些閱讀過的文章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bandwidth.html">頻寬成本</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bit-hacks.html">Bit Hacks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bugs.html">踩 Bug 紀錄 (從 2015-10-26 開始)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cad.html">CAD (Computer-Aided Design)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="calendar.html">Calendar</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chatops.html">ChatOps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="conference.html">Conference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="contribution.html">Open Source 專案貢獻</a></li>
-<li class="toctree-l1"><a class="reference internal" href="disk-encryption.html">Disk Encryption</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dot-language.html">DOT Language</a></li>
-<li class="toctree-l1"><a class="reference internal" href="easy-website-builder.html">簡易網站建立服務</a></li>
-<li class="toctree-l1"><a class="reference internal" href="esoteric_languages.html">Esoteric Programming Language</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fish.html">Fish Shell</a></li>
-<li class="toctree-l1"><a class="reference internal" href="floating-point.html">Floating Point</a></li>
-<li class="toctree-l1"><a class="reference internal" href="free-software-in-taiwan.html">臺灣自由軟體界</a></li>
-<li class="toctree-l1"><a class="reference internal" href="funny-sites.html">Funny Sites</a></li>
-<li class="toctree-l1"><a class="reference internal" href="google-on-hub.html">Google OnHub</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hex-float.html">十六進位浮點數（Hex Float）</a></li>
-<li class="toctree-l1"><a class="reference internal" href="host-block.html">Host Blocker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="http-history.html">HTTP History</a></li>
-<li class="toctree-l1"><a class="reference internal" href="images.html">Images</a></li>
-<li class="toctree-l1"><a class="reference internal" href="irc.html">IRC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jargons.html">Jargons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="keyboard.html">Keyboard</a></li>
-<li class="toctree-l1"><a class="reference internal" href="latex.html">LaTeX 教學</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mail-system.html">Mail System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="man-page.html">Man Page</a></li>
-<li class="toctree-l1"><a class="reference internal" href="misc.html">Misc</a></li>
-<li class="toctree-l1"><a class="reference internal" href="openhouse.html">Open House</a></li>
-<li class="toctree-l1"><a class="reference internal" href="opensource-projects-i-love.html">Open Source Porjects I Love</a></li>
-<li class="toctree-l1"><a class="reference internal" href="origin.html">緣由</a></li>
-<li class="toctree-l1"><a class="reference internal" href="papers.html">Papers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pdf-viewers-history.html">PDF Viewer History</a></li>
-<li class="toctree-l1"><a class="reference internal" href="podcast.html">Podcast</a></li>
-<li class="toctree-l1"><a class="reference internal" href="project-measurement.html">Project Measurement</a></li>
-<li class="toctree-l1"><a class="reference internal" href="proxychains.html">proxychains</a></li>
-<li class="toctree-l1"><a class="reference internal" href="publications.html">資訊相關書籍出版社</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reStructuredText.html">reStructuredText</a></li>
-<li class="toctree-l1"><a class="reference internal" href="repo.html">Interesting Repo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reverse-engineering.html">逆向工程</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sat-smt.html">SAT/SMT Solver</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sites.html">Sites</a></li>
-<li class="toctree-l1"><a class="reference internal" href="software-updates.html">Software Updates</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">SL/TLS 以及 PKI 的歷史</a></li>
-<li class="toctree-l1"><a class="reference internal" href="statifier.html">Statifier</a></li>
-<li class="toctree-l1"><a class="reference internal" href="task-execution-framework.html">Task Execution Framework</a></li>
-<li class="toctree-l1"><a class="reference internal" href="team-collaboration.html">Team Collaboration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="todo.html">Todo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="todo-projects.html">想做的專案</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="trace-code.html">Trace Code</a></li>
-<li class="toctree-l1"><a class="reference internal" href="translation.html">翻譯 (Translation)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="trash-talk.html">技術屁話</a></li>
-<li class="toctree-l1"><a class="reference internal" href="turing-complete.html">Turing Complete</a></li>
-<li class="toctree-l1"><a class="reference internal" href="typesetting.html">Typesetting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="undergraduate-course-taken.html">大學修過的課程</a></li>
-<li class="toctree-l1"><a class="reference internal" href="unicode.html">Unicode 解說</a></li>
-<li class="toctree-l1"><a class="reference internal" href="video.html">Video</a></li>
-<li class="toctree-l1"><a class="reference internal" href="videos.html">一些 Talk 的影片</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/advertisement-blocker.html">Advertisement Blocker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/archive.html">Archive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/articles.html">一些閱讀過的文章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/bandwidth.html">頻寬成本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/bit-hacks.html">Bit Hacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/bugs.html">踩 Bug 紀錄 (從 2015-10-26 開始)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/cad.html">CAD (Computer-Aided Design)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/calendar.html">Calendar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/chatops.html">ChatOps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/conference.html">Conference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/contribution.html">Open Source 專案貢獻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/disk-encryption.html">Disk Encryption</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/dot-language.html">DOT Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/easy-website-builder.html">簡易網站建立服務</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/esoteric_languages.html">Esoteric Programming Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/fish.html">Fish Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/floating-point.html">Floating Point</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/free-software-in-taiwan.html">臺灣自由軟體界</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/funny-sites.html">Funny Sites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/google-on-hub.html">Google OnHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/hex-float.html">十六進位浮點數（Hex Float）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/host-block.html">Host Blocker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/http-history.html">HTTP History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/images.html">Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/irc.html">IRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/jargons.html">Jargons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/keyboard.html">Keyboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/latex.html">LaTeX 教學</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/mail-system.html">Mail System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/man-page.html">Man Page</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/misc.html">Misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/openhouse.html">Open House</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/opensource-projects-i-love.html">Open Source Porjects I Love</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/origin.html">緣由</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/papers.html">Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/pdf-viewers-history.html">PDF Viewer History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/podcast.html">Podcast</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/project-measurement.html">Project Measurement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/proxychains.html">proxychains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/publications.html">資訊相關書籍出版社</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/reStructuredText.html">reStructuredText</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/repo.html">Interesting Repo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/reverse-engineering.html">逆向工程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/sat-smt.html">SAT/SMT Solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/sites.html">Sites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/software-updates.html">Software Updates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/statifier.html">Statifier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/task-execution-framework.html">Task Execution Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/team-collaboration.html">Team Collaboration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/todo.html">Todo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/todo-projects.html">想做的專案</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/trace-code.html">Trace Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/translation.html">翻譯 (Translation)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/trash-talk.html">技術屁話</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/turing-complete.html">Turing Complete</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/typesetting.html">Typesetting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/undergraduate-course-taken.html">大學修過的課程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/unicode.html">Unicode 解說</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/video.html">Video</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/videos.html">一些 Talk 的影片</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mpi/mpi.html">MPI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/README.html">多媒體 (Multimedia)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/audio.html">Audio</a></li>
@@ -727,7 +726,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../rust/monomorphization.html">Monomorphization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/multirust.html">multirust</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/network.html">網路相關 (Network)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rust/numeric.html">Numeric</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/numeric.html">數值相關 (Numeric)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/object-safety.html">Object Safety</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/orm.html">ORM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/os.html">Rust in OS</a></li>
@@ -752,10 +751,20 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../rust/videos.html">Rust Videos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/web.html">Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../search-engine/README.html">搜尋引擎 (Search Engine)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../security/javascript-engine.html">Security issues in JavaScript Engine</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../security/resource.html">資源</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../security/secure-guard-extensions.html">SGX (Secure Guard Extensions)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../security/security.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="javascript-engine.html">Security issues in JavaScript Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resource.html">資源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="secure-guard-extensions.html">SGX (Secure Guard Extensions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Security</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Security Libs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ssl-tls-pki">SSL/TLS 以及 PKI 的歷史</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#openssl">OpenSSL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#libressl">LibreSSL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#boringssl">BoringSSL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#wolfssl">wolfSSL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mbedtls">mbedTLS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gnutls">GnuTLS</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../simd/algorithm.html">運用 SIMD 來加速的演算法</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../simd/status.html">SIMD</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../synchronization/introduction.html">同步 (Synchronization)</a></li>
@@ -839,14 +848,14 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>SL/TLS 以及 PKI 的歷史</li>
+      <li>Security Libs</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
             
-              <a href="https://github.com/wdv4758h/notes/blob/master/./misc/ssl-tls-pki-history.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/wdv4758h/notes/blob/master/./security/security-libs.rst" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -860,11 +869,83 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="sl-tls-pki">
-<h1>SL/TLS 以及 PKI 的歷史<a class="headerlink" href="#sl-tls-pki" title="本標題的永久連結">¶</a></h1>
+  <div class="section" id="security-libs">
+<h1><a class="toc-backref" href="#id2">Security Libs</a><a class="headerlink" href="#security-libs" title="本標題的永久連結">¶</a></h1>
+<div class="contents topic" id="id1">
+<p class="topic-title first">目錄</p>
+<ul class="simple">
+<li><a class="reference internal" href="#security-libs" id="id2">Security Libs</a><ul>
+<li><a class="reference internal" href="#ssl-tls-pki" id="id3">SSL/TLS 以及 PKI 的歷史</a></li>
+<li><a class="reference internal" href="#openssl" id="id4">OpenSSL</a></li>
+<li><a class="reference internal" href="#libressl" id="id5">LibreSSL</a></li>
+<li><a class="reference internal" href="#boringssl" id="id6">BoringSSL</a></li>
+<li><a class="reference internal" href="#wolfssl" id="id7">wolfSSL</a></li>
+<li><a class="reference internal" href="#mbedtls" id="id8">mbedTLS</a></li>
+<li><a class="reference internal" href="#gnutls" id="id9">GnuTLS</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="ssl-tls-pki">
+<h2><a class="toc-backref" href="#id3">SSL/TLS 以及 PKI 的歷史</a><a class="headerlink" href="#ssl-tls-pki" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://www.feistyduck.com/ssl-tls-and-pki-history/">SSL_TLS and PKI History</a></li>
 </ul>
+</div>
+<div class="section" id="openssl">
+<h2><a class="toc-backref" href="#id4">OpenSSL</a><a class="headerlink" href="#openssl" title="本標題的永久連結">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Wikipedia:</th><td class="field-body"><a class="reference external" href="https://en.wikipedia.org/wiki/OpenSSL">https://en.wikipedia.org/wiki/OpenSSL</a></td>
+</tr>
+</tbody>
+</table>
+<p>安裝：</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>sudo pacman -S openssl
+</pre></div>
+</div>
+</div>
+<div class="section" id="libressl">
+<h2><a class="toc-backref" href="#id5">LibreSSL</a><a class="headerlink" href="#libressl" title="本標題的永久連結">¶</a></h2>
+</div>
+<div class="section" id="boringssl">
+<h2><a class="toc-backref" href="#id6">BoringSSL</a><a class="headerlink" href="#boringssl" title="本標題的永久連結">¶</a></h2>
+</div>
+<div class="section" id="wolfssl">
+<h2><a class="toc-backref" href="#id7">wolfSSL</a><a class="headerlink" href="#wolfssl" title="本標題的永久連結">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Repo:</th><td class="field-body"><a class="reference external" href="https://github.com/wolfSSL/wolfssl">https://github.com/wolfSSL/wolfssl</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="mbedtls">
+<h2><a class="toc-backref" href="#id8">mbedTLS</a><a class="headerlink" href="#mbedtls" title="本標題的永久連結">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Repo:</th><td class="field-body"><a class="reference external" href="https://github.com/ARMmbed/mbedtls">https://github.com/ARMmbed/mbedtls</a></td>
+</tr>
+</tbody>
+</table>
+<p>安裝：</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>sudo pacman -S mbedtls
+</pre></div>
+</div>
+</div>
+<div class="section" id="gnutls">
+<h2><a class="toc-backref" href="#id9">GnuTLS</a><a class="headerlink" href="#gnutls" title="本標題的永久連結">¶</a></h2>
+<p>安裝：</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>sudo pacman -S gnutls
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -877,10 +958,10 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="statifier.html" class="btn btn-neutral float-right" title="Statifier" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../simd/algorithm.html" class="btn btn-neutral float-right" title="運用 SIMD 來加速的演算法" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="software-updates.html" class="btn btn-neutral" title="Software Updates" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="security.html" class="btn btn-neutral" title="Security" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
