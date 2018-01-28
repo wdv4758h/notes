@@ -37,4 +37,5 @@ Application layer:
 * `Distributed <distributed.rst>`_
 * `DNS <dns.rst>`_
 * `microservice <microservice.rst>`_
+* `OS socket buffer <os-socket-buffer.rst>`_
 * `相關資源 <resource.rst>`_
