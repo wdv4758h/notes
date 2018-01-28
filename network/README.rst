@@ -22,7 +22,7 @@ Transport layer:
 Application layer:
 
 * TLS/SSL
-* DTLS
+* `DTLS <dtls.rst>`_
 * HTTP
 * MQTT
 
