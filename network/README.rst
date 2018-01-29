@@ -17,6 +17,7 @@ Transport layer:
 * TCP
 * UDP
 * SCTP
+* `QUIC <quic.rst>`_
 
 
 Application layer:
