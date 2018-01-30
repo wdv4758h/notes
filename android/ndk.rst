@@ -85,6 +85,9 @@ Cross Compile 注意事項
     - 只支援 PIE (Position Independent Executables)
         + Jelly Bean 加入 PIE 支援
         + Lollipop 移除 non-PIE 支援
+* 編譯時注意 PIC 設定要一致，例如都是用 ``-fPIC`` ，而不是 ``-fpic`` 和 ``-fPIC`` 混雜
+    - 1: ``-fpic`` ，Small-model
+    - 2: ``-fPIC`` ，Large-model
 * pkg-config 設定
 
 
