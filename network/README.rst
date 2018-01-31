@@ -29,7 +29,9 @@ Application layer:
 
 ----
 
-* `UPnP <upnp.rst>`_
+* `UPnP (Universal Plug-and-Play) <upnp.rst>`_
+* `ICE (Interactive Connectivity Establishment) <ice.rst>`_
+
 * `tcpdump <tcpdump.rst>`_
 * `iperf - TCP/UDP/SCTP 網路效能測量 <iperf.rst>`_
 * `Nginx <nginx.rst>`_
