@@ -66,3 +66,21 @@ GnuTLS
 .. code-block:: sh
 
     sudo pacman -S gnutls
+
+
+
+Botan
+========================================
+
+:Repo: https://github.com/randombit/botan
+:Doc: https://botan.randombit.net/
+
+
+Botan: Crypto and TLS for C++11
+
+
+參考
+========================================
+
+* `Wikipedia - Comparison of TLS implementations <https://en.wikipedia.org/wiki/Comparison_of_TLS_implementations>`_
+* `Real World Crypto 2018 <https://rwc.iacr.org/2018/>`_
