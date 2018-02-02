@@ -143,7 +143,29 @@ Identical Code Folding
 
 
 
-Reference
+範例
+========================================
+
+靜態連結 library 轉成動態連結
+------------------------------
+
+.. code-block:: sh
+
+    # 可以根據需求加上其他參數或 library
+    $CC $CFLAGS -shared -Wl,--whole-archive libfoo.a -Wl,--no-whole-archive -o libfoo.so
+
+或者：
+
+.. code-block:: sh
+
+    mkdir tmp
+    cd tmp/
+    $AR -x ../libfoo.a
+    $CC $CFLAGS -shared *.o -o ../libfoo.so
+
+
+
+參考
 ========================================
 
 * `Gentoo Wiki - Gold <https://wiki.gentoo.org/wiki/Gold>`_
