@@ -69,18 +69,19 @@ C++ 支援
 Cross Compile 注意事項
 ========================================
 
+* 可以先參考其他平台的編譯設定
+    - `Termux packages <https://github.com/termux/termux-packages>`_
+    - `Buildroot <https://github.com/buildroot/buildroot/>`_
+    - `Arch Linux PKGBUILD <https://www.archlinux.org/packages/>`_
 * Android 的 libc 叫 Bionic，功能有刪減過，所以部份函式不存在
     - librt、libpthread、libresolv 都包含在裡面，編譯時不要加上 ``-lrt`` 和 ``-lpthread``
     - 沒有 iconv 函式
-    - NOTICE: 有些需要更新 !!!!!!
     - 沒有 SYS V 的 shm.h/sem.h
     - 沒有和 pwd.h 和 getpwuid_r() 等等
     - 沒有 locale.h
     - 沒有 IPv4/Ipv6 headers/support 例如 ``arpa/*.h``
     - 沒有 intl/gettext 函式
     - 沒有 i18n 支援和 wchar_t
-    - ???
-        + don't use -ldl ?
 * Android 的 linker
     - 只支援 PIE (Position Independent Executables)
         + Jelly Bean 加入 PIE 支援
@@ -111,6 +112,13 @@ autotools
 
 CPython Extension
 ------------------------------
+
+設定 ``_PYTHON_HOST_PLATFORM="linux-aarch64"`` ，
+這會直接改變 ``disutils.utils`` 裡 ``get_platform`` 的結果。
+
+* https://github.com/python/cpython/blob/master/Lib/distutils/util.py
+* https://github.com/python/cpython/commit/1abe1c5fe13ca64c54e16db25de7c4dd5578a7c1
+* ``PYTHON_FOR_BUILD``
 
 
 
