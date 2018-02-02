@@ -22,6 +22,7 @@
 * `OpenCV <opencv.rst>`_
 * `WebRTC <webrtc.rst>`_
 * `MediaInfo <mediainfo.rst>`_
+* `播放器 <player.rst>`_
 
 
 給 End User 的軟體：
