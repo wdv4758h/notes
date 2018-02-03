@@ -6,6 +6,26 @@
 .. contents:: 目錄
 
 
+機器學習演算法種類
+========================================
+
+* Supervised Learning
+* Unsupervised Learning
+* Semi Supervised Learning
+* Online Learning / Active Learning
+
+
+
+機器學習模型
+========================================
+
+* `深度學習 (Deep Learning) <deep-learning>`_
+* `決策樹 (Decision Tree) <decision-tree.rst>`_
+* 線性模型 (Linear Model)
+    - `SVM <svm.rst>`_
+
+
+
 主題
 ========================================
 
@@ -18,11 +38,9 @@
 
 * Technique
     - `回歸 (Regression) <technique/regression.rst>`_
-    - `Decision Tree <decision-tree.rst>`_
     - `Clustering <clustering.rst>`_
     - `Dimensionality Reduction <dimensionality-reduction.rst>`_
     - `Naive Bayes Classifier <naive-bayes-classifier.rst>`_
-    - `SVM <svm.rst>`_
     - `t-SNE <t-SNE.rst>`_
     - `Transfer Learning <technique/transfer-learning.rst>`_
     - `Ensemble Learning <technique/ensemble.rst>`_
