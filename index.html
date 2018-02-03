@@ -433,6 +433,8 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="debug/strace.html">strace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="docker/docker.html">Docker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="documentation/sphinx.html">Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ebook/README.html">E-Book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ebook/epub.html">EPUB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="editor/emacs.html">Emacs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="embedded/resource.html">Embedded Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="embedded/stm32.html">STM32</a></li>
@@ -536,6 +538,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="misc/floating-point.html">Floating Point</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/free-software-in-taiwan.html">臺灣自由軟體界</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/funny-sites.html">Funny Sites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc/glib.html">GLib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/google-on-hub.html">Google OnHub</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/hex-float.html">十六進位浮點數（Hex Float）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/host-block.html">Host Blocker</a></li>
@@ -583,11 +586,14 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="multimedia/audio.html">Audio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multimedia/ffmpeg.html">FFmpeg</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multimedia/gstreamer.html">GStreamer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multimedia/hardware-acceleration.html">硬體加速 (Hardware Acceleration)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multimedia/kodi.html">Kodi - Open Source Home Theater Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multimedia/linux-sound-system.html">Linux Sound System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multimedia/media-container.html">Media Container</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multimedia/mediainfo.html">MediaInfo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multimedia/noise-cancellation.html">降噪 (Noise Cancellation)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multimedia/opencv.html">OpenCV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multimedia/player.html">播放器</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multimedia/pulseaudio.html">PulseAudio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multimedia/video.html">Video</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multimedia/vlc.html">VLC</a></li>
@@ -2169,7 +2175,11 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l3"><a class="reference internal" href="compiler/linker.html#as-needed">–as-needed</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="compiler/linker.html#reference">Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compiler/linker.html#id6">範例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="compiler/linker.html#library">靜態連結 library 轉成動態連結</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="compiler/linker.html#id7">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="compiler/llvm.html">LLVM</a><ul>
@@ -2760,6 +2770,12 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </li>
 <li class="toctree-l2"><a class="reference internal" href="documentation/sphinx.html#sphinx-extensions">常見 Sphinx Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="documentation/sphinx.html#id9">參考</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ebook/README.html">E-Book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ebook/epub.html">EPUB</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ebook/epub.html#id2">介紹</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ebook/epub.html#id3">相關支援</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="editor/emacs.html">Emacs</a></li>
@@ -3832,6 +3848,13 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="misc/funny-sites.html">Funny Sites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc/glib.html">GLib</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="misc/glib.html#id2">介紹</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc/glib.html#id3">除錯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc/glib.html#id4">注意事項</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc/glib.html#id5">參考</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="misc/google-on-hub.html">Google OnHub</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="misc/google-on-hub.html#reference">Reference</a></li>
 </ul>
@@ -4174,6 +4197,16 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="multimedia/gstreamer.html#id12">參考</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="multimedia/hardware-acceleration.html">硬體加速 (Hardware Acceleration)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/hardware-acceleration.html#id2">介紹</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/hardware-acceleration.html#vdpau">VDPAU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/hardware-acceleration.html#va-api">VA-API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/hardware-acceleration.html#openmax">OpenMAX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/hardware-acceleration.html#v4l2">V4L2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/hardware-acceleration.html#nvidia-nvdec-nvenc">Nvidia NVDEC/NVENC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/hardware-acceleration.html#id3">參考</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="multimedia/kodi.html">Kodi - Open Source Home Theater Software</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="multimedia/kodi.html#id2">介紹</a></li>
 <li class="toctree-l2"><a class="reference internal" href="multimedia/kodi.html#id3">參考</a></li>
@@ -4193,10 +4226,18 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="multimedia/media-container.html#webm">WebM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="multimedia/media-container.html#wav">WAV</a></li>
 <li class="toctree-l2"><a class="reference internal" href="multimedia/media-container.html#quicktime-movie">QuickTime Movie</a></li>
-<li class="toctree-l2"><a class="reference internal" href="multimedia/media-container.html#mp4-mpeg-4-part-14">MP4 (MPEG-4 Part 14)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/media-container.html#mp4-mpeg-4-part-14">MP4 (MPEG-4 Part 14)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/media-container.html#fast-start">Fast Start</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="multimedia/media-container.html#mpeg-ts">MPEG-TS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="multimedia/media-container.html#ogg">Ogg</a></li>
 <li class="toctree-l2"><a class="reference internal" href="multimedia/media-container.html#id2">參考</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="multimedia/mediainfo.html">MediaInfo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/mediainfo.html#id2">介紹</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/mediainfo.html#id3">安裝與使用</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="multimedia/noise-cancellation.html">降噪 (Noise Cancellation)</a><ul>
@@ -4211,6 +4252,15 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="multimedia/opencv.html#misc">Misc</a></li>
 <li class="toctree-l2"><a class="reference internal" href="multimedia/opencv.html#machine-learning-opencv">Machine Learning + OpenCV</a></li>
 <li class="toctree-l2"><a class="reference internal" href="multimedia/opencv.html#id3">參考</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="multimedia/player.html">播放器</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/player.html#cmus-cli">cmus - CLI 音樂播放器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/player.html#vlc">VLC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/player.html#mplayer">mplayer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/player.html#mpv">mpv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/player.html#gstreamer">GStreamer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/player.html#ffmpeg">FFmpeg</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="multimedia/pulseaudio.html">PulseAudio</a><ul>

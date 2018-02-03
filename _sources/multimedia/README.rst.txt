@@ -21,7 +21,9 @@
 * `FFmpeg <ffmpeg.rst>`_
 * `OpenCV <opencv.rst>`_
 * `WebRTC <webrtc.rst>`_
-* MediaInfo
+* `MediaInfo <mediainfo.rst>`_
+* `播放器 <player.rst>`_
+* `硬體加速 <hardware-acceleration.rst>`_
 
 
 給 End User 的軟體：

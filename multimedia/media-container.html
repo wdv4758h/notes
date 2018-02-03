@@ -36,7 +36,7 @@
               href="../genindex.html"/>
         <link rel="search" title="搜尋" href="../search.html"/>
     <link rel="top" title="wdv4758h-notes latest 說明文件" href="../index.html"/>
-        <link rel="next" title="降噪 (Noise Cancellation)" href="noise-cancellation.html"/>
+        <link rel="next" title="MediaInfo" href="mediainfo.html"/>
         <link rel="prev" title="Linux Sound System" href="linux-sound-system.html"/> 
 
   
@@ -434,6 +434,8 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../debug/strace.html">strace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../docker/docker.html">Docker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../documentation/sphinx.html">Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ebook/README.html">E-Book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ebook/epub.html">EPUB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../editor/emacs.html">Emacs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../embedded/resource.html">Embedded Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../embedded/stm32.html">STM32</a></li>
@@ -537,6 +539,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../misc/floating-point.html">Floating Point</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/free-software-in-taiwan.html">臺灣自由軟體界</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/funny-sites.html">Funny Sites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/glib.html">GLib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/google-on-hub.html">Google OnHub</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/hex-float.html">十六進位浮點數（Hex Float）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/host-block.html">Host Blocker</a></li>
@@ -584,6 +587,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="audio.html">Audio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ffmpeg.html">FFmpeg</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gstreamer.html">GStreamer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware-acceleration.html">硬體加速 (Hardware Acceleration)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="kodi.html">Kodi - Open Source Home Theater Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="linux-sound-system.html">Linux Sound System</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Media Container</a><ul>
@@ -592,14 +596,19 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l2"><a class="reference internal" href="#webm">WebM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#wav">WAV</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#quicktime-movie">QuickTime Movie</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#mp4-mpeg-4-part-14">MP4 (MPEG-4 Part 14)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mp4-mpeg-4-part-14">MP4 (MPEG-4 Part 14)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fast-start">Fast Start</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#mpeg-ts">MPEG-TS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ogg">Ogg</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id2">參考</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="mediainfo.html">MediaInfo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="noise-cancellation.html">降噪 (Noise Cancellation)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="opencv.html">OpenCV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="player.html">播放器</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pulseaudio.html">PulseAudio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="video.html">Video</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vlc.html">VLC</a></li>
@@ -890,10 +899,13 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li><a class="reference internal" href="#webm" id="id6">WebM</a></li>
 <li><a class="reference internal" href="#wav" id="id7">WAV</a></li>
 <li><a class="reference internal" href="#quicktime-movie" id="id8">QuickTime Movie</a></li>
-<li><a class="reference internal" href="#mp4-mpeg-4-part-14" id="id9">MP4 (MPEG-4 Part 14)</a></li>
-<li><a class="reference internal" href="#mpeg-ts" id="id10">MPEG-TS</a></li>
-<li><a class="reference internal" href="#ogg" id="id11">Ogg</a></li>
-<li><a class="reference internal" href="#id2" id="id12">參考</a></li>
+<li><a class="reference internal" href="#mp4-mpeg-4-part-14" id="id9">MP4 (MPEG-4 Part 14)</a><ul>
+<li><a class="reference internal" href="#fast-start" id="id10">Fast Start</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mpeg-ts" id="id11">MPEG-TS</a></li>
+<li><a class="reference internal" href="#ogg" id="id12">Ogg</a></li>
+<li><a class="reference internal" href="#id2" id="id13">參考</a></li>
 </ul>
 </li>
 </ul>
@@ -915,9 +927,21 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </div>
 <div class="section" id="mp4-mpeg-4-part-14">
 <h2><a class="toc-backref" href="#id9">MP4 (MPEG-4 Part 14)</a><a class="headerlink" href="#mp4-mpeg-4-part-14" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="fast-start">
+<h3><a class="toc-backref" href="#id10">Fast Start</a><a class="headerlink" href="#fast-start" title="本標題的永久連結">¶</a></h3>
+<p>把 header 放在檔案最前面，以便可以馬上播放，而不用整個檔案讀完。</p>
+<p>FFmpeg：</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>ffmpeg -i input.mp4 -vcodec copy -acodec copy -movflags +faststart output.mp4
+</pre></div>
+</div>
+<p>GStreamer：</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>... ! mp4mux <span class="nv">faststart</span><span class="o">=</span><span class="nb">true</span> ! ...
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="mpeg-ts">
-<h2><a class="toc-backref" href="#id10">MPEG-TS</a><a class="headerlink" href="#mpeg-ts" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id11">MPEG-TS</a><a class="headerlink" href="#mpeg-ts" title="本標題的永久連結">¶</a></h2>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -928,10 +952,10 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </table>
 </div>
 <div class="section" id="ogg">
-<h2><a class="toc-backref" href="#id11">Ogg</a><a class="headerlink" href="#ogg" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id12">Ogg</a><a class="headerlink" href="#ogg" title="本標題的永久連結">¶</a></h2>
 </div>
 <div class="section" id="id2">
-<h2><a class="toc-backref" href="#id12">參考</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id13">參考</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://en.wikipedia.org/wiki/Digital_container_format">Wikipedia - Digital container format</a></li>
 <li><a class="reference external" href="https://en.wikipedia.org/wiki/Comparison_of_video_container_formats">Wikipedia - Comparison of video container formats</a></li>
@@ -949,7 +973,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="noise-cancellation.html" class="btn btn-neutral float-right" title="降噪 (Noise Cancellation)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="mediainfo.html" class="btn btn-neutral float-right" title="MediaInfo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="linux-sound-system.html" class="btn btn-neutral" title="Linux Sound System" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
