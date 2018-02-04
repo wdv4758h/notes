@@ -4,8 +4,8 @@
 
 Markup Language：
 
-* reStructuredText
-* LaTeX
+* `reStructuredText <reStructuredText.rst>`_
+* `LaTeX <latex.rst>`_
 * DocBook
 * Markdown
 * AsciiDoc
