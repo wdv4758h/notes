@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>在 GNU/Linux 上執行 Android 系統 &mdash; wdv4758h-notes latest 說明文件</title>
+  <title>Anbox - 在 GNU/Linux 上執行 Android 系統 &mdash; wdv4758h-notes latest 說明文件</title>
   
 
   
@@ -132,8 +132,13 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="README.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="android-emulator.html">Android Emulator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="android-images.html">Android Images</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">在 GNU/Linux 上執行 Android 系統</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2">參考</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Anbox - 在 GNU/Linux 上執行 Android 系統</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">介紹</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">編譯與安裝</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">使用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#google-play">安裝 Google Play</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">相關問題</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="apps.html">Android Apps</a></li>
@@ -365,6 +370,8 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../computer-vision/visual-question-answering.html">Visual Question Answering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concurrency/concurrency.html">Concurrency</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concurrency/multithread-concurrency-parallelism.html">名詞釐清</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../container/README.html">Container</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../container/docker.html">Docker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../container/lxc.html">Linux Containers (LXC)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/buildbot.html">Buildbot</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/ci.html">Continuous Integration</a></li>
@@ -435,7 +442,9 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../debug/record-replay.html">Record Replay</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/resource.html">Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/strace.html">strace</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../docker/docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/README.html">文件 (Documentation)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/latex.html">LaTeX 教學</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/reStructuredText.html">reStructuredText</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../documentation/sphinx.html">Sphinx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ebook/README.html">E-Book</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ebook/epub.html">EPUB</a></li>
@@ -446,17 +455,11 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../fonts/resource.html">Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../formal-verification/introduction.html">形式驗證 (Formal Verification)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../friends/README.html">朋友的筆記</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../functional/monad.html">Monad</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../functional/resource.html">Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../games/emulators.html">Emulators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../games/engine.html">遊戲引擎 (Game Engine)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../games/real-time-strategy.html">Real-time Strategy Games</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../games/resource.html">Games Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../games/rpg.html">Role-playing Games (RPG)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../git/cheat-sheet.html">Git Cheat Sheet</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../git/format-patch.html">Git Format Patch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../git/resource.html">Git Resource</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../git/tips.html">Git Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gpgpu/arrayfire.html">ArrayFire</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gpgpu/boost.html">Boost.Compute</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gpgpu/kernel.html">GPGPU with Kernel</a></li>
@@ -471,6 +474,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../graphics/resource.html">Graphic Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../graphics/virtualgl.html">VirtualGL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../graphics/vulkan.html">Vulkan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gui/README.html">GUI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/arduino.html">Arduino</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/cpu.html">CPU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/hardware-and-programming.html">Hardware &amp; Programming</a></li>
@@ -492,19 +496,13 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/cheatsheet.html">Cheat Sheet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/clustering.html">Clustering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/data-set.html">Data Set</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../machine-learning/decision-tree.html">決策樹學習 （Decision Tree）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/dimensionality-reduction.html">Dimensionality Reduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../machine-learning/face-recognition.html">人臉辨識</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/instance-based.html">Instance Based</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../machine-learning/learning.html">Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../machine-learning/lip-reading.html">Lip Reading</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/naive-bayes-classifier.html">樸素貝葉斯分類器 （Naïve Bayesian Classifier）</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../machine-learning/question-answering.html">Question Answering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/regularization.html">Regularization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/resource.html">機器學習相關資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/rule-system.html">Rule System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/spark.html">Spark</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../machine-learning/svm.html">SVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/t-SNE.html">t-SNE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/todo.html">Todo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/libraries.html">數學相關套件 (Math Libraries)</a></li>
@@ -551,7 +549,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../misc/irc.html">IRC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/jargons.html">Jargons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/keyboard.html">Keyboard</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/latex.html">LaTeX 教學</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/mail-system.html">Mail System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/man-page.html">Man Page</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/misc.html">Misc</a></li>
@@ -564,7 +561,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../misc/project-measurement.html">Project Measurement</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/proxychains.html">proxychains</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/publications.html">資訊相關書籍出版社</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/reStructuredText.html">reStructuredText</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/repo.html">Interesting Repo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/reverse-engineering.html">逆向工程</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/sat-smt.html">SAT/SMT Solver</a></li>
@@ -600,7 +596,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/player.html">播放器</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/pulseaudio.html">PulseAudio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/video.html">Video</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../multimedia/vlc.html">VLC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/webrtc.html">WebRTC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/README.html">網路相關 (Network)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/ddos.html">DDoS</a></li>
@@ -619,6 +614,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../network/security-check.html">安全性檢查</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/tcpdump.html">tcpdump</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/upnp.html">UPnP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../operating-system/README.html">作業系統</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../operating-system/linux-distro.html">Linux Distro</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../operating-system/netbsd.html">NetBSD</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../operating-system/plan-9.html">Plan 9</a></li>
@@ -808,6 +804,8 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../valgrind/new-plugin.html">Writeing a New Valgrind Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../valgrind/tips.html">Valgrind Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../valgrind/valgrind-talks.html">Valgrind Talks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version-control/README.html">版本控制 (Version Control)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version-control/mercurial.html">Mercurial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../virtualization/bhyve.html">bhyve</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../virtualization/kvm.html">KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../virtualization/qemu.html">QEMU</a></li>
@@ -856,7 +854,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>在 GNU/Linux 上執行 Android 系統</li>
+      <li>Anbox - 在 GNU/Linux 上執行 Android 系統</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -877,19 +875,61 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="gnu-linux-android">
-<h1><a class="toc-backref" href="#id3">在 GNU/Linux 上執行 Android 系統</a><a class="headerlink" href="#gnu-linux-android" title="本標題的永久連結">¶</a></h1>
+  <div class="section" id="anbox-gnu-linux-android">
+<h1><a class="toc-backref" href="#id7">Anbox - 在 GNU/Linux 上執行 Android 系統</a><a class="headerlink" href="#anbox-gnu-linux-android" title="本標題的永久連結">¶</a></h1>
 <div class="contents topic" id="id1">
 <p class="topic-title first">目錄</p>
 <ul class="simple">
-<li><a class="reference internal" href="#gnu-linux-android" id="id3">在 GNU/Linux 上執行 Android 系統</a><ul>
-<li><a class="reference internal" href="#id2" id="id4">參考</a></li>
+<li><a class="reference internal" href="#anbox-gnu-linux-android" id="id7">Anbox - 在 GNU/Linux 上執行 Android 系統</a><ul>
+<li><a class="reference internal" href="#id2" id="id8">介紹</a></li>
+<li><a class="reference internal" href="#id3" id="id9">編譯與安裝</a></li>
+<li><a class="reference internal" href="#id4" id="id10">使用</a></li>
+<li><a class="reference internal" href="#google-play" id="id11">安裝 Google Play</a></li>
+<li><a class="reference internal" href="#id5" id="id12">相關問題</a></li>
+<li><a class="reference internal" href="#id6" id="id13">參考</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="id2">
-<h2><a class="toc-backref" href="#id4">參考</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id8">介紹</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id9">編譯與安裝</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id10">使用</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h2>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>sudo modprobe binder_linux
+sudo modprobe ashmem_linux
+sudo systemctl start anbox-container-manager.service
+</pre></div>
+</div>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>anbox launch --package<span class="o">=</span>org.anbox.appmgr --component<span class="o">=</span>android.intent.action.VIEW
+</pre></div>
+</div>
+</div>
+<div class="section" id="google-play">
+<h2><a class="toc-backref" href="#id11">安裝 Google Play</a><a class="headerlink" href="#google-play" title="本標題的永久連結">¶</a></h2>
+<p><a class="reference external" href="https://github.com/anbox/anbox/issues/118">https://github.com/anbox/anbox/issues/118</a></p>
+</div>
+<div class="section" id="id5">
+<h2><a class="toc-backref" href="#id12">相關問題</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li>目前需要把 boost 降級到 1.65.1 才能執行 <code class="docutils literal"><span class="pre">anbox</span></code></li>
+<li><dl class="first docutils">
+<dt>目前需要把 mesa 降級到 17.0.5 才能讓執行更順暢</dt>
+<dd><ul class="first last">
+<li>和後來加入的 <code class="docutils literal"><span class="pre">EGL_ANDROID_native_fence_sync</span></code> 相關</li>
+<li><a class="reference external" href="https://github.com/anbox/anbox/issues/437#issuecomment-348470547">https://github.com/anbox/anbox/issues/437#issuecomment-348470547</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>Arch Linux 上預設的資料夾會在 <code class="docutils literal"><span class="pre">/var/lib/anbox/rootfs/</span></code></li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h2><a class="toc-backref" href="#id13">參考</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/anbox/anbox">Anbox - container-based approach to boot a full Android system on a regular GNU/Linux system</a></li>
 </ul>
