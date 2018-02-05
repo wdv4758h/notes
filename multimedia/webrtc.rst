@@ -204,11 +204,19 @@ Licode
 GStreamer & WebRTC
 ========================================
 
+參考：
+
+* `GStreamer has grown a WebRTC implementation <http://blog.nirbheek.in/2018/02/gstreamer-webrtc.html>`_
+* `webrtcbin: an element that handles the transport aspects of webrtc connections <https://github.com/GStreamer/gst-plugins-bad/commit/1894293d6378c69548d974d2965e9decc1527654>`_
+* `gst-plugin-bad - webrtc branch <https://github.com/ystreet/gst-plugins-bad/tree/webrtc>`_
+
 
 
 參考
 ========================================
 
+* `Untangling the WebRTC Flow <https://www.pkcsecurity.com/untangling-webrtc-flow.html>`_
+    - WebRTC 流程解說，有流程圖
 * `WebRTC 1.0: Real-time Communication Between Browsers <https://www.w3.org/TR/webrtc/>`_
 * `AppRTC - WebRTC demo <https://github.com/webrtc/apprtc>`_
 * `WebRTC Experiments & Demos <https://github.com/muaz-khan/WebRTC-Experiment/>`_
