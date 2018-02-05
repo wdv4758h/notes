@@ -142,6 +142,94 @@ Simulcast
 ------------------------------
 
 
+Video Routing Model
+------------------------------
+
+傳輸流程：
+
+* Mesh：網狀，每個參與者都傳送資料給其他所有參與者
+    - 假設有 N 個參與者在使用 conference room，每個參與者都需要傳輸 M 大小的資料
+    - 每個參與者需要建 N-1 個連線
+    - 每個參與者下載需要 M * (N-1)
+    - 每個參與者上傳需要 M * (N-1)
+    - 整個網路需要 C(N, 2) 個連線，C(5, 2) = 10
+    - 整個網路的傳輸需要 M * (N-1) * N
+* MCU：參與者都把資訊交給伺服器，伺服器把所有影像混合後交給每個參與者
+    - Multipoint Control Unit
+    - 假設有 N 個參與者在使用 conference room，每個參與者都需要傳輸 M 大小的資料
+    - 每個參與者需要建 1 個連線
+    - 每個參與者下載需要 M
+    - 每個參與者上傳需要 M
+    - 整個網路需要 N 個連線
+    - 整個網路的傳輸需要 2 * N * M
+* SFU：參與者都把資訊交給伺服器，伺服器把影像直接轉送給其他參與者
+    - Selective Forwarding Unit
+    - 假設有 N 個參與者在使用 conference room，每個參與者都需要傳輸 M 大小的資料
+    - 每個參與者需要建 N 個連線
+    - 每個參與者下載需要 M * (N-1)
+    - 每個參與者上傳需要 M
+    - 整個網路需要 N * N 個連線
+    - 整個網路的傳輸需要 M * N * N
+
+
+Mesh ::
+
+  +----+              +----+
+  | A  |<------------>| B  |
+  |    |<-+           |    |
+  +----+  |           +----+
+    ^     |            ^^
+    | +---+------------+|
+    v v   |             v
+  +----+  |           +----+
+  | C  |  +---------->| D  |
+  |    |<------------>|    |
+  +----+              +----+
+
+MCU ::
+
+  +---+              +---+
+  | A |<---+    +--->| B |
+  +---+    |    |    +---+
+           v    v
+         +--------+
+         | Server |
+         +--------+
+           ^    ^
+  +---+    |    |    +---+
+  | C |<---+    +--->| D |
+  +---+              +---+
+
+SFU ::
+
+  +---+              +---+
+  |   |~~~~~+  +~~~~~|   |
+  | A |<---+|  |+--->| B |
+  |   |<--+||  ||+-->|   |
+  +---+   |||  |||   +---+
+    ^     ||v  v||     ^
+    |    +--------+    |
+    +----|        |----+
+         | Server |
+    +----|        |----+
+    |    +--------+    |
+    v     ||^  ^||     v
+  +---+   |||  |||   +---+
+  |   |<--+||  ||+-->|   |
+  | C |<---+|  |+--->| D |
+  |   |~~~~~+  +~~~~~|   |
+  +---+              +---+
+
+
+
+
+參考：
+
+* `SFU (Selective Forwarding Unit) - WebRTC Glossary <https://webrtcglossary.com/sfu/>`_
+* `WebRTC Multiparty Video Alternatives, and Why SFU is the Winning Model <https://bloggeek.me/webrtc-multiparty-video-alternatives/>`_
+
+
+
 ORTC
 ========================================
 
@@ -168,6 +256,23 @@ C 寫的
 讓一般瀏覽器可以連線來溝通。
 
 
+執行範例：
+
+.. code-block:: sh
+
+    sudo /opt/janus/bin/janus --stun-server=stun.l.google.com:19302
+
+
+設定檔可能路徑：
+
+::
+
+    /opt/janus/etc/janus/
+
+
+
+參考：
+
 * `Tutorial: writing a Janus video call plugin in Lua <http://www.meetecho.com/blog/tutorial-writing-a-janus-video-call-plugin-in-lua/>`_
 * [2017] `Asynchronous event/state notifications in the Janus WebRTC server <https://archive.fosdem.org/2017/schedule/event/janus/attachments/slides/1430/export/events/attachments/janus/slides/1430/fosdem2017_janusevents_presentation.pdf>`_
 * [2015] `Performance analysis of the Janus WebRTC gateway <https://www.iris.unina.it/retrieve/handle/11588/657296/89201/a4-amirante.pdf>`_
@@ -181,6 +286,10 @@ Kurento
 :License: Apache License v2
 
 C++ 寫的
+
+* `WebRTCEndPoint <https://doc-kurento.readthedocs.io/en/latest/_static/langdoc/javadoc/org/kurento/client/WebRtcEndpoint.html>`_
+* HTTPEndPoint
+* RTPEndPoint
 
 
 
