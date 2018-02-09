@@ -644,6 +644,24 @@ https://gstreamer.freedesktop.org/documentation/application-development/appendix
 
 
 
+GStreamer 1.14
+========================================
+
+* [2018][FOSDEM] `What's new in GStreamer <https://fosdem.org/2018/schedule/event/om_gstreamer/attachments/slides/2647/export/events/attachments/om_gstreamer/slides/2647/Tim_Muller___Whats_New_in_GStreamer___FOSDEM_2018.pdf>`_
+    - AV1 支援，AV1 目前還在發展階段，效能還不夠好，但是已經可以嘗試
+    - IPC pipeline，讓 pipeline 可以開在多個 process，且可以互相溝通
+    - 支援使用 ring buffer 做 debug log
+    - leak tracer 改進
+    - latency tracer 改進
+    - hlssink2
+    - RTSP 2.0 支援
+    - mp3 相關功能因為專利過期而將從 gst-plugins-ugly 移到 gst-plugins-good
+    - OpenGL 支援從 gst-plugins-bad 移到 gst-plugins-base
+    - WebRTC 支援
+    - Meson build system 支援
+
+
+
 參考
 ========================================
 

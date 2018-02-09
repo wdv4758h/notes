@@ -54,6 +54,11 @@ AOMedia 的成員包含 Amazon、AMD、ARM、Cisco、Google、Intel、IBM、Micr
 
 
 
+* (2018/01/30) `AV1 Beats VP9 and HEVC on Quality, if You've Got Time, says Moscow State - Streaming Media Magazine <http://www.streamingmedia.com/Articles/News/Online-Video-News/AV1-Beats-VP9-and-HEVC-on-Quality-if-Youve-Got-Time-says-Moscow-State-122945.aspx>`_
+    - AV1 目前的壓縮品質比 VP9 和 HEVC 還好，但是執行速度還有待提升
+
+
+
 參考
 ========================================
 

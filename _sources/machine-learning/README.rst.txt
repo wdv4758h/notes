@@ -11,7 +11,7 @@
 
 * Supervised Learning
 * Unsupervised Learning
-* Semi Supervised Learning
+* Semi-Supervised Learning
 * Online Learning / Active Learning
 
 
@@ -51,6 +51,7 @@
 其他資源
 ========================================
 
+* `相關課程 <course.rst>`_
 * `Awesome Machine Learning <https://github.com/josephmisiti/awesome-machine-learning>`_
 * `Awesome Deep Vision <https://github.com/kjw0612/awesome-deep-vision>`_
 * `Awesome Deep Learning papers and other resources <https://github.com/endymecy/awesome-deeplearning-resources>`_
