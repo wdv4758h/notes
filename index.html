@@ -469,7 +469,10 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="graphics/virtualgl.html">VirtualGL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="graphics/vulkan.html">Vulkan</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gui/README.html">GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware/README.html">硬體相關 (Hardware)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware/amd.html">AMD</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hardware/arduino.html">Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware/arm.html">ARM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hardware/cpu.html">CPU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hardware/hardware-and-programming.html">Hardware &amp; Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hardware/headphone.html">耳機 (Headphone)</a></li>
@@ -494,6 +497,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="machine-learning/dimensionality-reduction.html">Dimensionality Reduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="machine-learning/instance-based.html">Instance Based</a></li>
 <li class="toctree-l1"><a class="reference internal" href="machine-learning/naive-bayes-classifier.html">樸素貝葉斯分類器 （Naïve Bayesian Classifier）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="machine-learning/papers-todo.html">Papers Todo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="machine-learning/regularization.html">Regularization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="machine-learning/resource.html">機器學習相關資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="machine-learning/rule-system.html">Rule System</a></li>
@@ -547,6 +551,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="misc/mail-system.html">Mail System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/man-page.html">Man Page</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/misc.html">Misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc/netflix.html">Netflix</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/openhouse.html">Open House</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/opensource-projects-i-love.html">Open Source Porjects I Love</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/origin.html">緣由</a></li>
@@ -701,7 +706,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="robotics/boston-dynamics.html">Boston Dynamics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="robotics/farming-robot.html">Farming Robot</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/README.html">Rust 相關文章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rust/README.html#rust-tips">Rust Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/abbreviation.html">縮寫</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/any.html">Rust’s runtime reflection - 「Any」 type trait</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/articles.html">文章閱讀（Articles）</a></li>
@@ -3322,9 +3326,19 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="gui/README.html">GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware/README.html">硬體相關 (Hardware)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware/amd.html">AMD</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hardware/amd.html#amd-ryzen-apu">AMD Ryzen APU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware/amd.html#id2">參考</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="hardware/arduino.html">Arduino</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="hardware/arduino.html#arduino-cc-v-s-arduino-org">Arduino.cc v.s. Arduino.org</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hardware/arduino.html#id2">參考</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hardware/arm.html">ARM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hardware/arm.html#id2">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="hardware/cpu.html">CPU</a><ul>
@@ -3342,7 +3356,10 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="hardware/history.html">Hardware’s History</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hardware/intel.html">Intel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware/intel.html">Intel</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hardware/intel.html#id2">參考</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="hardware/intel-mic.html">Intel MIC</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="hardware/intel-mic.html#reference">Reference</a></li>
 </ul>
@@ -3384,6 +3401,9 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="hardware/qualcomm.html">Qualcomm</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hardware/qualcomm.html#snapdragon-820">Snapdragon 820</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware/qualcomm.html#snapdragon-835">Snapdragon 835</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware/qualcomm.html#snapdragon-845">Snapdragon 845</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hardware/qualcomm.html#id2">參考</a></li>
 </ul>
 </li>
@@ -3501,6 +3521,7 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="machine-learning/naive-bayes-classifier.html#id5">參考</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="machine-learning/papers-todo.html">Papers Todo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="machine-learning/regularization.html">Regularization</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="machine-learning/regularization.html#id2">演算法</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="machine-learning/regularization.html#ridge-regression">Ridge Regression</a></li>
@@ -3874,6 +3895,10 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="misc/misc.html">Misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc/netflix.html">Netflix</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="misc/netflix.html#force-1080p">Force 1080p</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="misc/openhouse.html">Open House</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/opensource-projects-i-love.html">Open Source Porjects I Love</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc/origin.html">緣由</a></li>
@@ -4885,38 +4910,6 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rust/README.html">Rust 相關文章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rust/README.html#rust-tips">Rust Tips</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rust/README.html#id11">輸出中間產物</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rust/README.html#counter-by-hashmap">Counter By HashMap</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rust/README.html#slices-join-concat">Slices join/concat</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rust/README.html#id12">字串轉特定型別</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rust/README.html#id13">把相依套件抓下來</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rust/README.html#conditional-attribute">Conditional Attribute</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rust/README.html#libraries">指定連結的 Libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rust/README.html#rustc">建立 rustc 內部文件</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rust/README.html#re-export">re-export</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rust/README.html#ffi-foreign-function-interface">FFI (Foreign Function Interface)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="rust/README.html#id15">範例一，傳入字串、回傳字串</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="rust/README.html#pretty-print-debug">Pretty Print Debug</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rust/README.html#optional-arguments">Optional Arguments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rust/README.html#string-str">String 和 str</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rust/README.html#is-empty"><code class="docutils literal"><span class="pre">is_empty()</span></code> 或 <code class="docutils literal"><span class="pre">==</span> <span class="pre">&quot;&quot;</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="rust/README.html#cfg-condition">cfg! Condition</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rust/README.html#i-o">I/O 處理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rust/README.html#id16">執行檔大小</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rust/README.html#iterator-over-contigunous-windows-of-specific-length">Iterator over contigunous windows of specific length</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rust/README.html#ascii">ASCII 相關操作</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rust/README.html#asref-asmut-into-from-borrow">AsRef/AsMut/Into/From &amp; Borrow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rust/README.html#cell-refcell">Cell &amp; RefCell</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rust/README.html#atomic-rwlock-mutex">Atomic* &amp; RwLock &amp; Mutex</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rust/README.html#unsafecell">UnsafeCell</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rust/README.html#llvm-sanitizer">LLVM Sanitizer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rust/README.html#id19">編譯靜態連結的執行檔</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rust/README.html#cargo-template">Cargo Template</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="rust/abbreviation.html">縮寫</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust/any.html">Rust’s runtime reflection - 「Any」 type trait</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="rust/any.html#reference">Reference</a></li>
@@ -4994,14 +4987,15 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rust/compiler.html">Rust 編譯器</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="rust/compiler.html#id2">編譯「編譯器」</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/compiler.html#llvm">LLVM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/compiler.html#parser">Parser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rust/compiler.html#id3">編譯器效能追蹤</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/compiler.html#porting">平台 Porting 範例</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="rust/compiler.html#id3">新硬體</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rust/compiler.html#id4">新作業系統</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rust/compiler.html#id4">新硬體</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rust/compiler.html#id5">新作業系統</a></li>
 <li class="toctree-l3"><a class="reference internal" href="rust/compiler.html#nvptx">新平台 - NVPTX</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="rust/compiler.html#parser">Parser</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rust/compiler.html#id5">編譯器效能追蹤</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rust/compiler.html#id6">參考</a></li>
 </ul>
 </li>

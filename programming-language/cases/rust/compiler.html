@@ -468,7 +468,10 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../../graphics/virtualgl.html">VirtualGL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../graphics/vulkan.html">Vulkan</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../gui/README.html">GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hardware/README.html">硬體相關 (Hardware)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hardware/amd.html">AMD</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../hardware/arduino.html">Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hardware/arm.html">ARM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../hardware/cpu.html">CPU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../hardware/hardware-and-programming.html">Hardware &amp; Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../hardware/headphone.html">耳機 (Headphone)</a></li>
@@ -493,6 +496,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../../machine-learning/dimensionality-reduction.html">Dimensionality Reduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../machine-learning/instance-based.html">Instance Based</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../machine-learning/naive-bayes-classifier.html">樸素貝葉斯分類器 （Naïve Bayesian Classifier）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../machine-learning/papers-todo.html">Papers Todo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../machine-learning/regularization.html">Regularization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../machine-learning/resource.html">機器學習相關資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../machine-learning/rule-system.html">Rule System</a></li>
@@ -546,6 +550,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../../misc/mail-system.html">Mail System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../misc/man-page.html">Man Page</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../misc/misc.html">Misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/netflix.html">Netflix</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../misc/openhouse.html">Open House</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../misc/opensource-projects-i-love.html">Open Source Porjects I Love</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../misc/origin.html">緣由</a></li>
@@ -700,7 +705,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../../robotics/boston-dynamics.html">Boston Dynamics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../robotics/farming-robot.html">Farming Robot</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/README.html">Rust 相關文章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../rust/README.html#rust-tips">Rust Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/abbreviation.html">縮寫</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/any.html">Rust’s runtime reflection - 「Any」 type trait</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../rust/articles.html">文章閱讀（Articles）</a></li>
@@ -883,15 +887,16 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <ul class="simple">
 <li><a class="reference internal" href="#rust" id="id7">Rust 編譯器</a><ul>
 <li><a class="reference internal" href="#id2" id="id8">編譯「編譯器」</a></li>
-<li><a class="reference internal" href="#porting" id="id9">平台 Porting 範例</a><ul>
-<li><a class="reference internal" href="#id3" id="id10">新硬體</a></li>
-<li><a class="reference internal" href="#id4" id="id11">新作業系統</a></li>
-<li><a class="reference internal" href="#nvptx" id="id12">新平台 - NVPTX</a></li>
+<li><a class="reference internal" href="#llvm" id="id9">LLVM</a></li>
+<li><a class="reference internal" href="#parser" id="id10">Parser</a></li>
+<li><a class="reference internal" href="#id3" id="id11">編譯器效能追蹤</a></li>
+<li><a class="reference internal" href="#porting" id="id12">平台 Porting 範例</a><ul>
+<li><a class="reference internal" href="#id4" id="id13">新硬體</a></li>
+<li><a class="reference internal" href="#id5" id="id14">新作業系統</a></li>
+<li><a class="reference internal" href="#nvptx" id="id15">新平台 - NVPTX</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#parser" id="id13">Parser</a></li>
-<li><a class="reference internal" href="#id5" id="id14">編譯器效能追蹤</a></li>
-<li><a class="reference internal" href="#id6" id="id15">參考</a></li>
+<li><a class="reference internal" href="#id6" id="id16">參考</a></li>
 </ul>
 </li>
 </ul>
@@ -910,18 +915,36 @@ $ <span class="nb">cd</span> rust/
 <span class="c1"># vendor            &quot;enable usage of vendored Rust crates</span>
 <span class="c1"># clang             &quot;prefer clang to gcc for building the runtime&quot;</span>
 <span class="c1">#</span>
-$ ./configure --enable-local-rust --enable-clang --enable-vendor --enable-rustbuild --enable-compiler-docs --enable-optimize
+$ ./configure --enable-local-rust --enable-clang --enable-vendor --enable-rustbuild --enable-compiler-docs --enable-optimize --enable-debug
+
+<span class="c1"># 上面 configure 完成後會產生 x.py</span>
+
+<span class="c1"># 查看 Help 訊息</span>
+$ python x.py --help
+$ python x.py build --help
 
 <span class="c1"># 編譯到 Stage 1：</span>
-$ make rustc-stage1
+<span class="c1">#</span>
+<span class="c1"># 在大多數的 Rust 編譯器開發情況下只需要編到 Stage 1 即可，</span>
+<span class="c1"># 不需要編到 Stage 2，</span>
+<span class="c1"># 藉此可以省去不少時間</span>
+<span class="c1">#</span>
+<span class="c1"># -i, --incremental   use incremental compilation</span>
+<span class="c1"># -j, --jobs JOBS     number of jobs to run in parallel</span>
+<span class="c1">#     --stage N       stage to build</span>
+$ python x.py build -i -j6 --stage <span class="m">1</span>
 $ ./build/x86_64-unknown-linux-gnu/stage1/bin/rustc --version
 
 <span class="c1"># 編譯到 Stage 2：</span>
-$ make rustc-stage2
+$ python x.py build -i -j6 --stage <span class="m">2</span>
 $ ./build/x86_64-unknown-linux-gnu/stage2/bin/rustc --version
 
+<span class="c1"># 只編譯 rustc：</span>
+<span class="c1"># 不編譯 std</span>
+$ python x.py build src/rustc --stage <span class="m">1</span>
+
 <span class="c1"># 產生文件：</span>
-$ make doc
+$ python x.py doc
 $ <span class="nb">cd</span> ./build/x86_64-unknown-linux-gnu/doc/
 $ python -m http.server
 </pre></div>
@@ -930,10 +953,43 @@ $ python -m http.server
 <li><a class="reference external" href="https://manishearth.github.io/rust-internals-docs/rustc/">Rust internal compiler documentation</a></li>
 </ul>
 </div>
-<div class="section" id="porting">
-<h2><a class="toc-backref" href="#id9">平台 Porting 範例</a><a class="headerlink" href="#porting" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="llvm">
+<h2><a class="toc-backref" href="#id9">LLVM</a><a class="headerlink" href="#llvm" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt><a class="reference external" href="https://github.com/rust-lang/rust/pull/47828">rustc: Upgrade to LLVM 6</a></dt>
+<dd><ul class="first last">
+<li>直接從 LLVM 4 切到 LLVM 6</li>
+<li>並沒有把先前 Rust 這邊的所有 patch 都加上去，因為很多都已經不確定是否需要了</li>
+<li>撿了少數對 Rust 重要的 patch 上去，來讓 Rust 的測試可以通過</li>
+<li>效能測試最高有 13% 改進</li>
+<li>切到 LLVM 6 後就可以讓 WebAssembly backend 使用 LLD</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="parser">
+<h2><a class="toc-backref" href="#id10">Parser</a><a class="headerlink" href="#parser" title="本標題的永久連結">¶</a></h2>
+<p>Rust 有用 ANTLR 做 parser 驗證：</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/rust-lang/rust/tree/master/src/grammar">https://github.com/rust-lang/rust/tree/master/src/grammar</a></li>
+<li><a class="reference external" href="https://github.com/antlr">https://github.com/antlr</a></li>
+<li><a class="reference external" href="https://github.com/rust-lang/rust/blob/master/src/doc/grammar.md">https://github.com/rust-lang/rust/blob/master/src/doc/grammar.md</a></li>
+</ul>
+</div>
 <div class="section" id="id3">
-<h3><a class="toc-backref" href="#id10">新硬體</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h3>
+<h2><a class="toc-backref" href="#id11">編譯器效能追蹤</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://perf.rust-lang.org/">rustc performance data</a></li>
+<li><a class="reference external" href="https://github.com/rust-lang-nursery/rustc-benchmarks">Some benchmarks for testing rustc performance</a></li>
+</ul>
+</div>
+<div class="section" id="porting">
+<h2><a class="toc-backref" href="#id12">平台 Porting 範例</a><a class="headerlink" href="#porting" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id13">新硬體</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/rust-lang/rust/pull/36369">IBM s390x</a></li>
 </ul>
@@ -1108,8 +1164,8 @@ $ python -m http.server
 </li>
 </ol>
 </div>
-<div class="section" id="id4">
-<h3><a class="toc-backref" href="#id11">新作業系統</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h3>
+<div class="section" id="id5">
+<h3><a class="toc-backref" href="#id14">新作業系統</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/rust-lang/rust/pull/36727">Haiku OS</a></li>
 </ul>
@@ -1323,7 +1379,7 @@ $ python -m http.server
 </ol>
 </div>
 <div class="section" id="nvptx">
-<h3><a class="toc-backref" href="#id12">新平台 - NVPTX</a><a class="headerlink" href="#nvptx" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id15">新平台 - NVPTX</a><a class="headerlink" href="#nvptx" title="本標題的永久連結">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/rust-lang/rust/commit/18d49288d546efaceab7c4c6d71a868b575bd00f">PTX support</a></li>
 <li><a class="reference external" href="https://github.com/rust-lang/rust/pull/38559">PTX support, take 2</a></li>
@@ -1396,29 +1452,14 @@ $ python -m http.server
 </ul>
 </div>
 </div>
-<div class="section" id="parser">
-<h2><a class="toc-backref" href="#id13">Parser</a><a class="headerlink" href="#parser" title="本標題的永久連結">¶</a></h2>
-<p>Rust 有用 ANTLR 做 parser 驗證：</p>
-<ul class="simple">
-<li><a class="reference external" href="https://github.com/rust-lang/rust/tree/master/src/grammar">https://github.com/rust-lang/rust/tree/master/src/grammar</a></li>
-<li><a class="reference external" href="https://github.com/antlr">https://github.com/antlr</a></li>
-<li><a class="reference external" href="https://github.com/rust-lang/rust/blob/master/src/doc/grammar.md">https://github.com/rust-lang/rust/blob/master/src/doc/grammar.md</a></li>
-</ul>
-</div>
-<div class="section" id="id5">
-<h2><a class="toc-backref" href="#id14">編譯器效能追蹤</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h2>
-<ul class="simple">
-<li><a class="reference external" href="http://perf.rust-lang.org/">rustc performance data</a></li>
-<li><a class="reference external" href="https://github.com/rust-lang-nursery/rustc-benchmarks">Some benchmarks for testing rustc performance</a></li>
-</ul>
-</div>
 <div class="section" id="id6">
-<h2><a class="toc-backref" href="#id15">參考</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id16">參考</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://www.jonathanturner.org/2016/08/helping-out-with-rust-errors.html">Helping with the Rust Errors</a></li>
 <li><a class="reference external" href="https://github.com/rust-lang/rust/issues/35233">Error code list which need to be updated to new format #35233</a></li>
 <li><a class="reference external" href="https://internals.rust-lang.org/t/new-error-format/3438/">Rust Internals - New error format</a></li>
 <li><a class="reference external" href="https://bot.tinaun.net/rust/featurelist/">Unstable Feature Gates</a></li>
+<li><a class="reference external" href="https://github.com/jauhien/iron-kaleidoscope">LLVM tutorial in Rust language</a></li>
 </ul>
 </div>
 </div>

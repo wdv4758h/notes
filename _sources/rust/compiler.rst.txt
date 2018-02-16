@@ -23,23 +23,72 @@ Rust 編譯器
     # vendor            "enable usage of vendored Rust crates
     # clang             "prefer clang to gcc for building the runtime"
     #
-    $ ./configure --enable-local-rust --enable-clang --enable-vendor --enable-rustbuild --enable-compiler-docs --enable-optimize
+    $ ./configure --enable-local-rust --enable-clang --enable-vendor --enable-rustbuild --enable-compiler-docs --enable-optimize --enable-debug
+
+    # 上面 configure 完成後會產生 x.py
+
+    # 查看 Help 訊息
+    $ python x.py --help
+    $ python x.py build --help
 
     # 編譯到 Stage 1：
-    $ make rustc-stage1
+    #
+    # 在大多數的 Rust 編譯器開發情況下只需要編到 Stage 1 即可，
+    # 不需要編到 Stage 2，
+    # 藉此可以省去不少時間
+    #
+    # -i, --incremental   use incremental compilation
+    # -j, --jobs JOBS     number of jobs to run in parallel
+    #     --stage N       stage to build
+    $ python x.py build -i -j6 --stage 1
     $ ./build/x86_64-unknown-linux-gnu/stage1/bin/rustc --version
 
     # 編譯到 Stage 2：
-    $ make rustc-stage2
+    $ python x.py build -i -j6 --stage 2
     $ ./build/x86_64-unknown-linux-gnu/stage2/bin/rustc --version
 
+    # 只編譯 rustc：
+    # 不編譯 std
+    $ python x.py build src/rustc --stage 1
+
     # 產生文件：
-    $ make doc
+    $ python x.py doc
     $ cd ./build/x86_64-unknown-linux-gnu/doc/
     $ python -m http.server
 
 
 * `Rust internal compiler documentation <https://manishearth.github.io/rust-internals-docs/rustc/>`_
+
+
+
+LLVM
+========================================
+
+* `rustc: Upgrade to LLVM 6 <https://github.com/rust-lang/rust/pull/47828>`_
+    - 直接從 LLVM 4 切到 LLVM 6
+    - 並沒有把先前 Rust 這邊的所有 patch 都加上去，因為很多都已經不確定是否需要了
+    - 撿了少數對 Rust 重要的 patch 上去，來讓 Rust 的測試可以通過
+    - 效能測試最高有 13% 改進
+    - 切到 LLVM 6 後就可以讓 WebAssembly backend 使用 LLD
+
+
+
+Parser
+========================================
+
+Rust 有用 ANTLR 做 parser 驗證：
+
+* https://github.com/rust-lang/rust/tree/master/src/grammar
+* https://github.com/antlr
+* https://github.com/rust-lang/rust/blob/master/src/doc/grammar.md
+
+
+
+編譯器效能追蹤
+========================================
+
+* `rustc performance data <http://perf.rust-lang.org/>`_
+* `Some benchmarks for testing rustc performance <https://github.com/rust-lang-nursery/rustc-benchmarks>`_
 
 
 
@@ -212,23 +261,6 @@ Rust 編譯器
 * `How to: Run Rust code on your NVIDIA GPU <https://github.com/japaric/nvptx>`_
 * `Experiments with CUDA and Rust <https://github.com/japaric/cuda>`_
 
-Parser
-========================================
-
-Rust 有用 ANTLR 做 parser 驗證：
-
-* https://github.com/rust-lang/rust/tree/master/src/grammar
-* https://github.com/antlr
-* https://github.com/rust-lang/rust/blob/master/src/doc/grammar.md
-
-
-
-編譯器效能追蹤
-========================================
-
-* `rustc performance data <http://perf.rust-lang.org/>`_
-* `Some benchmarks for testing rustc performance <https://github.com/rust-lang-nursery/rustc-benchmarks>`_
-
 
 
 參考
@@ -238,3 +270,5 @@ Rust 有用 ANTLR 做 parser 驗證：
 * `Error code list which need to be updated to new format #35233 <https://github.com/rust-lang/rust/issues/35233>`_
 * `Rust Internals - New error format <https://internals.rust-lang.org/t/new-error-format/3438/>`_
 * `Unstable Feature Gates <https://bot.tinaun.net/rust/featurelist/>`_
+
+* `LLVM tutorial in Rust language <https://github.com/jauhien/iron-kaleidoscope>`_

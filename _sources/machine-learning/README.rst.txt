@@ -20,9 +20,8 @@
 ========================================
 
 * `深度學習 (Deep Learning) <deep-learning>`_
-* `決策樹 (Decision Tree) <decision-tree.rst>`_
-* 線性模型 (Linear Model)
-    - `SVM <svm.rst>`_
+* `決策樹 (Decision Tree) <decision-tree>`_
+* `線性模型 (Linear Model) <linear-model>`_
 
 
 
