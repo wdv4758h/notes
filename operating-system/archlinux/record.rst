@@ -60,3 +60,7 @@ asciinema 是專門錄 Terminal 並重新播放的程式，
 ========================================
 
 * `How it works - asciinema <https://asciinema.org/docs/how-it-works>`_
+* `asciinema - 2.0 <http://blog.asciinema.org/post/two-point-o/>`_
+    - standard JSON -> newline-delimited JSON
+    - real-time streaming friendly
+    - recording session is interruptable
