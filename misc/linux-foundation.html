@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Valgrind on Android Platform &mdash; wdv4758h-notes latest 說明文件</title>
+  <title>Linux Foundation &mdash; wdv4758h-notes latest 說明文件</title>
   
 
   
@@ -36,8 +36,8 @@
               href="../genindex.html"/>
         <link rel="search" title="搜尋" href="../search.html"/>
     <link rel="top" title="wdv4758h-notes latest 說明文件" href="../index.html"/>
-        <link rel="next" title="Valgrind Resource Collection" href="collection.html"/>
-        <link rel="prev" title="工具" href="../unix-like-environment/tools.html"/> 
+        <link rel="next" title="Log Analysis" href="log-analysis.html"/>
+        <link rel="prev" title="Keyboard" href="keyboard.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -49,7 +49,7 @@
 Always link to the latest version, as canonical.
 http://docs.readthedocs.org/en/latest/canonical.html
 -->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/valgrind/android.html" />
+<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/misc/linux-foundation.html" />
 
 <link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
 
@@ -57,7 +57,7 @@ http://docs.readthedocs.org/en/latest/canonical.html
 
 <!-- Add page-specific data, which must exist in the page js, not global -->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = 'valgrind/android' 		
+READTHEDOCS_DATA['page'] = 'misc/linux-foundation' 		
 READTHEDOCS_DATA['source_suffix'] = '.rst'
 </script>
 
@@ -505,10 +505,12 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/spark.html">Spark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/t-SNE.html">t-SNE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/todo.html">Todo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/README.html">數學相關</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/error.html">誤差</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/libraries.html">數學相關套件 (Math Libraries)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../math/math.html">Math</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/math-on-web.html">Math on Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/misc.html">Math</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/W^X.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
@@ -521,70 +523,75 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../memory/memory-profiling.html">Memory Profiling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/sanitizer.html">Sanitizer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/stack-protection.html">Stack Protection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/advertisement-blocker.html">Advertisement Blocker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/archive.html">Archive</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/articles.html">一些閱讀過的文章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/bandwidth.html">頻寬成本</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/bit-hacks.html">Bit Hacks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/bugs.html">踩 Bug 紀錄 (從 2015-10-26 開始)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/cad.html">CAD (Computer-Aided Design)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/calendar.html">Calendar</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/chatops.html">ChatOps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/conference.html">Conference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/contribution.html">Open Source 專案貢獻</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/disk-encryption.html">Disk Encryption</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/dot-language.html">DOT Language</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/easy-website-builder.html">簡易網站建立服務</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/esoteric_languages.html">Esoteric Programming Language</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/fish.html">Fish Shell</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/floating-point.html">Floating Point</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/free-software-in-taiwan.html">臺灣自由軟體界</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/funny-sites.html">Funny Sites</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/google-on-hub.html">Google OnHub</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/hex-float.html">十六進位浮點數（Hex Float）</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/host-block.html">Host Blocker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/http-history.html">HTTP History</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/images.html">Images</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/irc.html">IRC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/jargons.html">Jargons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/keyboard.html">Keyboard</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/log-analysis.html">Log Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/mail-system.html">Mail System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/man-page.html">Man Page</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/misc.html">Misc</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/netflix.html">Netflix</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/openhouse.html">Open House</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/opensource-projects-i-love.html">Open Source Porjects I Love</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/origin.html">緣由</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/papers.html">Papers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/pdf-viewers-history.html">PDF Viewer History</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/podcast.html">Podcast</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/project-measurement.html">Project Measurement</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/proxychains.html">proxychains</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/publications.html">資訊相關書籍出版社</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/remote-jobs.html">遠端工作 (Remote Jobs)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/repo.html">Interesting Repo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/reverse-engineering.html">逆向工程</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/sat-smt.html">SAT/SMT Solver</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/sites.html">Sites</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/software-updates.html">Software Updates</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/statifier.html">Statifier</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/taiwan-software.html">台灣軟體界</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/task-execution-framework.html">Task Execution Framework</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/team-collaboration.html">Team Collaboration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/todo.html">Todo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/todo-projects.html">想做的專案</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/tools.html">Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/trace-code.html">Trace Code</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/translation.html">翻譯 (Translation)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/trash-talk.html">技術屁話</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/turing-complete.html">Turing Complete</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/typesetting.html">Typesetting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/undergraduate-course-taken.html">大學修過的課程</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/unicode.html">Unicode 解說</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/video.html">Video</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/videos.html">一些 Talk 的影片</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mpi/mpi.html">MPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advertisement-blocker.html">Advertisement Blocker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archive.html">Archive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="articles.html">一些閱讀過的文章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bandwidth.html">頻寬成本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bit-hacks.html">Bit Hacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bugs.html">踩 Bug 紀錄 (從 2015-10-26 開始)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cad.html">CAD (Computer-Aided Design)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calendar.html">Calendar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chatops.html">ChatOps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conference.html">Conference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribution.html">Open Source 專案貢獻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="disk-encryption.html">Disk Encryption</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dot-language.html">DOT Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="easy-website-builder.html">簡易網站建立服務</a></li>
+<li class="toctree-l1"><a class="reference internal" href="esoteric_languages.html">Esoteric Programming Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fish.html">Fish Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="floating-point.html">Floating Point</a></li>
+<li class="toctree-l1"><a class="reference internal" href="free-software-in-taiwan.html">臺灣自由軟體界</a></li>
+<li class="toctree-l1"><a class="reference internal" href="funny-sites.html">Funny Sites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="google-on-hub.html">Google OnHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hex-float.html">十六進位浮點數（Hex Float）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="host-block.html">Host Blocker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http-history.html">HTTP History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="images.html">Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="irc.html">IRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jargons.html">Jargons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keyboard.html">Keyboard</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Linux Foundation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#cncf-cloud-native-computing-foundation">CNCF (Cloud Native Computing Foundation)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">參考</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="log-analysis.html">Log Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail-system.html">Mail System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="man-page.html">Man Page</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc.html">Misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="netflix.html">Netflix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openhouse.html">Open House</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opensource-projects-i-love.html">Open Source Porjects I Love</a></li>
+<li class="toctree-l1"><a class="reference internal" href="origin.html">緣由</a></li>
+<li class="toctree-l1"><a class="reference internal" href="papers.html">Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pdf-viewers-history.html">PDF Viewer History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="podcast.html">Podcast</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project-measurement.html">Project Measurement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proxychains.html">proxychains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="publications.html">資訊相關書籍出版社</a></li>
+<li class="toctree-l1"><a class="reference internal" href="remote-jobs.html">遠端工作 (Remote Jobs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repo.html">Interesting Repo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reverse-engineering.html">逆向工程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rocket.html">火箭</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sat-smt.html">SAT/SMT Solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sites.html">Sites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="software-updates.html">Software Updates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statifier.html">Statifier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="taiwan-software.html">台灣軟體界</a></li>
+<li class="toctree-l1"><a class="reference internal" href="task-execution-framework.html">Task Execution Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="team-collaboration.html">Team Collaboration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todo.html">Todo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todo-projects.html">想做的專案</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trace-code.html">Trace Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">翻譯 (Translation)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trash-talk.html">技術屁話</a></li>
+<li class="toctree-l1"><a class="reference internal" href="turing-complete.html">Turing Complete</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typesetting.html">Typesetting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="undergraduate-course-taken.html">大學修過的課程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unicode.html">Unicode 解說</a></li>
+<li class="toctree-l1"><a class="reference internal" href="video.html">Video</a></li>
+<li class="toctree-l1"><a class="reference internal" href="videos.html">一些 Talk 的影片</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/README.html">多媒體 (Multimedia)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/audio.html">Audio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/ffmpeg.html">FFmpeg</a></li>
@@ -599,6 +606,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/player.html">播放器</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/pulseaudio.html">PulseAudio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/video.html">Video</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../multimedia/video-quality.html">Video Quality</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/webrtc.html">WebRTC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/README.html">網路相關 (Network)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/ddos.html">DDoS</a></li>
@@ -608,6 +616,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../network/ice.html">ICE (Interactive Connectivity Establishment)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/iperf.html">iperf - TCP/UDP/SCTP 網路效能測量</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/microservice.html">Microservice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/monitoring.html">Network Monitoring</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/network-stack.html">Network Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/nginx.html">Nginx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/os-socket-buffer.html">OS socket buffer</a></li>
@@ -615,6 +624,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../network/resource.html">資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/rpc.html">RPC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/security-check.html">安全性檢查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/srt.html">SRT (Secure Reliable Transport)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/tcpdump.html">tcpdump</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/upnp.html">UPnP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../operating-system/README.html">作業系統</a></li>
@@ -632,8 +642,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../parallel/resource.html">平行化相關資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../programming-language/README.html">程式語言理論 (Programming Language Theory) (PLT)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../programming-language/interpreter-for-compiled-language.html">Interpreter For Compiled Language</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pypy/brief.html">簡單介紹</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pypy/resource.html">RPython Toolchain 相關資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/README.html">Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/ast.html">Python AST</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/async-await.html">Python - async &amp; await</a></li>
@@ -785,6 +793,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../testing/server-validation.html">檢查伺服器設定</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/256-color.html">256 color</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/README.html">常用軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/autossh.html">autossh</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/bash.html">Bash</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/basic-system-utils.html">Basic System Utils</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/busybox.html">BusyBox - 人人都該備一個在身邊的執行檔</a></li>
@@ -804,15 +813,10 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/sway.html">Sway</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/tips.html">Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/tools.html">工具</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Valgrind on Android Platform</a></li>
-<li class="toctree-l1"><a class="reference internal" href="collection.html">Valgrind Resource Collection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dynamic-binary-instrumentation.html">Valgrind: A Framework for Heavyweight Dynamic Binary Instrumentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="firefox.html">Valgrind &amp; Firefox</a></li>
-<li class="toctree-l1"><a class="reference internal" href="new-plugin.html">Writeing a New Valgrind Tool</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tips.html">Valgrind Tips</a></li>
-<li class="toctree-l1"><a class="reference internal" href="valgrind-talks.html">Valgrind Talks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../version-control/README.html">版本控制 (Version Control)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../version-control/mercurial.html">Mercurial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../virtualization/README.html">虛擬化 (Virtualization)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../virtualization/bareflank.html">Bareflank</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../virtualization/bhyve.html">bhyve</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../virtualization/kvm.html">KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../virtualization/qemu.html">QEMU</a></li>
@@ -861,14 +865,14 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Valgrind on Android Platform</li>
+      <li>Linux Foundation</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
             
-              <a href="https://github.com/wdv4758h/notes/blob/master/./valgrind/android.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/wdv4758h/notes/blob/master/./misc/linux-foundation.rst" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -882,60 +886,41 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="valgrind-on-android-platform">
-<h1>Valgrind on Android Platform<a class="headerlink" href="#valgrind-on-android-platform" title="本標題的永久連結">¶</a></h1>
-<p>自己試過會動的版本 :</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="34%" />
-<col width="66%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>Valgrind</td>
-<td>721e6a4 (2015-06-16)</td>
-</tr>
-<tr class="row-even"><td>Android NDK</td>
-<td>android-ndk-r10e-linux-x86_64.bin</td>
-</tr>
-<tr class="row-odd"><td>Platform</td>
-<td>Android 21 (ARM)</td>
-</tr>
-<tr class="row-even"><td>Target CPU</td>
-<td>ARMv7</td>
-</tr>
-<tr class="row-odd"><td>Toolchain</td>
-<td>GCC 4.9 (ARM, Android EABI)</td>
-</tr>
-<tr class="row-even"><td>SoC</td>
-<td>Qualcomm Snapdragon S3 MSM8260</td>
-</tr>
-<tr class="row-odd"><td>CPU</td>
-<td>Qualcomm 1.5 GHz dual-core Scorpion</td>
-</tr>
-<tr class="row-even"><td>Android (running)</td>
-<td>4.1.2, 5.1.1</td>
-</tr>
-</tbody>
-</table>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ cat /proc/cpuinfo
-Processor   : ARMv7 Processor rev <span class="m">4</span> <span class="o">(</span>v7l<span class="o">)</span>
-processor   : <span class="m">0</span>
-BogoMIPS    : <span class="m">13</span>.53
-
-processor   : <span class="m">1</span>
-BogoMIPS    : <span class="m">13</span>.53
-
-Features    : swp half thumb fastmult vfp edsp neon vfpv3 tls
-CPU implementer : 0x51
-CPU architecture: <span class="m">7</span>
-CPU variant : 0x0
-CPU part    : 0x02d
-CPU revision    : <span class="m">4</span>
-
-Hardware    : fuji
-Revision    : <span class="m">0000</span>
-Serial      : <span class="m">0000000000000000</span>
-</pre></div>
+  <div class="section" id="linux-foundation">
+<h1><a class="toc-backref" href="#id3">Linux Foundation</a><a class="headerlink" href="#linux-foundation" title="本標題的永久連結">¶</a></h1>
+<div class="contents topic" id="id1">
+<p class="topic-title first">目錄</p>
+<ul class="simple">
+<li><a class="reference internal" href="#linux-foundation" id="id3">Linux Foundation</a><ul>
+<li><a class="reference internal" href="#cncf-cloud-native-computing-foundation" id="id4">CNCF (Cloud Native Computing Foundation)</a></li>
+<li><a class="reference internal" href="#id2" id="id5">參考</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="cncf-cloud-native-computing-foundation">
+<h2><a class="toc-backref" href="#id4">CNCF (Cloud Native Computing Foundation)</a><a class="headerlink" href="#cncf-cloud-native-computing-foundation" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li>Kubernetes</li>
+<li>CNI</li>
+<li>Containerd</li>
+<li>CoreDNS</li>
+<li>Envoy</li>
+<li>Fluentd</li>
+<li>gRPC</li>
+<li>Jaeger</li>
+<li>Linkerd</li>
+<li>OpenTracing</li>
+<li>Prometheus</li>
+<li>rkt</li>
+<li>The Update Framework</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id5">參考</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Linux_Foundation">Wikipedia - Linux Foundation</a></li>
+</ul>
 </div>
 </div>
 
@@ -949,10 +934,10 @@ Serial      : <span class="m">0000000000000000</span>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="collection.html" class="btn btn-neutral float-right" title="Valgrind Resource Collection" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="log-analysis.html" class="btn btn-neutral float-right" title="Log Analysis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../unix-like-environment/tools.html" class="btn btn-neutral" title="工具" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="keyboard.html" class="btn btn-neutral" title="Keyboard" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

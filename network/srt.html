@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Valgrind Resource Collection &mdash; wdv4758h-notes latest 說明文件</title>
+  <title>SRT (Secure Reliable Transport) &mdash; wdv4758h-notes latest 說明文件</title>
   
 
   
@@ -36,8 +36,8 @@
               href="../genindex.html"/>
         <link rel="search" title="搜尋" href="../search.html"/>
     <link rel="top" title="wdv4758h-notes latest 說明文件" href="../index.html"/>
-        <link rel="next" title="Valgrind: A Framework for Heavyweight Dynamic Binary Instrumentation" href="dynamic-binary-instrumentation.html"/>
-        <link rel="prev" title="Valgrind on Android Platform" href="android.html"/> 
+        <link rel="next" title="tcpdump" href="tcpdump.html"/>
+        <link rel="prev" title="安全性檢查" href="security-check.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -49,7 +49,7 @@
 Always link to the latest version, as canonical.
 http://docs.readthedocs.org/en/latest/canonical.html
 -->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/valgrind/collection.html" />
+<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/network/srt.html" />
 
 <link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
 
@@ -57,7 +57,7 @@ http://docs.readthedocs.org/en/latest/canonical.html
 
 <!-- Add page-specific data, which must exist in the page js, not global -->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = 'valgrind/collection' 		
+READTHEDOCS_DATA['page'] = 'network/srt' 		
 READTHEDOCS_DATA['source_suffix'] = '.rst'
 </script>
 
@@ -505,10 +505,12 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/spark.html">Spark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/t-SNE.html">t-SNE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/todo.html">Todo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/README.html">數學相關</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/error.html">誤差</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/libraries.html">數學相關套件 (Math Libraries)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../math/math.html">Math</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/math-on-web.html">Math on Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/misc.html">Math</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/W^X.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
@@ -548,6 +550,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../misc/irc.html">IRC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/jargons.html">Jargons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/keyboard.html">Keyboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/linux-foundation.html">Linux Foundation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/log-analysis.html">Log Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/mail-system.html">Mail System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/man-page.html">Man Page</a></li>
@@ -565,6 +568,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../misc/remote-jobs.html">遠端工作 (Remote Jobs)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/repo.html">Interesting Repo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/reverse-engineering.html">逆向工程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/rocket.html">火箭</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/sat-smt.html">SAT/SMT Solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/sites.html">Sites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/software-updates.html">Software Updates</a></li>
@@ -584,7 +588,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../misc/unicode.html">Unicode 解說</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/video.html">Video</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/videos.html">一些 Talk 的影片</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mpi/mpi.html">MPI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/README.html">多媒體 (Multimedia)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/audio.html">Audio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/ffmpeg.html">FFmpeg</a></li>
@@ -599,24 +602,31 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/player.html">播放器</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/pulseaudio.html">PulseAudio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/video.html">Video</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../multimedia/video-quality.html">Video Quality</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/webrtc.html">WebRTC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../network/README.html">網路相關 (Network)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../network/ddos.html">DDoS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../network/distributed.html">Distributed</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../network/dns.html">DNS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../network/dtls.html">DTLS (Datagram Transport Layer Security)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../network/ice.html">ICE (Interactive Connectivity Establishment)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../network/iperf.html">iperf - TCP/UDP/SCTP 網路效能測量</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../network/microservice.html">Microservice</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../network/network-stack.html">Network Stack</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../network/nginx.html">Nginx</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../network/os-socket-buffer.html">OS socket buffer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../network/quic.html">QUIC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../network/resource.html">資源</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../network/rpc.html">RPC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../network/security-check.html">安全性檢查</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../network/tcpdump.html">tcpdump</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../network/upnp.html">UPnP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">網路相關 (Network)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ddos.html">DDoS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distributed.html">Distributed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dtls.html">DTLS (Datagram Transport Layer Security)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ice.html">ICE (Interactive Connectivity Establishment)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iperf.html">iperf - TCP/UDP/SCTP 網路效能測量</a></li>
+<li class="toctree-l1"><a class="reference internal" href="microservice.html">Microservice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="monitoring.html">Network Monitoring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network-stack.html">Network Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nginx.html">Nginx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="os-socket-buffer.html">OS socket buffer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quic.html">QUIC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resource.html">資源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rpc.html">RPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security-check.html">安全性檢查</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">SRT (Secure Reliable Transport)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">介紹</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">參考</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tcpdump.html">tcpdump</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upnp.html">UPnP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../operating-system/README.html">作業系統</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../operating-system/linux-distro.html">Linux Distro</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../operating-system/netbsd.html">NetBSD</a></li>
@@ -632,8 +642,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../parallel/resource.html">平行化相關資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../programming-language/README.html">程式語言理論 (Programming Language Theory) (PLT)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../programming-language/interpreter-for-compiled-language.html">Interpreter For Compiled Language</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pypy/brief.html">簡單介紹</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pypy/resource.html">RPython Toolchain 相關資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/README.html">Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/ast.html">Python AST</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/async-await.html">Python - async &amp; await</a></li>
@@ -785,6 +793,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../testing/server-validation.html">檢查伺服器設定</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/256-color.html">256 color</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/README.html">常用軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/autossh.html">autossh</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/bash.html">Bash</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/basic-system-utils.html">Basic System Utils</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/busybox.html">BusyBox - 人人都該備一個在身邊的執行檔</a></li>
@@ -804,23 +813,10 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/sway.html">Sway</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/tips.html">Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/tools.html">工具</a></li>
-<li class="toctree-l1"><a class="reference internal" href="android.html">Valgrind on Android Platform</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Valgrind Resource Collection</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#valgrind-articles">Valgrind Articles</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#valgrind-slides">Valgrind Slides</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#projects-with-valgrind">Projects with Valgrind</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#papers">Papers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#related-projects">Related Projects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#comparison-of-memory-tools">Comparison Of Memory Tools</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="dynamic-binary-instrumentation.html">Valgrind: A Framework for Heavyweight Dynamic Binary Instrumentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="firefox.html">Valgrind &amp; Firefox</a></li>
-<li class="toctree-l1"><a class="reference internal" href="new-plugin.html">Writeing a New Valgrind Tool</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tips.html">Valgrind Tips</a></li>
-<li class="toctree-l1"><a class="reference internal" href="valgrind-talks.html">Valgrind Talks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../version-control/README.html">版本控制 (Version Control)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../version-control/mercurial.html">Mercurial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../virtualization/README.html">虛擬化 (Virtualization)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../virtualization/bareflank.html">Bareflank</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../virtualization/bhyve.html">bhyve</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../virtualization/kvm.html">KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../virtualization/qemu.html">QEMU</a></li>
@@ -869,14 +865,14 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Valgrind Resource Collection</li>
+      <li>SRT (Secure Reliable Transport)</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
             
-              <a href="https://github.com/wdv4758h/notes/blob/master/./valgrind/collection.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/wdv4758h/notes/blob/master/./network/srt.rst" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -890,214 +886,38 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="valgrind-resource-collection">
-<h1>Valgrind Resource Collection<a class="headerlink" href="#valgrind-resource-collection" title="本標題的永久連結">¶</a></h1>
-<div class="section" id="valgrind-articles">
-<h2>Valgrind Articles<a class="headerlink" href="#valgrind-articles" title="本標題的永久連結">¶</a></h2>
+  <div class="section" id="srt-secure-reliable-transport">
+<h1><a class="toc-backref" href="#id4">SRT (Secure Reliable Transport)</a><a class="headerlink" href="#srt-secure-reliable-transport" title="本標題的永久連結">¶</a></h1>
+<div class="contents topic" id="id1">
+<p class="topic-title first">目錄</p>
 <ul class="simple">
-<li><a class="reference external" href="https://blog.mozilla.org/jseward?s=Valgrind">Julian Seward’s blog</a></li>
+<li><a class="reference internal" href="#srt-secure-reliable-transport" id="id4">SRT (Secure Reliable Transport)</a><ul>
+<li><a class="reference internal" href="#id2" id="id5">介紹</a></li>
+<li><a class="reference internal" href="#id3" id="id6">參考</a></li>
 </ul>
-</div>
-<div class="section" id="valgrind-slides">
-<h2>Valgrind Slides<a class="headerlink" href="#valgrind-slides" title="本標題的永久連結">¶</a></h2>
-</div>
-<div class="section" id="projects-with-valgrind">
-<h2>Projects with Valgrind<a class="headerlink" href="#projects-with-valgrind" title="本標題的永久連結">¶</a></h2>
-<ul class="simple">
-<li><a class="reference external" href="https://github.com/servo/servo/wiki/Debugging">Servo</a></li>
-<li>Firefox</li>
-<li><a class="reference external" href="https://github.com/cython/cython/wiki/UsingValgrindToDebug">Cython</a></li>
-<li><a class="reference external" href="http://scikit-learn.org/stable/developers/debugging.html">scikit-learn</a></li>
-<li><a class="reference external" href="https://www.chromium.org/developers/how-tos/using-valgrind">Chromium</a></li>
-<li><a class="reference external" href="http://www.mono-project.com/docs/debug+profile/debug/#using-valgrind-on-mono">Mono</a></li>
-<li><a class="reference external" href="http://plasmodic.github.io/ecto/ecto/usage/external/valgrind.html">Ecto</a></li>
-<li><dl class="first docutils">
-<dt><a class="reference external" href="https://github.com/neovim/neovim/blob/7dc241ac782e3a469d73d5f9a7baeba4e6107333/runtime/doc/debug.txt#L43">Neovim</a></dt>
-<dd><ul class="first last">
-<li><a class="reference external" href="https://github.com/neovim/neovim/blob/master/.travis.yml">Neovim - Travis CI setting</a></li>
-</ul>
-</dd>
-</dl>
 </li>
 </ul>
 </div>
-<div class="section" id="papers">
-<h2>Papers<a class="headerlink" href="#papers" title="本標題的永久連結">¶</a></h2>
-<ul class="simple">
-<li><a class="reference external" href="http://research.google.com/pubs/pub43308.html">[2015] MemorySanitizer: fast detector of uninitialized memory use in C++</a></li>
-<li><a class="reference external" href="http://research.google.com/pubs/pub43216.html">[2014] ACDC-JS: explorative benchmarking of javascript memory management</a></li>
-<li><a class="reference external" href="http://research.google.com/pubs/pub40738.html">[2013] JSWhiz - Static Analysis for JavaScript Memory Leaks</a></li>
-<li><a class="reference external" href="http://research.google.com/pubs/pub37752.html">[2012] AddressSanitizer: A Fast Address Sanity Checker</a></li>
-<li><a class="reference external" href="http://research.google.com/pubs/archive/38225.pdf">[2012] Transparent Dynamic Instrumentation</a></li>
-<li><a class="reference external" href="http://research.google.com/pubs/pub37274.html">[2011] Practical Memory Checking with Dr. Memory</a></li>
-<li><a class="reference external" href="http://research.google.com/pubs/pub37659.html">[2011] Dynamic cache contention detection in multi-threaded applications</a></li>
-<li><a class="reference external" href="http://research.google.com/pubs/pub37278.html">[2011] Dynamic Race Detection with LLVM Compiler</a></li>
-<li><a class="reference external" href="http://www.cs.columbia.edu/~junfeng/reliable-software/papers/thread-sanitizer.pdf">[2009] ThreadSanitizer – data race detection in practice</a></li>
-<li><a class="reference external" href="http://research.google.com/pubs/archive/33253.pdf">[2007] Flayer: Exposing Application Internals</a></li>
-</ul>
-</div>
-<div class="section" id="related-projects">
-<h2>Related Projects<a class="headerlink" href="#related-projects" title="本標題的永久連結">¶</a></h2>
-<ul class="simple">
-<li><a class="reference external" href="https://github.com/DynamoRIO/drmemory">Dr. Memory</a></li>
-<li>DRD</li>
-<li>rr</li>
-<li><dl class="first docutils">
-<dt>LeakSanitizer</dt>
-<dd><ul class="first last">
-<li><a class="reference external" href="https://www.chromium.org/developers/testing/leaksanitizer">https://www.chromium.org/developers/testing/leaksanitizer</a></li>
-<li>AddressSanitizer 的一部份</li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>Heap Leak Checker</dt>
-<dd><ul class="first last">
-<li>deprecated (use LeakSanitizer instead)</li>
-<li>google-perftools 的一部份</li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-</div>
-<div class="section" id="comparison-of-memory-tools">
-<h2>Comparison Of Memory Tools<a class="headerlink" href="#comparison-of-memory-tools" title="本標題的永久連結">¶</a></h2>
-<p>Table modify from <a class="reference external" href="https://code.google.com/p/address-sanitizer/wiki/ComparisonOfMemoryTools">address-sanitizer - ComparisonOfMemoryTools</a></p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="17%" />
-<col width="25%" />
-<col width="30%" />
-<col width="28%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">&#160;</th>
-<th class="head">AddressSanitizer</th>
-<th class="head">Valgrind (Memcheck)</th>
-<th class="head">Valgrind (SGCheck)</th>
-</tr>
-</thead>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id5">介紹</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
 <tbody valign="top">
-<tr class="row-even"><td>technology</td>
-<td>CTI</td>
-<td>DBI</td>
-<td>DBI</td>
+<tr class="field-odd field"><th class="field-name">Site:</th><td class="field-body"><a class="reference external" href="https://www.srtalliance.org/">https://www.srtalliance.org/</a></td>
 </tr>
-<tr class="row-odd"><td>ARCH</td>
-<td>x86,
-x86_64,
-ARM,
-PPC,
-…</td>
-<td>x86,
-x86_64,
-ARM,
-PPC,
-…</td>
-<td>x86,
-x86_64,
-ARM,
-PPC,
-…</td>
+<tr class="field-even field"><th class="field-name">Repo:</th><td class="field-body"><a class="reference external" href="https://github.com/Haivision/srt">https://github.com/Haivision/srt</a></td>
 </tr>
-<tr class="row-even"><td>OS</td>
-<td>Linux,
-FreeBSD,
-Android,
-Mac,
-Windows,
-…</td>
-<td>Linux,
-FreeBSD,
-Android,
-Mac,
-…</td>
-<td>Linux,
-FreeBSD,
-Android,
-Mac,
-…</td>
-</tr>
-<tr class="row-odd"><td>Slowdown</td>
-<td>2x</td>
-<td>20x</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>Detects:</td>
-<td>&#160;</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>Heap OOB</td>
-<td>O</td>
-<td>O</td>
-<td>X</td>
-</tr>
-<tr class="row-even"><td>Stack OOB</td>
-<td>O</td>
-<td>X</td>
-<td>O</td>
-</tr>
-<tr class="row-odd"><td>Global OOB</td>
-<td>O</td>
-<td>X</td>
-<td>O</td>
-</tr>
-<tr class="row-even"><td>UAF</td>
-<td>O</td>
-<td>O</td>
-<td>X</td>
-</tr>
-<tr class="row-odd"><td>UAR</td>
-<td>O</td>
-<td>O</td>
-<td>X</td>
-</tr>
-<tr class="row-even"><td>UMR</td>
-<td>X</td>
-<td>O</td>
-<td>X</td>
-</tr>
-<tr class="row-odd"><td>Leaks</td>
-<td>O</td>
-<td>O</td>
-<td>X</td>
+<tr class="field-odd field"><th class="field-name">Wikipedia:</th><td class="field-body"><a class="reference external" href="https://en.wikipedia.org/wiki/Secure_Reliable_Transport">https://en.wikipedia.org/wiki/Secure_Reliable_Transport</a></td>
 </tr>
 </tbody>
 </table>
-<table border="1" class="docutils">
-<colgroup>
-<col width="13%" />
-<col width="87%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">縮寫</th>
-<th class="head">全名</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>CTI</td>
-<td>Compile-Time Instrumentation</td>
-</tr>
-<tr class="row-odd"><td>DBI</td>
-<td>Dynamic Binary Instrumentation</td>
-</tr>
-<tr class="row-even"><td>UMR</td>
-<td>Uninitialized Memory Reads</td>
-</tr>
-<tr class="row-odd"><td>UAF</td>
-<td>Use-After-Free (aka dangling pointer)</td>
-</tr>
-<tr class="row-even"><td>UAR</td>
-<td>Use-After-Return</td>
-</tr>
-<tr class="row-odd"><td>OOB</td>
-<td>Out-Of-Bounds</td>
-</tr>
-</tbody>
-</table>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id6">參考</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://www.collabora.com/news-and-blog/blog/2018/02/16/srt-in-gstreamer/">SRT in GStreamer</a></li>
+</ul>
 </div>
 </div>
 
@@ -1111,10 +931,10 @@ Mac,
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="dynamic-binary-instrumentation.html" class="btn btn-neutral float-right" title="Valgrind: A Framework for Heavyweight Dynamic Binary Instrumentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="tcpdump.html" class="btn btn-neutral float-right" title="tcpdump" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="android.html" class="btn btn-neutral" title="Valgrind on Android Platform" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="security-check.html" class="btn btn-neutral" title="安全性檢查" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

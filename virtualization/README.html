@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Valgrind &amp; Firefox &mdash; wdv4758h-notes latest 說明文件</title>
+  <title>虛擬化 (Virtualization) &mdash; wdv4758h-notes latest 說明文件</title>
   
 
   
@@ -36,8 +36,8 @@
               href="../genindex.html"/>
         <link rel="search" title="搜尋" href="../search.html"/>
     <link rel="top" title="wdv4758h-notes latest 說明文件" href="../index.html"/>
-        <link rel="next" title="Writeing a New Valgrind Tool" href="new-plugin.html"/>
-        <link rel="prev" title="Valgrind: A Framework for Heavyweight Dynamic Binary Instrumentation" href="dynamic-binary-instrumentation.html"/> 
+        <link rel="next" title="Bareflank" href="bareflank.html"/>
+        <link rel="prev" title="Mercurial" href="../version-control/mercurial.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -49,7 +49,7 @@
 Always link to the latest version, as canonical.
 http://docs.readthedocs.org/en/latest/canonical.html
 -->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/valgrind/firefox.html" />
+<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/virtualization/README.html" />
 
 <link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
 
@@ -57,7 +57,7 @@ http://docs.readthedocs.org/en/latest/canonical.html
 
 <!-- Add page-specific data, which must exist in the page js, not global -->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = 'valgrind/firefox' 		
+READTHEDOCS_DATA['page'] = 'virtualization/README' 		
 READTHEDOCS_DATA['source_suffix'] = '.rst'
 </script>
 
@@ -505,10 +505,12 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/spark.html">Spark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/t-SNE.html">t-SNE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/todo.html">Todo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/README.html">數學相關</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/error.html">誤差</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/libraries.html">數學相關套件 (Math Libraries)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../math/math.html">Math</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/math-on-web.html">Math on Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/misc.html">Math</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/W^X.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
@@ -548,6 +550,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../misc/irc.html">IRC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/jargons.html">Jargons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/keyboard.html">Keyboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/linux-foundation.html">Linux Foundation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/log-analysis.html">Log Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/mail-system.html">Mail System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/man-page.html">Man Page</a></li>
@@ -565,6 +568,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../misc/remote-jobs.html">遠端工作 (Remote Jobs)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/repo.html">Interesting Repo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/reverse-engineering.html">逆向工程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/rocket.html">火箭</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/sat-smt.html">SAT/SMT Solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/sites.html">Sites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/software-updates.html">Software Updates</a></li>
@@ -584,7 +588,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../misc/unicode.html">Unicode 解說</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/video.html">Video</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/videos.html">一些 Talk 的影片</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mpi/mpi.html">MPI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/README.html">多媒體 (Multimedia)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/audio.html">Audio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/ffmpeg.html">FFmpeg</a></li>
@@ -599,6 +602,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/player.html">播放器</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/pulseaudio.html">PulseAudio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/video.html">Video</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../multimedia/video-quality.html">Video Quality</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/webrtc.html">WebRTC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/README.html">網路相關 (Network)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/ddos.html">DDoS</a></li>
@@ -608,6 +612,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../network/ice.html">ICE (Interactive Connectivity Establishment)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/iperf.html">iperf - TCP/UDP/SCTP 網路效能測量</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/microservice.html">Microservice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/monitoring.html">Network Monitoring</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/network-stack.html">Network Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/nginx.html">Nginx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/os-socket-buffer.html">OS socket buffer</a></li>
@@ -615,6 +620,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../network/resource.html">資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/rpc.html">RPC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/security-check.html">安全性檢查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/srt.html">SRT (Secure Reliable Transport)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/tcpdump.html">tcpdump</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/upnp.html">UPnP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../operating-system/README.html">作業系統</a></li>
@@ -632,8 +638,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../parallel/resource.html">平行化相關資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../programming-language/README.html">程式語言理論 (Programming Language Theory) (PLT)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../programming-language/interpreter-for-compiled-language.html">Interpreter For Compiled Language</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pypy/brief.html">簡單介紹</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pypy/resource.html">RPython Toolchain 相關資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/README.html">Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/ast.html">Python AST</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/async-await.html">Python - async &amp; await</a></li>
@@ -785,6 +789,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../testing/server-validation.html">檢查伺服器設定</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/256-color.html">256 color</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/README.html">常用軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/autossh.html">autossh</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/bash.html">Bash</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/basic-system-utils.html">Basic System Utils</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/busybox.html">BusyBox - 人人都該備一個在身邊的執行檔</a></li>
@@ -804,23 +809,13 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/sway.html">Sway</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/tips.html">Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/tools.html">工具</a></li>
-<li class="toctree-l1"><a class="reference internal" href="android.html">Valgrind on Android Platform</a></li>
-<li class="toctree-l1"><a class="reference internal" href="collection.html">Valgrind Resource Collection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dynamic-binary-instrumentation.html">Valgrind: A Framework for Heavyweight Dynamic Binary Instrumentation</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Valgrind &amp; Firefox</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#run-your-firefox">Run Your Firefox</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#vgdb">VGDB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="new-plugin.html">Writeing a New Valgrind Tool</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tips.html">Valgrind Tips</a></li>
-<li class="toctree-l1"><a class="reference internal" href="valgrind-talks.html">Valgrind Talks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../version-control/README.html">版本控制 (Version Control)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../version-control/mercurial.html">Mercurial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../virtualization/bhyve.html">bhyve</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../virtualization/kvm.html">KVM</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../virtualization/qemu.html">QEMU</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">虛擬化 (Virtualization)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bareflank.html">Bareflank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bhyve.html">bhyve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kvm.html">KVM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qemu.html">QEMU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../wiki/resource.html">Wiki</a></li>
 </ul>
 
@@ -866,14 +861,14 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Valgrind &amp; Firefox</li>
+      <li>虛擬化 (Virtualization)</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
             
-              <a href="https://github.com/wdv4758h/notes/blob/master/./valgrind/firefox.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/wdv4758h/notes/blob/master/./virtualization/README.rst" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -887,138 +882,16 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="valgrind-firefox">
-<h1>Valgrind &amp; Firefox<a class="headerlink" href="#valgrind-firefox" title="本標題的永久連結">¶</a></h1>
-<div class="section" id="run-your-firefox">
-<h2>Run Your Firefox<a class="headerlink" href="#run-your-firefox" title="本標題的永久連結">¶</a></h2>
-<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># --smc-check=all     : 我的程式可能會用到 self-modifying code</span>
-<span class="c1">#                       (Firefox 的話會 overwrite dynamically generated code)</span>
-<span class="c1"># --trace-children    : 我要追蹤子程式</span>
-<span class="c1"># --tool=massif       : 使用 Massif</span>
-<span class="c1"># --pages-as-heap=yes : 讓 Massif 在 page level 去 profile 所有 memory allocations</span>
-<span class="c1">#                       (而不是只有 heap)</span>
-<span class="c1">#                       (heap 佔 Firefox 的 memory 使用量不到一半)</span>
-<span class="c1"># --detailed-freq=1000000 : 讓 Massif 每 1,000,000 個 snapshot 做一次 detailed snapshot</span>
-<span class="c1">#                           (預設是 10，設成 1,000,000 會比較快，</span>
-<span class="c1">#                           但是不管設成多少都會在 memory 使用高峰做 detailed snapshot)</span>
-<span class="c1"># -no-remote          : 讓 Firefox 開新的 instance</span>
-$ valgrind --smc-check<span class="o">=</span>all --trace-children<span class="o">=</span>yes --tool<span class="o">=</span>massif --pages-as-heap<span class="o">=</span>yes <span class="se">\</span>
-    --detailed-freq<span class="o">=</span><span class="m">1000000</span> optg64/dist/bin/firefox -P cad20 -no-remote
-</pre></div>
-</div>
-<hr class="docutils" />
-<p>(以下是撰寫中的 Valgrind wrapper)</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
-
-<span class="c1"># a basic wrapper for valgrind</span>
-
-<span class="nv">PWD</span><span class="o">=</span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>
-
-<span class="c1">####################</span>
-<span class="c1"># Valgrind basic</span>
-<span class="c1">####################</span>
-
-<span class="nv">VGPARAMS</span><span class="o">=</span><span class="s2">&quot;--trace-children=yes --log-file=</span><span class="nv">$PWD</span><span class="s2">/valgrind.log.%p&quot;</span>
-
-<span class="c1">####################</span>
-<span class="c1"># Valgrind report</span>
-<span class="c1">####################</span>
-
-<span class="nv">VGPARAMS</span><span class="o">+=</span><span class="s2">&quot; --error-limit=no&quot;</span>               <span class="c1"># 不設 error 上限</span>
-<span class="nv">VGPARAMS</span><span class="o">+=</span><span class="s2">&quot; --error-exitcode=255&quot;</span>           <span class="c1"># 有 error 的話把 exitcode 設成 255</span>
-<span class="nv">VGPARAMS</span><span class="o">+=</span><span class="s2">&quot; --default-suppressions=yes&quot;</span>     <span class="c1"># 使用預設的 suppression</span>
-<span class="c1">#VGPARAMS+=&quot; --suppressions=&lt;filename&gt;&quot;</span>
-<span class="nv">VGPARAMS</span><span class="o">+=</span><span class="s2">&quot; --gen-suppressions=all&quot;</span>         <span class="c1"># 對 error 生 suppression</span>
-
-<span class="c1">####################</span>
-<span class="c1"># Valgrind malloc</span>
-<span class="c1">####################</span>
-
-<span class="c1">#--alignment=&lt;number&gt;</span>
-<span class="c1">#--redzone-size=&lt;number&gt;</span>
-
-<span class="c1">####################</span>
-<span class="c1"># Valgrind extra</span>
-<span class="c1">####################</span>
-
-<span class="c1">#VGPARAMS+=&quot; --smc-check=all&quot;                # 檢查 self-modifying code</span>
-
-<span class="c1"># http://valgrind.org/docs/manual/manual-core.html#manual-core.pthreads_perf_sched</span>
-<span class="nv">VGPARAMS</span><span class="o">+=</span><span class="s2">&quot; --fair-sched=try&quot;</span>               <span class="c1"># 嘗試使用 fair scheduling</span>
-
-
-<span class="c1">####################</span>
-<span class="c1"># Memcheck tool</span>
-<span class="c1">####################</span>
-
-<span class="nv">MC_VGPLUGIN</span><span class="o">=</span><span class="s2">&quot;--tool=memcheck --leak-check=full --show-reachable=yes&quot;</span>
-<span class="nv">MC_VGPLUGIN</span><span class="o">+=</span><span class="s2">&quot; --track-origins=yes&quot;</span>                <span class="c1"># 追蹤 undefined value 來源</span>
-<span class="nv">MC_VGPLUGIN</span><span class="o">+=</span><span class="s2">&quot; --keep-stacktraces=alloc-and-free&quot;</span>  <span class="c1"># 同時紀錄 alloc 和 free 的 stack trace</span>
-
-<span class="c1">####################</span>
-<span class="c1"># Callgrind</span>
-<span class="c1">####################</span>
-
-<span class="nv">CL_VGPLUGIN</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
-
-<span class="c1">####################</span>
-<span class="c1"># Cachegrind</span>
-<span class="c1">####################</span>
-
-<span class="nv">CG_VGPLUGIN</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
-
-<span class="c1">####################</span>
-<span class="c1"># Helgrind</span>
-<span class="c1">####################</span>
-
-<span class="nv">HG_VGPLUGIN</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
-
-<span class="c1">####################</span>
-<span class="c1"># DRD</span>
-<span class="c1">####################</span>
-
-<span class="nv">DRD_VGPLUGIN</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
-
-<span class="c1">####################</span>
-<span class="c1"># Massif</span>
-<span class="c1">####################</span>
-
-<span class="nv">MS_VGPLUGIN</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
-<span class="nv">MS_VGPLUGIN</span><span class="o">+=</span><span class="s2">&quot; --pages-as-heap=yes&quot;</span>     <span class="c1"># 讓 Massif 在 page level 去 profile 所有 memory allocations</span>
-                                        <span class="c1"># (而不是只有 heap)</span>
-
-<span class="c1">####################</span>
-<span class="c1"># (exp) SGCheck</span>
-<span class="c1">####################</span>
-
-<span class="nv">SG_VGPLUGIN</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
-
-<span class="c1">####################</span>
-<span class="c1"># (exp) DHAT</span>
-<span class="c1">####################</span>
-
-<span class="nv">DH_VGPLUGIN</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
-
-<span class="c1">####################</span>
-
-<span class="nb">echo</span> <span class="s2">&quot;valgrind args: </span><span class="nv">$*</span><span class="s2">&quot;</span>
-<span class="nb">exec</span> valgrind <span class="nv">$VGPARAMS</span> <span class="nv">$VGPLUGIN</span> <span class="nv">$*</span>
-
-<span class="c1"># Todo</span>
-<span class="c1">#   generate .valgrindrc</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="vgdb">
-<h2>VGDB<a class="headerlink" href="#vgdb" title="本標題的永久連結">¶</a></h2>
-</div>
-<div class="section" id="reference">
-<h2>Reference<a class="headerlink" href="#reference" title="本標題的永久連結">¶</a></h2>
+  <div class="section" id="virtualization">
+<h1>虛擬化 (Virtualization)<a class="headerlink" href="#virtualization" title="本標題的永久連結">¶</a></h1>
 <ul class="simple">
-<li><a class="reference external" href="https://blog.mozilla.org/nnethercote/2010/12/09/memory-profiling-firefox-with-massif/">[2010] Memory profiling Firefox with Massif</a></li>
-<li><a class="reference external" href="https://blog.mozilla.org/nnethercote/2011/01/07/memory-profiling-firefox-with-massif-part-2/">[2011] Memory profiling Firefox with Massif, part 2</a></li>
+<li><a class="reference external" href="kvm.rst">KVM</a></li>
+<li><a class="reference external" href="qemu.rst">QEMU</a></li>
+<li><a class="reference external" href="bhyve.rst">bhyve</a></li>
+<li><a class="reference external" href="bareflank.rst">Bareflank</a></li>
+<li>Xen</li>
+<li>libvirt</li>
 </ul>
-</div>
 </div>
 
 
@@ -1031,10 +904,10 @@ $ valgrind --smc-check<span class="o">=</span>all --trace-children<span class="o
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="new-plugin.html" class="btn btn-neutral float-right" title="Writeing a New Valgrind Tool" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="bareflank.html" class="btn btn-neutral float-right" title="Bareflank" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="dynamic-binary-instrumentation.html" class="btn btn-neutral" title="Valgrind: A Framework for Heavyweight Dynamic Binary Instrumentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../version-control/mercurial.html" class="btn btn-neutral" title="Mercurial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

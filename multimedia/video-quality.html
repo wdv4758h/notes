@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>簡單介紹 &mdash; wdv4758h-notes latest 說明文件</title>
+  <title>Video Quality &mdash; wdv4758h-notes latest 說明文件</title>
   
 
   
@@ -36,8 +36,8 @@
               href="../genindex.html"/>
         <link rel="search" title="搜尋" href="../search.html"/>
     <link rel="top" title="wdv4758h-notes latest 說明文件" href="../index.html"/>
-        <link rel="next" title="RPython Toolchain 相關資源" href="resource.html"/>
-        <link rel="prev" title="Interpreter For Compiled Language" href="../programming-language/interpreter-for-compiled-language.html"/> 
+        <link rel="next" title="WebRTC" href="webrtc.html"/>
+        <link rel="prev" title="Video" href="video.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -49,7 +49,7 @@
 Always link to the latest version, as canonical.
 http://docs.readthedocs.org/en/latest/canonical.html
 -->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/pypy/brief.html" />
+<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/multimedia/video-quality.html" />
 
 <link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
 
@@ -57,7 +57,7 @@ http://docs.readthedocs.org/en/latest/canonical.html
 
 <!-- Add page-specific data, which must exist in the page js, not global -->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = 'pypy/brief' 		
+READTHEDOCS_DATA['page'] = 'multimedia/video-quality' 		
 READTHEDOCS_DATA['source_suffix'] = '.rst'
 </script>
 
@@ -505,10 +505,12 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/spark.html">Spark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/t-SNE.html">t-SNE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/todo.html">Todo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/README.html">數學相關</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/error.html">誤差</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/libraries.html">數學相關套件 (Math Libraries)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../math/math.html">Math</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/math-on-web.html">Math on Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/misc.html">Math</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/W^X.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
@@ -548,6 +550,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../misc/irc.html">IRC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/jargons.html">Jargons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/keyboard.html">Keyboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/linux-foundation.html">Linux Foundation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/log-analysis.html">Log Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/mail-system.html">Mail System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/man-page.html">Man Page</a></li>
@@ -565,6 +568,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../misc/remote-jobs.html">遠端工作 (Remote Jobs)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/repo.html">Interesting Repo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/reverse-engineering.html">逆向工程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/rocket.html">火箭</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/sat-smt.html">SAT/SMT Solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/sites.html">Sites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/software-updates.html">Software Updates</a></li>
@@ -584,22 +588,26 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../misc/unicode.html">Unicode 解說</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/video.html">Video</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/videos.html">一些 Talk 的影片</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mpi/mpi.html">MPI</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../multimedia/README.html">多媒體 (Multimedia)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../multimedia/audio.html">Audio</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../multimedia/ffmpeg.html">FFmpeg</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../multimedia/gstreamer.html">GStreamer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../multimedia/hardware-acceleration.html">硬體加速 (Hardware Acceleration)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../multimedia/kodi.html">Kodi - Open Source Home Theater Software</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../multimedia/linux-sound-system.html">Linux Sound System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../multimedia/media-container.html">Media Container</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../multimedia/mediainfo.html">MediaInfo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../multimedia/noise-cancellation.html">降噪 (Noise Cancellation)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../multimedia/opencv.html">OpenCV</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../multimedia/player.html">播放器</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../multimedia/pulseaudio.html">PulseAudio</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../multimedia/video.html">Video</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../multimedia/webrtc.html">WebRTC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">多媒體 (Multimedia)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ffmpeg.html">FFmpeg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gstreamer.html">GStreamer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware-acceleration.html">硬體加速 (Hardware Acceleration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kodi.html">Kodi - Open Source Home Theater Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux-sound-system.html">Linux Sound System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="media-container.html">Media Container</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mediainfo.html">MediaInfo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="noise-cancellation.html">降噪 (Noise Cancellation)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opencv.html">OpenCV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="player.html">播放器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pulseaudio.html">PulseAudio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="video.html">Video</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Video Quality</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#vmaf-video-multi-method-assessment-fusion">VMAF - Video Multi-Method Assessment Fusion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">參考</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="webrtc.html">WebRTC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/README.html">網路相關 (Network)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/ddos.html">DDoS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/distributed.html">Distributed</a></li>
@@ -608,6 +616,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../network/ice.html">ICE (Interactive Connectivity Establishment)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/iperf.html">iperf - TCP/UDP/SCTP 網路效能測量</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/microservice.html">Microservice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/monitoring.html">Network Monitoring</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/network-stack.html">Network Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/nginx.html">Nginx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/os-socket-buffer.html">OS socket buffer</a></li>
@@ -615,6 +624,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../network/resource.html">資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/rpc.html">RPC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/security-check.html">安全性檢查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/srt.html">SRT (Secure Reliable Transport)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/tcpdump.html">tcpdump</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/upnp.html">UPnP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../operating-system/README.html">作業系統</a></li>
@@ -632,8 +642,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../parallel/resource.html">平行化相關資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../programming-language/README.html">程式語言理論 (Programming Language Theory) (PLT)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../programming-language/interpreter-for-compiled-language.html">Interpreter For Compiled Language</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">簡單介紹</a></li>
-<li class="toctree-l1"><a class="reference internal" href="resource.html">RPython Toolchain 相關資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/README.html">Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/ast.html">Python AST</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/async-await.html">Python - async &amp; await</a></li>
@@ -785,6 +793,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../testing/server-validation.html">檢查伺服器設定</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/256-color.html">256 color</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/README.html">常用軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/autossh.html">autossh</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/bash.html">Bash</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/basic-system-utils.html">Basic System Utils</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/busybox.html">BusyBox - 人人都該備一個在身邊的執行檔</a></li>
@@ -804,15 +813,10 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/sway.html">Sway</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/tips.html">Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/tools.html">工具</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../valgrind/android.html">Valgrind on Android Platform</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../valgrind/collection.html">Valgrind Resource Collection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../valgrind/dynamic-binary-instrumentation.html">Valgrind: A Framework for Heavyweight Dynamic Binary Instrumentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../valgrind/firefox.html">Valgrind &amp; Firefox</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../valgrind/new-plugin.html">Writeing a New Valgrind Tool</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../valgrind/tips.html">Valgrind Tips</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../valgrind/valgrind-talks.html">Valgrind Talks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../version-control/README.html">版本控制 (Version Control)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../version-control/mercurial.html">Mercurial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../virtualization/README.html">虛擬化 (Virtualization)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../virtualization/bareflank.html">Bareflank</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../virtualization/bhyve.html">bhyve</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../virtualization/kvm.html">KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../virtualization/qemu.html">QEMU</a></li>
@@ -861,14 +865,14 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>簡單介紹</li>
+      <li>Video Quality</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
             
-              <a href="https://github.com/wdv4758h/notes/blob/master/./pypy/brief.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/wdv4758h/notes/blob/master/./multimedia/video-quality.rst" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -882,43 +886,41 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="id1">
-<h1>簡單介紹<a class="headerlink" href="#id1" title="本標題的永久連結">¶</a></h1>
-<p>路過在 Neovim 的 issue 上發現有提到，
-只好跑過取幫忙補充資料 (?</p>
-<p>以下是回復訊息</p>
-<hr class="docutils" />
-<p>just some comments about PyPy :P</p>
-<p>AFAIK, they are creating a framework (and toolchain) for writing dynamic languages』 VM. They use a language called RPython to implement interpreter, and the toolchain can generate Tracing JIT and GC for you. The RPython is a language similar to Python with some restriction of features which are too much dynamic. The major concept is the toolchain will do type inference and some analysis for RPython to generate better result. The overall result is decided by backend, they are using a backend called GenC which generate C code now (but someone can still make other backends, e.g. generate Java bytecode).</p>
-<p>So, PyPy is a Python interpreter written in RPython and compiled by GCC or Clang (with RPython’s GenC backend).</p>
-<p>Pros:</p>
+  <div class="section" id="video-quality">
+<h1><a class="toc-backref" href="#id3">Video Quality</a><a class="headerlink" href="#video-quality" title="本標題的永久連結">¶</a></h1>
+<div class="contents topic" id="id1">
+<p class="topic-title first">目錄</p>
 <ul class="simple">
-<li>you can write interpreter in RPython which may cost less effort compare to C or C++ or something.</li>
-<li>you can get a JIT easily (3 lines for a basic version, use some Python decorator can improve it)</li>
-<li>you can get a incremental generational mark-and-sweep GC easily (by just a CLI option)</li>
-<li>you can get some improvement by just update RPython toolchain in the future (JIT or GC or something) (or maybe Software Transactional Memory which they still working on)</li>
+<li><a class="reference internal" href="#video-quality" id="id3">Video Quality</a><ul>
+<li><a class="reference internal" href="#vmaf-video-multi-method-assessment-fusion" id="id4">VMAF - Video Multi-Method Assessment Fusion</a></li>
+<li><a class="reference internal" href="#id2" id="id5">參考</a></li>
 </ul>
-<p>Cons:</p>
+</li>
+</ul>
+</div>
+<div class="section" id="vmaf-video-multi-method-assessment-fusion">
+<h2><a class="toc-backref" href="#id4">VMAF - Video Multi-Method Assessment Fusion</a><a class="headerlink" href="#vmaf-video-multi-method-assessment-fusion" title="本標題的永久連結">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Repo:</th><td class="field-body"><a class="reference external" href="https://github.com/Netflix/vmaf">https://github.com/Netflix/vmaf</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">PDF:</th><td class="field-body"><a class="reference external" href="https://github.com/Netflix/vmaf/blob/master/resource/doc/VMAF_ICIP17.pdf">https://github.com/Netflix/vmaf/blob/master/resource/doc/VMAF_ICIP17.pdf</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id5">參考</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
-<li>RPython’s restriction is still not well documented (they have written something, but not specific)</li>
-<li>the toolchain to generate JIT is still slow and need some resource (IIRC, about 16 mins for just generating and compiling a normal Brainfuck interpreter, I tried it last winter)</li>
-<li>we need to make the new VM available for a lot of platforms (effort here)</li>
-<li>maybe the debugging will be much more complex ?</li>
+<li><a class="reference external" href="https://medium.com/netflix-techblog/high-quality-video-encoding-at-scale-d159db052746">Netflix - High Quality Video Encoding at Scale</a></li>
+<li><a class="reference external" href="https://medium.com/netflix-techblog/per-title-encode-optimization-7e99442b62a2">Netflix - Per-Title Encode Optimization</a></li>
+<li><a class="reference external" href="https://www.its.bldrdoc.gov/vqeg/vqeg-home.aspx">VQEG (Video Quality Experts Group)</a></li>
+<li><a class="reference external" href="https://github.com/ebu/awesome-broadcasting">Awesome Broadcasting</a></li>
+<li><a class="reference external" href="https://github.com/epiclabs-io/hls-analyzer">HLS Analyzer</a></li>
 </ul>
-<p>Notice: I’m not a master of this :P</p>
-<hr class="docutils" />
-<p>Documentation</p>
-<ul class="simple">
-<li><a class="reference external" href="http://rpython.readthedocs.org/en/latest/index.html">RPython’s documentation</a></li>
-</ul>
-<p>Other Languages』 implementation</p>
-<ul class="simple">
-<li>Lisp : <a class="reference external" href="https://github.com/pixie-lang/pixie">Pixie</a></li>
-<li>PHP : <a class="reference external" href="https://github.com/hippyvm/hippyvm">HippyVM</a></li>
-<li>Ruby : <a class="reference external" href="https://github.com/topazproject/topaz">Topaz</a></li>
-<li>Prolog : <a class="reference external" href="https://bitbucket.org/cfbolz/pyrolog/">Pyrolog</a></li>
-<li>Smalltalk : <a class="reference external" href="https://github.com/HPI-SWA-Lab/RSqueak">RSqueak</a></li>
-</ul>
+</div>
 </div>
 
 
@@ -931,10 +933,10 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="resource.html" class="btn btn-neutral float-right" title="RPython Toolchain 相關資源" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="webrtc.html" class="btn btn-neutral float-right" title="WebRTC" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../programming-language/interpreter-for-compiled-language.html" class="btn btn-neutral" title="Interpreter For Compiled Language" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="video.html" class="btn btn-neutral" title="Video" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

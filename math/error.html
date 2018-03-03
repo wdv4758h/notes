@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>MPI &mdash; wdv4758h-notes latest 說明文件</title>
+  <title>誤差 &mdash; wdv4758h-notes latest 說明文件</title>
   
 
   
@@ -36,8 +36,8 @@
               href="../genindex.html"/>
         <link rel="search" title="搜尋" href="../search.html"/>
     <link rel="top" title="wdv4758h-notes latest 說明文件" href="../index.html"/>
-        <link rel="next" title="多媒體 (Multimedia)" href="../multimedia/README.html"/>
-        <link rel="prev" title="一些 Talk 的影片" href="../misc/videos.html"/> 
+        <link rel="next" title="數學相關套件 (Math Libraries)" href="libraries.html"/>
+        <link rel="prev" title="數學相關" href="README.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -49,7 +49,7 @@
 Always link to the latest version, as canonical.
 http://docs.readthedocs.org/en/latest/canonical.html
 -->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/mpi/mpi.html" />
+<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/math/error.html" />
 
 <link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
 
@@ -57,7 +57,7 @@ http://docs.readthedocs.org/en/latest/canonical.html
 
 <!-- Add page-specific data, which must exist in the page js, not global -->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = 'mpi/mpi' 		
+READTHEDOCS_DATA['page'] = 'math/error' 		
 READTHEDOCS_DATA['source_suffix'] = '.rst'
 </script>
 
@@ -505,10 +505,18 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/spark.html">Spark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/t-SNE.html">t-SNE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/todo.html">Todo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../math/libraries.html">數學相關套件 (Math Libraries)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../math/math.html">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../math/math-on-web.html">Math on Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">數學相關</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">誤差</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#roundoff-error">Roundoff Error</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#truncation-error">Truncation Error</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">撿少誤差的處理要點</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">參考</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="libraries.html">數學相關套件 (Math Libraries)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linear-algebra.html">線性代數 （Linear Algebra）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="math-on-web.html">Math on Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc.html">Math</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/W^X.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
@@ -548,6 +556,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../misc/irc.html">IRC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/jargons.html">Jargons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/keyboard.html">Keyboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/linux-foundation.html">Linux Foundation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/log-analysis.html">Log Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/mail-system.html">Mail System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/man-page.html">Man Page</a></li>
@@ -565,6 +574,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../misc/remote-jobs.html">遠端工作 (Remote Jobs)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/repo.html">Interesting Repo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/reverse-engineering.html">逆向工程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/rocket.html">火箭</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/sat-smt.html">SAT/SMT Solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/sites.html">Sites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/software-updates.html">Software Updates</a></li>
@@ -584,17 +594,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../misc/unicode.html">Unicode 解說</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/video.html">Video</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/videos.html">一些 Talk 的影片</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">MPI</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#ssh-key-setup">SSH Key Setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#hosts-file">Hosts File</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#openmpi">OpenMPI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id1">MPI</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#parallel-for">Parallel For</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/README.html">多媒體 (Multimedia)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/audio.html">Audio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/ffmpeg.html">FFmpeg</a></li>
@@ -609,6 +608,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/player.html">播放器</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/pulseaudio.html">PulseAudio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/video.html">Video</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../multimedia/video-quality.html">Video Quality</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/webrtc.html">WebRTC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/README.html">網路相關 (Network)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/ddos.html">DDoS</a></li>
@@ -618,6 +618,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../network/ice.html">ICE (Interactive Connectivity Establishment)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/iperf.html">iperf - TCP/UDP/SCTP 網路效能測量</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/microservice.html">Microservice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/monitoring.html">Network Monitoring</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/network-stack.html">Network Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/nginx.html">Nginx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/os-socket-buffer.html">OS socket buffer</a></li>
@@ -625,6 +626,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../network/resource.html">資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/rpc.html">RPC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/security-check.html">安全性檢查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/srt.html">SRT (Secure Reliable Transport)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/tcpdump.html">tcpdump</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/upnp.html">UPnP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../operating-system/README.html">作業系統</a></li>
@@ -642,8 +644,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../parallel/resource.html">平行化相關資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../programming-language/README.html">程式語言理論 (Programming Language Theory) (PLT)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../programming-language/interpreter-for-compiled-language.html">Interpreter For Compiled Language</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pypy/brief.html">簡單介紹</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pypy/resource.html">RPython Toolchain 相關資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/README.html">Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/ast.html">Python AST</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/async-await.html">Python - async &amp; await</a></li>
@@ -795,6 +795,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../testing/server-validation.html">檢查伺服器設定</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/256-color.html">256 color</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/README.html">常用軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/autossh.html">autossh</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/bash.html">Bash</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/basic-system-utils.html">Basic System Utils</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/busybox.html">BusyBox - 人人都該備一個在身邊的執行檔</a></li>
@@ -814,15 +815,10 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/sway.html">Sway</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/tips.html">Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unix-like-environment/tools.html">工具</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../valgrind/android.html">Valgrind on Android Platform</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../valgrind/collection.html">Valgrind Resource Collection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../valgrind/dynamic-binary-instrumentation.html">Valgrind: A Framework for Heavyweight Dynamic Binary Instrumentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../valgrind/firefox.html">Valgrind &amp; Firefox</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../valgrind/new-plugin.html">Writeing a New Valgrind Tool</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../valgrind/tips.html">Valgrind Tips</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../valgrind/valgrind-talks.html">Valgrind Talks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../version-control/README.html">版本控制 (Version Control)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../version-control/mercurial.html">Mercurial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../virtualization/README.html">虛擬化 (Virtualization)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../virtualization/bareflank.html">Bareflank</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../virtualization/bhyve.html">bhyve</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../virtualization/kvm.html">KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../virtualization/qemu.html">QEMU</a></li>
@@ -871,14 +867,14 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>MPI</li>
+      <li>誤差</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
             
-              <a href="https://github.com/wdv4758h/notes/blob/master/./mpi/mpi.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/wdv4758h/notes/blob/master/./math/error.rst" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -892,356 +888,44 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="mpi">
-<h1>MPI<a class="headerlink" href="#mpi" title="本標題的永久連結">¶</a></h1>
-<div class="section" id="ssh-key-setup">
-<h2>SSH Key Setup<a class="headerlink" href="#ssh-key-setup" title="本標題的永久連結">¶</a></h2>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">&quot;username@mail.com&quot;</span>
-
-<span class="c1"># method 1</span>
-$ scp ~/.ssh/id_rsa.pub HOSTNAME:~/.ssh/
-$ ssh HOSTNAME
-$ cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
-
-<span class="c1"># method 2</span>
-$ ssh-copy-id -i ~/.ssh/id_rsa.pub HOSTNAME
-</pre></div>
-</div>
-</div>
-<div class="section" id="hosts-file">
-<h2>Hosts File<a class="headerlink" href="#hosts-file" title="本標題的永久連結">¶</a></h2>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ cat ~/hostfile
-<span class="m">10</span>.10.0.173 <span class="nv">slots</span><span class="o">=</span><span class="m">4</span>
-<span class="m">10</span>.10.0.174 <span class="nv">slots</span><span class="o">=</span><span class="m">4</span>
-<span class="m">10</span>.10.0.175 <span class="nv">slots</span><span class="o">=</span><span class="m">4</span>
-<span class="m">10</span>.10.0.176 <span class="nv">slots</span><span class="o">=</span><span class="m">4</span>
-</pre></div>
-</div>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ mpirun -np <span class="m">16</span> --hostfile ~/hostfile hostname
-master
-slave1
-slave2
-slave2
-master
-slave1
-slave2
-master
-slave1
-master
-slave2
-slave1
-slave3
-slave3
-slave3
-slave3
-$ mpirun -np <span class="m">16</span> --hostfile ~/hostfile uptime
- <span class="m">07</span>:19:03 up <span class="m">22</span> days, <span class="m">0</span> min, <span class="m">15</span> users,  load average: <span class="m">2</span>.09, <span class="m">2</span>.03, <span class="m">2</span>.02
- <span class="m">07</span>:19:03 up <span class="m">22</span> days, <span class="m">0</span> min, <span class="m">15</span> users,  load average: <span class="m">2</span>.09, <span class="m">2</span>.03, <span class="m">2</span>.02
- <span class="m">07</span>:19:03 up <span class="m">22</span> days, <span class="m">0</span> min, <span class="m">15</span> users,  load average: <span class="m">2</span>.09, <span class="m">2</span>.03, <span class="m">2</span>.02
- <span class="m">07</span>:19:03 up <span class="m">22</span> days, <span class="m">0</span> min,  <span class="m">1</span> user,  load average: <span class="m">2</span>.08, <span class="m">2</span>.03, <span class="m">2</span>.01
- <span class="m">07</span>:19:02 up <span class="m">22</span> days, <span class="m">0</span> min,  <span class="m">2</span> users,  load average: <span class="m">2</span>.00, <span class="m">2</span>.01, <span class="m">2</span>.05
- <span class="m">07</span>:19:03 up <span class="m">22</span> days, <span class="m">0</span> min,  <span class="m">1</span> user,  load average: <span class="m">2</span>.08, <span class="m">2</span>.03, <span class="m">2</span>.01
- <span class="m">07</span>:19:03 up <span class="m">22</span> days, <span class="m">0</span> min, <span class="m">15</span> users,  load average: <span class="m">2</span>.09, <span class="m">2</span>.03, <span class="m">2</span>.02
- <span class="m">07</span>:19:03 up <span class="m">22</span> days, <span class="m">0</span> min,  <span class="m">1</span> user,  load average: <span class="m">2</span>.08, <span class="m">2</span>.03, <span class="m">2</span>.01
- <span class="m">07</span>:19:03 up <span class="m">22</span> days, <span class="m">0</span> min,  <span class="m">1</span> user,  load average: <span class="m">2</span>.08, <span class="m">2</span>.03, <span class="m">2</span>.01
- <span class="m">07</span>:19:02 up <span class="m">22</span> days, <span class="m">0</span> min,  <span class="m">2</span> users,  load average: <span class="m">2</span>.00, <span class="m">2</span>.01, <span class="m">2</span>.05
- <span class="m">07</span>:19:02 up <span class="m">22</span> days, <span class="m">0</span> min,  <span class="m">2</span> users,  load average: <span class="m">2</span>.00, <span class="m">2</span>.01, <span class="m">2</span>.05
- <span class="m">07</span>:19:02 up <span class="m">22</span> days, <span class="m">0</span> min,  <span class="m">2</span> users,  load average: <span class="m">2</span>.00, <span class="m">2</span>.01, <span class="m">2</span>.05
- <span class="m">07</span>:19:03 up <span class="m">22</span> days, <span class="m">0</span> min,  <span class="m">4</span> users,  load average: <span class="m">2</span>.00, <span class="m">2</span>.01, <span class="m">2</span>.01
- <span class="m">07</span>:19:03 up <span class="m">22</span> days, <span class="m">0</span> min,  <span class="m">4</span> users,  load average: <span class="m">2</span>.00, <span class="m">2</span>.01, <span class="m">2</span>.01
- <span class="m">07</span>:19:03 up <span class="m">22</span> days, <span class="m">0</span> min,  <span class="m">4</span> users,  load average: <span class="m">2</span>.00, <span class="m">2</span>.01, <span class="m">2</span>.01
- <span class="m">07</span>:19:03 up <span class="m">22</span> days, <span class="m">0</span> min,  <span class="m">4</span> users,  load average: <span class="m">2</span>.00, <span class="m">2</span>.01, <span class="m">2</span>.01
-$ mpirun -np <span class="m">16</span> --hostfile ~/hostfile ~/hello.out
-Hello world from processor master, rank <span class="m">1</span> out of <span class="m">16</span> processors
-Hello world from processor slave1, rank <span class="m">6</span> out of <span class="m">16</span> processors
-Hello world from processor slave2, rank <span class="m">9</span> out of <span class="m">16</span> processors
-Hello world from processor slave3, rank <span class="m">15</span> out of <span class="m">16</span> processors
-Hello world from processor slave1, rank <span class="m">5</span> out of <span class="m">16</span> processors
-Hello world from processor slave2, rank <span class="m">8</span> out of <span class="m">16</span> processors
-Hello world from processor master, rank <span class="m">0</span> out of <span class="m">16</span> processors
-Hello world from processor slave3, rank <span class="m">13</span> out of <span class="m">16</span> processors
-Hello world from processor slave3, rank <span class="m">14</span> out of <span class="m">16</span> processors
-Hello world from processor slave3, rank <span class="m">12</span> out of <span class="m">16</span> processors
-Hello world from processor slave2, rank <span class="m">10</span> out of <span class="m">16</span> processors
-Hello world from processor slave1, rank <span class="m">4</span> out of <span class="m">16</span> processors
-Hello world from processor master, rank <span class="m">3</span> out of <span class="m">16</span> processors
-Hello world from processor slave2, rank <span class="m">11</span> out of <span class="m">16</span> processors
-Hello world from processor slave1, rank <span class="m">7</span> out of <span class="m">16</span> processors
-Hello world from processor master, rank <span class="m">2</span> out of <span class="m">16</span> processors
-</pre></div>
-</div>
-</div>
-<div class="section" id="openmpi">
-<h2>OpenMPI<a class="headerlink" href="#openmpi" title="本標題的永久連結">¶</a></h2>
-<p>Build :</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ mpicc -v
-Using built-in specs.
-<span class="nv">COLLECT_GCC</span><span class="o">=</span>/usr/bin/gcc
-<span class="nv">COLLECT_LTO_WRAPPER</span><span class="o">=</span>/usr/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/lto-wrapper
-Target: x86_64-unknown-linux-gnu
-Configured with: /build/gcc-multilib/src/gcc-5.2.0/configure --prefix<span class="o">=</span>/usr --libdir<span class="o">=</span>/usr/lib --libexecdir<span class="o">=</span>/usr/lib --mandir<span class="o">=</span>/usr/share/man --infodir<span class="o">=</span>/usr/share/info --with-bugurl<span class="o">=</span>https://bugs.archlinux.org/ --enable-languages<span class="o">=</span>c,c++,ada,fortran,go,lto,objc,obj-c++ --enable-shared --enable-threads<span class="o">=</span>posix --enable-libmpx --with-system-zlib --with-isl --enable-__cxa_atexit --disable-libunwind-exceptions --enable-clocale<span class="o">=</span>gnu --disable-libstdcxx-pch --disable-libssp --enable-gnu-unique-object --enable-linker-build-id --enable-lto --enable-plugin --enable-install-libiberty --with-linker-hash-style<span class="o">=</span>gnu --enable-gnu-indirect-function --enable-multilib --disable-werror --enable-checking<span class="o">=</span>release --with-default-libstdcxx-abi<span class="o">=</span>gcc4-compatible
-Thread model: posix
-gcc version <span class="m">5</span>.2.0 <span class="o">(</span>GCC<span class="o">)</span>
-$ <span class="nv">OMPI_CC</span><span class="o">=</span>clang mpicc -v
-clang version <span class="m">4</span>.7.0 <span class="o">(</span>tags/RELEASE_370/final<span class="o">)</span>
-Target: x86_64-unknown-linux-gnu
-Thread model: posix
-Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-unknown-linux-gnu/5.2.0
-Found candidate GCC installation: /usr/bin/../lib64/gcc/x86_64-unknown-linux-gnu/5.2.0
-Found candidate GCC installation: /usr/lib/gcc/x86_64-unknown-linux-gnu/5.2.0
-Found candidate GCC installation: /usr/lib64/gcc/x86_64-unknown-linux-gnu/5.2.0
-Selected GCC installation: /usr/bin/../lib64/gcc/x86_64-unknown-linux-gnu/5.2.0
-Candidate multilib: .<span class="p">;</span>@m64
-Candidate multilib: <span class="m">32</span><span class="p">;</span>@m32
-Selected multilib: .<span class="p">;</span>@m64
-</pre></div>
-</div>
-<p>Show Flags :</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># Show the flags necessary to compile MPI C applications</span>
-$ mpicc --showme:compile
--pthread
-<span class="c1"># Show the flags necessary to link MPI C applications</span>
-$ mpicc --showme:link
--pthread -Wl,-rpath -Wl,/usr/lib/openmpi -Wl,--enable-new-dtags -L/usr/lib/openmpi -lmpi
-$ mpicc hello.c --showme
-gcc hello.c -pthread -Wl,-rpath -Wl,/usr/lib/openmpi -Wl,--enable-new-dtags -L/usr/lib/openmpi -lmpi
-</pre></div>
-</div>
-<p>Makefile for use your compiler directly (not using OpenMPI wrapper compilers) :</p>
-<div class="highlight-make"><div class="highlight"><pre><span></span><span class="nv">MPI_COMPILE_FLAGS</span> <span class="o">=</span> <span class="k">$(</span>shell mpicc --showme:compile<span class="k">)</span>
-<span class="nv">MPI_LINK_FLAGS</span> <span class="o">=</span> <span class="k">$(</span>shell mpicc --showme:link<span class="k">)</span>
-
-<span class="nf">my_app</span><span class="o">:</span> <span class="n">my_app</span>.<span class="n">c</span>
-        <span class="k">$(</span>CC<span class="k">)</span> <span class="k">$(</span>MPI_COMPILE_FLAGS<span class="k">)</span> my_app.c <span class="k">$(</span>MPI_LINK_FLAGS<span class="k">)</span> -o my_app
-</pre></div>
-</div>
-<p>Information :</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ ompi_info
-</pre></div>
-</div>
-<div class="highlight-default"><div class="highlight"><pre><span></span>　               Package: Open MPI builduser@anatol Distribution
-                Open MPI: 1.10.1
-  Open MPI repo revision: v1.10.0-178-gb80f802
-   Open MPI release date: Nov 03, 2015
-                Open RTE: 1.10.1
-  Open RTE repo revision: v1.10.0-178-gb80f802
-   Open RTE release date: Nov 03, 2015
-                    OPAL: 1.10.1
-      OPAL repo revision: v1.10.0-178-gb80f802
-       OPAL release date: Nov 03, 2015
-                 MPI API: 3.0.0
-            Ident string: 1.10.1
-                  Prefix: /usr
- Configured architecture: x86_64-unknown-linux-gnu
-          Configure host: anatol
-           Configured by: builduser
-           Configured on: Wed Nov  4 10:38:20 PST 2015
-          Configure host: anatol
-                Built by: builduser
-                Built on: Wed Nov  4 11:01:25 PST 2015
-              Built host: anatol
-              C bindings: yes
-            C++ bindings: yes
-             Fort mpif.h: yes (all)
-            Fort use mpi: yes (full: ignore TKR)
-       Fort use mpi size: deprecated-ompi-info-value
-        Fort use mpi_f08: yes
- Fort mpi_f08 compliance: The mpi_f08 module is available, but due to limitations in the /usr/bin/gfortran compiler, does not support the following: array subsections, direct passthru (where possible) to underlying Open MPI&#39;s C functionality
-  Fort mpi_f08 subarrays: no
-           Java bindings: no
-  Wrapper compiler rpath: runpath
-              C compiler: gcc
-     C compiler absolute: /usr/bin/gcc
-  C compiler family name: GNU
-      C compiler version: 5.2.0
-            C++ compiler: g++
-   C++ compiler absolute: /usr/bin/g++
-           Fort compiler: /usr/bin/gfortran
-       Fort compiler abs:
-         Fort ignore TKR: yes (!GCC$ ATTRIBUTES NO_ARG_CHECK ::)
-   Fort 08 assumed shape: yes
-      Fort optional args: yes
-          Fort INTERFACE: yes
-    Fort ISO_FORTRAN_ENV: yes
-       Fort STORAGE_SIZE: yes
-      Fort BIND(C) (all): yes
-      Fort ISO_C_BINDING: yes
- Fort SUBROUTINE BIND(C): yes
-       Fort TYPE,BIND(C): yes
- Fort T,BIND(C,name=&quot;a&quot;): yes
-            Fort PRIVATE: yes
-          Fort PROTECTED: yes
-           Fort ABSTRACT: yes
-       Fort ASYNCHRONOUS: yes
-          Fort PROCEDURE: yes
-           Fort C_FUNLOC: yes
- Fort f08 using wrappers: yes
-         Fort MPI_SIZEOF: yes
-             C profiling: yes
-           C++ profiling: yes
-   Fort mpif.h profiling: yes
-  Fort use mpi profiling: yes
-   Fort use mpi_f08 prof: yes
-          C++ exceptions: no
-          Thread support: posix (MPI_THREAD_MULTIPLE: no, OPAL support: yes, OMPI progress: no, ORTE progress: yes, Event lib: yes)
-           Sparse Groups: no
-  Internal debug support: no
-  MPI interface warnings: yes
-     MPI parameter check: runtime
-Memory profiling support: no
-Memory debugging support: no
-              dl support: yes
-   Heterogeneous support: no
- mpirun default --prefix: no
-         MPI I/O support: yes
-       MPI_WTIME support: gettimeofday
-     Symbol vis. support: yes
-   Host topology support: yes
-          MPI extensions:
-   FT Checkpoint support: no (checkpoint thread: no)
-   C/R Enabled Debugging: no
-     VampirTrace support: yes
-  MPI_MAX_PROCESSOR_NAME: 256
-    MPI_MAX_ERROR_STRING: 256
-     MPI_MAX_OBJECT_NAME: 64
-        MPI_MAX_INFO_KEY: 36
-        MPI_MAX_INFO_VAL: 256
-       MPI_MAX_PORT_NAME: 1024
-  MPI_MAX_DATAREP_STRING: 128
-           MCA backtrace: execinfo (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-            MCA compress: gzip (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-            MCA compress: bzip (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                 MCA crs: none (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                  MCA db: print (MCA v2.0.0, API v1.0.0, Component v1.10.1)
-                  MCA db: hash (MCA v2.0.0, API v1.0.0, Component v1.10.1)
-                  MCA dl: dlopen (MCA v2.0.0, API v1.0.0, Component v1.10.1)
-               MCA event: libevent2021 (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-               MCA hwloc: external (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                  MCA if: linux_ipv6 (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                  MCA if: posix_ipv4 (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-         MCA installdirs: env (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-         MCA installdirs: config (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-          MCA memchecker: valgrind (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-              MCA memory: linux (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-               MCA pstat: linux (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                 MCA sec: basic (MCA v2.0.0, API v1.0.0, Component v1.10.1)
-               MCA shmem: posix (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-               MCA shmem: sysv (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-               MCA shmem: mmap (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-               MCA timer: linux (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                 MCA dfs: app (MCA v2.0.0, API v1.0.0, Component v1.10.1)
-                 MCA dfs: test (MCA v2.0.0, API v1.0.0, Component v1.10.1)
-                 MCA dfs: orted (MCA v2.0.0, API v1.0.0, Component v1.10.1)
-              MCA errmgr: default_app (MCA v2.0.0, API v3.0.0, Component v1.10.1)
-              MCA errmgr: default_tool (MCA v2.0.0, API v3.0.0, Component v1.10.1)
-              MCA errmgr: default_hnp (MCA v2.0.0, API v3.0.0, Component v1.10.1)
-              MCA errmgr: default_orted (MCA v2.0.0, API v3.0.0, Component v1.10.1)
-                 MCA ess: env (MCA v2.0.0, API v3.0.0, Component v1.10.1)
-                 MCA ess: hnp (MCA v2.0.0, API v3.0.0, Component v1.10.1)
-                 MCA ess: singleton (MCA v2.0.0, API v3.0.0, Component v1.10.1)
-                 MCA ess: tool (MCA v2.0.0, API v3.0.0, Component v1.10.1)
-               MCA filem: raw (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-             MCA grpcomm: bad (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                 MCA iof: orted (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                 MCA iof: mr_hnp (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                 MCA iof: hnp (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                 MCA iof: tool (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                 MCA iof: mr_orted (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                MCA odls: default (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                 MCA oob: tcp (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                 MCA plm: isolated (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                 MCA plm: rsh (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                 MCA ras: simulator (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                 MCA ras: loadleveler (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-               MCA rmaps: rank_file (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-               MCA rmaps: resilient (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-               MCA rmaps: mindist (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-               MCA rmaps: ppr (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-               MCA rmaps: seq (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-               MCA rmaps: round_robin (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-               MCA rmaps: staged (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                 MCA rml: oob (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-              MCA routed: direct (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-              MCA routed: binomial (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-              MCA routed: radix (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-              MCA routed: debruijn (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-               MCA state: app (MCA v2.0.0, API v1.0.0, Component v1.10.1)
-               MCA state: staged_hnp (MCA v2.0.0, API v1.0.0, Component v1.10.1)
-               MCA state: tool (MCA v2.0.0, API v1.0.0, Component v1.10.1)
-               MCA state: orted (MCA v2.0.0, API v1.0.0, Component v1.10.1)
-               MCA state: novm (MCA v2.0.0, API v1.0.0, Component v1.10.1)
-               MCA state: dvm (MCA v2.0.0, API v1.0.0, Component v1.10.1)
-               MCA state: hnp (MCA v2.0.0, API v1.0.0, Component v1.10.1)
-               MCA state: staged_orted (MCA v2.0.0, API v1.0.0, Component v1.10.1)
-           MCA allocator: bucket (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-           MCA allocator: basic (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                MCA bcol: ptpcoll (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                MCA bcol: basesmuma (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                 MCA bml: r2 (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                 MCA btl: sm (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                 MCA btl: vader (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                 MCA btl: tcp (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                 MCA btl: self (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                MCA coll: basic (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                MCA coll: libnbc (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                MCA coll: tuned (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                MCA coll: inter (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                MCA coll: sm (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                MCA coll: hierarch (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                MCA coll: self (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                MCA coll: ml (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                 MCA dpm: orte (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                MCA fbtl: posix (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-               MCA fcoll: static (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-               MCA fcoll: two_phase (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-               MCA fcoll: individual (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-               MCA fcoll: dynamic (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-               MCA fcoll: ylib (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                  MCA fs: ufs (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                  MCA io: romio (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                  MCA io: ompio (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-               MCA mpool: sm (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-               MCA mpool: grdma (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                 MCA osc: sm (MCA v2.0.0, API v3.0.0, Component v1.10.1)
-                 MCA osc: pt2pt (MCA v2.0.0, API v3.0.0, Component v1.10.1)
-                 MCA pml: v (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                 MCA pml: bfo (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                 MCA pml: ob1 (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                 MCA pml: cm (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-              MCA pubsub: orte (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-              MCA rcache: vma (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                 MCA rte: orte (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                MCA sbgp: basesmsocket (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                MCA sbgp: p2p (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                MCA sbgp: basesmuma (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-            MCA sharedfp: lockedfile (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-            MCA sharedfp: individual (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-            MCA sharedfp: sm (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-                MCA topo: basic (MCA v2.0.0, API v2.1.0, Component v1.10.1)
-           MCA vprotocol: pessimist (MCA v2.0.0, API v2.0.0, Component v1.10.1)
-</pre></div>
-</div>
-<p>More Information :</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ ompi_info --all --parsable
-...
-</pre></div>
-</div>
-</div>
-<div class="section" id="id1">
-<h2>MPI<a class="headerlink" href="#id1" title="本標題的永久連結">¶</a></h2>
-<div class="section" id="parallel-for">
-<h3>Parallel For<a class="headerlink" href="#parallel-for" title="本標題的永久連結">¶</a></h3>
-</div>
-</div>
-<div class="section" id="reference">
-<h2>Reference<a class="headerlink" href="#reference" title="本標題的永久連結">¶</a></h2>
+  <div class="section" id="id1">
+<h1><a class="toc-backref" href="#id5">誤差</a><a class="headerlink" href="#id1" title="本標題的永久連結">¶</a></h1>
+<div class="contents topic" id="id2">
+<p class="topic-title first">目錄</p>
 <ul class="simple">
-<li><a class="reference external" href="http://mpitutorial.com/tutorials/">MPI Tutorial</a></li>
-<li><a class="reference external" href="https://en.wikipedia.org/wiki/Open_MPI">Wikipedia - Open MPI</a></li>
-<li><a class="reference external" href="https://en.wikipedia.org/wiki/MPICH">Wikipedia - MPICH</a></li>
-<li><a class="reference external" href="https://en.wikipedia.org/wiki/Message_Passing_Interface">Wikipedia - Message Passing Interface</a></li>
-<li><a class="reference external" href="http://www.open-mpi.org/faq/?category=mpi-apps#override-wrappers-after-v1.0">Open MPI - FAQ - Compiling MPI applications - How do I override the flags specified by Open MPI’s wrapper compilers? (v1.1 series and beyond)</a></li>
-<li><a class="reference external" href="https://www.open-mpi.org/faq/?category=running">Open MPI - FAQ - Running MPI jobs</a></li>
+<li><a class="reference internal" href="#id1" id="id5">誤差</a><ul>
+<li><a class="reference internal" href="#roundoff-error" id="id6">Roundoff Error</a></li>
+<li><a class="reference internal" href="#truncation-error" id="id7">Truncation Error</a></li>
+<li><a class="reference internal" href="#id3" id="id8">撿少誤差的處理要點</a></li>
+<li><a class="reference internal" href="#id4" id="id9">參考</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="roundoff-error">
+<h2><a class="toc-backref" href="#id6">Roundoff Error</a><a class="headerlink" href="#roundoff-error" title="本標題的永久連結">¶</a></h2>
+<p>因為現實機器的處理位數有限，
+造成需要做些折衷，
+可能是用四捨五入之類的方式取到特定位數，
+引想看似微小，但是可能在後續被疊加或放大，
+例如無窮小數截成 16 位的小數。</p>
+</div>
+<div class="section" id="truncation-error">
+<h2><a class="toc-backref" href="#id7">Truncation Error</a><a class="headerlink" href="#truncation-error" title="本標題的永久連結">¶</a></h2>
+<p>在使用趨近的方程式時會造成的誤差，例如 Taylor Series。</p>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id8">撿少誤差的處理要點</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li>避免相減兩個非常接近的數值</li>
+<li>如果要同時處理很大跟很小的數值，先處理很小的</li>
+<li>整理方程式，讓量級相近的一起處理</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id9">參考</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://waterprogramming.wordpress.com/2018/02/21/types-of-errors-in-numerical-methods/">Types of Errors in Numerical Methods</a></li>
 </ul>
 </div>
 </div>
@@ -1256,10 +940,10 @@ Memory debugging support: no
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../multimedia/README.html" class="btn btn-neutral float-right" title="多媒體 (Multimedia)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="libraries.html" class="btn btn-neutral float-right" title="數學相關套件 (Math Libraries)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../misc/videos.html" class="btn btn-neutral" title="一些 Talk 的影片" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="README.html" class="btn btn-neutral" title="數學相關" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
