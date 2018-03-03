@@ -6,6 +6,16 @@ MariaDB
 .. contents:: 目錄
 
 
+介紹
+========================================
+
+MariaDB 是從 MySQL fork 出去的資料庫，
+原因是開發者擔心 Oracle 的種種政策會影響到 MySQL 的未來發展。
+MariaDB 仍然維持和 MySQL 的相容性，
+可以直接替換。
+
+
+
 一些指令
 ========================================
 
@@ -55,6 +65,7 @@ MariaDB
     mysql -u myuser -p --default-character-set=utf8 mydb
     mysql> SET names 'utf8'
     mysql> SOURCE utf8.dump
+
 
 
 參考

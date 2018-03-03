@@ -6,7 +6,7 @@
 資料庫案例：
 
 * `SQLite <sqlite.rst>`_
-* MariaDB
+* `MariaDB <mariadb.rst>`_
 * MySQL
 * PostgreSQL
 * CouchDB
