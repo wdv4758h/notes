@@ -5,14 +5,19 @@
 
 資料庫案例：
 
-* `SQLite <sqlite.rst>`_
-* `MariaDB <mariadb.rst>`_
-* MySQL
-* PostgreSQL
-* CouchDB
-* RethinkDB
-* RocksDB
-* `Redis <redis.rst>`_
+* SQL
+    - `SQLite <sqlite.rst>`_
+    - `MariaDB <mariadb.rst>`_
+    - MySQL
+    - PostgreSQL
+* NoSQL
+    - `Redis <redis.rst>`_
+    - CouchDB
+    - RethinkDB
+    - RocksDB
+* NewSQL
+    - CockroachDB
+    - Google Spanner
 
 
 資料結構：
