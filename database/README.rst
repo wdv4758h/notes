@@ -5,6 +5,7 @@
 
 資料庫案例：
 
+* `SQLite <sqlite.rst>`_
 * MariaDB
 * MySQL
 * PostgreSQL
