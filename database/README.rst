@@ -11,6 +11,7 @@
 * CouchDB
 * RethinkDB
 * RocksDB
+* `Redis <redis.rst>`_
 
 
 資料結構：
