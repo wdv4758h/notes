@@ -19,5 +19,12 @@ Debugger:
 Other Tools:
 
 * `rr (record and replay framework) <rr.rst>`_
-* strace
+* `strace <strace.rst>`_
 * ltrace
+
+
+Misc:
+
+* `Debugging OS Kernel <kernel.rst>`_
+* `Debugging Python <pdb.rst>`_
+* `Debugging JavaScript <javascript.rst>`_
