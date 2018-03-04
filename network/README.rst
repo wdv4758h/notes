@@ -51,5 +51,6 @@ Application layer:
 * `OS socket buffer <os-socket-buffer.rst>`_
 * `Proxy <proxy.rst>`_
 * ZeroMQ
+* `WebTorrent <webtorrent.rst>`_
 * `Network Stack <network-stack.rst>`_
 * `相關資源 <resource.rst>`_
