@@ -1,5 +1,19 @@
 ========================================
-Record Replay
+rr - record and replay framework
+========================================
+
+
+.. contents:: 目錄
+
+
+介紹
+========================================
+
+:Repo: https://github.com/mozilla/rr/
+
+
+
+參考
 ========================================
 
 * `rr - lightweight recording & deterministic debugging <http://rr-project.org/>`_
