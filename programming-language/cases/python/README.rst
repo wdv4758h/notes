@@ -15,6 +15,7 @@ Python
 * `SciPy <scipy.rst>`_
 * `Freeze Packages <freeze-packages.rst>`_
 * `CPython extension <cpython-extension.rst>`_
+* `Cython <cython.rst>`_
 
 ----
 
