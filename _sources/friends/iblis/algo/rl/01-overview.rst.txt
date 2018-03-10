@@ -756,6 +756,198 @@ Monte Carlo Method
 :math:`TD(\lambda)` where :math:`\lambda = 1` 就是 Monte Carlo。
 
 
+Model-free Prediction
+----------------------------------------------------------------------
+
+這裡的 prediction 就是 policy evaluation。
+
+Evaluate value function of an `unknown` MDP.
+
+兩個極端
+
+- TD(0)
+- Monte Carlo
+
+更新的想法來自 empircal mean，因為我們只有 sample，而沒有 MDP model。
+DP 即為有 MDP model 的 case。
+
+Monte Carlo
+    給定一個 policy，然後 value function 就定成
+    `total future discounted reward` (即 return :math:`G`) 的 mean。
+
+    先想象我們有很多 episode，在一個 episode 中的某個 state，
+    其 return :math:`G_t = R_{t+1} + \gamma R_{t+2} + \dots` 。
+    這樣只是 single :math:`G_t` 。
+    那麼接下來就去跑很多 episode，盡可能的去 sampling。
+    然後計算每個 state :math:`s` 的 :math:`G` ，做 mean，
+    就得到 value function。
+
+    在求這個 :math:`G` 的時候，就必須跑到 terminal state，
+    才能往回作出 backup。（可以用 recursive function call 實作）
+
+    這裡次數的計算上常見兩種方法
+
+    - First-visit Monte Carlo: 每個 episode 中，遇到同樣的 state 不會重複計算
+
+    - Every-visit Monte Carlo: 都算
+
+在算 mean 的時候，為了計算方便，會用 increamental 的方法。
+
+.. math::
+
+    \mu_k = \mu_{k-1} + \frac{1}{k}(x_k - \mu_{k-1})
+
+在這個 increamental mean 的公式中，物理意義解釋為，新的 mean 是舊的 mean，
+加上個 error，且 step size 是 :math:`\frac{1}{k}` 。
+嘗試往 error 的方向更新。
+
+那麼 general 的理解成：
+
+.. math::
+
+    \mu_k = \mu_{k-1} + \alpha(x_k - \mu_{k-1})
+
+換成 RL 的 context:
+
+.. math::
+
+    V^\pi(s) \leftarrow V^\pi(s) + \alpha(G - V^\pi(s))
+
+Monte Carlo 就因為 :math:`G` 的計算，必須用在 episode MDP 上面，
+要能明確的 terminate。
+
+接下來看 TD(0)，相較與 Monte Carlo，TD 不是用整個 return :math:`G`
+而是用了估測的 return，把原本的 :math:`G` 換成 `TD error`
+
+.. math::
+
+    \delta_t = R_{t+1} + \gamma V^\pi(s')
+
+整個 update rule
+
+.. math::
+
+    V^\pi(s) \leftarrow V^\pi(s) + \alpha(\delta_t - V^\pi(s))
+
+這裡解釋成 TD(0) 基本上只往後看了一個 step 的 reward，剩下的用舊的估計值。
+
+然而 Monte Carlo 跟 TD(0) 之間就是 Bias/Variance trade-off。
+
+- Monte Carlo 使用的 :math:`G` 是不偏估計，但是會用到整個 episode，
+  noise 可能會很多，variance 就大，在 sample 少的狀況會收斂慢。
+
+- TD(0) 因為導入的舊的估計值，所以有 bias，且因為只看了一步，
+  所以只能用在 stationary 的 case； Monte Carlo 則不受 stationary 的條件影響。
+
+一個只看一個 step，一個看整個 episode，這樣是兩個極端，
+有沒有中間的 solution？ :math:`TD(\lambda)`
+
+在 :math:`TD(\lambda)` 且導入 forward view (eligibility trace) 的狀況下，
+長久下來的更新量就跟 Monte Carlo 一樣。
+
+
+Model-free Control
+----------------------------------------------------------------------
+
+在 Model-free control state value function :math:`V(s)`
+變得沒有用，因為無法透過 :math:`V(s)` 得到 policy；
+無法透過比較隔壁的 :math:`V(s')` 來得到 policy，
+因為沒有 transition probability。
+所以在 Model-free 的狀況之下，都會用 action value function :math:`Q(s, a)` 。
+
+
+Q-Learning
+----------------------------------------------------------------------
+
+Off-policy 的其中一個方法，Q-Learning 即為 off-policy 中使用
+action-value function 代表。
+
+在這個 off-policy 的 learning 原本你有一個 behaviour policy 的 sample
+:math:`{s_1, a_1, r_1, s_2, a_2, \dots}` ，
+這個 behaviour policy 是從其他地方來的，
+（可能是 export/human ... etc）
+然後現在要用這個 behaviour policy :math:`\mu` 來
+train 出你的 target policy :math:`\pi` 。
+
+- Next action 是從 behaviour policy 來的 :math:`a_{t+1} \sim \mu(s_t)`
+
+- 但是同時考慮 alternative next action 的 value ，從你的 target policy 來
+  :math:`a' \sim \pi(s_t)`
+
+- 然後朝 alternative action 的方向 update :math:`Q(s_t, a_t)`
+
+.. math::
+
+    Q(s_t, a_t) \leftarrow Q(s_t, a_t) + \alpha
+        \Big(r_{t+1} + \gamma Q(s_{t+1}, a') - Q(s_t, a_t) \Big)
+
+上式中的 TD target
+
+.. math::
+
+    r_{t+1} + \gamma Q(s_{t+1}, a')
+
+的意是是朝 target policy 的方向 lookahead。
+
+
+Off-policy Control with Q-Learning
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+- (special case) 現在假設 behaviour 跟 target 都要 improve
+
+- (special case) 假設 target policy 是 greedy policy。
+
+.. math::
+
+    \pi(s) = \arg \max_a Q(s, a)
+
+- (special case) 假設 behaviour policy :math:`\mu`
+
+- 這是個 special case: 我們想要 follow :math:`\epsilon\text{-greedy}`
+  behaviour，然後 learn 出個 greedy behaviour。
+
+TD target:
+
+.. math::
+
+      & r_{t+1} + \gamma Q(s_{t+1}, a') \\
+    = & r_{t+1} + \gamma Q(s_{t+1}, \arg \max_{a'} Q(s_{t+1}, a')) \\
+    = & r_{t+1} + \max_{a'} \gamma Q(s_{t+1}, a')
+
+剛好直接寫成這樣。
+
+.. math::
+
+    Q(s, a) \leftarrow Q(s, a) + \alpha \Big(
+        r + \max_{s'} \gamma Q(s', a') - Q(s, a)
+    \Big)
+
+這裡的 :math:`a` 就來自 :math:`\epsilon\text{-greedy}` policy ，
+:math:`a'` 來自 greedy policy。
+
+* Q(λ) learning ?
+
+
+SARSA and Q-Learning
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+SARSA 是 On-Policy 的，回想 SARSA 跟 Q 的 update rule 的 general form:
+
+.. math::
+
+    Q(s, a) \leftarrow Q(s, a) + \alpha \Big(
+    r + \gamma Q(s, a') - Q(s, a)
+    \Big)
+
+SARSA 在這裡的 :math:`a, a'` 都來自於同一個 policy
+(e.g. 都來自 :math:`\epsilon\text{-greedy}`)
+，正所謂 on-policy。
+
+而 Q-Learning 的 :math:`a, a'` 是不同的 policy。
+:math:`a' \sim \pi` 來自 target policy；
+:math:`a \sim \mu` 來自 behaviour policy。
+
+
 Reference
 ----------------------------------------------------------------------
 

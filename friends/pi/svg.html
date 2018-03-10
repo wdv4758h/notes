@@ -64,7 +64,8 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 
 <script type="text/javascript" src="../../_static/readthedocs-dynamic-include.js"></script>
 
-<!-- end RTD <extrahead> --></head>
+<!-- end RTD <extrahead> -->
+</head>
 
 <body class="wy-body-for-nav" role="document">
 
@@ -160,6 +161,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../assembly/sha-extension.html">SHA Extensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../assembly/x86.html">x86 Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../asynchrounous/libuv.html">libuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../binary-instrumentation/README.html">Binary Instrumentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/2001_A_Space_Odyssey.html">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/README.html">Blog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/ann.html">Artificial Neural Network</a></li>
@@ -432,11 +434,13 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/resource.html">Database (資料庫)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/sqlite.html">SQLite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debug/README.html">除錯相關 (Debugging)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../debug/gdb.html">GDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../debug/javascript.html">Debugger for JavaScript</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../debug/kernel.html">Debugging a Kernel</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../debug/record-replay.html">Record Replay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debug/pdb.html">PDB - Python Debugger</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../debug/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debug/rr.html">rr - record and replay framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../debug/strace.html">strace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../documentation/README.html">文件 (Documentation)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../documentation/latex.html">LaTeX 教學</a></li>
@@ -496,7 +500,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l4"><a class="reference internal" href="#id1">基本形狀們</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id2">線屬性</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#fill">fill 屬性</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#path"><code class="docutils literal"><span class="pre">path</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#path"><code class="docutils literal notranslate"><span class="pre">path</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#css">與 CSS 結合</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gradients">漸層 - Gradients</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#patterns">圖樣 - Patterns</a></li>
@@ -516,9 +520,9 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l3"><a class="reference internal" href="android/adb.html">Android Debug Bridge</a></li>
 <li class="toctree-l3"><a class="reference internal" href="android/sdk-version-android-version.html">Android 版本與 SDK 版本的對應</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/argparse.html">Python argparse</a></li>
-<li class="toctree-l3"><a class="reference internal" href="python/contextlib.html"><code class="docutils literal"><span class="pre">contextlib</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/contextlib.html"><code class="docutils literal notranslate"><span class="pre">contextlib</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/distributing-packages.html">Distrubuting Packages</a></li>
-<li class="toctree-l3"><a class="reference internal" href="python/doctest.html"><code class="docutils literal"><span class="pre">doctest</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/doctest.html"><code class="docutils literal notranslate"><span class="pre">doctest</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/dynamic-attribute.html">Dynamic Attribute</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/format-string.note.html">= Python format string =</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/freebsd-python-default-version.html">FreeBSD Ports 系統對 Python 版本的判斷</a></li>
@@ -527,62 +531,62 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l3"><a class="reference internal" href="python/read-append-file-without-closing.html">在不關閉檔案的情況下讀取並新增內容</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/underscores.html">底線</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/virtualenv.html">virtualenv</a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/chflags.html"><code class="docutils literal"><span class="pre">chflags</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/chmod.html"><code class="docutils literal"><span class="pre">chmod</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/column.html"><code class="docutils literal"><span class="pre">column</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/command.html"><code class="docutils literal"><span class="pre">command</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/cp.html"><code class="docutils literal"><span class="pre">cp</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/curl.html"><code class="docutils literal"><span class="pre">curl</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/cut.html"><code class="docutils literal"><span class="pre">cut</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/date.html"><code class="docutils literal"><span class="pre">date</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/dd.html"><code class="docutils literal"><span class="pre">dd</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/df.html"><code class="docutils literal"><span class="pre">df</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/dialog.html"><code class="docutils literal"><span class="pre">dialog</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/diff.html"><code class="docutils literal"><span class="pre">diff</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/dig.html"><code class="docutils literal"><span class="pre">dig</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/figlet.html"><code class="docutils literal"><span class="pre">figlet</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/find.html"><code class="docutils literal"><span class="pre">find</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/ftp.html"><code class="docutils literal"><span class="pre">ftp</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/getopt.html"><code class="docutils literal"><span class="pre">getopt</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/grep.html"><code class="docutils literal"><span class="pre">grep</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/host.html"><code class="docutils literal"><span class="pre">host</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/ifconfig.html"><code class="docutils literal"><span class="pre">ifconfig</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/chflags.html"><code class="docutils literal notranslate"><span class="pre">chflags</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/chmod.html"><code class="docutils literal notranslate"><span class="pre">chmod</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/column.html"><code class="docutils literal notranslate"><span class="pre">column</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/command.html"><code class="docutils literal notranslate"><span class="pre">command</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/cp.html"><code class="docutils literal notranslate"><span class="pre">cp</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/curl.html"><code class="docutils literal notranslate"><span class="pre">curl</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/cut.html"><code class="docutils literal notranslate"><span class="pre">cut</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/date.html"><code class="docutils literal notranslate"><span class="pre">date</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/dd.html"><code class="docutils literal notranslate"><span class="pre">dd</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/df.html"><code class="docutils literal notranslate"><span class="pre">df</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/dialog.html"><code class="docutils literal notranslate"><span class="pre">dialog</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/diff.html"><code class="docutils literal notranslate"><span class="pre">diff</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/dig.html"><code class="docutils literal notranslate"><span class="pre">dig</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/figlet.html"><code class="docutils literal notranslate"><span class="pre">figlet</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/find.html"><code class="docutils literal notranslate"><span class="pre">find</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/ftp.html"><code class="docutils literal notranslate"><span class="pre">ftp</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/getopt.html"><code class="docutils literal notranslate"><span class="pre">getopt</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/grep.html"><code class="docutils literal notranslate"><span class="pre">grep</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/host.html"><code class="docutils literal notranslate"><span class="pre">host</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/ifconfig.html"><code class="docutils literal notranslate"><span class="pre">ifconfig</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="unix-commands/iptables.html">iptables</a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/less.html"><code class="docutils literal"><span class="pre">less</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/ln.html"><code class="docutils literal"><span class="pre">ln</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/ls.html"><code class="docutils literal"><span class="pre">ls</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/lsb_release.html"><code class="docutils literal"><span class="pre">lsb_release</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/lsof.html"><code class="docutils literal"><span class="pre">lsof</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/mktemp.html"><code class="docutils literal"><span class="pre">mktemp</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/mosh.html"><code class="docutils literal"><span class="pre">mosh</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/mount.html"><code class="docutils literal"><span class="pre">mount</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/nc.html"><code class="docutils literal"><span class="pre">nc</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/netstat.html"><code class="docutils literal"><span class="pre">netstat</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/nl.html"><code class="docutils literal"><span class="pre">nl</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/nmap.html"><code class="docutils literal"><span class="pre">nmap</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/nslookup.html"><code class="docutils literal"><span class="pre">nslookup</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/ntpdate.html"><code class="docutils literal"><span class="pre">ntpdate</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/openssl.html"><code class="docutils literal"><span class="pre">openssl</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/paste.html"><code class="docutils literal"><span class="pre">paste</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/pf.html"><code class="docutils literal"><span class="pre">pfctl</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/ping.html"><code class="docutils literal"><span class="pre">ping</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/portaudit.html"><code class="docutils literal"><span class="pre">portaudit</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/pushd-popd-dirs.html"><code class="docutils literal"><span class="pre">pushd</span></code> <code class="docutils literal"><span class="pre">popd</span></code> <code class="docutils literal"><span class="pre">dirs</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/pw.html"><code class="docutils literal"><span class="pre">pw</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/rename.html"><code class="docutils literal"><span class="pre">rename</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/rsync.html"><code class="docutils literal"><span class="pre">rsync</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/sed.html"><code class="docutils literal"><span class="pre">sed</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/seq.html"><code class="docutils literal"><span class="pre">seq</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/sh.html"><code class="docutils literal"><span class="pre">sh</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/ssh.html"><code class="docutils literal"><span class="pre">ssh</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/sudo.html"><code class="docutils literal"><span class="pre">sudo</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/tar.html"><code class="docutils literal"><span class="pre">tar</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/tcpdump.html"><code class="docutils literal"><span class="pre">tcpdump</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/tree.html"><code class="docutils literal"><span class="pre">tree</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/less.html"><code class="docutils literal notranslate"><span class="pre">less</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/ln.html"><code class="docutils literal notranslate"><span class="pre">ln</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/ls.html"><code class="docutils literal notranslate"><span class="pre">ls</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/lsb_release.html"><code class="docutils literal notranslate"><span class="pre">lsb_release</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/lsof.html"><code class="docutils literal notranslate"><span class="pre">lsof</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/mktemp.html"><code class="docutils literal notranslate"><span class="pre">mktemp</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/mosh.html"><code class="docutils literal notranslate"><span class="pre">mosh</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/mount.html"><code class="docutils literal notranslate"><span class="pre">mount</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/nc.html"><code class="docutils literal notranslate"><span class="pre">nc</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/netstat.html"><code class="docutils literal notranslate"><span class="pre">netstat</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/nl.html"><code class="docutils literal notranslate"><span class="pre">nl</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/nmap.html"><code class="docutils literal notranslate"><span class="pre">nmap</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/nslookup.html"><code class="docutils literal notranslate"><span class="pre">nslookup</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/ntpdate.html"><code class="docutils literal notranslate"><span class="pre">ntpdate</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/openssl.html"><code class="docutils literal notranslate"><span class="pre">openssl</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/paste.html"><code class="docutils literal notranslate"><span class="pre">paste</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/pf.html"><code class="docutils literal notranslate"><span class="pre">pfctl</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/ping.html"><code class="docutils literal notranslate"><span class="pre">ping</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/portaudit.html"><code class="docutils literal notranslate"><span class="pre">portaudit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/pushd-popd-dirs.html"><code class="docutils literal notranslate"><span class="pre">pushd</span></code> <code class="docutils literal notranslate"><span class="pre">popd</span></code> <code class="docutils literal notranslate"><span class="pre">dirs</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/pw.html"><code class="docutils literal notranslate"><span class="pre">pw</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/rename.html"><code class="docutils literal notranslate"><span class="pre">rename</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/rsync.html"><code class="docutils literal notranslate"><span class="pre">rsync</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/sed.html"><code class="docutils literal notranslate"><span class="pre">sed</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/seq.html"><code class="docutils literal notranslate"><span class="pre">seq</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/sh.html"><code class="docutils literal notranslate"><span class="pre">sh</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/ssh.html"><code class="docutils literal notranslate"><span class="pre">ssh</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/sudo.html"><code class="docutils literal notranslate"><span class="pre">sudo</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/tar.html"><code class="docutils literal notranslate"><span class="pre">tar</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/tcpdump.html"><code class="docutils literal notranslate"><span class="pre">tcpdump</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/tree.html"><code class="docutils literal notranslate"><span class="pre">tree</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="unix-commands/tricks.html">各種指令的組合用法</a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/truss.html"><code class="docutils literal"><span class="pre">truss</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/wget.html"><code class="docutils literal"><span class="pre">wget</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/xargs.html"><code class="docutils literal"><span class="pre">xargs</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/truss.html"><code class="docutils literal notranslate"><span class="pre">truss</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/wget.html"><code class="docutils literal notranslate"><span class="pre">wget</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/xargs.html"><code class="docutils literal notranslate"><span class="pre">xargs</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="vim/basic.html">= Vim 筆記 =</a></li>
 <li class="toctree-l3"><a class="reference internal" href="vim/conceal.html">隱藏顯示字元</a></li>
 <li class="toctree-l3"><a class="reference internal" href="vim/plugin.html">Vim Plugin 筆記</a></li>
@@ -763,6 +767,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../network/network-stack.html">Network Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../network/nginx.html">Nginx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../network/os-socket-buffer.html">OS socket buffer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../network/proxy.html">Proxy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../network/quic.html">QUIC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../network/resource.html">資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../network/rpc.html">RPC</a></li>
@@ -770,6 +775,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../network/srt.html">SRT (Secure Reliable Transport)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../network/tcpdump.html">tcpdump</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../network/upnp.html">UPnP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../network/webtorrent.html">WebTorrent</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../operating-system/README.html">作業系統</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../operating-system/linux-distro.html">Linux Distro</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../operating-system/netbsd.html">NetBSD</a></li>
@@ -796,6 +802,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../python/cpython.html">CPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python/cpython-equality.html">CPython Equality</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python/cpython-extension.html">CPython Extension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/cython.html">Cython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python/debugger.html">Debugger</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python/deprecated.html">Some Deprecated Things</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python/django.html">Django</a></li>
@@ -910,6 +917,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../rust/std.html">Rust’s std</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/syntax-highlighting.html">Syntax Highlighting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/tagged-unions.html">Tagged Unions (Sum Type)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust/talks.html">Talks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/testing.html">測試 (Testing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/tips.html">Rust Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/todo.html">Todo</a></li>
@@ -1035,7 +1043,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <h1>Scalable Vector Graphics 筆記<a class="headerlink" href="#scalable-vector-graphics" title="本標題的永久連結">¶</a></h1>
 <div class="section" id="svg">
 <h2>建立一個 SVG 檔案<a class="headerlink" href="#svg" title="本標題的永久連結">¶</a></h2>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">svg</span> <span class="n">version</span><span class="o">=</span><span class="s2">&quot;1.1&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">svg</span> <span class="n">version</span><span class="o">=</span><span class="s2">&quot;1.1&quot;</span>
     <span class="n">baseProfile</span><span class="o">=</span><span class="s2">&quot;full&quot;</span>
     <span class="n">width</span><span class="o">=</span><span class="s2">&quot;400&quot;</span> <span class="n">height</span><span class="o">=</span><span class="s2">&quot;500&quot;</span>
     <span class="n">xmlns</span><span class="o">=</span><span class="s2">&quot;http://www.w3.org/2000/svg&quot;</span><span class="o">&gt;</span>
@@ -1043,7 +1051,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </pre></div>
 </div>
 <p>MDN 的 SVG Tutorial 建議不要加這些</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>&lt;?xml version=&quot;1.0&quot;?&gt;
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;?xml version=&quot;1.0&quot;?&gt;
 &lt;!DOCTYPE svg PUBLIC &quot;-//W3C//DTD SVG 1.1//EN&quot;
     &quot;http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd&quot;&gt;
 </pre></div>
@@ -1053,46 +1061,46 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <h2>基本形狀們<a class="headerlink" href="#id1" title="本標題的永久連結">¶</a></h2>
 <p>這裡列出基本的形狀（在 SVG 檔案裡以 Tag 描述）以及它們特有的屬性</p>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">text</span></code> - 文字<ul>
-<li><code class="docutils literal"><span class="pre">x</span></code>, <code class="docutils literal"><span class="pre">y</span></code> 為定位點的座標</li>
-<li><code class="docutils literal"><span class="pre">text-anchor</span></code> 為定位點在文字的位置<ul>
-<li><code class="docutils literal"><span class="pre">&quot;middle&quot;</span></code> 會使文字的（左右）中央對齊 <code class="docutils literal"><span class="pre">x</span></code> ，baseline 對齊 <code class="docutils literal"><span class="pre">y</span></code></li>
-<li><code class="docutils literal"><span class="pre">&quot;start&quot;</span></code> <code class="docutils literal"><span class="pre">&quot;end&quot;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">text</span></code> - 文字<ul>
+<li><code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code> 為定位點的座標</li>
+<li><code class="docutils literal notranslate"><span class="pre">text-anchor</span></code> 為定位點在文字的位置<ul>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;middle&quot;</span></code> 會使文字的（左右）中央對齊 <code class="docutils literal notranslate"><span class="pre">x</span></code> ，baseline 對齊 <code class="docutils literal notranslate"><span class="pre">y</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;start&quot;</span></code> <code class="docutils literal notranslate"><span class="pre">&quot;end&quot;</span></code></li>
 </ul>
 </li>
-<li><code class="docutils literal"><span class="pre">font-size</span></code> 為字體大小</li>
-<li><code class="docutils literal"><span class="pre">font-weight=&quot;bold&quot;</span></code> 為粗體</li>
+<li><code class="docutils literal notranslate"><span class="pre">font-size</span></code> 為字體大小</li>
+<li><code class="docutils literal notranslate"><span class="pre">font-weight=&quot;bold&quot;</span></code> 為粗體</li>
 </ul>
 </li>
-<li><code class="docutils literal"><span class="pre">rect</span></code> - 長方形<ul>
-<li><code class="docutils literal"><span class="pre">x</span></code>, <code class="docutils literal"><span class="pre">y</span></code> 為左上角的座標</li>
-<li><code class="docutils literal"><span class="pre">width</span></code>, <code class="docutils literal"><span class="pre">height</span></code> 為長寬</li>
-<li><code class="docutils literal"><span class="pre">rx</span></code>, <code class="docutils literal"><span class="pre">ry</span></code> 為 x 和 y 軸圓角的半徑</li>
+<li><code class="docutils literal notranslate"><span class="pre">rect</span></code> - 長方形<ul>
+<li><code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code> 為左上角的座標</li>
+<li><code class="docutils literal notranslate"><span class="pre">width</span></code>, <code class="docutils literal notranslate"><span class="pre">height</span></code> 為長寬</li>
+<li><code class="docutils literal notranslate"><span class="pre">rx</span></code>, <code class="docutils literal notranslate"><span class="pre">ry</span></code> 為 x 和 y 軸圓角的半徑</li>
 </ul>
 </li>
-<li><code class="docutils literal"><span class="pre">circle</span></code> - 圓圈<ul>
-<li><code class="docutils literal"><span class="pre">cx</span></code>, <code class="docutils literal"><span class="pre">cy</span></code>, <code class="docutils literal"><span class="pre">r</span></code> 為圓心和半徑</li>
+<li><code class="docutils literal notranslate"><span class="pre">circle</span></code> - 圓圈<ul>
+<li><code class="docutils literal notranslate"><span class="pre">cx</span></code>, <code class="docutils literal notranslate"><span class="pre">cy</span></code>, <code class="docutils literal notranslate"><span class="pre">r</span></code> 為圓心和半徑</li>
 </ul>
 </li>
-<li><code class="docutils literal"><span class="pre">ellipse</span></code> - 橢圓<ul>
-<li><code class="docutils literal"><span class="pre">cx</span></code>, <code class="docutils literal"><span class="pre">cy</span></code> 為圓心</li>
-<li><code class="docutils literal"><span class="pre">rx</span></code>, <code class="docutils literal"><span class="pre">ry</span></code> 為 x 和 y 軸的半徑</li>
+<li><code class="docutils literal notranslate"><span class="pre">ellipse</span></code> - 橢圓<ul>
+<li><code class="docutils literal notranslate"><span class="pre">cx</span></code>, <code class="docutils literal notranslate"><span class="pre">cy</span></code> 為圓心</li>
+<li><code class="docutils literal notranslate"><span class="pre">rx</span></code>, <code class="docutils literal notranslate"><span class="pre">ry</span></code> 為 x 和 y 軸的半徑</li>
 </ul>
 </li>
-<li><code class="docutils literal"><span class="pre">line</span></code> - 直線<ul>
-<li><code class="docutils literal"><span class="pre">x1</span></code>, <code class="docutils literal"><span class="pre">y1</span></code>, <code class="docutils literal"><span class="pre">x2</span></code>, <code class="docutils literal"><span class="pre">y2</span></code> 為起始點和終點的座標</li>
+<li><code class="docutils literal notranslate"><span class="pre">line</span></code> - 直線<ul>
+<li><code class="docutils literal notranslate"><span class="pre">x1</span></code>, <code class="docutils literal notranslate"><span class="pre">y1</span></code>, <code class="docutils literal notranslate"><span class="pre">x2</span></code>, <code class="docutils literal notranslate"><span class="pre">y2</span></code> 為起始點和終點的座標</li>
 </ul>
 </li>
-<li><code class="docutils literal"><span class="pre">polyline</span></code> - 折線，也就是一堆相連的直線<ul>
-<li><code class="docutils literal"><span class="pre">points</span></code> 為每個折點的座標<ul>
-<li><code class="docutils literal"><span class="pre">points=&quot;60</span> <span class="pre">110</span> <span class="pre">65</span> <span class="pre">120</span> <span class="pre">70</span> <span class="pre">115&quot;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">polyline</span></code> - 折線，也就是一堆相連的直線<ul>
+<li><code class="docutils literal notranslate"><span class="pre">points</span></code> 為每個折點的座標<ul>
+<li><code class="docutils literal notranslate"><span class="pre">points=&quot;60</span> <span class="pre">110</span> <span class="pre">65</span> <span class="pre">120</span> <span class="pre">70</span> <span class="pre">115&quot;</span></code></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><code class="docutils literal"><span class="pre">polygon</span></code> - 多邊形<ul>
-<li><code class="docutils literal"><span class="pre">points</span></code> 為每個折點的座標<ul>
-<li><code class="docutils literal"><span class="pre">points=&quot;60</span> <span class="pre">110,</span> <span class="pre">65</span> <span class="pre">120,</span> <span class="pre">70</span> <span class="pre">115&quot;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">polygon</span></code> - 多邊形<ul>
+<li><code class="docutils literal notranslate"><span class="pre">points</span></code> 為每個折點的座標<ul>
+<li><code class="docutils literal notranslate"><span class="pre">points=&quot;60</span> <span class="pre">110,</span> <span class="pre">65</span> <span class="pre">120,</span> <span class="pre">70</span> <span class="pre">115&quot;</span></code></li>
 <li>分隔符號可以用空白或是逗點（不限於這兩個）</li>
 <li>最後一個點會自動以直線連上第一個點</li>
 </ul>
@@ -1105,30 +1113,30 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <h2>線屬性<a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
 <p>這裡列出線的屬性</p>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">stroke</span></code> - 線的顏色<ul>
-<li><code class="docutils literal"><span class="pre">stroke=&quot;black&quot;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">stroke</span></code> - 線的顏色<ul>
+<li><code class="docutils literal notranslate"><span class="pre">stroke=&quot;black&quot;</span></code></li>
 </ul>
 </li>
-<li><code class="docutils literal"><span class="pre">stroke-width</span></code> - 線的寬度</li>
-<li><code class="docutils literal"><span class="pre">stroke-linecap</span></code> - 線的收尾方式<ul>
-<li><code class="docutils literal"><span class="pre">&quot;butt&quot;</span></code> 直接切平</li>
-<li><code class="docutils literal"><span class="pre">&quot;square&quot;</span></code> 包一個正方形，線的結尾在正方形的中央，效果類似切平再加長一點</li>
-<li><code class="docutils literal"><span class="pre">&quot;round&quot;</span></code> 包一個圓形</li>
+<li><code class="docutils literal notranslate"><span class="pre">stroke-width</span></code> - 線的寬度</li>
+<li><code class="docutils literal notranslate"><span class="pre">stroke-linecap</span></code> - 線的收尾方式<ul>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;butt&quot;</span></code> 直接切平</li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;square&quot;</span></code> 包一個正方形，線的結尾在正方形的中央，效果類似切平再加長一點</li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;round&quot;</span></code> 包一個圓形</li>
 </ul>
 </li>
-<li><code class="docutils literal"><span class="pre">stroke-linejoin</span></code> - 兩條線折角的連接方式<ul>
-<li><code class="docutils literal"><span class="pre">&quot;miter&quot;</span></code> 為尖角</li>
-<li><code class="docutils literal"><span class="pre">&quot;round&quot;</span></code> 為圓角</li>
-<li><code class="docutils literal"><span class="pre">&quot;bevel&quot;</span></code> 為兩個尖角，類似把 <code class="docutils literal"><span class="pre">&quot;miter&quot;</span></code> 的尖角切一個角下來</li>
+<li><code class="docutils literal notranslate"><span class="pre">stroke-linejoin</span></code> - 兩條線折角的連接方式<ul>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;miter&quot;</span></code> 為尖角</li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;round&quot;</span></code> 為圓角</li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;bevel&quot;</span></code> 為兩個尖角，類似把 <code class="docutils literal notranslate"><span class="pre">&quot;miter&quot;</span></code> 的尖角切一個角下來</li>
 </ul>
 </li>
-<li><code class="docutils literal"><span class="pre">stroke-dasharray</span></code> - 虛線的寬度<ul>
-<li><code class="docutils literal"><span class="pre">stroke-dasharray=&quot;1,2,3&quot;</span></code> - 實線/虛線的寬度順序<ol class="loweralpha">
-<li>實線 <code class="docutils literal"><span class="pre">1</span></code></li>
-<li>虛線 <code class="docutils literal"><span class="pre">2</span></code></li>
-<li>實線 <code class="docutils literal"><span class="pre">3</span></code></li>
-<li>虛線 <code class="docutils literal"><span class="pre">1</span></code></li>
-<li>實線 <code class="docutils literal"><span class="pre">2</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">stroke-dasharray</span></code> - 虛線的寬度<ul>
+<li><code class="docutils literal notranslate"><span class="pre">stroke-dasharray=&quot;1,2,3&quot;</span></code> - 實線/虛線的寬度順序<ol class="loweralpha">
+<li>實線 <code class="docutils literal notranslate"><span class="pre">1</span></code></li>
+<li>虛線 <code class="docutils literal notranslate"><span class="pre">2</span></code></li>
+<li>實線 <code class="docutils literal notranslate"><span class="pre">3</span></code></li>
+<li>虛線 <code class="docutils literal notranslate"><span class="pre">1</span></code></li>
+<li>實線 <code class="docutils literal notranslate"><span class="pre">2</span></code></li>
 <li>…</li>
 </ol>
 </li>
@@ -1140,96 +1148,96 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <div class="section" id="fill">
 <h2>fill 屬性<a class="headerlink" href="#fill" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">fill</span></code> - 把圖形圍繞的區域用顏色填滿<ul>
-<li><code class="docutils literal"><span class="pre">fill=&quot;transparent&quot;</span></code> 為透明</li>
-<li><code class="docutils literal"><span class="pre">fill=&quot;url(#id1)&quot;</span></code> 使用 <code class="docutils literal"><span class="pre">id1</span></code> 填滿</li>
+<li><code class="docutils literal notranslate"><span class="pre">fill</span></code> - 把圖形圍繞的區域用顏色填滿<ul>
+<li><code class="docutils literal notranslate"><span class="pre">fill=&quot;transparent&quot;</span></code> 為透明</li>
+<li><code class="docutils literal notranslate"><span class="pre">fill=&quot;url(#id1)&quot;</span></code> 使用 <code class="docutils literal notranslate"><span class="pre">id1</span></code> 填滿</li>
 </ul>
 </li>
-<li><code class="docutils literal"><span class="pre">fill-opacity</span></code> - 填滿的不透明度，在 [0, 1] 之間</li>
+<li><code class="docutils literal notranslate"><span class="pre">fill-opacity</span></code> - 填滿的不透明度，在 [0, 1] 之間</li>
 </ul>
 </div>
 <div class="section" id="path">
-<h2><code class="docutils literal"><span class="pre">path</span></code><a class="headerlink" href="#path" title="本標題的永久連結">¶</a></h2>
-<p><code class="docutils literal"><span class="pre">path</span></code> 是最一般化的形狀，上述所有的形狀都可以用它描述。</p>
-<p><code class="docutils literal"><span class="pre">path</span></code> 的形狀只用 <code class="docutils literal"><span class="pre">d</span></code> 屬性，用一連串指令描述一連串的「動作」</p>
-<p><em>以下變數以</em> <code class="docutils literal"><span class="pre">{x}</span></code> <em>表示</em></p>
+<h2><code class="docutils literal notranslate"><span class="pre">path</span></code><a class="headerlink" href="#path" title="本標題的永久連結">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">path</span></code> 是最一般化的形狀，上述所有的形狀都可以用它描述。</p>
+<p><code class="docutils literal notranslate"><span class="pre">path</span></code> 的形狀只用 <code class="docutils literal notranslate"><span class="pre">d</span></code> 屬性，用一連串指令描述一連串的「動作」</p>
+<p><em>以下變數以</em> <code class="docutils literal notranslate"><span class="pre">{x}</span></code> <em>表示</em></p>
 <p>以下指令若改為小寫，則所有的座標都變為相對座標</p>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">M</span> <span class="pre">{x}</span> <span class="pre">{y}</span></code><ul>
-<li>將游標移動到（Move to）絕對座標 <code class="docutils literal"><span class="pre">{x}</span></code> <code class="docutils literal"><span class="pre">{y}</span></code> 處</li>
+<li><code class="docutils literal notranslate"><span class="pre">M</span> <span class="pre">{x}</span> <span class="pre">{y}</span></code><ul>
+<li>將游標移動到（Move to）絕對座標 <code class="docutils literal notranslate"><span class="pre">{x}</span></code> <code class="docutils literal notranslate"><span class="pre">{y}</span></code> 處</li>
 </ul>
 </li>
-<li><code class="docutils literal"><span class="pre">L</span> <span class="pre">{x}</span> <span class="pre">{y}</span></code><ul>
-<li>從目前位置畫線至（Line to）絕對座標 <code class="docutils literal"><span class="pre">{x}</span></code> <code class="docutils literal"><span class="pre">{y}</span></code> 處</li>
-<li><code class="docutils literal"><span class="pre">H</span> <span class="pre">{x}</span></code> 水平畫線</li>
-<li><code class="docutils literal"><span class="pre">V</span> <span class="pre">{y}</span></code> 垂直畫線</li>
+<li><code class="docutils literal notranslate"><span class="pre">L</span> <span class="pre">{x}</span> <span class="pre">{y}</span></code><ul>
+<li>從目前位置畫線至（Line to）絕對座標 <code class="docutils literal notranslate"><span class="pre">{x}</span></code> <code class="docutils literal notranslate"><span class="pre">{y}</span></code> 處</li>
+<li><code class="docutils literal notranslate"><span class="pre">H</span> <span class="pre">{x}</span></code> 水平畫線</li>
+<li><code class="docutils literal notranslate"><span class="pre">V</span> <span class="pre">{y}</span></code> 垂直畫線</li>
 </ul>
 </li>
-<li><code class="docutils literal"><span class="pre">Z</span></code><ul>
-<li>畫直線回到 <code class="docutils literal"><span class="pre">path</span></code> 的起始點</li>
+<li><code class="docutils literal notranslate"><span class="pre">Z</span></code><ul>
+<li>畫直線回到 <code class="docutils literal notranslate"><span class="pre">path</span></code> 的起始點</li>
 </ul>
 </li>
-<li><code class="docutils literal"><span class="pre">C</span> <span class="pre">{x1}</span> <span class="pre">{y1}</span> <span class="pre">{x2}</span> <span class="pre">{y2}</span> <span class="pre">{x}</span> <span class="pre">{y}</span></code> - 三階（Cubic）貝茲曲線<ul>
-<li><code class="docutils literal"><span class="pre">{x1}</span> <span class="pre">{y1}</span></code> 為第一個控制點的座標</li>
-<li><code class="docutils literal"><span class="pre">{x2}</span> <span class="pre">{y2}</span></code> 為第二個控制點的座標</li>
-<li><code class="docutils literal"><span class="pre">{x}</span> <span class="pre">{y}</span></code> 為曲線結束點的座標</li>
+<li><code class="docutils literal notranslate"><span class="pre">C</span> <span class="pre">{x1}</span> <span class="pre">{y1}</span> <span class="pre">{x2}</span> <span class="pre">{y2}</span> <span class="pre">{x}</span> <span class="pre">{y}</span></code> - 三階（Cubic）貝茲曲線<ul>
+<li><code class="docutils literal notranslate"><span class="pre">{x1}</span> <span class="pre">{y1}</span></code> 為第一個控制點的座標</li>
+<li><code class="docutils literal notranslate"><span class="pre">{x2}</span> <span class="pre">{y2}</span></code> 為第二個控制點的座標</li>
+<li><code class="docutils literal notranslate"><span class="pre">{x}</span> <span class="pre">{y}</span></code> 為曲線結束點的座標</li>
 </ul>
 </li>
-<li><code class="docutils literal"><span class="pre">Q</span> <span class="pre">{x1}</span> <span class="pre">{y1}</span> <span class="pre">{x}</span> <span class="pre">{y}</span></code> - 二階（Quadratic）貝茲曲線<ul>
-<li><code class="docutils literal"><span class="pre">{x1}</span> <span class="pre">{y1}</span></code> 為控制點的座標</li>
-<li><code class="docutils literal"><span class="pre">{x}</span> <span class="pre">{y}</span></code> 為曲線結束點的座標</li>
+<li><code class="docutils literal notranslate"><span class="pre">Q</span> <span class="pre">{x1}</span> <span class="pre">{y1}</span> <span class="pre">{x}</span> <span class="pre">{y}</span></code> - 二階（Quadratic）貝茲曲線<ul>
+<li><code class="docutils literal notranslate"><span class="pre">{x1}</span> <span class="pre">{y1}</span></code> 為控制點的座標</li>
+<li><code class="docutils literal notranslate"><span class="pre">{x}</span> <span class="pre">{y}</span></code> 為曲線結束點的座標</li>
 </ul>
 </li>
-<li><code class="docutils literal"><span class="pre">A</span> <span class="pre">{rx}</span> <span class="pre">{ry}</span> <span class="pre">{x-axis-rotation}</span> <span class="pre">{large-arc-flag}</span> <span class="pre">{sweep-flag}</span> <span class="pre">{x}</span> <span class="pre">{y}</span></code> - 圓弧<ul>
-<li><code class="docutils literal"><span class="pre">{rx}</span> <span class="pre">{ry}</span></code> 為圓弧的半徑</li>
-<li><code class="docutils literal"><span class="pre">{x-axis-rotation}</span></code> 為旋轉的角度，以角度表示（而非徑度制）<ul>
-<li>若設為 <code class="docutils literal"><span class="pre">-45</span></code> ，畫出來的弧形會往左旋轉 45 度</li>
+<li><code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">{rx}</span> <span class="pre">{ry}</span> <span class="pre">{x-axis-rotation}</span> <span class="pre">{large-arc-flag}</span> <span class="pre">{sweep-flag}</span> <span class="pre">{x}</span> <span class="pre">{y}</span></code> - 圓弧<ul>
+<li><code class="docutils literal notranslate"><span class="pre">{rx}</span> <span class="pre">{ry}</span></code> 為圓弧的半徑</li>
+<li><code class="docutils literal notranslate"><span class="pre">{x-axis-rotation}</span></code> 為旋轉的角度，以角度表示（而非徑度制）<ul>
+<li>若設為 <code class="docutils literal notranslate"><span class="pre">-45</span></code> ，畫出來的弧形會往左旋轉 45 度</li>
 </ul>
 </li>
-<li><code class="docutils literal"><span class="pre">{large-arc-flag}</span></code> 決定圓弧大小能不能超過 180 度， <code class="docutils literal"><span class="pre">0</span></code> 為不可以， <code class="docutils literal"><span class="pre">1</span></code> 為可以</li>
-<li><code class="docutils literal"><span class="pre">{sweep-flag}</span></code> 決定圓弧的順逆時針方向， <code class="docutils literal"><span class="pre">0</span></code> 為逆時針， <code class="docutils literal"><span class="pre">1</span></code> 為順時針</li>
-<li><code class="docutils literal"><span class="pre">{x}</span> <span class="pre">{y}</span></code> 為圓弧的結束點</li>
+<li><code class="docutils literal notranslate"><span class="pre">{large-arc-flag}</span></code> 決定圓弧大小能不能超過 180 度， <code class="docutils literal notranslate"><span class="pre">0</span></code> 為不可以， <code class="docutils literal notranslate"><span class="pre">1</span></code> 為可以</li>
+<li><code class="docutils literal notranslate"><span class="pre">{sweep-flag}</span></code> 決定圓弧的順逆時針方向， <code class="docutils literal notranslate"><span class="pre">0</span></code> 為逆時針， <code class="docutils literal notranslate"><span class="pre">1</span></code> 為順時針</li>
+<li><code class="docutils literal notranslate"><span class="pre">{x}</span> <span class="pre">{y}</span></code> 為圓弧的結束點</li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="css">
 <h2>與 CSS 結合<a class="headerlink" href="#css" title="本標題的永久連結">¶</a></h2>
-<p><code class="docutils literal"><span class="pre">&lt;defs&gt;</span></code> Tag 中可以加入 <code class="docutils literal"><span class="pre">&lt;style&gt;</span></code> 標籤，並插入 CSS，但不是每個屬性都可以這樣設定</p>
-<p>注意即使是用 CSS 定義外觀，在這個狀況下仍不適用 <code class="docutils literal"><span class="pre">background-color</span></code> 和 <code class="docutils literal"><span class="pre">color</span></code> ，需使用 SVG 的屬性 <code class="docutils literal"><span class="pre">fill</span></code> 和 <code class="docutils literal"><span class="pre">stroke</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;defs&gt;</span></code> Tag 中可以加入 <code class="docutils literal notranslate"><span class="pre">&lt;style&gt;</span></code> 標籤，並插入 CSS，但不是每個屬性都可以這樣設定</p>
+<p>注意即使是用 CSS 定義外觀，在這個狀況下仍不適用 <code class="docutils literal notranslate"><span class="pre">background-color</span></code> 和 <code class="docutils literal notranslate"><span class="pre">color</span></code> ，需使用 SVG 的屬性 <code class="docutils literal notranslate"><span class="pre">fill</span></code> 和 <code class="docutils literal notranslate"><span class="pre">stroke</span></code></p>
 <p>在 SVG 檔案中可以用</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>&lt;?xml-stylesheet type=&quot;text/css&quot; href=&quot;style.css&quot;?&gt;
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;?xml-stylesheet type=&quot;text/css&quot; href=&quot;style.css&quot;?&gt;
 </pre></div>
 </div>
 <p>抓取外部 CSS 檔案</p>
 </div>
 <div class="section" id="gradients">
 <h2>漸層 - Gradients<a class="headerlink" href="#gradients" title="本標題的永久連結">¶</a></h2>
-<p>漸層物件使用 <code class="docutils literal"><span class="pre">&lt;xxxGradient&gt;</span></code> 定義，需放在 <code class="docutils literal"><span class="pre">&lt;defs&gt;</span></code> Tag 中，並且一定要帶有 <code class="docutils literal"><span class="pre">id</span></code> 屬性</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">defs</span><span class="o">&gt;</span>
+<p>漸層物件使用 <code class="docutils literal notranslate"><span class="pre">&lt;xxxGradient&gt;</span></code> 定義，需放在 <code class="docutils literal notranslate"><span class="pre">&lt;defs&gt;</span></code> Tag 中，並且一定要帶有 <code class="docutils literal notranslate"><span class="pre">id</span></code> 屬性</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">defs</span><span class="o">&gt;</span>
   <span class="o">&lt;</span><span class="n">linearGradient</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;gradient1&quot;</span><span class="o">&gt;</span>
     <span class="o">...</span>
   <span class="o">&lt;/</span><span class="n">linearGradient</span><span class="o">&gt;</span>
 <span class="o">&lt;/</span><span class="n">defs</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p>漸層裡的每個轉換點使用 <code class="docutils literal"><span class="pre">&lt;stop&gt;</span></code> Tag 定義</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">stop</span> <span class="n">offset</span><span class="o">=</span><span class="s2">&quot;0%&quot;</span> <span class="n">stop</span><span class="o">-</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="o">/&gt;</span>
+<p>漸層裡的每個轉換點使用 <code class="docutils literal notranslate"><span class="pre">&lt;stop&gt;</span></code> Tag 定義</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">stop</span> <span class="n">offset</span><span class="o">=</span><span class="s2">&quot;0%&quot;</span> <span class="n">stop</span><span class="o">-</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="o">/&gt;</span>
 <span class="o">&lt;</span><span class="n">stop</span> <span class="n">offset</span><span class="o">=</span><span class="s2">&quot;50%&quot;</span> <span class="n">stop</span><span class="o">-</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span> <span class="n">stop</span><span class="o">-</span><span class="n">opacity</span><span class="o">=</span><span class="s2">&quot;0&quot;</span><span class="o">/&gt;</span>
 <span class="o">&lt;</span><span class="n">stop</span> <span class="n">offset</span><span class="o">=</span><span class="s2">&quot;100%&quot;</span> <span class="n">stop</span><span class="o">-</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="o">/&gt;</span>
 </pre></div>
 </div>
-<p>在 <code class="docutils literal"><span class="pre">fill</span></code> 或是 <code class="docutils literal"><span class="pre">stroke</span></code> 屬性中使用 <code class="docutils literal"><span class="pre">url(#id)</span></code> 套用</p>
+<p>在 <code class="docutils literal notranslate"><span class="pre">fill</span></code> 或是 <code class="docutils literal notranslate"><span class="pre">stroke</span></code> 屬性中使用 <code class="docutils literal notranslate"><span class="pre">url(#id)</span></code> 套用</p>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">&lt;linearGradient&gt;</span></code> - 線性漸層<ul>
-<li>具有 <code class="docutils literal"><span class="pre">x1</span></code> <code class="docutils literal"><span class="pre">y1</span></code> <code class="docutils literal"><span class="pre">x2</span></code> <code class="docutils literal"><span class="pre">y2</span></code> 四個屬性，分別描述漸層的方向</li>
+<li><code class="docutils literal notranslate"><span class="pre">&lt;linearGradient&gt;</span></code> - 線性漸層<ul>
+<li>具有 <code class="docutils literal notranslate"><span class="pre">x1</span></code> <code class="docutils literal notranslate"><span class="pre">y1</span></code> <code class="docutils literal notranslate"><span class="pre">x2</span></code> <code class="docutils literal notranslate"><span class="pre">y2</span></code> 四個屬性，分別描述漸層的方向</li>
 <li>四個值都在 [0, 1] 之間，代表它們所佔的長度比例</li>
 </ul>
 </li>
-<li><code class="docutils literal"><span class="pre">&lt;radioGradient&gt;</span></code> - 圓形漸層<ul>
-<li><code class="docutils literal"><span class="pre">cx</span></code> <code class="docutils literal"><span class="pre">cy</span></code> 為漸層 <strong>形狀</strong> 的中心</li>
-<li><code class="docutils literal"><span class="pre">r</span></code> 為漸層半徑</li>
-<li><code class="docutils literal"><span class="pre">fx</span></code> <code class="docutils literal"><span class="pre">fy</span></code>  為漸層 <strong>顏色</strong> 的中心</li>
+<li><code class="docutils literal notranslate"><span class="pre">&lt;radioGradient&gt;</span></code> - 圓形漸層<ul>
+<li><code class="docutils literal notranslate"><span class="pre">cx</span></code> <code class="docutils literal notranslate"><span class="pre">cy</span></code> 為漸層 <strong>形狀</strong> 的中心</li>
+<li><code class="docutils literal notranslate"><span class="pre">r</span></code> 為漸層半徑</li>
+<li><code class="docutils literal notranslate"><span class="pre">fx</span></code> <code class="docutils literal notranslate"><span class="pre">fy</span></code>  為漸層 <strong>顏色</strong> 的中心</li>
 <li>這些值也都在 [0, 1] 之間，代表它們所佔的長度比例</li>
 </ul>
 </li>
@@ -1237,15 +1245,15 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </div>
 <div class="section" id="patterns">
 <h2>圖樣 - Patterns<a class="headerlink" href="#patterns" title="本標題的永久連結">¶</a></h2>
-<p>圖樣物件使用 <code class="docutils literal"><span class="pre">&lt;pattern&gt;</span></code> 定義，需放在 <code class="docutils literal"><span class="pre">&lt;def&gt;</span></code> 中，並且一定要帶有 <code class="docutils literal"><span class="pre">id</span></code> 屬性</p>
-<p><code class="docutils literal"><span class="pre">&lt;pattern&gt;</span></code> 所包的內容可以在 <code class="docutils literal"><span class="pre">fill</span></code> 被重覆顯示</p>
-<p><code class="docutils literal"><span class="pre">&lt;pattern&gt;</span></code> 具有 <code class="docutils literal"><span class="pre">x</span></code> <code class="docutils literal"><span class="pre">y</span></code> <code class="docutils literal"><span class="pre">width</span></code> <code class="docutils literal"><span class="pre">height</span></code> 四個屬性，描述一個圖樣的大小</p>
+<p>圖樣物件使用 <code class="docutils literal notranslate"><span class="pre">&lt;pattern&gt;</span></code> 定義，需放在 <code class="docutils literal notranslate"><span class="pre">&lt;def&gt;</span></code> 中，並且一定要帶有 <code class="docutils literal notranslate"><span class="pre">id</span></code> 屬性</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;pattern&gt;</span></code> 所包的內容可以在 <code class="docutils literal notranslate"><span class="pre">fill</span></code> 被重覆顯示</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;pattern&gt;</span></code> 具有 <code class="docutils literal notranslate"><span class="pre">x</span></code> <code class="docutils literal notranslate"><span class="pre">y</span></code> <code class="docutils literal notranslate"><span class="pre">width</span></code> <code class="docutils literal notranslate"><span class="pre">height</span></code> 四個屬性，描述一個圖樣的大小</p>
 </div>
 <div class="section" id="texts">
 <h2>文字 - Texts<a class="headerlink" href="#texts" title="本標題的永久連結">¶</a></h2>
-<p>文字以 <code class="docutils literal"><span class="pre">&lt;text&gt;</span></code> 定義，在 <a class="reference internal" href="#id1">基本形狀們</a> 中已有列出部份屬性，以下列出更多相關的 Tags</p>
+<p>文字以 <code class="docutils literal notranslate"><span class="pre">&lt;text&gt;</span></code> 定義，在 <a class="reference internal" href="#id1">基本形狀們</a> 中已有列出部份屬性，以下列出更多相關的 Tags</p>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">&lt;tspan&gt;</span></code> - 包在 <code class="docutils literal"><span class="pre">&lt;text&gt;</span></code> 裡面，描述一部份的文字，例如把一串字之中的一些字上色</li>
+<li><code class="docutils literal notranslate"><span class="pre">&lt;tspan&gt;</span></code> - 包在 <code class="docutils literal notranslate"><span class="pre">&lt;text&gt;</span></code> 裡面，描述一部份的文字，例如把一串字之中的一些字上色</li>
 </ul>
 </div>
 </div>

@@ -37,7 +37,7 @@
         <link rel="search" title="搜尋" href="../search.html"/>
     <link rel="top" title="wdv4758h-notes latest 說明文件" href="../index.html"/>
         <link rel="next" title="文件 (Documentation)" href="../documentation/README.html"/>
-        <link rel="prev" title="Resource" href="resource.html"/> 
+        <link rel="prev" title="rr - record and replay framework" href="rr.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -63,7 +63,8 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 
 <script type="text/javascript" src="../_static/readthedocs-dynamic-include.js"></script>
 
-<!-- end RTD <extrahead> --></head>
+<!-- end RTD <extrahead> -->
+</head>
 
 <body class="wy-body-for-nav" role="document">
 
@@ -159,6 +160,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../assembly/sha-extension.html">SHA Extensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assembly/x86.html">x86 Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../asynchrounous/libuv.html">libuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../binary-instrumentation/README.html">Binary Instrumentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/2001_A_Space_Odyssey.html">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/README.html">Blog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/ann.html">Artificial Neural Network</a></li>
@@ -431,11 +433,13 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/resource.html">Database (資料庫)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sqlite.html">SQLite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">除錯相關 (Debugging)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gdb.html">GDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="javascript.html">Debugger for JavaScript</a></li>
 <li class="toctree-l1"><a class="reference internal" href="kernel.html">Debugging a Kernel</a></li>
-<li class="toctree-l1"><a class="reference internal" href="record-replay.html">Record Replay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pdb.html">PDB - Python Debugger</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rr.html">rr - record and replay framework</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">strace</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id2">基本介紹</a></li>
 </ul>
@@ -619,6 +623,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../network/network-stack.html">Network Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/nginx.html">Nginx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/os-socket-buffer.html">OS socket buffer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/proxy.html">Proxy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/quic.html">QUIC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/resource.html">資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/rpc.html">RPC</a></li>
@@ -626,6 +631,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../network/srt.html">SRT (Secure Reliable Transport)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/tcpdump.html">tcpdump</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/upnp.html">UPnP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/webtorrent.html">WebTorrent</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../operating-system/README.html">作業系統</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../operating-system/linux-distro.html">Linux Distro</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../operating-system/netbsd.html">NetBSD</a></li>
@@ -652,6 +658,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../python/cpython.html">CPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/cpython-equality.html">CPython Equality</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/cpython-extension.html">CPython Extension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/cython.html">Cython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/debugger.html">Debugger</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/deprecated.html">Some Deprecated Things</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/django.html">Django</a></li>
@@ -766,6 +773,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../rust/std.html">Rust’s std</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/syntax-highlighting.html">Syntax Highlighting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/tagged-unions.html">Tagged Unions (Sum Type)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/talks.html">Talks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/testing.html">測試 (Testing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/tips.html">Rust Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/todo.html">Todo</a></li>
@@ -903,8 +911,8 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 也可以指定要追蹤的 system call 來減少不需要的訊息，
 而 strace 的實做則是仰賴 kernel 中的 ptrace。</p>
 <p>使用範例：</p>
-<p><code class="docutils literal"><span class="pre">-c</span></code> 輸出 system call 使用統計：</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ strace -c ls &gt; /dev/null
+<p><code class="docutils literal notranslate"><span class="pre">-c</span></code> 輸出 system call 使用統計：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ strace -c ls &gt; /dev/null
 % <span class="nb">time</span>     seconds  usecs/call     calls    errors syscall
 ------ ----------- ----------- --------- --------- ----------------
   <span class="m">0</span>.00    <span class="m">0</span>.000000           <span class="m">0</span>        <span class="m">17</span>           <span class="nb">read</span>
@@ -926,10 +934,10 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <span class="m">100</span>.00    <span class="m">0</span>.000000                    <span class="m">67</span>         <span class="m">5</span> total
 </pre></div>
 </div>
-<p><code class="docutils literal"><span class="pre">-k</span></code> 輸出每個 system call 的 stack trace，
+<p><code class="docutils literal notranslate"><span class="pre">-k</span></code> 輸出每個 system call 的 stack trace，
 原先來自於 <a class="reference external" href="https://code.google.com/p/strace-plus/">strace-plus</a> 後來 merge 回上游，
 需要在編譯時有開啟 libunwind 支援：</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ strace -k ls &gt; /dev/null
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ strace -k ls &gt; /dev/null
 execve<span class="o">(</span><span class="s2">&quot;/usr/bin/ls&quot;</span>, <span class="o">[</span><span class="s2">&quot;ls&quot;</span><span class="o">]</span>, 0x7ffc07df1168 /* <span class="m">45</span> vars */<span class="o">)</span> <span class="o">=</span> <span class="m">0</span>
  &gt; /usr/lib/libc-2.26.so<span class="o">(</span>execve+0x7<span class="o">)</span> <span class="o">[</span>0xc45e7<span class="o">]</span>
  &gt; /usr/bin/strace<span class="o">(</span>_init+0x166<span class="o">)</span> <span class="o">[</span>0x63766<span class="o">]</span>
@@ -960,7 +968,7 @@ brk<span class="o">(</span>NULL<span class="o">)</span>                         
         <a href="../documentation/README.html" class="btn btn-neutral float-right" title="文件 (Documentation)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="resource.html" class="btn btn-neutral" title="Resource" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="rr.html" class="btn btn-neutral" title="rr - record and replay framework" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -40,6 +40,8 @@
 * 1995 - PHP 語言問世
 * 1995 - Ruby 語言問世
 * 1997 - ECMAScript 標準問世
+* 1997 - IEEE 802.11 第一版發表，Wi-Fi 標準問世
+* 1999/07/26 - Bluetooth 1.0 問世，確定使用 2.4GHz 頻譜
 * 1999 - RFC 2616 定義了 HTTP/1.1
 * 2001 - ZFS 開始開發
 * 2005 - Friendly Interactive Shell 問世

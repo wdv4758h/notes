@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Hash Functions &mdash; wdv4758h-notes latest 說明文件</title>
+  <title>Chapter 11: Hash Functions &mdash; wdv4758h-notes latest 說明文件</title>
   
 
   
@@ -64,7 +64,8 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 
 <script type="text/javascript" src="../../../../_static/readthedocs-dynamic-include.js"></script>
 
-<!-- end RTD <extrahead> --></head>
+<!-- end RTD <extrahead> -->
+</head>
 
 <body class="wy-body-for-nav" role="document">
 
@@ -160,6 +161,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../../../assembly/sha-extension.html">SHA Extensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../assembly/x86.html">x86 Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../asynchrounous/libuv.html">libuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../binary-instrumentation/README.html">Binary Instrumentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../blog/2001_A_Space_Odyssey.html">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../blog/README.html">Blog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../blog/ann.html">Artificial Neural Network</a></li>
@@ -432,11 +434,13 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../../../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../database/resource.html">Database (資料庫)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../database/sqlite.html">SQLite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../debug/README.html">除錯相關 (Debugging)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../debug/gdb.html">GDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../debug/javascript.html">Debugger for JavaScript</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../debug/kernel.html">Debugging a Kernel</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../debug/record-replay.html">Record Replay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../debug/pdb.html">PDB - Python Debugger</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../debug/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../debug/rr.html">rr - record and replay framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../debug/strace.html">strace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../documentation/README.html">文件 (Documentation)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../documentation/latex.html">LaTeX 教學</a></li>
@@ -475,15 +479,21 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l4"><a class="reference internal" href="chap02.html">Chapter 2: Symmetric Cipher</a></li>
 <li class="toctree-l4"><a class="reference internal" href="chap04.html">Chapter 4: Number Theory</a></li>
 <li class="toctree-l4"><a class="reference internal" href="chap08.html">Chapter 8: More about Number Theory</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Hash Functions</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Chapter 11: Hash Functions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="chap12.html">Message Authentication Code</a></li>
 <li class="toctree-l4"><a class="reference internal" href="chap13.html">Digital Signature</a></li>
 <li class="toctree-l4"><a class="reference internal" href="chap14.html">Key Managment and Distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chap15.html">User Authentication</a></li>
 <li class="toctree-l4"><a class="reference internal" href="chap17.html">Transport-Level Security</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chap20.html">IPsec</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notes.html">Chap2 Number Theory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notes.html#chap5">Chap5</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notes.html#chap10">Chap10</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../dl.html">DL</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../evolnn.html">Evolutionary Neuron Network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../opt.html">Optimization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../paper.html">Paper</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../prml.html">PRML</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../rl.html">Reinforcement Learning</a></li>
@@ -711,6 +721,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../../../network/network-stack.html">Network Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../network/nginx.html">Nginx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../network/os-socket-buffer.html">OS socket buffer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../network/proxy.html">Proxy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../network/quic.html">QUIC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../network/resource.html">資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../network/rpc.html">RPC</a></li>
@@ -718,6 +729,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../../../network/srt.html">SRT (Secure Reliable Transport)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../network/tcpdump.html">tcpdump</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../network/upnp.html">UPnP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../network/webtorrent.html">WebTorrent</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../operating-system/README.html">作業系統</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../operating-system/linux-distro.html">Linux Distro</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../operating-system/netbsd.html">NetBSD</a></li>
@@ -744,6 +756,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../../../python/cpython.html">CPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../python/cpython-equality.html">CPython Equality</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../python/cpython-extension.html">CPython Extension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../python/cython.html">Cython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../python/debugger.html">Debugger</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../python/deprecated.html">Some Deprecated Things</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../python/django.html">Django</a></li>
@@ -858,6 +871,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/std.html">Rust’s std</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/syntax-highlighting.html">Syntax Highlighting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/tagged-unions.html">Tagged Unions (Sum Type)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rust/talks.html">Talks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/testing.html">測試 (Testing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/tips.html">Rust Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rust/todo.html">Todo</a></li>
@@ -962,7 +976,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
         
           <li><a href="../crypt.html">Cryptography</a> &raquo;</li>
         
-      <li>Hash Functions</li>
+      <li>Chapter 11: Hash Functions</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -983,8 +997,8 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="hash-functions">
-<h1>Hash Functions<a class="headerlink" href="#hash-functions" title="本標題的永久連結">¶</a></h1>
+  <div class="section" id="chapter-11-hash-functions">
+<h1>Chapter 11: Hash Functions<a class="headerlink" href="#chapter-11-hash-functions" title="本標題的永久連結">¶</a></h1>
 <p>Hash function  吃任意長度的 input data  ，
 然後輸出固定長度的 output。</p>
 <p>主要的目的是拿來做 data integrity 的檢查，checksum。</p>
@@ -1004,8 +1018,9 @@ computational infeasible to find the data object, given a certain hash.
 <h2>Application of Cryptography Hash Functions<a class="headerlink" href="#application-of-cryptography-hash-functions" title="本標題的永久連結">¶</a></h2>
 <div class="section" id="message-authentication">
 <h3>Message Authentication<a class="headerlink" href="#message-authentication" title="本標題的永久連結">¶</a></h3>
+<p>拿來驗證 message 的 integrity，確保沒有篡改。</p>
 <p>Alice 要寄信給 Bob，在裡面的 data 加上了 Hash values
-成為的 data』。
+成為的 data』，這個 hash value 稱為 digest。
 Bob 收到的時候只要把後面的 Hash values 拿起來看看，可以知道 data integrity，
 有沒有傳壞掉。</p>
 <p>但是這樣還是會遭到 man-in-the-middle-attack。</p>
@@ -1013,6 +1028,7 @@ Bob 收到的時候只要把後面的 Hash values 拿起來看看，可以知道
 壞掉。</p>
 <p>解法： Figure 11.3</p>
 <ol class="arabic simple">
+<li>告訴對面 hash <em>function</em> 的時候要加密。</li>
 <li>導入 data encryption 就好了。</li>
 <li>對 hash value 做簽章就好了。</li>
 <li>當資料很大時，我們就不會想要加密整個 data。
@@ -1023,11 +1039,16 @@ Bob 收到的時候只要把後面的 Hash values 拿起來看看，可以知道
 <div class="section" id="message-authentication-code">
 <h3>Message Authentication Code<a class="headerlink" href="#message-authentication-code" title="本標題的永久連結">¶</a></h3>
 <p>A.k.a <cite>keyed hash function</cite></p>
-<p>兩邊要 shared 一個 secret key 來做 authentication</p>
+<p>兩邊要 shared 一個 secret key 來做 authentication。
+MAC function 的 input 是 secret key 跟一個 data block，
+然後輸出一個 hash value，這個 hash value 就稱為 <cite>MAC</cite> 。
+這個 MAC 就會和原本的 message 一起送出去，
+這樣在 middle man 不知 secret key 的狀況下，無法修改 MAC。</p>
 <p>Practices: SSL/TLS</p>
 <ul class="simple">
 <li>MAC 沒辦法區分是兩者中誰送出的，因為是 shared secret key。</li>
 <li>Chap 12</li>
+<li>我理解成 對 hash value  做 對稱式加密</li>
 </ul>
 </div>
 <div class="section" id="digital-signature">
@@ -1035,15 +1056,21 @@ Bob 收到的時候只要把後面的 Hash values 拿起來看看，可以知道
 <ol class="arabic simple">
 <li>假設 message 不 sensitive，就在 M 後面加上 digital signature
 就好了。證明是 Alice sign 的即可。</li>
-<li>如果 message 很重要，先 sign 一下 ，也可以整個兩個做對稱式加密。</li>
+<li>如果 message 很重要，先 sign 一下，append signature 上去，
+然後整個做對稱式加密。</li>
 </ol>
+<ul class="simple">
+<li>Chap 14</li>
+<li>我理解成 對 hash value  做 非對稱式加密。</li>
+</ul>
 </div>
 <div class="section" id="other-hash-functions-uses">
 <h3>Other Hash Functions Uses<a class="headerlink" href="#other-hash-functions-uses" title="本標題的永久連結">¶</a></h3>
 <ul class="simple">
 <li>Password saved in DataBases.
 (One-way password file)</li>
-<li>intrusion detection</li>
+<li>intrusion detection。對 file system 上的 files 做 hash，
+之後就拿出來比對，確保沒有被篡改。</li>
 <li>virus detection</li>
 <li>實作 pseudorandom function (PRF) or a pseudorandom number generator (PRNG)</li>
 </ul>
@@ -1052,7 +1079,7 @@ Bob 收到的時候只要把後面的 Hash values 拿起來看看，可以知道
 <div class="section" id="two-simple-hash-functions">
 <h2>Two Simple Hash Functions<a class="headerlink" href="#two-simple-hash-functions" title="本標題的永久連結">¶</a></h2>
 <p>input 長度不定，所以用 iteration。</p>
-<p>這裡介紹簡單的，雖然 insecure。</p>
+<p>這裡介紹簡單的兩個 hash function ，雖然 insecure。</p>
 <ol class="arabic simple">
 <li>切 n 個 block，每個 block 直接 bit-by-bit XOR。</li>
 <li>每個 block + circular shift。
@@ -1069,21 +1096,52 @@ Bob 收到的時候只要把後面的 Hash values 拿起來看看，可以知道
 <div> is the preimage of  for a hash values</div></blockquote>
 <p>Collision</p>
 <blockquote>
-<div>If , but </div></blockquote>
+<div><p>If , but </p>
+<p>如果說  有 b bits，
+ 有 n bits，那麼平均來說（假設 hash function 會 uniform distributed）
+每個  會有  個 preimages  。
+但是我們的 input 是任意長度，所以  對應 preimage 的量也是任意大。</p>
+</div></blockquote>
 <p>Requirements (table 11.1)</p>
 <blockquote>
 <div><ul class="simple">
 <li>不定長度 input</li>
 <li>固定長度 output</li>
-<li>Efficiency: forward pass 簡單。</li>
-<li>preimage resistant: one-way.</li>
+<li>Efficiency: forward phase 簡單。</li>
+<li>preimage resistant: one-way，給你 hash value，
+找 <cite>原文</cite>  是 computational feasible。</li>
 <li>Second preimage resistant: weak collision resistant.
-Given  找不到 collision (computational infeasible)</li>
+Given 原文  找不到
+能夠 collision hash value 的  (computational infeasible)</li>
 <li>Strong collision resistant:  pair, no collision.
 (computational infeasible)</li>
 <li>Pseudorandomness: hash value 通過 pseudorandomness 的測試。</li>
 </ul>
 </div></blockquote>
+<p>前三個 requirements 對於事務上是必要的。
+第四個 one-way 的特性在需要 authentication 時是必要的，
+因為 authentication 裡面加入了 shared secret key，
+如果 hash function 不是 one-way，這樣 attacker 就會拿到這個 shared key，
+然後輕易的篡改資料。</p>
+<p>第五個 second preimage resistant，如果不滿足這個 requirement，
+考慮以下狀況，我們有 message  、 hash code  、
+encrypted hash code  。
+Attacker 如果拿到了  ，外加  是公開傳輸的。
+那麼 attacker 想要假造資料，先從  算出  ，
+因為沒 second preimage resistant，所以 attacker 可以找到一個
+ 也算出  ，這個  就是假造的資料，
+然後這個  也會有  即使 attacker 完全不知道
+secret key。</p>
+<p>一個滿足前五個 property 的 hash function 稱為 weak hash function。
+第六個是 collision resistant，滿足這個的就是 strong hash function。
+在連  都不給的前提下，有沒有一組  的
+hash value 是 collision 的。在這個條件下，能夠確保像是商業上的訂單，
+不會出現一樣的 hash value。</p>
+<p>這幾個 property 的關係： collision resistant 
+second preimage resistant，
+有 second preimage resistant 不一定有 strong collision resistant。</p>
+<p>最後一個 requirement 是 <cite>pseudorandomness</cite> ，通常不會當作 hash function 的
+requirement，但有這樣的效果。</p>
 <p>Attacks</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -1093,14 +1151,19 @@ Given  找不到 collision (computational infeasible)</li>
 </div></blockquote>
 <div class="section" id="brute-force-attacks">
 <h3>Brute-Force Attacks<a class="headerlink" href="#brute-force-attacks" title="本標題的永久連結">¶</a></h3>
-<p>m-bit hash value,</p>
-<p>給你 hash value  ，然後找 preimage (input)
+<p>需要的 resource 只受到 hash value 長度影響，與演算法本身無關。</p>
+<dl class="docutils">
+<dt>Preimage and Second Preimage Attack</dt>
+<dd><p class="first">給你 hash value  ，然後找 preimage  或是
+有 perimage  找 second preimage  。
 random 產出 input，每個 input 都有 hash value，有  種可能。</p>
-<p>期望值上至少也要  （一半）</p>
-<p>那麼 second preimage?
-給定  ，然後有  ，找到個 
-</p>
-<p>Collision Resistant:  ?</p>
+<p class="last">期望值上至少也要  （一半）</p>
+</dd>
+<dt>Collision Resistant</dt>
+<dd><p class="first">想要直接找到個 pair </p>
+<p class="last">計算量找很多，</p>
+</dd>
+</dl>
 <p>MD4/MD5 -&gt; 128 bit</p>
 </div>
 <div class="section" id="cryptanalysis">
@@ -1112,42 +1175,107 @@ random 產出 input，每個 input 都有 hash value，有  種可能。</p>
 </div>
 <div class="section" id="hash-functions-based-on-cipher-block-chaining">
 <h2>Hash Functions Based on Cipher Block Chaining<a class="headerlink" href="#hash-functions-based-on-cipher-block-chaining" title="本標題的永久連結">¶</a></h2>
+<p>用 CBC，但沒 secret key。</p>
+<p>把 message  切成固定大小的 blocks 
+用類似 DES 的結構去算 hash value </p>
 <p>11.8
 MD4/MD5/SHA-family 的結構都長這樣。</p>
+<dl class="docutils">
+<dt>meet-in-the-middle attack</dt>
+<dd><p class="first">Attacker 有 signature  （本來就公開傳輸的），
+然後 M 是明文。</p>
+<p>Attacks 先建立自己的 Q，切 block </p>
+<p>其中  random 產生的。只需要  個 X、
+ 個 Y</p>
+<p class="last">最後只要送出  就有相同的 signature。</p>
+</dd>
+</dl>
 </div>
 <div class="section" id="sha">
 <h2>SHA<a class="headerlink" href="#sha" title="本標題的永久連結">¶</a></h2>
 <div class="section" id="sha-512">
 <h3>SHA-512<a class="headerlink" href="#sha-512" title="本標題的永久連結">¶</a></h3>
-<p>Message 切 block ，不夠就 padding</p>
-<p>用 chain 中最後一個的 result</p>
+<p>一個 block 的長度就是固定的 1024 bits，
+然後有 N 個 blocks。這裡用 SHA-512 舉例，hash value 即為 512 bits。</p>
+<ol class="arabic">
+<li><p class="first">加 appending。
+message 的長度 mod 1024 = 896。不足的就補 <cite>1 0 0 0 dots</cite>
+弄出 896 是 (1024 - 896) 為了第二步做準備。</p>
+</li>
+<li><p class="first">在 block 後面加上 original message (befor padding) 的長度資訊。
+這個長度資訊是 128 bits 的數字。</p>
+</li>
+<li><p class="first">Init hash buffer: 一個 512 bits buffer，可以理解成 8 個 64-bits 的
+registers  以 big-endian format 存資料，
+significant byte 是最左邊的；即最大的位數放在 low memory address。
+這些 registers 有特定的 initial value，
+這 8 個神祕 64 bits數字是從前 8 個質數開根號的小數部分而來的。</p>
+</li>
+<li><p class="first">Block processing: 1024-bit 是 128-word (1 word == 8 byte == 64 bits)
+在 Figure 11.8。</p>
+<p>對每個 block 的處理</p>
+<p>實際上這個 F 拆更細，裡面有 64-bit 的 Key， 
+拆成 80 個 round  ，然後執行 round function</p>
+</li>
+</ol>
+<p>Round Function</p>
+<blockquote>
+<div><ul>
+<li><p class="first"> round number</p>
+</li>
+<li><p class="first">: <code class="docutils literal notranslate"><span class="pre">e</span> <span class="pre">?</span> <span class="pre">f</span> <span class="pre">:</span> <span class="pre">g</span></code></p>
+</li>
+<li><p class="first">: if 2 or 3 個 true 就 true
+<code class="docutils literal notranslate"><span class="pre">(a</span> <span class="pre">&amp;</span> <span class="pre">b)</span> <span class="pre">+</span> <span class="pre">(a</span> <span class="pre">&amp;</span> <span class="pre">c)</span> <span class="pre">+</span> <span class="pre">(b</span> <span class="pre">&amp;</span> <span class="pre">c)</span></code></p>
+</li>
+<li><p class="first"></p>
+</li>
+<li><p class="first">:
+<code class="docutils literal notranslate"><span class="pre">circshift(a,</span> <span class="pre">28)</span> <span class="pre">+</span> <span class="pre">circshift(a,</span> <span class="pre">34)</span> <span class="pre">+</span> <span class="pre">circshift(a,</span> <span class="pre">39)</span></code></p>
+</li>
+<li><p class="first">:
+<code class="docutils literal notranslate"><span class="pre">circshift(e,</span> <span class="pre">14)</span> <span class="pre">+</span> <span class="pre">circshift(e,</span> <span class="pre">18)</span> <span class="pre">+</span> <span class="pre">circshift(e,</span> <span class="pre">41)</span></code></p>
+</li>
+<li><p class="first"> 1024 bits 的 block 拆成 16 個 64 bits 的
+ ， for 
+總共 80 個 round、80個 </p>
+</li>
+</ul>
+<p>有這些 register rotating 的感覺。</p>
+</div></blockquote>
 </div>
 </div>
 <div class="section" id="sha-3">
 <h2>SHA-3<a class="headerlink" href="#sha-3" title="本標題的永久連結">¶</a></h2>
-<p>Sponge function</p>
 <div class="section" id="sponge-construction">
-<h3>Sponge construction<a class="headerlink" href="#sponge-construction" title="本標題的永久連結">¶</a></h3>
-<p>message + padding 後切 blocks</p>
-<ul>
-<li><p class="first">sponge function</p>
+<h3>Sponge Construction<a class="headerlink" href="#sponge-construction" title="本標題的永久連結">¶</a></h3>
+<p>Sponge function 會切 input 成 fixed-size blocks。
+就像 CBC 的結構，每個 block 處理完的 output 會成為處理下一個 block 的 input。</p>
+<p>Sponge function</p>
+<blockquote>
+<div><ul>
+<li><p class="first"> internal function for handle input block</p>
+</li>
+<li><p class="first"> input block 的大小，單位是 bit，稱為 <cite>bitrate</cite></p>
+</li>
+<li><p class="first"> padding algorithm</p>
 <blockquote>
 <div><ul class="simple">
-<li> internal function for handle input block</li>
-<li> input block 的大小，單位是 bit</li>
-<li> padding algorithm</li>
+<li>Simple padding: 加一個 1 後面都補 0</li>
+<li>Multirate padding: 一個 1，n 個 0，這樣交替。</li>
 </ul>
 </div></blockquote>
 </li>
 </ul>
-<p>sponge function 的 input/output 都是 variable，所以可以作為</p>
+</div></blockquote>
+<p>Sponge function 的 input/output 都是 variable，所以可以作為</p>
 <blockquote>
 <div><ul class="simple">
 <li>hash function: fixed-length output</li>
 <li>pseudo-random number generator: fixed length input</li>
 </ul>
 </div></blockquote>
-<p>input 大小為  的 message，會被切成 k 個固定大小的 block，
+<p>Input 大小為  的 message，會被切成 k 個固定大小的 block，
  bits for each block。
 有需要的話，會加上 padding。</p>
 </div>

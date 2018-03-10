@@ -191,6 +191,10 @@ Bare repository
       * ``-`` 字元，代表刪除
       * ``+`` 字元，代表增加
 
+* 忽略特定檔案未來的所有改動 ::
+
+    git update-index --assume-unchanged {filename}
+
 * 移動一串 commits
 
   - 狀況 ::

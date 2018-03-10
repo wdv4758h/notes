@@ -1,7 +1,8 @@
   var READTHEDOCS_DATA = {
     project: "wdv4758h-notes",
-    version: "latest",
+    version: "",
     language: "zh_TW",
+    programming_language: "",
     subprojects: {},
     canonical_url: "http://wdv4758h-notes.readthedocs.io/zh_TW/latest/",
     theme: "sphinx_rtd_theme",

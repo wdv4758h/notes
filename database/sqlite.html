@@ -36,7 +36,7 @@
               href="../genindex.html"/>
         <link rel="search" title="搜尋" href="../search.html"/>
     <link rel="top" title="wdv4758h-notes latest 說明文件" href="../index.html"/>
-        <link rel="next" title="GDB" href="../debug/gdb.html"/>
+        <link rel="next" title="除錯相關 (Debugging)" href="../debug/README.html"/>
         <link rel="prev" title="Database (資料庫)" href="resource.html"/> 
 
   
@@ -63,7 +63,8 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 
 <script type="text/javascript" src="../_static/readthedocs-dynamic-include.js"></script>
 
-<!-- end RTD <extrahead> --></head>
+<!-- end RTD <extrahead> -->
+</head>
 
 <body class="wy-body-for-nav" role="document">
 
@@ -159,6 +160,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../assembly/sha-extension.html">SHA Extensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assembly/x86.html">x86 Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../asynchrounous/libuv.html">libuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../binary-instrumentation/README.html">Binary Instrumentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/2001_A_Space_Odyssey.html">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/README.html">Blog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/ann.html">Artificial Neural Network</a></li>
@@ -431,17 +433,20 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resource.html">Database (資料庫)</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">SQLite</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">介紹</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#data-type">Data Type</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#trigger">Trigger</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#helper-functions">Helper Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">參考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">參考</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../debug/README.html">除錯相關 (Debugging)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/gdb.html">GDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/javascript.html">Debugger for JavaScript</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/kernel.html">Debugging a Kernel</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../debug/record-replay.html">Record Replay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debug/pdb.html">PDB - Python Debugger</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debug/rr.html">rr - record and replay framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/strace.html">strace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../documentation/README.html">文件 (Documentation)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../documentation/latex.html">LaTeX 教學</a></li>
@@ -622,6 +627,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../network/network-stack.html">Network Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/nginx.html">Nginx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/os-socket-buffer.html">OS socket buffer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/proxy.html">Proxy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/quic.html">QUIC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/resource.html">資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/rpc.html">RPC</a></li>
@@ -629,6 +635,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../network/srt.html">SRT (Secure Reliable Transport)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/tcpdump.html">tcpdump</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/upnp.html">UPnP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/webtorrent.html">WebTorrent</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../operating-system/README.html">作業系統</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../operating-system/linux-distro.html">Linux Distro</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../operating-system/netbsd.html">NetBSD</a></li>
@@ -655,6 +662,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../python/cpython.html">CPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/cpython-equality.html">CPython Equality</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/cpython-extension.html">CPython Extension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/cython.html">Cython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/debugger.html">Debugger</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/deprecated.html">Some Deprecated Things</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/django.html">Django</a></li>
@@ -769,6 +777,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../rust/std.html">Rust’s std</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/syntax-highlighting.html">Syntax Highlighting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/tagged-unions.html">Tagged Unions (Sum Type)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/talks.html">Talks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/testing.html">測試 (Testing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/tips.html">Rust Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/todo.html">Todo</a></li>
@@ -889,28 +898,37 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
            <div itemprop="articleBody">
             
   <div class="section" id="sqlite">
-<h1><a class="toc-backref" href="#id3">SQLite</a><a class="headerlink" href="#sqlite" title="本標題的永久連結">¶</a></h1>
+<h1><a class="toc-backref" href="#id4">SQLite</a><a class="headerlink" href="#sqlite" title="本標題的永久連結">¶</a></h1>
 <div class="contents topic" id="id1">
 <p class="topic-title first">目錄</p>
 <ul class="simple">
-<li><a class="reference internal" href="#sqlite" id="id3">SQLite</a><ul>
-<li><a class="reference internal" href="#data-type" id="id4">Data Type</a></li>
-<li><a class="reference internal" href="#trigger" id="id5">Trigger</a></li>
-<li><a class="reference internal" href="#helper-functions" id="id6">Helper Functions</a></li>
-<li><a class="reference internal" href="#id2" id="id7">參考</a></li>
+<li><a class="reference internal" href="#sqlite" id="id4">SQLite</a><ul>
+<li><a class="reference internal" href="#id2" id="id5">介紹</a></li>
+<li><a class="reference internal" href="#data-type" id="id6">Data Type</a></li>
+<li><a class="reference internal" href="#trigger" id="id7">Trigger</a></li>
+<li><a class="reference internal" href="#helper-functions" id="id8">Helper Functions</a></li>
+<li><a class="reference internal" href="#id3" id="id9">參考</a></li>
 </ul>
 </li>
 </ul>
 </div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id5">介紹</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<p>SQLite 的特色在於整個資料庫就是一個檔案，
+不用開額外的 daemon 處理，
+任何要用的程式都自己開一個資料庫就可以使用。
+SQLite 也常常被整合進程式語言中，
+例如 Python 就直接在 standard library 裡有 SQLite 的支援。</p>
+</div>
 <div class="section" id="data-type">
-<h2><a class="toc-backref" href="#id4">Data Type</a><a class="headerlink" href="#data-type" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id6">Data Type</a><a class="headerlink" href="#data-type" title="本標題的永久連結">¶</a></h2>
 <p>SQLite 的型別是 Dynamic、Weak。（Type Affinity）</p>
 <p>SQLite 的欄位型別只是參考用（像是 Python 的 Type Hinting，沒有強制性），
 就算事先說要存數值，
 其實還是可以儲存字串或其他東西，
 型別是在資料身上不是在欄位宣告上，
 而且會在操作時嘗試幫你轉換。</p>
-<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">dynamic_type</span><span class="p">(</span><span class="k">data</span> <span class="nb">int</span><span class="p">);</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">dynamic_type</span><span class="p">(</span><span class="k">data</span> <span class="nb">int</span><span class="p">);</span>
 
 <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">dynamic_type</span> <span class="p">(</span><span class="k">data</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">dynamic_type</span> <span class="p">(</span><span class="k">data</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">2</span><span class="p">);</span>
@@ -926,9 +944,9 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </div>
 </div>
 <div class="section" id="trigger">
-<h2><a class="toc-backref" href="#id5">Trigger</a><a class="headerlink" href="#trigger" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id7">Trigger</a><a class="headerlink" href="#trigger" title="本標題的永久連結">¶</a></h2>
 <p>SQLite 可以設定在更動資料時觸發特定操作。</p>
-<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">our_command</span><span class="p">(</span><span class="n">id</span> <span class="n">id</span><span class="p">,</span> <span class="n">executed</span> <span class="n">bool</span><span class="p">);</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">our_command</span><span class="p">(</span><span class="n">id</span> <span class="n">id</span><span class="p">,</span> <span class="n">executed</span> <span class="n">bool</span><span class="p">);</span>
 
 <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">our_command</span> <span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">executed</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
 <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">our_command</span> <span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">executed</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">43</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
@@ -954,14 +972,14 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </div>
 </div>
 <div class="section" id="helper-functions">
-<h2><a class="toc-backref" href="#id6">Helper Functions</a><a class="headerlink" href="#helper-functions" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id8">Helper Functions</a><a class="headerlink" href="#helper-functions" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
-<li>.tables</li>
-<li>.schema</li>
+<li><code class="docutils literal notranslate"><span class="pre">.tables</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">.schema</span></code></li>
 </ul>
 </div>
-<div class="section" id="id2">
-<h2><a class="toc-backref" href="#id7">參考</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id9">參考</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://www.sqlite.org/datatype3.html">Datatypes In SQLite Version 3</a></li>
 <li><a class="reference external" href="https://www.sqlite.org/opcode.html">The SQLite Bytecode Engine</a></li>
@@ -979,7 +997,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../debug/gdb.html" class="btn btn-neutral float-right" title="GDB" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../debug/README.html" class="btn btn-neutral float-right" title="除錯相關 (Debugging)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="resource.html" class="btn btn-neutral" title="Database (資料庫)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

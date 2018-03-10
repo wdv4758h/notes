@@ -64,7 +64,8 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 
 <script type="text/javascript" src="../../_static/readthedocs-dynamic-include.js"></script>
 
-<!-- end RTD <extrahead> --></head>
+<!-- end RTD <extrahead> -->
+</head>
 
 <body class="wy-body-for-nav" role="document">
 
@@ -160,6 +161,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../assembly/sha-extension.html">SHA Extensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../assembly/x86.html">x86 Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../asynchrounous/libuv.html">libuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../binary-instrumentation/README.html">Binary Instrumentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/2001_A_Space_Odyssey.html">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/README.html">Blog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/ann.html">Artificial Neural Network</a></li>
@@ -432,11 +434,13 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/resource.html">Database (資料庫)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/sqlite.html">SQLite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debug/README.html">除錯相關 (Debugging)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../debug/gdb.html">GDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../debug/javascript.html">Debugger for JavaScript</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../debug/kernel.html">Debugging a Kernel</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../debug/record-replay.html">Record Replay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debug/pdb.html">PDB - Python Debugger</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../debug/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debug/rr.html">rr - record and replay framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../debug/strace.html">strace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../documentation/README.html">文件 (Documentation)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../documentation/latex.html">LaTeX 教學</a></li>
@@ -502,13 +506,13 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l3"><a class="reference internal" href="zfs.html">ZFS 筆記</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Zsh 補完系統筆記</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#id1">基本</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#describe"><code class="docutils literal"><span class="pre">_describe</span></code> 基本使用方式</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#alternative"><code class="docutils literal"><span class="pre">_alternative</span></code> 基本使用方式</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#arguments"><code class="docutils literal"><span class="pre">_arguments</span></code> 基本使用方式</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#action"><code class="docutils literal"><span class="pre">ACTION</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#values"><code class="docutils literal"><span class="pre">_values</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#compadd"><code class="docutils literal"><span class="pre">compadd</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#zstyle"><code class="docutils literal"><span class="pre">zstyle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#describe"><code class="docutils literal notranslate"><span class="pre">_describe</span></code> 基本使用方式</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#alternative"><code class="docutils literal notranslate"><span class="pre">_alternative</span></code> 基本使用方式</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#arguments"><code class="docutils literal notranslate"><span class="pre">_arguments</span></code> 基本使用方式</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#action"><code class="docutils literal notranslate"><span class="pre">ACTION</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#values"><code class="docutils literal notranslate"><span class="pre">_values</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compadd"><code class="docutils literal notranslate"><span class="pre">compadd</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#zstyle"><code class="docutils literal notranslate"><span class="pre">zstyle</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id2">其他</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id3">特別感謝這些淺顯易懂的說明</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id4">其他文件</a></li>
@@ -518,9 +522,9 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l3"><a class="reference internal" href="android/adb.html">Android Debug Bridge</a></li>
 <li class="toctree-l3"><a class="reference internal" href="android/sdk-version-android-version.html">Android 版本與 SDK 版本的對應</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/argparse.html">Python argparse</a></li>
-<li class="toctree-l3"><a class="reference internal" href="python/contextlib.html"><code class="docutils literal"><span class="pre">contextlib</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/contextlib.html"><code class="docutils literal notranslate"><span class="pre">contextlib</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/distributing-packages.html">Distrubuting Packages</a></li>
-<li class="toctree-l3"><a class="reference internal" href="python/doctest.html"><code class="docutils literal"><span class="pre">doctest</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/doctest.html"><code class="docutils literal notranslate"><span class="pre">doctest</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/dynamic-attribute.html">Dynamic Attribute</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/format-string.note.html">= Python format string =</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/freebsd-python-default-version.html">FreeBSD Ports 系統對 Python 版本的判斷</a></li>
@@ -529,62 +533,62 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l3"><a class="reference internal" href="python/read-append-file-without-closing.html">在不關閉檔案的情況下讀取並新增內容</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/underscores.html">底線</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python/virtualenv.html">virtualenv</a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/chflags.html"><code class="docutils literal"><span class="pre">chflags</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/chmod.html"><code class="docutils literal"><span class="pre">chmod</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/column.html"><code class="docutils literal"><span class="pre">column</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/command.html"><code class="docutils literal"><span class="pre">command</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/cp.html"><code class="docutils literal"><span class="pre">cp</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/curl.html"><code class="docutils literal"><span class="pre">curl</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/cut.html"><code class="docutils literal"><span class="pre">cut</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/date.html"><code class="docutils literal"><span class="pre">date</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/dd.html"><code class="docutils literal"><span class="pre">dd</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/df.html"><code class="docutils literal"><span class="pre">df</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/dialog.html"><code class="docutils literal"><span class="pre">dialog</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/diff.html"><code class="docutils literal"><span class="pre">diff</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/dig.html"><code class="docutils literal"><span class="pre">dig</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/figlet.html"><code class="docutils literal"><span class="pre">figlet</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/find.html"><code class="docutils literal"><span class="pre">find</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/ftp.html"><code class="docutils literal"><span class="pre">ftp</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/getopt.html"><code class="docutils literal"><span class="pre">getopt</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/grep.html"><code class="docutils literal"><span class="pre">grep</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/host.html"><code class="docutils literal"><span class="pre">host</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/ifconfig.html"><code class="docutils literal"><span class="pre">ifconfig</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/chflags.html"><code class="docutils literal notranslate"><span class="pre">chflags</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/chmod.html"><code class="docutils literal notranslate"><span class="pre">chmod</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/column.html"><code class="docutils literal notranslate"><span class="pre">column</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/command.html"><code class="docutils literal notranslate"><span class="pre">command</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/cp.html"><code class="docutils literal notranslate"><span class="pre">cp</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/curl.html"><code class="docutils literal notranslate"><span class="pre">curl</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/cut.html"><code class="docutils literal notranslate"><span class="pre">cut</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/date.html"><code class="docutils literal notranslate"><span class="pre">date</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/dd.html"><code class="docutils literal notranslate"><span class="pre">dd</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/df.html"><code class="docutils literal notranslate"><span class="pre">df</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/dialog.html"><code class="docutils literal notranslate"><span class="pre">dialog</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/diff.html"><code class="docutils literal notranslate"><span class="pre">diff</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/dig.html"><code class="docutils literal notranslate"><span class="pre">dig</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/figlet.html"><code class="docutils literal notranslate"><span class="pre">figlet</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/find.html"><code class="docutils literal notranslate"><span class="pre">find</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/ftp.html"><code class="docutils literal notranslate"><span class="pre">ftp</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/getopt.html"><code class="docutils literal notranslate"><span class="pre">getopt</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/grep.html"><code class="docutils literal notranslate"><span class="pre">grep</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/host.html"><code class="docutils literal notranslate"><span class="pre">host</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/ifconfig.html"><code class="docutils literal notranslate"><span class="pre">ifconfig</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="unix-commands/iptables.html">iptables</a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/less.html"><code class="docutils literal"><span class="pre">less</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/ln.html"><code class="docutils literal"><span class="pre">ln</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/ls.html"><code class="docutils literal"><span class="pre">ls</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/lsb_release.html"><code class="docutils literal"><span class="pre">lsb_release</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/lsof.html"><code class="docutils literal"><span class="pre">lsof</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/mktemp.html"><code class="docutils literal"><span class="pre">mktemp</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/mosh.html"><code class="docutils literal"><span class="pre">mosh</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/mount.html"><code class="docutils literal"><span class="pre">mount</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/nc.html"><code class="docutils literal"><span class="pre">nc</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/netstat.html"><code class="docutils literal"><span class="pre">netstat</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/nl.html"><code class="docutils literal"><span class="pre">nl</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/nmap.html"><code class="docutils literal"><span class="pre">nmap</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/nslookup.html"><code class="docutils literal"><span class="pre">nslookup</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/ntpdate.html"><code class="docutils literal"><span class="pre">ntpdate</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/openssl.html"><code class="docutils literal"><span class="pre">openssl</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/paste.html"><code class="docutils literal"><span class="pre">paste</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/pf.html"><code class="docutils literal"><span class="pre">pfctl</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/ping.html"><code class="docutils literal"><span class="pre">ping</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/portaudit.html"><code class="docutils literal"><span class="pre">portaudit</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/pushd-popd-dirs.html"><code class="docutils literal"><span class="pre">pushd</span></code> <code class="docutils literal"><span class="pre">popd</span></code> <code class="docutils literal"><span class="pre">dirs</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/pw.html"><code class="docutils literal"><span class="pre">pw</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/rename.html"><code class="docutils literal"><span class="pre">rename</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/rsync.html"><code class="docutils literal"><span class="pre">rsync</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/sed.html"><code class="docutils literal"><span class="pre">sed</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/seq.html"><code class="docutils literal"><span class="pre">seq</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/sh.html"><code class="docutils literal"><span class="pre">sh</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/ssh.html"><code class="docutils literal"><span class="pre">ssh</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/sudo.html"><code class="docutils literal"><span class="pre">sudo</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/tar.html"><code class="docutils literal"><span class="pre">tar</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/tcpdump.html"><code class="docutils literal"><span class="pre">tcpdump</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/tree.html"><code class="docutils literal"><span class="pre">tree</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/less.html"><code class="docutils literal notranslate"><span class="pre">less</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/ln.html"><code class="docutils literal notranslate"><span class="pre">ln</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/ls.html"><code class="docutils literal notranslate"><span class="pre">ls</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/lsb_release.html"><code class="docutils literal notranslate"><span class="pre">lsb_release</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/lsof.html"><code class="docutils literal notranslate"><span class="pre">lsof</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/mktemp.html"><code class="docutils literal notranslate"><span class="pre">mktemp</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/mosh.html"><code class="docutils literal notranslate"><span class="pre">mosh</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/mount.html"><code class="docutils literal notranslate"><span class="pre">mount</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/nc.html"><code class="docutils literal notranslate"><span class="pre">nc</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/netstat.html"><code class="docutils literal notranslate"><span class="pre">netstat</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/nl.html"><code class="docutils literal notranslate"><span class="pre">nl</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/nmap.html"><code class="docutils literal notranslate"><span class="pre">nmap</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/nslookup.html"><code class="docutils literal notranslate"><span class="pre">nslookup</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/ntpdate.html"><code class="docutils literal notranslate"><span class="pre">ntpdate</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/openssl.html"><code class="docutils literal notranslate"><span class="pre">openssl</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/paste.html"><code class="docutils literal notranslate"><span class="pre">paste</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/pf.html"><code class="docutils literal notranslate"><span class="pre">pfctl</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/ping.html"><code class="docutils literal notranslate"><span class="pre">ping</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/portaudit.html"><code class="docutils literal notranslate"><span class="pre">portaudit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/pushd-popd-dirs.html"><code class="docutils literal notranslate"><span class="pre">pushd</span></code> <code class="docutils literal notranslate"><span class="pre">popd</span></code> <code class="docutils literal notranslate"><span class="pre">dirs</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/pw.html"><code class="docutils literal notranslate"><span class="pre">pw</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/rename.html"><code class="docutils literal notranslate"><span class="pre">rename</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/rsync.html"><code class="docutils literal notranslate"><span class="pre">rsync</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/sed.html"><code class="docutils literal notranslate"><span class="pre">sed</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/seq.html"><code class="docutils literal notranslate"><span class="pre">seq</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/sh.html"><code class="docutils literal notranslate"><span class="pre">sh</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/ssh.html"><code class="docutils literal notranslate"><span class="pre">ssh</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/sudo.html"><code class="docutils literal notranslate"><span class="pre">sudo</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/tar.html"><code class="docutils literal notranslate"><span class="pre">tar</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/tcpdump.html"><code class="docutils literal notranslate"><span class="pre">tcpdump</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/tree.html"><code class="docutils literal notranslate"><span class="pre">tree</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="unix-commands/tricks.html">各種指令的組合用法</a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/truss.html"><code class="docutils literal"><span class="pre">truss</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/wget.html"><code class="docutils literal"><span class="pre">wget</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="unix-commands/xargs.html"><code class="docutils literal"><span class="pre">xargs</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/truss.html"><code class="docutils literal notranslate"><span class="pre">truss</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/wget.html"><code class="docutils literal notranslate"><span class="pre">wget</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="unix-commands/xargs.html"><code class="docutils literal notranslate"><span class="pre">xargs</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="vim/basic.html">= Vim 筆記 =</a></li>
 <li class="toctree-l3"><a class="reference internal" href="vim/conceal.html">隱藏顯示字元</a></li>
 <li class="toctree-l3"><a class="reference internal" href="vim/plugin.html">Vim Plugin 筆記</a></li>
@@ -765,6 +769,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../network/network-stack.html">Network Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../network/nginx.html">Nginx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../network/os-socket-buffer.html">OS socket buffer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../network/proxy.html">Proxy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../network/quic.html">QUIC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../network/resource.html">資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../network/rpc.html">RPC</a></li>
@@ -772,6 +777,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../network/srt.html">SRT (Secure Reliable Transport)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../network/tcpdump.html">tcpdump</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../network/upnp.html">UPnP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../network/webtorrent.html">WebTorrent</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../operating-system/README.html">作業系統</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../operating-system/linux-distro.html">Linux Distro</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../operating-system/netbsd.html">NetBSD</a></li>
@@ -798,6 +804,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../python/cpython.html">CPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python/cpython-equality.html">CPython Equality</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python/cpython-extension.html">CPython Extension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/cython.html">Cython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python/debugger.html">Debugger</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python/deprecated.html">Some Deprecated Things</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../python/django.html">Django</a></li>
@@ -912,6 +919,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../rust/std.html">Rust’s std</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/syntax-highlighting.html">Syntax Highlighting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/tagged-unions.html">Tagged Unions (Sum Type)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust/talks.html">Talks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/testing.html">測試 (Testing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/tips.html">Rust Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/todo.html">Todo</a></li>
@@ -1036,21 +1044,21 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
   <div class="section" id="zsh">
 <h1>Zsh 補完系統筆記<a class="headerlink" href="#zsh" title="本標題的永久連結">¶</a></h1>
 <p>Zsh 的補完系統實在是太複雜，但是文件又幾乎沒有範例，我得做些筆記，不然一定會忘光</p>
-<p>補完的指令不一定要存在，你可以為 <code class="docutils literal"><span class="pre">hello</span></code> 寫補完的函式，但是實際上沒有這個指令</p>
+<p>補完的指令不一定要存在，你可以為 <code class="docutils literal notranslate"><span class="pre">hello</span></code> 寫補完的函式，但是實際上沒有這個指令</p>
 <div class="section" id="id1">
 <h2>基本<a class="headerlink" href="#id1" title="本標題的永久連結">¶</a></h2>
 <ul>
-<li><p class="first">準備一個目錄，專門用來放 Completion Script，並且把目錄的路徑加入 <code class="docutils literal"><span class="pre">fpath</span></code></p>
-<div class="code sh highlight-default"><div class="highlight"><pre><span></span>fpath=($HOME/.rcfiles/zsh/completions $fpath)
+<li><p class="first">準備一個目錄，專門用來放 Completion Script，並且把目錄的路徑加入 <code class="docutils literal notranslate"><span class="pre">fpath</span></code></p>
+<div class="code sh highlight-default notranslate"><div class="highlight"><pre><span></span>fpath=($HOME/.rcfiles/zsh/completions $fpath)
 </pre></div>
 </div>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">fpath</span></code> 的型態是 Zsh Array，而不像 <code class="docutils literal"><span class="pre">path</span></code> 一樣是字串</li>
-<li>記得原本的 <code class="docutils literal"><span class="pre">fpath</span></code> 要留著，不然內建的都會讀不到</li>
+<li><code class="docutils literal notranslate"><span class="pre">fpath</span></code> 的型態是 Zsh Array，而不像 <code class="docutils literal notranslate"><span class="pre">path</span></code> 一樣是字串</li>
+<li>記得原本的 <code class="docutils literal notranslate"><span class="pre">fpath</span></code> 要留著，不然內建的都會讀不到</li>
 </ul>
 </li>
-<li><p class="first">建立 <code class="docutils literal"><span class="pre">_hello</span></code> 檔案</p>
-<div class="code sh highlight-default"><div class="highlight"><pre><span></span><span class="c1">#compdef hello</span>
+<li><p class="first">建立 <code class="docutils literal notranslate"><span class="pre">_hello</span></code> 檔案</p>
+<div class="code sh highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#compdef hello</span>
 <span class="n">_hello</span> <span class="p">()</span> <span class="p">{</span>
     <span class="n">_arguments</span> <span class="s2">&quot;*:argument:(arg1 arg2 XD)&quot;</span>
 <span class="p">}</span>
@@ -1058,22 +1066,22 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </pre></div>
 </div>
 <ul class="simple">
-<li>現在輸入 <code class="docutils literal"><span class="pre">hello</span> <span class="pre">``</span> <span class="pre">按下</span> <span class="pre">``tab</span></code> 會補完</li>
+<li>現在輸入 <code class="docutils literal notranslate"><span class="pre">hello</span> <span class="pre">``</span> <span class="pre">按下</span> <span class="pre">``tab</span></code> 會補完</li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="describe">
-<h2><code class="docutils literal"><span class="pre">_describe</span></code> 基本使用方式<a class="headerlink" href="#describe" title="本標題的永久連結">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">_describe</span></code> 基本使用方式<a class="headerlink" href="#describe" title="本標題的永久連結">¶</a></h2>
 <p>以下 Code 可以產生選單補完</p>
-<div class="code sh highlight-default"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="o">-</span><span class="n">a</span> <span class="n">options</span> <span class="n">arguments</span>
+<div class="code sh highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="o">-</span><span class="n">a</span> <span class="n">options</span> <span class="n">arguments</span>
 <span class="n">options</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;-c:description for -c opt&#39;</span> <span class="s1">&#39;-d:description for -d opt&#39;</span><span class="p">)</span>
 <span class="n">arguments</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;e:description for e arg&#39;</span> <span class="s1">&#39;f:description for f arg&#39;</span><span class="p">)</span>
 <span class="n">_describe</span> <span class="s1">&#39;values&#39;</span> <span class="n">options</span> <span class="o">--</span> <span class="n">arguments</span>
 </pre></div>
 </div>
 <p>產生選單</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">c</span>  <span class="o">--</span> <span class="n">description</span> <span class="k">for</span> <span class="o">-</span><span class="n">c</span> <span class="n">opt</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">c</span>  <span class="o">--</span> <span class="n">description</span> <span class="k">for</span> <span class="o">-</span><span class="n">c</span> <span class="n">opt</span>
 <span class="o">-</span><span class="n">d</span>  <span class="o">--</span> <span class="n">description</span> <span class="k">for</span> <span class="o">-</span><span class="n">d</span> <span class="n">opt</span>
 <span class="n">e</span>   <span class="o">--</span> <span class="n">description</span> <span class="k">for</span> <span class="n">e</span> <span class="n">arg</span>
 <span class="n">f</span>   <span class="o">--</span> <span class="n">description</span> <span class="k">for</span> <span class="n">f</span> <span class="n">arg</span>
@@ -1081,41 +1089,41 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </div>
 </div>
 <div class="section" id="alternative">
-<h2><code class="docutils literal"><span class="pre">_alternative</span></code> 基本使用方式<a class="headerlink" href="#alternative" title="本標題的永久連結">¶</a></h2>
-<p>當你想要把兩個函式的結果都拿來補完的時候，可以用 <code class="docutils literal"><span class="pre">_alternative</span></code> 達成</p>
-<div class="code sh highlight-default"><div class="highlight"><pre><span></span><span class="n">_alternative</span> \
+<h2><code class="docutils literal notranslate"><span class="pre">_alternative</span></code> 基本使用方式<a class="headerlink" href="#alternative" title="本標題的永久連結">¶</a></h2>
+<p>當你想要把兩個函式的結果都拿來補完的時候，可以用 <code class="docutils literal notranslate"><span class="pre">_alternative</span></code> 達成</p>
+<div class="code sh highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">_alternative</span> \
   <span class="s1">&#39;users:user:_users&#39;</span> \
   <span class="s1">&#39;hosts:host:_hosts&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="arguments">
-<h2><code class="docutils literal"><span class="pre">_arguments</span></code> 基本使用方式<a class="headerlink" href="#arguments" title="本標題的永久連結">¶</a></h2>
-<p><code class="docutils literal"><span class="pre">_arguments</span></code> 的使用方法非常多，可以根據參數把選項做成選單</p>
+<h2><code class="docutils literal notranslate"><span class="pre">_arguments</span></code> 基本使用方式<a class="headerlink" href="#arguments" title="本標題的永久連結">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">_arguments</span></code> 的使用方法非常多，可以根據參數把選項做成選單</p>
 <ul>
 <li><p class="first">單字類的補完</p>
 <ul>
-<li><p class="first">格式： <code class="docutils literal"><span class="pre">TAG:DESCRIPTION:ACTION</span></code></p>
+<li><p class="first">格式： <code class="docutils literal notranslate"><span class="pre">TAG:DESCRIPTION:ACTION</span></code></p>
 </li>
-<li><p class="first"><code class="docutils literal"><span class="pre">TAG</span></code> 可以是參數的位置，例如 <code class="docutils literal"><span class="pre">1</span></code> 代表這個項目在第 1 個參數使用。 <code class="docutils literal"><span class="pre">*</span></code> 則是每個位置都套用</p>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">TAG</span></code> 可以是參數的位置，例如 <code class="docutils literal notranslate"><span class="pre">1</span></code> 代表這個項目在第 1 個參數使用。 <code class="docutils literal notranslate"><span class="pre">*</span></code> 則是每個位置都套用</p>
 </li>
-<li><p class="first"><code class="docutils literal"><span class="pre">DESCRIPTION</span></code> 目前不確定用途，但不能是空字串，可以是一個空白字元</p>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">DESCRIPTION</span></code> 目前不確定用途，但不能是空字串，可以是一個空白字元</p>
 </li>
-<li><p class="first"><code class="docutils literal"><span class="pre">ACTION</span></code></p>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">ACTION</span></code></p>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">ACTION</span></code> 和它前面的 <code class="docutils literal"><span class="pre">:</span></code> 之間不能有空白字元</li>
-<li>補完一些單字： <code class="docutils literal"><span class="pre">(France</span> <span class="pre">Germany</span> <span class="pre">Italy)</span></code></li>
-<li>補完一些單字，並附上說明： <code class="docutils literal"><span class="pre">((Paris\:France</span> <span class="pre">Berlin\:Germany</span> <span class="pre">Rome\:Italy))</span></code></li>
-<li>更多用法見 <code class="docutils literal"><span class="pre">ACTION</span></code> 章節</li>
+<li><code class="docutils literal notranslate"><span class="pre">ACTION</span></code> 和它前面的 <code class="docutils literal notranslate"><span class="pre">:</span></code> 之間不能有空白字元</li>
+<li>補完一些單字： <code class="docutils literal notranslate"><span class="pre">(France</span> <span class="pre">Germany</span> <span class="pre">Italy)</span></code></li>
+<li>補完一些單字，並附上說明： <code class="docutils literal notranslate"><span class="pre">((Paris\:France</span> <span class="pre">Berlin\:Germany</span> <span class="pre">Rome\:Italy))</span></code></li>
+<li>更多用法見 <code class="docutils literal notranslate"><span class="pre">ACTION</span></code> 章節</li>
 </ul>
 </li>
 <li><p class="first">範例</p>
-<div class="code sh highlight-default"><div class="highlight"><pre><span></span><span class="n">_arguments</span> <span class="s1">&#39;*:Countries:((Paris\:France Berlin\:Germany Rome\:Italy))&#39;</span>
+<div class="code sh highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">_arguments</span> <span class="s1">&#39;*:Countries:((Paris\:France Berlin\:Germany Rome\:Italy))&#39;</span>
 </pre></div>
 </div>
 <ul>
 <li><p class="first">會產生如下的選單</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Berlin</span>  <span class="o">--</span> <span class="n">Germany</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Berlin</span>  <span class="o">--</span> <span class="n">Germany</span>
 <span class="n">Paris</span>   <span class="o">--</span> <span class="n">France</span>
 <span class="n">Rome</span>    <span class="o">--</span> <span class="n">Italy</span>
 </pre></div>
@@ -1125,22 +1133,22 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </li>
 </ul>
 </li>
-<li><p class="first"><code class="docutils literal"><span class="pre">-</span></code> 開頭的選項</p>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">-</span></code> 開頭的選項</p>
 <ul>
-<li><p class="first">格式： <code class="docutils literal"><span class="pre">-OPT[DESCRIPTION]</span></code></p>
+<li><p class="first">格式： <code class="docutils literal notranslate"><span class="pre">-OPT[DESCRIPTION]</span></code></p>
 </li>
-<li><p class="first">格式： <code class="docutils literal"><span class="pre">-OPT[DESCRIPTION]:MESSAGE:ACTION</span></code></p>
+<li><p class="first">格式： <code class="docutils literal notranslate"><span class="pre">-OPT[DESCRIPTION]:MESSAGE:ACTION</span></code></p>
 </li>
-<li><p class="first"><code class="docutils literal"><span class="pre">-OPT</span></code> 為補完選項</p>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">-OPT</span></code> 為補完選項</p>
 </li>
-<li><p class="first"><code class="docutils literal"><span class="pre">DESCRIPTION</span></code> 為說明文字</p>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">DESCRIPTION</span></code> 為說明文字</p>
 </li>
-<li><p class="first"><code class="docutils literal"><span class="pre">MESSAGE</span></code> 目前不確定用途</p>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">MESSAGE</span></code> 目前不確定用途</p>
 </li>
-<li><p class="first"><code class="docutils literal"><span class="pre">ACTION</span></code> 如上述</p>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">ACTION</span></code> 如上述</p>
 </li>
 <li><p class="first">範例</p>
-<div class="code sh highlight-default"><div class="highlight"><pre><span></span><span class="n">_arguments</span>\
+<div class="code sh highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">_arguments</span>\
   <span class="s1">&#39;-s[short output]&#39;</span>\
   <span class="s1">&#39;--l[long output]&#39;</span>\
   <span class="s1">&#39;-f[input file]:filename:_files&#39;</span>\
@@ -1148,29 +1156,29 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </pre></div>
 </div>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">-o[text]</span></code> 會產生 <code class="docutils literal"><span class="pre">-o</span></code> 的補完，附上它的說明</li>
-<li><code class="docutils literal"><span class="pre">-o[text]:message:action</span></code> 會產生 <code class="docutils literal"><span class="pre">-o</span></code> 的補完、說明。若 <code class="docutils literal"><span class="pre">-o</span></code> 被選到了，下一個參數會使用 <code class="docutils literal"><span class="pre">action</span></code> 來補完</li>
-<li>預設選項 <code class="docutils literal"><span class="pre">*:filename:{_files}</span></code> 會以檔名做補完</li>
+<li><code class="docutils literal notranslate"><span class="pre">-o[text]</span></code> 會產生 <code class="docutils literal notranslate"><span class="pre">-o</span></code> 的補完，附上它的說明</li>
+<li><code class="docutils literal notranslate"><span class="pre">-o[text]:message:action</span></code> 會產生 <code class="docutils literal notranslate"><span class="pre">-o</span></code> 的補完、說明。若 <code class="docutils literal notranslate"><span class="pre">-o</span></code> 被選到了，下一個參數會使用 <code class="docutils literal notranslate"><span class="pre">action</span></code> 來補完</li>
+<li>預設選項 <code class="docutils literal notranslate"><span class="pre">*:filename:{_files}</span></code> 會以檔名做補完</li>
 </ul>
 </li>
 <li><p class="first">若有多個選項需要分享同一個說明</p>
-<div class="code sh highlight-default"><div class="highlight"><pre><span></span><span class="n">_arguments</span> <span class="p">{</span><span class="o">-</span><span class="n">f</span><span class="p">,</span><span class="o">--</span><span class="n">force</span><span class="p">}</span><span class="s1">&#39;[description]&#39;</span>
+<div class="code sh highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">_arguments</span> <span class="p">{</span><span class="o">-</span><span class="n">f</span><span class="p">,</span><span class="o">--</span><span class="n">force</span><span class="p">}</span><span class="s1">&#39;[description]&#39;</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">若需要有多個選項之間互斥</p>
-<div class="code sh highlight-default"><div class="highlight"><pre><span></span><span class="n">_arguments</span> \
+<div class="code sh highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">_arguments</span> \
     <span class="o">-</span> <span class="s1">&#39;(set1)&#39;</span> <span class="p">{</span><span class="o">-</span><span class="n">a</span><span class="p">,</span><span class="o">--</span><span class="n">arg</span><span class="p">}</span><span class="s1">&#39;[description1]&#39;</span>
     <span class="o">-</span> <span class="s1">&#39;(set2)&#39;</span> <span class="p">{</span><span class="o">-</span><span class="n">b</span><span class="p">,</span><span class="o">--</span><span class="n">brg</span><span class="p">}</span><span class="s1">&#39;[description2]&#39;</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li>zsh 只會補完 <code class="docutils literal"><span class="pre">-a</span></code> 和 <code class="docutils literal"><span class="pre">-b</span></code> 其中一個</li>
+<li>zsh 只會補完 <code class="docutils literal notranslate"><span class="pre">-a</span></code> 和 <code class="docutils literal notranslate"><span class="pre">-b</span></code> 其中一個</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p class="first">就算是連續，兩次 <code class="docutils literal"><span class="pre">_arguments</span></code> call 的效果會分開</p>
+<li><p class="first">就算是連續，兩次 <code class="docutils literal notranslate"><span class="pre">_arguments</span></code> call 的效果會分開</p>
 <ul class="simple">
 <li>參數可以重覆</li>
 <li>參數與說明的對齊會分開計算</li>
@@ -1179,57 +1187,57 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </ul>
 </div>
 <div class="section" id="action">
-<h2><code class="docutils literal"><span class="pre">ACTION</span></code><a class="headerlink" href="#action" title="本標題的永久連結">¶</a></h2>
-<p><code class="docutils literal"><span class="pre">ACTION</span></code> 定義一個參數實際被補完時的行為</p>
+<h2><code class="docutils literal notranslate"><span class="pre">ACTION</span></code><a class="headerlink" href="#action" title="本標題的永久連結">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">ACTION</span></code> 定義一個參數實際被補完時的行為</p>
 <ul class="simple">
-<li>補完一些單字： <code class="docutils literal"><span class="pre">(France</span> <span class="pre">Germany</span> <span class="pre">Italy)</span></code></li>
-<li>補完一些單字，並附上說明： <code class="docutils literal"><span class="pre">((Paris\:France</span> <span class="pre">Berlin\:Germany</span> <span class="pre">Rome\:Italy))</span></code><ul>
-<li>也可以不附說明，且若選項有空白， <code class="docutils literal"><span class="pre">(())</span></code> 的效果會比 <code class="docutils literal"><span class="pre">()</span></code> 好</li>
+<li>補完一些單字： <code class="docutils literal notranslate"><span class="pre">(France</span> <span class="pre">Germany</span> <span class="pre">Italy)</span></code></li>
+<li>補完一些單字，並附上說明： <code class="docutils literal notranslate"><span class="pre">((Paris\:France</span> <span class="pre">Berlin\:Germany</span> <span class="pre">Rome\:Italy))</span></code><ul>
+<li>也可以不附說明，且若選項有空白， <code class="docutils literal notranslate"><span class="pre">(())</span></code> 的效果會比 <code class="docutils literal notranslate"><span class="pre">()</span></code> 好</li>
 </ul>
 </li>
-<li>使用函式產生補完選項： <code class="docutils literal"><span class="pre">func_name</span></code><ul>
-<li><code class="docutils literal"><span class="pre">func_name</span></code> 需要能夠產生補完，無法用 stdout 傳回結果</li>
-<li>補完檔案名稱： <code class="docutils literal"><span class="pre">_file</span></code></li>
-<li>補完以逗點分隔的選項：見 <code class="docutils literal"><span class="pre">_values</span></code></li>
-<li>用 <code class="docutils literal"><span class="pre">{</span></code> <code class="docutils literal"><span class="pre">}</span></code> 包起來的話可以傳參數，e.g. <code class="docutils literal"><span class="pre">{_values</span> <span class="pre">-s</span> <span class="pre">,</span> <span class="pre">dicts</span> <span class="pre">urban</span> <span class="pre">yahoo</span> <span class="pre">all</span> <span class="pre">moe}</span></code></li>
+<li>使用函式產生補完選項： <code class="docutils literal notranslate"><span class="pre">func_name</span></code><ul>
+<li><code class="docutils literal notranslate"><span class="pre">func_name</span></code> 需要能夠產生補完，無法用 stdout 傳回結果</li>
+<li>補完檔案名稱： <code class="docutils literal notranslate"><span class="pre">_file</span></code></li>
+<li>補完以逗點分隔的選項：見 <code class="docutils literal notranslate"><span class="pre">_values</span></code></li>
+<li>用 <code class="docutils literal notranslate"><span class="pre">{</span></code> <code class="docutils literal notranslate"><span class="pre">}</span></code> 包起來的話可以傳參數，e.g. <code class="docutils literal notranslate"><span class="pre">{_values</span> <span class="pre">-s</span> <span class="pre">,</span> <span class="pre">dicts</span> <span class="pre">urban</span> <span class="pre">yahoo</span> <span class="pre">all</span> <span class="pre">moe}</span></code></li>
 <li>若遇到不容易在一行內嵌入的狀況，分離成另一個函式應該可以解決</li>
 </ul>
 </li>
-<li>不補完，但改變狀態，以後可根據狀態做不同的補完： <code class="docutils literal"><span class="pre">-&gt;state1</span></code><ul>
-<li>狀態會被存在 <code class="docutils literal"><span class="pre">$state</span></code> 變數中</li>
+<li>不補完，但改變狀態，以後可根據狀態做不同的補完： <code class="docutils literal notranslate"><span class="pre">-&gt;state1</span></code><ul>
+<li>狀態會被存在 <code class="docutils literal notranslate"><span class="pre">$state</span></code> 變數中</li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="values">
-<h2><code class="docutils literal"><span class="pre">_values</span></code><a class="headerlink" href="#values" title="本標題的永久連結">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">_values</span></code><a class="headerlink" href="#values" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
-<li>補完以逗點分隔的選項： <code class="docutils literal"><span class="pre">{_values</span> <span class="pre">-s</span> <span class="pre">,</span> <span class="pre">dicts</span> <span class="pre">urban</span> <span class="pre">yahoo</span> <span class="pre">all</span> <span class="pre">moe}</span></code><ul>
-<li><code class="docutils literal"><span class="pre">dicts</span></code> 是說明而不是選項之一，但用途未知</li>
+<li>補完以逗點分隔的選項： <code class="docutils literal notranslate"><span class="pre">{_values</span> <span class="pre">-s</span> <span class="pre">,</span> <span class="pre">dicts</span> <span class="pre">urban</span> <span class="pre">yahoo</span> <span class="pre">all</span> <span class="pre">moe}</span></code><ul>
+<li><code class="docutils literal notranslate"><span class="pre">dicts</span></code> 是說明而不是選項之一，但用途未知</li>
 <li>zsh 會自己判斷選項是否已被選進 BUFFER</li>
 </ul>
 </li>
-<li>補完 <code class="docutils literal"><span class="pre">foo&#64;news:woo</span></code> 格式的字串： <code class="docutils literal"><span class="pre">_sep_parts</span> <span class="pre">'(foo</span> <span class="pre">bar)'</span> <span class="pre">&#64;</span> <span class="pre">'(news</span> <span class="pre">ftp)'</span> <span class="pre">:</span> <span class="pre">'(woo</span> <span class="pre">laa)'</span></code></li>
+<li>補完 <code class="docutils literal notranslate"><span class="pre">foo&#64;news:woo</span></code> 格式的字串： <code class="docutils literal notranslate"><span class="pre">_sep_parts</span> <span class="pre">'(foo</span> <span class="pre">bar)'</span> <span class="pre">&#64;</span> <span class="pre">'(news</span> <span class="pre">ftp)'</span> <span class="pre">:</span> <span class="pre">'(woo</span> <span class="pre">laa)'</span></code></li>
 </ul>
 </div>
 <div class="section" id="compadd">
-<h2><code class="docutils literal"><span class="pre">compadd</span></code><a class="headerlink" href="#compadd" title="本標題的永久連結">¶</a></h2>
-<p><code class="docutils literal"><span class="pre">_arguments</span></code> 實際上是 <code class="docutils literal"><span class="pre">compadd</span></code> 的包裝</p>
-<p><code class="docutils literal"><span class="pre">_arguments</span></code> 預設會在單字後方加上一個空白字元，此為 <code class="docutils literal"><span class="pre">compadd</span> <span class="pre">-S</span> <span class="pre">'</span> <span class="pre">'</span></code> 的效果</p>
-<p>若補完的選項有共同的前綴，且這些前綴不希望顯示在 menu 時，可以使用 <code class="docutils literal"><span class="pre">compadd</span> <span class="pre">-p</span> <span class="pre">$pre</span></code></p>
+<h2><code class="docutils literal notranslate"><span class="pre">compadd</span></code><a class="headerlink" href="#compadd" title="本標題的永久連結">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">_arguments</span></code> 實際上是 <code class="docutils literal notranslate"><span class="pre">compadd</span></code> 的包裝</p>
+<p><code class="docutils literal notranslate"><span class="pre">_arguments</span></code> 預設會在單字後方加上一個空白字元，此為 <code class="docutils literal notranslate"><span class="pre">compadd</span> <span class="pre">-S</span> <span class="pre">'</span> <span class="pre">'</span></code> 的效果</p>
+<p>若補完的選項有共同的前綴，且這些前綴不希望顯示在 menu 時，可以使用 <code class="docutils literal notranslate"><span class="pre">compadd</span> <span class="pre">-p</span> <span class="pre">$pre</span></code></p>
 </div>
 <div class="section" id="zstyle">
-<h2><code class="docutils literal"><span class="pre">zstyle</span></code><a class="headerlink" href="#zstyle" title="本標題的永久連結">¶</a></h2>
-<p><code class="docutils literal"><span class="pre">zstyle</span></code> 可以快速、簡短的設定很多東西，用在 completion 上時，可以設定：</p>
+<h2><code class="docutils literal notranslate"><span class="pre">zstyle</span></code><a class="headerlink" href="#zstyle" title="本標題的永久連結">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">zstyle</span></code> 可以快速、簡短的設定很多東西，用在 completion 上時，可以設定：</p>
 <ul class="simple">
 <li>completion menu 每個分區的 title</li>
-<li>為特定程式過濾掉特定檔名（例如讓 <code class="docutils literal"><span class="pre">vim</span></code> 的補完不要出現 <code class="docutils literal"><span class="pre">*.o</span></code> 選項）</li>
+<li>為特定程式過濾掉特定檔名（例如讓 <code class="docutils literal notranslate"><span class="pre">vim</span></code> 的補完不要出現 <code class="docutils literal notranslate"><span class="pre">*.o</span></code> 選項）</li>
 <li>應該還有很多可以設定</li>
 </ul>
-<p>語法： <code class="docutils literal"><span class="pre">zstyle</span> <span class="pre">&lt;context&gt;</span> <span class="pre">&lt;styles&gt;</span></code></p>
-<p>context 為 <code class="docutils literal"><span class="pre">:completion:function:completer:command:argument:tag</span></code> 格式的字串，中間可以用 <code class="docutils literal"><span class="pre">*</span></code> 做 wildcard matching</p>
+<p>語法： <code class="docutils literal notranslate"><span class="pre">zstyle</span> <span class="pre">&lt;context&gt;</span> <span class="pre">&lt;styles&gt;</span></code></p>
+<p>context 為 <code class="docutils literal notranslate"><span class="pre">:completion:function:completer:command:argument:tag</span></code> 格式的字串，中間可以用 <code class="docutils literal notranslate"><span class="pre">*</span></code> 做 wildcard matching</p>
 <p>分區 title 範例，每一種 title 可以套用不同的格式：</p>
-<div class="code sh highlight-default"><div class="highlight"><pre><span></span><span class="n">zstyle</span> <span class="s1">&#39;:completion:*&#39;</span> <span class="n">verbose</span> <span class="n">yes</span>
+<div class="code sh highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">zstyle</span> <span class="s1">&#39;:completion:*&#39;</span> <span class="n">verbose</span> <span class="n">yes</span>
 <span class="n">zstyle</span> <span class="s1">&#39;:completion:*:descriptions&#39;</span> <span class="nb">format</span> <span class="s2">&quot;$fg[yellow]%B--- </span><span class="si">%d</span><span class="s2">%b&quot;</span>
 <span class="n">zstyle</span> <span class="s1">&#39;:completion:*:messages&#39;</span> <span class="nb">format</span> <span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span>
 <span class="n">zstyle</span> <span class="s1">&#39;:completion:*:warnings&#39;</span> <span class="nb">format</span> <span class="s2">&quot;$fg[red]No matches for:$reset_color </span><span class="si">%d</span><span class="s2">&quot;</span>
@@ -1237,27 +1245,27 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <span class="n">zstyle</span> <span class="s1">&#39;:completion:*&#39;</span> <span class="n">group</span><span class="o">-</span><span class="n">name</span> <span class="s1">&#39;&#39;</span>
 </pre></div>
 </div>
-<p>過濾檔名範例，讓 <code class="docutils literal"><span class="pre">vim</span></code> 的補完不要出現 <code class="docutils literal"><span class="pre">*.o</span></code> 以及 <code class="docutils literal"><span class="pre">*.out</span></code> 選項</p>
-<div class="code sh highlight-default"><div class="highlight"><pre><span></span><span class="n">zstyle</span> <span class="s1">&#39;:completion:*:*:vim:*:*&#39;</span> <span class="n">ignored</span><span class="o">-</span><span class="n">patterns</span> <span class="s1">&#39;(*.py|*.out)&#39;</span>
+<p>過濾檔名範例，讓 <code class="docutils literal notranslate"><span class="pre">vim</span></code> 的補完不要出現 <code class="docutils literal notranslate"><span class="pre">*.o</span></code> 以及 <code class="docutils literal notranslate"><span class="pre">*.out</span></code> 選項</p>
+<div class="code sh highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">zstyle</span> <span class="s1">&#39;:completion:*:*:vim:*:*&#39;</span> <span class="n">ignored</span><span class="o">-</span><span class="n">patterns</span> <span class="s1">&#39;(*.py|*.out)&#39;</span>
 </pre></div>
 </div>
-<p>在 <code class="docutils literal"><span class="pre">2&gt;</span></code> 後方補完 <code class="docutils literal"><span class="pre">*.log</span></code> 的檔名</p>
-<div class="code sh highlight-default"><div class="highlight"><pre><span></span><span class="n">zstyle</span> <span class="s1">&#39;:completion:*:*:-redirect-,2&gt;,*:*&#39;</span> <span class="n">file</span><span class="o">-</span><span class="n">patterns</span> <span class="s1">&#39;*.log&#39;</span>
+<p>在 <code class="docutils literal notranslate"><span class="pre">2&gt;</span></code> 後方補完 <code class="docutils literal notranslate"><span class="pre">*.log</span></code> 的檔名</p>
+<div class="code sh highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">zstyle</span> <span class="s1">&#39;:completion:*:*:-redirect-,2&gt;,*:*&#39;</span> <span class="n">file</span><span class="o">-</span><span class="n">patterns</span> <span class="s1">&#39;*.log&#39;</span>
 </pre></div>
 </div>
-<p>更多資訊請見 <code class="docutils literal"><span class="pre">man</span> <span class="pre">zshcompsys</span></code> 的 <code class="docutils literal"><span class="pre">COMPLETION</span> <span class="pre">SYSTEM</span> <span class="pre">CONFIGURATION</span></code> section</p>
+<p>更多資訊請見 <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">zshcompsys</span></code> 的 <code class="docutils literal notranslate"><span class="pre">COMPLETION</span> <span class="pre">SYSTEM</span> <span class="pre">CONFIGURATION</span></code> section</p>
 </div>
 <div class="section" id="id2">
 <h2>其他<a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
 <ul>
-<li><p class="first"><code class="docutils literal"><span class="pre">$BUFFER</span></code> 儲存整行指令的內容</p>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">$BUFFER</span></code> 儲存整行指令的內容</p>
 </li>
-<li><p class="first"><code class="docutils literal"><span class="pre">$PREFIX</span></code> 儲存目前游標所在的單字</p>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">$PREFIX</span></code> 儲存目前游標所在的單字</p>
 </li>
-<li><p class="first"><code class="docutils literal"><span class="pre">_hosts</span></code> 基本上是查看 <code class="docutils literal"><span class="pre">~/.ssh/known_hosts</span></code> 的內容，zsh 只在開啟時載入一次（並非每次補完時都查看）</p>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">_hosts</span></code> 基本上是查看 <code class="docutils literal notranslate"><span class="pre">~/.ssh/known_hosts</span></code> 的內容，zsh 只在開啟時載入一次（並非每次補完時都查看）</p>
 </li>
-<li><p class="first">若選項字串包含了空白字元，可以使用 <code class="docutils literal"><span class="pre">(f)</span></code> modifier 用 <code class="docutils literal"><span class="pre">\</span></code> 來跳脫它們:</p>
-<div class="code sh highlight-default"><div class="highlight"><pre><span></span><span class="n">_arguments</span> <span class="s1">&#39;1: :(${(f)&quot;$(_split_pwd)&quot;})&#39;</span>
+<li><p class="first">若選項字串包含了空白字元，可以使用 <code class="docutils literal notranslate"><span class="pre">(f)</span></code> modifier 用 <code class="docutils literal notranslate"><span class="pre">\</span></code> 來跳脫它們:</p>
+<div class="code sh highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">_arguments</span> <span class="s1">&#39;1: :(${(f)&quot;$(_split_pwd)&quot;})&#39;</span>
 </pre></div>
 </div>
 </li>

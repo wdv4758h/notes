@@ -63,7 +63,8 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 
 <script type="text/javascript" src="../_static/readthedocs-dynamic-include.js"></script>
 
-<!-- end RTD <extrahead> --></head>
+<!-- end RTD <extrahead> -->
+</head>
 
 <body class="wy-body-for-nav" role="document">
 
@@ -159,6 +160,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../assembly/sha-extension.html">SHA Extensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assembly/x86.html">x86 Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../asynchrounous/libuv.html">libuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../binary-instrumentation/README.html">Binary Instrumentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/2001_A_Space_Odyssey.html">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/README.html">Blog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/ann.html">Artificial Neural Network</a></li>
@@ -420,9 +422,9 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1 current"><a class="current reference internal" href="#">型別推斷 (Type Deduction)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#reference-collapsing">Reference Collapsing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#template-type-deduction">種類一：Template Type Deduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#auto-type-deduction">種類二： <code class="docutils literal"><span class="pre">auto</span></code> Type Deduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#decltype-type-deduction">種類三： <code class="docutils literal"><span class="pre">decltype</span></code> Type Deduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#decltype-auto-type-deduction">種類四： <code class="docutils literal"><span class="pre">decltype(auto)</span></code> Type Deduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#auto-type-deduction">種類二： <code class="docutils literal notranslate"><span class="pre">auto</span></code> Type Deduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#decltype-type-deduction">種類三： <code class="docutils literal notranslate"><span class="pre">decltype</span></code> Type Deduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#decltype-auto-type-deduction">種類四： <code class="docutils literal notranslate"><span class="pre">decltype(auto)</span></code> Type Deduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#class-template-deduction">種類五： Class Template Deduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id2">參考</a></li>
 </ul>
@@ -440,11 +442,13 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/resource.html">Database (資料庫)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sqlite.html">SQLite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debug/README.html">除錯相關 (Debugging)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/gdb.html">GDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/javascript.html">Debugger for JavaScript</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/kernel.html">Debugging a Kernel</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../debug/record-replay.html">Record Replay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debug/pdb.html">PDB - Python Debugger</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debug/rr.html">rr - record and replay framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/strace.html">strace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../documentation/README.html">文件 (Documentation)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../documentation/latex.html">LaTeX 教學</a></li>
@@ -625,6 +629,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../network/network-stack.html">Network Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/nginx.html">Nginx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/os-socket-buffer.html">OS socket buffer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/proxy.html">Proxy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/quic.html">QUIC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/resource.html">資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/rpc.html">RPC</a></li>
@@ -632,6 +637,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../network/srt.html">SRT (Secure Reliable Transport)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/tcpdump.html">tcpdump</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/upnp.html">UPnP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/webtorrent.html">WebTorrent</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../operating-system/README.html">作業系統</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../operating-system/linux-distro.html">Linux Distro</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../operating-system/netbsd.html">NetBSD</a></li>
@@ -658,6 +664,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../python/cpython.html">CPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/cpython-equality.html">CPython Equality</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/cpython-extension.html">CPython Extension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/cython.html">Cython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/debugger.html">Debugger</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/deprecated.html">Some Deprecated Things</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/django.html">Django</a></li>
@@ -772,6 +779,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../rust/std.html">Rust’s std</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/syntax-highlighting.html">Syntax Highlighting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/tagged-unions.html">Tagged Unions (Sum Type)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/talks.html">Talks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/testing.html">測試 (Testing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/tips.html">Rust Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/todo.html">Todo</a></li>
@@ -899,9 +907,9 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li><a class="reference internal" href="#type-deduction" id="id3">型別推斷 (Type Deduction)</a><ul>
 <li><a class="reference internal" href="#reference-collapsing" id="id4">Reference Collapsing</a></li>
 <li><a class="reference internal" href="#template-type-deduction" id="id5">種類一：Template Type Deduction</a></li>
-<li><a class="reference internal" href="#auto-type-deduction" id="id6">種類二： <code class="docutils literal"><span class="pre">auto</span></code> Type Deduction</a></li>
-<li><a class="reference internal" href="#decltype-type-deduction" id="id7">種類三： <code class="docutils literal"><span class="pre">decltype</span></code> Type Deduction</a></li>
-<li><a class="reference internal" href="#decltype-auto-type-deduction" id="id8">種類四： <code class="docutils literal"><span class="pre">decltype(auto)</span></code> Type Deduction</a></li>
+<li><a class="reference internal" href="#auto-type-deduction" id="id6">種類二： <code class="docutils literal notranslate"><span class="pre">auto</span></code> Type Deduction</a></li>
+<li><a class="reference internal" href="#decltype-type-deduction" id="id7">種類三： <code class="docutils literal notranslate"><span class="pre">decltype</span></code> Type Deduction</a></li>
+<li><a class="reference internal" href="#decltype-auto-type-deduction" id="id8">種類四： <code class="docutils literal notranslate"><span class="pre">decltype(auto)</span></code> Type Deduction</a></li>
 <li><a class="reference internal" href="#class-template-deduction" id="id9">種類五： Class Template Deduction</a></li>
 <li><a class="reference internal" href="#id2" id="id10">參考</a></li>
 </ul>
@@ -922,14 +930,14 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </div>
 <div class="section" id="template-type-deduction">
 <h2><a class="toc-backref" href="#id5">種類一：Template Type Deduction</a><a class="headerlink" href="#template-type-deduction" title="本標題的永久連結">¶</a></h2>
-<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
 <span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">ParamType</span> <span class="n">param</span><span class="p">);</span>
 
 <span class="n">f</span><span class="p">(</span><span class="n">expr</span><span class="p">);</span>    <span class="c1">// deduce T and ParamType from expr</span>
 </pre></div>
 </div>
 <p>ParamType 是 Reference 或 Pointer，不是 Universal Reference：</p>
-<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
 <span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;</span> <span class="n">param</span><span class="p">);</span>   <span class="c1">// param is a reference</span>
 
 <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">27</span><span class="p">;</span>         <span class="c1">// x is an int</span>
@@ -970,7 +978,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </pre></div>
 </div>
 <p>ParamType 是 Universal Type：</p>
-<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
 <span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">param</span><span class="p">);</span>  <span class="c1">// param is now a universal reference</span>
 
 <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">27</span><span class="p">;</span>
@@ -988,7 +996,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </pre></div>
 </div>
 <p>ParamType 不是指標也不是 Reference：</p>
-<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
 <span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">T</span> <span class="n">param</span><span class="p">);</span>    <span class="c1">// param is now passed by value</span>
 
 <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">27</span><span class="p">;</span>
@@ -1002,14 +1010,14 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </div>
 </div>
 <div class="section" id="auto-type-deduction">
-<h2><a class="toc-backref" href="#id6">種類二： <code class="docutils literal"><span class="pre">auto</span></code> Type Deduction</a><a class="headerlink" href="#auto-type-deduction" title="本標題的永久連結">¶</a></h2>
-<p><code class="docutils literal"><span class="pre">auto</span></code> Type Deduction 的規則基本上都跟 Template Type Deduction 相同，
+<h2><a class="toc-backref" href="#id6">種類二： <code class="docutils literal notranslate"><span class="pre">auto</span></code> Type Deduction</a><a class="headerlink" href="#auto-type-deduction" title="本標題的永久連結">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">auto</span></code> Type Deduction 的規則基本上都跟 Template Type Deduction 相同，
 只有一個差異，
-就是會把 braced initilizer 視為 <code class="docutils literal"><span class="pre">std::initializer_list</span></code> ，
+就是會把 braced initilizer 視為 <code class="docutils literal notranslate"><span class="pre">std::initializer_list</span></code> ，
 但是 Template Type Deduction 不會。</p>
-<p>另外 <code class="docutils literal"><span class="pre">auto</span></code> 用於函式的回傳型別或是 lambda 的 parameter，
+<p>另外 <code class="docutils literal notranslate"><span class="pre">auto</span></code> 用於函式的回傳型別或是 lambda 的 parameter，
 是屬於 Template Type Deduction。</p>
-<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">x1</span> <span class="o">=</span> <span class="mi">27</span><span class="p">;</span>       <span class="c1">// type is int, value is 27</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">x1</span> <span class="o">=</span> <span class="mi">27</span><span class="p">;</span>       <span class="c1">// type is int, value is 27</span>
 <span class="k">auto</span> <span class="nf">x2</span><span class="p">(</span><span class="mi">27</span><span class="p">);</span>        <span class="c1">// type is int, value is 27</span>
 <span class="k">auto</span> <span class="n">x3</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">27</span> <span class="p">};</span>   <span class="c1">// type is std::initializer_list&lt;int&gt;,</span>
                     <span class="c1">// value is { 27 }</span>
@@ -1022,8 +1030,8 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </div>
 </div>
 <div class="section" id="decltype-type-deduction">
-<h2><a class="toc-backref" href="#id7">種類三： <code class="docutils literal"><span class="pre">decltype</span></code> Type Deduction</a><a class="headerlink" href="#decltype-type-deduction" title="本標題的永久連結">¶</a></h2>
-<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">const</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>            <span class="c1">// decltype(i) is const int</span>
+<h2><a class="toc-backref" href="#id7">種類三： <code class="docutils literal notranslate"><span class="pre">decltype</span></code> Type Deduction</a><a class="headerlink" href="#decltype-type-deduction" title="本標題的永久連結">¶</a></h2>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">const</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>            <span class="c1">// decltype(i) is const int</span>
 
 <span class="kt">bool</span> <span class="nf">f</span><span class="p">(</span><span class="k">const</span> <span class="n">Widget</span><span class="o">&amp;</span> <span class="n">w</span><span class="p">);</span>    <span class="c1">// decltype(w) is const Widget&amp;</span>
                             <span class="c1">// decltype(f) is bool(const Widget&amp;)</span>
@@ -1050,22 +1058,22 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </div>
 <p>C++11 加入了 Trailing Return Type 的語法，
 也就是可以把回傳的型別寫到後面，
-前面原本寫回傳型別的地方寫 <code class="docutils literal"><span class="pre">auto</span></code> ，
-但是這個 <code class="docutils literal"><span class="pre">auto</span></code> 跟型別推斷沒有關係：</p>
-<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="nf">myfunc</span><span class="p">(</span><span class="kt">int</span> <span class="n">param</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">int</span><span class="p">;</span>
+前面原本寫回傳型別的地方寫 <code class="docutils literal notranslate"><span class="pre">auto</span></code> ，
+但是這個 <code class="docutils literal notranslate"><span class="pre">auto</span></code> 跟型別推斷沒有關係：</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="nf">myfunc</span><span class="p">(</span><span class="kt">int</span> <span class="n">param</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">int</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>這種語法在回傳型別會根據參數而變動時很有用：</p>
-<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">Container</span><span class="p">,</span> <span class="k">typename</span> <span class="n">Index</span><span class="o">&gt;</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">Container</span><span class="p">,</span> <span class="k">typename</span> <span class="n">Index</span><span class="o">&gt;</span>
 <span class="k">auto</span> <span class="n">authAndAccess</span><span class="p">(</span><span class="n">Container</span><span class="o">&amp;</span> <span class="n">c</span><span class="p">,</span> <span class="n">Index</span> <span class="n">i</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">decltype</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">{</span>
     <span class="p">...</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>而 C++14 則擴充了相關能力，
-讓原本的函式宣告語法可以在回傳值直接寫 <code class="docutils literal"><span class="pre">auto</span></code> ，
+讓原本的函式宣告語法可以在回傳值直接寫 <code class="docutils literal notranslate"><span class="pre">auto</span></code> ，
 編譯器會根據程式碼做推斷：</p>
-<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">Container</span><span class="p">.</span> <span class="k">typename</span> <span class="n">Index</span><span class="o">&gt;</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">Container</span><span class="p">.</span> <span class="k">typename</span> <span class="n">Index</span><span class="o">&gt;</span>
 <span class="k">auto</span> <span class="n">authAndAccess</span><span class="p">(</span><span class="n">Container</span><span class="o">&amp;</span> <span class="n">c</span><span class="p">,</span> <span class="n">Index</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
     <span class="p">...</span>
     <span class="k">return</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
@@ -1074,12 +1082,12 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </div>
 </div>
 <div class="section" id="decltype-auto-type-deduction">
-<h2><a class="toc-backref" href="#id8">種類四： <code class="docutils literal"><span class="pre">decltype(auto)</span></code> Type Deduction</a><a class="headerlink" href="#decltype-auto-type-deduction" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id8">種類四： <code class="docutils literal notranslate"><span class="pre">decltype(auto)</span></code> Type Deduction</a><a class="headerlink" href="#decltype-auto-type-deduction" title="本標題的永久連結">¶</a></h2>
 <p>在原本的回傳型別推斷中，
 會把 Reference 的資訊丟棄，
 所以不能拿來做後續更動，
 例如：</p>
-<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">Container</span><span class="p">,</span> <span class="k">typename</span> <span class="n">Index</span><span class="o">&gt;</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">Container</span><span class="p">,</span> <span class="k">typename</span> <span class="n">Index</span><span class="o">&gt;</span>
 <span class="k">auto</span> <span class="n">authAndAccess</span><span class="p">(</span><span class="n">Container</span><span class="o">&amp;</span> <span class="n">c</span><span class="p">,</span> <span class="n">Index</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
     <span class="p">...</span>
     <span class="k">return</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
@@ -1090,11 +1098,11 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
     <span class="n">authAndAccess</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>   <span class="c1">// compile error !!!</span>
 </pre></div>
 </div>
-<p>要自動推斷出包含 Reference 資訊的型別要使用 C++14 加入的 <code class="docutils literal"><span class="pre">decltype(auto)</span></code> ，
-<code class="docutils literal"><span class="pre">decltype(auto)</span></code> 就像是 <code class="docutils literal"><span class="pre">auto</span></code> ，
-但是使用的是 <code class="docutils literal"><span class="pre">decltype</span></code> 的規則，
+<p>要自動推斷出包含 Reference 資訊的型別要使用 C++14 加入的 <code class="docutils literal notranslate"><span class="pre">decltype(auto)</span></code> ，
+<code class="docutils literal notranslate"><span class="pre">decltype(auto)</span></code> 就像是 <code class="docutils literal notranslate"><span class="pre">auto</span></code> ，
+但是使用的是 <code class="docutils literal notranslate"><span class="pre">decltype</span></code> 的規則，
 例如：</p>
-<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">Container</span><span class="p">,</span> <span class="k">typename</span> <span class="n">Index</span><span class="o">&gt;</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">Container</span><span class="p">,</span> <span class="k">typename</span> <span class="n">Index</span><span class="o">&gt;</span>
 <span class="k">decltype</span><span class="p">(</span><span class="k">auto</span><span class="p">)</span> <span class="n">authAndAccess</span><span class="p">(</span><span class="n">Container</span><span class="o">&amp;</span> <span class="n">c</span><span class="p">,</span> <span class="n">Index</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
     <span class="p">...</span>
     <span class="k">return</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
@@ -1105,8 +1113,8 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
     <span class="n">authAndAccess</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>   <span class="c1">// compile success</span>
 </pre></div>
 </div>
-<p><code class="docutils literal"><span class="pre">decltype(auto)</span></code> 也可以用在變數定義：</p>
-<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">Widget</span> <span class="n">w</span><span class="p">;</span>
+<p><code class="docutils literal notranslate"><span class="pre">decltype(auto)</span></code> 也可以用在變數定義：</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Widget</span> <span class="n">w</span><span class="p">;</span>
 <span class="k">const</span> <span class="n">Widget</span><span class="o">&amp;</span> <span class="n">cw</span> <span class="o">=</span> <span class="n">w</span><span class="p">;</span>
 <span class="k">auto</span> <span class="n">myWidget1</span> <span class="o">=</span> <span class="n">cw</span><span class="p">;</span>            <span class="c1">// auto type deduction</span>
                                 <span class="c1">// type is Widget</span>
@@ -1115,7 +1123,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </pre></div>
 </div>
 <p>最後的版本：</p>
-<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">Container</span><span class="p">,</span> <span class="k">typename</span> <span class="n">Index</span><span class="o">&gt;</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">Container</span><span class="p">,</span> <span class="k">typename</span> <span class="n">Index</span><span class="o">&gt;</span>
 <span class="k">decltype</span><span class="p">(</span><span class="k">auto</span><span class="p">)</span> <span class="n">authAndAccess</span><span class="p">(</span><span class="n">Container</span><span class="o">&amp;&amp;</span> <span class="n">c</span><span class="p">,</span> <span class="n">Index</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// universal reference</span>
     <span class="p">...</span>
     <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">forward</span><span class="o">&lt;</span><span class="n">Container</span><span class="o">&gt;</span><span class="p">(</span><span class="n">c</span><span class="p">)[</span><span class="n">i</span><span class="p">];</span>
@@ -1128,7 +1136,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <p>C++17 加入了 Class Template Deduction 的支援，
 可以讓程式撰寫更簡便，
 例如：</p>
-<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">pair</span> <span class="n">p</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">);</span>                <span class="c1">// deduces to std::pair&lt;int, double&gt; p(2, 4.5);</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">pair</span> <span class="n">p</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">);</span>                <span class="c1">// deduces to std::pair&lt;int, double&gt; p(2, 4.5);</span>
 
 <span class="n">std</span><span class="o">::</span><span class="n">tuple</span> <span class="n">t</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">);</span>            <span class="c1">// same as auto t = std::make_tuple(4, 3, 2.5);</span>
 
