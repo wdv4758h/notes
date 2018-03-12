@@ -24,7 +24,7 @@ Application layer:
 
 * TLS/SSL
 * `DTLS <dtls.rst>`_
-* HTTP
+* `HTTP <http.rst>`_
 * `MQTT <mqtt.rst>`_
 
 ----
