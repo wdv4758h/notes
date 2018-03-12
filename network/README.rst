@@ -29,6 +29,8 @@ Application layer:
 
 ----
 
+P2P:
+
 * STUN (Session Traversal Utilities for NAT)
 * `UPnP (Universal Plug-and-Play) <upnp.rst>`_
 * PCP (Port Control Protocol)
@@ -36,6 +38,8 @@ Application layer:
 * TURN (Traversal Using Relays around NAT)
 * Jingle (Jingle Relay Nodes)
 * `ICE (Interactive Connectivity Establishment) <ice.rst>`_
+
+----
 
 * `AMQP <amqp.rst>`_
 * `Network Monitoring <monitoring.rst>`_
