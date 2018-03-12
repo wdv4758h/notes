@@ -37,6 +37,7 @@ Application layer:
 * Jingle (Jingle Relay Nodes)
 * `ICE (Interactive Connectivity Establishment) <ice.rst>`_
 
+* `AMQP <amqp.rst>`_
 * `Network Monitoring <monitoring.rst>`_
 * `SRT (Secure Reliable Transport) <srt.rst>`_
 * `tcpdump <tcpdump.rst>`_
