@@ -51,7 +51,7 @@ Meson 是用 Python 撰寫的編譯工具，
 
 .. code-block:: sh
 
-		# meson <build_dir_name>
+    # meson <build_dir_name>
     $ meson builddir
     The Meson build system
     Version: 0.44.0
@@ -71,7 +71,7 @@ Meson 是用 Python 撰寫的編譯工具，
 
 .. code-block:: sh
 
-		# ninja -C <build_dir_name>
+    # ninja -C <build_dir_name>
     $ ninja -C builddir
 
     # 使用 4 個 jobs 編譯
@@ -86,12 +86,12 @@ Meson 是用 Python 撰寫的編譯工具，
 .. code-block:: meson
 
     project('tutorial', 'c')
-		mydeps = dependency('liblzma')
-		executable('demo', 'main.c', dependencies: mydeps)
+    mydeps = dependency('liblzma')
+    executable('demo', 'main.c', dependencies: mydeps)
 
 .. code-block:: sh
 
-		$ ninja -C builddir
+    $ ninja -C builddir
     The Meson build system
     Version: 0.44.0
     Source dir: /tmp/myproj
