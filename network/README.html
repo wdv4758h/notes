@@ -36,7 +36,7 @@
               href="../genindex.html"/>
         <link rel="search" title="搜尋" href="../search.html"/>
     <link rel="top" title="wdv4758h-notes latest 說明文件" href="../index.html"/>
-        <link rel="next" title="DDoS" href="ddos.html"/>
+        <link rel="next" title="AMQP (Advanced Message Queuing Protocol)" href="amqp.html"/>
         <link rel="prev" title="WebRTC" href="../multimedia/webrtc.html"/> 
 
   
@@ -609,14 +609,20 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/video-quality.html">Video Quality</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/webrtc.html">WebRTC</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">網路相關 (Network)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="amqp.html">AMQP (Advanced Message Queuing Protocol)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c10k.html">C10K</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c10m.html">C10M</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ddos.html">DDoS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="distributed.html">Distributed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dns.html">DNS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dtls.html">DTLS (Datagram Transport Layer Security)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http.html">HTTP (Hypertext Transfer Protocol)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ice.html">ICE (Interactive Connectivity Establishment)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="iperf.html">iperf - TCP/UDP/SCTP 網路效能測量</a></li>
 <li class="toctree-l1"><a class="reference internal" href="microservice.html">Microservice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="monitoring.html">Network Monitoring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mqtt.html">MQTT (Message Queuing Telemetry Transport)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nanomsg.html">nanomsg</a></li>
 <li class="toctree-l1"><a class="reference internal" href="network-stack.html">Network Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nginx.html">Nginx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="os-socket-buffer.html">OS socket buffer</a></li>
@@ -626,7 +632,9 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="rpc.html">RPC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="security-check.html">安全性檢查</a></li>
 <li class="toctree-l1"><a class="reference internal" href="srt.html">SRT (Secure Reliable Transport)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tcp.html">TCP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tcpdump.html">tcpdump</a></li>
+<li class="toctree-l1"><a class="reference internal" href="udp.html">UDP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="upnp.html">UPnP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="webtorrent.html">WebTorrent</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../operating-system/README.html">作業系統</a></li>
@@ -902,8 +910,8 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </ul>
 <p>Transport layer:</p>
 <ul class="simple">
-<li>TCP</li>
-<li>UDP</li>
+<li><a class="reference external" href="tcp.rst">TCP</a></li>
+<li><a class="reference external" href="udp.rst">UDP</a></li>
 <li>SCTP</li>
 <li><a class="reference external" href="quic.rst">QUIC</a></li>
 </ul>
@@ -911,10 +919,11 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <ul class="simple">
 <li>TLS/SSL</li>
 <li><a class="reference external" href="dtls.rst">DTLS</a></li>
-<li>HTTP</li>
-<li>MQTT</li>
+<li><a class="reference external" href="http.rst">HTTP</a></li>
+<li><a class="reference external" href="mqtt.rst">MQTT</a></li>
 </ul>
 <hr class="docutils" />
+<p>P2P:</p>
 <ul class="simple">
 <li>STUN (Session Traversal Utilities for NAT)</li>
 <li><a class="reference external" href="upnp.rst">UPnP (Universal Plug-and-Play)</a></li>
@@ -923,10 +932,26 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li>TURN (Traversal Using Relays around NAT)</li>
 <li>Jingle (Jingle Relay Nodes)</li>
 <li><a class="reference external" href="ice.rst">ICE (Interactive Connectivity Establishment)</a></li>
-<li><a class="reference external" href="monitoring.rst">Network Monitoring</a></li>
-<li><a class="reference external" href="srt.rst">SRT (Secure Reliable Transport)</a></li>
+</ul>
+<hr class="docutils" />
+<p>Tools:</p>
+<ul class="simple">
 <li><a class="reference external" href="tcpdump.rst">tcpdump</a></li>
 <li><a class="reference external" href="iperf.rst">iperf - TCP/UDP/SCTP 網路效能測量</a></li>
+<li>arp</li>
+<li>ip</li>
+</ul>
+<hr class="docutils" />
+<p>Problem:</p>
+<ul class="simple">
+<li><a class="reference external" href="c10k.rst">C10K</a></li>
+<li><a class="reference external" href="c10m.rst">C10M</a></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><a class="reference external" href="amqp.rst">AMQP</a></li>
+<li><a class="reference external" href="monitoring.rst">Network Monitoring</a></li>
+<li><a class="reference external" href="srt.rst">SRT (Secure Reliable Transport)</a></li>
 <li><a class="reference external" href="nginx.rst">Nginx</a></li>
 <li><a class="reference external" href="rpc.rst">RPC</a></li>
 <li><a class="reference external" href="security-check.rst">Security Check</a></li>
@@ -936,7 +961,15 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li><a class="reference external" href="microservice.rst">microservice</a></li>
 <li><a class="reference external" href="os-socket-buffer.rst">OS socket buffer</a></li>
 <li><a class="reference external" href="proxy.rst">Proxy</a></li>
+<li><dl class="first docutils">
+<dt>Library</dt>
+<dd><ul class="first last">
 <li>ZeroMQ</li>
+<li><a class="reference external" href="nanomsg.rst">nanomsg</a></li>
+</ul>
+</dd>
+</dl>
+</li>
 <li><a class="reference external" href="webtorrent.rst">WebTorrent</a></li>
 <li><a class="reference external" href="network-stack.rst">Network Stack</a></li>
 <li><a class="reference external" href="resource.rst">相關資源</a></li>
@@ -953,7 +986,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="ddos.html" class="btn btn-neutral float-right" title="DDoS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="amqp.html" class="btn btn-neutral float-right" title="AMQP (Advanced Message Queuing Protocol)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../multimedia/webrtc.html" class="btn btn-neutral" title="WebRTC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

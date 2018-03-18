@@ -608,14 +608,20 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="multimedia/video-quality.html">Video Quality</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multimedia/webrtc.html">WebRTC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="network/README.html">網路相關 (Network)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network/amqp.html">AMQP (Advanced Message Queuing Protocol)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network/c10k.html">C10K</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network/c10m.html">C10M</a></li>
 <li class="toctree-l1"><a class="reference internal" href="network/ddos.html">DDoS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="network/distributed.html">Distributed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="network/dns.html">DNS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="network/dtls.html">DTLS (Datagram Transport Layer Security)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network/http.html">HTTP (Hypertext Transfer Protocol)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="network/ice.html">ICE (Interactive Connectivity Establishment)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="network/iperf.html">iperf - TCP/UDP/SCTP 網路效能測量</a></li>
 <li class="toctree-l1"><a class="reference internal" href="network/microservice.html">Microservice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="network/monitoring.html">Network Monitoring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network/mqtt.html">MQTT (Message Queuing Telemetry Transport)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network/nanomsg.html">nanomsg</a></li>
 <li class="toctree-l1"><a class="reference internal" href="network/network-stack.html">Network Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="network/nginx.html">Nginx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="network/os-socket-buffer.html">OS socket buffer</a></li>
@@ -625,7 +631,9 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="network/rpc.html">RPC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="network/security-check.html">安全性檢查</a></li>
 <li class="toctree-l1"><a class="reference internal" href="network/srt.html">SRT (Secure Reliable Transport)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network/tcp.html">TCP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="network/tcpdump.html">tcpdump</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network/udp.html">UDP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="network/upnp.html">UPnP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="network/webtorrent.html">WebTorrent</a></li>
 <li class="toctree-l1"><a class="reference internal" href="operating-system/README.html">作業系統</a></li>
@@ -2021,9 +2029,16 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l1"><a class="reference internal" href="build-system/meson.html">Meson</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="build-system/meson.html#id2">介紹</a></li>
 <li class="toctree-l2"><a class="reference internal" href="build-system/meson.html#id3">使用範例</a></li>
-<li class="toctree-l2"><a class="reference internal" href="build-system/meson.html#id4">調整編譯參數</a></li>
+<li class="toctree-l2"><a class="reference internal" href="build-system/meson.html#id4">調整編譯參數</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="build-system/meson.html#id5">選擇語言版本</a></li>
+<li class="toctree-l3"><a class="reference internal" href="build-system/meson.html#math-library">加上 math library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="build-system/meson.html#id6">專案參數</a></li>
+<li class="toctree-l3"><a class="reference internal" href="build-system/meson.html#cross-compile">cross compile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="build-system/meson.html#meson-ndk">Meson + NDK</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="build-system/meson.html#subprojects">Subprojects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="build-system/meson.html#id5">參考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="build-system/meson.html#id8">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="c/c.html">C</a><ul>
@@ -4310,6 +4325,19 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="network/README.html">網路相關 (Network)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network/amqp.html">AMQP (Advanced Message Queuing Protocol)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="network/amqp.html#id2">實做</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network/amqp.html#id3">參考</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="network/c10k.html">C10K</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="network/c10k.html#id2">參考</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="network/c10m.html">C10M</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="network/c10m.html#id2">參考</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="network/ddos.html">DDoS</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="network/ddos.html#id2">參考</a></li>
 </ul>
@@ -4336,6 +4364,12 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="network/dtls.html#id4">參考</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="network/http.html">HTTP (Hypertext Transfer Protocol)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="network/http.html#id2">歷史</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network/http.html#http2">HTTP2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network/http.html#id3">參考</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="network/ice.html">ICE (Interactive Connectivity Establishment)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="network/ice.html#id2">介紹</a></li>
 <li class="toctree-l2"><a class="reference internal" href="network/ice.html#trickle-ice">Trickle ICE</a></li>
@@ -4356,6 +4390,15 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="network/monitoring.html#tcpdump">tcpdump</a></li>
 <li class="toctree-l2"><a class="reference internal" href="network/monitoring.html#wireshark">Wireshark</a></li>
 <li class="toctree-l2"><a class="reference internal" href="network/monitoring.html#bettercap">bettercap</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="network/mqtt.html">MQTT (Message Queuing Telemetry Transport)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="network/mqtt.html#id2">介紹</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="network/nanomsg.html">nanomsg</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="network/nanomsg.html#id2">介紹</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network/nanomsg.html#id3">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="network/network-stack.html">Network Stack</a><ul>
@@ -4414,6 +4457,10 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l2"><a class="reference internal" href="network/srt.html#id3">參考</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="network/tcp.html">TCP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="network/tcp.html#id2">參考</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="network/tcpdump.html">tcpdump</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="network/tcpdump.html#arp">arp</a></li>
 <li class="toctree-l2"><a class="reference internal" href="network/tcpdump.html#id2">用 tcpdump 攔截封包</a><ul>
@@ -4422,6 +4469,11 @@ Git 在 <a class="reference external" href="https://git-scm.com/doc">官網</a> 
 <li class="toctree-l3"><a class="reference internal" href="network/tcpdump.html#pcap">寫成 pcap 檔</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="network/udp.html">UDP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="network/udp.html#id2">系統相關設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network/udp.html#id3">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="network/upnp.html">UPnP</a><ul>
