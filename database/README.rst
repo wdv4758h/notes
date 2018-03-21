@@ -12,6 +12,8 @@
     - PostgreSQL
 * NoSQL
     - `Redis <redis.rst>`_
+    - `MongoDB <mongodb.rst>`_
+    - `LevelDB <leveldb.rst>`_
     - CouchDB
     - RethinkDB
     - RocksDB
