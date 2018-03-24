@@ -44,6 +44,9 @@ Gecko
 * about:memory
 * about:performance
 
+* about:about
+* about:sessionrestore
+
 
 
 SpiderMonkey (JavaScript 引擎)
@@ -149,6 +152,12 @@ Firefox Focus
 
 ----
 
+* `Quantum Flow Engineering Newsletter <https://ehsanakhgari.org/tag/quantumflow>`_
+* `Firefox Performance Update <https://mikeconley.ca/blog/category/mozilla-2/firefox-mozilla-2/>`_
+* `Photon Engineering Newsletter <https://dolske.wordpress.com/?s=photon>`_
+
+----
+
 * `Are We Fast Yet? <https://arewefastyet.com/>`_
 * `Are we e10s yet? <https://arewee10syet.com/>`_
 * `Are we WebExtensions yet? <http://arewewebextensionsyet.com/>`_
@@ -157,6 +166,8 @@ Firefox Focus
 * `MDN - SpiderMonkey <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey>`_
 
 ----
+
+* `Telemetry portal (一些統計結果) <https://telemetry.mozilla.org/>`_
 
 * `JavaScript runtime: Call Stack and Event Queue - Part 1 <https://curlybrackets.com/posts/43130>`_
 * `JavaScript runtime: Call Stack and Event Queue - Part 2 <https://curlybrackets.com/posts/43131>`_
