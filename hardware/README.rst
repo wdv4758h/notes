@@ -9,3 +9,9 @@
 * `Arduino <arduino.rst>`_
 * `RISC-V <risc-v.rst>`_
 * `Kindle <kindle.rst>`_
+
+----
+
+網站：
+
+* `WikiChip <https://en.wikichip.org/>`_
