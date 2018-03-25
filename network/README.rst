@@ -69,6 +69,7 @@ Problem:
 * `microservice <microservice.rst>`_
 * `OS socket buffer <os-socket-buffer.rst>`_
 * `Proxy <proxy.rst>`_
+* `WebSocket <websocket.rst>`_
 * Library
     - ZeroMQ
     - `nanomsg <nanomsg.rst>`_
