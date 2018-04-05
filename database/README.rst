@@ -18,7 +18,7 @@
     - RethinkDB
     - RocksDB
 * NewSQL
-    - CockroachDB
+    - `CockroachDB <cockroachdb.rst>`_
     - Google Spanner
 
 
