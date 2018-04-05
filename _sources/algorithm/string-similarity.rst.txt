@@ -6,6 +6,47 @@ String Similiarity
 .. contents:: 目錄
 
 
+介紹
+========================================
+
+常見演算法：
+
+* Edit based
+    - Hamming
+    - MLIPNS
+    - Levenshtein
+    - Damerau-Levenshtein
+    - Jaro-Winkler
+    - Strcmp95
+    - Needleman-Wunsch
+    - Gotoh
+    - Smith-Waterman
+* Token based
+    - Jaccard index
+    - Sørensen–Dice coefficient
+    - Tversky index
+    - Overlap coefficient
+    - Tanimoto distance
+    - Cosine similarity
+    - Monge-Elkan
+    - Bag distance
+* Sequence based
+    - longest common subsequence similarity
+    - longest common substring similarity
+    - ratcliff-obershelp similarity
+* Compression based
+    - bz2 normalized compression distance
+    - lzma normalized compression distance
+    - arith normalized compression distance
+    - rle normalized compression distance
+    - bwtrle normalized compression distance
+    - zlib normalized compression distance
+* Phonetic
+    - MRA
+    - Editex
+
+
+
 Edit Distance
 ========================================
 
@@ -117,4 +158,6 @@ Levenshtein distance 是用來評估兩 sequence 差別度的一種 string metri
 ========================================
 
 * `Jellyfish - Python library for doing approximate and phonetic matching of strings <https://github.com/jamesturk/jellyfish>`_
+* `textdistance: Compute distance between sequences. 30+ algorithms, pure python <https://github.com/orsinium/textdistance>`_
+* `py_stringmatching <https://github.com/anhaidgroup/py_stringmatching>`_
 * `Distances.jl - Julia package for evaluating distances(metrics) between vectors <https://github.com/JuliaStats/Distances.jl>`_

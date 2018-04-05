@@ -18,3 +18,4 @@ Rust 相關書籍
 * `Async in Rust: what you need to know <https://aturon.github.io/apr/>`_
 * `Rust Grammar <https://doc.rust-lang.org/nightly/grammar.html>`_
 * `Rust Bibliography <https://forge.rust-lang.org/bibliography.html>`_
+* `A Gentle Introduction to Rust <https://stevedonovan.github.io/rust-gentle-intro/>`_

@@ -6,6 +6,37 @@ systemd
 .. contents:: 目錄
 
 
+hostnamectl
+========================================
+
+.. code-block:: sh
+
+    $ hostnamectl
+         Static hostname: n/a
+      Transient hostname: archlinux
+               Icon name: computer-laptop
+                 Chassis: laptop
+              Machine ID: 00000000000000000000000000000000
+                 Boot ID: 00000000000000000000000000000000
+        Operating System: Arch Linux
+                  Kernel: Linux 4.15.11-1-ARCH
+            Architecture: x86-64
+
+
+.. code-block:: sh
+
+    $ hostnamectl set-hostname mymachine
+       Static hostname: mymachine
+             Icon name: computer-laptop
+               Chassis: laptop
+            Machine ID: d24ae6664f914902a4cce7ef81cce921
+               Boot ID: ed185744bb824ad5b0be8eae0040814e
+      Operating System: Arch Linux
+                Kernel: Linux 4.15.11-1-ARCH
+          Architecture: x86-64
+
+
+
 systemd-resolve
 ========================================
 
@@ -16,7 +47,7 @@ systemd-resolve
 
 
 
-Reference
+參考
 ========================================
 
 * `systemd System and Service Manager <http://www.freedesktop.org/wiki/Software/systemd/>`_

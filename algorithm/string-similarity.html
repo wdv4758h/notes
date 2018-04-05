@@ -129,11 +129,12 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="random-number-generator.html">Random Number Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resource.html">演算法</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">String Similiarity</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">介紹</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#edit-distance">Edit Distance</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#levenshtein-distance">Levenshtein distance</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">參考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="substring-searching.html">Substring Searching</a></li>
@@ -434,13 +435,17 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../crypto/resource.html">Crypto</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../crypto/sha.html">SHA (Secure Hash Algorithm)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/README.html">資料庫 (Database)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/cockroachdb.html">CockroachDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/leveldb.html">LevelDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/mongodb.html">MongoDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/resource.html">Database (資料庫)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/README.html">除錯相關 (Debugging)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debug/flamescope.html">FlameScope</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/gdb.html">GDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/javascript.html">Debugger for JavaScript</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debug/kernel.html">Debugging a Kernel</a></li>
@@ -587,6 +592,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../misc/taiwan-software.html">台灣軟體界</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/task-execution-framework.html">Task Execution Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/team-collaboration.html">Team Collaboration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/tmux.html">Tmux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/todo.html">Todo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/todo-projects.html">想做的專案</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/tools.html">Tools</a></li>
@@ -599,6 +605,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../misc/unicode.html">Unicode 解說</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/video.html">Video</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/videos.html">一些 Talk 的影片</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/voice-simulation.html">Voice Simulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/README.html">多媒體 (Multimedia)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/audio.html">Audio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multimedia/ffmpeg.html">FFmpeg</a></li>
@@ -643,6 +650,8 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../network/tcpdump.html">tcpdump</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/udp.html">UDP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/upnp.html">UPnP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/vpn.html">VPN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/websocket.html">WebSocket</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/webtorrent.html">WebTorrent</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../operating-system/README.html">作業系統</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../operating-system/linux-distro.html">Linux Distro</a></li>
@@ -744,6 +753,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../rust/cargo.html">Cargo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/compiler.html">Rust 編譯器</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/database.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/dataflow.html">Dataflow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/design-pattern.html">Design Pattern</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/development-tools.html">Development Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/documentation.html">文件 (Documentation)</a></li>
@@ -755,6 +765,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../rust/graphic.html">Graphic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/gui.html">GUI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/image-manipulation.html">圖片處理 (Image Manipulation)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/implement-languages.html">實做語言</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/index.html">My Rust Articles Collection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/iterator.html">Iterator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/kernel.html">Rust Kernel</a></li>
@@ -906,22 +917,92 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
            <div itemprop="articleBody">
             
   <div class="section" id="string-similiarity">
-<h1><a class="toc-backref" href="#id3">String Similiarity</a><a class="headerlink" href="#string-similiarity" title="本標題的永久連結">¶</a></h1>
+<h1><a class="toc-backref" href="#id4">String Similiarity</a><a class="headerlink" href="#string-similiarity" title="本標題的永久連結">¶</a></h1>
 <div class="contents topic" id="id1">
 <p class="topic-title first">目錄</p>
 <ul class="simple">
-<li><a class="reference internal" href="#string-similiarity" id="id3">String Similiarity</a><ul>
-<li><a class="reference internal" href="#edit-distance" id="id4">Edit Distance</a><ul>
-<li><a class="reference internal" href="#levenshtein-distance" id="id5">Levenshtein distance</a></li>
+<li><a class="reference internal" href="#string-similiarity" id="id4">String Similiarity</a><ul>
+<li><a class="reference internal" href="#id2" id="id5">介紹</a></li>
+<li><a class="reference internal" href="#edit-distance" id="id6">Edit Distance</a><ul>
+<li><a class="reference internal" href="#levenshtein-distance" id="id7">Levenshtein distance</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id2" id="id6">參考</a></li>
+<li><a class="reference internal" href="#id3" id="id8">參考</a></li>
 </ul>
 </li>
 </ul>
 </div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id5">介紹</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<p>常見演算法：</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Edit based</dt>
+<dd><ul class="first last">
+<li>Hamming</li>
+<li>MLIPNS</li>
+<li>Levenshtein</li>
+<li>Damerau-Levenshtein</li>
+<li>Jaro-Winkler</li>
+<li>Strcmp95</li>
+<li>Needleman-Wunsch</li>
+<li>Gotoh</li>
+<li>Smith-Waterman</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Token based</dt>
+<dd><ul class="first last">
+<li>Jaccard index</li>
+<li>Sørensen–Dice coefficient</li>
+<li>Tversky index</li>
+<li>Overlap coefficient</li>
+<li>Tanimoto distance</li>
+<li>Cosine similarity</li>
+<li>Monge-Elkan</li>
+<li>Bag distance</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Sequence based</dt>
+<dd><ul class="first last">
+<li>longest common subsequence similarity</li>
+<li>longest common substring similarity</li>
+<li>ratcliff-obershelp similarity</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Compression based</dt>
+<dd><ul class="first last">
+<li>bz2 normalized compression distance</li>
+<li>lzma normalized compression distance</li>
+<li>arith normalized compression distance</li>
+<li>rle normalized compression distance</li>
+<li>bwtrle normalized compression distance</li>
+<li>zlib normalized compression distance</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Phonetic</dt>
+<dd><ul class="first last">
+<li>MRA</li>
+<li>Editex</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
 <div class="section" id="edit-distance">
-<h2><a class="toc-backref" href="#id4">Edit Distance</a><a class="headerlink" href="#edit-distance" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id6">Edit Distance</a><a class="headerlink" href="#edit-distance" title="本標題的永久連結">¶</a></h2>
 <p>Edit Distance = 更動多少次數後，兩字串會一樣</p>
 <p>計算方式有很多種：</p>
 <table border="1" class="docutils">
@@ -968,7 +1049,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </tbody>
 </table>
 <div class="section" id="levenshtein-distance">
-<h3><a class="toc-backref" href="#id5">Levenshtein distance</a><a class="headerlink" href="#levenshtein-distance" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id7">Levenshtein distance</a><a class="headerlink" href="#levenshtein-distance" title="本標題的永久連結">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="http://en.wikipedia.org/wiki/Levenshtein_distance">http://en.wikipedia.org/wiki/Levenshtein_distance</a></li>
 <li><a class="reference external" href="http://en.wikibooks.org/wiki/Algorithm_Implementation/Strings/Levenshtein_distance">http://en.wikibooks.org/wiki/Algorithm_Implementation/Strings/Levenshtein_distance</a></li>
@@ -1041,10 +1122,12 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </ul>
 </div>
 </div>
-<div class="section" id="id2">
-<h2><a class="toc-backref" href="#id6">參考</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id8">參考</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/jamesturk/jellyfish">Jellyfish - Python library for doing approximate and phonetic matching of strings</a></li>
+<li><a class="reference external" href="https://github.com/orsinium/textdistance">textdistance: Compute distance between sequences. 30+ algorithms, pure python</a></li>
+<li><a class="reference external" href="https://github.com/anhaidgroup/py_stringmatching">py_stringmatching</a></li>
 <li><a class="reference external" href="https://github.com/JuliaStats/Distances.jl">Distances.jl - Julia package for evaluating distances(metrics) between vectors</a></li>
 </ul>
 </div>

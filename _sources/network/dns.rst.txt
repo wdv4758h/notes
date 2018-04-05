@@ -43,4 +43,5 @@ DNS
 文章
 ========================================
 
+* `PowerDNS - A warm welcome to DNS <https://powerdns.org/hello-dns/>`_
 * `The Top DNS Servers And What They Offer - DNSimple Blog <https://blog.dnsimple.com/2015/02/top-dns-servers/>`_
