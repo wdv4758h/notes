@@ -2,6 +2,10 @@
 CMake
 ========================================
 
+
+.. contents:: 目錄
+
+
 Example 1
 ========================================
 
@@ -254,3 +258,17 @@ Linker 會去找 Compiler 來用，
     -- Configuring done
     -- Generating done
     -- Build files have been written to: /tmp/build
+
+
+
+參考
+========================================
+
+* `Awesome CMake <https://github.com/onqtam/awesome-cmake>`_
+* `Cross compiling toolchains in Docker images <https://github.com/dockcross/dockcross/>`_
+* `CMake scripts for Staticlibs projects <https://github.com/staticlibs/cmake/>`_
+* `Collection of CMake toolchain files and scripts for cross-platform build <https://github.com/ruslo/polly>`_
+* `Android CMake <https://github.com/taka-no-me/android-cmake>`_
+* `CMake Examples <https://github.com/ttroy50/cmake-examples>`_
+* `Learning CMake <https://github.com/Akagi201/learning-cmake>`_
+* `LLVM - CMake Primer <https://llvm.org/docs/CMakePrimer.html>`_
