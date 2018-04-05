@@ -131,6 +131,21 @@ Dockerfile
 
 
 
+清理空間
+========================================
+
+.. code-block:: sh
+
+    docker system prune -a --volumes
+
+
+.. code-block:: sh
+
+    rm -rf /var/lib/docker/devicemapper
+    systemctl restart docker
+
+
+
 docker-compose
 ========================================
 
