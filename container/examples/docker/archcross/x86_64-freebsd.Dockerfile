@@ -31,8 +31,8 @@ RUN rm -rf \
 ENV CC  clang
 ENV CXX clang++
 ENV BASEFLAGS "--sysroot=${SYSROOT} --target=${TARGET} -I${SYSROOT}/usr/include -L${SYSROOT}/usr/lib -L${SYSROOT}/lib"
-ENV CFLAGS "${BASEFLAGS} -std=gnu11"
-ENV CXXFLAGS "${BASEFLAGS} -std=gnu++14"
+ENV CFLAGS "${BASEFLAGS} -std=c11"
+ENV CXXFLAGS "${BASEFLAGS} -std=c++14"
 
 # test compilation
 RUN echo -e "#include <stdio.h>\nint main(){}" > test.c && \
