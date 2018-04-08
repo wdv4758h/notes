@@ -171,6 +171,17 @@ docker-compose
 
 
 
+輸出成 rootfs
+========================================
+
+.. code-block:: sh
+
+    docker run -it --rm -d 250b5ed4d50f bash
+    docker container ls
+    docker export e6c0df1d7c43 -o ~/rootfs.tar
+
+
+
 壓縮 docker images 大小
 ========================================
 

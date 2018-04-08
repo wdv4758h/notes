@@ -983,6 +983,25 @@ make -j
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ffmpeg -i input.mp4 -strict experimental -vcodec libx264 output.mp4
 </pre></div>
 </div>
+<p>使用 VAAPI：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># 檢查 VAAPI H264 decode 支援</span>
+$ vainfo <span class="p">|</span> rg H264 <span class="p">|</span> rg VAEntrypointVLD
+<span class="c1"># 檢查 VAAPI H264 encode 支援</span>
+$ vainfo <span class="p">|</span> rg H264 <span class="p">|</span> rg VAEntrypointEncSlice
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ffmpeg -vaapi_device /dev/dri/renderD128 <span class="se">\</span>
+    -i input.flv -vf <span class="s1">&#39;format=nv12,hwupload&#39;</span> <span class="se">\</span>
+    -c:v h264_vaapi out.mp4
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ffmpeg -vaapi_device /dev/dri/renderD128 <span class="se">\</span>
+    -i input.flv -vf <span class="s1">&#39;format=nv12,hwupload&#39;</span> <span class="se">\</span>
+    -c:a copy -c:v h264_vaapi <span class="se">\</span>
+    -profile:v <span class="m">100</span> -level <span class="m">51</span> -bf <span class="m">10</span> -crf <span class="m">28</span> <span class="se">\</span>
+    out.mp4
+</pre></div>
+</div>
 </div>
 <div class="section" id="id4">
 <h2><a class="toc-backref" href="#id11">參考</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h2>
@@ -992,6 +1011,13 @@ make -j
 <li><a class="reference external" href="https://wiki.archlinux.org/index.php/FFmpeg">Arch Wiki - FFmpeg</a></li>
 <li>[GitHub] <a class="reference external" href="https://github.com/FFmpeg/FFmpeg">FFmpeg</a></li>
 <li><a class="reference external" href="http://ffmpeg.org/pipermail/ffmpeg-devel/2015-July/176489.html">[2015][FFmpeg-devel] FFmpegs future and resigning as leader</a></li>
+<li><a class="reference external" href="https://trac.ffmpeg.org/wiki/Encode/H.264">FFmpeg - H.264 Video Encoding Guide</a></li>
+<li><a class="reference external" href="https://trac.ffmpeg.org/wiki/Hardware/VAAPI">FFmpeg - VAAPI</a></li>
+<li><a class="reference external" href="https://wiki.libav.org/Hardware/vaapi">libav - VAAPI</a></li>
+<li><a class="reference external" href="http://slhck.info/video/2017/02/24/crf-guide.html">CRF Guide (Constant Rate Factor in x264 and x265)</a></li>
+<li><a class="reference external" href="http://slhck.info/video/2017/03/01/rate-control.html">Understanding Rate Control Modes (x264, x265, vpx)</a></li>
+<li><a class="reference external" href="http://slhck.info/video/2017/02/24/vbr-settings.html">FFmpeg VBR Settings</a></li>
+<li><a class="reference external" href="http://www.mpabo.com/2014/12/14/ffmpeg-and-x264-encoding-guide/">FFmpeg and x264 Encoding Guide</a></li>
 </ul>
 </div>
 </div>

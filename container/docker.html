@@ -374,6 +374,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l2"><a class="reference internal" href="#id4">清理空間</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#docker-compose">docker-compose</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#image">更新 image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rootfs">輸出成 rootfs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#docker-images">壓縮 docker images 大小</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#docker-squash">docker-squash</a></li>
 </ul>
@@ -933,11 +934,12 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li><a class="reference internal" href="#id4" id="id10">清理空間</a></li>
 <li><a class="reference internal" href="#docker-compose" id="id11">docker-compose</a></li>
 <li><a class="reference internal" href="#image" id="id12">更新 image</a></li>
-<li><a class="reference internal" href="#docker-images" id="id13">壓縮 docker images 大小</a><ul>
-<li><a class="reference internal" href="#docker-squash" id="id14">docker-squash</a></li>
+<li><a class="reference internal" href="#rootfs" id="id13">輸出成 rootfs</a></li>
+<li><a class="reference internal" href="#docker-images" id="id14">壓縮 docker images 大小</a><ul>
+<li><a class="reference internal" href="#docker-squash" id="id15">docker-squash</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id5" id="id15">參考</a></li>
+<li><a class="reference internal" href="#id5" id="id16">參考</a></li>
 </ul>
 </li>
 </ul>
@@ -1070,10 +1072,18 @@ $ docker push DOCKER_ID_USER/my_image
 </pre></div>
 </div>
 </div>
+<div class="section" id="rootfs">
+<h2><a class="toc-backref" href="#id13">輸出成 rootfs</a><a class="headerlink" href="#rootfs" title="本標題的永久連結">¶</a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker run -it --rm -d 250b5ed4d50f bash
+docker container ls
+docker <span class="nb">export</span> e6c0df1d7c43 -o ~/rootfs.tar
+</pre></div>
+</div>
+</div>
 <div class="section" id="docker-images">
-<h2><a class="toc-backref" href="#id13">壓縮 docker images 大小</a><a class="headerlink" href="#docker-images" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id14">壓縮 docker images 大小</a><a class="headerlink" href="#docker-images" title="本標題的永久連結">¶</a></h2>
 <div class="section" id="docker-squash">
-<h3><a class="toc-backref" href="#id14">docker-squash</a><a class="headerlink" href="#docker-squash" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id15">docker-squash</a><a class="headerlink" href="#docker-squash" title="本標題的永久連結">¶</a></h3>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1090,7 +1100,7 @@ $ docker-squash -f 2b7782d76911 -t myorg/myimage:squashed myorg/myimage:latest
 </div>
 </div>
 <div class="section" id="id5">
-<h2><a class="toc-backref" href="#id15">參考</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id16">參考</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://wiki.archlinux.org/index.php/Docker">Arch Wiki - Docker</a></li>
 <li><a class="reference external" href="https://hub.docker.com/r/archlinux/base/">archlinux/base</a></li>

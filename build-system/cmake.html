@@ -298,12 +298,13 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l2"><a class="reference internal" href="#example-1">Example 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#example-2">Example 2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-options">More Options</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">指定安裝路徑</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">指定安裝路徑</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#source-code">指定產生檔案的資料夾 (不要混在 source code 裡)</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#linker">換 Linker</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#compiler-options">偵測 Compiler Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="gyp.html">GYP</a></li>
@@ -920,9 +921,27 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
            <div itemprop="articleBody">
             
   <div class="section" id="cmake">
-<h1>CMake<a class="headerlink" href="#cmake" title="本標題的永久連結">¶</a></h1>
+<h1><a class="toc-backref" href="#id4">CMake</a><a class="headerlink" href="#cmake" title="本標題的永久連結">¶</a></h1>
+<div class="contents topic" id="id1">
+<p class="topic-title first">目錄</p>
+<ul class="simple">
+<li><a class="reference internal" href="#cmake" id="id4">CMake</a><ul>
+<li><a class="reference internal" href="#example-1" id="id5">Example 1</a></li>
+<li><a class="reference internal" href="#example-2" id="id6">Example 2</a></li>
+<li><a class="reference internal" href="#more-options" id="id7">More Options</a><ul>
+<li><a class="reference internal" href="#id2" id="id8">指定安裝路徑</a></li>
+<li><a class="reference internal" href="#source-code" id="id9">指定產生檔案的資料夾 (不要混在 source code 裡)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#linker" id="id10">換 Linker</a></li>
+<li><a class="reference internal" href="#compiler-options" id="id11">偵測 Compiler Options</a></li>
+<li><a class="reference internal" href="#id3" id="id12">參考</a></li>
+</ul>
+</li>
+</ul>
+</div>
 <div class="section" id="example-1">
-<h2>Example 1<a class="headerlink" href="#example-1" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id5">Example 1</a><a class="headerlink" href="#example-1" title="本標題的永久連結">¶</a></h2>
 <ol class="arabic simple">
 <li>./hello.c</li>
 </ol>
@@ -974,7 +993,7 @@ Hello World!
 </div>
 </div>
 <div class="section" id="example-2">
-<h2>Example 2<a class="headerlink" href="#example-2" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id6">Example 2</a><a class="headerlink" href="#example-2" title="本標題的永久連結">¶</a></h2>
 <ol class="arabic simple">
 <li>./lib/hello.c</li>
 </ol>
@@ -1061,9 +1080,9 @@ Hello World!
 </div>
 </div>
 <div class="section" id="more-options">
-<h2>More Options<a class="headerlink" href="#more-options" title="本標題的永久連結">¶</a></h2>
-<div class="section" id="id1">
-<h3>指定安裝路徑<a class="headerlink" href="#id1" title="本標題的永久連結">¶</a></h3>
+<h2><a class="toc-backref" href="#id7">More Options</a><a class="headerlink" href="#more-options" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="id2">
+<h3><a class="toc-backref" href="#id8">指定安裝路徑</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h3>
 <p>把原本的</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ cmake .
 </pre></div>
@@ -1074,7 +1093,7 @@ Hello World!
 </div>
 </div>
 <div class="section" id="source-code">
-<h3>指定產生檔案的資料夾 (不要混在 source code 裡)<a class="headerlink" href="#source-code" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id9">指定產生檔案的資料夾 (不要混在 source code 裡)</a><a class="headerlink" href="#source-code" title="本標題的永久連結">¶</a></h3>
 <p>直接在想要放的 folder 下 cmake (接 source code 資料夾)</p>
 <p>例如：</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ mkdir build
@@ -1085,7 +1104,7 @@ $ cmake ../
 </div>
 </div>
 <div class="section" id="linker">
-<h2>換 Linker<a class="headerlink" href="#linker" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id10">換 Linker</a><a class="headerlink" href="#linker" title="本標題的永久連結">¶</a></h2>
 <p>預設狀況下，
 Linker 會去找 Compiler 來用，
 例如 C++ 的會設成這樣 :</p>
@@ -1109,7 +1128,7 @@ Linker 會去找 Compiler 來用，
 </ul>
 </div>
 <div class="section" id="compiler-options">
-<h2>偵測 Compiler Options<a class="headerlink" href="#compiler-options" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id11">偵測 Compiler Options</a><a class="headerlink" href="#compiler-options" title="本標題的永久連結">¶</a></h2>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">include</span><span class="p">(</span><span class="s">CheckCCompilerFlag</span><span class="p">)</span>
 
 <span class="nb">check_c_compiler_flag</span><span class="p">(</span><span class="s">-fno-sanitize-recover=all</span> <span class="s">SANITIZE_RECOVER_ALL</span><span class="p">)</span>
@@ -1149,6 +1168,19 @@ Result : -fno-sanitize-recover<span class="o">=</span>all
 -- Build files have been written to: /tmp/build
 </pre></div>
 </div>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id12">參考</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/onqtam/awesome-cmake">Awesome CMake</a></li>
+<li><a class="reference external" href="https://github.com/dockcross/dockcross/">Cross compiling toolchains in Docker images</a></li>
+<li><a class="reference external" href="https://github.com/staticlibs/cmake/">CMake scripts for Staticlibs projects</a></li>
+<li><a class="reference external" href="https://github.com/ruslo/polly">Collection of CMake toolchain files and scripts for cross-platform build</a></li>
+<li><a class="reference external" href="https://github.com/taka-no-me/android-cmake">Android CMake</a></li>
+<li><a class="reference external" href="https://github.com/ttroy50/cmake-examples">CMake Examples</a></li>
+<li><a class="reference external" href="https://github.com/Akagi201/learning-cmake">Learning CMake</a></li>
+<li><a class="reference external" href="https://llvm.org/docs/CMakePrimer.html">LLVM - CMake Primer</a></li>
+</ul>
 </div>
 </div>
 

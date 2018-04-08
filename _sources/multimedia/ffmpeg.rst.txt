@@ -72,6 +72,31 @@ Libav 是 FFmpeg 的分支，
     $ ffmpeg -i input.mp4 -strict experimental -vcodec libx264 output.mp4
 
 
+使用 VAAPI：
+
+.. code-block:: sh
+
+    # 檢查 VAAPI H264 decode 支援
+    $ vainfo | rg H264 | rg VAEntrypointVLD
+    # 檢查 VAAPI H264 encode 支援
+    $ vainfo | rg H264 | rg VAEntrypointEncSlice
+
+.. code-block:: sh
+
+    $ ffmpeg -vaapi_device /dev/dri/renderD128 \
+        -i input.flv -vf 'format=nv12,hwupload' \
+        -c:v h264_vaapi out.mp4
+
+.. code-block:: sh
+
+    $ ffmpeg -vaapi_device /dev/dri/renderD128 \
+        -i input.flv -vf 'format=nv12,hwupload' \
+        -c:a copy -c:v h264_vaapi \
+        -profile:v 100 -level 51 -bf 10 -crf 28 \
+        out.mp4
+
+
+
 參考
 ========================================
 
@@ -80,3 +105,11 @@ Libav 是 FFmpeg 的分支，
 * `Arch Wiki - FFmpeg <https://wiki.archlinux.org/index.php/FFmpeg>`_
 * [GitHub] `FFmpeg <https://github.com/FFmpeg/FFmpeg>`_
 * `[2015][FFmpeg-devel] FFmpegs future and resigning as leader <http://ffmpeg.org/pipermail/ffmpeg-devel/2015-July/176489.html>`_
+* `FFmpeg - H.264 Video Encoding Guide <https://trac.ffmpeg.org/wiki/Encode/H.264>`_
+* `FFmpeg - VAAPI <https://trac.ffmpeg.org/wiki/Hardware/VAAPI>`_
+* `libav - VAAPI <https://wiki.libav.org/Hardware/vaapi>`_
+
+* `CRF Guide (Constant Rate Factor in x264 and x265) <http://slhck.info/video/2017/02/24/crf-guide.html>`_
+* `Understanding Rate Control Modes (x264, x265, vpx) <http://slhck.info/video/2017/03/01/rate-control.html>`_
+* `FFmpeg VBR Settings <http://slhck.info/video/2017/02/24/vbr-settings.html>`_
+* `FFmpeg and x264 Encoding Guide <http://www.mpabo.com/2014/12/14/ffmpeg-and-x264-encoding-guide/>`_
