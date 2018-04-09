@@ -544,6 +544,49 @@ OMX
 
 
 
+範例
+========================================
+
+RTSP to WebM with HTML video tag
+--------------------------------
+
+.. code-block:: sh
+
+    gst-launch-1.0 \
+        webmmux name=webm ! tcpserversink host=127.0.0.1 port=8080 \
+        rtspsrc location=rtsp://.../ ! \
+        decodebin name=dmux \
+        dmux. ! videoconvert ! vp8enc ! webm.video_0
+
+
+.. code-block:: sh
+
+    gst-launch-1.0 \
+        webmmux name=webm ! tcpserversink host=127.0.0.1 port=8080 \
+        rtspsrc location=rtsp://.../ ! \
+        decodebin name=dmux \
+        dmux. ! audioconvert ! vorbisenc ! webm.audio_0
+
+
+.. code-block:: sh
+
+    gst-launch-1.0 \
+        webmmux name=webm ! tcpserversink host=127.0.0.1 port=8081 \
+        uridecodebin uri=rtsp://.../ name=dmux \
+        dmux. ! videoconvert ! vp8enc ! queue ! webm.video_0 \
+        dmux. ! audioconvert ! audiorate ! vorbisenc ! queue ! webm.audio_0
+
+
+HTML 範例：
+
+.. code-block:: html
+
+    <video width=640 height=480 autoplay>
+     <source src="http://localhost:8081">
+    </video>
+
+
+
 Benchmark & Profiling
 ========================================
 
