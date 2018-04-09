@@ -907,85 +907,134 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
            <div itemprop="articleBody">
             
   <div class="section" id="pacman">
-<h1>Pacman<a class="headerlink" href="#pacman" title="本標題的永久連結">¶</a></h1>
+<h1><a class="toc-backref" href="#id4">Pacman</a><a class="headerlink" href="#pacman" title="本標題的永久連結">¶</a></h1>
+<div class="contents topic" id="id1">
+<p class="topic-title first">目錄</p>
 <ul class="simple">
-<li>check packages, find missing files</li>
+<li><a class="reference internal" href="#pacman" id="id4">Pacman</a><ul>
+<li><a class="reference internal" href="#id2" id="id5">常見使用</a></li>
+<li><a class="reference internal" href="#pacgraph" id="id6">pacgraph</a></li>
+<li><a class="reference internal" href="#yaourt" id="id7">Yaourt</a></li>
+<li><a class="reference internal" href="#id3" id="id8">參考</a></li>
 </ul>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pacman -Qk
+</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id5">常見使用</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<p>尋找特定檔案在哪個套件：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pkgfile -s rg
 </pre></div>
 </div>
-<hr class="docutils" />
-<ul class="simple">
-<li>list explicitly installed packages not available in official repositories</li>
-</ul>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pacman -Qem
+<p>安裝套件：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo pacman -S ripgrep
 </pre></div>
 </div>
-<hr class="docutils" />
-<ul class="simple">
-<li>remove all packages no longer required as dependencies (orphans):</li>
-</ul>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pacman -Qdt <span class="p">|</span> awk <span class="s1">&#39;{print $1}&#39;</span> <span class="p">|</span> xargs sudo pacman -R --noconfirm
+<p>強制安裝套件、不要詢問同意：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo pacman -S ripgrep --force --confirm
 </pre></div>
 </div>
-<hr class="docutils" />
-<ul class="simple">
-<li>force remove specific packages</li>
-</ul>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pacman -Rdd mypackage
-</pre></div>
-</div>
+<p>移除相關使用說明：</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pacman -R --help
 usage:  pacman <span class="o">{</span>-R --remove<span class="o">}</span> <span class="o">[</span>options<span class="o">]</span> &lt;package<span class="o">(</span>s<span class="o">)</span>&gt;
 options:
--b, --dbpath &lt;path&gt;  <span class="nb">set</span> an alternate database location
--c, --cascade        remove packages and all packages that depend on them
--d, --nodeps         skip dependency version checks <span class="o">(</span>-dd to skip all checks<span class="o">)</span>
--n, --nosave         remove configuration files
--p, --print          print the targets instead of performing the operation
--r, --root &lt;path&gt;    <span class="nb">set</span> an alternate installation root
--s, --recursive      remove unnecessary dependencies
-                    <span class="o">(</span>-ss includes explicitly installed dependencies<span class="o">)</span>
--u, --unneeded       remove unneeded packages
--v, --verbose        be verbose
-    --arch &lt;arch&gt;    <span class="nb">set</span> an alternate architecture
-    --assume-installed &lt;<span class="nv">package</span><span class="o">=</span>version&gt;
-                    add a virtual package to satisfy dependencies
-    --cachedir &lt;dir&gt; <span class="nb">set</span> an alternate package cache location
-    --color &lt;when&gt;   colorize the output
-    --config &lt;path&gt;  <span class="nb">set</span> an alternate configuration file
-    --confirm        always ask <span class="k">for</span> confirmation
-    --dbonly         only modify database entries, not package files
-    --debug          display debug messages
-    --gpgdir &lt;path&gt;  <span class="nb">set</span> an alternate home directory <span class="k">for</span> GnuPG
-    --logfile &lt;path&gt; <span class="nb">set</span> an alternate log file
-    --noconfirm      <span class="k">do</span> not ask <span class="k">for</span> any confirmation
-    --noprogressbar  <span class="k">do</span> not show a progress bar when downloading files
-    --noscriptlet    <span class="k">do</span> not execute the install scriptlet <span class="k">if</span> one exists
-    --print-format &lt;string&gt;
-                    specify how the targets should be printed
+  -b, --dbpath &lt;path&gt;  <span class="nb">set</span> an alternate database location
+  -c, --cascade        remove packages and all packages that depend on them
+  -d, --nodeps         skip dependency version checks <span class="o">(</span>-dd to skip all checks<span class="o">)</span>
+  -n, --nosave         remove configuration files
+  -p, --print          print the targets instead of performing the operation
+  -r, --root &lt;path&gt;    <span class="nb">set</span> an alternate installation root
+  -s, --recursive      remove unnecessary dependencies
+                       <span class="o">(</span>-ss includes explicitly installed dependencies<span class="o">)</span>
+  -u, --unneeded       remove unneeded packages
+  -v, --verbose        be verbose
+      --arch &lt;arch&gt;    <span class="nb">set</span> an alternate architecture
+      --assume-installed &lt;<span class="nv">package</span><span class="o">=</span>version&gt;
+                       add a virtual package to satisfy dependencies
+      --cachedir &lt;dir&gt; <span class="nb">set</span> an alternate package cache location
+      --color &lt;when&gt;   colorize the output
+      --config &lt;path&gt;  <span class="nb">set</span> an alternate configuration file
+      --confirm        always ask <span class="k">for</span> confirmation
+      --dbonly         only modify database entries, not package files
+      --debug          display debug messages
+      --gpgdir &lt;path&gt;  <span class="nb">set</span> an alternate home directory <span class="k">for</span> GnuPG
+      --hookdir &lt;dir&gt;  <span class="nb">set</span> an alternate hook location
+      --logfile &lt;path&gt; <span class="nb">set</span> an alternate log file
+      --noconfirm      <span class="k">do</span> not ask <span class="k">for</span> any confirmation
+      --noprogressbar  <span class="k">do</span> not show a progress bar when downloading files
+      --noscriptlet    <span class="k">do</span> not execute the install scriptlet <span class="k">if</span> one exists
+      --print-format &lt;string&gt;
+                       specify how the targets should be printed
 </pre></div>
 </div>
-<hr class="docutils" />
+<p>移除套件：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo pacman -R mypackage
+</pre></div>
+</div>
+<p>強制移除套件：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo pacman -Rdd mypackage
+</pre></div>
+</div>
+<p>遞迴地移除套件和相依：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo pacman -Rcussn ocaml
+</pre></div>
+</div>
+<p>列出已安裝套件：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pacman -Q
+</pre></div>
+</div>
+<p>列出已安裝套件所裝入的檔案：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pacman -Ql ripgrep
+</pre></div>
+</div>
+<p>檢查套件、尋找遺失的檔案：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pacman -Qk
+</pre></div>
+</div>
+<p>列出不在官方套件列表的已安裝套件：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pacman -Qem
+</pre></div>
+</div>
+</div>
+<div class="section" id="pacgraph">
+<h2><a class="toc-backref" href="#id6">pacgraph</a><a class="headerlink" href="#pacgraph" title="本標題的永久連結">¶</a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo pacman -S pacgraph
+pacgraph
+<span class="c1"># see pacgraph.svg and pacgraph.png</span>
+pacgraph --console <span class="p">|</span> head
+<span class="c1"># http://kmkeen.com/pacgraph/</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="yaourt">
+<h2><a class="toc-backref" href="#id7">Yaourt</a><a class="headerlink" href="#yaourt" title="本標題的永久連結">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">/etc/yaourtrc</span></code> :</p>
+<blockquote>
+<div>EXPORT=2    # save to pacman cache</div></blockquote>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id8">參考</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><dl class="first docutils">
-<dt><a class="reference external" href="https://github.com/icy/pacapt/">pacapt - An Arch’s pacman-like package manager for some Unices</a></dt>
+<dt><a class="reference external" href="https://wiki.archlinux.org/index.php/Pacman/Pacnew_and_Pacsave">Pacnew and Pacsave</a></dt>
+<dd><ul class="first last">
+<li>有一些套件好像不會產生？ e.g. fish</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><a class="reference external" href="https://wiki.archlinux.org/index.php/PKGBUILD">Arch Wiki - PKGBUILD</a></li>
+<li><a class="reference external" href="https://github.com/Jguer/yay">Yet another Yogurt - An AUR Helper written in Go</a></li>
+<li><dl class="first docutils">
+<dt><a class="reference external" href="https://github.com/icy/pacapt/">pacapt - Arch pacman-like package manager for some Unices</a></dt>
 <dd><ul class="first last">
 <li><code class="docutils literal notranslate"><span class="pre">pacman</span></code>-like wrapper for other package manager</li>
 </ul>
 </dd>
 </dl>
 </li>
+<li><a class="reference external" href="https://github.com/rmarquis/pacaur">An AUR helper that minimizes user interaction</a></li>
 </ul>
-<hr class="docutils" />
-<ul class="simple">
-<li><a class="reference external" href="https://wiki.archlinux.org/index.php/PKGBUILD">Arch Wiki - PKGBUILD</a></li>
-</ul>
-<div class="section" id="yaourt">
-<h2>Yaourt<a class="headerlink" href="#yaourt" title="本標題的永久連結">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">/etc/yaourtrc</span></code> :</p>
-<blockquote>
-<div>EXPORT=2    # save to pacman cache</div></blockquote>
 </div>
 </div>
 

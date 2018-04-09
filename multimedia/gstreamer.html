@@ -640,9 +640,18 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l3"><a class="reference internal" href="#omx">OMX</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#id11">開發小技巧</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id12">檢查是否可以收到串流</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">檢查串流內的格式</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id14">範例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rtsp-to-webm-with-html-video-tag">RTSP to WebM with HTML video tag</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#benchmark-profiling">Benchmark &amp; Profiling</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#term">Term</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id11">設計重點</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id15">設計重點</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#write-plugin">Write Plugin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#real-time-streaming">Real-Time Streaming</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#cheatsheet">Cheatsheet</a><ul>
@@ -655,7 +664,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l2"><a class="reference internal" href="#license">License</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#gstreamer-0-10-1-x">GStreamer 0.10 -&gt; 1.x</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#gstreamer-1-14">GStreamer 1.14</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id12">參考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id16">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="hardware-acceleration.html">硬體加速 (Hardware Acceleration)</a></li>
@@ -965,71 +974,80 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
            <div itemprop="articleBody">
             
   <div class="section" id="gstreamer">
-<h1><a class="toc-backref" href="#id13">GStreamer</a><a class="headerlink" href="#gstreamer" title="本標題的永久連結">¶</a></h1>
+<h1><a class="toc-backref" href="#id17">GStreamer</a><a class="headerlink" href="#gstreamer" title="本標題的永久連結">¶</a></h1>
 <div class="contents topic" id="id1">
 <p class="topic-title first">目錄</p>
 <ul class="simple">
-<li><a class="reference internal" href="#gstreamer" id="id13">GStreamer</a><ul>
-<li><a class="reference internal" href="#id2" id="id14">文件</a></li>
-<li><a class="reference internal" href="#pipeline" id="id15">Pipeline</a><ul>
-<li><a class="reference internal" href="#id3" id="id16">基本介紹</a></li>
-<li><a class="reference internal" href="#id4" id="id17">產生 Pipeline 流程圖</a></li>
-<li><a class="reference internal" href="#id5" id="id18">檢查目前系統的支援</a></li>
-<li><a class="reference internal" href="#id6" id="id19">除錯</a></li>
+<li><a class="reference internal" href="#gstreamer" id="id17">GStreamer</a><ul>
+<li><a class="reference internal" href="#id2" id="id18">文件</a></li>
+<li><a class="reference internal" href="#pipeline" id="id19">Pipeline</a><ul>
+<li><a class="reference internal" href="#id3" id="id20">基本介紹</a></li>
+<li><a class="reference internal" href="#id4" id="id21">產生 Pipeline 流程圖</a></li>
+<li><a class="reference internal" href="#id5" id="id22">檢查目前系統的支援</a></li>
+<li><a class="reference internal" href="#id6" id="id23">除錯</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#source" id="id20">Source</a></li>
-<li><a class="reference internal" href="#sink" id="id21">Sink</a></li>
-<li><a class="reference internal" href="#binding" id="id22">Binding</a><ul>
-<li><a class="reference internal" href="#gobject-introspection" id="id23">GObject Introspection</a></li>
-<li><a class="reference internal" href="#python" id="id24">Python</a></li>
-<li><a class="reference internal" href="#rust" id="id25">Rust</a></li>
+<li><a class="reference internal" href="#source" id="id24">Source</a></li>
+<li><a class="reference internal" href="#sink" id="id25">Sink</a></li>
+<li><a class="reference internal" href="#binding" id="id26">Binding</a><ul>
+<li><a class="reference internal" href="#gobject-introspection" id="id27">GObject Introspection</a></li>
+<li><a class="reference internal" href="#python" id="id28">Python</a></li>
+<li><a class="reference internal" href="#rust" id="id29">Rust</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id8" id="id26">核心元件</a><ul>
-<li><a class="reference internal" href="#pipeline-branch-tee" id="id27">Pipeline Branch - tee</a></li>
-<li><a class="reference internal" href="#file-descriptor-fdsink" id="id28">寫到指定的 File Descriptor - fdsink</a></li>
-<li><a class="reference internal" href="#file-descriptor-fdsrc" id="id29">從指定的 File Descriptor 讀入 - fdsrc</a></li>
-<li><a class="reference internal" href="#input-selector" id="id30">input-selector</a></li>
-<li><a class="reference internal" href="#identity" id="id31">identity</a></li>
-<li><a class="reference internal" href="#funnel" id="id32">funnel</a></li>
+<li><a class="reference internal" href="#id8" id="id30">核心元件</a><ul>
+<li><a class="reference internal" href="#pipeline-branch-tee" id="id31">Pipeline Branch - tee</a></li>
+<li><a class="reference internal" href="#file-descriptor-fdsink" id="id32">寫到指定的 File Descriptor - fdsink</a></li>
+<li><a class="reference internal" href="#file-descriptor-fdsrc" id="id33">從指定的 File Descriptor 讀入 - fdsrc</a></li>
+<li><a class="reference internal" href="#input-selector" id="id34">input-selector</a></li>
+<li><a class="reference internal" href="#identity" id="id35">identity</a></li>
+<li><a class="reference internal" href="#funnel" id="id36">funnel</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id9" id="id33">其他元件</a><ul>
-<li><a class="reference internal" href="#tcp" id="id34">TCP</a></li>
+<li><a class="reference internal" href="#id9" id="id37">其他元件</a><ul>
+<li><a class="reference internal" href="#tcp" id="id38">TCP</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#plugin-blacklist" id="id35">顯示 plugin 被放入 blacklist 的原因</a></li>
-<li><a class="reference internal" href="#id10" id="id36">Pipeline 除錯</a></li>
-<li><a class="reference internal" href="#hardware-acceleration" id="id37">硬體加速 (Hardware Acceleration)</a><ul>
-<li><a class="reference internal" href="#va-api" id="id38">VA-API</a></li>
-<li><a class="reference internal" href="#vdpau" id="id39">VDPAU</a></li>
-<li><a class="reference internal" href="#intel-media-sdk" id="id40">Intel Media SDK</a></li>
-<li><a class="reference internal" href="#omx" id="id41">OMX</a></li>
+<li><a class="reference internal" href="#plugin-blacklist" id="id39">顯示 plugin 被放入 blacklist 的原因</a></li>
+<li><a class="reference internal" href="#id10" id="id40">Pipeline 除錯</a></li>
+<li><a class="reference internal" href="#hardware-acceleration" id="id41">硬體加速 (Hardware Acceleration)</a><ul>
+<li><a class="reference internal" href="#va-api" id="id42">VA-API</a></li>
+<li><a class="reference internal" href="#vdpau" id="id43">VDPAU</a></li>
+<li><a class="reference internal" href="#intel-media-sdk" id="id44">Intel Media SDK</a></li>
+<li><a class="reference internal" href="#omx" id="id45">OMX</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#benchmark-profiling" id="id42">Benchmark &amp; Profiling</a></li>
-<li><a class="reference internal" href="#term" id="id43">Term</a></li>
-<li><a class="reference internal" href="#id11" id="id44">設計重點</a></li>
-<li><a class="reference internal" href="#write-plugin" id="id45">Write Plugin</a></li>
-<li><a class="reference internal" href="#real-time-streaming" id="id46">Real-Time Streaming</a></li>
-<li><a class="reference internal" href="#cheatsheet" id="id47">Cheatsheet</a><ul>
-<li><a class="reference internal" href="#check-receiving" id="id48">Check Receiving</a></li>
-<li><a class="reference internal" href="#play-directly" id="id49">Play Directly</a></li>
-<li><a class="reference internal" href="#record" id="id50">Record</a></li>
+<li><a class="reference internal" href="#id11" id="id46">開發小技巧</a><ul>
+<li><a class="reference internal" href="#id12" id="id47">檢查是否可以收到串流</a></li>
+<li><a class="reference internal" href="#id13" id="id48">檢查串流內的格式</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#restart-pipeline-in-application" id="id51">Restart Pipeline in Application</a></li>
-<li><a class="reference internal" href="#license" id="id52">License</a></li>
-<li><a class="reference internal" href="#gstreamer-0-10-1-x" id="id53">GStreamer 0.10 -&gt; 1.x</a></li>
-<li><a class="reference internal" href="#gstreamer-1-14" id="id54">GStreamer 1.14</a></li>
-<li><a class="reference internal" href="#id12" id="id55">參考</a></li>
+<li><a class="reference internal" href="#id14" id="id49">範例</a><ul>
+<li><a class="reference internal" href="#rtsp-to-webm-with-html-video-tag" id="id50">RTSP to WebM with HTML video tag</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#benchmark-profiling" id="id51">Benchmark &amp; Profiling</a></li>
+<li><a class="reference internal" href="#term" id="id52">Term</a></li>
+<li><a class="reference internal" href="#id15" id="id53">設計重點</a></li>
+<li><a class="reference internal" href="#write-plugin" id="id54">Write Plugin</a></li>
+<li><a class="reference internal" href="#real-time-streaming" id="id55">Real-Time Streaming</a></li>
+<li><a class="reference internal" href="#cheatsheet" id="id56">Cheatsheet</a><ul>
+<li><a class="reference internal" href="#check-receiving" id="id57">Check Receiving</a></li>
+<li><a class="reference internal" href="#play-directly" id="id58">Play Directly</a></li>
+<li><a class="reference internal" href="#record" id="id59">Record</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#restart-pipeline-in-application" id="id60">Restart Pipeline in Application</a></li>
+<li><a class="reference internal" href="#license" id="id61">License</a></li>
+<li><a class="reference internal" href="#gstreamer-0-10-1-x" id="id62">GStreamer 0.10 -&gt; 1.x</a></li>
+<li><a class="reference internal" href="#gstreamer-1-14" id="id63">GStreamer 1.14</a></li>
+<li><a class="reference internal" href="#id16" id="id64">參考</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="id2">
-<h2><a class="toc-backref" href="#id14">文件</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id18">文件</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://lazka.github.io/pgi-docs/#Gst-1.0/">PyGObject API Reference - Gst</a></li>
 <li><a class="reference external" href="https://gstreamer.freedesktop.org/data/doc/gstreamer/stable/gstreamer/html/">GStreamer Core Reference Manual</a></li>
@@ -1037,9 +1055,9 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </ul>
 </div>
 <div class="section" id="pipeline">
-<h2><a class="toc-backref" href="#id15">Pipeline</a><a class="headerlink" href="#pipeline" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id19">Pipeline</a><a class="headerlink" href="#pipeline" title="本標題的永久連結">¶</a></h2>
 <div class="section" id="id3">
-<h3><a class="toc-backref" href="#id16">基本介紹</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id20">基本介紹</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h3>
 <p>基本流程：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Source</span> <span class="o">-&gt;</span> <span class="n">中間處理</span> <span class="o">-&gt;</span> <span class="n">Sink</span>
 </pre></div>
@@ -1053,7 +1071,7 @@ $ gst-launch-1.0 filesrc <span class="nv">location</span><span class="o">=</span
 </div>
 </div>
 <div class="section" id="id4">
-<h3><a class="toc-backref" href="#id17">產生 Pipeline 流程圖</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id21">產生 Pipeline 流程圖</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h3>
 <p>使用 <code class="docutils literal notranslate"><span class="pre">GST_DEBUG_DUMP_DOT_DIR</span></code> 來指定 DOT 描述語言的輸出資料夾。</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ env <span class="nv">GST_DEBUG_DUMP_DOT_DIR</span><span class="o">=</span>/tmp/dot/ gst-launch-1.0 filesrc <span class="nv">location</span><span class="o">=</span>sample.mp4 ! qtdemux ! rtph264pay config-interval<span class="o">=</span><span class="m">1</span> ! udpsink <span class="nv">host</span><span class="o">=</span><span class="m">127</span>.0.0.1 <span class="nv">port</span><span class="o">=</span><span class="m">5566</span>
 </pre></div>
@@ -1064,7 +1082,7 @@ $ xdot /tmp/dot/0.00.00.023250085-gst-launch.PAUSED_PLAYING.dot
 </div>
 </div>
 <div class="section" id="id5">
-<h3><a class="toc-backref" href="#id18">檢查目前系統的支援</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id22">檢查目前系統的支援</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h3>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ gst-inspect-1.0
 ...
 
@@ -1088,7 +1106,7 @@ Plugin Details:
 </div>
 </div>
 <div class="section" id="id6">
-<h3><a class="toc-backref" href="#id19">除錯</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id23">除錯</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h3>
 <p>可以利用 <code class="docutils literal notranslate"><span class="pre">GST_DEBUG</span></code> 設定全域的資訊層級或是特定元件的資訊層級。</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ env <span class="nv">GST_DEBUG</span><span class="o">=</span><span class="m">4</span> gst-launch-1.0 filesrc <span class="nv">location</span><span class="o">=</span>sample.mp4 ! qtdemux ! rtph264pay config-interval<span class="o">=</span><span class="m">1</span> ! udpsink <span class="nv">host</span><span class="o">=</span><span class="m">127</span>.0.0.1 <span class="nv">port</span><span class="o">=</span><span class="m">5566</span>
 </pre></div>
@@ -1096,7 +1114,7 @@ Plugin Details:
 </div>
 </div>
 <div class="section" id="source">
-<h2><a class="toc-backref" href="#id20">Source</a><a class="headerlink" href="#source" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id24">Source</a><a class="headerlink" href="#source" title="本標題的永久連結">¶</a></h2>
 <p>稍微列出一些常見的 Source：</p>
 <ul class="simple">
 <li>第三方應用程式（用於利用 GStreamer 撰寫自己的程式）: appsrc</li>
@@ -1109,7 +1127,7 @@ Plugin Details:
 </div>
 </div>
 <div class="section" id="sink">
-<h2><a class="toc-backref" href="#id21">Sink</a><a class="headerlink" href="#sink" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id25">Sink</a><a class="headerlink" href="#sink" title="本標題的永久連結">¶</a></h2>
 <p>稍微列出一些常見的 Source：</p>
 <ul class="simple">
 <li>第三方應用程式（用於利用 GStreamer 撰寫自己的程式）: appsink</li>
@@ -1122,9 +1140,9 @@ Plugin Details:
 </div>
 </div>
 <div class="section" id="binding">
-<h2><a class="toc-backref" href="#id22">Binding</a><a class="headerlink" href="#binding" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id26">Binding</a><a class="headerlink" href="#binding" title="本標題的永久連結">¶</a></h2>
 <div class="section" id="gobject-introspection">
-<h3><a class="toc-backref" href="#id23">GObject Introspection</a><a class="headerlink" href="#gobject-introspection" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id27">GObject Introspection</a><a class="headerlink" href="#gobject-introspection" title="本標題的永久連結">¶</a></h3>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1135,7 +1153,7 @@ Plugin Details:
 </table>
 <ul class="simple">
 <li>GIR: XML 格式，用於 GObject Introspection，提供共同的結構來存取 API，這格式的設計適用於各種程式語言，利用 namespace 來區分 core、language、library 的功能</li>
-<li>Typelib: binary 格式的 GIR，設計原則是快、少用少量記憶體、足夠讓各個程式語言沒有原始碼的狀況下做出 binding</li>
+<li>Typelib: binary 格式的 GIR，設計原則是快、使用少量記憶體、足夠讓各個程式語言沒有原始碼的狀況下做出 binding</li>
 <li><dl class="first docutils">
 <dt>工具:</dt>
 <dd><ul class="first last">
@@ -1151,7 +1169,7 @@ Plugin Details:
 </ul>
 </div>
 <div class="section" id="python">
-<h3><a class="toc-backref" href="#id24">Python</a><a class="headerlink" href="#python" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id28">Python</a><a class="headerlink" href="#python" title="本標題的永久連結">¶</a></h3>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1189,7 +1207,7 @@ $ pip install <span class="s2">&quot;git+https://git.gnome.org/browse/pygobject@
 </div>
 </div>
 <div class="section" id="rust">
-<h3><a class="toc-backref" href="#id25">Rust</a><a class="headerlink" href="#rust" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id29">Rust</a><a class="headerlink" href="#rust" title="本標題的永久連結">¶</a></h3>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1207,10 +1225,10 @@ $ pip install <span class="s2">&quot;git+https://git.gnome.org/browse/pygobject@
 </div>
 </div>
 <div class="section" id="id8">
-<h2><a class="toc-backref" href="#id26">核心元件</a><a class="headerlink" href="#id8" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id30">核心元件</a><a class="headerlink" href="#id8" title="本標題的永久連結">¶</a></h2>
 <p><a class="reference external" href="https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer-plugins/html/gstreamer-plugins-plugin-coreelements.html">core elements</a></p>
 <div class="section" id="pipeline-branch-tee">
-<h3><a class="toc-backref" href="#id27">Pipeline Branch - tee</a><a class="headerlink" href="#pipeline-branch-tee" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id31">Pipeline Branch - tee</a><a class="headerlink" href="#pipeline-branch-tee" title="本標題的永久連結">¶</a></h3>
 <p><a class="reference external" href="https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer-plugins/html/gstreamer-plugins-tee.html">tee</a>
 會從原本的 Pipeline 切出 Branch，
 範例：</p>
@@ -1221,13 +1239,13 @@ $ pip install <span class="s2">&quot;git+https://git.gnome.org/browse/pygobject@
 </div>
 </div>
 <div class="section" id="file-descriptor-fdsink">
-<h3><a class="toc-backref" href="#id28">寫到指定的 File Descriptor - fdsink</a><a class="headerlink" href="#file-descriptor-fdsink" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id32">寫到指定的 File Descriptor - fdsink</a><a class="headerlink" href="#file-descriptor-fdsink" title="本標題的永久連結">¶</a></h3>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ gst-launch-1.0 -q videotestsrc <span class="nv">pattern</span><span class="o">=</span>ball ! video/x-raw,height<span class="o">=</span><span class="m">320</span>,width<span class="o">=</span><span class="m">240</span>,framerate<span class="o">=</span><span class="m">30</span>/1,format<span class="o">=</span>RGB ! fdsink <span class="p">|</span> ffplay -f rawvideo -pixel_format rgb24 -video_size 240x320 -i -
 </pre></div>
 </div>
 </div>
 <div class="section" id="file-descriptor-fdsrc">
-<h3><a class="toc-backref" href="#id29">從指定的 File Descriptor 讀入 - fdsrc</a><a class="headerlink" href="#file-descriptor-fdsrc" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id33">從指定的 File Descriptor 讀入 - fdsrc</a><a class="headerlink" href="#file-descriptor-fdsrc" title="本標題的永久連結">¶</a></h3>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">echo</span> <span class="s2">&quot;Hello GStreamer&quot;</span> <span class="p">|</span> gst-launch-1.0 -v fdsrc ! fakesink <span class="nv">dump</span><span class="o">=</span><span class="nb">true</span>
 Setting pipeline to PAUSED ...
 Pipeline is PREROLLING ...
@@ -1245,19 +1263,19 @@ Freeing pipeline ...
 </div>
 </div>
 <div class="section" id="input-selector">
-<h3><a class="toc-backref" href="#id30">input-selector</a><a class="headerlink" href="#input-selector" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id34">input-selector</a><a class="headerlink" href="#input-selector" title="本標題的永久連結">¶</a></h3>
 </div>
 <div class="section" id="identity">
-<h3><a class="toc-backref" href="#id31">identity</a><a class="headerlink" href="#identity" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id35">identity</a><a class="headerlink" href="#identity" title="本標題的永久連結">¶</a></h3>
 </div>
 <div class="section" id="funnel">
-<h3><a class="toc-backref" href="#id32">funnel</a><a class="headerlink" href="#funnel" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id36">funnel</a><a class="headerlink" href="#funnel" title="本標題的永久連結">¶</a></h3>
 </div>
 </div>
 <div class="section" id="id9">
-<h2><a class="toc-backref" href="#id33">其他元件</a><a class="headerlink" href="#id9" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id37">其他元件</a><a class="headerlink" href="#id9" title="本標題的永久連結">¶</a></h2>
 <div class="section" id="tcp">
-<h3><a class="toc-backref" href="#id34">TCP</a><a class="headerlink" href="#tcp" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id38">TCP</a><a class="headerlink" href="#tcp" title="本標題的永久連結">¶</a></h3>
 <ul class="simple">
 <li>tcpserversrc</li>
 <li>tcpserversink</li>
@@ -1267,10 +1285,10 @@ Freeing pipeline ...
 </div>
 </div>
 <div class="section" id="plugin-blacklist">
-<h2><a class="toc-backref" href="#id35">顯示 plugin 被放入 blacklist 的原因</a><a class="headerlink" href="#plugin-blacklist" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id39">顯示 plugin 被放入 blacklist 的原因</a><a class="headerlink" href="#plugin-blacklist" title="本標題的永久連結">¶</a></h2>
 </div>
 <div class="section" id="id10">
-<h2><a class="toc-backref" href="#id36">Pipeline 除錯</a><a class="headerlink" href="#id10" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id40">Pipeline 除錯</a><a class="headerlink" href="#id10" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li>[GitHub] <a class="reference external" href="https://github.com/GStreamer/gst-devtools">gst-devtools</a></li>
 <li><a class="reference external" href="https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-validate/html/gst-validate.html">gst-validate</a></li>
@@ -1419,9 +1437,9 @@ Returning <span class="m">18</span> as errors were <span class="nv">found</span>
 </div>
 </div>
 <div class="section" id="hardware-acceleration">
-<h2><a class="toc-backref" href="#id37">硬體加速 (Hardware Acceleration)</a><a class="headerlink" href="#hardware-acceleration" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id41">硬體加速 (Hardware Acceleration)</a><a class="headerlink" href="#hardware-acceleration" title="本標題的永久連結">¶</a></h2>
 <div class="section" id="va-api">
-<h3><a class="toc-backref" href="#id38">VA-API</a><a class="headerlink" href="#va-api" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id42">VA-API</a><a class="headerlink" href="#va-api" title="本標題的永久連結">¶</a></h3>
 <p>VA-API 是一套開源的 Library 和 API 定義（由 Intel 主推的），
 提供一個抽象層來使用硬體處理影像，
 硬體廠商可以為這套 API 實做自己的硬體支援。</p>
@@ -1474,13 +1492,13 @@ vainfo: Supported profile and entrypoints
 </div>
 </div>
 <div class="section" id="vdpau">
-<h3><a class="toc-backref" href="#id39">VDPAU</a><a class="headerlink" href="#vdpau" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id43">VDPAU</a><a class="headerlink" href="#vdpau" title="本標題的永久連結">¶</a></h3>
 </div>
 <div class="section" id="intel-media-sdk">
-<h3><a class="toc-backref" href="#id40">Intel Media SDK</a><a class="headerlink" href="#intel-media-sdk" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id44">Intel Media SDK</a><a class="headerlink" href="#intel-media-sdk" title="本標題的永久連結">¶</a></h3>
 </div>
 <div class="section" id="omx">
-<h3><a class="toc-backref" href="#id41">OMX</a><a class="headerlink" href="#omx" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id45">OMX</a><a class="headerlink" href="#omx" title="本標題的永久連結">¶</a></h3>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1491,11 +1509,70 @@ vainfo: Supported profile and entrypoints
 </table>
 </div>
 </div>
+<div class="section" id="id11">
+<h2><a class="toc-backref" href="#id46">開發小技巧</a><a class="headerlink" href="#id11" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="id12">
+<h3><a class="toc-backref" href="#id47">檢查是否可以收到串流</a><a class="headerlink" href="#id12" title="本標題的永久連結">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gst-launch-1.0 udpsrc <span class="nv">port</span><span class="o">=</span><span class="m">9327</span> ! fakesink <span class="nv">dump</span><span class="o">=</span><span class="nb">true</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id13">
+<h3><a class="toc-backref" href="#id48">檢查串流內的格式</a><a class="headerlink" href="#id13" title="本標題的永久連結">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gst-launch-1.0 -v rtspsrc <span class="nv">location</span><span class="o">=</span>rtsp://.../ ! fakesink
+</pre></div>
+</div>
+<p>檢查 log，尋找 「media=(string)audio」 和 「media=(string)video」 的 caps，
+套用到另外要用的 pipeline 裡：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gst-launch-1.0 udpsrc <span class="nv">port</span><span class="o">=</span><span class="m">9327</span> ! capsfilter <span class="nv">caps</span><span class="o">=</span><span class="s2">&quot;application/x-rtp, media=(string)audio, payload=(int)96, clock-rate=(int)12000, encoding-name=(string)MPEG4-GENERIC, encoding-params=(string)2, profile-level-id=(string)1, mode=(string)AAC-hbr, sizelength=(string)13, indexlength=(string)3, indexdeltalength=(string)3, config=(string)1490, a-sdplang=(string)en, ssrc=(uint)430961011, clock-base=(uint)0, seqnum-base=(uint)1, npt-start=(guint64)0, npt-stop=(guint64)596480000000, play-speed=(double)1, play-scale=(double)1&quot;</span> ! rtpmp4gdepay ! decodebin ! autoaudiosink
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gst-launch-1.0 udpsrc <span class="nv">port</span><span class="o">=</span><span class="m">9327</span> ! capsfilter <span class="nv">caps</span><span class="o">=</span><span class="s2">&quot;application/x-rtp, media=(string)audio, payload=(int)96, clock-rate=(int)12000, encoding-name=(string)MPEG4-GENERIC, encoding-params=(string)2, profile-level-id=(string)1, mode=(string)AAC-hbr, sizelength=(string)13, indexlength=(string)3, indexdeltalength=(string)3, config=(string)1490, a-sdplang=(string)en, ssrc=(uint)430961011, clock-base=(uint)0, seqnum-base=(uint)1, npt-start=(guint64)0, npt-stop=(guint64)596480000000, play-speed=(double)1, play-scale=(double)1&quot;</span> ! rtpmp4gdepay ! aacparse ! faad ! autoaudiosink
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gst-launch-1.0 udpsrc <span class="nv">port</span><span class="o">=</span><span class="m">9527</span> ! capsfilter <span class="nv">caps</span><span class="o">=</span><span class="s1">&#39;application/x-rtp, media=(string)video, payload=(int)97, clock-rate=(int)90000, encoding-name=(string)H264, packetization-mode=(string)1, profile-level-id=(string)42C01E, sprop-parameter-sets=(string)&quot;Z0LAHtkDxWhAAAADAEAAAAwDxYuS\,aMuMsg\=\=&quot;, a-framesize=(string)240-160, a-sdplang=(string)en, a-cliprect=(string)&quot;0\,0\,160\,240&quot;, a-framerate=(string)24.0, ssrc=(uint)1423328209, clock-base=(uint)0, seqnum-base=(uint)1, npt-start=(guint64)0, npt-stop=(guint64)596480000000, play-speed=(double)1, play-scale=(double)1&#39;</span> ! rtph264depay ! h264parse ! avdec_h264 ! autovideosink
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id14">
+<h2><a class="toc-backref" href="#id49">範例</a><a class="headerlink" href="#id14" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="rtsp-to-webm-with-html-video-tag">
+<h3><a class="toc-backref" href="#id50">RTSP to WebM with HTML video tag</a><a class="headerlink" href="#rtsp-to-webm-with-html-video-tag" title="本標題的永久連結">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gst-launch-1.0 <span class="se">\</span>
+    webmmux <span class="nv">name</span><span class="o">=</span>webm ! tcpserversink <span class="nv">host</span><span class="o">=</span><span class="m">127</span>.0.0.1 <span class="nv">port</span><span class="o">=</span><span class="m">8080</span> <span class="se">\</span>
+    rtspsrc <span class="nv">location</span><span class="o">=</span>rtsp://.../ ! <span class="se">\</span>
+    decodebin <span class="nv">name</span><span class="o">=</span>dmux <span class="se">\</span>
+    dmux. ! videoconvert ! vp8enc ! webm.video_0
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gst-launch-1.0 <span class="se">\</span>
+    webmmux <span class="nv">name</span><span class="o">=</span>webm ! tcpserversink <span class="nv">host</span><span class="o">=</span><span class="m">127</span>.0.0.1 <span class="nv">port</span><span class="o">=</span><span class="m">8080</span> <span class="se">\</span>
+    rtspsrc <span class="nv">location</span><span class="o">=</span>rtsp://.../ ! <span class="se">\</span>
+    decodebin <span class="nv">name</span><span class="o">=</span>dmux <span class="se">\</span>
+    dmux. ! audioconvert ! vorbisenc ! webm.audio_0
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gst-launch-1.0 <span class="se">\</span>
+    webmmux <span class="nv">name</span><span class="o">=</span>webm ! tcpserversink <span class="nv">host</span><span class="o">=</span><span class="m">127</span>.0.0.1 <span class="nv">port</span><span class="o">=</span><span class="m">8081</span> <span class="se">\</span>
+    uridecodebin <span class="nv">uri</span><span class="o">=</span>rtsp://.../ <span class="nv">name</span><span class="o">=</span>dmux <span class="se">\</span>
+    dmux. ! videoconvert ! vp8enc ! queue ! webm.video_0 <span class="se">\</span>
+    dmux. ! audioconvert ! audiorate ! vorbisenc ! queue ! webm.audio_0
+</pre></div>
+</div>
+<p>HTML 範例：</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">video</span> <span class="na">width</span><span class="o">=</span><span class="s">640</span> <span class="na">height</span><span class="o">=</span><span class="s">480</span> <span class="na">autoplay</span><span class="p">&gt;</span>
+ <span class="p">&lt;</span><span class="nt">source</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;http://localhost:8081&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">video</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="benchmark-profiling">
-<h2><a class="toc-backref" href="#id42">Benchmark &amp; Profiling</a><a class="headerlink" href="#benchmark-profiling" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id51">Benchmark &amp; Profiling</a><a class="headerlink" href="#benchmark-profiling" title="本標題的永久連結">¶</a></h2>
 </div>
 <div class="section" id="term">
-<h2><a class="toc-backref" href="#id43">Term</a><a class="headerlink" href="#term" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id52">Term</a><a class="headerlink" href="#term" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li>source</li>
 <li>sink</li>
@@ -1504,12 +1581,12 @@ vainfo: Supported profile and entrypoints
 <li>pipeline</li>
 </ul>
 </div>
-<div class="section" id="id11">
-<h2><a class="toc-backref" href="#id44">設計重點</a><a class="headerlink" href="#id11" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="id15">
+<h2><a class="toc-backref" href="#id53">設計重點</a><a class="headerlink" href="#id15" title="本標題的永久連結">¶</a></h2>
 <p>Pipeline</p>
 </div>
 <div class="section" id="write-plugin">
-<h2><a class="toc-backref" href="#id45">Write Plugin</a><a class="headerlink" href="#write-plugin" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id54">Write Plugin</a><a class="headerlink" href="#write-plugin" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://coaxion.net/blog/2016/05/writing-gstreamer-plugins-and-elements-in-rust/">Writing GStreamer plugins and elements in Rust</a></li>
 <li><a class="reference external" href="https://coaxion.net/blog/2016/09/writing-gstreamer-elements-in-rust-part-2-dont-panic-we-have-better-assertions-now-and-other-updates/">Writing GStreamer Elements in Rust (Part 2) - Don’t panic, we have better assertions now</a></li>
@@ -1518,7 +1595,7 @@ vainfo: Supported profile and entrypoints
 </ul>
 </div>
 <div class="section" id="real-time-streaming">
-<h2><a class="toc-backref" href="#id46">Real-Time Streaming</a><a class="headerlink" href="#real-time-streaming" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id55">Real-Time Streaming</a><a class="headerlink" href="#real-time-streaming" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><dl class="first docutils">
 <dt>rtspsrc</dt>
@@ -1572,9 +1649,9 @@ vainfo: Supported profile and entrypoints
 </ul>
 </div>
 <div class="section" id="cheatsheet">
-<h2><a class="toc-backref" href="#id47">Cheatsheet</a><a class="headerlink" href="#cheatsheet" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id56">Cheatsheet</a><a class="headerlink" href="#cheatsheet" title="本標題的永久連結">¶</a></h2>
 <div class="section" id="check-receiving">
-<h3><a class="toc-backref" href="#id48">Check Receiving</a><a class="headerlink" href="#check-receiving" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id57">Check Receiving</a><a class="headerlink" href="#check-receiving" title="本標題的永久連結">¶</a></h3>
 <p>用 <code class="docutils literal notranslate"><span class="pre">fakesink</span> <span class="pre">dump=true</span></code> 會把收到的資料以十六進位的方式輸出</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># 從 RTSP</span>
 gst-launch-1.0 rtspsrc <span class="nv">location</span><span class="o">=</span>rtsp://... ! fakesink <span class="nv">dump</span><span class="o">=</span><span class="nb">true</span>
@@ -1582,7 +1659,7 @@ gst-launch-1.0 rtspsrc <span class="nv">location</span><span class="o">=</span>r
 </div>
 </div>
 <div class="section" id="play-directly">
-<h3><a class="toc-backref" href="#id49">Play Directly</a><a class="headerlink" href="#play-directly" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id58">Play Directly</a><a class="headerlink" href="#play-directly" title="本標題的永久連結">¶</a></h3>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># 從攝影機</span>
 gst-launch-1.0 v4l2src ! autovideosink
 
@@ -1597,7 +1674,7 @@ gst-launch-1.0 playbin <span class="nv">uri</span><span class="o">=</span>rtsp:/
 </div>
 </div>
 <div class="section" id="record">
-<h3><a class="toc-backref" href="#id50">Record</a><a class="headerlink" href="#record" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id59">Record</a><a class="headerlink" href="#record" title="本標題的永久連結">¶</a></h3>
 <p>注意 <code class="docutils literal notranslate"><span class="pre">-e</span></code></p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># 從攝影機</span>
 gst-launch-1.0 -e v4l2src ! x264enc ! mp4mux ! filesink <span class="nv">location</span><span class="o">=</span>/tmp/sample.mp4
@@ -1612,7 +1689,7 @@ gst-launch-1.0 -e udpsrc <span class="nv">address</span><span class="o">=</span>
 </div>
 </div>
 <div class="section" id="restart-pipeline-in-application">
-<h2><a class="toc-backref" href="#id51">Restart Pipeline in Application</a><a class="headerlink" href="#restart-pipeline-in-application" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id60">Restart Pipeline in Application</a><a class="headerlink" href="#restart-pipeline-in-application" title="本標題的永久連結">¶</a></h2>
 <p>先把 pipeline 的狀態設成 <code class="docutils literal notranslate"><span class="pre">NULL</span></code> ，
 接著再設成 <code class="docutils literal notranslate"><span class="pre">PLAYING</span></code> ，
 這樣就能把整個 pipeline 重啟。</p>
@@ -1622,15 +1699,15 @@ gst-launch-1.0 -e udpsrc <span class="nv">address</span><span class="o">=</span>
 </div>
 </div>
 <div class="section" id="license">
-<h2><a class="toc-backref" href="#id52">License</a><a class="headerlink" href="#license" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id61">License</a><a class="headerlink" href="#license" title="本標題的永久連結">¶</a></h2>
 <p>LGPL</p>
 </div>
 <div class="section" id="gstreamer-0-10-1-x">
-<h2><a class="toc-backref" href="#id53">GStreamer 0.10 -&gt; 1.x</a><a class="headerlink" href="#gstreamer-0-10-1-x" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id62">GStreamer 0.10 -&gt; 1.x</a><a class="headerlink" href="#gstreamer-0-10-1-x" title="本標題的永久連結">¶</a></h2>
 <p><a class="reference external" href="https://gstreamer.freedesktop.org/documentation/application-development/appendix/porting-1-0.html">https://gstreamer.freedesktop.org/documentation/application-development/appendix/porting-1-0.html</a></p>
 </div>
 <div class="section" id="gstreamer-1-14">
-<h2><a class="toc-backref" href="#id54">GStreamer 1.14</a><a class="headerlink" href="#gstreamer-1-14" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id63">GStreamer 1.14</a><a class="headerlink" href="#gstreamer-1-14" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><dl class="first docutils">
 <dt>[2018][FOSDEM] <a class="reference external" href="https://fosdem.org/2018/schedule/event/om_gstreamer/attachments/slides/2647/export/events/attachments/om_gstreamer/slides/2647/Tim_Muller___Whats_New_in_GStreamer___FOSDEM_2018.pdf">What’s new in GStreamer</a></dt>
@@ -1652,8 +1729,8 @@ gst-launch-1.0 -e udpsrc <span class="nv">address</span><span class="o">=</span>
 </li>
 </ul>
 </div>
-<div class="section" id="id12">
-<h2><a class="toc-backref" href="#id55">參考</a><a class="headerlink" href="#id12" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="id16">
+<h2><a class="toc-backref" href="#id64">參考</a><a class="headerlink" href="#id16" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://gstreamer.freedesktop.org/documentation/licensing.html">Licensing your applications and plugins for use with GStreamer</a></li>
 <li><a class="reference external" href="https://github.com/kirushyk/gst-instruments">gst-instruments - Easy-to-use profiler for GStreamer</a></li>

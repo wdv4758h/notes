@@ -137,7 +137,7 @@ GObject Introspection
 
 
 * GIR: XML 格式，用於 GObject Introspection，提供共同的結構來存取 API，這格式的設計適用於各種程式語言，利用 namespace 來區分 core、language、library 的功能
-* Typelib: binary 格式的 GIR，設計原則是快、少用少量記憶體、足夠讓各個程式語言沒有原始碼的狀況下做出 binding
+* Typelib: binary 格式的 GIR，設計原則是快、使用少量記憶體、足夠讓各個程式語言沒有原始碼的狀況下做出 binding
 * 工具:
     - g-ir-scanner: 用於產生 GIR，可以爬 headers/GTK-Doc/libraries
     - g-ir-compiler: GIT 轉 Typelib
@@ -503,6 +503,87 @@ OMX
 ------------------------------
 
 :Repo: https://github.com/GStreamer/gst-omx
+
+
+
+開發小技巧
+========================================
+
+檢查是否可以收到串流
+------------------------------
+
+.. code-block:: sh
+
+    gst-launch-1.0 udpsrc port=9327 ! fakesink dump=true
+
+
+檢查串流內的格式
+------------------------------
+
+.. code-block:: sh
+
+    gst-launch-1.0 -v rtspsrc location=rtsp://.../ ! fakesink
+
+
+檢查 log，尋找 "media=(string)audio" 和 "media=(string)video" 的 caps，
+套用到另外要用的 pipeline 裡：
+
+.. code-block:: sh
+
+    gst-launch-1.0 udpsrc port=9327 ! capsfilter caps="application/x-rtp, media=(string)audio, payload=(int)96, clock-rate=(int)12000, encoding-name=(string)MPEG4-GENERIC, encoding-params=(string)2, profile-level-id=(string)1, mode=(string)AAC-hbr, sizelength=(string)13, indexlength=(string)3, indexdeltalength=(string)3, config=(string)1490, a-sdplang=(string)en, ssrc=(uint)430961011, clock-base=(uint)0, seqnum-base=(uint)1, npt-start=(guint64)0, npt-stop=(guint64)596480000000, play-speed=(double)1, play-scale=(double)1" ! rtpmp4gdepay ! decodebin ! autoaudiosink
+
+
+.. code-block:: sh
+
+    gst-launch-1.0 udpsrc port=9327 ! capsfilter caps="application/x-rtp, media=(string)audio, payload=(int)96, clock-rate=(int)12000, encoding-name=(string)MPEG4-GENERIC, encoding-params=(string)2, profile-level-id=(string)1, mode=(string)AAC-hbr, sizelength=(string)13, indexlength=(string)3, indexdeltalength=(string)3, config=(string)1490, a-sdplang=(string)en, ssrc=(uint)430961011, clock-base=(uint)0, seqnum-base=(uint)1, npt-start=(guint64)0, npt-stop=(guint64)596480000000, play-speed=(double)1, play-scale=(double)1" ! rtpmp4gdepay ! aacparse ! faad ! autoaudiosink
+
+
+.. code-block:: sh
+
+    gst-launch-1.0 udpsrc port=9527 ! capsfilter caps='application/x-rtp, media=(string)video, payload=(int)97, clock-rate=(int)90000, encoding-name=(string)H264, packetization-mode=(string)1, profile-level-id=(string)42C01E, sprop-parameter-sets=(string)"Z0LAHtkDxWhAAAADAEAAAAwDxYuS\,aMuMsg\=\=", a-framesize=(string)240-160, a-sdplang=(string)en, a-cliprect=(string)"0\,0\,160\,240", a-framerate=(string)24.0, ssrc=(uint)1423328209, clock-base=(uint)0, seqnum-base=(uint)1, npt-start=(guint64)0, npt-stop=(guint64)596480000000, play-speed=(double)1, play-scale=(double)1' ! rtph264depay ! h264parse ! avdec_h264 ! autovideosink
+
+
+
+範例
+========================================
+
+RTSP to WebM with HTML video tag
+--------------------------------
+
+.. code-block:: sh
+
+    gst-launch-1.0 \
+        webmmux name=webm ! tcpserversink host=127.0.0.1 port=8080 \
+        rtspsrc location=rtsp://.../ ! \
+        decodebin name=dmux \
+        dmux. ! videoconvert ! vp8enc ! webm.video_0
+
+
+.. code-block:: sh
+
+    gst-launch-1.0 \
+        webmmux name=webm ! tcpserversink host=127.0.0.1 port=8080 \
+        rtspsrc location=rtsp://.../ ! \
+        decodebin name=dmux \
+        dmux. ! audioconvert ! vorbisenc ! webm.audio_0
+
+
+.. code-block:: sh
+
+    gst-launch-1.0 \
+        webmmux name=webm ! tcpserversink host=127.0.0.1 port=8081 \
+        uridecodebin uri=rtsp://.../ name=dmux \
+        dmux. ! videoconvert ! vp8enc ! queue ! webm.video_0 \
+        dmux. ! audioconvert ! audiorate ! vorbisenc ! queue ! webm.audio_0
+
+
+HTML 範例：
+
+.. code-block:: html
+
+    <video width=640 height=480 autoplay>
+     <source src="http://localhost:8081">
+    </video>
 
 
 
