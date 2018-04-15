@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Vimscript &mdash; wdv4758h-notes latest 說明文件</title>
+  <title>Neovim Client &mdash; wdv4758h-notes latest 說明文件</title>
   
 
   
@@ -47,7 +47,7 @@
 Always link to the latest version, as canonical.
 http://docs.readthedocs.org/en/latest/canonical.html
 -->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/editor/vim/vimscript.html" />
+<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/editor/vim/neovim-client.html" />
 
 <link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
 
@@ -55,7 +55,7 @@ http://docs.readthedocs.org/en/latest/canonical.html
 
 <!-- Add page-specific data, which must exist in the page js, not global -->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = 'editor/vim/vimscript' 		
+READTHEDOCS_DATA['page'] = 'editor/vim/neovim-client' 		
 READTHEDOCS_DATA['source_suffix'] = '.rst'
 </script>
 
@@ -885,14 +885,14 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-      <li>Vimscript</li>
+      <li>Neovim Client</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
             
-              <a href="https://github.com/wdv4758h/notes/blob/master/./editor/vim/vimscript.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/wdv4758h/notes/blob/master/./editor/vim/neovim-client.rst" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -906,137 +906,110 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="vimscript">
-<h1><a class="toc-backref" href="#id4">Vimscript</a><a class="headerlink" href="#vimscript" title="本標題的永久連結">¶</a></h1>
+  <div class="section" id="neovim-client">
+<h1><a class="toc-backref" href="#id4">Neovim Client</a><a class="headerlink" href="#neovim-client" title="本標題的永久連結">¶</a></h1>
 <div class="contents topic" id="id1">
 <p class="topic-title first">目錄</p>
 <ul class="simple">
-<li><a class="reference internal" href="#vimscript" id="id4">Vimscript</a><ul>
-<li><a class="reference internal" href="#id2" id="id5">簡單範例</a></li>
-<li><a class="reference internal" href="#tools" id="id6">Tools</a></li>
-<li><a class="reference internal" href="#id3" id="id7">參考</a></li>
+<li><a class="reference internal" href="#neovim-client" id="id4">Neovim Client</a><ul>
+<li><a class="reference internal" href="#client-neovim" id="id5">Client 和 Neovim 溝通的方式</a></li>
+<li><a class="reference internal" href="#neovim-api-info" id="id6">Neovim API Info</a></li>
+<li><a class="reference internal" href="#client" id="id7">Client 的功能</a><ul>
+<li><a class="reference internal" href="#python-client" id="id8">Python Client</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id2" id="id9">功能</a></li>
+<li><a class="reference internal" href="#id3" id="id10">參考</a></li>
 </ul>
 </li>
 </ul>
+</div>
+<div class="section" id="client-neovim">
+<h2><a class="toc-backref" href="#id5">Client 和 Neovim 溝通的方式</a><a class="headerlink" href="#client-neovim" title="本標題的永久連結">¶</a></h2>
+<p>Neovim 有提供彈性化撰寫 Plugin 的方式（ <code class="docutils literal notranslate"><span class="pre">msgpack</span> <span class="pre">RPC</span> <span class="pre">API</span></code> ），
+只要使用 MessagePack 就可以操控 Neovim 的行為。</p>
+</div>
+<div class="section" id="neovim-api-info">
+<h2><a class="toc-backref" href="#id6">Neovim API Info</a><a class="headerlink" href="#neovim-api-info" title="本標題的永久連結">¶</a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python 3</span>
+<span class="c1"># need &#39;msgpack-python&#39; and &#39;pyyaml&#39;</span>
+nvim --api-info <span class="p">|</span> python -c <span class="s2">&quot;import msgpack, sys, yaml; print(yaml.dump(msgpack.unpackb(sys.stdin.buffer.read(), encoding=&#39;ascii&#39;)))&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="client">
+<h2><a class="toc-backref" href="#id7">Client 的功能</a><a class="headerlink" href="#client" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="python-client">
+<h3><a class="toc-backref" href="#id8">Python Client</a><a class="headerlink" href="#python-client" title="本標題的永久連結">¶</a></h3>
+<ul class="simple">
+<li>[GitHub] <a class="reference external" href="https://github.com/neovim/python-client">neovim/python-client</a></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">neovim</span>
+
+<span class="nd">@neovim.plugin</span>
+<span class="k">class</span> <span class="nc">TestPlugin</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nvim</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nvim</span> <span class="o">=</span> <span class="n">nvim</span>
+
+    <span class="nd">@neovim.function</span><span class="p">(</span><span class="s2">&quot;TestFunction&quot;</span><span class="p">,</span> <span class="n">sync</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">testfunction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">3</span>
+
+    <span class="nd">@neovim.command</span><span class="p">(</span><span class="s2">&quot;TestCommand&quot;</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">testcommand</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="nb">range</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nvim</span><span class="o">.</span><span class="n">current</span><span class="o">.</span><span class="n">line</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Command with args: {}, range: {}&#39;</span>
+                                  <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="nb">range</span><span class="p">))</span>
+
+    <span class="nd">@neovim.autocmd</span><span class="p">(</span><span class="s1">&#39;BufEnter&#39;</span><span class="p">,</span> <span class="n">pattern</span><span class="o">=</span><span class="s1">&#39;*.py&#39;</span><span class="p">,</span> <span class="nb">eval</span><span class="o">=</span><span class="s1">&#39;expand(&quot;&lt;afile&gt;&quot;)&#39;</span><span class="p">,</span> <span class="n">sync</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">on_bufenter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nvim</span><span class="o">.</span><span class="n">out_write</span><span class="p">(</span><span class="s2">&quot;testplugin is in &quot;</span> <span class="o">+</span> <span class="n">filename</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="cp">#[neovim_function, </span><span class="s">&quot;TestFunction&quot;</span><span class="cp">, sync=True]</span><span class="w"></span>
+<span class="k">fn</span> <span class="nf">test_function</span><span class="p">()</span>:
+    <span class="p">...</span><span class="w"></span>
+
+<span class="cp">#[neovim_command, </span><span class="s">&quot;TestCommand&quot;</span><span class="cp">, range=&#39;&#39;, nargs=&#39;*&#39;]</span><span class="w"></span>
+<span class="k">fn</span> <span class="nf">test_command</span><span class="p">()</span>:
+    <span class="p">...</span><span class="w"></span>
+
+<span class="cp">#[neovim_autocmd, </span><span class="s">&quot;BufEnter&quot;</span><span class="cp">, pattern=&#39;*.py&#39;, eval=&#39;expand(</span><span class="s">&quot;&lt;afile&gt;&quot;</span><span class="cp">)&#39;, sync=True]</span><span class="w"></span>
+<span class="k">fn</span> <span class="nf">on_bufenter</span><span class="p">()</span>:
+    <span class="p">...</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+    <span class="s">&quot;strings&quot;</span>
+    <span class="s">&quot;github.com/neovim/go-client/nvim/plugin&quot;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nx">hello</span><span class="p">(</span><span class="nx">args</span> <span class="p">[]</span><span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="kt">string</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="nx">strings</span><span class="p">.</span><span class="nx">Join</span><span class="p">(</span><span class="nx">args</span><span class="p">,</span> <span class="s">&quot; &quot;</span><span class="p">),</span> <span class="kc">nil</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">plugin</span><span class="p">.</span><span class="nx">Main</span><span class="p">(</span><span class="kd">func</span><span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">plugin</span><span class="p">.</span><span class="nx">Plugin</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+        <span class="nx">p</span><span class="p">.</span><span class="nx">HandleFunction</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">plugin</span><span class="p">.</span><span class="nx">FunctionOptions</span><span class="p">{</span><span class="nx">Name</span><span class="p">:</span> <span class="s">&quot;Hello&quot;</span><span class="p">},</span> <span class="nx">hello</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">nil</span>
+    <span class="p">})</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="id2">
-<h2><a class="toc-backref" href="#id5">簡單範例</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
-<table border="1" class="docutils">
-<colgroup>
-<col width="46%" />
-<col width="54%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Vimscript</th>
-<th class="head">Python</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><div class="first last highlight-vim notranslate"><div class="highlight"><pre><span></span><span class="c">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>
-<span class="c">&quot; String</span>
-<span class="c">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>
-
-len<span class="p">(</span>str<span class="p">)</span>
-strlen<span class="p">(</span>str<span class="p">)</span>
-
-<span class="c">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>
-
-split<span class="p">(</span><span class="s2">&quot;a b c&quot;</span><span class="p">)</span>
-split<span class="p">(</span><span class="s2">&quot;a.b.c&quot;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span>
-
-<span class="c">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>
-
-<span class="k">join</span><span class="p">(</span>[<span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span>]<span class="p">,</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span>
-
-<span class="c">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>
-
-tolower<span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
-toupper<span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
-
-<span class="c">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>
-
-<span class="c">&quot; case-sensitive</span>
-data <span class="p">==</span># <span class="s1">&#39;Hello&#39;</span>
-
-<span class="c">&quot; case-insensitive</span>
-data <span class="p">==</span>? <span class="s1">&#39;Hello&#39;</span>
-
-<span class="c">&quot; depends on :set ignorecase</span>
-data <span class="p">==</span> <span class="s1">&#39;Hello&#39;</span>
-
-<span class="c">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>
-</pre></div>
-</div>
-</td>
-<td><div class="first last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">##########</span>
-<span class="c1"># String</span>
-<span class="c1">##########</span>
-
-<span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
-
-
-<span class="c1">##########</span>
-
-<span class="s2">&quot;a b c&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-<span class="s2">&quot;a.b.c&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
-
-<span class="c1">##########</span>
-
-<span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">])</span>
-
-<span class="c1">##########</span>
-
-<span class="s1">&#39;Hello&#39;</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-<span class="s1">&#39;Hello&#39;</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
-
-<span class="c1">##########</span>
-
-<span class="c1"># case-sensitive</span>
-<span class="n">data</span> <span class="o">==</span> <span class="s1">&#39;Hello&#39;</span>
-
-<span class="c1"># case-insensitive</span>
-<span class="n">data</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;Hello&#39;</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-
-
-
-
-<span class="c1">##########</span>
-</pre></div>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="tools">
-<h2><a class="toc-backref" href="#id6">Tools</a><a class="headerlink" href="#tools" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id9">功能</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
-<li><dl class="first docutils">
-<dt>[GitHub] <a class="reference external" href="https://github.com/google/vimdoc">vimdoc - Helpfile generation for vim</a></dt>
-<dd><ul class="first last">
-<li>為 Vimscript 提供 docstring</li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>[GitHub] <a class="reference external" href="https://github.com/google/vroom">Vroom - Launch vim tests</a></dt>
-<dd><ul class="first last">
-<li>為 Vimscript 提供 testing 的方式</li>
-</ul>
-</dd>
-</dl>
-</li>
+<li>attach Neovim</li>
+<li>pass data in msgpack format</li>
+<li>simple interactive shell</li>
 </ul>
 </div>
 <div class="section" id="id3">
-<h2><a class="toc-backref" href="#id7">參考</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
-<ul class="simple">
-<li><a class="reference external" href="http://www.blaenkdenum.com/posts/a-simpler-vim-statusline/">A Simpler Vim Statusline</a></li>
-<li><a class="reference external" href="http://dougblack.io/words/a-good-vimrc.html">A Good Vimrc</a></li>
-<li><a class="reference external" href="http://ricostacruz.com/cheatsheets/vimscript.html">Vim script cheatsheet</a></li>
-<li><a class="reference external" href="http://learnvimscriptthehardway.stevelosh.com/">Learn Vimscript the Hard Way</a></li>
-</ul>
+<h2><a class="toc-backref" href="#id10">參考</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
 </div>
 </div>
 

@@ -97,6 +97,13 @@ Docker without sudo：
     docker run --net host -it --rm myorg/myimage
 
 
+進入 container：
+
+.. code-block:: sh
+
+    docker exec -it <containerIdOrName> bash
+
+
 
 Dockerfile
 ========================================
@@ -126,8 +133,22 @@ Dockerfile
 .. code-block:: sh
 
     docker build /path/to/folder/of/Dockerfile
+
     # -t for tag
     docker build -t myimage /path/to/folder/of/Dockerfile
+
+    # 不使用 cache，全部重新 build
+    docker build --no-cache -t user/image-name
+
+
+
+從 docker container 內取出檔案
+========================================
+
+.. code-block:: sh
+
+    # copy files from container
+    docker cp <containerId>:/file/path/within/container /host/path/target
 
 
 
@@ -199,9 +220,23 @@ docker-squash
 
 
 
+使用 Google Cloud
+========================================
+
+.. code-block:: sh
+
+    # upload to google cloud
+    gcloud auth login
+    gcloud beta auth configure-docker
+    docker tag <container-hash> gcr.io/<project>/<container-tag>:latest
+    gcloud docker -- push gcr.io/<project>/<container-tag>:latest
+
+
 
 參考
 ========================================
 
 * `Arch Wiki - Docker <https://wiki.archlinux.org/index.php/Docker>`_
 * `archlinux/base <https://hub.docker.com/r/archlinux/base/>`_
+* `archlinux-docker <https://github.com/archlinux/archlinux-docker>`_
+* `Docker console UI and Dashboard <https://github.com/lirantal/dockly>`_

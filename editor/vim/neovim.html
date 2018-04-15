@@ -907,7 +907,47 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
            <div itemprop="articleBody">
             
   <div class="section" id="neovim">
-<h1>Neovim<a class="headerlink" href="#neovim" title="本標題的永久連結">¶</a></h1>
+<h1><a class="toc-backref" href="#id8">Neovim</a><a class="headerlink" href="#neovim" title="本標題的永久連結">¶</a></h1>
+<div class="contents topic" id="id1">
+<p class="topic-title first">目錄</p>
+<ul class="simple">
+<li><a class="reference internal" href="#neovim" id="id8">Neovim</a><ul>
+<li><a class="reference internal" href="#id2" id="id9">介紹</a></li>
+<li><a class="reference internal" href="#build-from-source" id="id10">Build From Source</a><ul>
+<li><a class="reference internal" href="#build-with-sanitizer" id="id11">Build with Sanitizer</a></li>
+<li><a class="reference internal" href="#run-test" id="id12">Run Test</a></li>
+<li><a class="reference internal" href="#run-test-with-valgrind" id="id13">Run Test With Valgrind</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#porting-vim-patches-to-neovim" id="id14">Porting Vim patches to Neovim</a><ul>
+<li><a class="reference internal" href="#id4" id="id15">修改的注意事項</a><ul>
+<li><a class="reference internal" href="#test-cases" id="id16">Test Cases</a></li>
+<li><a class="reference internal" href="#code-differences" id="id17">Code Differences</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pr" id="id18">PR 格式</a></li>
+<li><a class="reference internal" href="#example" id="id19">Example</a><ul>
+<li><a class="reference internal" href="#example-1" id="id20">Example 1</a></li>
+<li><a class="reference internal" href="#example-2" id="id21">Example 2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#command-history-shada" id="id22">Command History - ShaDa</a></li>
+<li><a class="reference internal" href="#id5" id="id23">其他可能的項目</a></li>
+<li><a class="reference internal" href="#plugin-manager" id="id24">Plugin Manager</a></li>
+<li><a class="reference internal" href="#plugin" id="id25">Plugin</a></li>
+<li><a class="reference internal" href="#challenge" id="id26">Challenge</a></li>
+<li><a class="reference internal" href="#funny" id="id27">Funny</a></li>
+<li><a class="reference internal" href="#idea" id="id28">Idea</a></li>
+<li><a class="reference internal" href="#id6" id="id29">討論區</a></li>
+<li><a class="reference internal" href="#id7" id="id30">參考</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id9">介紹</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
 <p>Neovim 是從 Vim 7.4.160 fork 出去的專案，
 目標是要重構 Vim、改善架構、讓大家更容易貢獻等等，
 而在那之後 Neovim 依然有儘量把 Vim 的 patches porting 到 Neovim 跟著改善。</p>
@@ -934,36 +974,37 @@ Neovim 會定期 update 過來。</p>
 之後有空要來幫忙 :P</p>
 <p>其中一個目標是 <a class="reference external" href="https://github.com/vim/vim/commit/v7-4-799">patch 7.4.754</a> ，
 Visual mode 的 control+a 來增加數字、control+x 減數字。</p>
+</div>
 <div class="section" id="build-from-source">
-<h2>Build From Source<a class="headerlink" href="#build-from-source" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id10">Build From Source</a><a class="headerlink" href="#build-from-source" title="本標題的永久連結">¶</a></h2>
 <div class="section" id="build-with-sanitizer">
-<h3>Build with Sanitizer<a class="headerlink" href="#build-with-sanitizer" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id11">Build with Sanitizer</a><a class="headerlink" href="#build-with-sanitizer" title="本標題的永久連結">¶</a></h3>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">CC</span><span class="o">=</span>clang cmake .. -DCLANG_ASAN_UBSAN<span class="o">=</span>ON
 </pre></div>
 </div>
 </div>
 <div class="section" id="run-test">
-<h3>Run Test<a class="headerlink" href="#run-test" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id12">Run Test</a><a class="headerlink" href="#run-test" title="本標題的永久連結">¶</a></h3>
 </div>
 <div class="section" id="run-test-with-valgrind">
-<h3>Run Test With Valgrind<a class="headerlink" href="#run-test-with-valgrind" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id13">Run Test With Valgrind</a><a class="headerlink" href="#run-test-with-valgrind" title="本標題的永久連結">¶</a></h3>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">VALGRIND</span><span class="o">=</span><span class="m">1</span> make <span class="nb">test</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="porting-vim-patches-to-neovim">
-<h2>Porting Vim patches to Neovim<a class="headerlink" href="#porting-vim-patches-to-neovim" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id14">Porting Vim patches to Neovim</a><a class="headerlink" href="#porting-vim-patches-to-neovim" title="本標題的永久連結">¶</a></h2>
 <p>Neovim 內建有個 script 可以幫助 porting Vim patches 到 Neovim，
 假設想 porting 的是 patch 「7.4.123」 :</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>./scripts/vim-patch.sh <span class="m">7</span>.4.123
 </pre></div>
 </div>
 <p>接下來可能會有 merge conflict 要修。</p>
-<div class="section" id="id2">
-<h3>修改的注意事項<a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h3>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id15">修改的注意事項</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h3>
 <div class="section" id="test-cases">
-<h4>Test Cases<a class="headerlink" href="#test-cases" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id16">Test Cases</a><a class="headerlink" href="#test-cases" title="本標題的永久連結">¶</a></h4>
 <p>如果有在 <code class="docutils literal notranslate"><span class="pre">src/testdir/test*.in</span></code> 加入新的 test 的話，
 用 script 轉成 lua 版本 (轉完可能要修一下)：</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>./scripts/legacy2luatest.pl src/nvim/testdir/test_writefile.in test/functional/legacy
@@ -971,7 +1012,7 @@ Visual mode 的 control+a 來增加數字、control+x 減數字。</p>
 </div>
 </div>
 <div class="section" id="code-differences">
-<h4>Code Differences<a class="headerlink" href="#code-differences" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id17">Code Differences</a><a class="headerlink" href="#code-differences" title="本標題的永久連結">¶</a></h4>
 <table border="1" class="docutils">
 <colgroup>
 <col width="74%" />
@@ -1032,7 +1073,7 @@ Visual mode 的 control+a 來增加數字、control+x 減數字。</p>
 </div>
 </div>
 <div class="section" id="pr">
-<h3>PR 格式<a class="headerlink" href="#pr" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id18">PR 格式</a><a class="headerlink" href="#pr" title="本標題的永久連結">¶</a></h3>
 <ul class="simple">
 <li>PR 標題要有 <code class="docutils literal notranslate"><span class="pre">vim-patch:7.4.xxx</span></code></li>
 <li><dl class="first docutils">
@@ -1061,16 +1102,16 @@ Visual mode 的 control+a 來增加數字、control+x 減數字。</p>
 </div>
 </div>
 <div class="section" id="example">
-<h3>Example<a class="headerlink" href="#example" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id19">Example</a><a class="headerlink" href="#example" title="本標題的永久連結">¶</a></h3>
 <div class="section" id="example-1">
-<h4>Example 1<a class="headerlink" href="#example-1" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id20">Example 1</a><a class="headerlink" href="#example-1" title="本標題的永久連結">¶</a></h4>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/vim/vim/commit/v7-4-492">原 patch</a></li>
 <li><a class="reference external" href="https://github.com/neovim/neovim/commit/1d5222985ccad4cd31c4b7498810ff2968dd33a2">porting 後的 patch</a></li>
 </ul>
 </div>
 <div class="section" id="example-2">
-<h4>Example 2<a class="headerlink" href="#example-2" title="本標題的永久連結">¶</a></h4>
+<h4><a class="toc-backref" href="#id21">Example 2</a><a class="headerlink" href="#example-2" title="本標題的永久連結">¶</a></h4>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/neovim/neovim/pull/2832">幫忙為 Vim patches 標上 NA</a></li>
 </ul>
@@ -1078,11 +1119,11 @@ Visual mode 的 control+a 來增加數字、control+x 減數字。</p>
 </div>
 </div>
 <div class="section" id="command-history-shada">
-<h2>Command History - ShaDa<a class="headerlink" href="#command-history-shada" title="本標題的永久連結">¶</a></h2>
-<p>~/.local/share/nvim/shada/main.shada</p>
+<h2><a class="toc-backref" href="#id22">Command History - ShaDa</a><a class="headerlink" href="#command-history-shada" title="本標題的永久連結">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">~/.local/share/nvim/shada/main.shada</span></code></p>
 </div>
-<div class="section" id="id3">
-<h2>其他可能的項目<a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="id5">
+<h2><a class="toc-backref" href="#id23">其他可能的項目</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><dl class="first docutils">
 <dt><a class="reference external" href="https://www.bountysource.com/issues/1447132-question-autocomplete-improvements">Question: Autocomplete Improvements</a></dt>
@@ -1098,13 +1139,13 @@ Visual mode 的 control+a 來增加數字、control+x 減數字。</p>
 </ul>
 </div>
 <div class="section" id="plugin-manager">
-<h2>Plugin Manager<a class="headerlink" href="#plugin-manager" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id24">Plugin Manager</a><a class="headerlink" href="#plugin-manager" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/junegunn/vim-plug">vim-plug</a></li>
 </ul>
 </div>
 <div class="section" id="plugin">
-<h2>Plugin<a class="headerlink" href="#plugin" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id25">Plugin</a><a class="headerlink" href="#plugin" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://vimawesome.com/">VimAwesome</a></li>
 <li><dl class="first docutils">
@@ -1119,31 +1160,31 @@ Visual mode 的 control+a 來增加數字、control+x 減數字。</p>
 </ul>
 </div>
 <div class="section" id="challenge">
-<h2>Challenge<a class="headerlink" href="#challenge" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id26">Challenge</a><a class="headerlink" href="#challenge" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://www.vimgolf.com/">VimGolf - real Vim ninjas count every keystroke!</a></li>
 </ul>
 </div>
 <div class="section" id="funny">
-<h2>Funny<a class="headerlink" href="#funny" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id27">Funny</a><a class="headerlink" href="#funny" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://qqrs.github.io/blog/2013/05/03/vim-on-a-mechanical-typewriter/">Vim on a Mechanical Typewriter</a></li>
 </ul>
 </div>
 <div class="section" id="idea">
-<h2>Idea<a class="headerlink" href="#idea" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id28">Idea</a><a class="headerlink" href="#idea" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li>use Pygement to do syntax hightlight</li>
 </ul>
 </div>
-<div class="section" id="id4">
-<h2>討論區<a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="id6">
+<h2><a class="toc-backref" href="#id29">討論區</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://www.reddit.com/r/neovim/">reddit - Neovim</a></li>
 </ul>
 </div>
-<div class="section" id="reference">
-<h2>Reference<a class="headerlink" href="#reference" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="id7">
+<h2><a class="toc-backref" href="#id30">參考</a><a class="headerlink" href="#id7" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/neovim/neovim/wiki/Merging-patches-from-upstream-Vim">Neovim - Merging patches from upstream Vim</a></li>
 <li><a class="reference external" href="https://github.com/neovim/neovim/wiki/Contributing">Neovim - Contributing</a></li>

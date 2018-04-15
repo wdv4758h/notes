@@ -371,6 +371,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l2"><a class="reference internal" href="#id2">介紹</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id3">基本使用</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#dockerfile">Dockerfile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#docker-container">從 docker container 內取出檔案</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id4">清理空間</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#docker-compose">docker-compose</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#image">更新 image</a></li>
@@ -379,6 +380,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l3"><a class="reference internal" href="#docker-squash">docker-squash</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#google-cloud">使用 Google Cloud</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id5">參考</a></li>
 </ul>
 </li>
@@ -931,15 +933,17 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li><a class="reference internal" href="#id2" id="id7">介紹</a></li>
 <li><a class="reference internal" href="#id3" id="id8">基本使用</a></li>
 <li><a class="reference internal" href="#dockerfile" id="id9">Dockerfile</a></li>
-<li><a class="reference internal" href="#id4" id="id10">清理空間</a></li>
-<li><a class="reference internal" href="#docker-compose" id="id11">docker-compose</a></li>
-<li><a class="reference internal" href="#image" id="id12">更新 image</a></li>
-<li><a class="reference internal" href="#rootfs" id="id13">輸出成 rootfs</a></li>
-<li><a class="reference internal" href="#docker-images" id="id14">壓縮 docker images 大小</a><ul>
-<li><a class="reference internal" href="#docker-squash" id="id15">docker-squash</a></li>
+<li><a class="reference internal" href="#docker-container" id="id10">從 docker container 內取出檔案</a></li>
+<li><a class="reference internal" href="#id4" id="id11">清理空間</a></li>
+<li><a class="reference internal" href="#docker-compose" id="id12">docker-compose</a></li>
+<li><a class="reference internal" href="#image" id="id13">更新 image</a></li>
+<li><a class="reference internal" href="#rootfs" id="id14">輸出成 rootfs</a></li>
+<li><a class="reference internal" href="#docker-images" id="id15">壓縮 docker images 大小</a><ul>
+<li><a class="reference internal" href="#docker-squash" id="id16">docker-squash</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id5" id="id16">參考</a></li>
+<li><a class="reference internal" href="#google-cloud" id="id17">使用 Google Cloud</a></li>
+<li><a class="reference internal" href="#id5" id="id18">參考</a></li>
 </ul>
 </li>
 </ul>
@@ -1019,6 +1023,10 @@ docker run -p <span class="m">45677</span>:45677/udp -it --rm myorg/myimage
 docker run --net host -it --rm myorg/myimage
 </pre></div>
 </div>
+<p>進入 container：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker <span class="nb">exec</span> -it &lt;containerIdOrName&gt; bash
+</pre></div>
+</div>
 </div>
 <div class="section" id="dockerfile">
 <h2><a class="toc-backref" href="#id9">Dockerfile</a><a class="headerlink" href="#dockerfile" title="本標題的永久連結">¶</a></h2>
@@ -1038,13 +1046,24 @@ docker run --net host -it --rm myorg/myimage
 </div>
 <p>製作 image：</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker build /path/to/folder/of/Dockerfile
+
 <span class="c1"># -t for tag</span>
 docker build -t myimage /path/to/folder/of/Dockerfile
+
+<span class="c1"># 不使用 cache，全部重新 build</span>
+docker build --no-cache -t user/image-name
+</pre></div>
+</div>
+</div>
+<div class="section" id="docker-container">
+<h2><a class="toc-backref" href="#id10">從 docker container 內取出檔案</a><a class="headerlink" href="#docker-container" title="本標題的永久連結">¶</a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># copy files from container</span>
+docker cp &lt;containerId&gt;:/file/path/within/container /host/path/target
 </pre></div>
 </div>
 </div>
 <div class="section" id="id4">
-<h2><a class="toc-backref" href="#id10">清理空間</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id11">清理空間</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h2>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker system prune -a --volumes
 </pre></div>
 </div>
@@ -1054,10 +1073,10 @@ systemctl restart docker
 </div>
 </div>
 <div class="section" id="docker-compose">
-<h2><a class="toc-backref" href="#id11">docker-compose</a><a class="headerlink" href="#docker-compose" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id12">docker-compose</a><a class="headerlink" href="#docker-compose" title="本標題的永久連結">¶</a></h2>
 </div>
 <div class="section" id="image">
-<h2><a class="toc-backref" href="#id12">更新 image</a><a class="headerlink" href="#image" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id13">更新 image</a><a class="headerlink" href="#image" title="本標題的永久連結">¶</a></h2>
 <p>上傳到 Docker Hub：</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># 找出想用的 image</span>
 $ docker images
@@ -1073,7 +1092,7 @@ $ docker push DOCKER_ID_USER/my_image
 </div>
 </div>
 <div class="section" id="rootfs">
-<h2><a class="toc-backref" href="#id13">輸出成 rootfs</a><a class="headerlink" href="#rootfs" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id14">輸出成 rootfs</a><a class="headerlink" href="#rootfs" title="本標題的永久連結">¶</a></h2>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker run -it --rm -d 250b5ed4d50f bash
 docker container ls
 docker <span class="nb">export</span> e6c0df1d7c43 -o ~/rootfs.tar
@@ -1081,9 +1100,9 @@ docker <span class="nb">export</span> e6c0df1d7c43 -o ~/rootfs.tar
 </div>
 </div>
 <div class="section" id="docker-images">
-<h2><a class="toc-backref" href="#id14">壓縮 docker images 大小</a><a class="headerlink" href="#docker-images" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id15">壓縮 docker images 大小</a><a class="headerlink" href="#docker-images" title="本標題的永久連結">¶</a></h2>
 <div class="section" id="docker-squash">
-<h3><a class="toc-backref" href="#id15">docker-squash</a><a class="headerlink" href="#docker-squash" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id16">docker-squash</a><a class="headerlink" href="#docker-squash" title="本標題的永久連結">¶</a></h3>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1099,11 +1118,23 @@ $ docker-squash -f 2b7782d76911 -t myorg/myimage:squashed myorg/myimage:latest
 </div>
 </div>
 </div>
+<div class="section" id="google-cloud">
+<h2><a class="toc-backref" href="#id17">使用 Google Cloud</a><a class="headerlink" href="#google-cloud" title="本標題的永久連結">¶</a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># upload to google cloud</span>
+gcloud auth login
+gcloud beta auth configure-docker
+docker tag &lt;container-hash&gt; gcr.io/&lt;project&gt;/&lt;container-tag&gt;:latest
+gcloud docker -- push gcr.io/&lt;project&gt;/&lt;container-tag&gt;:latest
+</pre></div>
+</div>
+</div>
 <div class="section" id="id5">
-<h2><a class="toc-backref" href="#id16">參考</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id18">參考</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://wiki.archlinux.org/index.php/Docker">Arch Wiki - Docker</a></li>
 <li><a class="reference external" href="https://hub.docker.com/r/archlinux/base/">archlinux/base</a></li>
+<li><a class="reference external" href="https://github.com/archlinux/archlinux-docker">archlinux-docker</a></li>
+<li><a class="reference external" href="https://github.com/lirantal/dockly">Docker console UI and Dashboard</a></li>
 </ul>
 </div>
 </div>
