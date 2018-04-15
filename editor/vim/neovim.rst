@@ -2,6 +2,13 @@
 Neovim
 ========================================
 
+
+.. contents:: 目錄
+
+
+介紹
+========================================
+
 Neovim 是從 Vim 7.4.160 fork 出去的專案，
 目標是要重構 Vim、改善架構、讓大家更容易貢獻等等，
 而在那之後 Neovim 依然有儘量把 Vim 的 patches porting 到 Neovim 跟著改善。
@@ -33,6 +40,7 @@ Neovim 會定期 update 過來。
 
 其中一個目標是 `patch 7.4.754 <https://github.com/vim/vim/commit/v7-4-799>`_ ，
 Visual mode 的 control+a 來增加數字、control+x 減數字。
+
 
 
 Build From Source
@@ -156,10 +164,11 @@ Example 2
 * `幫忙為 Vim patches 標上 NA <https://github.com/neovim/neovim/pull/2832>`_
 
 
+
 Command History - ShaDa
 ========================================
 
-~/.local/share/nvim/shada/main.shada
+``~/.local/share/nvim/shada/main.shada``
 
 
 
@@ -173,10 +182,13 @@ Command History - ShaDa
 * `Improve large files support <https://www.bountysource.com/issues/1832251-improve-large-files-support>`_
 * `Plugin Package Manager <https://www.bountysource.com/issues/1430941-plugin-package-manager>`_
 
+
+
 Plugin Manager
 ========================================
 
 * `vim-plug <https://github.com/junegunn/vim-plug>`_
+
 
 
 Plugin
@@ -188,10 +200,14 @@ Plugin
     - A plugin for asynchronous :make using Neovim's job-control functionality. It is inspired by the excellent vim plugins Syntastic and Dispatch.
     - https://jacky.wtf/weblog/moving-to-neovim/
 
+
+
 Challenge
 ========================================
 
 * `VimGolf - real Vim ninjas count every keystroke! <http://www.vimgolf.com/>`_
+
+
 
 Funny
 ========================================
@@ -199,10 +215,13 @@ Funny
 * `Vim on a Mechanical Typewriter <http://qqrs.github.io/blog/2013/05/03/vim-on-a-mechanical-typewriter/>`_
 
 
+
+
 Idea
 ========================================
 
 * use Pygement to do syntax hightlight
+
 
 
 討論區
@@ -212,7 +231,7 @@ Idea
 
 
 
-Reference
+參考
 ========================================
 
 * `Neovim - Merging patches from upstream Vim <https://github.com/neovim/neovim/wiki/Merging-patches-from-upstream-Vim>`_
