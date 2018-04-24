@@ -40,3 +40,4 @@ Resource
 
 * `Golang’s Real-time GC in Theory and Practice <https://blog.pusher.com/golangs-real-time-gc-in-theory-and-practice/>`_
 * `Real World OCaml - Chapter 21. Understanding the Garbage Collector <https://realworldocaml.org/v1/en/html/understanding-the-garbage-collector.html>`_
+* `Modern garbage collection <https://medium.com/@octskyward/modern-garbage-collection-911ef4f8bd8e>`_
