@@ -26,8 +26,20 @@ Job Control
     echo $(dirname $0)
 
 
+如果有值 A 就使用值 A，不然使用值 B：
+
+.. code-block:: sh
+
+    VAR1="${VAR1:-default value}"
+
+    VAR2="test"
+    VAR1="${VAR2:-default value}"
+
+
 
 參考
 ========================================
 
 * `The Bash Hackers Wiki <http://wiki.bash-hackers.org/start>`_
+* `Using "${a:-b}" for variable assignment in scripts <https://unix.stackexchange.com/questions/122845/using-a-b-for-variable-assignment-in-scripts>`_
+* `bash - What's a concise way to check that environment variables are set in a Unix shell script? <https://stackoverflow.com/questions/307503/whats-a-concise-way-to-check-that-environment-variables-are-set-in-a-unix-shell>`_
