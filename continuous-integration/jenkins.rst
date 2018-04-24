@@ -6,6 +6,19 @@ Jenkins
 .. contents:: 目錄
 
 
+Jenkins CLI
+========================================
+
+.. code-block:: sh
+
+  # example commands:
+  # * version
+  # * clear-queue
+  # * install-plugin <plugin name>
+  java -jar jenkins-cli.jar -s http://localhost:8080/ -i .ssh/mykey <command>
+
+
+
 定期掃特定 GitHub Organization
 ========================================
 
@@ -15,3 +28,44 @@ Jenkins
 只要有符合規則的新 PR 或 Branch 就會觸發 Jenkins 執行，
 不同的 Branch 或 PR 會被自動放到不同的資料夾，
 另外可以在 ``Jenkinsfile`` 內設定送通知道 Slack 之類的地方通知。
+
+
+
+
+With Git Flow
+========================================
+
+
+
+Pipeline
+========================================
+
+
+
+Jenkinsfile
+========================================
+
+Pipeline
+------------------------------
+
+Node
+------------------------------
+
+
+Jenkins X
+========================================
+
+
+
+Theme
+========================================
+
+* `Jenkins Material Design Theme <https://github.com/afonsof/jenkins-material-theme>`_
+
+
+
+參考
+========================================
+
+* `Jenkins - Pipeline <https://jenkins.io/doc/pipeline/>`_
+* `Jenkins and Python <https://jenkins.io/solutions/python/>`_
