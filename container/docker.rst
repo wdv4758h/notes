@@ -236,7 +236,9 @@ docker-squash
 參考
 ========================================
 
+* `Wikipedia - Docker <https://en.wikipedia.org/wiki/Docker_(software)>`_
 * `Arch Wiki - Docker <https://wiki.archlinux.org/index.php/Docker>`_
 * `archlinux/base <https://hub.docker.com/r/archlinux/base/>`_
 * `archlinux-docker <https://github.com/archlinux/archlinux-docker>`_
 * `Docker console UI and Dashboard <https://github.com/lirantal/dockly>`_
+* `Awesome Docker <https://github.com/veggiemonk/awesome-docker>`_
