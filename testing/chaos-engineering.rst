@@ -19,6 +19,8 @@ Chaos Engineering
 ========================================
 
 * `Principles of Chaos Engineering <http://principlesofchaos.org/>`_
+* `Awesome Chaos Engineering <https://github.com/dastergon/awesome-chaos-engineering>`_
+* `Chaos Toolkit - An Open API for Chaos Engineering <https://github.com/chaostoolkit/chaostoolkit>`_
 * [GitHub] `Netflix - Chaos Monkey <https://github.com/Netflix/chaosmonkey>`_
 * `FreeBSD failpoints <https://www.freebsd.org/cgi/man.cgi?query=fail>`_
 * `From Chaos to Order -- Tools and Techniques for Testing TiDB, A Distributed NewSQL Database <https://pingcap.com/blog/chaos-practice-in-tidb/>`_
