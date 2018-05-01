@@ -865,6 +865,7 @@ Web Render
 
 * `MathJax <https://www.mathjax.org/>`_
 * `KaTeX <https://khan.github.io/KaTeX/>`_
+    - 使用者：Facebook Messenger
 
 
 
@@ -880,3 +881,8 @@ Web Render
 * `Awesome CV <https://github.com/posquit0/Awesome-CV>`_
 * `Wikipedia - TeX <https://en.wikipedia.org/wiki/TeX>`_
 * `Arch Wiki - TeX Live <https://wiki.archlinux.org/index.php/TeX_Live>`_
+
+
+擴充：
+
+* `LaTeX Coffee Stains <http://hanno-rein.de/archives/349>`_
