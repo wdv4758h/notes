@@ -1,0 +1,31 @@
+pipeline {
+  agent { label 'windows' }
+  options {
+    timestamps()
+    disableConcurrentBuilds()
+    // Only keep the 10 most recent builds
+    buildDiscarder(logRotator(numToKeepStr: '10'))
+  }
+
+  stages {
+    stage('build'){
+      steps {
+        bat 'dir'
+      }
+    }
+  }
+
+  post {
+    success {
+      slackSend channel: '#jenkins',
+                color: '#90EE90',
+                message: "Yes !! build pass - ${env.JOB_NAME} ${env.BUILD_NUMBER} (${env.BUILD_URL})"
+    }
+
+    failure {
+      slackSend channel: '#jenkins',
+                color: '#b20900',
+                message: "No !! build fail - ${env.JOB_NAME} ${env.BUILD_NUMBER} (${env.BUILD_URL})"
+    }
+  }
+}
