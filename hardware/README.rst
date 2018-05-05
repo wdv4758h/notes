@@ -29,6 +29,13 @@
 * Mobile
 * `鍵盤 <keyboard.rst>`_
 * `螢幕 <monitor.rst>`_
+* Wifi
+* 電池
+* 充電元件
+    - 有線充電
+    - 無線充電
+* Speaker
+* Camera
 
 
 技術細節：
