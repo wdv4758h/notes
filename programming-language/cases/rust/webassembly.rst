@@ -1,5 +1,5 @@
 ========================================
-Rust to asm.js
+Rust to WebAssembly
 ========================================
 
 
@@ -27,7 +27,7 @@ Rust to asm.js
 
 
 
-簡單範例
+asm.js 簡單範例
 ========================================
 
 Hello World
@@ -116,10 +116,21 @@ Fibonacci
 
 
 
+WebAssembly 簡單範例
+========================================
+
+fib.asm.js
+fib.js
+fib.wasm
+fib.wast
+
+
+
 參考
 ========================================
 
 * `Compiling Rust to your Browser <http://rust.cologne/2016/09/05/compile-to-js.html>`_
+* `Compiling Rust to your Browser - Examples <http://www.hellorust.com/emscripten/>`_
 * `Rust Meetup Cologne (2016-09-05): Jan-Erik Rediger - Compiling Rust to asm.js <https://www.youtube.com/watch?v=bvJCMhJ3RnQ>`_
 * `mir2wasm - An experimental compiler from Rust to WebAssembly <https://github.com/brson/mir2wasm/>`_
 * `Compiling to WebAssembly with Binaryen <https://kripken.github.io/talks/binaryen.html>`_
@@ -127,3 +138,11 @@ Fibonacci
 * `Rust implementation of TodoMVC with Emscripten <https://github.com/tcr/rust-todomvc>`_
 * `rust-webplatform - A Rust library for use with emscripten to access the DOM <https://github.com/tcr/rust-webplatform>`_
 * `SIMD.js <https://tc39.github.io/ecmascript_simd/>`_
+
+* `Haskell Wiki - The JavaScript Problem <https://wiki.haskell.org/The_JavaScript_Problem>`_
+
+* `This week in Rust and WebAssembly <https://rustwasm.github.io/>`_
+* `rust-wasm <https://github.com/rust-lang-nursery/rust-wasm>`_
+* `Hello wasm-pack! – Mozilla Hacks – the Web developer blog <https://hacks.mozilla.org/2018/04/hello-wasm-pack/>`_
+    - `wasm-pack <https://github.com/ashleygwilliams/wasm-pack>`_
+* `Rust stdweb - A standard library for the client-side Web <https://github.com/koute/stdweb>`_
