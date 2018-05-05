@@ -2,6 +2,8 @@
 硬體相關 (Hardware)
 ========================================
 
+廠商：
+
 * `Intel <intel.rst>`_
 * `AMD <amd.rst>`_
 * `ARM <arm.rst>`_
@@ -9,21 +11,35 @@
 * `Arduino <arduino.rst>`_
 * Zilog
 * OmniVision
+* `Amazon Kindle <kindle.rst>`_
+
+
+種類：
+
+* CPU
+* GPU
+* MCU (Microcontroller)
+* DSP
+* Etherenet
+* RF
+* Lens
+* Graphic Tablet
+* Hard Disk
+* SSD
+* Mobile
+* `鍵盤 <keyboard.rst>`_
+* `螢幕 <monitor.rst>`_
+
+
+技術細節：
+
 * `RISC-V <risc-v.rst>`_
-* `Kindle <kindle.rst>`_
 
 * `Serial Port <serial-port.rst>`_
 * UART
 * SPI
 * I2C
 
-* CPU
-* GPU
-* MCU (Microcontroller)
-* DSP
-
-* RF
-* Lens
 
 ----
 
