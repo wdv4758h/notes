@@ -14,3 +14,10 @@ du
 .. code-block:: sh
 
     du -a . | sort -nr | head
+
+
+計算指定目錄的大小：
+
+.. code-block:: sh
+
+    du -sh .
