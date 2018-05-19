@@ -1,9 +1,88 @@
 ========================================
-Asynchronous
+Asynchronous I/O
 ========================================
 
 
 .. contents:: 目錄
+
+
+簡介
+========================================
+
+Asynchronous I/O 對於現今的網路程式設計非常重要，
+也是處理 I/O 相關問題的效能關鍵。
+
+目前常見的程式語言 Asynchronous I/O 實做模式有三種：
+
+* async/await
+    - C#
+    - JavaScript
+    - Python
+* implicit concurrent runtime (green-threading)
+    - CSP (communicating sequential processes)
+        + Go
+    - Actor model
+        + Erlang
+* Monadic transformations on lazily evaluated code
+    - do notation
+        + Haskell
+
+
+Rust 選擇的是 async/await 的模式，
+藉此來跟 type system 中的 ownership 和 borrowing 整合，
+此作法也可以把實做完全放在 library 中，
+不用像 green-threading 模式深入地把實做綁進語言核心設計。
+
+
+
+如何實做 Asynchronous I/O
+========================================
+
+第一層：作業系統 API - epoll/kqueue/...
+---------------------------------------
+
+現代作業系統有提供效能比早期 select/poll 好的 API，
+例如：
+
+* Linux: epoll
+* FreeBSD: kqueue
+
+
+藉由這些 API 可以達到效能極佳的 Asynchronous I/O，
+而根據不同作業系統會有不同的 API。
+撰寫應用程式時，可以選擇直接使用系統 API，
+或者是對各系統 API 包裝後的 library，
+也就是下一層要提到的內容。
+
+
+第二層：抽象化包裝 - Mio
+------------------------------
+
+如先前所說，
+系統 API 會根據平台不同而有差異，
+因此有數個 library 實做了抽象化，
+例如 libev、libevent、libuv、Gio、Boost.Asio 等等。
+
+在 Rust 生態圈內主要是 `Mio <https://github.com/carllerche/mio>`_
+在負責系統 Asynchronous I/O 的抽象化，
+支援諸如 Linux/OS X/Windows/FreeBSD 等平台，
+並且盡可能地不增加效能損失，
+讓使用 mio 抽象化的效能跟直接使用系統 API 一樣。
+
+
+
+第二層：高階 API - Tokio
+------------------------------
+
+.. image:: /images/rust/tokio-stack.png
+
+
+`Tokio <https://github.com/tokio-rs/>`_
+是基於 ``futures`` 和 ``mio`` 的 Asynchronous I/O Framework，
+藉由底層的 libraries 在上面建立更完整更貼近應用程式的功能，
+提供更多方便的包裝，
+例如 SOCKS5 Proxy Server、HTTP Client、HTTP Server。
+
 
 
 Futures
@@ -12,30 +91,12 @@ Futures
 Future （有時又被稱為 Promise）是 Asynchronous 程式中很常見的一個概念，
 作為一個中間人來檢查或使用 Asynchronous 產生的值，
 而 Rust 當中也有叫做
-`Futures <https://github.com/alexcrichton/futures-rs>`_
+`Futures <https://github.com/rust-lang-nursery/futures-rs>`_
 的 Library 專門負責這件事。
 
 在這個 Library 中，
 Futures 是任何實做了 ``Future`` trait 的型別，
 trait 內包含許多方便使用的函式。
-
-
-
-Mio
-========================================
-
-`Mio <https://github.com/carllerche/mio>`_ （Metal IO）
-是 OS 的 I/O event 的抽象化，
-抽象化系統的層例如 epoll、kqueue 等 API，
-提供統一的操作界面。
-
-
-Tokio
-========================================
-
-Tokio 是基於 ``futures`` 和 ``mio`` 的 Asynchronous I/O Framework，
-藉由底層的 Libraries 要在上面建立更完整更貼近應用程式的功能，
-例如 SOCKS5 Proxy Server、HTTP Client、HTTP Server。
 
 
 
@@ -190,4 +251,7 @@ Tokio: Database
 參考
 ========================================
 
+* `Wikipedia - Asynchronous I/O <https://en.wikipedia.org/wiki/Asynchronous_I/O>`_
 * `Wikipedia - Futures and Promises <https://en.wikipedia.org/wiki/Futures_and_promises>`_
+* `Improving GStreamer performance on a high number of network streams by sharing threads between elements with Rust’s tokio crate <https://coaxion.net/blog/2018/04/improving-gstreamer-performance-on-a-high-number-of-network-streams-by-sharing-threads-between-elements-with-rusts-tokio-crate/>`_
+* `Tokio internals: Understanding Rust's asynchronous I_O framework from the bottom up <https://cafbit.com/post/tokio_internals/>`_
