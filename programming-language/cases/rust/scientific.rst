@@ -1,9 +1,27 @@
 ========================================
-數值相關 (Numeric)
+科學計算相關 (Scientific)
 ========================================
 
 
 .. contents:: 目錄
+
+
+介紹
+========================================
+
+在科學計算相關的使用上，
+比較常聽到的就是 Python 的 NumPy、SciPy 等等，
+而 Rust 這邊相關的套件則還在建置中。
+
+
+在 Standard Library 內，
+Rust 有一些像是 Add、Sub、Mul、PartialEq、PartialOrd 等等的 trait 來抽象化各種型別。
+在第三方套件中，
+有 ``num`` 負責建立各種數值的界面，
+例如 Zero、Integer、Float 等等。
+另外還有 ``ndarray`` 實做 N 維陣列，
+``nalgebra`` 實做線性代數相關運算。
+
 
 
 Add, Sub, Mul, Div, Rem
