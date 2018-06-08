@@ -57,6 +57,37 @@ Jenkins X
 
 
 
+一些小 Groovy Scripts
+========================================
+
+列出某個 repo 的所有 branch：
+
+.. code-block:: groovy
+
+    def gettags = "git ls-remote git@github.com:USER/REPO.git".execute(null, null)
+
+    return gettags.text.readLines()
+              .collect {
+                it.split()[1]
+                  .replaceAll('\\^\\{\\}', '')
+                  .replaceAll('refs/\\w+/', '')
+              }
+
+
+.. code-block:: groovy
+
+    def gettags = "git ls-remote git@github.com:USER/REPO.git".execute(null, null)
+
+    return gettags.text.readLines()
+              .collect {
+                it.split()[1]
+                  .replaceAll('\\^\\{\\}', '')
+                  .replaceAll('refs/\\w+/', '')
+              }
+              .findAll { !it.startsWith("CI-") }
+
+
+
 Theme
 ========================================
 
