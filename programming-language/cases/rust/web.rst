@@ -88,6 +88,86 @@ Misc
 
 
 
+效能比較 (Benchmarks)
+========================================
+
+TechEmpower
+------------------------------
+
+* round 16
+    - 使用 Docker 把不同 framework 的環境隔離
+    - 更換到更新的硬體
+    - TCP_NODELAY
+
+
+目前 Rust 狀況 (round 16)：
+
+* JSON serialization
+    - total: 287
+    - throughput
+        + tokio-minihttp is 2
+        + may-minihttp is 15
+        + hyper is 16
+        + actix-raw is 18
+        + actix is 20
+        + nickle is 79
+    - latency
+        + nickle is 1
+        + actix-raw is 16
+        + actix is 24
+* Single query
+    - total: 321
+    - throughput
+        + actix-raw is 17
+        + actix-pg is 24
+        + actix-diesel is 23
+    - latency
+        + actix-raw is 140
+        + actix-pg is 144
+        + actix-diesel is 143
+* Multiple queries
+    - total: 317
+    - throughput
+        + actix-raw is 4
+        + actix-pg is 9
+        + actix-diesel is 12
+    - latency
+        + actix-raw is 5
+        + actix-pg is 8
+        + actix-diesel is 14
+* Fortunes
+    - total: 307
+    - throughput
+        + actix-raw is 10
+        + actix-pg is 14
+        + actix-diesel is 16
+    - latency
+        + actix-raw is 99
+        + actix-pg is 111
+        + actix-diesel is 113
+* Data updates
+    - total: 289
+    - throughput
+        + actix-raw is 5
+        + actix-pg is 6
+        + actix-diesel is 33
+    - latency
+        + actix-raw is 4
+        + actix-pg is 6
+        + actix-diesel is 35
+* Plaintext
+    - total: 273
+    - throughput
+        + actix-raw is 1
+        + tokio-minihttp is 7
+        + hyper is 13
+    - latency
+        + actix is 1
+        + hyper is 2
+        + actix-raw is 11
+
+
+
 參考
 ========================================
 
