@@ -94,6 +94,9 @@ Misc
 TechEmpower
 ------------------------------
 
+:URL: https://www.techempower.com/benchmarks/
+
+
 * round 16
     - 使用 Docker 把不同 framework 的環境隔離
     - 更換到更新的硬體
@@ -165,6 +168,10 @@ TechEmpower
         + actix is 1
         + hyper is 2
         + actix-raw is 11
+
+
+* `Cutelyst on TechEmpower benchmarks round 16 – Dantti's Blog <https://dantti.wordpress.com/2018/06/07/cutelyst-on-techempower-benchmarks-round-16/>`_
+* [HN] `Some explanation about the TechEmpower benchmarks <https://news.ycombinator.com/item?id=17256766>`_
 
 
 
