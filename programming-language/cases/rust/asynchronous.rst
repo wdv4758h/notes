@@ -100,6 +100,58 @@ trait 內包含許多方便使用的函式。
 
 
 
+Generator
+========================================
+
+Coroutines 實做種類：
+
+* Stackful Coroutines (Green Threads)
+    - Lua
+    - Python
+    - Go
+    - Rust 在早期有嘗試過，但是後來移除了
+* Stackless Coroutines
+    - C++ Resumable Functions
+    - Erlang
+    - Stackless Python
+
+
+目前 Rust 的 generator 實做是
+把具有 yield statement 的部份在編譯時期轉換成狀態機（並且保證不會有額外的記憶體使用），
+藉此達到 stackless coroutines。
+
+
+
+* `Rust RFC - 2033-experimental-coroutines <https://github.com/rust-lang/rfcs/blob/master/text/2033-experimental-coroutines.md>`_
+* `Wikipedia - Coroutine <https://en.wikipedia.org/wiki/Coroutine>`_
+* `Coroutines in Lua <http://www.inf.puc-rio.br/~roberto/docs/corosblp.pdf>`_
+* [2004] `Revisiting Coroutines <http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.58.4017>`_
+* `Coroutine Theory <https://lewissbaker.github.io/2017/09/25/coroutine-theory>`_
+* `C++ Coroutines: Understanding operator co_await <https://lewissbaker.github.io/2017/11/17/understanding-operator-co-await>`_
+* `Coroutines for Kotlin <https://github.com/Kotlin/kotlin-coroutines/blob/master/kotlin-coroutines-informal.md>`_
+* `Coroutines in LLVM <https://llvm.org/docs/Coroutines.html>`_
+* `Wikipedia - Duff's device <https://en.wikipedia.org/wiki/Duff%27s_device>`_
+* `GitHub Topic - Coroutine <https://github.com/topics/coroutine>`_
+* `GitHub Topic - Coroutines <https://github.com/topics/coroutines>`_
+
+
+
+其他
+========================================
+
+Actix - Actor framework
+------------------------------
+
+`Actix <https://github.com/actix/actix>`_
+是基於 Tokio 的 Actor framework，
+藉此可以發展出許多高階的應用，
+其中 actix-web 已經在著名的
+`TechEmpower Framework Benchmark <https://www.techempower.com/benchmarks/#section=data-r15&hw=ph&test=plaintext>`_
+（web framework 相關效能測試）
+中顯示出具有優異的效能。
+
+
+
 範例
 ========================================
 
