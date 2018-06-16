@@ -16,6 +16,24 @@ Job Control
 
 
 
+文件
+========================================
+
+* `zshelldoc <https://github.com/zdharma/zshelldoc>`_
+* `bashdoc <https://github.com/ajdiaz/bashdoc>`_
+    - based on Pandoc
+* `shocco <https://github.com/rtomayko/shocco>`_
+
+
+
+
+Style
+========================================
+
+* `Google Shell Style Guide <https://google.github.io/styleguide/shell.xml>`_
+
+
+
 範例
 ========================================
 
@@ -64,6 +82,63 @@ Job Control
         echo "Network is not good, waiting"
         sleep 1
     done
+
+
+利用函式來讓 Script 更容易讀
+------------------------------
+
+.. code-block:: sh
+
+    has_myprog() {
+        ps aux | grep myprog
+    }
+
+    init_myprog() {
+        myprog --daemon
+    }
+
+    # if myprog is not running, init one
+    has_myprog || init_myprog
+
+
+避免程式 block 住
+------------------------------
+
+.. code-block:: sh
+
+    CMD="sleep 10"
+    timeout 3s ${CMD}
+
+
+Logging
+------------------------------
+
+.. code-block:: sh
+
+    log() {
+        # style 1:
+        # echo $1
+
+        # style 2:
+        TIME=$(date -u +"%Y-%m-%d|%H:%M:%S|%N")
+        echo "[${TIME}]$1"
+    }
+
+    debug() {
+        log "[  DEBUG] $1"
+    }
+
+    info() {
+        log "[   INFO] $1"
+    }
+
+    warning() {
+        log "[WARNING] $1"
+    }
+
+    error() {
+        log "[  ERROR] $1"
+    }
 
 
 
