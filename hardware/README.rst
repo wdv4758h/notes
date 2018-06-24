@@ -38,6 +38,11 @@
 * Camera
 
 
+語言：
+
+* `Verilog <verilog.rst>`_
+
+
 技術細節：
 
 * `RISC-V <risc-v.rst>`_
