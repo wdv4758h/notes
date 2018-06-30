@@ -6,6 +6,68 @@ Media Container
 .. contents:: 目錄
 
 
+簡表
+========================================
+
+* Audio
+    - Lossy Compression
+        + MP3
+        + WMA
+        + Vorbis
+        + Opus
+        + AAC
+        + AC-3
+        + DTS
+    - No Compression
+        + PCM
+        + LPCM
+    - Lossless Compression
+        + FLAC
+        + ALAC
+        + MLP/Dolby TrueHD
+        + DTS-HD
+
+* Video
+    - MPEG-1
+    - MPEG-2
+    - MPEG-4 (A)SP
+    - H.264/MPEG-4 AVC
+    - H.265/HEVC
+    - VC-1/WMV
+    - Real Video
+    - Theora
+    - Microsoft MPEG4 V2
+    - VP8
+    - VP9
+    - MVC
+    - AV1
+
+* Subtitle
+    - MicroDVD
+    - MPEG-4 Timed Text
+    - MPSub
+    - SAMI
+    - SubRip
+    - SSA (SubStation Alpha)
+    - SubViewer
+    - Universal Subtitle Format
+    - VobSub
+    - XSUB
+
+
+
+介紹
+========================================
+
+* AVI
+* Matroska
+* MP4
+* MXF
+* Ogg
+* QuickTime
+
+
+
 RTP
 ========================================
 
@@ -18,6 +80,10 @@ AVI
 
 WebM
 ========================================
+
+Matroska 的子集合，
+保證影像一定使用 VP8 或 VP9，
+保證聲音一定使用 Vorbis 或 Opus。
 
 
 
