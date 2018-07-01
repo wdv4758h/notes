@@ -136,6 +136,16 @@ Ogg
 Matroska
 ========================================
 
+Matroska 是在 2002 年從 MCF 專案 fork 出去的開放 container 格式，
+主要原因是對於 EBML 或是其他 binary 格式的使用無法達成共識。
+由於使用 EBML 來描述內容，
+Matroska 可以儲存無限制數量的影像、聲音、字幕，
+也可以支援未來各種新的 codec 或擴充。
+
+2010 年 WebM 格式宣布使用 Matroska 作為 container，
+並且搭配客製化的 profile 來處理 VP8 和 Vorbis。
+
+
 * `FOSDEM 2018 - Matroska Low-Latency streaming - Why Matroska is (always) Better <https://fosdem.org/2018/schedule/event/om_matroska/>`_
 * `Matroska Streaming <https://matroska.org/technical/streaming/index.html<Paste>`_
 * `Wikipedia - Matroska <https://en.wikipedia.org/wiki/Matroska>`_
