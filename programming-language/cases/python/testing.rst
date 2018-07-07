@@ -7,6 +7,53 @@ Python Testing
 
 
 
+TL;DR
+========================================
+
+用 ``pytest``
+
+
+::
+
+    pytest
+    pytest-sugar          # show better test result
+    pytest-timeout        # abort hanging tests
+    pytest-forked         # run each test in a forked subprocess
+    pytest-xdist          # -n JOBS
+    pytest-cov            # coverage
+    pytest-runner         # "setup.py test" support
+    pytest-benchmark      # benchmark
+    pytest-profiling      # profile graph
+    pytest-rerunfailures  # re-runs failed tests up to -n times to eliminate flakey failures
+    pytest-incremental    # modify the order of test cases base on your code modification
+    pytest-echo           # print env, software version, attributes
+    pytest-bdd            # behavioral driven development
+    hypothesis            # property based testing, has pytest plugin
+    pytest-faker          # Faker integration, generate fake data
+    pytest-randomly       # randomly order tests
+    pytest-html           # generating HTML reports for pytest results
+    pytest-instafail      # show failures instantly
+    pytest-factoryboy
+    pytest-mock
+    pytest-faulthandler
+    pytest-xprocess
+    pytest-asyncio
+    pytest-variables
+    pytest-play
+    pytest-cloud
+    pytest-cpp
+    pytest-splinter
+    ##############################
+    # some frameworks support
+    ##############################
+    pytest-django
+    pytest-flask
+    pytest-twisted
+    pytest-qt
+    pytest-selenium
+
+
+
 doctest
 ========================================
 
