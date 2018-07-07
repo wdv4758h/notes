@@ -2,6 +2,34 @@
 Rust 相關文章
 ========================================
 
+
+----
+
+*這邊還需要大幅整理*
+
+----
+
+
+.. contents:: 目錄
+
+
+TL;DR
+========================================
+
+* CLI 介面 ➡ ``clap``
+* Serialization ➡ ``serde``
+* Asynchronous ➡ ``tokio``
+* Regex ➡ ``regex``
+* Logging ➡ ``log`` + XXX
+* HTTP ➡ ``hyper``
+* Python <-> Rust ➡ ``pyo3``
+* 範例 ➡ `Rust Cookbook <https://rust-lang-nursery.github.io/rust-cookbook/>`_
+
+
+
+列表
+========================================
+
 一般使用：
 
 * `Pattern Matching <pattern-matching.rst>`_
