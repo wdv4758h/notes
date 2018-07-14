@@ -130,6 +130,67 @@ asyncio 搭配 ProcessPoolExecutor
     run()
 
 
+asyncio 搭配 ThreadPoolExecutor
+--------------------------------
+
+
+.. code-block:: python
+
+    import asyncio
+    import concurrent.futures
+
+
+    def test(name):
+       import os
+       import time
+       time.sleep(5)
+       pid = os.getpid()
+       print(f"{name}: {pid}")
+
+    def run_in_thread(func, *args, loop=None, executor=None, **kwrags):
+        """
+        We are talking about Python thread here.
+
+        With this function we can offload some sync task to other thread,
+        so it won't block the event loop thread.
+
+        The OS thread underneath will still be 1 due to CPython implementation.
+        """
+
+        if loop is None:
+            loop = asyncio.get_event_loop()
+        if executor is None:
+            executor = concurrent.futures.ThreadPoolExecutor(max_workers=1)
+        return loop.run_in_executor(executor, func, *args, **kwrags)
+
+    async def task_maker(loop=None):
+        for i in range(100):
+            await asyncio.sleep(0.1)
+            run_in_thread(test, f"c{i}")
+
+    async def event_loop_report():
+        import threading
+        loop = asyncio.get_event_loop()
+        while True:
+            task_count = len(asyncio.Task.all_tasks(loop))
+            thread_count = threading.active_count()
+            # task count 2, thread count "1 ~ 5x"
+            print(f"task count {task_count}, thread count {thread_count}")
+            await asyncio.sleep(1)
+
+    def run():
+        loop = asyncio.get_event_loop()
+        futures = asyncio.gather(task_maker(), event_loop_report())
+        try:
+            loop.run_until_complete(futures)
+        finally:
+            loop.run_until_complete(loop.shutdown_asyncgens())
+            loop.close()
+
+    run()
+
+
+
 uvloop
 ========================================
 
