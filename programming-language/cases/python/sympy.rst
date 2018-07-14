@@ -2,12 +2,17 @@
 SymPy
 ========================================
 
+
+.. contents:: 目錄
+
+
 Online
 ========================================
 
 * `SymPy Gamma <http://www.sympygamma.com/>`_
 * `SymPy Live <http://live.sympy.org/>`_
 * `Try Jupyter! <http://try.jupyter.org/>`_ - ``import sympy``
+
 
 
 Installation
@@ -17,6 +22,8 @@ Installation
 
     # 記得先切到 virtualenv 裡面
     $ pip install sympy
+
+
 
 Example
 ========================================
@@ -197,3 +204,6 @@ Reference
 * `SageMathCloud <http://www.sagemath.com>`_
     - `SageMathCloud - FAQ <https://github.com/sagemathinc/smc/wiki/FAQ>`_
     - `SageMathCloud - Teaching <https://github.com/sagemathinc/smc/wiki/Teaching>`_
+* `PR #13706 - Add Experimental LaTeX parsing <https://github.com/sympy/sympy/pull/13706>`_
+    - 搭配既有的 codegen backend，看起來可以直接從 LaTeX 寫的數學函式轉成 SymPy AST 再轉成 C/Fortran/... 程式碼
+    - SymPy 1.2 版開始加入
