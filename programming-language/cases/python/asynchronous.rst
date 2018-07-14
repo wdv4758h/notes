@@ -164,5 +164,36 @@ aiohttp - Async HTTP client/server framework
 參考
 ========================================
 
-* `asyncio — Asynchronous I/O, event loop, coroutines and tasks <https://docs.python.org/3/library/asyncio.html>`_
+* `PEP 492 -- Coroutines with async and await syntax <https://www.python.org/dev/peps/pep-0492/>`_
+    - 假定 Asynchronous 的工作都會被 Event Loop 排程、掌控
+    - 只跟「使用 yield 來作為給排程器的訊號表示要等到 event 結束」的 coroutine 有關
+    - 區隔 native coroutine 和 generator
+    - 先前問題
+        + 既有的 coroutine via generator 容易讓人搞混
+        + 因為共用語法所以容易讓人搞混一般的 generator 和 coroutine
+        + 函式是否是 coroutine 取決於裡面是否有使用 yield 和 yield from，這容易造成誤會或是在重構時發生意外
+        + 支援 Asynchronous 呼叫時受限於 yield 的語法，無法和 with 或 for 搭配使用
+    - 這個 PEP 讓 coroutine 成為 Python 的原生語言特色，並且跟 generator 區隔
+    - 用語
+        + native coroutine：使用新語法的函式
+        + generator-based coroutine：使用 generator 語法的 coroutine
+        + coroutine：以上兩種
+    - ``async def`` 表示這函式永遠都是 coroutine
+        + 在裡面使用 ``yield`` 或 ``yield from`` 是 SyntaxError
+        + CPython code object 新增
+            * ``CO_COROUTINE`` 表示 native coroutine
+            * ``CO_ITERABLE_COROUTINE`` 表示 generator-based coroutine
+        + StopIteration 不會傳到 coroutine 外，出去會變成 RuntimeError
+        + 當 native coroutine 被 GC 時，如果沒有被 ``await`` 過會噴 RuntimeWarning
+    - ``@types.coroutine`` 可以用於銜接現有的 generator-based coroutines 和 native coroutine
+    - ``await`` 會用來取得 coroutine 的結果，取代先前 generator-based coroutine 中的 ``yield from``
+    - 在 ``async def`` 外使用 ``await`` 是 SyntaxError
+    - ``async with`` 作為 asynchronous context managers
+    - ``async for`` 搭配 asynchronous iterable
+    - asynchronous iterable 最後會 raise ``StopAsyncIteration`` ，因為其他 exception 會被轉成 RuntimeError
+    - ``PYTHONASYNCIODEBUG``
+* asyncio.Future
+* `Python Documentation - asyncio — Asynchronous I/O, event loop, coroutines and tasks <https://docs.python.org/3/library/asyncio.html>`_
+* `Python Documentation - Develop with asyncio <https://docs.python.org/3/library/asyncio-dev.html>`_
+* `Python Documentation - Base Event Loop <https://docs.python.org/3/library/asyncio-eventloop.html>`_
 * `uvloop - Blazing fast Python networking — magicstack <https://magic.io/blog/uvloop-blazing-fast-python-networking/>`_
