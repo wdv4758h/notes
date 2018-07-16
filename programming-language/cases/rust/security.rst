@@ -83,3 +83,17 @@ rust-native-tls - 系統 TLS library 抽象化
 * OSX: Secure Transport
 * Windows: SChannel
 * Other: OpenSSL
+
+
+
+Signatory - 數位簽章演算法 library
+=========================================
+
+Signatory 提供了數位簽章的 API，
+並且支援多種 backend 支援，
+可以依照偏好選擇實做版本。
+
+支援：
+
+* ECDSA
+* Ed25519
