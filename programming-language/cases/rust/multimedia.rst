@@ -24,7 +24,7 @@ Rust 目前在這塊資源還不多，
     - VP9
     - H264
     - H265
-    - AV1
+    - `AV1 <https://github.com/xiph/rav1e>`_
 * Audio
     - PCM
     - MP3
