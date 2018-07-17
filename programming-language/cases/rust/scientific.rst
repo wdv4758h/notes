@@ -6,6 +6,18 @@
 .. contents:: 目錄
 
 
+套件
+========================================
+
+* `libm - pure Rust "musl libm" port <https://github.com/japaric/libm>`_
+    - 支援 no_std
+* `num - collection of numeric types and traits <https://github.com/rust-num/num>`_
+    - 支援 no_std
+* `ndarray - N-dimensional array <https://github.com/bluss/rust-ndarray>`_
+* `nalgebra - Linear Algebra <https://github.com/sebcrozet/nalgebra>`_
+    - 支援 no_std
+
+
 介紹
 ========================================
 
