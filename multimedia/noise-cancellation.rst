@@ -18,6 +18,28 @@
 
 
 
+AEC (Acoustic Echo Cancellation)
+========================================
+
+
+
+Real Time
+========================================
+
+
+
+硬體 Noise Cancellation
+========================================
+
+DSP
+------------------------------
+
+
+FPGA
+------------------------------
+
+
+
 參考
 ========================================
 
@@ -25,3 +47,10 @@
     - `Donate Your Noise to Science <https://people.xiph.org/~jm/demo/rnnoise/donate.html>`_
     - `RNNoise: Learning Noise Suppression <https://people.xiph.org/~jm/demo/rnnoise/>`_
     - [PDF] `A Hybrid DSP/Deep Learning Approach to Real-Time Full-Band Speech Enhancement <https://arxiv.org/pdf/1709.08243.pdf>`_
+* [2016] `Optimize PulseAudio for Steam: Latency, Realtime and Noise/Echo Cancellation <https://ludwig.im/en/projects/steam-pulseaudio-sound-latency-lagging-problem-noise>`_
+* [2002] `Echo Cancellation Part 1: The Basics and Acoustic Echo Cancellation | EE Times <https://www.eetimes.com/document.asp?doc_id=1277615>`_
+* `Wikipedia - Noise Reduction <https://en.wikipedia.org/wiki/Noise_reduction>`_
+* `Wikipedia - Active noise control <https://en.wikipedia.org/wiki/Active_noise_control>`_
+* `Wikipedia - SNR (Signal to Noise Ratio) <https://en.wikipedia.org/wiki/Signal-to-noise_ratio>`_
+* `Wikipedia - Echo suppression and cancellation <https://en.wikipedia.org/wiki/Echo_suppression_and_cancellation>`_
+* `2Hz - Noise Cancellation: State of the Art <https://medium.com/@2hz_ai/noise-cancellation-state-of-the-art-8e58afc98390>`_
