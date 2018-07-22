@@ -72,7 +72,7 @@ Problem:
 * `VPN <vpn.rst>`_
 * `WebSocket <websocket.rst>`_
 * Library
-    - ZeroMQ
+    - `ZeroMQ <zeromq/introduction.rst>`_
     - `nanomsg <nanomsg.rst>`_
 * `WebTorrent <webtorrent.rst>`_
 * `Network Stack <network-stack.rst>`_
