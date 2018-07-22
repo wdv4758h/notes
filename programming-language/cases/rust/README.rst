@@ -23,7 +23,88 @@ TL;DR
 * Logging ➡ ``log`` + XXX
 * HTTP ➡ ``hyper``
 * Python <-> Rust ➡ ``pyo3``
+* Bits Tuning ➡ ``packed_struct``
 * 範例 ➡ `Rust Cookbook <https://rust-lang-nursery.github.io/rust-cookbook/>`_
+
+
+
+語言核心功能
+========================================
+
+* `Pattern Matching <pattern-matching.rst>`_
+* `錯誤處理 (Error Handling) <error-handling.rst>`_
+* `Iterator <iterator.rst>`_
+* `Tagged Unions (Sum Type) <tagged-unions.rst>`_
+* `Macro <macro.rst>`_
+* `Unsafe <unsafe.rst>`_
+
+
+
+生態圈
+========================================
+
+* `Regular Expression <regex.rst>`_
+    - regex
+    - fancy-regex
+* `Serialization <serialization.rst>`_
+    - serde
+* `Logging <logging.rst>`_
+    - log
+* `Security <security.rst>`_
+    - ring
+    - webpki
+    - rustls
+    - quinn
+* `Asynchronous I/O  <asynchronous.rst>`_
+    - futures
+    - mio
+    - tokio
+    - actix
+* `Error Handling <error-handling.rst>`_
+    - Option/Result
+    - Box<Error>
+    - failure
+* `Multimedia <multimedia.rst>`_
+* `資料庫 (Database) <database.rst>`_
+
+
+
+Unstable
+========================================
+
+* `CTFE (Compile Time Function Execution) <compile-time-function-execution.rst>`_
+
+
+
+Working Groups
+========================================
+
+* `CLI working group <https://github.com/rust-lang-nursery/cli-wg>`_
+* `Rust + WebAssembly <Rust + WebAssembly>`_
+* `Runtimes working group <https://github.com/rust-hosted-langs/runtimes-WG/>`_
+* `Embedded devices Working Group <https://github.com/rust-lang-nursery/embedded-wg>`_
+* `Rust Verification working group <https://github.com/rust-lang-nursery/wg-verification>`_
+* `Portability Working Group <https://github.com/rust-lang-nursery/portability-wg>`_
+* `Ecosystem Working Group <https://github.com/rust-lang-nursery/ecosystem-wg>`_
+* `Networking Working Group <https://github.com/rust-lang-nursery/net-wg>`_
+* `codegen working group <https://github.com/nox/wg-codegen>`_
+
+
+
+練習
+========================================
+
+* NTP client
+
+
+
+內部實做
+========================================
+
+* `RFCs <rfcs.rst>`_
+* `編譯器 (Compiler) <compiler.rst>`_
+* `MIR (Mid-level Intermediate Representation) <mir.rst>`_
+* `Standard Library 程式碼研讀 <std.rst>`_
 
 
 
@@ -32,22 +113,12 @@ TL;DR
 
 一般使用：
 
-* `Pattern Matching <pattern-matching.rst>`_
-* `錯誤處理 (Error Handling) <error-handling.rst>`_
-* `Iterator <iterator.rst>`_
-* `Macro <macro.rst>`_
 * `Testing <testing.rst>`_
 * `Fuzz Testing <fuzz-testing.rst>`_
-* `Logging <logging.rst>`_
 * `Benchmark <benchmark.rst>`_
 * `套件處理 - Cargo <cargo.rst>`_
-* `Unsafe <unsafe.rst>`_
-* `Regular Expression <regex.rst>`_
 * `文件 (Documentation) <documentation.rst>`_
-* `Serialization <serialization.rst>`_
 * `網路相關 (Network) <network.rst>`_
-* `Asynchronous <asynchronous.rst>`_
-* `資料庫 (Database) <database.rst>`_
 * `開發相關工具 (Development Tools) <development-tools.rst>`_
 * `Graphic <graphc.rst>`_
 * `GUI <gui.rst>`_
@@ -57,17 +128,9 @@ TL;DR
 * `Microcontroller <microcontroller.rst>`_
 
 
-Internal：
-
-* `編譯器 (Compiler) <compiler.rst>`_
-* `Standard Library 程式碼研讀 <std.rst>`_
-
-
 其他：
 
 * `文章閱讀 <articles.rst>`_
-* `MIR (Mid-level Intermediate Representation) <mir.rst>`_
-* `RFCs <rfcs.rst>`_
 * `Tips <tips.rst>`_
 * `生態圈 <ecosystem.rst>`_
 * `Servo <servo.rst>`_
@@ -75,7 +138,6 @@ Internal：
 * `Rust to asm.js <asmjs.rst>`_
 * `Make Parity work on FreeBSD <make-parity-work-on-freebsd.rst>`_
 * `Misc <misc.rst>`_
-* `Tagged Unions (Sum Type) <tagged-unions.rst>`_
 * `Videos <videos.rst>`_
 * `FAQ <faq.rst>`_
 * `Design Pattern <design-pattern.rst>`_
