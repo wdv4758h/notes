@@ -99,6 +99,66 @@ Futures 是任何實做了 ``Future`` trait 的型別，
 trait 內包含許多方便使用的函式。
 
 
+* `Cheatsheet for Futures <https://rufflewind.com/img/rust-futures-cheatsheet.html>`_
+
+* 基本小工具
+    - empty => 產生永遠不會結束的 Future
+    - ok => 產生成功取得結果的 Future
+    - err => 產生失敗的 Future
+    - result => 銜接 Result 以及 Future
+* Rust Future 的 ``join`` 就像是 Python 的 ``asyncio.gather`` ，可以把多個 Future 整合起來
+    - join
+    - join3
+    - join4
+    - join5
+    - join_all
+* Rust Future 的 ``select`` 可以先回傳比較早執行完的結果，並且提供新的 Future 可以等其他的人
+    - select
+    - select2
+    - select_all
+    - select_ok
+* 執行方式
+    - LocalPool
+        + single thread
+        + 可以執行 ``non-Send`` 的 Task
+    - ThreadPool
+
+
+Joining (waiting) futures:
+
+.. code-block:: rust
+
+    extern crate futures;
+
+    use futures::future::*;
+
+    fn main() {
+        let future_a = ok::<u32, u32>(1);
+        let future_b = ok::<u32, u32>(2);
+        let future_ab = future_a.join(future_b);
+        let future_c = future_ab.map(|(a, b)| { println!("{} {}", a, b); });
+        future_c.wait().unwrap();   // 輸出 "1 2"
+    }
+
+
+
+Selecting (racing) futures:
+
+.. code-block:: rust
+
+    extern crate futures;
+
+    use futures::future::*;
+
+    fn main() {
+        let future_a = ok::<u32, u32>(1);
+        let future_b = ok::<u32, u32>(2);
+        let future_c = future_a.select(future_b);
+        // Ok((1, SelectNext { inner: B(FutureResult { inner: Some(Ok(2)) }) }))
+        println!("{:?}", future_c.wait());
+    }
+
+
 
 Generator
 ========================================
