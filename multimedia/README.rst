@@ -106,7 +106,36 @@
     - Server
     - Filter
     - 上字幕
+    - `GStreamer 相關公司 <gstreamer/company.rst>`_
 * `FFmpeg <ffmpeg.rst>`_
+    - CLI 參數使用
+    - Transcoding
+    - Transmuxing
+    - Transrating
+    - Transsizing
+    - Adaptive Streaming
+    - File Repair
+    - Filter
+    - 上字幕
+    - 架構設計
+        + Encoder
+        + Decoder
+        + Muxer/Demuxer
+    - 元件用途
+        + libavutil
+        + libavcodec
+        + libavformat
+        + libavdevice
+        + libavfilter
+        + libavresample
+        + libswscale
+        + libswresample
+        + libpostproc
+    - C API
+    - 其他程式語言 Binding
+    - 硬體加速
+    - Player
+    - Server
 * `OpenCV <opencv.rst>`_
 * `WebRTC <webrtc.rst>`_
 * `MediaInfo <mediainfo.rst>`_
@@ -119,4 +148,20 @@
 ========================================
 
 * `播放器 <player.rst>`_
+    - VLC
+    - mplayer
+    - mpv
+    - cmus
+    - GStreamer (gst-play-1.0)
+    - FFmpeg (ffplay)
+    - mpd
+    - Mopidy
 * `Kodi <kodi.rst>`_
+
+
+
+其他
+========================================
+
+* 猜測多媒體格式
+    - GStreamer typefind
