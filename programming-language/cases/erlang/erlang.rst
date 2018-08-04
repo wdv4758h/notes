@@ -3,6 +3,12 @@ Erlang
 ========================================
 
 
+.. contents:: 目錄
+
+
+介紹
+========================================
+
 初步聽了 Erlang 的介紹，
 感覺受 Prolog 影響很深 (當初的實作據說就是 Prolog 寫的)。
 變數需要大寫，
@@ -22,7 +28,23 @@ Erlang 可以編成 BEAM bytecode 再丟到 VM 上執行，
 BEAM 包含 copying generational GC。
 
 
-.. contents:: 目錄
+
+歷史發展
+========================================
+
+* `A Brief History of the BEAM Compiler <https://blog.erlang.org/beam-compiler-history/>`_
+    - Prolog-based interpreter
+    - JAM (Joe’s Abstract Machine)
+    - TEAM (Turbo Erlang Abstract Machine)
+    - BEAM (Bogdan’s Erlang Abstract Machine)
+    - VEE (Virding’s Erlang Engine)
+    - die of BEAM/C
+    - R6B: Enter Kernel Erlang
+    - R7B: Enter Core Erlang
+        + from HiPE
+        + IR for Erlang
+        + IR named "Core Erlang"
+
 
 
 特色清單（用於快速建立語言輪廓）
@@ -38,10 +60,6 @@ BEAM 包含 copying generational GC。
 * Process 的狀態只有正常運作或是 Crash，沒有仍然運作但行為奇怪的狀況
 * Message Passing
 * CSP (Communicating Sequential Processes)
-
-
-歷史發展
-========================================
 
 
 安裝
@@ -60,6 +78,7 @@ Arch Linux 上有兩個版本可以裝，
 
 
 安裝完後會得到 ``erl`` 指令可以打開直譯器
+
 
 
 練習範例
@@ -198,6 +217,12 @@ Fibonacci
         io:format("usage: fibonacci integer\n"),
         halt(1).
 
+
+
+動態程式更新
+------------------------------
+
+code_change/2
 
 
 escript - Erlang Scripting
@@ -469,7 +494,16 @@ Garbage Collection
 
 
 
-Reference
+實做
+========================================
+
+* BEAM VM
+* `Erjang - JVM-based Erlang VM <https://github.com/trifork/erjang>`_
+* `MicroErlang - Erlang on embedded systems <https://github.com/kvakvs/E4VM>`_
+
+
+
+參考
 ========================================
 
 * `Wikipedia - Erlang (programming language) <https://en.wikipedia.org/wiki/Erlang_%28programming_language%29>`_
