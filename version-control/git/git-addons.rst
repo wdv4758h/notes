@@ -70,6 +70,30 @@ git standup
     git standup -a "somebody's name or mail" -d 2
 
 
+diff-so-fancy
+------------------------------
+
+:Repo: https://github.com/so-fancy/diff-so-fancy
+
+
+一個 Perl script 輔助 diff 的顯示，
+例如把兩行的差異用不同底色標起來、把有差異的檔案名稱特別突顯等等。
+
+
+安裝：
+
+.. code-block:: sh
+
+    sudo pacman -S diff-so-fancy
+
+
+搭配 Git 的方式：
+
+.. code-block:: sh
+
+    git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
+
+
 
 參考
 ========================================
