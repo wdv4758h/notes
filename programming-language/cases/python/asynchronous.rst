@@ -40,7 +40,7 @@ asyncio 的 event loop 實做是可以自己替換的。
         @wraps(func)
         async def run(*args, loop=None, executor=None, **kwargs):
             if loop is None:
-              loop = asyncio.get_event_loop()
+                loop = asyncio.get_event_loop()
             f = partial(func, *args, **kwargs)
             return await loop.run_in_executor(executor, f)
         return run
