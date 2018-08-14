@@ -203,6 +203,31 @@ docker-compose
 
 
 
+rootfs 轉 container
+========================================
+
+方法一：
+
+.. code-block:: sh
+
+    $ docker import rootfs.tar
+    sha256:a74c2b3a3e20090cea53243752e1c27b4370fecde83e734f294006fc14cceeb9
+
+
+方法二：
+
+.. code-block:: dockerfile
+
+    FROM scratch
+    ADD . /
+
+
+.. code-block:: sh
+
+    docker build -t mycontainer .
+
+
+
 壓縮 docker images 大小
 ========================================
 
