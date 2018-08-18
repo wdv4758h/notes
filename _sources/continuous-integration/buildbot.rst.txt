@@ -18,3 +18,4 @@ Buildbot 在 0.9 版之後有改了 UI，
 ========================================
 
 * `Buildbot <https://github.com/buildbot>`_
+* `Coordinating Parallel Builds with Buildbot <http://releng.polymtl.ca/RELENG2013/html/slides/buildbot-talk/index.html>`_

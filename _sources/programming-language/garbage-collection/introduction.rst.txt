@@ -577,6 +577,8 @@ CLR (Common Language Runtime)
 * `The 68 things the CLR does before executing a single line of your code (*) <http://mattwarren.org/2017/02/07/The-68-things-the-CLR-does-before-executing-a-single-line-of-your-code/>`_
 * `CoreCLR - The Book of the Runtime <https://github.com/dotnet/coreclr/blob/master/Documentation/botr/README.md>`_
 * `Analysing Pause times in the .NET GC <http://mattwarren.org/2017/01/13/Analysing-Pause-times-in-the-.NET-GC/>`_
+* `A Hitchhikers Guide to the CoreCLR Source Code <http://mattwarren.org/2017/03/23/Hitchhikers-Guide-to-the-CoreCLR-Source-Code/>`_
+* `Resources for Learning about .NET Internals <https://mattwarren.org/2018/01/22/Resources-for-Learning-about-.NET-Internals/>`_
 
 
 D
@@ -1406,6 +1408,7 @@ Rust 中還有另外一個 Reference Counting 實做是可以在 Thread 間傳�
 
 * `Wikipedia - Garbage collection (computer science) <https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)>`_
 * `Wikipedia - Mark-compact algorithm <https://en.wikipedia.org/wiki/Mark-compact_algorithm>`_
+* `Wikipedia - Reference Counting <https://en.wikipedia.org/wiki/Reference_counting>`_
 * `GC FAQ <http://iecc.com/gclist/GC-faq.html>`_
 * `Memory Management Reference <http://www.memorymanagement.org/>`_
 * `the Garbage Collection Bibliography <https://www.cs.kent.ac.uk/people/staff/rej/gcbib/>`_

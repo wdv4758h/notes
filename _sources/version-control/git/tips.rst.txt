@@ -2,6 +2,10 @@
 Git Tips
 ========================================
 
+
+.. contents:: 目錄
+
+
 Misc
 ========================================
 
@@ -385,3 +389,22 @@ cherry-pick 別的地方的 branch
     # e275095 - (3 minutes ago) test2
     # d07c467 - (3 minutes ago) test1
     # c120efd - (3 minutes ago) init
+
+
+
+尋找開始出現問題的 commit
+========================================
+
+.. code-block:: sh
+
+    # 開始
+    git bisect start
+
+    # 這個 commit 是好的
+    git bisect good
+
+    # 這個 commit 是壞的
+    git bisect bad
+
+    # 換下一個 commit
+    git bisect next

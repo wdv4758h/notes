@@ -6,6 +6,49 @@
 .. contents:: 目錄
 
 
+簡介
+========================================
+
+Error Handling 大致可以分成兩類：
+
+* Exceptions
+    - C++
+    - Java
+    - Python
+* Return Value
+    - Haskell
+
+
+Rust 選擇使用 Return Value 的方式處理 Error Handling。
+
+
+實做：
+
+* Option
+    - standard library 裡的型別，可以表示資料的有無，並且強制程式設計師要去處理
+* Result
+    - standard library 裡的型別，可以表示資料的有無和錯誤的種類，並且強制程式設計師要去處理
+* ? operator
+    - 之前是 ``try!`` macro
+    - 可以處理 early return
+* Error trait
+    - From trait
+    - Try trait
+* Box<Error>
+    - 藉由 trait object 的方式可以接受所有實做 Error trait 的型別，但是編譯器就能事先知道會收到的型別是哪種，因為這種作法會 erase type
+* error_chain
+* `failure <https://github.com/rust-lang-nursery/failure>`_
+    - ``failure::Error`` 類似 ``Box<Error>`` ，但是支援 backtrace 和更好的 downcast
+    - 設計來取代 error_chain
+    - failure_derive
+        + https://github.com/rust-lang-nursery/failure/tree/master/failure-1.X/failure_derive
+    - display_derive
+        + https://github.com/withoutboats/display_derive
+    - backtrace
+        + https://github.com/alexcrichton/backtrace-rs
+
+
+
 panic!
 ========================================
 
@@ -94,7 +137,7 @@ try! & ?
 功用是回傳 ``Ok`` 內的值或是提早離開把 ``Err`` 傳出去。
 
 
-``try!`` 的實做：
+``try!`` 的實做（ ``src/libcore/macros.rs`` ）：
 
 .. code-block:: rust
 

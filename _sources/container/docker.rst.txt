@@ -203,6 +203,31 @@ docker-compose
 
 
 
+rootfs 轉 container
+========================================
+
+方法一：
+
+.. code-block:: sh
+
+    $ docker import rootfs.tar
+    sha256:a74c2b3a3e20090cea53243752e1c27b4370fecde83e734f294006fc14cceeb9
+
+
+方法二：
+
+.. code-block:: dockerfile
+
+    FROM scratch
+    ADD . /
+
+
+.. code-block:: sh
+
+    docker build -t mycontainer .
+
+
+
 壓縮 docker images 大小
 ========================================
 
@@ -236,7 +261,9 @@ docker-squash
 參考
 ========================================
 
+* `Wikipedia - Docker <https://en.wikipedia.org/wiki/Docker_(software)>`_
 * `Arch Wiki - Docker <https://wiki.archlinux.org/index.php/Docker>`_
 * `archlinux/base <https://hub.docker.com/r/archlinux/base/>`_
 * `archlinux-docker <https://github.com/archlinux/archlinux-docker>`_
 * `Docker console UI and Dashboard <https://github.com/lirantal/dockly>`_
+* `Awesome Docker <https://github.com/veggiemonk/awesome-docker>`_

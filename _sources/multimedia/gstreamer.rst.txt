@@ -274,6 +274,17 @@ TCP
 * tcpclientsink
 
 
+ipcpipeline
+------------------------------
+
+可以把 pipeline 拆成數個小 pipeline 跑在不同的 process 裡，
+彼此間仍能溝通（基於 fd），
+藉此能處理使用特定元件需要較高權限的狀況，
+提昇安全性，
+架構像是 master/slave，
+pipeline 狀態可以傳遞。
+
+
 
 顯示 plugin 被放入 blacklist 的原因
 ========================================
@@ -711,6 +722,13 @@ Restart Pipeline in Application
 
 
 
+分析用 Plugins
+========================================
+
+* audiolatency
+
+
+
 License
 ========================================
 
@@ -761,6 +779,13 @@ Talks:
 
 Articles:
 
+* `Planet GStreamer <https://gstreamer.freedesktop.org/planet/>`_
+* `Nirbheek’s Rantings: gstreamer <https://blog.nirbheek.in/search/label/gstreamer>`_
+* `gstreamer – Herostratus’ legacy <https://blogs.igalia.com/vjaquez/tag/gstreamer/>`_
+
 * `GStreamer to Gain the First RTSP 2.0 Implementation! <https://blogs.s-osg.org/gstreamer-to-gain-the-first-rtsp-2-0-implementation/>`_
 * `How to Test GStreamer Pipelines with gst-validate Scenarios <https://blogs.s-osg.org/creating-scenarios-gst-validate/>`_
 * `Herostratus’ legacy - tag: gstreamer <https://blogs.igalia.com/vjaquez/tag/gstreamer/>`_
+
+* `A simple method of measuring audio latency <https://blog.nirbheek.in/2018/04/a-simple-method-of-measuring-audio.html>`_
+* `GStreamer and Synchronisation Made Easy – Arun Raghavan <https://arunraghavan.net/2016/11/gstreamer-and-synchronisation-made-easy/>`_

@@ -7,6 +7,53 @@ Python Testing
 
 
 
+TL;DR
+========================================
+
+用 ``pytest``
+
+
+::
+
+    pytest
+    pytest-sugar          # show better test result
+    pytest-timeout        # abort hanging tests
+    pytest-forked         # run each test in a forked subprocess
+    pytest-xdist          # -n JOBS
+    pytest-cov            # coverage
+    pytest-runner         # "setup.py test" support
+    pytest-benchmark      # benchmark
+    pytest-profiling      # profile graph
+    pytest-rerunfailures  # re-runs failed tests up to -n times to eliminate flakey failures
+    pytest-incremental    # modify the order of test cases base on your code modification
+    pytest-echo           # print env, software version, attributes
+    pytest-bdd            # behavioral driven development
+    hypothesis            # property based testing, has pytest plugin
+    pytest-faker          # Faker integration, generate fake data
+    pytest-randomly       # randomly order tests
+    pytest-html           # generating HTML reports for pytest results
+    pytest-instafail      # show failures instantly
+    pytest-factoryboy
+    pytest-mock
+    pytest-faulthandler
+    pytest-xprocess
+    pytest-asyncio
+    pytest-variables
+    pytest-play
+    pytest-cloud
+    pytest-cpp
+    pytest-splinter
+    ##############################
+    # some frameworks support
+    ##############################
+    pytest-django
+    pytest-flask
+    pytest-twisted
+    pytest-qt
+    pytest-selenium
+
+
+
 doctest
 ========================================
 
@@ -229,7 +276,7 @@ pytest 雖然自己提供了直接定義函式並使用 ``assert`` 的方法來�
     # --doctest-modules: 跑 doctest
     # -v: verbose
     # --strict: 把 warning 當 error
-    py.test --doctest-modules -v --strict
+    pytest --doctest-modules -v --strict
 
 
 pytest fixture
@@ -392,6 +439,12 @@ pytest-xdist - 同時執行多項測試
 以加速所需要花費的時間。
 
 
+.. code-block:: sh
+
+    $ pytest -n auto tests/
+
+
+
 pytest-cov - 測試涵蓋率
 -------------------------------
 
@@ -399,6 +452,50 @@ pytest-cov - 測試涵蓋率
 
 可以產生出多種格式的 Report，
 例如直接在終端機顯示、HTML、XML 等。
+
+
+範例
+-------------------------------
+
+
+socket
+++++++++++++++++++++
+
+
+https://pypi.python.org/pypi/pytest-socket
+
+
+
+Hypothesis
+========================================
+
+`Hypothesis <https://github.com/HypothesisWorks/hypothesis>`_
+支援「property-based testing」，
+藉由定義可接受的資料來產生測試程式，
+為人熟知的是 Haskell 的 QuickCheck，
+但是 Hypothesis 的設計跟 QuickCheck 有很大的差異，
+並且著重於跟現有其他測試風格整合。
+Hypothesis 在安裝後直接可以跟 pytest 整合，
+所以不需要改動既有的測試架構。
+
+property-based testing 源自於 2000 年
+由 Koen Claessen 和 John Hughes 提出的論文
+「QuickCheck: A Lightweight Tool for Random Testing of Haskell Programs」，
+論文中提出一個叫 QuickCheck 的 Haskell library，
+可以藉由函式參數的型別來隨機產生測試資料，
+此作法後來在函數式程式語言廣為流行，
+也漸漸在更多語言中出現。
+
+在使用 Hypothesis 時主要有兩種方式，
+一種是使用 Hypothesis 提供的 strategy 針對不同型別的資料做調整，
+另一種是寫好 type hinting 後使用
+Hypothesis 的 infer 模式來自動選出需要的 strategy，
+此外也可以額外指定一定要跑到的範例資料。
+
+
+參考：
+
+* `Brief Introduction to Haskell - Chapter 8: Property based testing <https://github.com/fpinscala/fpinscala/wiki/Chapter-8:-Property-based-testing>`_
 
 
 

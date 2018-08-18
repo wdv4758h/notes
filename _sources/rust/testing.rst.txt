@@ -6,6 +6,14 @@
 .. contents:: 目錄
 
 
+Property Testing
+========================================
+
+* `QuickCheck <https://github.com/BurntSushi/quickcheck>`_
+* `Proptest <https://github.com/AltSysrq/proptest>`_
+
+
+
 涵蓋率 (Coverage)
 ========================================
 

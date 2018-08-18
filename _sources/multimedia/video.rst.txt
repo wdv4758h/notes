@@ -6,6 +6,56 @@ Video
 .. contents:: 目錄
 
 
+簡表
+========================================
+
+* Audio
+    - Lossy Compression
+        + MP3
+        + WMA
+        + Vorbis
+        + Opus
+        + AAC
+        + AC-3
+        + DTS
+    - No Compression
+        + PCM
+        + LPCM
+    - Lossless Compression
+        + FLAC
+        + ALAC
+        + MLP/Dolby TrueHD
+        + DTS-HD
+
+* Video
+    - MPEG-1
+    - MPEG-2
+    - MPEG-4 (A)SP
+    - H.264/MPEG-4 AVC
+    - H.265/HEVC
+    - VC-1/WMV
+    - Real Video
+    - Theora
+    - Microsoft MPEG4 V2
+    - VP8
+    - VP9
+    - MVC
+    - AV1
+
+* Subtitle
+    - MicroDVD
+    - MPEG-4 Timed Text
+    - MPSub
+    - SAMI
+    - SubRip
+    - SSA (SubStation Alpha)
+    - SubViewer
+    - Universal Subtitle Format
+    - VobSub
+    - XSUB
+
+
+
 MJPEG (Motion JPEG)
 ========================================
 

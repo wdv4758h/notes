@@ -3,19 +3,22 @@ Android
 ========================================
 
 
+* `Boot <boot.rst>`_
 * `Kernel <kernel.rst>`_
+* Ashmem - Android shared memory
 * Zygote
-* `HAL <hal.rst>`_
-* `Binder <binder.rst>`_
-* `SurfaceFlinger <surfaceflinger.rst>`_
 * Bionic - Android libc
+* `硬體抽象層 HAL (Hardware Abstraction Layer) <hal.rst>`_
+* `SurfaceFlinger <surfaceflinger.rst>`_
+* AudioFlinger
+* `Binder (IPC) <binder.rst>`_
 * `NDK <ndk.rst>`_
 * SDK
 * `Compatibility Test Suite <cts.rst>`_
 * Android Debug Bridge (adb)
 * `libhybris <libhybris.rst>`_
 * `Linux environment on Android <linux-environment-on-android.rst>`_
-* Ashmem - Android shared memory
+* Fastboot
 * `reflash Android board <reflash.rst>`_
 * `Android emulator <android-emulator.rst>`_
 * `Android images <android-images.rst>`_

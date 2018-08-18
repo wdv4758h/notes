@@ -1,4 +1,4 @@
-  var READTHEDOCS_DATA = {
+var READTHEDOCS_DATA = {
     project: "wdv4758h-notes",
     version: "",
     language: "zh_TW",
@@ -10,6 +10,10 @@
     docroot: "/./",
     source_suffix: ".rst",
     api_host: "https://readthedocs.org",
-    commit: ""
-  };
-  
+    commit: "",
+    ad_free: false,
+
+    global_analytics_code: null,
+    user_analytics_code: null
+};
+

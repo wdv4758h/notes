@@ -29,9 +29,9 @@ CLI:
     $ pacmd set-sink-port 0 analog-output-speaker
     $ pacmd set-sink-port 0 analog-output-headphones
 
-		$ pacmd list | rg "Default sink"
-		Default sink name: alsa_output.pci-0000_00_1f.3.analog-stereo
-		$ pacmd set-sink-port "alsa_output.pci-0000_00_1f.3.analog-stereo" analog-output-speaker
+    $ pacmd list | rg "Default sink"
+    Default sink name: alsa_output.pci-0000_00_1f.3.analog-stereo
+    $ pacmd set-sink-port "alsa_output.pci-0000_00_1f.3.analog-stereo" analog-output-speaker
 
 
 
@@ -85,6 +85,29 @@ GUI
 
 
 
+常用指令
+========================================
+
+.. code-block:: sh
+
+    pacmd list-sources
+    pacmd list-sinks
+    pactl load-module module-echo-cancel
+
+
+
+PulseAudio with Rust
+========================================
+
+PulseAudio binding
+------------------------------
+
+
+PulseAudio plugin
+------------------------------
+
+
+
 參考
 ========================================
 
@@ -95,3 +118,5 @@ GUI
 * `PulseAudio under the hood <https://gavv.github.io/blog/pulseaudio-under-the-hood/>`_
 * `Arch Wiki - PulseAudio <https://wiki.archlinux.org/index.php/PulseAudio>`_
 * `Beamforming in PulseAudio <https://arunraghavan.net/2016/06/beamforming-in-pulseaudio/>`_
+
+* `PulseAudio vs. AudioFlinger: Fight! <https://arunraghavan.net/2012/01/pulseaudio-vs-audioflinger-fight/>`_

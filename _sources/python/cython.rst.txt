@@ -56,5 +56,49 @@ Cython + NDK
 
 
 
+Cython + Type Hinting
+========================================
+
+範例：
+
+.. code-block:: python
+
+    import cython
+    import ctypes
+
+    # still be PyObject for compatibility
+    def func_py(n: int) -> int:
+        return n**n
+
+    # will be C int
+    def func_cy_int(n: cython.int) -> int:
+        return n**n
+
+    # will be C long long
+    def func_cy_longlong(n: cython.longlong) -> cython.longlong:
+        return n**n
+
+    # still be PyObject !?
+    def func_cy_ctypes(n: ctypes.c_longlong) -> ctypes.c_longlong:
+        return n**n
+
+
+編譯：
+
+.. code-block:: sh
+
+  cython -v -Wextra -Werror -3 --no-docstrings -X annotation_typing=True test.py
+  cc test.c -I /usr/include/python3.7m/ -l python3.7m -shared -fPIC -o test.so
+
+
+參考：
+
+* `Cython - Python Typing Proposal <https://github.com/cython/cython/wiki/Python-Typing-Proposal>`_
+* `Cython - Pure Python Mode <http://cython.readthedocs.io/en/latest/src/tutorial/pure.html>`_
+* `Cython - Extension types (aka. cdef classes) <http://cython.readthedocs.io/en/latest/src/tutorial/cdef_classes.html>`_
+* `Cython 0.27 speeds Python by moving away from oddball syntax - InfoWorld <https://www.infoworld.com/article/3227890/python/cython-027-speeds-python-by-moving-away-from-oddball-syntax.html>`_
+
+
+
 Cython + PyInstaller
 ========================================

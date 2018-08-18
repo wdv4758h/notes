@@ -7,6 +7,7 @@ Rust 相關書籍
 * [2017] `Programming Rust <http://shop.oreilly.com/product/0636920040385.do>`_
 * [2017] `Mastering Rust <https://www.packtpub.com/application-development/mastering-rust>`_
 * [2017] `Learning Rust <https://www.packtpub.com/application-development/learning-rust>`_
+* [2018] `Rust High Performance <https://www.packtpub.com/application-development/rust-high-performance>`_
 
 ----
 

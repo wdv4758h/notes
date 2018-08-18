@@ -2,7 +2,28 @@
 Numpy
 ========================================
 
-.. contents:: Table of Contents
+
+.. contents:: 目錄
+
+
+介紹
+========================================
+
+Numpy 是 N 維 array 的 library，
+實做眾多相關的操作，
+而發展到現在幾乎已經是 Python 科學運算相關的公認 API，
+就算發展新一套 library 也常常會跟 Numpy 具有一定程度的 API 相容。
+
+
+Numpy API 相容的其他 library：
+
+* CuPy: Numpy API for CUDA
+		- https://cupy.chainer.org/
+* Sparse: Numpy API for sparse arrays
+		- https://sparse.pydata.org/
+* Dask: Numpy API in parallel for multi-core workstations or distributed clusters
+		- https://dask.pydata.org/
+
 
 
 Numpy Slicing
@@ -363,7 +384,7 @@ Fortran-order 是 Column Major Order，
 
 
 
-Reference
+參考
 ========================================
 
 * `NumPy Reference <http://docs.scipy.org/doc/numpy-dev/reference/>`_

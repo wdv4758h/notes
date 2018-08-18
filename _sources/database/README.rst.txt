@@ -20,6 +20,7 @@
 * NewSQL
     - `CockroachDB <cockroachdb.rst>`_
     - Google Spanner
+    - `TiDB <tidb.rst>`_
 
 
 資料結構：
