@@ -187,6 +187,182 @@ Subprojects
 
 
 
+Misc
+========================================
+
+專案語言設定
+------------------------------
+
+目前支援的 project 選項：
+
+* c
+* cpp
+* objc
+* objcpp
+* java
+* cs
+* d
+* rust
+* fortran
+* swift
+
+
+範例：
+
+.. code-block:: meson
+
+    project('tutorial', 'c')
+
+
+有人可能會問「為什麼沒有 Python」？
+因為 Meson 的設計是要處理編譯相關的複雜設定問題，
+以純 Python 的狀況來說直接使用現有的 setuptools 和 pip 就夠了，
+加一層 Meson 並沒有意義。
+如果是 CPython extension 的話看是用 C、C++、Rust 寫的，
+可以選擇相關的專案設定，
+所以也不是問題。
+
+
+詳細的專案支援偵測： ``mesonbuild/interpreter.py`` 內的 detect_compilers 函式
+
+
+相關呼叫流程：
+
+* func_project
+    - proj_name = args[0]
+    - proj_langs = args[1:]
+* add_languages(proj_langs, True)
+* detect_compilers(lang, need_cross_compiler)
+* detect_XXX_compiler()
+
+
+
+多語言專案設定
+------------------------------
+
+subprojects
+------------------------------
+
+Meson subprojects 的目的是要自動抓原始碼進來編，
+使用時機可能是相依套件找不到或是想同時編多個專案，
+因此要處理的部份就是把程式碼抓回來並且切到想要的版本。
+
+subprojects 的設定會放在 ``subprojects`` 資料夾，
+並且以 ``XXX.warp`` 命名。
+
+目前 subprojects 支援：
+
+* [wrap-git]
+    - directory
+    - revision
+    - url
+    - push-url
+* [wrap-hg]
+    - directory
+    - revision
+    - url
+* [wrap-svn]
+    - directory
+    - revision
+    - url
+* [wrap-file]
+    - source_filename
+    - source_url
+    - source_hash
+    - patch_filename
+    - patch_url
+    - patch_hash
+    - directory
+    - lead_directory_missing
+
+
+把 subproject 設定轉換成 Shell Script 來看，
+``[wrap-git]`` 大致上是這樣：
+
+.. code-block:: sh
+
+    set -e
+
+    if [ -d <directory> ]; then
+        cd <directory>
+        git rev-parse   # stop if this has error, means the dir is not empty and it's not a git repo
+        if [ <revision> = "HEAD" ]; then
+            git pull
+        else
+            git checkout <revision> || \
+              (git fetch && git checkout <revision>)
+        fi
+    else
+        git clone <url> <directory>
+        if [ <revision> = "HEAD" ]; then
+            git checkout <revision>
+        fi
+        if [ ! -z <push-url> ]; then
+            git remote set-url --push origin <push-url>
+        fi
+    fi
+
+
+範例 Wrap 檔：
+
+.. code-block:: ini
+
+    [wrap-file]
+    directory=proj1
+
+
+.. code-block:: ini
+
+    [wrap-git]
+    directory=glib
+    url=https://gitlab.gnome.org/GNOME/glib.git
+    push-url=git@gitlab.gnome.org:GNOME/glib.git
+    revision=master
+
+
+範例 meson.build ：
+
+.. code-block:: meson
+
+    dep = dependency('foo', fallback : [subproject_name, variable_name])
+
+
+詳細的支援： ``mesonbuild/wrap/wrap.py`` 內的 PackageDefinition.__init__
+
+* func_subproject (interpreter.py)
+* do_subproject (interpreter.py)
+* resolve (wrap/wrap.py)
+* get_git/get_hg/get_svn/(download+extract_package)
+* get_git/get_hg/get_svn
+    - 取得 directory
+    - 取得 revision
+    - 呼叫 git/hg/svn 指令去取得程式碼
+* download+extract_package
+    - get_data
+        + 去 https://wrapdb.mesonbuild.com 抓
+        + 或是直接下載
+    - 取得 patch_filename/patch_url/patch_hash
+    - 透過 shutil.unpack_archive 去自動偵測格式並解開
+
+
+
+Build System 比較
+========================================
+
+Meson v.s. CMake
+------------------------------
+
+
+Build System 轉換
+========================================
+
+CMake -> Meson
+------------------------------
+
+* tools/cmake2meson.py
+
+
+
 參考
 ========================================
 
