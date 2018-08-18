@@ -165,83 +165,9 @@ Meson 是用 Python 撰寫的編譯工具，
     meson mybuilddir -Dopt0=1 -Dsub1:opt1=2 -Dsub1:opt2=foo -Dsub2:opt1=false
 
 
-cross compile
-------------------------------
 
-.. code-block:: sh
-
-    meson build . --buildtype=release --cross-file=mytools.ini
-
-
-* `Meson - Cross Compilation <http://mesonbuild.com/Cross-compilation.html>`_
-* `cross compile 範例設定檔 <https://github.com/mesonbuild/meson/blob/master/cross/ubuntu-armhf.txt>`_
-
-
-Meson + NDK
-------------------------------
-
-
-
-Subprojects
+相依套件處理 - Subprojects
 ========================================
-
-
-
-Misc
-========================================
-
-專案語言設定
-------------------------------
-
-目前支援的 project 選項：
-
-* c
-* cpp
-* objc
-* objcpp
-* java
-* cs
-* d
-* rust
-* fortran
-* swift
-
-
-範例：
-
-.. code-block:: meson
-
-    project('tutorial', 'c')
-
-
-有人可能會問「為什麼沒有 Python」？
-因為 Meson 的設計是要處理編譯相關的複雜設定問題，
-以純 Python 的狀況來說直接使用現有的 setuptools 和 pip 就夠了，
-加一層 Meson 並沒有意義。
-如果是 CPython extension 的話看是用 C、C++、Rust 寫的，
-可以選擇相關的專案設定，
-所以也不是問題。
-
-
-詳細的專案支援偵測： ``mesonbuild/interpreter.py`` 內的 detect_compilers 函式
-
-
-相關呼叫流程：
-
-* func_project
-    - proj_name = args[0]
-    - proj_langs = args[1:]
-* add_languages(proj_langs, True)
-* detect_compilers(lang, need_cross_compiler)
-* detect_XXX_compiler()
-
-
-
-多語言專案設定
-------------------------------
-
-subprojects
-------------------------------
 
 Meson subprojects 的目的是要自動抓原始碼進來編，
 使用時機可能是相依套件找不到或是想同時編多個專案，
@@ -345,18 +271,99 @@ subprojects 的設定會放在 ``subprojects`` 資料夾，
     - 透過 shutil.unpack_archive 去自動偵測格式並解開
 
 
+Cross Compile
+========================================
+
+基本狀況
+------------------------------
+
+.. code-block:: sh
+
+    meson build . --buildtype=release --cross-file=mytools.ini
+
+
+* `Meson - Cross Compilation <http://mesonbuild.com/Cross-compilation.html>`_
+* `cross compile 範例設定檔 <https://github.com/mesonbuild/meson/blob/master/cross/ubuntu-armhf.txt>`_
+
+
+Android NDK
+------------------------------
+
+
+
+Misc
+========================================
+
+專案語言設定
+------------------------------
+
+目前支援的 project 選項：
+
+* c
+* cpp
+* objc
+* objcpp
+* java
+* cs
+* d
+* rust
+* fortran
+* swift
+
+
+範例：
+
+.. code-block:: meson
+
+    project('tutorial', 'c')
+
+
+有人可能會問「為什麼沒有 Python」？
+因為 Meson 的設計是要處理編譯相關的複雜設定問題，
+以純 Python 的狀況來說直接使用現有的 setuptools 和 pip 就夠了，
+加一層 Meson 並沒有意義。
+如果是 CPython extension 的話看是用 C、C++、Rust 寫的，
+可以選擇相關的專案設定，
+所以也不是問題。
+
+
+詳細的專案支援偵測： ``mesonbuild/interpreter.py`` 內的 detect_compilers 函式
+
+
+相關呼叫流程：
+
+* func_project
+    - proj_name = args[0]
+    - proj_langs = args[1:]
+* add_languages(proj_langs, True)
+* detect_compilers(lang, need_cross_compiler)
+* detect_XXX_compiler()
+
+
+
+多語言專案設定
+------------------------------
 
 Build System 比較
 ========================================
+
+Meson v.s. Autotools
+------------------------------
+
 
 Meson v.s. CMake
 ------------------------------
 
 
+
 Build System 轉換
 ========================================
 
-CMake -> Meson
+Autotools ➡ Meson
+------------------------------
+
+
+CMake ➡ Meson
 ------------------------------
 
 * tools/cmake2meson.py
