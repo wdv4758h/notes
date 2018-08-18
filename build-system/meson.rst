@@ -23,6 +23,9 @@ Meson 是用 Python 撰寫的編譯工具，
 專案語言設定
 ========================================
 
+單一語言
+------------------------------
+
 目前支援的 project 選項：
 
 * c
@@ -42,6 +45,10 @@ Meson 是用 Python 撰寫的編譯工具，
 .. code-block:: meson
 
     project('tutorial', 'c')
+
+.. code-block:: meson
+
+    project('tutorial', 'c', default_options: ['c_std=c11'])
 
 
 有人可能會問「為什麼沒有 Python」？
@@ -66,6 +73,15 @@ Meson 是用 Python 撰寫的編譯工具，
 * detect_XXX_compiler()
 
 
+多種語言
+------------------------------
+
+.. code-block:: meson
+
+    project('myproj', 'c', 'cpp',
+            default_options: ['c_std=c11', 'cpp_std=c++14'])
+
+
 
 程式碼設定
 ========================================
@@ -80,14 +96,62 @@ Meson 子目錄
 編譯參數調整
 ========================================
 
-編譯器版本
+選擇編譯器
 ------------------------------
+
+編譯器選擇直接靠常用的環境變數達成，
+例如 C 語言就是 ``CC=gcc`` ``CC=clang`` 等等。
+
+要注意的是環境變數設定的都是 native compiler，
+如果要設定 cross compiler 就要用 cross file，
+這跟某些 Build System 不太一樣，
+但是這樣可以在編譯過程中去編出一些輔助程式，
+並且在流程中使用。
+
+
+語言版本
+------------------------------
+
+支援的語言版本會根據編譯器不同而有差異，
+例如 Clang 和 GCC 就會不同，
+但是大致上是這些：
+
+* C: ``c_std``
+    - c89
+    - c99
+    - c11
+    - gnu89
+    - gnu99
+    - gnu11
+* C++: ``cpp_std``
+    - c++98
+    - c++03
+    - c++11
+    - c++14
+    - c++17
+    - gnu++98
+    - gnu++03
+    - gnu++11
+    - gnu++14
+    - gnu++17
+
+
+詳細可以看： ``mesonbuild/compilers/${LANG}.py`` 裡的 get_options
+
 
 優化參數
 ------------------------------
 
 平台偵測
 ------------------------------
+
+覆蓋編譯器參數
+------------------------------
+
+.. code-block:: meson
+
+    executable(..., override_options : ['c_std=c11'])
+
 
 
 提供功能選擇
@@ -385,58 +449,12 @@ Android NDK
 
 
 
-Misc
+Modules
 ========================================
 
-專案語言設定
-------------------------------
-
-目前支援的 project 選項：
-
-* c
-* cpp
-* objc
-* objcpp
-* java
-* cs
-* d
-* rust
-* fortran
-* swift
+http://mesonbuild.com/Modules.html
 
 
-範例：
-
-.. code-block:: meson
-
-    project('tutorial', 'c')
-
-
-有人可能會問「為什麼沒有 Python」？
-因為 Meson 的設計是要處理編譯相關的複雜設定問題，
-以純 Python 的狀況來說直接使用現有的 setuptools 和 pip 就夠了，
-加一層 Meson 並沒有意義。
-如果是 CPython extension 的話看是用 C、C++、Rust 寫的，
-可以選擇相關的專案設定，
-所以也不是問題。
-
-
-詳細的專案支援偵測： ``mesonbuild/interpreter.py`` 內的 detect_compilers 函式
-
-
-相關呼叫流程：
-
-* func_project
-    - proj_name = args[0]
-    - proj_langs = args[1:]
-* add_languages(proj_langs, True)
-* detect_compilers(lang, need_cross_compiler)
-* detect_XXX_compiler()
-
-
-
-多語言專案設定
-------------------------------
 
 Build System 比較
 ========================================
@@ -444,8 +462,14 @@ Build System 比較
 Meson v.s. Autotools
 ------------------------------
 
+https://github.com/mesonbuild/meson/blob/master/docs/markdown/Porting-from-autotools.md
+
 
 Meson v.s. CMake
+------------------------------
+
+
+Meson v.s. Bazel
 ------------------------------
 
 
@@ -461,6 +485,15 @@ CMake ➡ Meson
 ------------------------------
 
 * tools/cmake2meson.py
+
+
+
+使用 Meson 的專案
+========================================
+
+* `GLib <https://github.com/GNOME/glib>`_
+* `GStreamer <https://github.com/GStreamer/gst-build>`_
+* elementary OS
 
 
 
