@@ -15,8 +15,12 @@ Meson
 
 Meson 是用 Python 撰寫的編譯工具，
 可以幫忙維護複雜的專案，
-支援多種程式語言，
-可以藉由實做 ``Compiler`` class 來擴充語言支援。
+支援多種程式語言。
+(可以藉由實做 ``Compiler`` class 來擴充語言支援)
+
+Meson 支援複雜的相依處理，
+並盡可能地平行化編譯，
+在一些較複雜的專案中已經可以看到比 Autotools 快的編譯時間。
 
 
 
@@ -494,6 +498,25 @@ CMake ➡ Meson
 * `GLib <https://github.com/GNOME/glib>`_
 * `GStreamer <https://github.com/GStreamer/gst-build>`_
 * elementary OS
+* `systemd <https://github.com/systemd/systemd>`_
+* `NetworkManager <https://github.com/NetworkManager/NetworkManager>`_
+* `X.org <https://github.com/freedesktop/xorg-xserver>`_
+
+
+
+Talks
+========================================
+
+* `The Meson Build System - 4+ years of work to become an overnight success <https://www.youtube.com/watch?v=gHdTzdXkhRY>`_
+    - Meson 作者講述自己開發 Meson 的過程
+    - 介紹 Meson 的特色，跨平台、支援多種語言、支援 cross compile、設定簡單
+    - 前幾年沒有其他人在用，投稿也被拒絕
+    - 為了推廣跑去很多研討會，旅程也花了不少錢
+    - 在一場研討會中跟 GStreamer 開發者聊到編譯專案的問提，GStreamer 願意嘗試採用 Meson
+    - 在採用 Meson 後，編譯時間跟 Autotools 相比有大幅提昇
+    - 後續越來越多專案採用，例如 GLib、systemd、X.org
+    - 回顧開發過程講述自己做開源專案會碰到的困境
+    - Meson 會偵測 share library 的 symbol table 有沒有改變，如果 ABI 沒有變的話就不會重新 link 執行檔，藉此可以省下不少改程式碼後重編的時間
 
 
 
