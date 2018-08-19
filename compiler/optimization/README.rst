@@ -7,3 +7,4 @@
 * `IPO <ipo.rst>`_
 * DCE (Dead Code Elimination)
 * Superoptimization
+* `Tips <tips.rst>`_
