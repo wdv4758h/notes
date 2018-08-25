@@ -118,6 +118,13 @@ Debug 模式：
 
 
 
+資料結構
+========================================
+
+* [FOSDEM 2017] `Python Data Structures implementation - list, dict: how does CPython actually implement them? <https://archive.fosdem.org/2017/schedule/event/python_data_structures/>`_
+
+
+
 decimal
 ========================================
 

@@ -8,3 +8,4 @@ Clojure 是一個 Lisp 的方言，
 
 * `Clojure - Cheat Sheet <https://clojure.org/api/cheatsheet>`_
 * `Typed Clojure - An optional type system for Clojure <http://typedclojure.org/>`_
+* `Typed Clojure in Theory and Practice <https://ambrosebs.com/talks/proposal.pdf>`_

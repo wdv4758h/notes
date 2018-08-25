@@ -9,5 +9,5 @@
 * `LLVM help Testing <llvm-help-testing.rst>`_
 * `LLVM Python <llvm-python.rst>`_
 * `LLVM to VHDL/Verilog <llvm-to-vhdl-verilog.rst>`_
-* `Optimization <optimization.rst>`_
+* `Optimization <optimization>`_
 * `Autotuning <autotuning.rst>`_

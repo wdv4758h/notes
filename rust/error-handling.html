@@ -29,7 +29,7 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜尋" href="../search.html" />
     <link rel="next" title="FAQ (Frequently Asked Questions)" href="faq.html" />
-    <link rel="prev" title="Rust 生態圈 (Rust Ecosystem)" href="ecosystem.html" /> 
+    <link rel="prev" title="Rust &amp; 嵌入式 (Rust Embedded)" href="embedded.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -333,6 +333,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../cli-tui/tar.html">tar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli-tui/timedatectl.html">timedatectl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli-tui/tips.html">Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli-tui/tmux.html">Tmux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli-tui/tools.html">工具</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli-tui/xargs.html">xargs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/README.html">編譯器</a></li>
@@ -354,7 +355,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../compiler/introduction.html">編譯器</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/jump-threading.html">Jump Threading</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/legalization.html">Legalization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../compiler/linker.html">Linker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/llvm.html">LLVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/llvm-android.html">Android With LLVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/llvm-cuda.html">LLVM &amp; CUDA</a></li>
@@ -362,12 +362,9 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../compiler/llvm-ir.html">LLVM IR</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/llvm-python.html">LLVM &amp; Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/llvm-to-vhdl-verilog.html">LLVM to VHDL/Verilog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../compiler/lto.html">LTO - Link Time Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/name-mangling.html">Name Mangling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../compiler/nnvm.html">NNVM - Open Compiler for AI Frameworks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/obfuscator.html">Obfuscator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/objdump.html">Objdump</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../compiler/optimization.html">Optimizations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/porting.html">Use Compiler To Help Porting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/resource.html">Compiler Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/ssa.html">SSA</a></li>
@@ -497,6 +494,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../games/real-time-strategy.html">Real-time Strategy Games</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../games/resource.html">Games Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../games/rpg.html">Role-playing Games (RPG)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../games/wine.html">Wine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gpgpu/arrayfire.html">ArrayFire</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gpgpu/boost.html">Boost.Compute</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gpgpu/kernel.html">GPGPU with Kernel</a></li>
@@ -626,7 +624,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../misc/taiwan-software.html">台灣軟體界</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/task-execution-framework.html">Task Execution Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/team-collaboration.html">Team Collaboration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/tmux.html">Tmux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/todo.html">Todo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/todo-projects.html">想做的專案</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/tools.html">Tools</a></li>
@@ -784,6 +781,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../robotics/farming-robot.html">Farming Robot</a></li>
 <li class="toctree-l1"><a class="reference internal" href="README.html">Rust 相關文章</a></li>
 <li class="toctree-l1"><a class="reference internal" href="abbreviation.html">縮寫</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="any.html">Rust’s runtime reflection - 「Any」 type trait</a></li>
 <li class="toctree-l1"><a class="reference internal" href="articles.html">文章閱讀（Articles）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="asynchronous.html">Asynchronous I/O</a></li>
@@ -793,6 +791,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="cargo.html">Cargo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compile-time-function-execution.html">CTFE (Compile Time Function Execution)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiler.html">Rust 編譯器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-structure.html">資料結構 (Data Structure)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="database.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataflow.html">Dataflow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dependencies.html">Dependencies</a></li>
@@ -800,6 +799,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="development-tools.html">Development Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="documentation.html">文件 (Documentation)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ecosystem.html">Rust 生態圈 (Rust Ecosystem)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedded.html">Rust &amp; 嵌入式 (Rust Embedded)</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">錯誤處理 (Error Handling)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id2">簡介</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#panic">panic!</a></li>
@@ -819,7 +819,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="features-basic.html">Rust’s Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fuzz-testing.html">Fuzz Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="googlecast.html">Google Cast</a></li>
-<li class="toctree-l1"><a class="reference internal" href="graphic.html">Graphic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graphic.html">Rust &amp; Graphic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gui.html">GUI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="image-manipulation.html">圖片處理 (Image Manipulation)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="implement-languages.html">實做語言</a></li>
@@ -838,6 +838,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="multimedia.html">多媒體 (Multimedia)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multirust.html">multirust</a></li>
 <li class="toctree-l1"><a class="reference internal" href="network.html">網路相關 (Network)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="never-type.html"><code class="docutils literal notranslate"><span class="pre">!</span></code> - never type</a></li>
 <li class="toctree-l1"><a class="reference internal" href="object-safety.html">Object Safety</a></li>
 <li class="toctree-l1"><a class="reference internal" href="orm.html">ORM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="os.html">Rust in OS</a></li>
@@ -983,10 +984,10 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <div class="section" id="id2">
 <h2><a class="toc-backref" href="#id9">簡介</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
 <p>Error Handling 大致可以分成兩類：</p>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>Exceptions</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>C++</li>
 <li>Java</li>
 <li>Python</li>
@@ -996,7 +997,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </li>
 <li><dl class="first docutils">
 <dt>Return Value</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>Haskell</li>
 </ul>
 </dd>
@@ -1005,10 +1006,10 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </ul>
 <p>Rust 選擇使用 Return Value 的方式處理 Error Handling。</p>
 <p>實做：</p>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>Option</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>standard library 裡的型別，可以表示資料的有無，並且強制程式設計師要去處理</li>
 </ul>
 </dd>
@@ -1016,7 +1017,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </li>
 <li><dl class="first docutils">
 <dt>Result</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>standard library 裡的型別，可以表示資料的有無和錯誤的種類，並且強制程式設計師要去處理</li>
 </ul>
 </dd>
@@ -1024,7 +1025,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </li>
 <li><dl class="first docutils">
 <dt>? operator</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>之前是 <code class="docutils literal notranslate"><span class="pre">try!</span></code> macro</li>
 <li>可以處理 early return</li>
 </ul>
@@ -1033,7 +1034,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </li>
 <li><dl class="first docutils">
 <dt>Error trait</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>From trait</li>
 <li>Try trait</li>
 </ul>
@@ -1042,24 +1043,21 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </li>
 <li><dl class="first docutils">
 <dt>Box&lt;Error&gt;</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>藉由 trait object 的方式可以接受所有實做 Error trait 的型別，但是編譯器就能事先知道會收到的型別是哪種，因為這種作法會 erase type</li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><p class="first">error_chain</p>
-</li>
+<li>error_chain</li>
 <li><dl class="first docutils">
 <dt><a class="reference external" href="https://github.com/rust-lang-nursery/failure">failure</a></dt>
 <dd><ul class="first last">
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">failure::Error</span></code> 類似 <code class="docutils literal notranslate"><span class="pre">Box&lt;Error&gt;</span></code> ，但是支援 backtrace 和更好的 downcast</p>
-</li>
-<li><p class="first">設計來取代 error_chain</p>
-</li>
+<li><code class="docutils literal notranslate"><span class="pre">failure::Error</span></code> 類似 <code class="docutils literal notranslate"><span class="pre">Box&lt;Error&gt;</span></code> ，但是支援 backtrace 和更好的 downcast</li>
+<li>設計來取代 error_chain</li>
 <li><dl class="first docutils">
 <dt>failure_derive</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li><a class="reference external" href="https://github.com/rust-lang-nursery/failure/tree/master/failure-1.X/failure_derive">https://github.com/rust-lang-nursery/failure/tree/master/failure-1.X/failure_derive</a></li>
 </ul>
 </dd>
@@ -1067,7 +1065,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </li>
 <li><dl class="first docutils">
 <dt>display_derive</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li><a class="reference external" href="https://github.com/withoutboats/display_derive">https://github.com/withoutboats/display_derive</a></li>
 </ul>
 </dd>
@@ -1075,7 +1073,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </li>
 <li><dl class="first docutils">
 <dt>backtrace</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li><a class="reference external" href="https://github.com/alexcrichton/backtrace-rs">https://github.com/alexcrichton/backtrace-rs</a></li>
 </ul>
 </dd>
@@ -1320,7 +1318,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
         <a href="faq.html" class="btn btn-neutral float-right" title="FAQ (Frequently Asked Questions)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="ecosystem.html" class="btn btn-neutral" title="Rust 生態圈 (Rust Ecosystem)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="embedded.html" class="btn btn-neutral" title="Rust &amp; 嵌入式 (Rust Embedded)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

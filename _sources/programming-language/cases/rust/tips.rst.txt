@@ -155,7 +155,7 @@ Conditional Attribute
 要指定額外要連結 Libraries 可以使用 ``link`` attribute，
 並且可以指定如何連結：
 
-.. code-bloc:: rust
+.. code-block:: rust
 
     #[link(name = "lzma")]
     #[link(name = "mylib", kind = "static")]

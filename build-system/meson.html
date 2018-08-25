@@ -291,17 +291,57 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="gyp.html">GYP</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Meson</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id2">介紹</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">使用範例</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">調整編譯參數</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id5">選擇語言版本</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#math-library">加上 math library</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id6">專案參數</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cross-compile">cross compile</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#meson-ndk">Meson + NDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">專案語言設定</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">單一語言</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">多種語言</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#subprojects">Subprojects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id8">參考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">程式碼設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">Meson 子目錄</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">編譯參數調整</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id9">選擇編譯器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">語言版本</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">優化參數</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">平台偵測</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">覆蓋編譯器參數</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id14">提供功能選擇</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id15">常用設定</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#c">C</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id16">C++</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#python">Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rust">Rust</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id17">使用範例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id18">調整編譯參數</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id19">選擇語言版本</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#math-library">加上 math library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id20">專案參數</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#subprojects">相依套件處理 - Subprojects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cross-compile">Cross Compile</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id21">基本狀況</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#android-ndk">Android NDK</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#modules">Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#build-system">Build System 比較</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#meson-v-s-autotools">Meson v.s. Autotools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#meson-v-s-cmake">Meson v.s. CMake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#meson-v-s-bazel">Meson v.s. Bazel</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id23">Build System 轉換</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#autotools-meson">Autotools ➡ Meson</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cmake-meson">CMake ➡ Meson</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id24">使用 Meson 的專案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#talks">Talks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id25">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../c/c.html">C</a></li>
@@ -347,6 +387,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../cli-tui/tar.html">tar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli-tui/timedatectl.html">timedatectl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli-tui/tips.html">Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli-tui/tmux.html">Tmux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli-tui/tools.html">工具</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli-tui/xargs.html">xargs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/README.html">編譯器</a></li>
@@ -368,7 +409,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../compiler/introduction.html">編譯器</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/jump-threading.html">Jump Threading</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/legalization.html">Legalization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../compiler/linker.html">Linker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/llvm.html">LLVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/llvm-android.html">Android With LLVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/llvm-cuda.html">LLVM &amp; CUDA</a></li>
@@ -376,12 +416,9 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../compiler/llvm-ir.html">LLVM IR</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/llvm-python.html">LLVM &amp; Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/llvm-to-vhdl-verilog.html">LLVM to VHDL/Verilog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../compiler/lto.html">LTO - Link Time Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/name-mangling.html">Name Mangling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../compiler/nnvm.html">NNVM - Open Compiler for AI Frameworks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/obfuscator.html">Obfuscator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/objdump.html">Objdump</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../compiler/optimization.html">Optimizations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/porting.html">Use Compiler To Help Porting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/resource.html">Compiler Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compiler/ssa.html">SSA</a></li>
@@ -511,6 +548,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../games/real-time-strategy.html">Real-time Strategy Games</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../games/resource.html">Games Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../games/rpg.html">Role-playing Games (RPG)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../games/wine.html">Wine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gpgpu/arrayfire.html">ArrayFire</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gpgpu/boost.html">Boost.Compute</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gpgpu/kernel.html">GPGPU with Kernel</a></li>
@@ -640,7 +678,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../misc/taiwan-software.html">台灣軟體界</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/task-execution-framework.html">Task Execution Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/team-collaboration.html">Team Collaboration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc/tmux.html">Tmux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/todo.html">Todo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/todo-projects.html">想做的專案</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc/tools.html">Tools</a></li>
@@ -798,6 +835,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../robotics/farming-robot.html">Farming Robot</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/README.html">Rust 相關文章</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/abbreviation.html">縮寫</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/any.html">Rust’s runtime reflection - 「Any」 type trait</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/articles.html">文章閱讀（Articles）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/asynchronous.html">Asynchronous I/O</a></li>
@@ -807,6 +845,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../rust/cargo.html">Cargo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/compile-time-function-execution.html">CTFE (Compile Time Function Execution)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/compiler.html">Rust 編譯器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/data-structure.html">資料結構 (Data Structure)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/database.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/dataflow.html">Dataflow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/dependencies.html">Dependencies</a></li>
@@ -814,12 +853,13 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../rust/development-tools.html">Development Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/documentation.html">文件 (Documentation)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/ecosystem.html">Rust 生態圈 (Rust Ecosystem)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/embedded.html">Rust &amp; 嵌入式 (Rust Embedded)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/error-handling.html">錯誤處理 (Error Handling)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/faq.html">FAQ (Frequently Asked Questions)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/features-basic.html">Rust’s Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/fuzz-testing.html">Fuzz Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/googlecast.html">Google Cast</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rust/graphic.html">Graphic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/graphic.html">Rust &amp; Graphic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/gui.html">GUI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/image-manipulation.html">圖片處理 (Image Manipulation)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/implement-languages.html">實做語言</a></li>
@@ -838,6 +878,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../rust/multimedia.html">多媒體 (Multimedia)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/multirust.html">multirust</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/network.html">網路相關 (Network)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rust/never-type.html"><code class="docutils literal notranslate"><span class="pre">!</span></code> - never type</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/object-safety.html">Object Safety</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/orm.html">ORM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rust/os.html">Rust in OS</a></li>
@@ -959,29 +1000,69 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
            <div itemprop="articleBody">
             
   <div class="section" id="meson">
-<h1><a class="toc-backref" href="#id9">Meson</a><a class="headerlink" href="#meson" title="本標題的永久連結">¶</a></h1>
+<h1><a class="toc-backref" href="#id26">Meson</a><a class="headerlink" href="#meson" title="本標題的永久連結">¶</a></h1>
 <div class="contents topic" id="id1">
 <p class="topic-title first">目錄</p>
 <ul class="simple">
-<li><a class="reference internal" href="#meson" id="id9">Meson</a><ul>
-<li><a class="reference internal" href="#id2" id="id10">介紹</a></li>
-<li><a class="reference internal" href="#id3" id="id11">使用範例</a></li>
-<li><a class="reference internal" href="#id4" id="id12">調整編譯參數</a><ul>
-<li><a class="reference internal" href="#id5" id="id13">選擇語言版本</a></li>
-<li><a class="reference internal" href="#math-library" id="id14">加上 math library</a></li>
-<li><a class="reference internal" href="#id6" id="id15">專案參數</a></li>
-<li><a class="reference internal" href="#cross-compile" id="id16">cross compile</a></li>
-<li><a class="reference internal" href="#meson-ndk" id="id17">Meson + NDK</a></li>
+<li><a class="reference internal" href="#meson" id="id26">Meson</a><ul>
+<li><a class="reference internal" href="#id2" id="id27">介紹</a></li>
+<li><a class="reference internal" href="#id3" id="id28">專案語言設定</a><ul>
+<li><a class="reference internal" href="#id4" id="id29">單一語言</a></li>
+<li><a class="reference internal" href="#id5" id="id30">多種語言</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#subprojects" id="id18">Subprojects</a></li>
-<li><a class="reference internal" href="#id8" id="id19">參考</a></li>
+<li><a class="reference internal" href="#id6" id="id31">程式碼設定</a></li>
+<li><a class="reference internal" href="#id7" id="id32">Meson 子目錄</a></li>
+<li><a class="reference internal" href="#id8" id="id33">編譯參數調整</a><ul>
+<li><a class="reference internal" href="#id9" id="id34">選擇編譯器</a></li>
+<li><a class="reference internal" href="#id10" id="id35">語言版本</a></li>
+<li><a class="reference internal" href="#id11" id="id36">優化參數</a></li>
+<li><a class="reference internal" href="#id12" id="id37">平台偵測</a></li>
+<li><a class="reference internal" href="#id13" id="id38">覆蓋編譯器參數</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id14" id="id39">提供功能選擇</a></li>
+<li><a class="reference internal" href="#id15" id="id40">常用設定</a><ul>
+<li><a class="reference internal" href="#c" id="id41">C</a></li>
+<li><a class="reference internal" href="#id16" id="id42">C++</a></li>
+<li><a class="reference internal" href="#python" id="id43">Python</a></li>
+<li><a class="reference internal" href="#rust" id="id44">Rust</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id17" id="id45">使用範例</a></li>
+<li><a class="reference internal" href="#id18" id="id46">調整編譯參數</a><ul>
+<li><a class="reference internal" href="#id19" id="id47">選擇語言版本</a></li>
+<li><a class="reference internal" href="#math-library" id="id48">加上 math library</a></li>
+<li><a class="reference internal" href="#id20" id="id49">專案參數</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#subprojects" id="id50">相依套件處理 - Subprojects</a></li>
+<li><a class="reference internal" href="#cross-compile" id="id51">Cross Compile</a><ul>
+<li><a class="reference internal" href="#id21" id="id52">基本狀況</a></li>
+<li><a class="reference internal" href="#android-ndk" id="id53">Android NDK</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#modules" id="id54">Modules</a></li>
+<li><a class="reference internal" href="#build-system" id="id55">Build System 比較</a><ul>
+<li><a class="reference internal" href="#meson-v-s-autotools" id="id56">Meson v.s. Autotools</a></li>
+<li><a class="reference internal" href="#meson-v-s-cmake" id="id57">Meson v.s. CMake</a></li>
+<li><a class="reference internal" href="#meson-v-s-bazel" id="id58">Meson v.s. Bazel</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id23" id="id59">Build System 轉換</a><ul>
+<li><a class="reference internal" href="#autotools-meson" id="id60">Autotools ➡ Meson</a></li>
+<li><a class="reference internal" href="#cmake-meson" id="id61">CMake ➡ Meson</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id24" id="id62">使用 Meson 的專案</a></li>
+<li><a class="reference internal" href="#talks" id="id63">Talks</a></li>
+<li><a class="reference internal" href="#id25" id="id64">參考</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="id2">
-<h2><a class="toc-backref" href="#id10">介紹</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id27">介紹</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -994,11 +1075,159 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </table>
 <p>Meson 是用 Python 撰寫的編譯工具，
 可以幫忙維護複雜的專案，
-支援多種程式語言，
-可以藉由實做 <code class="docutils literal notranslate"><span class="pre">Compiler</span></code> class 來擴充語言支援。</p>
+支援多種程式語言。
+(可以藉由實做 <code class="docutils literal notranslate"><span class="pre">Compiler</span></code> class 來擴充語言支援)</p>
+<p>Meson 支援複雜的相依處理，
+並盡可能地平行化編譯，
+在一些較複雜的專案中已經可以看到比 Autotools 快的編譯時間。</p>
 </div>
 <div class="section" id="id3">
-<h2><a class="toc-backref" href="#id11">使用範例</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id28">專案語言設定</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id29">單一語言</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h3>
+<p>目前支援的 project 選項：</p>
+<ul class="simple">
+<li>c</li>
+<li>cpp</li>
+<li>objc</li>
+<li>objcpp</li>
+<li>java</li>
+<li>cs</li>
+<li>d</li>
+<li>rust</li>
+<li>fortran</li>
+<li>swift</li>
+</ul>
+<p>範例：</p>
+<div class="highlight-meson notranslate"><div class="highlight"><pre><span></span>project(&#39;tutorial&#39;, &#39;c&#39;)
+</pre></div>
+</div>
+<div class="highlight-meson notranslate"><div class="highlight"><pre><span></span>project(&#39;tutorial&#39;, &#39;c&#39;, default_options: [&#39;c_std=c11&#39;])
+</pre></div>
+</div>
+<p>有人可能會問「為什麼沒有 Python」？
+因為 Meson 的設計是要處理編譯相關的複雜設定問題，
+以純 Python 的狀況來說直接使用現有的 setuptools 和 pip 就夠了，
+加一層 Meson 並沒有意義。
+如果是 CPython extension 的話看是用 C、C++、Rust 寫的，
+可以選擇相關的專案設定，
+所以也不是問題。</p>
+<p>詳細的專案支援偵測： <code class="docutils literal notranslate"><span class="pre">mesonbuild/interpreter.py</span></code> 內的 detect_compilers 函式</p>
+<p>相關呼叫流程：</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>func_project</dt>
+<dd><ul class="first last">
+<li>proj_name = args[0]</li>
+<li>proj_langs = args[1:]</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>add_languages(proj_langs, True)</li>
+<li>detect_compilers(lang, need_cross_compiler)</li>
+<li>detect_XXX_compiler()</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h3><a class="toc-backref" href="#id30">多種語言</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h3>
+<div class="highlight-meson notranslate"><div class="highlight"><pre><span></span>project(&#39;myproj&#39;, &#39;c&#39;, &#39;cpp&#39;,
+        default_options: [&#39;c_std=c11&#39;, &#39;cpp_std=c++14&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2><a class="toc-backref" href="#id31">程式碼設定</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h2>
+</div>
+<div class="section" id="id7">
+<h2><a class="toc-backref" href="#id32">Meson 子目錄</a><a class="headerlink" href="#id7" title="本標題的永久連結">¶</a></h2>
+</div>
+<div class="section" id="id8">
+<h2><a class="toc-backref" href="#id33">編譯參數調整</a><a class="headerlink" href="#id8" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="id9">
+<h3><a class="toc-backref" href="#id34">選擇編譯器</a><a class="headerlink" href="#id9" title="本標題的永久連結">¶</a></h3>
+<p>編譯器選擇直接靠常用的環境變數達成，
+例如 C 語言就是 <code class="docutils literal notranslate"><span class="pre">CC=gcc</span></code> <code class="docutils literal notranslate"><span class="pre">CC=clang</span></code> 等等。</p>
+<p>要注意的是環境變數設定的都是 native compiler，
+如果要設定 cross compiler 就要用 cross file，
+這跟某些 Build System 不太一樣，
+但是這樣可以在編譯過程中去編出一些輔助程式，
+並且在流程中使用。</p>
+</div>
+<div class="section" id="id10">
+<h3><a class="toc-backref" href="#id35">語言版本</a><a class="headerlink" href="#id10" title="本標題的永久連結">¶</a></h3>
+<p>支援的語言版本會根據編譯器不同而有差異，
+例如 Clang 和 GCC 就會不同，
+但是大致上是這些：</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>C: <code class="docutils literal notranslate"><span class="pre">c_std</span></code></dt>
+<dd><ul class="first last">
+<li>c89</li>
+<li>c99</li>
+<li>c11</li>
+<li>gnu89</li>
+<li>gnu99</li>
+<li>gnu11</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>C++: <code class="docutils literal notranslate"><span class="pre">cpp_std</span></code></dt>
+<dd><ul class="first last">
+<li>c++98</li>
+<li>c++03</li>
+<li>c++11</li>
+<li>c++14</li>
+<li>c++17</li>
+<li>gnu++98</li>
+<li>gnu++03</li>
+<li>gnu++11</li>
+<li>gnu++14</li>
+<li>gnu++17</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>詳細可以看： <code class="docutils literal notranslate"><span class="pre">mesonbuild/compilers/${LANG}.py</span></code> 裡的 get_options</p>
+</div>
+<div class="section" id="id11">
+<h3><a class="toc-backref" href="#id36">優化參數</a><a class="headerlink" href="#id11" title="本標題的永久連結">¶</a></h3>
+</div>
+<div class="section" id="id12">
+<h3><a class="toc-backref" href="#id37">平台偵測</a><a class="headerlink" href="#id12" title="本標題的永久連結">¶</a></h3>
+</div>
+<div class="section" id="id13">
+<h3><a class="toc-backref" href="#id38">覆蓋編譯器參數</a><a class="headerlink" href="#id13" title="本標題的永久連結">¶</a></h3>
+<div class="highlight-meson notranslate"><div class="highlight"><pre><span></span>executable(..., override_options : [&#39;c_std=c11&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id14">
+<h2><a class="toc-backref" href="#id39">提供功能選擇</a><a class="headerlink" href="#id14" title="本標題的永久連結">¶</a></h2>
+<p>meson_options.txt</p>
+</div>
+<div class="section" id="id15">
+<h2><a class="toc-backref" href="#id40">常用設定</a><a class="headerlink" href="#id15" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="c">
+<h3><a class="toc-backref" href="#id41">C</a><a class="headerlink" href="#c" title="本標題的永久連結">¶</a></h3>
+</div>
+<div class="section" id="id16">
+<h3><a class="toc-backref" href="#id42">C++</a><a class="headerlink" href="#id16" title="本標題的永久連結">¶</a></h3>
+</div>
+<div class="section" id="python">
+<h3><a class="toc-backref" href="#id43">Python</a><a class="headerlink" href="#python" title="本標題的永久連結">¶</a></h3>
+</div>
+<div class="section" id="rust">
+<h3><a class="toc-backref" href="#id44">Rust</a><a class="headerlink" href="#rust" title="本標題的永久連結">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id17">
+<h2><a class="toc-backref" href="#id45">使用範例</a><a class="headerlink" href="#id17" title="本標題的永久連結">¶</a></h2>
 <p>假設我們有這樣的程式碼：</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// main.c</span>
 
@@ -1085,17 +1314,17 @@ env <span class="nv">DESTDIR</span><span class="o">=</span><span class="s2">&quo
 </pre></div>
 </div>
 </div>
-<div class="section" id="id4">
-<h2><a class="toc-backref" href="#id12">調整編譯參數</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h2>
-<div class="section" id="id5">
-<h3><a class="toc-backref" href="#id13">選擇語言版本</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h3>
+<div class="section" id="id18">
+<h2><a class="toc-backref" href="#id46">調整編譯參數</a><a class="headerlink" href="#id18" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="id19">
+<h3><a class="toc-backref" href="#id47">選擇語言版本</a><a class="headerlink" href="#id19" title="本標題的永久連結">¶</a></h3>
 <div class="highlight-meson notranslate"><div class="highlight"><pre><span></span>project(&#39;myproj&#39;, &#39;c&#39;, &#39;cpp&#39;,
         default_options: [&#39;c_std=c11&#39;, &#39;cpp_std=c++14&#39;])
 </pre></div>
 </div>
 </div>
 <div class="section" id="math-library">
-<h3><a class="toc-backref" href="#id14">加上 math library</a><a class="headerlink" href="#math-library" title="本標題的永久連結">¶</a></h3>
+<h3><a class="toc-backref" href="#id48">加上 math library</a><a class="headerlink" href="#math-library" title="本標題的永久連結">¶</a></h3>
 <div class="highlight-meson notranslate"><div class="highlight"><pre><span></span>project(&#39;myproj&#39;, &#39;c&#39;, &#39;cpp&#39;,
         default_options : [&#39;c_std=c11&#39;, &#39;cpp_std=c++14&#39;])
 mydeps = [dependency(&#39;liblzma&#39;)]
@@ -1106,14 +1335,149 @@ executable(&#39;demo&#39;, &#39;main.c&#39;, dependencies: mydeps)
 </pre></div>
 </div>
 </div>
-<div class="section" id="id6">
-<h3><a class="toc-backref" href="#id15">專案參數</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h3>
+<div class="section" id="id20">
+<h3><a class="toc-backref" href="#id49">專案參數</a><a class="headerlink" href="#id20" title="本標題的永久連結">¶</a></h3>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>meson mybuilddir -Dopt0<span class="o">=</span><span class="m">1</span> -Dsub1:opt1<span class="o">=</span><span class="m">2</span> -Dsub1:opt2<span class="o">=</span>foo -Dsub2:opt1<span class="o">=</span><span class="nb">false</span>
 </pre></div>
 </div>
 </div>
+</div>
+<div class="section" id="subprojects">
+<h2><a class="toc-backref" href="#id50">相依套件處理 - Subprojects</a><a class="headerlink" href="#subprojects" title="本標題的永久連結">¶</a></h2>
+<p>Meson subprojects 的目的是要自動抓原始碼進來編，
+使用時機可能是相依套件找不到或是想同時編多個專案，
+因此要處理的部份就是把程式碼抓回來並且切到想要的版本。</p>
+<p>subprojects 的設定會放在 <code class="docutils literal notranslate"><span class="pre">subprojects</span></code> 資料夾，
+並且以 <code class="docutils literal notranslate"><span class="pre">XXX.warp</span></code> 命名。</p>
+<p>目前 subprojects 支援：</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>[wrap-git]</dt>
+<dd><ul class="first last">
+<li>directory</li>
+<li>revision</li>
+<li>url</li>
+<li>push-url</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>[wrap-hg]</dt>
+<dd><ul class="first last">
+<li>directory</li>
+<li>revision</li>
+<li>url</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>[wrap-svn]</dt>
+<dd><ul class="first last">
+<li>directory</li>
+<li>revision</li>
+<li>url</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>[wrap-file]</dt>
+<dd><ul class="first last">
+<li>source_filename</li>
+<li>source_url</li>
+<li>source_hash</li>
+<li>patch_filename</li>
+<li>patch_url</li>
+<li>patch_hash</li>
+<li>directory</li>
+<li>lead_directory_missing</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>把 subproject 設定轉換成 Shell Script 來看，
+<code class="docutils literal notranslate"><span class="pre">[wrap-git]</span></code> 大致上是這樣：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span> -e
+
+<span class="k">if</span> <span class="o">[</span> -d &lt;directory&gt; <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">cd</span> &lt;directory&gt;
+    git rev-parse   <span class="c1"># stop if this has error, means the dir is not empty and it&#39;s not a git repo</span>
+    <span class="k">if</span> <span class="o">[</span> &lt;revision&gt; <span class="o">=</span> <span class="s2">&quot;HEAD&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+        git pull
+    <span class="k">else</span>
+        git checkout &lt;revision&gt; <span class="o">||</span> <span class="se">\</span>
+          <span class="o">(</span>git fetch <span class="o">&amp;&amp;</span> git checkout &lt;revision&gt;<span class="o">)</span>
+    <span class="k">fi</span>
+<span class="k">else</span>
+    git clone &lt;url&gt; &lt;directory&gt;
+    <span class="k">if</span> <span class="o">[</span> &lt;revision&gt; <span class="o">=</span> <span class="s2">&quot;HEAD&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+        git checkout &lt;revision&gt;
+    <span class="k">fi</span>
+    <span class="k">if</span> <span class="o">[</span> ! -z &lt;push-url&gt; <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+        git remote set-url --push origin &lt;push-url&gt;
+    <span class="k">fi</span>
+<span class="k">fi</span>
+</pre></div>
+</div>
+<p>範例 Wrap 檔：</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[wrap-file]</span>
+<span class="na">directory</span><span class="o">=</span><span class="s">proj1</span>
+</pre></div>
+</div>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[wrap-git]</span>
+<span class="na">directory</span><span class="o">=</span><span class="s">glib</span>
+<span class="na">url</span><span class="o">=</span><span class="s">https://gitlab.gnome.org/GNOME/glib.git</span>
+<span class="na">push-url</span><span class="o">=</span><span class="s">git@gitlab.gnome.org:GNOME/glib.git</span>
+<span class="na">revision</span><span class="o">=</span><span class="s">master</span>
+</pre></div>
+</div>
+<p>範例 meson.build ：</p>
+<div class="highlight-meson notranslate"><div class="highlight"><pre><span></span>dep = dependency(&#39;foo&#39;, fallback : [subproject_name, variable_name])
+</pre></div>
+</div>
+<p>詳細的支援： <code class="docutils literal notranslate"><span class="pre">mesonbuild/wrap/wrap.py</span></code> 內的 PackageDefinition.__init__</p>
+<ul class="simple">
+<li>func_subproject (interpreter.py)</li>
+<li>do_subproject (interpreter.py)</li>
+<li>resolve (wrap/wrap.py)</li>
+<li>get_git/get_hg/get_svn/(download+extract_package)</li>
+<li><dl class="first docutils">
+<dt>get_git/get_hg/get_svn</dt>
+<dd><ul class="first last">
+<li>取得 directory</li>
+<li>取得 revision</li>
+<li>呼叫 git/hg/svn 指令去取得程式碼</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>download+extract_package</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>get_data</dt>
+<dd><ul class="first last">
+<li>去 <a class="reference external" href="https://wrapdb.mesonbuild.com">https://wrapdb.mesonbuild.com</a> 抓</li>
+<li>或是直接下載</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>取得 patch_filename/patch_url/patch_hash</li>
+<li>透過 shutil.unpack_archive 去自動偵測格式並解開</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
 <div class="section" id="cross-compile">
-<h3><a class="toc-backref" href="#id16">cross compile</a><a class="headerlink" href="#cross-compile" title="本標題的永久連結">¶</a></h3>
+<h2><a class="toc-backref" href="#id51">Cross Compile</a><a class="headerlink" href="#cross-compile" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="id21">
+<h3><a class="toc-backref" href="#id52">基本狀況</a><a class="headerlink" href="#id21" title="本標題的永久連結">¶</a></h3>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>meson build . --buildtype<span class="o">=</span>release --cross-file<span class="o">=</span>mytools.ini
 </pre></div>
 </div>
@@ -1122,15 +1486,73 @@ executable(&#39;demo&#39;, &#39;main.c&#39;, dependencies: mydeps)
 <li><a class="reference external" href="https://github.com/mesonbuild/meson/blob/master/cross/ubuntu-armhf.txt">cross compile 範例設定檔</a></li>
 </ul>
 </div>
-<div class="section" id="meson-ndk">
-<h3><a class="toc-backref" href="#id17">Meson + NDK</a><a class="headerlink" href="#meson-ndk" title="本標題的永久連結">¶</a></h3>
+<div class="section" id="android-ndk">
+<h3><a class="toc-backref" href="#id53">Android NDK</a><a class="headerlink" href="#android-ndk" title="本標題的永久連結">¶</a></h3>
 </div>
 </div>
-<div class="section" id="subprojects">
-<h2><a class="toc-backref" href="#id18">Subprojects</a><a class="headerlink" href="#subprojects" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="modules">
+<h2><a class="toc-backref" href="#id54">Modules</a><a class="headerlink" href="#modules" title="本標題的永久連結">¶</a></h2>
+<p><a class="reference external" href="http://mesonbuild.com/Modules.html">http://mesonbuild.com/Modules.html</a></p>
 </div>
-<div class="section" id="id8">
-<h2><a class="toc-backref" href="#id19">參考</a><a class="headerlink" href="#id8" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="build-system">
+<h2><a class="toc-backref" href="#id55">Build System 比較</a><a class="headerlink" href="#build-system" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="meson-v-s-autotools">
+<h3><a class="toc-backref" href="#id56">Meson v.s. Autotools</a><a class="headerlink" href="#meson-v-s-autotools" title="本標題的永久連結">¶</a></h3>
+<p><a class="reference external" href="https://github.com/mesonbuild/meson/blob/master/docs/markdown/Porting-from-autotools.md">https://github.com/mesonbuild/meson/blob/master/docs/markdown/Porting-from-autotools.md</a></p>
+</div>
+<div class="section" id="meson-v-s-cmake">
+<h3><a class="toc-backref" href="#id57">Meson v.s. CMake</a><a class="headerlink" href="#meson-v-s-cmake" title="本標題的永久連結">¶</a></h3>
+</div>
+<div class="section" id="meson-v-s-bazel">
+<h3><a class="toc-backref" href="#id58">Meson v.s. Bazel</a><a class="headerlink" href="#meson-v-s-bazel" title="本標題的永久連結">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id23">
+<h2><a class="toc-backref" href="#id59">Build System 轉換</a><a class="headerlink" href="#id23" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="autotools-meson">
+<h3><a class="toc-backref" href="#id60">Autotools ➡ Meson</a><a class="headerlink" href="#autotools-meson" title="本標題的永久連結">¶</a></h3>
+</div>
+<div class="section" id="cmake-meson">
+<h3><a class="toc-backref" href="#id61">CMake ➡ Meson</a><a class="headerlink" href="#cmake-meson" title="本標題的永久連結">¶</a></h3>
+<ul class="simple">
+<li>tools/cmake2meson.py</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id24">
+<h2><a class="toc-backref" href="#id62">使用 Meson 的專案</a><a class="headerlink" href="#id24" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/GNOME/glib">GLib</a></li>
+<li><a class="reference external" href="https://github.com/GStreamer/gst-build">GStreamer</a></li>
+<li>elementary OS</li>
+<li><a class="reference external" href="https://github.com/systemd/systemd">systemd</a></li>
+<li><a class="reference external" href="https://github.com/NetworkManager/NetworkManager">NetworkManager</a></li>
+<li><a class="reference external" href="https://github.com/freedesktop/xorg-xserver">X.org</a></li>
+</ul>
+</div>
+<div class="section" id="talks">
+<h2><a class="toc-backref" href="#id63">Talks</a><a class="headerlink" href="#talks" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt><a class="reference external" href="https://www.youtube.com/watch?v=gHdTzdXkhRY">The Meson Build System - 4+ years of work to become an overnight success</a></dt>
+<dd><ul class="first last">
+<li>Meson 作者講述自己開發 Meson 的過程</li>
+<li>介紹 Meson 的特色，跨平台、支援多種語言、支援 cross compile、設定簡單</li>
+<li>前幾年沒有其他人在用，投稿也被拒絕</li>
+<li>為了推廣跑去很多研討會，旅程也花了不少錢</li>
+<li>在一場研討會中跟 GStreamer 開發者聊到編譯專案的問提，GStreamer 願意嘗試採用 Meson</li>
+<li>在採用 Meson 後，編譯時間跟 Autotools 相比有大幅提昇</li>
+<li>後續越來越多專案採用，例如 GLib、systemd、X.org</li>
+<li>回顧開發過程講述自己做開源專案會碰到的困境</li>
+<li>Meson 會偵測 share library 的 symbol table 有沒有改變，如果 ABI 沒有變的話就不會重新 link 執行檔，藉此可以省下不少改程式碼後重編的時間</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="id25">
+<h2><a class="toc-backref" href="#id64">參考</a><a class="headerlink" href="#id25" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/GStreamer/gst-build/">gst-build</a></li>
 </ul>
