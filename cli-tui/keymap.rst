@@ -6,7 +6,7 @@ xmodmap
 Control & CapsLock 互換
 ------------------------------
 
-.. code-block:: 
+.. code-block:: xmodmap
 
     remove Lock = Caps_Lock
     remove Control = Control_L
@@ -18,7 +18,7 @@ Control & CapsLock 互換
 Reverse Scrolling
 ------------------------------
 
-.. code-block:: 
+.. code-block:: xmodmap
 
     ! Reverse Scrolling
 

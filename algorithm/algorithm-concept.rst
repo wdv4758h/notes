@@ -109,7 +109,7 @@ Dynamic Programming
 拿來算出下一個值，
 減少計算量。
 
-.. code_block:: python
+.. code-block:: python
 
     from functools import lru_cache
 
@@ -214,7 +214,7 @@ NP-Hard 指的是「至少」和 NP 問題一樣難的問題，
 
 可能的集合圖：
 
-.. image:: /images/algorithms/p-and-np.png
+.. image:: /images/algorithm/p-and-np.png
 
 
 
@@ -257,10 +257,10 @@ NP-Completeness 問題範例：
 
 ::
 
-	if H(P, I) == STOP:
-		infinite_loop()
-	else:
-		stop()
+    if H(P, I) == STOP:
+        infinite_loop()
+    else:
+        stop()
 
 也就是說這隻程式會在輸入資料會停止的狀況下進入無窮迴圈，
 並且在輸入資料不會停止的狀況下停止，
@@ -270,10 +270,10 @@ NP-Completeness 問題範例：
 
 ::
 
-	if H(P, P) == STOP:
-		infinite_loop()
-	else:
-		stop()
+    if H(P, P) == STOP:
+        infinite_loop()
+    else:
+        stop()
 
 不管怎樣現在這隻程式的行為都不會和判斷的結果相符，
 因此前面假設我們存在「可以判斷任意程式是否會停止」的程式是不合理的。
@@ -283,12 +283,12 @@ NP-Completeness 問題範例：
 書籍
 ========================================
 
-* `An Introduction to the Analysis of Algorithms (2nd Edition) <https://www.amazon.com/Introduction-Analysis-Algorithms-2nd/dp/9814401153/>`_
+* `An Introduction to the Analysis of Algorithms (2nd Edition) [M] <https://www.amazon.com/Introduction-Analysis-Algorithms-2nd/dp/9814401153/>`_
     - 作者：Michael Soltys
     - http://soltys.cs.csuci.edu/blog/?page_id=404
     - 作者在 2017 年要出第三版
     - https://github.com/michaelsoltys/IAA
-* `An Introduction to the Analysis of Algorithms (2nd Edition) <https://www.amazon.com/Introduction-Analysis-Algorithms-2nd/dp/032190575X/>`_
+* `An Introduction to the Analysis of Algorithms (2nd Edition) [R,P] <https://www.amazon.com/Introduction-Analysis-Algorithms-2nd/dp/032190575X/>`_
     - 作者：Robert Sedgewick、Philippe Flajolet
     - Robert Sedgewick 是 Donald Knuth 指導的學生，目前為普林斯頓大學的教授，也在 Coursera 上面有多堂演算法相關的課程
     - Philippe Flajolet 生前是 INRIA 的技術主管
