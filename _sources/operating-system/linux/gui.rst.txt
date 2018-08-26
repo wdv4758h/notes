@@ -7,7 +7,7 @@ GUI
 
 
 Latte - a dock based on Plasma frameworks
-========================================
+=========================================
 
 URL: https://github.com/psifidotos/Latte-Dock
 

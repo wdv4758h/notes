@@ -95,7 +95,7 @@ Arch Build System
     LDFLAGS="-s -Wl,-O1,--sort-common,--as-needed,-z,relro" # -Wl, for linker options
 
 
-.. code-block::
+.. code-block:: sh
 
     sudo pacman -S abs
     sudo abs    # 更新 ABS tree (/var/abs)
@@ -125,18 +125,18 @@ Network
     # Features for ens32:
     # rx-checksumming: off
     # tx-checksumming: on
-    # 	tx-checksum-ipv4: off [fixed]
-    # 	tx-checksum-ip-generic: on
-    # 	tx-checksum-ipv6: off [fixed]
-    # 	tx-checksum-fcoe-crc: off [fixed]
-    # 	tx-checksum-sctp: off [fixed]
+    #   tx-checksum-ipv4: off [fixed]
+    #   tx-checksum-ip-generic: on
+    #   tx-checksum-ipv6: off [fixed]
+    #   tx-checksum-fcoe-crc: off [fixed]
+    #   tx-checksum-sctp: off [fixed]
     # scatter-gather: on
-    # 	tx-scatter-gather: on
-    # 	tx-scatter-gather-fraglist: off [fixed]
+    #   tx-scatter-gather: on
+    #   tx-scatter-gather-fraglist: off [fixed]
     # tcp-segmentation-offload: on
-    # 	tx-tcp-segmentation: on
-    # 	tx-tcp-ecn-segmentation: off [fixed]
-    # 	tx-tcp6-segmentation: off [fixed]
+    #   tx-tcp-segmentation: on
+    #   tx-tcp-ecn-segmentation: off [fixed]
+    #   tx-tcp6-segmentation: off [fixed]
     # udp-fragmentation-offload: off [fixed]
     # generic-segmentation-offload: on
     # generic-receive-offload: on

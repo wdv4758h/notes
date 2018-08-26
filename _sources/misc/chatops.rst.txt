@@ -45,6 +45,6 @@ Rust 團隊在 GitHub 上掛有數個機器人，
 
 * `Awesome ChatOps <https://github.com/exAspArk/awesome-chatops>`_
 * `Cog + ChatOps = Continuous DevOps <https://operable.io/>`_
-* `Wikipedia - DevOps <https://en.wikipedia.org/wiki/DevOps`_
+* `Wikipedia - DevOps <https://en.wikipedia.org/wiki/DevOps>`_
 * [GitHub] `Errbot <https://github.com/errbotio/errbot/>`_
 * [GitHub] `Homu <https://github.com/servo/homu>`_

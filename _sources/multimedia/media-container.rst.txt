@@ -147,7 +147,7 @@ Matroska 可以儲存無限制數量的影像、聲音、字幕，
 
 
 * `FOSDEM 2018 - Matroska Low-Latency streaming - Why Matroska is (always) Better <https://fosdem.org/2018/schedule/event/om_matroska/>`_
-* `Matroska Streaming <https://matroska.org/technical/streaming/index.html<Paste>`_
+* `Matroska Streaming <https://matroska.org/technical/streaming/index.html>`_
 * `Wikipedia - Matroska <https://en.wikipedia.org/wiki/Matroska>`_
 * `101 things you never knew you could do with Matroska <http://mod16.org/hurfdurf/?p=8>`_
 * `Rust Matroska muxer/demux <https://github.com/rust-av/matroska>`_

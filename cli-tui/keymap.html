@@ -957,9 +957,22 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <p><code class="docutils literal notranslate"><span class="pre">~/.Xmodmap</span></code></p>
 <div class="section" id="control-capslock">
 <h2>Control &amp; CapsLock 互換<a class="headerlink" href="#control-capslock" title="本標題的永久連結">¶</a></h2>
+<div class="highlight-xmodmap notranslate"><div class="highlight"><pre><span></span>remove Lock = Caps_Lock
+remove Control = Control_L
+keysym Control_L = Caps_Lock
+keysym Caps_Lock = Control_L
+add Lock = Caps_Lock
+add Control = Control_L
+</pre></div>
+</div>
 </div>
 <div class="section" id="reverse-scrolling">
 <h2>Reverse Scrolling<a class="headerlink" href="#reverse-scrolling" title="本標題的永久連結">¶</a></h2>
+<div class="highlight-xmodmap notranslate"><div class="highlight"><pre><span></span>! Reverse Scrolling
+
+pointer = 1 2 3 5 4 7 6 8 9 10 11 12
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="setxkbmap">

@@ -255,16 +255,11 @@ Audio 和 Video 的儲存格式。
 但是支援非 MPEG 的 codec，
 例如 H.263 和 GSM-AMR。
 
-.. image:: mp4-3gpp-file-format.png
+.. image:: /images/streaming/mp4-3gpp-file-format.png
 
 
 License 和 Patents
 ------------------------------
-
-
-
-Ogg
-========================================
 
 
 
@@ -275,7 +270,7 @@ Opus
 使用上沒有任何專利限制。
 
 
-.. image:: bitrate-latency-comparison.png
+.. image:: /images/streaming/bitrate-latency-comparison.png
 
 
 

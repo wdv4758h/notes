@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Search &mdash; wdv4758h-notes latest 說明文件</title>
+  <title>搜尋 （Search） &mdash; wdv4758h-notes latest 說明文件</title>
   
 
   
@@ -922,7 +922,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-      <li>Search</li>
+      <li>搜尋 （Search）</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -944,7 +944,119 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
            <div itemprop="articleBody">
             
   <div class="section" id="search">
-<h1>Search<a class="headerlink" href="#search" title="本標題的永久連結">¶</a></h1>
+<h1><a class="toc-backref" href="#id5">搜尋 （Search）</a><a class="headerlink" href="#search" title="本標題的永久連結">¶</a></h1>
+<p>許多問題可以被看成搜尋問題！</p>
+<div class="contents topic" id="id1">
+<p class="topic-title first">目錄</p>
+<ul class="simple">
+<li><a class="reference internal" href="#search" id="id5">搜尋 （Search）</a><ul>
+<li><a class="reference internal" href="#id2" id="id6">搜尋品質</a></li>
+<li><a class="reference internal" href="#id3" id="id7">搜尋效率</a></li>
+<li><a class="reference internal" href="#id4" id="id8">常見搜尋演算法</a><ul>
+<li><a class="reference internal" href="#bfs" id="id9">廣度優先搜尋（BFS）</a></li>
+<li><a class="reference internal" href="#dfs" id="id10">深度優先搜尋（DFS）</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id6">搜尋品質</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li>有解時一定會找到 （Complete）</li>
+<li>最佳解 （Optimal）</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id7">搜尋效率</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+<ul class="simple">
+<li>時間複雜度</li>
+<li>空間複雜度</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id8">常見搜尋演算法</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h2>
+<p>非啟發式搜尋（Weak、Uninformed）</p>
+<ul class="simple">
+<li>廣度優先搜尋 （Breadth-first search）</li>
+<li>深度優先搜尋 （Depth-firth search）</li>
+<li>Depth-limited search</li>
+<li>Iterative Deepening search</li>
+<li>Bidirectional search</li>
+<li>Uniform cost search</li>
+</ul>
+<p>啟發式搜尋（Heuristic、Informed）</p>
+<ul class="simple">
+<li>Greedy Best‐first search</li>
+<li>A* search</li>
+<li>Iterative‐deepening A* (IDA*) search</li>
+</ul>
+<p>區域搜尋（Local）</p>
+<ul class="simple">
+<li>Hill‐climbing Search (Greedy local search)</li>
+<li>Stochastic hill‐climbing</li>
+<li>Random‐restart hill‐climbing</li>
+<li>Local Beam Search</li>
+<li>Simulated Annealing</li>
+</ul>
+<p>遊戲搜尋（Game）</p>
+<ul class="simple">
+<li>Minimax Search</li>
+<li>α-β pruning</li>
+<li>Cutting Off Search</li>
+<li>Quiescent Search</li>
+</ul>
+<div class="section" id="bfs">
+<h3><a class="toc-backref" href="#id9">廣度優先搜尋（BFS）</a><a class="headerlink" href="#bfs" title="本標題的永久連結">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">時間複雜度:</th><td class="field-body">O(bᵈ⁺¹)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">空間複雜度:</th><td class="field-body">O(bᵈ⁺¹)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">有解時一定會找到:</th><td class="field-body">是</td>
+</tr>
+<tr class="field-even field"><th class="field-name">最佳解:</th><td class="field-body">否，除非 Cost 跟路徑長度呈現單調遞增函數（愈淺愈好）</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">受困於不斷重複（循環）的點:</th><td class="field-body">否</td>
+</tr>
+<tr class="field-even field"><th class="field-name">受困於無限深的搜尋空間:</th><td class="field-body">否</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">暫存區:</th><td class="field-body">Queue</td>
+</tr>
+<tr class="field-even field"><th class="field-name">適合情況:</th><td class="field-body">分支少且有深度淺的解法</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="dfs">
+<h3><a class="toc-backref" href="#id10">深度優先搜尋（DFS）</a><a class="headerlink" href="#dfs" title="本標題的永久連結">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">時間複雜度:</th><td class="field-body">O(bᵐ)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">空間複雜度:</th><td class="field-body">O(b m)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">有解時一定會找到:</th><td class="field-body">否，除非搜尋空間有限且沒有循環</td>
+</tr>
+<tr class="field-even field"><th class="field-name">最佳解:</th><td class="field-body">否</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">受困於不斷重複（循環）的點:</th><td class="field-body">是</td>
+</tr>
+<tr class="field-even field"><th class="field-name">受困於無限深的搜尋空間:</th><td class="field-body">可能</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">暫存區:</th><td class="field-body">Stack</td>
+</tr>
+<tr class="field-even field"><th class="field-name">適合情況:</th><td class="field-body">有許多解在不知道的深度</td>
+</tr>
+</tbody>
+</table>
+<p>b: avg branching factor, d: goal depth, m: max depth</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="11%" />
@@ -1176,9 +1288,35 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </tbody>
 </table>
 <ul class="simple">
+<li><dl class="first docutils">
+<dt>Greedy</dt>
+<dd><ul class="first last">
+<li>選覺得比較近的路</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>UCS</dt>
+<dd><ul class="first last">
+<li>選累積路程少的</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>A*</dt>
+<dd><ul class="first last">
+<li>選覺得比較近的路且選累積路程少的</li>
+</ul>
+</dd>
+</dl>
+</li>
 <li>g(n)：目前已累積的 cost</li>
 <li>h(n)：估計該點到終點的 cost</li>
 </ul>
+</div>
+</div>
 </div>
 
 

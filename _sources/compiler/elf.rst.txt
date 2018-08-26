@@ -104,19 +104,19 @@ loader 把程式載到 memory 後，object file 會是 execution view
 Resource
 ========================================
 
-- `ELF101 <https://code.google.com/p/corkami/wiki/ELF101>`_
-- `Executable and Linkable Format - Wikipedia <http://en.wikipedia.org/wiki/Executable_and_Linkable_Format>`_
-- `Linux ELF Object File Format (and ELF Header Structure) Basics <http://www.thegeekstuff.com/2012/07/elf-object-file-format/>`_
-- ELF（Executable and Linking Format）格式教學文件
-    * `#1: ELF 簡介 <http://www.jollen.org/blog/2006/11/executable_linking_format_elf_1.html>`_
-    * `#2: ELF header 與範例規 <http://www.jollen.org/blog/2006/11/executable_linking_format_elf_2html.html>`_
-    * `#3: 第一個範例：loader v0.1（讀 ELF 檔頭） <http://www.jollen.org/blog/2006/11/executable_linking_format_elf_3.html>`_
-    * `#4: 第一個範例：loader v0.2（ELF Identification） <http://www.jollen.org/blog/2006/11/executable_linking_format_elf_4.html>`_
-    * `#5: 讀 ELF Section（說明） <http://www.jollen.org/blog/2006/11/elfexecutable_and_linking_form.html>`_
-    * `#6: 讀 ELF Section（程式列表） <http://www.jollen.org/blog/2006/12/executable_linking_format_elf_6.html>`_
-    * `#7: 讀 ELF 的 Section Name（透過 strtab） <http://www.jollen.org/blog/2006/12/elfexecutable_and_linking_form.html>`_
-    * `#8: loader v0.5 與結果輸出（改善與小討論） <http://www.jollen.org/blog/2006/12/_elfexecutable_and_linking_for.html>`_
-- jserv - 深入淺出 Hello World
-- `ELF - 陳鍾誠 <http://ccckmit.wikidot.com/lk:elf>`_
+* `ELF101 <https://code.google.com/p/corkami/wiki/ELF101>`_
+* `Executable and Linkable Format - Wikipedia <http://en.wikipedia.org/wiki/Executable_and_Linkable_Format>`_
+* `Linux ELF Object File Format (and ELF Header Structure) Basics <http://www.thegeekstuff.com/2012/07/elf-object-file-format/>`_
+* ELF（Executable and Linking Format）格式教學文件
+    - `#1: ELF 簡介 <http://www.jollen.org/blog/2006/11/executable_linking_format_elf_1.html>`_
+    - `#2: ELF header 與範例規 <http://www.jollen.org/blog/2006/11/executable_linking_format_elf_2html.html>`_
+    - `#3: 第一個範例：loader v0.1（讀 ELF 檔頭） <http://www.jollen.org/blog/2006/11/executable_linking_format_elf_3.html>`_
+    - `#4: 第一個範例：loader v0.2（ELF Identification） <http://www.jollen.org/blog/2006/11/executable_linking_format_elf_4.html>`_
+    - `#5: 讀 ELF Section（說明） <http://www.jollen.org/blog/2006/11/elfexecutable_and_linking_form.html>`_
+    - `#6: 讀 ELF Section（程式列表） <http://www.jollen.org/blog/2006/12/executable_linking_format_elf_6.html>`_
+    - `#7: 讀 ELF 的 Section Name（透過 strtab） <http://www.jollen.org/blog/2006/12/elfexecutable_and_linking_form.html>`_
+    - `#8: loader v0.5 與結果輸出（改善與小討論） <http://www.jollen.org/blog/2006/12/_elfexecutable_and_linking_for.html>`_
+* jserv - 深入淺出 Hello World
+* `ELF - 陳鍾誠 <http://ccckmit.wikidot.com/lk:elf>`_
 * `ELF 之 Program Loading 教學文件, #2: Program Header Table <http://www.jollen.org/blog/2007/03/elf_program_loading_2_pht.html>`_
 * `ELF 之 Program Loading 教學文件, #1: Segment 的觀念 <http://www.jollen.org/blog/2007/03/>`_

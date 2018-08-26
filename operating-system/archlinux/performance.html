@@ -1041,6 +1041,15 @@ CXX=」clang++」
 CFLAGS=」-std=c11 -Wall -Wextra -pedantic -O3 -march=native -flto -pipe」
 CXXFLAGS=」-std=c++14 -Wall -Wextra -pedantic -O3 -march=native -flto -pipe」
 LDFLAGS=」-s -Wl,-O1,–sort-common,–as-needed,-z,relro」 # -Wl, for linker options</div></blockquote>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo pacman -S abs
+sudo abs    <span class="c1"># 更新 ABS tree (/var/abs)</span>
+sudo abs &lt;repository&gt;/&lt;package&gt;     <span class="c1"># 更新 ABS tree 中特定的 package</span>
+
+cp -r /var/abs/extra/python/ python
+<span class="nb">cd</span> python
+makepkg -s  <span class="c1"># -s 來自動處理 build dependency</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="linux-kernel">
 <h2><a class="toc-backref" href="#id6">Linux Kernel</a><a class="headerlink" href="#linux-kernel" title="本標題的永久連結">¶</a></h2>

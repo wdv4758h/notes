@@ -168,7 +168,7 @@ Rust 有用 ANTLR 做 parser 驗證：
 2. 設定 Toolchain （例如 ``mk/cfg/i686-unknown-haiku.mk`` 、 ``mk/cfg/x86_64-unknown-haiku.mk`` 和 ``mk/main.mk`` ）
 3. 設定 OS
     * src/etc/local_stage0.sh
-3. 在各處設定對應的選擇
+4. 在各處設定對應的選擇
     * src/librustc_back/target/haiku_base.rs
         - Linker
         - rpath

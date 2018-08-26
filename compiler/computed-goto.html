@@ -953,12 +953,10 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <p><code class="docutils literal notranslate"><span class="pre">computed</span> <span class="pre">gotos</span></code> 結合了兩種 C 的 features，
 一個是取得 label 的 address 作為 <code class="docutils literal notranslate"><span class="pre">void*</span></code> ，</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="o">*</span> <span class="n">labeladdr</span> <span class="o">=</span> <span class="o">&amp;&amp;</span><span class="n">somelabel</span><span class="p">;</span>
+<span class="nl">somelabel</span><span class="p">:</span>
+    <span class="c1">// code</span>
 </pre></div>
 </div>
-<dl class="docutils">
-<dt>somelabel:</dt>
-<dd>// code</dd>
-</dl>
 <p>第二個是餵給 <code class="docutils literal notranslate"><span class="pre">goto</span></code> 一個 variable expression (而不是編譯時期知道的 label)，</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="o">*</span> <span class="n">table</span><span class="p">[];</span>  <span class="c1">// addresses</span>
 <span class="k">goto</span> <span class="o">*</span><span class="n">table</span><span class="p">[</span><span class="n">pc</span><span class="p">];</span>

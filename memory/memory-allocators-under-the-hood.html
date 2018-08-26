@@ -1056,7 +1056,7 @@ $ truss ./test_malloc   <span class="c1"># FreeBSD</span>
 <p>所以到底這些 system call (<code class="docutils literal notranslate"><span class="pre">brk</span></code>, <code class="docutils literal notranslate"><span class="pre">madvise</span></code>) 都做了些什麼勒？
 為什麼 call 完後 heap 就會多出空間可以使用？</p>
 <p>我們先來看看 Linux 上的 Memory 都放了些什麼東西 :</p>
-<img alt="Linux Address Layout" src="memory/images/memory-management/Linux-Address-Layout.png" />
+<img alt="Linux Address Layout" src="../_images/Linux-Address-Layout.png" />
 </div>
 <div class="section" id="sbrk">
 <h3><a class="toc-backref" href="#id8">sbrk</a><a class="headerlink" href="#sbrk" title="本標題的永久連結">¶</a></h3>
@@ -1080,7 +1080,7 @@ $ truss ./test_malloc   <span class="c1"># FreeBSD</span>
 <span class="cm">     instances of __brk and __sbrk can share the heap, returning</span>
 <span class="cm">     interleaved pieces of it.  */</span>
   <span class="k">if</span> <span class="p">(</span><span class="n">__curbrk</span> <span class="o">==</span> <span class="nb">NULL</span> <span class="o">||</span> <span class="n">__libc_multiple_libcs</span><span class="p">)</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">__brk</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>              <span class="cm">/* Initialize the break.  */</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">__brk</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>    <span class="cm">/* Initialize the break.  */</span>
       <span class="k">return</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
 
   <span class="k">if</span> <span class="p">(</span><span class="n">increment</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
@@ -1115,15 +1115,15 @@ $ truss ./test_malloc   <span class="c1"># FreeBSD</span>
 </pre></div>
 </div>
 <p>glibc/sysdeps/unix/sysv/linux/x86_64/sysdep.h</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp"># define INTERNAL_SYSCALL_NCS(name, err, nr, args...) \</span>
-<span class="cp">({                                                                        \</span>
-<span class="cp">  unsigned long int resultvar;                                            \</span>
-<span class="cp">  LOAD_ARGS_##nr (args)                                                   \</span>
-<span class="cp">  LOAD_REGS_##nr                                                          \</span>
-<span class="cp">  asm volatile (                                                          \</span>
-<span class="cp">  &quot;syscall\n\t&quot;                                                           \</span>
-<span class="cp">  : &quot;=a&quot; (resultvar)                                                              \</span>
-<span class="cp">  : &quot;0&quot; (name) ASM_ARGS_##nr : &quot;memory&quot;, &quot;cc&quot;, &quot;r11&quot;, &quot;cx&quot;);                      \</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp"># define INTERNAL_SYSCALL_NCS(name, err, nr, args...)         \</span>
+<span class="cp">({                                                            \</span>
+<span class="cp">  unsigned long int resultvar;                                \</span>
+<span class="cp">  LOAD_ARGS_##nr (args)                                       \</span>
+<span class="cp">  LOAD_REGS_##nr                                              \</span>
+<span class="cp">  asm volatile (                                              \</span>
+<span class="cp">  &quot;syscall\n\t&quot;                                               \</span>
+<span class="cp">  : &quot;=a&quot; (resultvar)                                          \</span>
+<span class="cp">  : &quot;0&quot; (name) ASM_ARGS_##nr : &quot;memory&quot;, &quot;cc&quot;, &quot;r11&quot;, &quot;cx&quot;);  \</span>
 <span class="cp">  (long int) resultvar; })</span>
 
 <span class="cp"># define INTERNAL_SYSCALL(name, err, nr, args...) \</span>

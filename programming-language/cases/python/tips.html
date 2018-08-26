@@ -985,13 +985,13 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </div>
 <div class="section" id="class-decorator-method">
 <h2>套用自己 class 內的 decorator 到其他 method<a class="headerlink" href="#class-decorator-method" title="本標題的永久連結">¶</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>＠staticmethod
-def decorator(function):
-    pass
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@staticmethod</span>
+<span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">function</span><span class="p">):</span>
+    <span class="k">pass</span>
 
-＠decorator.＿func＿
-def func(self):
-    pass
+<span class="nd">@decorator.__func__</span>
+<span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">pass</span>
 </pre></div>
 </div>
 </div>
