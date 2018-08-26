@@ -1,6 +1,90 @@
 ========================================
-Search
+搜尋 （Search）
 ========================================
+
+許多問題可以被看成搜尋問題！
+
+
+.. contents:: 目錄
+
+
+搜尋品質
+========================================
+
+* 有解時一定會找到 （Complete）
+* 最佳解 （Optimal）
+
+
+搜尋效率
+========================================
+
+* 時間複雜度
+* 空間複雜度
+
+
+常見搜尋演算法
+========================================
+
+非啟發式搜尋（Weak、Uninformed）
+
+* 廣度優先搜尋 （Breadth-first search）
+* 深度優先搜尋 （Depth-firth search）
+* Depth-limited search
+* Iterative Deepening search
+* Bidirectional search
+* Uniform cost search
+
+啟發式搜尋（Heuristic、Informed）
+
+* Greedy Best‐first search
+* A* search
+* Iterative‐deepening A* (IDA*) search
+
+區域搜尋（Local）
+
+* Hill‐climbing Search (Greedy local search)
+* Stochastic hill‐climbing
+* Random‐restart hill‐climbing
+* Local Beam Search
+* Simulated Annealing
+
+遊戲搜尋（Game）
+
+* Minimax Search
+* α-β pruning
+* Cutting Off Search
+* Quiescent Search
+
+
+廣度優先搜尋（BFS）
+------------------------------
+
+:時間複雜度: O(bᵈ⁺¹)
+:空間複雜度: O(bᵈ⁺¹)
+:有解時一定會找到: 是
+:最佳解: 否，除非 Cost 跟路徑長度呈現單調遞增函數（愈淺愈好）
+:受困於不斷重複（循環）的點: 否
+:受困於無限深的搜尋空間: 否
+:暫存區: Queue
+:適合情況: 分支少且有深度淺的解法
+
+
+深度優先搜尋（DFS）
+------------------------------
+
+:時間複雜度: O(bᵐ)
+:空間複雜度: O(b m)
+:有解時一定會找到: 否，除非搜尋空間有限且沒有循環
+:最佳解: 否
+:受困於不斷重複（循環）的點: 是
+:受困於無限深的搜尋空間: 可能
+:暫存區: Stack
+:適合情況: 有許多解在不知道的深度
+
+
+
+
+b: avg branching factor, d: goal depth, m: max depth
 
 +-----+----------------------------------------+
 | BFS | Breadth-First Search                   |
@@ -85,7 +169,7 @@ Search
 +------------+--------------+---------------------------------------------------------------+------+
 
 +------------+
-|            | Greedy Best-First |
+|            | Greedy Best-First
 +------------+
 | Cost       |
 +------------+
@@ -113,6 +197,13 @@ Special Cases of Best-First Search：
 +-------+----------------+-------------------+---------------+----------------+----------------+
 | NODES | priority queue | stack             | queue         | priority queue | priority queue |
 +-------+----------------+-------------------+---------------+----------------+----------------+
+
+* Greedy
+    - 選覺得比較近的路
+* UCS
+    - 選累積路程少的
+* A*
+    - 選覺得比較近的路且選累積路程少的
 
 
 * g(n)：目前已累積的 cost

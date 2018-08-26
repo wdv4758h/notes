@@ -8,8 +8,8 @@ Computed goto
 .. code-block:: c
 
    void* labeladdr = &&somelabel;
-somelabel:
-   // code
+   somelabel:
+       // code
 
 
 第二個是餵給 ``goto`` 一個 variable expression (而不是編譯時期知道的 label)，

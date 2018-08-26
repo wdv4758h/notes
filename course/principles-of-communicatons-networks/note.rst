@@ -2,8 +2,6 @@
 Principles of Communications Networks
 ========================================
 
-----
-
 * Fast fading
     - High Doppler spread, symbol time > Coherence time, delay spread, multipath
 * Slow fading
@@ -919,8 +917,9 @@ CSMA/CD
     a. busy => **繼續聽**
     b. idle => **送出**
 2. 如果碰撞發生的話就發出 **jamming signal** 通知大家，叫大家不要再送了
-2. 送完等 ACK，等待一段時間，等不到就重傳
-3. 碰撞時，雙方都等一個 random time
+3. 送完等 ACK，等待一段時間，等不到就重傳
+4. 碰撞時，雙方都等一個 random time
+
 
 CSMA/CA
 ------------------------------

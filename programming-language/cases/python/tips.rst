@@ -57,11 +57,11 @@ Python 的 bool 可以拿來做運算
 
 .. code-block:: python
 
-    ＠staticmethod
+    @staticmethod
     def decorator(function):
         pass
 
-    ＠decorator.＿func＿
+    @decorator.__func__
     def func(self):
         pass
 

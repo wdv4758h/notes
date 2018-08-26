@@ -88,7 +88,7 @@ Explain
 
 我們先來看看 Linux 上的 Memory 都放了些什麼東西 :
 
-.. image:: images/memory-management/Linux-Address-Layout.png
+.. image:: /images/memory-management/Linux-Address-Layout.png
     :alt: Linux Address Layout
 
 
@@ -119,7 +119,7 @@ glibc/misc/sbrk.c :
          instances of __brk and __sbrk can share the heap, returning
          interleaved pieces of it.  */
       if (__curbrk == NULL || __libc_multiple_libcs)
-        if (__brk (0) < 0)		/* Initialize the break.  */
+        if (__brk (0) < 0)    /* Initialize the break.  */
           return (void *) -1;
 
       if (increment == 0)
@@ -160,15 +160,15 @@ glibc/sysdeps/unix/sysv/linux/x86_64/sysdep.h
 
 .. code-block:: c
 
-    # define INTERNAL_SYSCALL_NCS(name, err, nr, args...) \
-    ({									      \
-      unsigned long int resultvar;					      \
-      LOAD_ARGS_##nr (args)						      \
-      LOAD_REGS_##nr							      \
-      asm volatile (							      \
-      "syscall\n\t"							      \
-      : "=a" (resultvar)							      \
-      : "0" (name) ASM_ARGS_##nr : "memory", "cc", "r11", "cx");		      \
+    # define INTERNAL_SYSCALL_NCS(name, err, nr, args...)         \
+    ({                                                            \
+      unsigned long int resultvar;                                \
+      LOAD_ARGS_##nr (args)                                       \
+      LOAD_REGS_##nr                                              \
+      asm volatile (                                              \
+      "syscall\n\t"                                               \
+      : "=a" (resultvar)                                          \
+      : "0" (name) ASM_ARGS_##nr : "memory", "cc", "r11", "cx");  \
       (long int) resultvar; })
 
     # define INTERNAL_SYSCALL(name, err, nr, args...) \
