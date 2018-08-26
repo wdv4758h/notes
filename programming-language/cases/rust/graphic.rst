@@ -13,7 +13,37 @@ Rust & Graphic
 ------------------------------
 
 `gfx-rs <https://gfx-rs.github.io/>`_
-的目標是要提供高效能、易用、健全的圖形 API。
+的目標是要提供高效能、易用、健全的圖形 API，
+此 API 可以支援多種平台，
+並且盡可能地不增加執行成本，
+讓上層引擎可以根據不同的需求去搭建出自己的系統並具有跨平台的支援。
+
+
+架構概覽 ::
+
+    +-------------------------------+
+    | Vulkan based Application      |
+    +-------------------------------+
+                  |
+                  v
+    +-------------------------------+
+    | Vulkan Portability Initiative |
+    +-------------------------------+
+                  |
+                  v
+    +-------------------------------+  +-----------+  +----------+
+    |      gfx-protability          |  | WebRender |  | Amethyst |
+    +-------------------------------+  +-----------+  +----------+
+                  |                         |              |
+                  v                         v              v
+    +------------------------------------------------------------+
+    |                             gfx                            |
+    +------------------------------------------------------------+
+            |            |           |          |          |
+            v            v           v          v          v
+       +--------+   +---------+  +-------+  +--------+  +-----+
+       | Vulkan |   | DirectX |  | Metal |  | OpenGL |  | ... |
+       +--------+   +---------+  +-------+  +--------+  +-----+
 
 
 抽象層 - gfx-hal
@@ -63,6 +93,9 @@ API 設計借鏡 Vulkan 的經驗，
 
 Shader 語言方面提供單一的 SPIR-V 來撰寫，
 會根據不同的後端自動轉換成適用的形式。
+轉換方式是透過 `spirv_cross <https://github.com/grovesNL/spirv_cross>`_
+（ `SPIRV-Cross <https://github.com/KhronosGroup/SPIRV-Cross>`_ 的 Rust 包裝），
+支援 GLSL、MSL、HLSL。
 
 
 Vulkan Portability Initiative 實做 - gfx-portability
@@ -116,7 +149,7 @@ Vulkan Portability Initiative 實做 - gfx-portability
     - MoltenVK 採用這種方式
 
 
-Shader
+Shader 界面
 ------------------------------
 
 Shader parameters (或稱為 uniforms) 為使用者提供的繪製執行的數值，
@@ -197,7 +230,7 @@ Rust 有一個叫做 `Vulkano <https://github.com/vulkano-rs/vulkano>`_ 的 Vulk
 參考
 ========================================
 
-Repos
+Rust 圖形相關專案
 ------------------------------
 
 * `Glium - safe OpenGL wrapper <https://github.com/tomaka/glium>`_
@@ -205,9 +238,10 @@ Repos
 * `Vulkano - safe and rich Rust wrapper around the Vulkan API <https://github.com/tomaka/vulkano>`_
 * `inspirv-rust <https://github.com/msiglreith/inspirv-rust>`_
 * `winit - cross-platform window creation and management in Rust <https://github.com/tomaka/winit>`_
+* `rspirv <https://github.com/google/rspirv>`_
 
 
-圖形相關專案
+非 Rust 圖形相關專案
 ------------------------------
 
 * `MoltenVK - Vulkan based on Metal <https://github.com/KhronosGroup/MoltenVK>`_
