@@ -45,3 +45,8 @@ PyGObject 可以處理各種用 GObject 實做的 library，
 
 參考
 ========================================
+
+Blog
+------------------------------
+
+* `Colors of Noise <https://honk.sigxcpu.org/con/>`_
