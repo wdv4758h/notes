@@ -44,4 +44,74 @@ Rust & Android
       -C link-arg="-s" \
       -C lto
 
-    # 實測 ripgrep 編譯後運作正常
+
+專案實測後正常：
+
+* ripgrep
+* fd
+
+
+
+建立 C 程式碼的 Android cross compile
+========================================
+
+Cargo.toml:
+
+.. code-block:: toml
+
+    [package]
+    name = "example"
+    version = "0.1.0"
+
+    [dependencies]
+
+    [build-dependencies]
+    cc = { version = "1.0", features = ["parallel"] }
+
+
+build.rs:
+
+.. code-block:: rust
+
+    extern crate cc;
+
+    fn main() {
+        cc::Build::new()
+            .file("foo.c")
+            .compile("libfoo.a");
+    }
+
+
+foo.c:
+
+.. code-block:: c
+
+    #include <stdio.h>
+
+    void func() {
+        printf("hello in C\n");
+    }
+
+
+src/main.rs:
+
+.. code-block:: rust
+
+    extern {
+        fn func();
+    }
+
+    fn main() {
+        unsafe { func() };
+    }
+
+
+編譯：
+
+.. code-block:: sh
+
+    export AR="/home/dv/PKGBUILDs/android/android-28-toolchain/bin/aarch64-linux-android-ar"
+    env cargo rustc --release --target aarch64-linux-android -- \
+      -C linker="android-28-toolchain/bin/clang" \
+      -C link-arg="-s" \
+      -C lto
