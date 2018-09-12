@@ -90,12 +90,24 @@
     - 基本介紹、設計概念
     - 內部溝通機制
     - 撰寫 Plugin
+    - Bus
+    - Pad Probe
+    - Signal
     - Transcoding
     - Transmuxing
     - Transrating
     - Transsizing
     - Adaptive Streaming
     - File Repair
+    - 其他程式語言 Binding
+        + gobject-introspection
+        + typelibs
+        + Python
+            * PyGObject
+            * gst-python
+            * GStreamer + asyncio
+            * Signal/Promise/Callback
+        + Rust
     - WebRTC
     - UPnP streaming
     - DLNA
@@ -141,6 +153,7 @@
 * `MediaInfo <mediainfo.rst>`_
 * `硬體加速 <hardware-acceleration.rst>`_
 * AudioFlinger
+* `藍牙相關 (Bluetooth) <bluetooth>`_
 
 
 
