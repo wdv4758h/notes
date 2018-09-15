@@ -161,14 +161,16 @@
 ========================================
 
 * `播放器 <player.rst>`_
-    - VLC
-    - mplayer
-    - mpv
-    - cmus
-    - GStreamer (gst-play-1.0)
-    - FFmpeg (ffplay)
-    - mpd
-    - Mopidy
+    - 影片播放器
+        + VLC
+        + mplayer
+        + mpv
+        + GStreamer (gst-play-1.0)
+        + FFmpeg (ffplay)
+    - `音樂播放器 (Music Player) <music-player.rst>`_
+        + cmus
+        + MPD
+        + Mopidy
 * `Kodi <kodi.rst>`_
 
 
