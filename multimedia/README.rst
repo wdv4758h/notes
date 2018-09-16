@@ -117,7 +117,7 @@
     - Player
     - Server
     - Filter
-    - 上字幕
+    - `上字幕 <gstreamer/subtitle.rst>`_
     - `GStreamer 相關公司 <gstreamer/company.rst>`_
 * `FFmpeg <ffmpeg.rst>`_
     - CLI 參數使用
