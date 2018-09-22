@@ -129,6 +129,7 @@
     - File Repair
     - Filter
     - 上字幕
+    - `Mixing <gstreamer/mixing.rst>`_
     - 架構設計
         + Encoder
         + Decoder
