@@ -10,7 +10,7 @@ GStreamer & 硬體加速 (Hardware Acceleration)
 ========================================
 
 參考：
-`硬體加速 (Hardware Acceleration) <../hardware-acceleration.rst>`_
+`硬體加速 (Hardware Acceleration) </multimedia/hardware-acceleration.rst>`_
 
 
 目前大約有九種影像解碼的硬體加速 API：

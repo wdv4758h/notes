@@ -3,7 +3,7 @@ GStreamer
 ========================================
 
 * 基本介紹、設計概念
-* 編譯
+* `編譯 <build.rst>`_
 * 內部溝通機制
 * 撰寫 Plugin
 * Bus
@@ -28,7 +28,6 @@ GStreamer
 * UPnP streaming
 * DLNA
 * Miracast
-* Player
 * Server
 * Filter
 * `上字幕 (Subtitle) <subtitle.rst>`_
