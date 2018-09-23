@@ -117,8 +117,9 @@
     - Player
     - Server
     - Filter
-    - `上字幕 <gstreamer/subtitle.rst>`_
-    - `GStreamer 相關公司 <gstreamer/company.rst>`_
+    - 上字幕
+    - Mixing
+    - GStreamer 相關公司
 * `FFmpeg <ffmpeg.rst>`_
     - CLI 參數使用
     - Transcoding
@@ -129,7 +130,7 @@
     - File Repair
     - Filter
     - 上字幕
-    - `Mixing <gstreamer/mixing.rst>`_
+    - Mixing
     - 架構設計
         + Encoder
         + Decoder
