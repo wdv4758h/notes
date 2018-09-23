@@ -23,9 +23,9 @@ Transmuxing
 
     # .ts -> .mp4 (H264/AAC) (multiqueue)
     gst-launch-1.0 \
-      multiqueue max-size-buffers=0 max-size-bytes=0 max-size-time=0 name=mq \
-      filesrc location=test.ts ! \
-      parsebin name=demux \
-      demux. ! queue ! h264parse ! mq.sink_0 mq.src_0 ! muxer. \
-      demux. ! queue ! aacparse ! mq.sink_1 mq.src_1 ! muxer. \
-      qtmux name=muxer ! queue ! filesink location=test.mp4
+        multiqueue max-size-buffers=0 max-size-bytes=0 max-size-time=0 name=mq \
+        filesrc location=test.ts ! \
+        parsebin name=demux \
+        demux. ! queue ! h264parse ! mq.sink_0 mq.src_0 ! muxer. \
+        demux. ! queue ! aacparse ! mq.sink_1 mq.src_1 ! muxer. \
+        qtmux name=muxer ! queue ! filesink location=test.mp4
