@@ -30,7 +30,33 @@ GStreamer & 串流混合 (Mixing)
         sink_2::alpha=1 sink_2::xpos=0   sink_2::ypos=486 \
         sink_3::alpha=1 sink_3::xpos=646 sink_3::ypos=486 ! \
         autovideosink \
-        videotestsrc pattern=snow ! video/x-raw,width=640,height=480 !  mix. \
+        videotestsrc pattern=snow ! video/x-raw,width=640,height=480 ! mix. \
         videotestsrc pattern=gamut ! video/x-raw,width=640,height=480 ! mix. \
         videotestsrc pattern=spokes ! video/x-raw,width=640,height=480 ! mix. \
         videotestsrc pattern=colors ! video/x-raw,width=640,height=480 ! mix.
+
+    # 4 路 mp4
+    gst-launch-1.0 -ve videomixer name=mix \
+        sink_0::alpha=1 sink_0::xpos=0   sink_0::ypos=0 \
+        sink_1::alpha=1 sink_1::xpos=646 sink_1::ypos=0 \
+        sink_2::alpha=1 sink_2::xpos=0   sink_2::ypos=486 \
+        sink_3::alpha=1 sink_3::xpos=646 sink_3::ypos=486 ! \
+        autovideosink \
+        filesrc location=test1.mp4 ! decodebin ! mix. \
+        filesrc location=test2.mp4 ! decodebin ! mix. \
+        filesrc location=test3.mp4 ! decodebin ! mix. \
+        filesrc location=test4.mp4 ! decodebin ! mix.
+
+    # 4 路 mp4 (縮放)
+    gst-launch-1.0 -ve videomixer name=mix \
+        sink_0::alpha=1 sink_0::xpos=0   sink_0::ypos=0 \
+        sink_1::alpha=1 sink_1::xpos=646 sink_1::ypos=0 \
+        sink_2::alpha=1 sink_2::xpos=0   sink_2::ypos=486 \
+        sink_3::alpha=1 sink_3::xpos=646 sink_3::ypos=486 ! \
+        autovideosink \
+        filesrc location=test1.mp4 ! decodebin ! mix. \
+        filesrc location=test2.mp4 ! decodebin ! \
+            videoscale ! video/x-raw,width=640,height=480 ! mix. \
+        filesrc location=test3.mp4 ! decodebin ! mix. \
+        filesrc location=test4.mp4 ! decodebin ! \
+            videoscale ! video/x-raw,width=640,height=480 ! mix.
