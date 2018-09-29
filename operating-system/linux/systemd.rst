@@ -6,6 +6,23 @@ systemd
 .. contents:: 目錄
 
 
+設計
+========================================
+
+systemd 的設計緣由可以參考 Lennart Poettering 在 2010 年的文章
+`Rethinking PID 1 <http://0pointer.net/blog/projects/systemd.html>`_ ，
+在此文章發出的同時也釋出了 systemd 實做。
+
+
+優勢
+------------------------------
+
+
+劣勢
+------------------------------
+
+
+
 hostnamectl
 ========================================
 
@@ -66,3 +83,14 @@ systemd-resolve
 * `How To Use Systemctl to Manage Systemd Services and Units <https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units>`_
 * `How To Use Journalctl to View and Manipulate Systemd Logs <https://www.digitalocean.com/community/tutorials/how-to-use-journalctl-to-view-and-manipulate-systemd-logs>`_
 * `Understanding Systemd Units and Unit Files <https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files>`_
+
+
+* `Systemd is the best example of Suck. <http://suckless.org/sucks/systemd>`_
+* `Things I learned about systemd <https://nelsonslog.wordpress.com/2016/04/30/things-i-learned-about-systemd/>`_
+
+
+* `systemd in 2018 <https://media.ccc.de/v/ASG2018-230-systemd_in_2018>`_
+* `BSDCan 2018 - The Tragedy of systemd <https://www.bsdcan.org/2018/schedule/track/Plenary/927.en.html>`_
+* `2018 Demystifying systemd <https://www.redhat.com/it/about/videos/summit-2018-demystifying-systemd>`_
+
+* `A list of non-systemd distributions (revisited) <https://sysdfree.wordpress.com/2018/05/09/135/>`_
