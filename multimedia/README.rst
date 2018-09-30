@@ -156,6 +156,7 @@
 * `硬體加速 <hardware-acceleration.rst>`_
 * AudioFlinger
 * `藍牙相關 (Bluetooth) <bluetooth>`_
+* `PipeWire <pipewire>`_
 
 
 
