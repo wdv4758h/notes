@@ -7,3 +7,4 @@
 * `即時策略 (Real Time Strategy) <real-time-strategy.rst>`_
 * `模擬器 (Emulators) <emulators.rst>`_
 * `RPG <rpg.rst>`_
+* `Windows Game on Linux <windows-game-on-linux.rst>`_
