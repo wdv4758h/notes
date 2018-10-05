@@ -13,6 +13,12 @@ Container
 * systemd-nspawn
 * lmctfy
 * `Docker <docker.rst>`_
+* `pot <https://github.com/pizzamig/pot>`_
+    - FreeBSD
+    - jails
+    - ZFS
+    - pf
+    - rctl
 
 
 衍生：
