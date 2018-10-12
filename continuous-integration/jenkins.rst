@@ -42,7 +42,7 @@ Pipeline
 
 
 
-Jenkinsfile
+Declarative Jenkinsfile
 ========================================
 
 Pipeline
@@ -50,6 +50,88 @@ Pipeline
 
 Node
 ------------------------------
+
+Parameters Build
+------------------------------
+
+範例
+------------------------------
+
+.. code-block:: Jenkinsfile
+
+    pipeline {
+        agent any
+        options {
+            timestamps()
+            disableConcurrentBuilds()
+            // Only keep the 5 most recent builds
+            buildDiscarder(logRotator(numToKeepStr: '5'))
+        }
+
+        parameters {
+            // these will let user input some parameters when triggering build
+            string(name: 'BRANCH_PROJ1',
+                   defaultValue: 'develop',
+                   description: 'PROJ1 build branch')
+            string(name: 'BRANCH_PROJ2',
+                   defaultValue: 'develop',
+                   description: 'PROJ2 build branch')
+        }
+
+        environment {
+            // define variable
+            JOB_SIGNATURE = "${env.JOB_NAME} ${env.BUILD_NUMBER} (${env.BUILD_URL})"
+        }
+
+        stages {
+            stage("checking out") {
+                steps {
+                    checkout scm
+                }
+            }
+
+            stage("check env") {
+                steps {
+                    script {
+                        if (params.foo) {
+                            sh "echo foo=${params.foo}"
+                        }
+                    }
+                }
+            }
+
+            stage("build projects") {
+                steps {
+                    script {
+                        // use plugin to display terminal color on web
+                        ansiColor('xterm') {
+                            sh "make all"
+                        }
+                    }
+                }
+            }
+        }
+
+        post {
+            always {
+                // docker clean up, avoid eating a lot of disk
+                sh "docker system prune -f"
+            }
+
+            success {
+                slackSend channel: '#jenkins-builds',
+                          color: '#90EE90',
+                          message: "Yes !! PROJS Build Passed - ${JOB_SIGNATURE}"
+            }
+
+            failure {
+                slackSend channel: '#jenkins-builds',
+                          color: '#b20900',
+                          message: "No  !! PROJS Build Failed - ${JOB_SIGNATURE}"
+            }
+        }
+    }
+
 
 
 Jenkins X
