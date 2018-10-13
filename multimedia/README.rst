@@ -172,6 +172,7 @@
         + FFmpeg (ffplay)
     - `音樂播放器 (Music Player) <music-player.rst>`_
         + cmus
+        + moc
         + MPD
         + Mopidy
 * `Kodi <kodi.rst>`_
@@ -183,3 +184,5 @@
 
 * 猜測多媒體格式
     - GStreamer typefind
+* `Oboe - C++ library which makes it easy to build high-performance audio apps on Android <https://github.com/google/oboe>`_
+* `Android AAudio - API designed for high-performance audio applications that require low latency <https://developer.android.com/ndk/guides/audio/aaudio/aaudio>`_
