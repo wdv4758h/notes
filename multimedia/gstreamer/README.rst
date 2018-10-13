@@ -23,13 +23,19 @@ GStreamer
         + gst-python
         + GStreamer + asyncio
         + Signal/Promise/Callback
+        + Video Frame -> NumPy array
     - Rust
 * WebRTC
+    - custom signalling server
+    - Janus
+    - Kurento
 * UPnP streaming
 * DLNA
 * Miracast
 * Server
 * Filter
+* 即時
+    - `分析 latency <latency.rst>`_
 * `上字幕 (Subtitle) <subtitle.rst>`_
 * `串流混合 (Mixing/Composition) <mixing.rst>`_
 * `硬體加速 (Hardware Acceleration) <hardware-acceleration.rst>`_
