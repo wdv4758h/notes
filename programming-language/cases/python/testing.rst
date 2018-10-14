@@ -429,6 +429,22 @@ pytest 設定檔
 
 
 
+客製化測試失敗時的輸出
+------------------------------
+
+.. code-block:: python
+
+    # conftest.py
+
+    from mymodule import Foo
+
+    def pytest_assertrepr_compare(op, left, right):
+        if isinstance(left, Foo) and isinstance(right, Foo) and op == "==":
+            return ['Comparing Foo instances:',
+                    '   vals: %s != %s' % (left.val, right.val)]
+
+
+
 pytest-xdist - 同時執行多項測試
 -------------------------------
 
@@ -452,6 +468,14 @@ pytest-cov - 測試涵蓋率
 
 可以產生出多種格式的 Report，
 例如直接在終端機顯示、HTML、XML 等。
+
+
+pytest-icdiff
+-------------------------------
+
+:repo: https://github.com/hjwp/pytest-icdiff
+
+利用 `ICDiff <https://www.jefftk.com/icdiff>`_ 改善比較的結果
 
 
 範例
