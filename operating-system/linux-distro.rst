@@ -6,11 +6,22 @@ Linux Distro
 .. contents:: 目錄
 
 
+elementary OS
+========================================
+
+:Site: https://elementary.io/
+:Repo: https://github.com/elementary
+:Blog: https://medium.com/elementaryos
+
+專注在使用者體驗
+
+
+
 Liri
 ========================================
 
 :Site: https://liri.io
-:Repos: https://github.com/lirios
+:Repo: https://github.com/lirios
 
 Liri OS 本身是 Linux，基於 Arch Linux 在做開發。
 專案本身是多個專案的結合，
