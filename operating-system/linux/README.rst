@@ -48,7 +48,7 @@ Linux
 
 ----
 
-* `建立自己的 Linux 系統 (Build Your Own Linux System) <build-your-own-linux-system.rst>`_
+* `建立自己的 Linux 系統 (Build Your Own Linux) <build-your-own-linux/>`_
 * `Realtime Kernel <realtime.rst>`_
 * `Kernel Module <Kernel-modules.rst>`_
 * `Budget Fair Queueing Storage-I/O Scheduler <bfq.rst>`_
