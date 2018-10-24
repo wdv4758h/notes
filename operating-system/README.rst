@@ -13,18 +13,18 @@
 
 核心實做：
 
-* `Linux <linux>`_
-* `FreeBSD <freebsd>`_
-* `DragonFlyBSD <dragonflybsd>`_
-* `OpenBSD <openbsd>`_
-* `NetBSD <netbsd.rst>`_
-* `Android <android/>`_
+* `Linux <cases/linux>`_
+* `FreeBSD <cases/freebsd>`_
+* `DragonFlyBSD <cases/dragonflybsd>`_
+* `OpenBSD <cases/openbsd>`_
+* `NetBSD <cases/netbsd.rst>`_
+* `Android <cases/android/>`_
 * `Fuchsia OS (Zircon kernel) <https://github.com/fuchsia-mirror/zircon>`_
 
 
 其他：
 
-* `Kernel 測試 <kernel-testing.rst>`_
+* `Kernel 測試 <topics/kernel-testing.rst>`_
 
 
 相關學習資源：
