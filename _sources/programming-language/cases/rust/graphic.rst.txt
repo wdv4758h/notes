@@ -193,6 +193,14 @@ Programming Model
 ------------------------------
 
 
+相關應用
+------------------------------
+
+* `RPCS3 and Dolphin on macOS using gfx-portability <https://gfx-rs.github.io/2018/09/03/rpcs3-dolphin.html>`_
+* `RPCS3 - Progress Report: August 2018 <https://rpcs3.net/blog/2018/09/20/august-2018-progress-report/>`_
+    - RPCS3 (Sony PlayStation 3 模擬器) 的 macOS 支援使用 gfx-rs
+
+
 
 OpenGL
 ========================================
@@ -227,6 +235,12 @@ Rust 有一個叫做 `Vulkano <https://github.com/vulkano-rs/vulkano>`_ 的 Vulk
 
 
 
+WebRender
+========================================
+
+* [2018] `WebRender - Patrick Walton <https://pcwalton.github.io/slides/201808-webrender/>`_
+
+
 參考
 ========================================
 
@@ -247,3 +261,14 @@ Rust 圖形相關專案
 * `MoltenVK - Vulkan based on Metal <https://github.com/KhronosGroup/MoltenVK>`_
 * Vulkan Portability Initiative
 * `Vulkan CTS - Vulkan 實做檢查、測試 <https://github.com/KhronosGroup/VK-GL-CTS/blob/master/external/vulkancts/README.md>`_
+
+
+公司
+------------------------------
+
+* `LunarG - 3D Graphics Driver and Software Development Services <https://www.lunarg.com/>`_
+    - 2015 LunarG -> LunarG (desktop group) funded by Valve, mobile group move to Google for Vulkan on Android
+    - develop in Mesa
+    - `Vulkan Tools <https://github.com/LunarG/VulkanTools>`_
+    - `LunarGLASS <https://github.com/LunarG/LunarGLASS>`_
+    - `Vulkan Samples <https://github.com/LunarG/VulkanSamples>`_

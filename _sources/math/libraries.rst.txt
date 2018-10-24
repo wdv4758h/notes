@@ -21,6 +21,7 @@ BLAS (Basic Linear Algebra Subprograms)
 * clBLAST
 * Eigen BLAS
 * GotoBLAS
+    - 開發者為 後藤和茂（Kazushige Gotō）
 * Intel MKL
 * Netlib BLAS
 

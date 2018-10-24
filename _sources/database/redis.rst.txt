@@ -34,6 +34,19 @@ Redis 是 in-memory 的資料儲存軟體，
 
 
 
+清除所有資料
+========================================
+
+.. code-block:: sh
+
+    # removes data from all databases
+    $ redis-cli flushall
+
+    # removes data from your connection's current database
+    $ redis-cli flushdb
+
+
+
 參考
 ========================================
 

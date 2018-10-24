@@ -90,12 +90,24 @@
     - 基本介紹、設計概念
     - 內部溝通機制
     - 撰寫 Plugin
+    - Bus
+    - Pad Probe
+    - Signal
     - Transcoding
     - Transmuxing
     - Transrating
     - Transsizing
     - Adaptive Streaming
     - File Repair
+    - 其他程式語言 Binding
+        + gobject-introspection
+        + typelibs
+        + Python
+            * PyGObject
+            * gst-python
+            * GStreamer + asyncio
+            * Signal/Promise/Callback
+        + Rust
     - WebRTC
     - UPnP streaming
     - DLNA
@@ -106,7 +118,8 @@
     - Server
     - Filter
     - 上字幕
-    - `GStreamer 相關公司 <gstreamer/company.rst>`_
+    - Mixing
+    - GStreamer 相關公司
 * `FFmpeg <ffmpeg.rst>`_
     - CLI 參數使用
     - Transcoding
@@ -117,6 +130,7 @@
     - File Repair
     - Filter
     - 上字幕
+    - Mixing
     - 架構設計
         + Encoder
         + Decoder
@@ -141,6 +155,8 @@
 * `MediaInfo <mediainfo.rst>`_
 * `硬體加速 <hardware-acceleration.rst>`_
 * AudioFlinger
+* `藍牙相關 (Bluetooth) <bluetooth>`_
+* `PipeWire <pipewire>`_
 
 
 
@@ -148,14 +164,17 @@
 ========================================
 
 * `播放器 <player.rst>`_
-    - VLC
-    - mplayer
-    - mpv
-    - cmus
-    - GStreamer (gst-play-1.0)
-    - FFmpeg (ffplay)
-    - mpd
-    - Mopidy
+    - 影片播放器
+        + VLC
+        + mplayer
+        + mpv
+        + GStreamer (gst-play-1.0)
+        + FFmpeg (ffplay)
+    - `音樂播放器 (Music Player) <music-player.rst>`_
+        + cmus
+        + moc
+        + MPD
+        + Mopidy
 * `Kodi <kodi.rst>`_
 
 
@@ -165,3 +184,5 @@
 
 * 猜測多媒體格式
     - GStreamer typefind
+* `Oboe - C++ library which makes it easy to build high-performance audio apps on Android <https://github.com/google/oboe>`_
+* `Android AAudio - API designed for high-performance audio applications that require low latency <https://developer.android.com/ndk/guides/audio/aaudio/aaudio>`_

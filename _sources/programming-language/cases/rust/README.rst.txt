@@ -14,14 +14,29 @@ Rust 相關文章
 TL;DR
 ========================================
 
-* CLI 介面 ➡ ``clap``
-* Serialization ➡ ``serde``
-* Asynchronous ➡ ``tokio``
-* Regex ➡ ``regex``
-* Logging ➡ ``log`` + XXX
-* HTTP ➡ ``hyper``
-* Python <-> Rust ➡ ``pyo3``
-* Bits Tuning ➡ ``packed_struct``
+* CLI args parsing  ➡ ``clap``
+* Serialization     ➡ ``serde`` + XXX format
+* Asynchronous      ➡ ``tokio``
+* Regex             ➡ ``regex``
+* Logging           ➡ ``log`` + XXX
+* Config            ➡ ``config``
+* HTTP              ➡ ``hyper``
+* Python <-> Rust   ➡ ``pyo3``
+* Bits Tuning       ➡ ``packed_struct``
+* Template Engine   ➡ ``askama``
+* Builder Pattern   ➡ ``derive_builder``
+* Static Variable   ➡ ``lazy_static``
+* Random            ➡ ``rand``
+* Faker             ➡ ``fake``
+* Syntex Highlight  ➡ ``syntect``
+* Temporary Folder  ➡ ``tempdir``
+* String Similarity ➡ ``strsim``
+* mmap file I/O     ➡ ``memmap``
+* N dimention array ➡ ``ndarray``
+* Vulkan            ➡ ``vulkano``
+* Database          ➡ ``r2d2`` + ``diesel``
+* Float to string   ➡ ``ryu``
+* Date and Time     ➡ ``chrono``
 * 範例 ➡ `Rust Cookbook <https://rust-lang-nursery.github.io/rust-cookbook/>`_
 
 

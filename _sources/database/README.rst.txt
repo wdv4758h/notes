@@ -27,3 +27,13 @@
 
 * LSM tree (log-structured merge-tree)
 * B+ tree
+
+
+演算法：
+
+* `Consensus Algorithm <consensus-algorithm.rst>`_
+    - Paxos
+        + Chubby (Google)
+    - Raft
+        + TiKV
+        + etcd

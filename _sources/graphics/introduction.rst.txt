@@ -263,7 +263,7 @@ Mesa
 ++++++++++++++++++++
 
 Linux 上的 OpenGL 實做有兩種，
-一種是私有的驅動程式（例如 nVidia 和 AMD），
+一種是私有的驅動程式（例如 NVIDIA 和 AMD），
 另一種是開源的 Mesa。
 Mesa 的實做也包含 GLX、EGL、OpenGL ES，
 起初只有軟體渲染的功能，
@@ -288,7 +288,7 @@ Gallium3D 是不依賴特定 OS 的 GPU 驅動程式 framework，
 * WinSys Driver ：實做 GLX 或 EGL
 * Pipe Driver ：特定 GPU 的後端
     - llvmpipe ：較快地軟體渲染
-    - nVidia GPU ： nv30, nv50, nvc0, nve0
+    - NVIDIA GPU ： nv30, nv50, nvc0, nve0
     - AMD GPU ： radeonsi
 
 Gallium3D 使用 TGSI （Tungsten Graphics Shader Infrastructure）作為 shader 的表示方式，
@@ -304,7 +304,7 @@ OpenGL 可能會有四種驅動程式運作的架構：
 * 私有的驅動程式：取代 libGL.so
 * 典型的 Mesa ：通用的 libGL.so，搭配 Mesa 內針對某些硬體的後端
 * Mesa + Gallium3D ：使用 Mesa 作為 State Tracker，Gallium3D 作為後端（TGSI）
-* Mesa + Gallium3D + LLVM ：使用 Mesa 作為 State Tracker，Gallium3D 作為後端（LLV）
+* Mesa + Gallium3D + LLVM ：使用 Mesa 作為 State Tracker，Gallium3D 作為後端（LLVM）
 
 
 ::
@@ -341,6 +341,73 @@ OpenGL 可能會有四種驅動程式運作的架構：
     +-------------+     +-------------+         +-------------+     +-------------+
     | GPU         |     | GPU         |         | GPU         |     | GPU         |
     +-------------+     +-------------+         +-------------+     +-------------+
+
+
+OpenCL
+++++++++++++++++++++
+
+現今的 GPU 因為有著快速的浮點數運算能力，
+會被拿來用於非繪圖的運算，
+被稱為 GPGPU （General Purpose GPU）。
+
+GPGPU 的標準 API 為 OpenCL （Open Compute Language），
+和 OpenGL 一樣由 Khronos Group 管理、制定。
+Linux 上的支援方式類似 OpenGL，
+私有的驅動程式自帶它們的實做，
+Gallium3D 則是 **Clover** State Tracker，
+Intel GPU 則有另外的專案叫 Beignet。
+
+除了 OpenCL 之外，
+另外還有流行的 NVIDIA API 叫 CUDA，
+但是只能用於 NVIDIA 的顯示卡並且搭配私有的驅動程式。
+
+
+Direct Rendering Infrastructure
+-------------------------------
+
+DRI & DRM
+++++++++++++++++++++
+
+OpenGL 的驅動程式會作為應用程式的一部分跑在 userspace，
+對於顯示卡的存取由 kernel 內的驅動程式管理，
+這管理包含多個程式同時存取。
+私有的驅動程式會包含私有的 kernel 驅動程式 API，
+開源的驅動程式則有通用的 framework 叫 DRI （Direct Rendering Infrastructure）。
+
+多層架構：
+
+* 不依賴特定硬體的 userspace library （libdrm.so）
+* 依賴特定硬體和驅動程式的 userspace library （libdrm_intel.so）
+* kernel 模組： DRM (Direct Rendering Manager）
+
+DRM 會把裝置顯示到 ``/dev/dri/cardX``
+
+libdrm_xxx.so 和 DRM 間的界面有一部份會依賴特定的驅動程式
+
+
+DRI Versions
+++++++++++++++++++++
+
+* DRI 1，1998
+    - 第一版，實做的能力有限，如果有多個應用程式想使用 3D 硬體的話效率不佳
+* DRI 2，2007
+    - 解決了大部份第一版碰到的問題，為目前最廣範使用的版本
+* DRI 3，2013
+    - 更多細部的改進
+
+DRM Master and Render Node
+++++++++++++++++++++++++++
+
+DRM clients 並非都同等的，
+其中會有 DRM Master，
+
+
+Memory Management and Buffer Sharing
+++++++++++++++++++++++++++++++++++++
+
+Kernel Mode Setting
+------------------------------
+
 
 
 參考

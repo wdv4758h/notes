@@ -126,9 +126,21 @@ fib.wast
 
 
 
+相關專案
+========================================
+
+* `Rust + WebAssembly = 💖 <https://github.com/rust-lang-nursery/rust-wasm>`_
+* Rust and WebAssembly
+    - `wasm-bindgen <https://github.com/rustwasm/wasm-bindgen>`_
+    - `twiggy - code size profiler <https://github.com/rustwasm/twiggy>`_
+* `wasm-pack <https://github.com/ashleygwilliams/wasm-pack>`_
+
+
+
 參考
 ========================================
 
+* `The Rust and WebAssembly Book <https://rustwasm.github.io/book/>`_
 * `Compiling Rust to your Browser <http://rust.cologne/2016/09/05/compile-to-js.html>`_
 * `Compiling Rust to your Browser - Examples <http://www.hellorust.com/emscripten/>`_
 * `Rust Meetup Cologne (2016-09-05): Jan-Erik Rediger - Compiling Rust to asm.js <https://www.youtube.com/watch?v=bvJCMhJ3RnQ>`_
@@ -146,3 +158,9 @@ fib.wast
 * `Hello wasm-pack! – Mozilla Hacks – the Web developer blog <https://hacks.mozilla.org/2018/04/hello-wasm-pack/>`_
     - `wasm-pack <https://github.com/ashleygwilliams/wasm-pack>`_
 * `Rust stdweb - A standard library for the client-side Web <https://github.com/koute/stdweb>`_
+
+
+
+* `From Rust to beyond: Prelude <https://mnt.io/2018/08/21/from-rust-to-beyond-prelude/>`_
+* `From Rust to beyond: The WebAssembly galaxy – Ivan Enderlin's thoughts <https://mnt.io/2018/08/22/from-rust-to-beyond-the-webassembly-galaxy/>`_
+* `From Rust to beyond: The ASM.js galaxy – Ivan Enderlin's thoughts <https://mnt.io/2018/08/28/from-rust-to-beyond-the-asm-js-galaxy/>`_

@@ -151,7 +151,7 @@ asyncio 搭配 ThreadPoolExecutor
         """
         We are talking about Python thread here.
 
-        With this function we can offload some sync task to other thread,
+        With this function we can offload some tasks to other thread,
         so it won't block the event loop thread.
 
         The OS thread underneath will still be 1 due to CPython implementation.
@@ -219,6 +219,48 @@ aiohttp - Async HTTP client/server framework
 ``GunicornTokioWebWorker`` 是基於 Rust 的 `Tokio 的 Python 包裝 <https://github.com/PyO3/tokio>`_ ，
 這個 Worker 目前還在實驗、開發中，
 其他 Worker 則是穩定發行了。
+
+
+
+ASGI (Asynchronous Server Gateway Interface)
+============================================
+
+* ASGI Servers
+    - `Uvicorn <https://github.com/encode/uvicorn>`_
+    - `Hypercorn <https://gitlab.com/pgjones/hypercorn>`_
+    - `Daphne <https://github.com/django/daphne/>`_
+        + 來自 Django 社群
+
+* ASGI Framework
+    - `Django Channels <https://github.com/django/channels/>`_
+    - `Starlette <https://github.com/encode/starlette>`_
+    - `API Star <https://github.com/encode/apistar>`_
+    - `Quart <https://gitlab.com/pgjones/quart>`_
+    - `Responder <https://github.com/kennethreitz/responder>`_
+
+* `Web Framework Benchmarks - Round 16 <https://www.techempower.com/benchmarks/#section=data-r16>`_
+    - JSON Serialization
+        + Uvicorn, No. 55, 595523
+    - Single Query
+        + Uvicorn, No. 165, 60117
+    - Multiple Queries
+        + Uvicorn, No. 187, 5350
+    - Data Updates
+        + Uvicorn, No. 137, 2395
+    - Fortunes
+        + Uvicorn, No. 102, 78406
+    - Plaintext
+        + Uvicorn, No. 81, 681863
+
+* 其他
+    - `ASGI Ref <https://github.com/django/asgiref>`_
+
+
+
+套件
+========================================
+
+* `aiorun <https://github.com/cjrh/aiorun>`_
 
 
 

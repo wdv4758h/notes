@@ -13,6 +13,12 @@ Container
 * systemd-nspawn
 * lmctfy
 * `Docker <docker.rst>`_
+* `pot <https://github.com/pizzamig/pot>`_
+    - FreeBSD
+    - jails
+    - ZFS
+    - pf
+    - rctl
 
 
 衍生：
@@ -22,6 +28,7 @@ Container
     - Apache Mesos
     - Kerbunetes
 * 相關工具
+    - `Photon OS - Linux container host <https://github.com/vmware/photon>`_
     - cgroups
     - Netlink
     - SELinux

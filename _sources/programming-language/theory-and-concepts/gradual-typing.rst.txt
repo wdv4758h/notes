@@ -54,6 +54,8 @@ Others
 * `A bibliography on Gradual Typing <https://github.com/samth/gradual-typing-bib>`_
 * [2015] `Towards Practical Gradual Typing <http://www.ccs.neu.edu/racket/pubs/ecoop2015-takikawa-et-al.pdf>`_
 * `What is Gradual Typing <http://homes.soic.indiana.edu/jsiek/what-is-gradual-typing/>`_
+* `Gradual Typing Performance Benchmark <https://github.com/nuprl/gradual-typing-performance>`_
+    - `Gradual Typing Performance Benchmark - Rocket <https://github.com/bennn/gtp-benchmarks>`_
 
 
 Python

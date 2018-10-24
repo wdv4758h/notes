@@ -247,7 +247,7 @@ git 會把 SHA1 hash 結果的前 2 個字元當作資料夾名稱，
 
     asd2123
     $ git cat-file -p c18618f605144e1bb0b9bdd4874fbb1b2a40455b
-    100644 blob 871aa5518316c6e89d102c79d4e2bc29371ae124	asd
+    100644 blob 871aa5518316c6e89d102c79d4e2bc29371ae124  asd
     $ git cat-file -p 871aa5518316c6e89d102c79d4e2bc29371ae124
     asdasd213
     $ ls -l .git/objects/87/1aa5518316c6e89d102c79d4e2bc29371ae124
@@ -408,3 +408,28 @@ cherry-pick 別的地方的 branch
 
     # 換下一個 commit
     git bisect next
+
+
+
+取得 HEAD 的 SHA 值
+========================================
+
+.. code-block:: sh
+
+    git rev-parse HEAD
+
+
+
+取得巨大 repo 的程式碼
+========================================
+
+.. code-block:: sh
+
+    git clone --depth <depth> -b <branch> <repo_url>
+
+    # 只拉一層歷史紀錄
+    git clone --depth 1 -b develop <repo_url>
+
+    # 更新
+    git fetch --depth=1 origin <branch>:origin/<branch>
+    git reset --hard origin/<branch>
