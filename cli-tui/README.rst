@@ -1,5 +1,5 @@
 ========================================
-CLI 工具
+CLI/TUI 工具
 ========================================
 
 
@@ -38,9 +38,13 @@ CLI 工具
 * 系統監控
     - top
     - htop
+    - dmesg
 * 壓縮、解壓縮
     - pixz
     - pigz
+* 時間
+    - `date <date.rst>`_
+    - `timedatectl <timedatectl.rst>`_
 * 硬體時間
     - `hwclock <hwclock.rst>`_
 * 檔案類別偵測
