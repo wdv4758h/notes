@@ -225,3 +225,211 @@ FOSDEM 2018 - Donald Whyte - Testing in Rust - A Primer in Testing and Mocking
 * `mock_derive <https://github.com/DavidDeSimone/mock_derive>`_
 * `galvanic-mock <https://github.com/mindsbackyard/galvanic-mock>`_
 * `mocktopus <https://github.com/CodeSandwich/Mocktopus>`_
+
+
+
+RustConf 2018 - C2Rust: Migrating Legacy Code to Rust by Per Larsen
+===================================================================
+
+:Video: https://www.youtube.com/watch?v=WEsR0Vv7jhg
+
+介紹 `C2Rust <https://github.com/immunant/c2rust>`_
+的架構和能力，
+不錯的簡介。
+
+
+C2Rust 是把 C 程式碼 Transpiling 成 Rust 程式碼的工具，
+目前轉換出來會是使用底層功能操作的程式碼，
+並不會像是一般人會寫出的 Rust 程式碼，
+但是已經有不錯的轉換效果。
+
+
+如果 C 程式碼有使用 goto 的話會進行 Reloop，
+把 goto 的程式碼轉換成一般的 loop 程式碼，
+這塊的演算法源自 Emscripten 內的設計。
+
+
+另外 C2Rust 還支援
+`Cross Checking <https://github.com/immunant/c2rust/blob/master/docs/cross-check-tutorial.md>`_ ，
+比較原本 C 程式碼的實做和轉換成的 Rust 的版本做比較，
+確認兩者的行為一樣。
+這方面目前有兩種作法：
+
+* MVEE-based (Multi-Variant Execution Environment)
+    - 執行期間比較、檢查
+    - `使用 ReMon <https://github.com/stijn-volckaert/ReMon>`_
+* log-based
+    - 執行完之後比對蒐集到的 log
+
+
+在轉換成使用低階 API 的 Rust 程式碼之後，
+接著可以進行重構來改善程式碼品質，
+讓程式碼更像真正的 Rust 程式設計師會寫出來的樣子。
+這邊有兩種作法：
+
+* 自動化重構工具
+* 手動重寫
+
+
+C2Rust 目前是運作於前處理將 C macro 展開之後，
+所以無法保持原本的 C macro 功能，
+這意味著一些平台特定的資訊可能會被寫進轉換出來的程式碼，
+而且 C macro 是針對 token 的字串取代，
+跟 Rust macro 操作 AST 不同，
+無法直接轉換。
+
+
+總結是要把所有 C 程式碼完全轉換成 Rust 程式碼有難度，
+目前可以達到一定程度，
+但是仍然有一些難以轉換的功能。
+
+
+
+RustConf 2018 - Rust and the Web Platform: A Rookie’s Guide by Sarah Meyer
+==========================================================================
+
+:Video: https://www.youtube.com/watch?v=EDoNNFWIRrw
+
+
+沒有太深的技術內容，
+算是入門介紹，
+從網頁歷史發展到現在 Rust 的 WebAssembly 相關社群。
+
+* Web
+* Java Applet
+* Flash
+* JavaScript
+* asm.js
+* NaCI
+* WebAssembly
+* Rust & WebAssembly
+    - wasm-bindgen
+    - wasm-pack
+
+
+
+RustConf 2017 - Improving Rust Performance Through Profiling and Benchmarking by Steve Jenson
+=============================================================================================
+
+:Video: https://www.youtube.com/watch?v=hTHp0gjWMLQ
+
+不錯的演講，
+介紹 Rust 既有的效能測試工具，
+點出幾個會造成效能損失的常見 Rust 程式碼撰寫問題，
+介紹不同的效能測試工具，
+以及如何從中觀察出問題點並提升效能。
+
+講者在 Linkerd 工作，
+在實做自家 TCP load balancer -
+`linkerd-tcp <https://github.com/linkerd/linkerd-tcp>`_ 時，
+想了解整體效能狀況和瓶頸，
+因此實做了 `Tacho <https://github.com/linkerd/tacho>`_ ，
+但是演講中主要是針對其他人可以廣泛採用的知識做講解。
+
+
+造成效能差的可能原因：
+
+* memory stalls
+    - register: 0.5 nanoseconds
+    - last-level cache: 10 nanoseconds
+    - ram: 100 nanoseconds
+    - 參考 `Latency numbers every programmer should know <https://people.eecs.berkeley.edu/~rcs/research/interactive_latency.html>`_
+* lock contention
+    - spin lock
+    - blocking wait
+* CPU utilization
+    - can hide memory latency (slow instructions)
+    - can hide lock contention (spin loops)
+    - idlenss is often counted as useful work
+        + 90% utilized can also mean 80% waiting for RAM or disk
+
+Rust 程式撰寫時的注意要點：
+
+* 避免使用 ``#[derive(Copy)]`` 在巨大的 struct
+    - Copy 在一開始時可能很方便
+    - 使用過度就會造成消耗過多記憶體，也會花費效能在處理記憶體
+    - 常見狀況是一開始資料結構很小，但是隨著開發長大，最後變成瓶頸
+* 避免不斷地使用 ``clone()`` ，尤其是在 loop 內
+    - ``clone()`` 雖然可以快速地滿足 borrow checker，但是會過度使用記憶體
+    - 幸運的是 ``clone()`` 不管是在程式碼中還是在 Profiling 中都容易發現
+* 標準函式庫中的 HashMap 的預設 hasher 並不是效能最佳的
+    - 預設的 hasher 是針對安全性選擇的，會防止 DoS 攻擊
+    - 如果有其他使用情境不需要特別的安全性，那就可以選擇其他更有效率的 hasher
+    - 在 Rust 社群中算是很多人知道的取捨，但是對於新進來的 Rust 程式設計師可能會感到驚訝
+    - 第三方有眾多替代方案，例如 FnvHasher
+* 避免在 ``expect()`` 內使用成本高的預設值
+    - 例如使用預設值時都會重新計算一次或是 format 一次，如果有很多狀況的話就會造成很多效能損失
+* 如果知道資料量的話事先為 Vec 準備好大小
+
+
+效能測量工具：
+
+* Mac
+    - Instruments
+    - ``cargo bench``
+    - ``cargo benchcmp``
+* Linux
+    - ``perf``
+    - FlameGraphs
+    - VTune
+    - ``cargo bench``
+    - ``cargo benchcmp``
+
+
+其他：
+
+* Intel Performance Counters
+* Instructions Per Cycle
+    - 每個 cycle 可以處理多少指令
+    - < 1.0 通常表示 memory stalled
+    - > 1.0 通常表示  instruction stalled
+    - 三個核心的理論最大值為 3.0
+* Intel PMCs
+    - Instruments 有支援
+    - 功能
+        + Counter
+        + Recording Options
+        + Events
+        + Can create formula from PMCs
+
+Perf 是 Linux kernel 支援的效能測試工具，
+Perf 是 sampling profiler，
+可以設定 sampling rate，
+支援 scheduler 分析和 I/O 及 Network subsystems，
+效能測試的成本也很低。
+範例：
+
+.. code-block:: sh
+
+    $ sudo perf stat target/release/examples/multithread
+    $ sudo perf stat -e L1-dcache-misses,L1-dcache-loads target/release/examples/multithread
+
+
+FlameGraphs 是藉由取樣什麼正在 CPU 上執行而製成的圖表，
+可以蒐集成 call stack 的變化，
+讓程式設計師對於程式的模樣有概念，
+圖表上的顏色沒有特別意義，
+滑鼠停留可以顯示更多功能，
+藉由觀察哪些函式佔了最多時間可以找到瓶頸，
+很適合於長時間執行的程式，
+但是需要 symbols。
+
+
+VTune 是 Intel 開發出來的工具，
+開源專案開發者可以免費使用，
+內容詳細、功能多樣，
+也可以找出 "Remote Cache" 的問題。
+
+
+.. code-block:: sh
+
+    # 找到 Remote Cache 問題後使用 taskset 指定使用特定 CPU 後可以得到效能提
+    # 9.3 seconds -> 3.8 seconds
+    $ sudo perf stat -e L1-dcache-misses,L1-dcache-loads taskset -c 1 target/release/examples/multithread
+
+
+總結：
+
+* 效能問題不好了解
+* 需要很多觀察以及經驗
+* Instructions Per Cycle 是不錯的效能測量方法之一
