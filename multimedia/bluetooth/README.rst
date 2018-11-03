@@ -15,10 +15,26 @@
     - Sony
         + `LDAC <ldac.rst>`_
 
-* 藍牙 Profile
+* 藍牙 Profile (基於藍牙技術針對不同應用情境的規範)
     - A2DP (Advanced Audio Distribution Profile)
+        + 針對多媒體音訊傳輸
+        + 如果有一方不支援 A2DP 的話會轉而使用 HFP，此時傳輸品質會降為 8bit, 8kHz，音質會大幅下降
     - HSP (Headset Profile)
+        + 針對頭帶式通話裝置
+        + 會跟 A2DP 結合，讓使用者可以在聽音樂跟接電話之間切換
     - GATT (Generic Attribute Profile)
+        + 針對 BLE 裝置，基於 ATT (Attribute Profile)，讓裝置間可以知道對方支援什麼 Profile 和提供什麼服務
+    - AVRCP (Audio/Video Remote Control Profile)
+        + 用於控制電視、音響等設備
+        + 操控播放、暫停等等行為
+    - HFP (Hands-Free Profile)
+        + 針對車內應用，讓裝置可以跟手機溝通
+    - FTP (File Transfer Protocol)
+        + 針對檔案傳輸
+    - HID (Human Interface Device Protocol)
+        + 針對藍牙鍵盤、滑鼠等等
+    - MESH (Mesh Profile)
+        + 針對 Bluetooth Mesh Networking
 
 * 藍牙軟體層實做
     - 通用實做
