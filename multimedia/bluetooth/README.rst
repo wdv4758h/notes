@@ -5,9 +5,15 @@
 * `藍牙相關音訊編碼知識 (Bluetooth Codecs) <bluetooth-codecs-concept.rst>`_
 
 * 編碼
-    - SBC
-    - aptX
-    - `LDAC codec <ldac.rst>`_
+    - Bluetooth Special Interest Group
+        + `SBC <sbc.rst>`_
+        + CVSD 8kHz
+        + mSBC (modified SBC)
+    - Qualcomm
+        + `aptX <aptx.rst>`_
+        + aptX HD
+    - Sony
+        + `LDAC <ldac.rst>`_
 
 * 藍牙 Profile
     - A2DP (Advanced Audio Distribution Profile)
@@ -91,28 +97,28 @@
         + 藉此可以擴大傳輸距離及便於為大空間建立智慧環境
 
 
-+------------------------+---------------------------------------+------------------------------------+
-|                        | Low Energy                            | Classic Basic Rate & EDR           |
-+========================+=======================================+====================================+
-| Channels               | 40 channels with 2 MHz spacing        | 79 channels with 1MHz spacing      |
-+------------------------+---------------------------------------+------------------------------------+
-| Data Rate              | BLE 5: 2 Mbps                         | EDR (8DPK): 3 Mbps                 |
-|                        | BLE 4.2: 1 Mbps                       | EDR (π/4 DQPSK): 2 Mbps            |
-|                        | BLE 5 Long Range (S=2): 500 Mbps      | Bassic Data Rate: 1 Mbps           |
-|                        | BLE 5 Long Range (S=8): 125 Mbps      |                                    |
-+------------------------+---------------------------------------+------------------------------------+
-| Power & Radio Profiles | Class 1: 100 mW (+20 dBm)             | Class 1: 100 mW (+20 dBm)          |
-|                        | Class 1.5: 10 mW (+10 dBm)            | Class 2: 2.5 mW (+4 dBm)           |
-|                        | Class 2: 2.5 mW (+4 dBm)              | Class 3: 1 mW (0 dBm)              |
-|                        | Class 3: 1 mW (0 dBm)                 |                                    |
-+------------------------+---------------------------------------+------------------------------------+
-| Power Consumption      | ~ 0.01x to 0.5x of classic            | Based on radio class               |
-|                        | 0.01 ~ 0.50 W (depending on use case) | 1 W as reference                   |
-+------------------------+---------------------------------------+------------------------------------+
-| Network Topologies     | Point-to-Point (including piconet)    | Point-to-Point (including piconet) |
-|                        | Broadcast                             |                                    |
-|                        | Mesh                                  |                                    |
-+------------------------+---------------------------------------+------------------------------------+
++------------------------+--------------------------------------+--------------------------------------+
+|                        | Low Energy                           | Classic Basic Rate & EDR             |
++========================+======================================+======================================+
+| Channels               | 40 channels with 2 MHz spacing       | 79 channels with 1MHz spacing        |
++------------------------+--------------------------------------+--------------------------------------+
+| Data Rate              | * BLE 5: 2 Mbps                      | * EDR (8DPK): 3 Mbps                 |
+|                        | * BLE 4.2: 1 Mbps                    | * EDR (π/4 DQPSK): 2 Mbps            |
+|                        | * BLE 5 Long Range (S=2): 500 Mbps   | * Bassic Data Rate: 1 Mbps           |
+|                        | * BLE 5 Long Range (S=8): 125 Mbps   |                                      |
++------------------------+--------------------------------------+--------------------------------------+
+| Power & Radio Profiles | * Class 1: 100 mW (+20 dBm)          | * Class 1: 100 mW (+20 dBm)          |
+|                        | * Class 1.5: 10 mW (+10 dBm)         | * Class 2: 2.5 mW (+4 dBm)           |
+|                        | * Class 2: 2.5 mW (+4 dBm)           | * Class 3: 1 mW (0 dBm)              |
+|                        | * Class 3: 1 mW (0 dBm)              |                                      |
++------------------------+--------------------------------------+--------------------------------------+
+| Power Consumption      | * ~ 0.01x to 0.5x of classic         | * Based on radio class               |
+|                        | * 0.01 ~ 0.50 W (depend on use case) | * 1 W as reference                   |
++------------------------+--------------------------------------+--------------------------------------+
+| Network Topologies     | * Point-to-Point (including piconet) | * Point-to-Point (including piconet) |
+|                        | * Broadcast                          |                                      |
+|                        | * Mesh                               |                                      |
++------------------------+--------------------------------------+--------------------------------------+
 
 
 參考：
