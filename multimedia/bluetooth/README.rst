@@ -11,7 +11,7 @@
         + mSBC (modified SBC)
     - Qualcomm
         + `aptX <aptx.rst>`_
-        + aptX HD
+        + `aptX HD <aptx-hd.rst>`_
     - Sony
         + `LDAC <ldac.rst>`_
 
@@ -23,7 +23,7 @@
 * 藍牙軟體層實做
     - 通用實做
         * Linux: Bluez
-        * Android: BlueDroid
+        * `Android: Fluoride Bluetooth Stack (BlueDroid 的後繼) <https://android.googlesource.com/platform/system/bt/>`_
         * FreeBSD: implemented using the Netgraph framework
         * Mac OS X:
     - 嵌入式實做

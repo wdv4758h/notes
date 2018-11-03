@@ -23,6 +23,13 @@ LDAC 的支援被加入 AOSP 專案中。
 
 
 
+實做
+========================================
+
+* `libldac (encoder only) <https://android.googlesource.com/platform/external/libldac/>`_
+
+
+
 BlueZ 支援
 ========================================
 

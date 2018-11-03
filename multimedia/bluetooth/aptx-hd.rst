@@ -1,5 +1,5 @@
 ========================================
-aptX
+aptX HD
 ========================================
 
 
@@ -9,7 +9,7 @@ aptX
 實做
 ========================================
 
-* Qualcomm libaptX
+* Qualcomm libaptXHD
 * `FFmpeg - libavcodec/aptx.c <https://github.com/FFmpeg/FFmpeg/blob/master/libavcodec/aptx.c>`_
 
 
