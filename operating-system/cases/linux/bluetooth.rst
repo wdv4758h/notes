@@ -39,6 +39,21 @@ Arch Linux
 
 
 
+選擇 Profile
+========================================
+
+.. code-block:: sh
+
+    $ pacmd list-cards
+
+    $ pacmd set-card-profile <id> <profile>
+    $ pacmd set-card-profile <tab> <tab>
+    $ pacmd set-card-profile 4 a2dp_sink
+    $ pacmd set-card-profile 4 headset_head_unit
+    $ pacmd set-card-profile 4 off
+
+
+
 參考
 ========================================
 
