@@ -300,7 +300,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../c/resource.html">相關資源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../c/undefine-behavior.html">Undefined Behavior</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli-tui/256-color.html">256 color</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../cli-tui/README.html">CLI 工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli-tui/README.html">CLI/TUI 工具</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli-tui/autossh.html">autossh</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli-tui/bash.html">Bash</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cli-tui/basic-system-utils.html">Basic System Utils</a></li>
@@ -417,6 +417,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/crtp.html">CRTP (Curiously Recurring Template Pattern)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/ctor-dtor.html">C++ Constructors &amp; Destructors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/design-pattern.html">Design Pattern</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/docs.html">C++ Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/experimental.html">Experimental</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/explicit.html">explicit specifier</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/expression-templates.html">Expression Templates</a></li>
@@ -467,6 +468,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../database/sql.html">SQL (Structured Query Language)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/tidb.html">TiDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../debug/README.html">除錯相關 (Debugging)</a></li>
@@ -797,7 +799,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../rust/any.html">Rust’s runtime reflection - 「Any」 type trait</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/articles.html">文章閱讀（Articles）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/asynchronous.html">Asynchronous I/O</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../rust/benchmark.html">Benchmark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust/benchmark.html">Rust Benchmark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/books.html">Rust 相關書籍</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/c-to-rust.html">把 C 程式轉換成 Rust 程式</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/cargo.html">Cargo</a></li>
@@ -816,6 +818,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../rust/error-handling.html">錯誤處理 (Error Handling)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/faq.html">FAQ (Frequently Asked Questions)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/features-basic.html">Rust’s Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rust/functional.html">Rust &amp; Functional</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/fuzz-testing.html">Fuzz Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/googlecast.html">Google Cast</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rust/graphic.html">Rust &amp; Graphic</a></li>
@@ -966,9 +969,451 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <h1>藍牙相關 (Bluetooth)<a class="headerlink" href="#bluetooth" title="本標題的永久連結">¶</a></h1>
 <ul class="simple">
 <li><a class="reference external" href="bluetooth-codecs-concept.rst">藍牙相關音訊編碼知識 (Bluetooth Codecs)</a></li>
-<li>SBC</li>
-<li>aptX</li>
-<li><a class="reference external" href="ldac.rst">LDAC codec</a></li>
+<li><dl class="first docutils">
+<dt>編碼</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>Bluetooth Special Interest Group</dt>
+<dd><ul class="first last">
+<li><a class="reference external" href="sbc.rst">SBC</a></li>
+<li>CVSD 8kHz</li>
+<li>mSBC (modified SBC)</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Qualcomm</dt>
+<dd><ul class="first last">
+<li><a class="reference external" href="aptx.rst">aptX</a></li>
+<li><a class="reference external" href="aptx-hd.rst">aptX HD</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Sony</dt>
+<dd><ul class="first last">
+<li><a class="reference external" href="ldac.rst">LDAC</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>藍牙 Profile (基於藍牙技術針對不同應用情境的規範)</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>A2DP (Advanced Audio Distribution Profile)</dt>
+<dd><ul class="first last">
+<li>針對多媒體音訊傳輸</li>
+<li>如果有一方不支援 A2DP 的話會轉而使用 HFP，此時傳輸品質會降為 8bit, 8kHz，音質會大幅下降</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>HSP (Headset Profile)</dt>
+<dd><ul class="first last">
+<li>針對頭帶式通話裝置</li>
+<li>會跟 A2DP 結合，讓使用者可以在聽音樂跟接電話之間切換</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>GATT (Generic Attribute Profile)</dt>
+<dd><ul class="first last">
+<li>針對 BLE 裝置，基於 ATT (Attribute Profile)，讓裝置間可以知道對方支援什麼 Profile 和提供什麼服務</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>AVRCP (Audio/Video Remote Control Profile)</dt>
+<dd><ul class="first last">
+<li>用於控制電視、音響等設備</li>
+<li>操控播放、暫停等等行為</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>HFP (Hands-Free Profile)</dt>
+<dd><ul class="first last">
+<li>針對車內應用，讓裝置可以跟手機溝通</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>FTP (File Transfer Protocol)</dt>
+<dd><ul class="first last">
+<li>針對檔案傳輸</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>HID (Human Interface Device Protocol)</dt>
+<dd><ul class="first last">
+<li>針對藍牙鍵盤、滑鼠等等</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>MESH (Mesh Profile)</dt>
+<dd><ul class="first last">
+<li>針對 Bluetooth Mesh Networking</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>藍牙軟體層實做</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>通用實做</dt>
+<dd><ul class="first last">
+<li>Linux: Bluez</li>
+<li><a class="reference external" href="https://android.googlesource.com/platform/system/bt/">Android: Fluoride Bluetooth Stack (BlueDroid 的後繼)</a></li>
+<li>FreeBSD: implemented using the Netgraph framework</li>
+<li>Mac OS X:</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>嵌入式實做</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>藍牙技術</dt>
+<dd><ul class="first last">
+<li>無線傳輸技術</li>
+<li>使用 2.4 GHz 頻段</li>
+<li><dl class="first docutils">
+<dt>1999 - 藍牙 1.0</dt>
+<dd><ul class="first last">
+<li>最高傳輸速度： 0.7 Mbps</li>
+<li>最高傳輸距離： 10 公尺</li>
+<li>有安全性問題，會洩漏裝置 address</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>2001 - 藍牙 1.1</dt>
+<dd><ul class="first last">
+<li>列入 IEEE 802.15.1</li>
+<li>定義 Physical Layer</li>
+<li>定義 Medium Access Control</li>
+<li>容易受到同頻率產品干擾</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>2003 - 藍牙 1.2</dt>
+<dd><ul class="first last">
+<li>改善安全性問題，提供匿名性，避免受到追蹤或 Sniffing</li>
+<li>新增 AFH (Adaptive Frequency Hopping) 支援，利用偵測環境跳頻來減少與其他無線裝置間的干擾</li>
+<li>新增 eSCO (Extended Synchronous Connection-Oriented links)，提供 QoS 音訊傳出</li>
+<li>新增 Faster Connection，縮短再次連結的時間</li>
+<li>新增 Stereo 音訊支援，但是只能單工</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>2004 - 藍牙 2.0 - EDR</dt>
+<dd><ul class="first last">
+<li>最高傳輸速度： 1 Mbps (core)、3 Mbps (EDR)</li>
+<li>最高傳輸距離： 30 公尺</li>
+<li>新增 EDR (Enhanced Data Rate)，提高多任務處理能力和多裝置同時運作的處理，並降低功耗</li>
+<li>新增雙工模式，可以一邊語音一邊傳輸文件</li>
+<li>增加連接設備的數量</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>2007 - 藍牙 2.1 - SSP</dt>
+<dd><ul class="first last">
+<li>新增 Sniff Subrating 省電功能，設備間互相確認的訊號間隔從 0.1 降到 0.5 秒</li>
+<li>新增 SSP (Secure Simple Pairing) 簡易安全配對功能</li>
+<li>新增 EIR (Extended Inquiry Response)，加強裝置掃描時的過濾</li>
+<li>支援用 NFC 傳輸藍牙配對密碼</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>2009 - 藍牙 3.0 - HS</dt>
+<dd><ul class="first last">
+<li>最高傳輸速度： 3 Mbps (EDR)、24 Mbps (over 802.11)</li>
+<li>最高傳輸距離： 30 公尺</li>
+<li>新增 High Speed 技術，會使用 802.11 WiFi 來提升傳輸速度</li>
+<li>新增 AMP (Generic Alternate MAC/PHY) 技術，允許對不同任務動態地選擇頻率</li>
+<li>新增 EPC 技術改善電源控制，搭配 802.11 技術，降低空閒時的功耗</li>
+<li>新增 UCD (unicast connectionless data) 技術，提高設備的回應能力</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>2010 - 藍牙 4.0 - LE</dt>
+<dd><ul class="first last">
+<li>最高傳輸速度： 3 Mbps (EDR)、1 Mbps (BLE)</li>
+<li>最高傳輸距離： 60 公尺</li>
+<li>集結三種規格</li>
+<li><dl class="first docutils">
+<dt>三種模式</dt>
+<dd><ul class="first last">
+<li>低功耗藍牙 (BLE) (Bluetooth Low Energy)：主打極低功率</li>
+<li>傳統藍牙：一般溝通和設備連接</li>
+<li>高速藍牙：主打資料傳輸效率</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>晶片分為 Single Mode 和 Dual Mode</dt>
+<dd><ul class="first last">
+<li>Single Mode： 只能與藍牙 4.0 溝通</li>
+<li>Dual Mode： 向下相容藍牙 3.0/2.1/2.0</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>新增 SM (Security Manager)，使用 AES-128 CCM 加密資料傳輸</li>
+<li>最短在 3 毫秒內完成設備連接</li>
+<li>新增 GATT (Generic Attribute Profile)</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>2013 - 藍牙 4.1 - indirect internet connection</dt>
+<dd><ul class="first last">
+<li>支援和 LTE 共同運作，會自動協調兩者的傳輸，降低互相干擾</li>
+<li>允許開發者和製造商自己定義重新連接間隔</li>
+<li>只要連接到可連網的設備即可透過 IPv6 跟雲端同步資料</li>
+<li>支援終端設備（例如智慧手錶、計步器）互相溝通，不須透過中心設備（例如手機）</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>2014 - 藍牙 4.2 - IPv6 direct internect connection</dt>
+<dd><ul class="first last">
+<li>改善傳輸速度和安全性，要連接設備或追蹤使用者必須先經過使用者同意</li>
+<li>支援 6LoWPAN (基於 IPv6 的低速無線個人網)，可以透過 IPv6 和 6LoWPAN 連結到外網，簡化網路結構</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>2016 - 藍牙 5.0 - 4x range, 2x speed, 8x message capacity + IoT</dt>
+<dd><ul class="first last">
+<li>最高傳輸速度： 3 Mbps (EDR)、2 Mbps (BLE)</li>
+<li>最高傳輸距離： 240 公尺</li>
+<li>BLE 模式下的傳輸速度是藍牙 4.2 的兩倍</li>
+<li>支援室內定位導航，結合 WiFI 可以達到精準度小於一公尺</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>藍牙 Mesh 技術</dt>
+<dd><ul class="first last">
+<li>相容藍牙 4/5</li>
+<li>每個設備都能發送和接收資料，資料可以在設備間被中繼，只要有一個裝置可以對外連線，其他裝置就能互相溝通後也連到外網</li>
+<li>藉此可以擴大傳輸距離及便於為大空間建立智慧環境</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>透過藍牙傳送音訊</dt>
+<dd><ul class="first last">
+<li><a class="reference external" href="gstreamer-bluetooth.rst">GStreamer</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="38%" />
+<col width="38%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">Low Energy</th>
+<th class="head">Classic Basic Rate &amp; EDR</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Channels</td>
+<td>40 channels with 2 MHz spacing</td>
+<td>79 channels with 1MHz spacing</td>
+</tr>
+<tr class="row-odd"><td>Data Rate</td>
+<td><ul class="first last simple">
+<li>BLE 5: 2 Mbps</li>
+<li>BLE 4.2: 1 Mbps</li>
+<li>BLE 5 Long Range (S=2): 500 Mbps</li>
+<li>BLE 5 Long Range (S=8): 125 Mbps</li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li>EDR (8DPK): 3 Mbps</li>
+<li>EDR (π/4 DQPSK): 2 Mbps</li>
+<li>Bassic Data Rate: 1 Mbps</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td>Power &amp; Radio Profiles</td>
+<td><ul class="first last simple">
+<li>Class 1: 100 mW (+20 dBm)</li>
+<li>Class 1.5: 10 mW (+10 dBm)</li>
+<li>Class 2: 2.5 mW (+4 dBm)</li>
+<li>Class 3: 1 mW (0 dBm)</li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li>Class 1: 100 mW (+20 dBm)</li>
+<li>Class 2: 2.5 mW (+4 dBm)</li>
+<li>Class 3: 1 mW (0 dBm)</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td>Power Consumption</td>
+<td><ul class="first last simple">
+<li>~ 0.01x to 0.5x of classic</li>
+<li>0.01 ~ 0.50 W (depend on use case)</li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li>Based on radio class</li>
+<li>1 W as reference</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td>Network Topologies</td>
+<td><ul class="first last simple">
+<li>Point-to-Point (including piconet)</li>
+<li>Broadcast</li>
+<li>Mesh</li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li>Point-to-Point (including piconet)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="26%" />
+<col width="15%" />
+<col width="5%" />
+<col width="15%" />
+<col width="16%" />
+<col width="24%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">SBC</th>
+<th class="head">AAC</th>
+<th class="head">aptX</th>
+<th class="head">aptX HD</th>
+<th class="head">LDAC</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Compression Ratio</td>
+<td>3</td>
+<td>&#160;</td>
+<td>4</td>
+<td>4</td>
+<td>~ 4.655</td>
+</tr>
+<tr class="row-odd"><td>Audio Format (Stereo)</td>
+<td>16bit, 48 kHz</td>
+<td>&#160;</td>
+<td>16bit, 44 kHz</td>
+<td>24bit, 48 kHz</td>
+<td>24bit, 96 kHz</td>
+</tr>
+<tr class="row-even"><td>Data Rates (kbps)</td>
+<td>193 ~ 328</td>
+<td>320</td>
+<td>352</td>
+<td>576</td>
+<td><ul class="first last simple">
+<li>Connection mode: 330</li>
+<li>Normal mode:     660</li>
+<li>Priority mode:   990</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td>Frequency Response</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>20 Hz ~ 20 kHz</td>
+<td>20 Hz ~ 40 kHz</td>
+</tr>
+<tr class="row-even"><td>SNR Ratio</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>129 dB SNR</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>THD+N</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>-80 dB</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>Bluetooth Latencies (ms)</td>
+<td>100 ~ 150</td>
+<td>&#160;</td>
+<td>~ 40</td>
+<td>~ 200</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>License Price</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+<p>參考：</p>
+<ul class="simple">
+<li><a class="reference external" href="https://medium.com/jaycon-systems/bluetooth-technology-what-has-changed-over-the-years-385da7ec7154">Bluetooth Technology: What Has Changed Over The Years</a></li>
 </ul>
 </div>
 
