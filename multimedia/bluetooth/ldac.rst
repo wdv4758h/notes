@@ -30,7 +30,50 @@ LDAC 的支援被加入 AOSP 專案中。
 
 
 
-BlueZ 支援
+PulseAudio 支援
+========================================
+
+目前 PulseAudio 的官方 Bluetooth module 還沒有支援，
+但是第三方的已經有支援了。
+
+.. code-block:: sh
+
+    # https://github.com/EHfive/ldacBT
+    # https://github.com/EHfive/pulseaudio-modules-bt
+
+    # 編譯 libldac
+    $ git clone https://aur.archlinux.org/libldac.git
+    $ cd libldac
+    $ makepkg
+    $ sudo pacman -U libldac-*.pkg.tar.xz
+
+    $ cd ..
+
+    # 編譯 PulseAudio Bluetooth module
+    $ git clone https://aur.archlinux.org/pulseaudio-modules-bt-git.git
+    $ makepkg
+    $ sudo pacman -U pulseaudio-modules-bt-git-*.pkg.tar.xz
+
+    # 殺掉現在的 PulseAudio，讓他重開
+    $ pulseaudio -k
+
+    # 重新連上藍牙裝置
+    $ bluetoothctl connect FF:FF:FF:FF:FF:FF
+
+    # 檢查使用的 codec
+    $ pactl list sinks | rg -e bluez -e a2dp_codec
+        Name: bluez_sink.FF_FF_FF_FF_FF_FF.a2dp_sink
+        Driver: module-bluez5-device.c
+        Monitor Source: bluez_sink.FF_FF_FF_FF_FF_FF.a2dp_sink.monitor
+          bluetooth.a2dp_codec = "LDAC"     # <----- 使用 LDAC !
+          device.api = "bluez"
+          bluez.path = "/org/bluez/hci0/dev_FF_FF_FF_FF_FF_FF"
+          bluez.class = "0x240414"
+          bluez.alias = "SRS-XB30"
+
+
+
+ALSA 支援
 ========================================
 
 * `bluez-alsa - LDAC issue <https://github.com/Arkq/bluez-alsa/issues/104>`_
