@@ -973,8 +973,9 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li><a class="reference internal" href="#ldac-codec" id="id5">LDAC codec</a><ul>
 <li><a class="reference internal" href="#id2" id="id6">介紹</a></li>
 <li><a class="reference internal" href="#id3" id="id7">實做</a></li>
-<li><a class="reference internal" href="#bluez" id="id8">BlueZ 支援</a></li>
-<li><a class="reference internal" href="#id4" id="id9">參考</a></li>
+<li><a class="reference internal" href="#pulseaudio" id="id8">PulseAudio 支援</a></li>
+<li><a class="reference internal" href="#alsa" id="id9">ALSA 支援</a></li>
+<li><a class="reference internal" href="#id4" id="id10">參考</a></li>
 </ul>
 </li>
 </ul>
@@ -997,8 +998,47 @@ LDAC 的支援被加入 AOSP 專案中。</p>
 <li><a class="reference external" href="https://android.googlesource.com/platform/external/libldac/">libldac (encoder only)</a></li>
 </ul>
 </div>
-<div class="section" id="bluez">
-<h2><a class="toc-backref" href="#id8">BlueZ 支援</a><a class="headerlink" href="#bluez" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="pulseaudio">
+<h2><a class="toc-backref" href="#id8">PulseAudio 支援</a><a class="headerlink" href="#pulseaudio" title="本標題的永久連結">¶</a></h2>
+<p>目前 PulseAudio 的官方 Bluetooth module 還沒有支援，
+但是第三方的已經有支援了。</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># https://github.com/EHfive/ldacBT</span>
+<span class="c1"># https://github.com/EHfive/pulseaudio-modules-bt</span>
+
+<span class="c1"># 編譯 libldac</span>
+$ git clone https://aur.archlinux.org/libldac.git
+$ <span class="nb">cd</span> libldac
+$ makepkg
+$ sudo pacman -U libldac-*.pkg.tar.xz
+
+$ <span class="nb">cd</span> ..
+
+<span class="c1"># 編譯 PulseAudio Bluetooth module</span>
+$ git clone https://aur.archlinux.org/pulseaudio-modules-bt-git.git
+$ makepkg
+$ sudo pacman -U pulseaudio-modules-bt-git-*.pkg.tar.xz
+
+<span class="c1"># 殺掉現在的 PulseAudio，讓他重開</span>
+$ pulseaudio -k
+
+<span class="c1"># 重新連上藍牙裝置</span>
+$ bluetoothctl connect FF:FF:FF:FF:FF:FF
+
+<span class="c1"># 檢查使用的 codec</span>
+$ pactl list sinks <span class="p">|</span> rg -e bluez -e a2dp_codec
+    Name: bluez_sink.FF_FF_FF_FF_FF_FF.a2dp_sink
+    Driver: module-bluez5-device.c
+    Monitor Source: bluez_sink.FF_FF_FF_FF_FF_FF.a2dp_sink.monitor
+      bluetooth.a2dp_codec <span class="o">=</span> <span class="s2">&quot;LDAC&quot;</span>     <span class="c1"># &lt;----- 使用 LDAC !</span>
+      device.api <span class="o">=</span> <span class="s2">&quot;bluez&quot;</span>
+      bluez.path <span class="o">=</span> <span class="s2">&quot;/org/bluez/hci0/dev_FF_FF_FF_FF_FF_FF&quot;</span>
+      bluez.class <span class="o">=</span> <span class="s2">&quot;0x240414&quot;</span>
+      bluez.alias <span class="o">=</span> <span class="s2">&quot;SRS-XB30&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="alsa">
+<h2><a class="toc-backref" href="#id9">ALSA 支援</a><a class="headerlink" href="#alsa" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><dl class="first docutils">
 <dt><a class="reference external" href="https://github.com/Arkq/bluez-alsa/issues/104">bluez-alsa - LDAC issue</a></dt>
@@ -1011,7 +1051,7 @@ LDAC 的支援被加入 AOSP 專案中。</p>
 </ul>
 </div>
 <div class="section" id="id4">
-<h2><a class="toc-backref" href="#id9">參考</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h2>
+<h2><a class="toc-backref" href="#id10">參考</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://www.sony.net/Products/LDAC/">Sony - LDAC</a></li>
 <li><a class="reference external" href="https://en.wikipedia.org/wiki/LDAC_(codec)">Wikipedia - LDAC (codec)</a></li>
