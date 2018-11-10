@@ -10,3 +10,4 @@ GStreamer 相關公司
 * `Collabora <https://www.collabora.com/>`_
 * `Fluendo <https://fluendo.com/en/about/>`_
 * `RidgeRun <https://www.ridgerun.com/>`_
+* Igalia
