@@ -24,6 +24,7 @@
 
 其他：
 
+* `作業系統歷史 <history.rst>`_
 * `Kernel 測試 <topics/kernel-testing.rst>`_
 
 
