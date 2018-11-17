@@ -85,3 +85,47 @@ mDNS 預設只處理 ``.local`` TLD 的網域。
 
 * `PowerDNS - A warm welcome to DNS <https://powerdns.org/hello-dns/>`_
 * `The Top DNS Servers And What They Offer - DNSimple Blog <https://blog.dnsimple.com/2015/02/top-dns-servers/>`_
+
+
+
+常見 DNS 設定
+========================================
+
+* Cloudflare: 1.1.1.1
+* Google: 8.8.8.8
+
+
+
+讓 NetworkManager 使用 systemd-resolved
+========================================
+
+開啟 ``systemd-resolved`` ：
+
+.. code-block:: sh
+
+    sudo systemctl enable systemd-resolved
+    sudo systemctl start systemd-resolved
+    systemd-resolve --status
+    systemd-resolve --statistics
+    systemd-resolve en.wikipedia.org
+
+
+設定 NetworkManager 的 DNS 使用 ``systemd-resolved`` ：
+
+``/etc/NetworkManager/conf.d/dns.conf`` ::
+
+    [main]
+    dns=systemd-resolved
+
+
+.. code-block:: sh
+
+    sudo systemctl restart NetworkManager
+
+
+
+參考
+========================================
+
+* `Arch Wiki - Domain Name Resolution <https://wiki.archlinux.org/index.php/Domain_name_resolution>`_
+* `Arch Wiki - Category: Domain Name System <https://wiki.archlinux.org/index.php/Category:Domain_Name_System>`_
