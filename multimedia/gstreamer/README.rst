@@ -4,6 +4,7 @@ GStreamer
 
 * `基本介紹、設計概念 <introduction.rst>`_
 * `編譯 <build.rst>`_
+* `GStreamer 相關 Dockerfile <dockerfile.rst>`_
 * 內部溝通機制
 * 撰寫 Plugin
 * Bus
