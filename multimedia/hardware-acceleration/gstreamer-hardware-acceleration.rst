@@ -13,19 +13,6 @@ GStreamer & 硬體加速 (Hardware Acceleration)
 `硬體加速 (Hardware Acceleration) </multimedia/hardware-acceleration>`_
 
 
-目前大約有九種影像解碼的硬體加速 API：
-
-* VAAPI
-* VDPAU
-* OpenMAX
-* OVD
-* DCE
-* Android MediaCodec
-* Apple VideoTool Box Framework
-* Video4Linux
-* NVENC/NVDEC
-
-
 
 GStreamer & VA-API
 ========================================
