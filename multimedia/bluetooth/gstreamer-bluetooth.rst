@@ -6,6 +6,14 @@ GStreamer & Bluetooth
 .. contents:: 目錄
 
 
+介紹
+========================================
+
+參考：
+`藍牙 </multimedia/bluetooth>`_
+
+
+
 透過 PulseAudio 串給 BlueZ
 ========================================
 

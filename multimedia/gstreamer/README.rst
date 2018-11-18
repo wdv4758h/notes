@@ -44,8 +44,8 @@ GStreamer
     - `分析 latency <latency.rst>`_
 * `上字幕 (Subtitle) <subtitle.rst>`_
 * `串流混合 (Mixing/Composition) <mixing.rst>`_
-* `硬體加速 (Hardware Acceleration) <hardware-acceleration.rst>`_
-* `藍牙 (Bluetooth) <bluetooth.rst>`_
+* `硬體加速 (Hardware Acceleration) </multimedia/hardware-acceleration/gstreamer-hardware-acceleration.rst>`_
+* `藍牙 (Bluetooth) </multimedia/bluetooth/gstreamer-bluetooth.rst>`_
 * 家用無線串流
     - 2002 - UPnP AV
     - 2003 - DLNA (Digital Living Network Alliance)
