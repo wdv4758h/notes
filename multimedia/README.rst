@@ -157,6 +157,7 @@
 * AudioFlinger
 * `藍牙相關 (Bluetooth) <bluetooth>`_
 * `PipeWire <pipewire>`_
+* `圖像 <image>`_
 
 
 
