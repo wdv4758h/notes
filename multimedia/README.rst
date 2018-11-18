@@ -151,7 +151,7 @@
     - Player
     - Server
 * `OpenCV <opencv.rst>`_
-* `WebRTC <webrtc.rst>`_
+* `WebRTC <webrtc>`_
 * `MediaInfo <mediainfo.rst>`_
 * `硬體加速 <hardware-acceleration>`_
 * AudioFlinger
@@ -177,6 +177,7 @@
         + MPD
         + Mopidy
 * `Kodi <kodi.rst>`_
+* Ardour
 
 
 
