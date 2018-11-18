@@ -19,13 +19,22 @@ ICE
 * full mode
 
 
+參考：
+
+* `ICE always tastes better when it trickles! (Emil Ivov) - webrtcHacks <https://webrtchacks.com/trickle-ice/>`_
+    - Trickle ICE
+        + 目標是盡可能地迅速建立連線
+        + The idea behind the protocol is that rather than waiting for a whole bucket of candidate addresses to fill, clients would start exchanging, or trickling the newly found addresses one by one, as they discover them.
+* `Trickle ICE - WebRTC Glossary <https://webrtcglossary.com/trickle-ice/>`_
+
+
 Bundle
 ------------------------------
 
 * bundle
-		- 所有 media 都會經由一條 DTLS handshake 建起的連線傳輸
+    - 所有 media 都會經由一條 DTLS handshake 建起的連線傳輸
 * non-bundle
-		- media 會經由不同條 DTLS handshake 建起的連線傳輸
+    - media 會經由不同條 DTLS handshake 建起的連線傳輸
 
 
 Default: 4 channels
@@ -74,6 +83,9 @@ Bundle + RTCP-mux: 1 channels
 * https://webrtcglossary.com/rtcp-mux/
 * https://webrtcglossary.com/bundle/
 * reduce the resource needed for NAT
+* bundle mode
+    - make sure your server send SDP with ``a=group BUNDLE xxx`` before m line and ``a=mid xxx`` in each m line
+
 
 
 

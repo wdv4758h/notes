@@ -33,10 +33,7 @@ GStreamer
         + Signal/Promise/Callback
         + Video Frame -> NumPy array
     - Rust
-* WebRTC
-    - custom signalling server
-    - Janus
-    - Kurento
+* `WebRTC </multimedia/webrtc/gstreamer-webrtc.rst>`_
 * Server
 * Filter
 * `降噪 <noise-cancellation.rst>`_
