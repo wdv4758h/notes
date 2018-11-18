@@ -151,12 +151,13 @@
     - Player
     - Server
 * `OpenCV <opencv.rst>`_
-* `WebRTC <webrtc.rst>`_
+* `WebRTC <webrtc>`_
 * `MediaInfo <mediainfo.rst>`_
-* `硬體加速 <hardware-acceleration.rst>`_
+* `硬體加速 <hardware-acceleration>`_
 * AudioFlinger
 * `藍牙相關 (Bluetooth) <bluetooth>`_
 * `PipeWire <pipewire>`_
+* `圖像 <image>`_
 
 
 
@@ -176,6 +177,7 @@
         + MPD
         + Mopidy
 * `Kodi <kodi.rst>`_
+* Ardour
 
 
 

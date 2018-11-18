@@ -2,5 +2,21 @@
 編輯器
 ========================================
 
-* `Emacs <emacs.rst>`_
+有在使用的編輯器：
+
 * `Vim/Neovim <vim>`_
+
+
+沒有在使用的編輯器（但是可以從中學習優點）：
+
+* `Emacs <emacs.rst>`_
+* Atom
+* Visual Studio Code
+* Sublime Text
+* Xcode
+
+
+其他：
+
+* 撰寫自己的編輯器
+* 編輯器相關的資料結構

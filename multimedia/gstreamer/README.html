@@ -661,7 +661,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../concept.html">基本概念</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ffmpeg.html">FFmpeg</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gstreamer.html">GStreamer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../hardware-acceleration.html">硬體加速 (Hardware Acceleration)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../kodi.html">Kodi - Open Source Home Theater Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux-sound-system.html">Linux Sound System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../media-container.html">Media Container</a></li>
@@ -676,7 +675,6 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../sdp.html">SDP (Session Description Protocol)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../video.html">Video</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../video-quality.html">Video Quality</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../webrtc.html">WebRTC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../network/README.html">網路相關 (Network)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../network/amqp.html">AMQP (Advanced Message Queuing Protocol)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../network/c10k.html">C10K</a></li>
@@ -710,6 +708,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../../network/websocket.html">WebSocket</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../network/webtorrent.html">WebTorrent</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../operating-system/README.html">作業系統</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../operating-system/history.html">作業系統相關歷史</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../parallel/openhmpp.html">OpenHMPP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../parallel/openmp.html">OpenMP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../parallel/parallel.html">Parallel</a></li>
@@ -968,9 +967,23 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
   <div class="section" id="gstreamer">
 <h1>GStreamer<a class="headerlink" href="#gstreamer" title="本標題的永久連結">¶</a></h1>
 <ul class="simple">
-<li>基本介紹、設計概念</li>
+<li><a class="reference external" href="introduction.rst">基本介紹、設計概念</a></li>
+<li><a class="reference external" href="gstreamer-based-common-commands.rst">利用 GStreamer 模擬常見指令</a></li>
 <li><a class="reference external" href="build.rst">編譯</a></li>
+<li><a class="reference external" href="dockerfile.rst">GStreamer 相關 Dockerfile</a></li>
 <li>內部溝通機制</li>
+<li>靜態 Pipeline：Pipeline 執行後就再也不會更動</li>
+<li><dl class="first docutils">
+<dt>動態 Pipeline：Pipeline 會在執行過程中根據情況改變 Pipeline 流程</dt>
+<dd><ul class="first last">
+<li>重點是如何安全地跟執行中元件溝通並新增或刪除元件</li>
+<li>Pad Probes：註冊 callback，當條件符合時會執行</li>
+<li>Callback</li>
+<li>Blocking Types</li>
+</ul>
+</dd>
+</dl>
+</li>
 <li>撰寫 Plugin</li>
 <li>Bus</li>
 <li>Pad Probe</li>
@@ -1003,21 +1016,10 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>WebRTC</dt>
-<dd><ul class="first last">
-<li>custom signalling server</li>
-<li>Janus</li>
-<li>Kurento</li>
-</ul>
-</dd>
-</dl>
-</li>
-<li>UPnP streaming</li>
-<li>DLNA</li>
-<li>Miracast</li>
+<li><a class="reference external" href="/multimedia/webrtc/gstreamer-webrtc.rst">WebRTC</a></li>
 <li>Server</li>
 <li>Filter</li>
+<li><a class="reference external" href="noise-cancellation.rst">降噪</a></li>
 <li><dl class="first docutils">
 <dt>即時</dt>
 <dd><ul class="first last">
@@ -1028,13 +1030,14 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </li>
 <li><a class="reference external" href="subtitle.rst">上字幕 (Subtitle)</a></li>
 <li><a class="reference external" href="mixing.rst">串流混合 (Mixing/Composition)</a></li>
-<li><a class="reference external" href="hardware-acceleration.rst">硬體加速 (Hardware Acceleration)</a></li>
-<li><a class="reference external" href="bluetooth.rst">藍牙 (Bluetooth)</a></li>
-<li><a class="reference external" href="googlecast.rst">Google Cast</a></li>
+<li><a class="reference external" href="/multimedia/hardware-acceleration/gstreamer-hardware-acceleration.rst">硬體加速 (Hardware Acceleration)</a></li>
+<li><a class="reference external" href="/multimedia/bluetooth/gstreamer-bluetooth.rst">藍牙 (Bluetooth)</a></li>
+<li><a class="reference external" href="/multimedia/home-wireless-streaming/gstreamer-home-wireless-streaming.rst">家用無線串流</a></li>
 <li><a class="reference external" href="player.rst">播放器 (Player)</a></li>
 <li><a class="reference external" href="web.rst">網頁顯示 (Web)</a></li>
 <li><a class="reference external" href="cheatsheet.rst">Cheatsheet</a></li>
 <li><a class="reference external" href="company.rst">GStreamer 相關公司</a></li>
+<li><a class="reference external" href="talks.rst">Talks</a></li>
 <li><dl class="first docutils">
 <dt>使用 GStreamer 的專案</dt>
 <dd><ul class="first last">

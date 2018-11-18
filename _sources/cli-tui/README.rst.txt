@@ -9,36 +9,43 @@ CLI/TUI 工具
 簡表
 ========================================
 
-* shell
+* Shell
     - Bourne shell
     - tcsh
     - `Bash <bash.rst>`_
     - zsh
-    - fish
+    - ⭐ fish
 * 產生程式碼相關的函式、變數等等資訊的列表
-    - `universal ctags <https://ctags.io/>`_
-    - `ptags <https://github.com/dalance/ptags>`_
+    - ⭐ `universal ctags <https://ctags.io/>`_
+    - ⭐ `ptags - parallel universal ctags <https://github.com/dalance/ptags>`_
 * 字串搜尋
     - grep
-    - ripgrep
+    - ⭐ ripgrep
 * 檔案搜尋
     - find
-    - fd
+    - ⭐ fd
 * 字串取代
     - sed
+    - `fastmod <https://github.com/facebookincubator/fastmod>`_
+    - ⭐ `amber <https://github.com/dalance/amber>`_
+* 檔案搜尋加字串取代
+    - find/sed
+    - fd/sed
+    - ⭐ amber
 * 以十六進位輸出 Binary
     - xxd
     - hexdump
-    - `hex <https://github.com/sitkevij/hex>`_
+    - ⭐ `hex <https://github.com/sitkevij/hex>`_
 * Binary 搜尋
     - `bingrep <https://github.com/m4b/bingrep>`_
 * 檔案系統
     - `du <du.rst>`_
     - df
+    - ⭐ dutree
 * 系統監控
     - top
-    - htop
-    - dmesg
+    - ⭐ htop
+    - ⭐ dmesg
 * 壓縮、解壓縮
     - pixz
     - pigz
@@ -50,36 +57,60 @@ CLI/TUI 工具
 * 檔案類別偵測
     - `file <file.rst>`_
 * 檔案下載
-    - `curl.rst <curl.rst>`_
+    - `curl <curl.rst>`_
     - wget
 * 指令文件、範例
-    - man
-    - tldr
+    - ⭐ man
+    - ⭐ tldr
 * pager
     - less
     - more
+    - head
+    - tail
+        + tail -f
 * SSH server/client
     - OpenSSH
     - dropbear
 * 編輯器
     - vim
-    - neovim
+    - ⭐ neovim
     - emacs
     - pyvim
     - busybox vi
 * session persistence
     - dtach
     - screen
-    - tmux
+    - ⭐ tmux
     - pymux
+* 平行化
+    - GNU parallel
+    - `Rust parallel <https://github.com/mmstick/parallel>`_
+* 去除整行重複的內容
+    - uniq
+    - ⭐ runiq
+* 指令效能測量
+    - GNU time
+    - ⭐ hyperfine
+* JSON 處理工具
+    - jq
+    - jid
+    - jiq
+* JavaScript bundler
+    - `pax <https://github.com/nathan/pax>`_
 * misc
-    - xargs.rst
-    - netcat.rst
-    - readelf.rst
-    - rsync.rst
+    - rfkill
+        + rfkill unblock bluetooth
+    - lspci
+        + -k
+    - hciconfig
+    - hcitool scan
+    - bluetoothctl
+    - xargs
+    - netcat
+    - readelf
+    - rsync
     - lsof
     - sort
-    - uniq
     - ps
     - cut
     - join
@@ -99,7 +130,6 @@ CLI/TUI 工具
     - ldd
     - strace
     - awk
-    - parallel
     - sudo
     - `busybox <busybox.rst>`_
 
