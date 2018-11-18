@@ -43,15 +43,7 @@ GStreamer
 * `串流混合 (Mixing/Composition) <mixing.rst>`_
 * `硬體加速 (Hardware Acceleration) </multimedia/hardware-acceleration/gstreamer-hardware-acceleration.rst>`_
 * `藍牙 (Bluetooth) </multimedia/bluetooth/gstreamer-bluetooth.rst>`_
-* 家用無線串流
-    - 2002 - UPnP AV
-    - 2003 - DLNA (Digital Living Network Alliance)
-    - 2004 - AirPlay
-    - 2010 - WiDi (Intel 的專案，目前已經終止，官方建議使用 Miracast)
-    - 2012 - Miracast
-    - 2012 - DIAL (Discovery and Launch)
-    - 2013 - `Google Cast <googlecast.rst>`_
-    - 自己設計家用無線串流（Server/Client）
+* `家用無線串流 </multimedia/home-wireless-streaming/gstreamer-home-wireless-streaming.rst>`_
 * `播放器 (Player) <player.rst>`_
 * `網頁顯示 (Web) <web.rst>`_
 * `Cheatsheet <cheatsheet.rst>`_
