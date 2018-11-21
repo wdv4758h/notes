@@ -59,13 +59,23 @@
     - MPEG-TS
     - Ogg
     - Matroska
-* `降噪 (Noise Cancellation) <noise-cancellation>`_
-* `聲音偵測 (Voice Detection) <voice-detection>`_
 * `Video Quality <video-quality.rst>`_
 * `SDP (Session Description Protocol) <sdp.rst>`_
 * `PTS/DTS (Presentation Timestamp/Decode Timestamp) <pts-dts.rst>`_
 * I-frame/P-frame/B-frame
 * Synchronization
+* `圖像 <image>`_
+
+
+
+應用
+========================================
+
+* `硬體加速 (Hardware Acceleration) <hardware-acceleration>`_
+* `降噪 (Noise Cancellation) <noise-cancellation>`_
+* `聲音偵測 (Voice Detection) <voice-detection>`_
+* `藍牙相關 (Bluetooth) <bluetooth>`_
+* `WebRTC <webrtc>`_
 
 
 
@@ -141,13 +151,9 @@
     - Player
     - Server
 * `OpenCV <opencv.rst>`_
-* `WebRTC <webrtc>`_
-* `MediaInfo <mediainfo.rst>`_
-* `硬體加速 <hardware-acceleration>`_
-* AudioFlinger
-* `藍牙相關 (Bluetooth) <bluetooth>`_
 * `PipeWire <pipewire>`_
-* `圖像 <image>`_
+* `MediaInfo <mediainfo.rst>`_
+* AudioFlinger
 
 
 
@@ -178,3 +184,4 @@
     - GStreamer typefind
 * `Oboe - C++ library which makes it easy to build high-performance audio apps on Android <https://github.com/google/oboe>`_
 * `Android AAudio - API designed for high-performance audio applications that require low latency <https://developer.android.com/ndk/guides/audio/aaudio/aaudio>`_
+* `Mozilla Hack - Audio <https://hacks.mozilla.org/category/audio/>`_
