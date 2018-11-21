@@ -75,6 +75,7 @@
 * `降噪 (Noise Cancellation) <noise-cancellation>`_
 * `聲音偵測 (Voice Detection) <voice-detection>`_
 * `藍牙相關 (Bluetooth) <bluetooth>`_
+* `家用無線串流 <home-wireless-streaming/>`_
 * `WebRTC <webrtc>`_
 
 
@@ -120,7 +121,7 @@
     - 上字幕
     - Mixing
     - GStreamer 相關公司
-* `FFmpeg <ffmpeg.rst>`_
+* `FFmpeg <ffmpeg/>`_
     - CLI 參數使用
     - Transcoding
     - Transmuxing
