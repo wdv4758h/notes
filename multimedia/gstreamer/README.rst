@@ -32,7 +32,7 @@ GStreamer
         + GStreamer + asyncio
         + Signal/Promise/Callback
         + Video Frame -> NumPy array
-    - Rust
+    - `Rust <lang-rust.rst>`_
 * `WebRTC </multimedia/webrtc/gstreamer-webrtc.rst>`_
 * Server
 * Filter
