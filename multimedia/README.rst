@@ -59,18 +59,8 @@
     - MPEG-TS
     - Ogg
     - Matroska
-* `降噪 (Noise Cancellation) <noise-cancellation.rst>`_
-    - Active Noise Cancellation
-    - Passive Noise Cancellation
-    - SNR (Signal to Noise Ratio)
-    - Common Noise Types
-        + Echo
-        + Siren
-        + Crowd
-        + Beep
-        + Airport
-        + Coffeeshop
-        + Street
+* `降噪 (Noise Cancellation) <noise-cancellation>`_
+* `聲音偵測 (Voice Detection) <voice-detection>`_
 * `Video Quality <video-quality.rst>`_
 * `SDP (Session Description Protocol) <sdp.rst>`_
 * `PTS/DTS (Presentation Timestamp/Decode Timestamp) <pts-dts.rst>`_
