@@ -46,7 +46,12 @@
     - AMQP
 * 安全性
 * 作業系統
+    - `Zephyr Project <https://www.zephyrproject.org>`_
+        + 由 Linux Foundation 及眾多廠商一同維護的 RTOS
+        + 目標平台為 IoT 裝置，kernel 只需要的少量的記憶體即可運作
+        + 支援 IoT 裝置常見的傳輸協定
 * M2M (Machine to Machine)
 
 * 參考
     - `Wikipedia - Internet of Things <https://en.wikipedia.org/wiki/Internet_of_things>`_
+    - `Mozilla IoT <https://iot.mozilla.org/>`_
