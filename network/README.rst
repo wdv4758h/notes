@@ -2,6 +2,15 @@
 網路相關 (Network)
 ========================================
 
+Physical Layer:
+
+* Ethernet
+* Wi-Fi
+* `Bluetooth </multimedia/bluetooth/>`_
+* LoRa
+* Li-Fi
+
+
 Link layer:
 
 * ARP
