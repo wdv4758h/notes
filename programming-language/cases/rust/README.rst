@@ -93,7 +93,7 @@ Working Groups
 ========================================
 
 * `CLI working group <https://github.com/rust-lang-nursery/cli-wg>`_
-* `Rust + WebAssembly <Rust + WebAssembly>`_
+* `Rust + WebAssembly <https://github.com/rustwasm>`_
 * `Runtimes working group <https://github.com/rust-hosted-langs/runtimes-WG/>`_
 * `Embedded devices Working Group <https://github.com/rust-lang-nursery/embedded-wg>`_
 * `Rust Verification working group <https://github.com/rust-lang-nursery/wg-verification>`_
@@ -130,6 +130,7 @@ Working Groups
 * `Fuzz Testing <fuzz-testing.rst>`_
 * `Benchmark <benchmark.rst>`_
 * `套件處理 - Cargo <cargo.rst>`_
+* `Linking <linking.rst>`_
 * `文件 (Documentation) <documentation.rst>`_
 * `網路相關 (Network) <network.rst>`_
 * `開發相關工具 (Development Tools) <development-tools.rst>`_
@@ -139,6 +140,12 @@ Working Groups
 * `圖像處理 <image-manipulation.rst>`_
 * `機器學習 <machine-learning.rst>`_
 * `Microcontroller <microcontroller.rst>`_
+
+
+Edition：
+
+* `Rust 2015 <edition-2015.rst>`_
+* `Rust 2018 <edition-2018.rst>`_
 
 
 其他：
