@@ -1,8 +1,10 @@
 ========================================
-ELF
+ELF (Executable and Linkable Format)
 ========================================
 
-ELF = Executable and Linkable Format
+
+.. contents:: 目錄
+
 
 ELF Object Files
 ========================================
@@ -17,6 +19,7 @@ Relocatable file
 
     gcc -Wall -c test.c -o test.o   # use -c to avoid linking
 
+
 Shared object file
 ------------------------------
 
@@ -27,7 +30,6 @@ Shared object file
     gcc -c -Wall -Werror -fPIC shared.c     # -fPIC for position-independent code
     gcc -shared -o libshared.so shared.o
 
-- http://en.wikipedia.org/wiki/Position-independent_code
 
 Executable file
 ------------------------------
@@ -36,8 +38,12 @@ Executable file
 
     gcc -Wall test.c -o test
 
+
+
 ELF Header
 ========================================
+
+
 
 readelf
 ========================================
@@ -45,6 +51,7 @@ readelf
 .. code-block:: sh
 
     readelf -h /bin/ls  # -f for file header
+
 
 result :
 
@@ -71,6 +78,8 @@ result :
       Number of section headers:         28
       Section header string table index: 27
 
+
+
 objdump
 ========================================
 
@@ -79,6 +88,7 @@ objdump
 .. code-block:: sh
 
     objdump -j .data -s /bin/ls
+
 
 result:
 
@@ -94,6 +104,8 @@ result:
      607480 2e000000 ffffffff 02000000 ffffffff  ................
      607490 ffffffff ffffffff                    ........
 
+
+
 ELF View
 ========================================
 
@@ -101,7 +113,9 @@ assembler 或 linker 處理過後，可以被 CPU 執行的檔案是處於 linki
 
 loader 把程式載到 memory 後，object file 會是 execution view
 
-Resource
+
+
+相關資源
 ========================================
 
 * `ELF101 <https://code.google.com/p/corkami/wiki/ELF101>`_
@@ -120,3 +134,9 @@ Resource
 * `ELF - 陳鍾誠 <http://ccckmit.wikidot.com/lk:elf>`_
 * `ELF 之 Program Loading 教學文件, #2: Program Header Table <http://www.jollen.org/blog/2007/03/elf_program_loading_2_pht.html>`_
 * `ELF 之 Program Loading 教學文件, #1: Segment 的觀念 <http://www.jollen.org/blog/2007/03/>`_
+
+
+
+* `Wikipedia - Position Independent Code <http://en.wikipedia.org/wiki/Position-independent_code>`_
+
+* `The missing link: explaining ELF static linking, semanticall <http://dominic-mulligan.co.uk/wp-content/uploads/2011/08/oopsla-elf-linking-2016.pdf>`_
