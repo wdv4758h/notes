@@ -30,3 +30,4 @@ Android
 * `移植到新硬體 (Porting to new Hardware) <porting-to-new-hardware.rst>`_
 * `在 GNU/Linux 上執行 Android 系統 <android-on-linux.rst>`_
 * `Crash Debug <crash-debug.rst>`_
+* `Profiling <profiling.rst>`_
