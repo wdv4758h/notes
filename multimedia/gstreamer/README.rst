@@ -33,6 +33,8 @@ GStreamer
         + Signal/Promise/Callback
         + Video Frame -> NumPy array
     - `Rust <lang-rust.rst>`_
+* 除錯輔助
+    - netsim - 模擬網路狀況
 * `WebRTC </multimedia/webrtc/gstreamer-webrtc.rst>`_
 * Server
 * Filter
@@ -55,3 +57,21 @@ GStreamer
     - Cheese
     - GNOME Videos
     - Rhythmbox
+    - Me TV
+    - `Servo Media <https://github.com/servo/media>`_
+
+* 版本追蹤 (雙號是穩定，單號是測試)
+    - GStreamer 1.14
+    - GStreamer 1.16
+
+* Blogs
+    - `Planet GStreamer <https://gstreamer.freedesktop.org/planet/>`_
+    - `Nirbheek's Rantings <https://blog.nirbheek.in/>`_
+    - `GStreamer – coaxion.net – slomo's blog <https://coaxion.net/blog/category/gstreamer/>`_
+    - `GStreamer – Gkiagia's Blog <https://gkiagia.wordpress.com/category/gstreamer-2/>`_
+
+* Conference
+    - `GStreamer Conference <https://gstreamer.freedesktop.org/conference/>`_
+        + `GStreamer Conference Videos <https://gstconf.ubicast.tv/>`_
+    - FOSDEM
+    - All Systems Go!
