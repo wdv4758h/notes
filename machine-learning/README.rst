@@ -131,6 +131,47 @@ LSTM 內部的設計並不唯一，
     - 大量 RNN 設計比較
 
 
+Convolutional Neural Networks
+------------------------------
+
+CNN 的設計在於把同樣訓練好的節點重複套用到資料的每個部份，
+把小節點當做寫好的函式，
+拿去資料每個小部份做計算，
+一個小部份要包含多少資料可以自由決定（可以是數個一維資料也可以是數個多維資料），
+最後蒐集所有計算結果後做後續處理（例如最後交給 Fully Connected Neural Network 處理）。
+
+Convolutional Layer 通常會搭配 Pooling Layer，
+例如數個結果取最大值，
+藉此可以快速地降低資料量。
+
+一般的 Convolutional Layer 裡面是一層 Perceptron，
+但是也有多層 Perceptron 的設計，
+例如 2013 年在 `Network In Network <https://arxiv.org/abs/1312.4400>`_ 提出的
+mlpconv (Multiple Layer Convolution Layer)。
+
+
+歷史：
+
+* [2012] `ImageNet Classification with Deep Convolutional Neural Networks <https://www.cs.toronto.edu/~fritz/absps/imagenet.pdf>`_
+    - 突破當時圖像分類的能力
+    - 採用新的節點 ReLU
+    - 使用新技術 DropOut 來避免 Overfitting
+    - 使用大量圖像資料 ImageNet
+    - 節點深度跟當時其他作法比起來深很多
+    - 使用 CNN
+
+
+CNN 應用：
+
+* 電腦視覺 (Computer Vision)
+
+
+
+參考：
+
+* `Conv Nets: A Modular Perspective <https://colah.github.io/posts/2014-07-Conv-Nets-Modular/>`_
+
+
 
 其他資源
 ========================================
