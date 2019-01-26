@@ -60,6 +60,40 @@
 * `ONNX <onnx.rst>`_
 
 
+
+模型優化 - 在盡量維持模型準確度的狀況下降低運算需求
+===================================================
+
+:目標: 降低運算量，維持同等級的準確度
+
+
+* `量化 (Quantization) <technique/quantization.rst>`_
+    - 例如把浮點數運算換成整數運算
+* 刪減 (Pruning)
+    - 把不重要的處理刪掉
+* 知識淬鍊 (Knowledge Distillation)
+    - 藉由現有的模型訓練出另一個小模型，但是達到同等成效
+    - 原先的模型可能很大或者使用了 Ensemble 才達到效果，新模型從中學習真正的重點，除去不必要的計算
+    - 原模型當老師，新模型當學生
+    - Transfer Learning
+* 正規化 (Regularization)
+* 選擇性計算 (Conditional Computation)
+    - 根據特定條件選擇要用到的子模型，在某些狀況下省略步驟來節省運算
+    - 例如 Early Exit
+* 反覆優化 (Iterative Pruning)
+    - 把數個模型優化技巧組合起來重複套用
+    - 就像是編譯器在編譯時會有數個優化操作來回套用
+
+
+參考：
+
+* [2015] `Distilling the Knowledge in a Neural Network <https://arxiv.org/abs/1503.02531>`_
+* [2015] `Learning both Weights and Connections for Efficient Neural Networks <https://arxiv.org/abs/1506.02626>`_
+* [2017] `A Survey of Model Compression and Acceleration for Deep Neural Networks <https://arxiv.org/abs/1710.09282>`_
+* `Neural Network Distiller <https://nervanasystems.github.io/distiller/index.html>`_
+
+
+
 類神經網路節點 (Cell)
 ========================================
 
