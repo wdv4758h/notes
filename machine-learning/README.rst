@@ -77,6 +77,11 @@
     - 原模型當老師，新模型當學生
     - Transfer Learning
 * 正規化 (Regularization)
+    - 懲罰複雜度
+    - 選擇成效同等級但是複雜度較低的模型，除非複雜模型有顯著優勢
+    - 例如 Lasso、Ridge、ElasticNet 等演算法就是這個概念
+    - L1 Regularization： Lasso 的作法，把所有權重的絕對值加起來當 cost
+    - L2 Regularization： Ridge 的作法，把所有權重的平方加起來當 cost
 * 選擇性計算 (Conditional Computation)
     - 根據特定條件選擇要用到的子模型，在某些狀況下省略步驟來節省運算
     - 例如 Early Exit
