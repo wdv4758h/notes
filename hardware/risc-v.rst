@@ -1,1 +1,1 @@
-../assembly/risc-v.rst
+../assembly/riscv/README.rst
