@@ -215,11 +215,41 @@ CNN 應用：
 其他資源
 ========================================
 
-* `Machine Learning for Software Engineers <https://github.com/ZuzooVn/machine-learning-for-software-engineers>`_
 * `Interpretable Machine Learning A Guide for Making Black Box Models Explainable <https://christophm.github.io/interpretable-ml-book/>`_
-* `相關課程 <course.rst>`_
-* `Awesome Machine Learning <https://github.com/josephmisiti/awesome-machine-learning>`_
-* `Awesome Deep Vision <https://github.com/kjw0612/awesome-deep-vision>`_
-* `Awesome Deep Learning papers and other resources <https://github.com/endymecy/awesome-deeplearning-resources>`_
-* `Awesome Deep Learning <https://github.com/ChristosChristofidis/awesome-deep-learning>`_
+    - 解讀模型的線上書籍
+* `Mathematics for Machine Learning <https://mml-book.github.io/>`_
+    - CH1 - 數學基礎
+        + 線性代數
+        + 解析幾何
+        + 矩陣分解
+        + 向量分析
+        + 機率與分布
+    - CH2 - 機器學習的應用
+        + 線性回歸
+        + 降低維度 & PCA
+        + SVM
 * `Machine Learning From Scratch <https://github.com/eriklindernoren/ML-From-Scratch>`_
+    - 眾多常見模型的 Python 實做範例
+* `Machine Learning for Software Engineers <https://github.com/ZuzooVn/machine-learning-for-software-engineers>`_
+    - 學習規劃
+* `Deep Learning Ocean <https://github.com/osforscience/deep-learning-ocean>`_
+    - 許多常見的模型發表時的論文連結
+    - 根據不同模型分類
+    - 優化技巧、特定領域應用
+    - 各種原始資料
+* `Awesome Deep Vision <https://github.com/kjw0612/awesome-deep-vision>`_
+    - 電腦視覺論文、課程、書籍、文章
+* `Awesome Deep Learning papers and other resources <https://github.com/endymecy/awesome-deeplearning-resources>`_
+    - 論文、模型、課程、書籍、應用範例
+* `Awesome Deep Learning <https://github.com/ChristosChristofidis/awesome-deep-learning>`_
+    - 書籍、課程、影片、論文、原始資料、研討會、工具
+* `Awesome Machine Learning <https://github.com/josephmisiti/awesome-machine-learning>`_
+    - 各語言的套件
+
+* `Stanford - Unsupervised Feature Learning and Deep Learning Tutorial <http://deeplearning.stanford.edu/tutorial/>`_
+* `Stanford - CS224n: Natural Language Processing with Deep Learning <http://web.stanford.edu/class/cs224n/>`_
+* `MIT - Deep Learning <https://deeplearning.mit.edu/>`_
+* `MIT - 6.S099: Artificial General Intelligence <https://agi.mit.edu/>`_
+* `UC Berkeley - CS 294-112 - Deep Reinforcement Learning <http://rail.eecs.berkeley.edu/deeprlcourse/>`_
+* `UC Berkeley - CS 294-129 - Designing, Visualizing and Understanding Deep Neural Networks <https://bcourses.berkeley.edu/courses/1453965/pages/cs294-129-designing-visualizing-and-understanding-deep-neural-networks>`_
+* `Berkeley Artificial Intelligence Research Lab <https://bair.berkeley.edu/>`_
