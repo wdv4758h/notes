@@ -34,8 +34,17 @@ Open Source
 +-----------------------+------------------+
 | `Omni Notes`_         | 筆記、便籤       |
 +-----------------------+------------------+
+| `Notes by Firefox`_   | 筆記             |
++-----------------------+------------------+
 | `Financisto`_         | 記帳             |
 +-----------------------+------------------+
+| `Wifi Analyzer`_      | WiFi 分析        |
++-----------------------+------------------+
+| `andOTP`_             | 兩階段驗證       |
++-----------------------+------------------+
+| `NetGuard`_           | 防火牆           |
++-----------------------+------------------+
+
 
 .. _Etar: https://github.com/Etar-Group/Etar-Calendar
 .. _MuPDF: https://github.com/ArtifexSoftware/mupdf-android-viewer-mini
@@ -49,12 +58,16 @@ Open Source
 .. _Financisto: https://github.com/dsolonenko/financisto2
 .. _Phimp.me: https://github.com/fossasia/phimpme-android
 .. _mpv: https://github.com/mpv-android/mpv-android
+.. _Wifi Analyzer: https://github.com/VREMSoftwareDevelopment/WiFiAnalyzer
+.. _andOTP: https://github.com/andOTP/andOTP
+.. _NetGuard: https://github.com/M66B/NetGuard
 
 
 
 參考
 ========================================
 
+* `Termux - Android terminal app and Linux environment <https://github.com/termux/termux-app>`_
 * `Open-Source Android Apps <https://github.com/pcqpcq/open-source-android-apps>`_
 * `Amazing open source Android apps <https://github.com/Mybridge/amazing-android-apps>`_
 * `Android FOSS <https://github.com/offa/android-foss>`_
