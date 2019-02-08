@@ -44,48 +44,48 @@ TL;DR
 語言核心功能
 ========================================
 
-* `Pattern Matching <pattern-matching.rst>`_
-* `錯誤處理 (Error Handling) <error-handling.rst>`_
-* `Iterator <iterator.rst>`_
-* `Tagged Unions (Sum Type) <tagged-unions.rst>`_
-* `Macro <macro.rst>`_
-* `Unsafe <unsafe.rst>`_
+* `Pattern Matching <lang-design/pattern-matching.rst>`_
+* `錯誤處理 (Error Handling) <lang-design/error-handling.rst>`_
+* `Iterator <lang-design/iterator.rst>`_
+* `Tagged Unions (Sum Type) <lang-design/tagged-unions.rst>`_
+* `Macro <lang-design/macro.rst>`_
+* `Unsafe <lang-design/unsafe.rst>`_
 
 
 
 生態圈
 ========================================
 
-* `Regular Expression <regex.rst>`_
+* `Regular Expression <usage/regex.rst>`_
     - regex
     - fancy-regex
-* `Serialization <serialization.rst>`_
+* `Serialization <usage/serialization.rst>`_
     - serde
-* `Logging <logging.rst>`_
+* `Logging <usage/logging.rst>`_
     - log
-* `Security <security.rst>`_
+* `Security <usage/security.rst>`_
     - ring
     - webpki
     - rustls
     - quinn
-* `Asynchronous I/O  <asynchronous.rst>`_
+* `Asynchronous I/O  <usage/asynchronous.rst>`_
     - futures
     - mio
     - tokio
     - actix
-* `Error Handling <error-handling.rst>`_
+* `Error Handling <lang-design/error-handling.rst>`_
     - Option/Result
     - Box<Error>
     - failure
-* `Multimedia <multimedia.rst>`_
-* `資料庫 (Database) <database.rst>`_
+* `Multimedia <usage/multimedia.rst>`_
+* `資料庫 (Database) <usage/database.rst>`_
 
 
 
 Unstable
 ========================================
 
-* `CTFE (Compile Time Function Execution) <compile-time-function-execution.rst>`_
+* `CTFE (Compile Time Function Execution) <lang-design/compile-time-function-execution.rst>`_
 
 
 
@@ -114,10 +114,13 @@ Working Groups
 內部實做
 ========================================
 
-* `RFCs <rfcs.rst>`_
-* `編譯器 (Compiler) <compiler.rst>`_
-* `MIR (Mid-level Intermediate Representation) <mir.rst>`_
-* `Standard Library 程式碼研讀 <std.rst>`_
+* `RFCs <rfcs/>`_
+* `編譯器 (Compiler) <rust-compiler/>`_
+* `MIR (Mid-level Intermediate Representation) <rust-compiler/mir.rst>`_
+* `Standard Library 程式碼研讀 <std/>`_
+
+
+
 
 
 
@@ -126,50 +129,49 @@ Working Groups
 
 一般使用：
 
-* `Testing <testing.rst>`_
-* `Fuzz Testing <fuzz-testing.rst>`_
-* `Benchmark <benchmark.rst>`_
-* `套件處理 - Cargo <cargo.rst>`_
-* `Linking <linking.rst>`_
-* `文件 (Documentation) <documentation.rst>`_
-* `網路相關 (Network) <network.rst>`_
-* `開發相關工具 (Development Tools) <development-tools.rst>`_
-* `Graphic <graphc.rst>`_
-* `GUI <gui.rst>`_
-* `Syntax Highlighting <syntax-highlighting.rst>`_
-* `圖像處理 <image-manipulation.rst>`_
-* `機器學習 <machine-learning.rst>`_
-* `Microcontroller <microcontroller.rst>`_
+* `Testing <usage/testing.rst>`_
+* `Fuzz Testing <usage/fuzz-testing.rst>`_
+* `Benchmark <usage/benchmark.rst>`_
+* `套件處理 - Cargo <official-tools/cargo.rst>`_
+* `Linking <lang-design/linking.rst>`_
+* `文件 (Documentation) <documentation/>`_
+* `網路相關 (Network) <usage/network.rst>`_
+* `開發相關工具 (Development Tools) <usage/development-tools.rst>`_
+* `Graphic <usage/graphc.rst>`_
+* `GUI <usage/gui.rst>`_
+* `Syntax Highlighting <usage/syntax-highlighting.rst>`_
+* `圖像處理 <usage/image-manipulation.rst>`_
+* `機器學習 <usage/machine-learning.rst>`_
+* `Microcontroller <usage/microcontroller.rst>`_
 
 
 Edition：
 
-* `Rust 2015 <edition-2015.rst>`_
-* `Rust 2018 <edition-2018.rst>`_
+* `Rust 2015 <edition/edition-2015.rst>`_
+* `Rust 2018 <edition/edition-2018.rst>`_
 
 
 其他：
 
-* `文章閱讀 <articles.rst>`_
-* `Tips <tips.rst>`_
-* `生態圈 <ecosystem.rst>`_
-* `Servo <servo.rst>`_
-* `runtime reflection - "Any" type trait <any.rst>`_
-* `Rust to asm.js <asmjs.rst>`_
-* `Make Parity work on FreeBSD <make-parity-work-on-freebsd.rst>`_
-* `Misc <misc.rst>`_
-* `Videos <videos.rst>`_
-* `FAQ <faq.rst>`_
-* `Design Pattern <design-pattern.rst>`_
-* `相關書籍 <books.rst>`_
-* `從 C 轉譯成 Rust <c-to-rust.rst>`_
-* `特性簡表 <features-basic.rst>`_
-* `撰寫 Kernel <kernel.rst>`_
-* `讓 Parity 可以在 FreeBSD 上編譯的紀錄 <make-parity-work-on-freebsd.rst>`_
-* `Monomorphization <monomorphization.rst>`_
-* `Object Safety <object-safety.rst>`_
-* `效能觀察 <performance.rst>`_
-* `設定 Vim 的 Rust 開發環境 <rust-vim-plugin.rst>`_
-* `Type System <type-system.rst>`_
-* `常見縮寫 <abbreviation.rst>`_
-* `相關資源 <resource.rst>`_
+* `文章閱讀 <learning-resource/articles.rst>`_
+* `Tips <usage/tips.rst>`_
+* `生態圈 <usage/ecosystem.rst>`_
+* `Servo <usage/servo.rst>`_
+* `runtime reflection - "Any" type trait <lang-design/any.rst>`_
+* `Rust to asm.js <usage/asmjs.rst>`_
+* `Misc <usage/misc.rst>`_
+* `Videos <learning-resource/videos.rst>`_
+* `FAQ <documentation/faq.rst>`_
+* `Design Pattern <usage/design-pattern.rst>`_
+* `相關書籍 <learning-resource/books.rst>`_
+* `從 C 轉譯成 Rust <usage/c-to-rust.rst>`_
+* `特性簡表 <usage/features-basic.rst>`_
+* `撰寫 Kernel <usage/kernel.rst>`_
+* `讓 Parity 可以在 FreeBSD 上編譯的紀錄 <usage/make-parity-work-on-freebsd.rst>`_
+* `Monomorphization <usage/monomorphization.rst>`_
+* `Object Safety <usage/object-safety.rst>`_
+* `效能觀察 <usage/performance.rst>`_
+* `設定 Vim 的 Rust 開發環境 <usage/rust-vim-plugin.rst>`_
+* `Type System <lang-design/type-system.rst>`_
+* `常見縮寫 <documentation/abbreviation.rst>`_
+* `相關資源 <learning-resource/resource.rst>`_
