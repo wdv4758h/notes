@@ -6,25 +6,38 @@ Shell
 .. contents:: 目錄
 
 
-Bourne Shell
+Thompson shell - first Unix shell - 1971
+========================================
+
+:Wikipedia: https://en.wikipedia.org/wiki/Thompson_shell
+
+
+
+Bourne Shell - 1977
 ========================================
 
 Bell Labs 當初釋出的實做
 
 
 
-csh
+csh - 1978
 ========================================
 
 
 
-tcsh
+tcsh - 1983
 ========================================
 
 
 
-ksh
+ksh (Korn Shell)
 ========================================
+
+
+
+pdksh (Public Domain Korn Shell)
+========================================
+
 
 
 mksh
@@ -37,25 +50,45 @@ ash (Almquist shell)
 
 * FreeBSD ``sh`` 是基於 ``ash`` (Almquist shell) 再去改的
 * BusyBox 裡面也是基於 ``ash``
+    - `BusyBox - shell <https://git.busybox.net/busybox/tree/shell/>`_
 
 
 
-bash
+Bash (Bourne-again shell) - GNU Project
 ========================================
+
+:Site: https://www.gnu.org/software/bash/
+:Repo: https://git.savannah.gnu.org/cgit/bash.git
+:Extend Framework: https://github.com/Bash-it/bash-it
 
 
 
 dash
 ========================================
 
+:Site: http://gondor.apana.org.au/~herbert/dash/
+:Repo: https://git.kernel.org/pub/scm/utils/dash/dash.git/
+
+
 
 zsh
 ========================================
+
+:Site: https://www.zsh.org/
+:Repo: https://sourceforge.net/p/zsh/code/ci/master/tree/
+:Repo-GitHub: https://github.com/zsh-users/zsh/
+:Repo-GitLab: https://sourceforge.net/p/zsh/code/ci/master/tree/
+:Extend Framework: https://github.com/robbyrussell/oh-my-zsh
 
 
 
 fish - friendly interactive shell
 ========================================
+
+:Site: http://fishshell.com/
+:Repo: https://github.com/fish-shell/fish-shell
+:Extend Framework: https://github.com/oh-my-fish/oh-my-fish
+
 
 fish 3.0
 ------------------------------
@@ -68,22 +101,43 @@ fish 3.0
 
 
 
-xonsh
+xonsh - cross-platform, Unix-gazing shell in Python
+===================================================
+
+:Site: http://xon.sh/
+:Repo: https://github.com/xonsh/xonsh
+
+
+Shell Language 是 Python 3.4+ 的 superset，
+藉由 prompt-toolkit 撰寫互動界面，
+使用 pip 安裝後即可使用。
+
+
+
+Oil - bash-compatible shell in Python
 ========================================
 
+:Site: https://www.oilshell.org/
+:Repo: https://github.com/oilshell/oil
 
-oil
+
+Oil 使用自己 fork 出去的 CPython 2.7，
+會搭配自己的修改後包在最後釋出的執行檔裡。
+
+
+
+Elvish - friendly interactive shell in Go
+=========================================
+
+:Site: https://elv.sh/
+:Repo: https://github.com/elves/elvish
+
+
+
+Ion - RedoxOS shell in Rust
 ========================================
 
-
-
-elvish
-========================================
-
-
-
-Ion
-========================================
+:Repo: https://gitlab.redox-os.org/redox-os/ion
 
 
 
