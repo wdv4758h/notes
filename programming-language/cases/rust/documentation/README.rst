@@ -34,13 +34,17 @@ Rust 官方的文件系統，
 Doc.rs
 ========================================
 
-:Repo: https://github.com/onur/docs.rs
+:Repo: https://github.com/rust-lang/docs.rs
 :Site: https://docs.rs/
 
 
 Rust crates 的文件集中地，
 會自動去編譯出每個套件的文件，
 也可以在不同版本的文件中切換。
+
+本來是非官方工具，
+但是功能廣受歡迎，
+現在已經把專案移到官方組織底下。
 
 
 

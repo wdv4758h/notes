@@ -1,5 +1,5 @@
 ========================================
-rustup
+mrustc - Mutabah's Rust Compiler
 ========================================
 
 
@@ -9,9 +9,8 @@ rustup
 介紹
 ========================================
 
-:Repo: https://github.com/rust-lang/rustup.rs
+:Repo: https://github.com/thepowersgang/mrustc
 
 
-
-參考
-========================================
+非官方的 Rust 編譯器實做，
+程式碼採用 C++ 撰寫。
