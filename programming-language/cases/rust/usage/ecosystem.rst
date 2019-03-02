@@ -2,9 +2,12 @@
 Rust 生態圈 (Rust Ecosystem)
 ========================================
 
-:目前 Rust Stable 版本: 1.12.0
-:日期: 2016-10-08
 
+.. contents:: 目錄
+
+
+說明
+========================================
 
 對於各套件期望的特色：
 
@@ -13,9 +16,18 @@ Rust 生態圈 (Rust Ecosystem)
 * 資源需求少
 * 執行檔小
 * 使用簡單
+* 跨平台
 
 
-.. contents:: 目錄
+
+套件徵求清單
+========================================
+
+* `Not-Yet-Awesome Rust <https://github.com/not-yet-awesome-rust/not-yet-awesome-rust>`_
+    - 列出特定領域缺少的關鍵套件
+* `Request For Implementation - Crates that don't exist, but should <https://github.com/dtolnay/request-for-implementation>`_
+    - 特定套件缺少的功能，功能描述較詳細較明確
+
 
 
 第三方套件平台
@@ -23,6 +35,13 @@ Rust 生態圈 (Rust Ecosystem)
 
 Rust 的第三方套件都會蒐集在 `crates.io <https://crates.io/>`_ ，
 而放在上面的套件都可以在 `docs.rs <https://docs.rs/>`_ 找到對應的文件。
+
+
+
+狀況良好的領域
+========================================
+
+* `Regular Expression <regex.rst>`_
 
 
 
@@ -35,7 +54,7 @@ Rust 官方有提供 `getopts <https://github.com/rust-lang-nursery/getopts>`_ l
 另外第三方有功能比較強的套件，
 其中 `docopt <https://github.com/docopt/docopt.rs>`_ 可以直接撰寫 help message 來爬參數，
 而 `clap-rs <https://clap.rs/>`_ 則提供多樣化的選擇（Method、Macro、YAML），
-並且可以生出 help message、Shell 補完（Bash、Fish）、打錯時的建議。
+並且可以生出 help message、Shell 補完（Bash、Fish、Zsh、Powershell）、打錯時的建議。
 
 
 
@@ -59,20 +78,6 @@ Rust 實做的 Ethereum client - `Parity <https://ethcore.io/parity.html>`_
 
 
 
-正規表達式引擎
-========================================
-
-Rust 目前有一個半官方的 `regex <https://github.com/rust-lang-nursery/regex>`_ 實做，
-實做方法是和 Google 的 RE2 類似的 NFA/DFA 作法，
-藉此來保證線性的複雜度，
-目前已經有相當的成熟度，
-大部分需要的功能都有，
-在 `regex-dna <http://benchmarksgame.alioth.debian.org/u64q/performance.php?test=regexdna>`_
-效能測試上也有不錯的成績，
-但是還有些許改進空間。
-
-
-
 FFI
 ========================================
 
@@ -83,7 +88,7 @@ Rust 目前已經有許多 FFI 的專案出現，
     - 提供 API 來撰寫 Node.js Module
 * Erlang/Elixir: `Rustler <https://github.com/hansihe/Rustler>`_
     - 提供 API 來撰寫 Erlang NIF (Erlang Navtive Implemented Function) 執行在 BEAM 上
-* Python: `rust-cpython <https://github.com/dgrunwald/rust-cpython>`_
+* Python: `PyO3 <https://github.com/PyO3/PyO3>`_
     - 在 Rust 中使用 Python 程式
 * Ruby: `Ruru <https://github.com/d-unseductable/ruru>`_
     - 提供 API 來撰寫 Ruby Extension
@@ -109,6 +114,7 @@ Rust 目前已經有許多 FFI 的專案出現，
     - 提供 N 維 Array 相關的操作、計算
 * `nalgebra <https://github.com/sebcrozet/nalgebra>`_
     - 提供基本的線性代數運算
+    - 有精美網站 `nalgebra <http://nalgebra.org/>`_
 * `rulinalg <https://github.com/AtheMathmo/rulinalg>`_
     - 提供基本的線性代數運算
 * `vsop87-rs <https://github.com/Razican/vsop87-rs>`_
