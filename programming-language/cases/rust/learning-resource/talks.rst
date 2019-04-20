@@ -433,3 +433,17 @@ VTune 是 Intel 開發出來的工具，
 * 效能問題不好了解
 * 需要很多觀察以及經驗
 * Instructions Per Cycle 是不錯的效能測量方法之一
+
+
+
+Percy: Isomorphic Web Apps with Rust + WebAssembly — Chinedu Francis Nwafili
+============================================================================
+
+:YouTube: https://www.youtube.com/watch?v=M6RLvGqQU10
+:GitHub: https://github.com/chinedufn/percy/
+:文件: https://chinedufn.github.io/percy/
+
+
+不錯的 Percy 展示，
+快速了解 Percy 是如何用 Rust + WebAssembly 來撰寫網頁前端，
+以及數個方便的 macro 是如何整合進開發流程。
