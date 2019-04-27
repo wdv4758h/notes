@@ -447,3 +447,56 @@ Percy: Isomorphic Web Apps with Rust + WebAssembly — Chinedu Francis Nwafili
 不錯的 Percy 展示，
 快速了解 Percy 是如何用 Rust + WebAssembly 來撰寫網頁前端，
 以及數個方便的 macro 是如何整合進開發流程。
+
+
+
+RustLatam 2019 - Niko Matsakis: What's unique about Rust?
+=========================================================
+
+蠻好的演講，
+分享 Rust 從早期一路走來的歷程，
+以及現在具有哪些成功的特色。
+
+
+* 2013 - Yehuda Katz 已經開始使用 Rust，並且想用於產品上
+    - Rust 當時還非常不穩定，東西變化很快
+    - 把本來用 Ruby on Rails 做的產品的核心部份改用 Rust 來提升效能
+* 為什麼有許多人喜歡 Rust？
+    1. zero-cost abstractions
+    2. modern conveniences
+        - safety
+
+            +-----------------------+-----+----+------+
+            |                       | C++ | GC | Rust |
+            +=======================+=====+====+======+
+            | all the control       | 😃  | 😐 | 😃   |
+            +-----------------------+-----+----+------+
+            | minimal to no runtime | 😃  | 😐 | 😃   |
+            +-----------------------+-----+----+------+
+            | double free           | 🤢  | 😃 | 😃   |
+            +-----------------------+-----+----+------+
+            | use after free        | 🤢  | 😃 | 😃   |
+            +-----------------------+-----+----+------+
+            | null pointer          | 🤢  | 🤢 | 😃   |
+            +-----------------------+-----+----+------+
+            | data race             | 🤢  | 🤢 | 😃   |
+            +-----------------------+-----+----+------+
+
+        - Cargo
+    3. ownership and borrowing
+        - 兩個關鍵「Mutation」、「Sharing」
+        - 解法一：不允許 Mutation，像是一些函數式程式語言，要改資料會建立新的一份
+        - 解法二：不允許 Sharing，當你要共享資料出去時，直接複製一份，例如 Erlang
+        - Rust 則允許 Mutation 和 Sharing，但是透過 Ownership 和 Borrowing 以便在編譯期間阻止意外發生
+    4. sense of craftsmanship
+    5. community
+
+* Rust 發展不是只靠少數幾個人，是靠眾多貢獻者的想法和回饋逐步改善而成
+
+    ::
+
+        The value of common knowledge cannot be overestimated.
+        We must do better.  We need all the ideas from all the people.
+        That's what we should be aiming for.
+
+        Jessica Lord, "Privilege, Community and Open Source"
