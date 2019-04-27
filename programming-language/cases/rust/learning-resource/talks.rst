@@ -453,6 +453,9 @@ Percy: Isomorphic Web Apps with Rust + WebAssembly — Chinedu Francis Nwafili
 RustLatam 2019 - Niko Matsakis: What's unique about Rust?
 =========================================================
 
+:YouTube: https://www.youtube.com/watch?v=jQOZX0xkrWA
+
+
 蠻好的演講，
 分享 Rust 從早期一路走來的歷程，
 以及現在具有哪些成功的特色。
@@ -500,3 +503,22 @@ RustLatam 2019 - Niko Matsakis: What's unique about Rust?
         That's what we should be aiming for.
 
         Jessica Lord, "Privilege, Community and Open Source"
+
+
+
+2019 - Representing types in rustc
+========================================
+
+:YouTube: https://youtu.be/c01TsOsr3-c
+:Notes: https://paper.dropbox.com/doc/Ty-lecture-8hOUpAEhOvoBQC5EYXKJM
+
+
+講解 rustc 內部對型別的處理。
+
+
+* Rust HIR types
+* ``rustc::ty::Ty``
+* ``rustc::ty::TyKind``
+* DefId
+* Unsubstituted Generics
+* TypeFoldable
