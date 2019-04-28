@@ -89,21 +89,6 @@ Unstable
 
 
 
-Working Groups
-========================================
-
-* `CLI working group <https://github.com/rust-lang-nursery/cli-wg>`_
-* `Rust + WebAssembly <https://github.com/rustwasm>`_
-* `Runtimes working group <https://github.com/rust-hosted-langs/runtimes-WG/>`_
-* `Embedded devices Working Group <https://github.com/rust-lang-nursery/embedded-wg>`_
-* `Rust Verification working group <https://github.com/rust-lang-nursery/wg-verification>`_
-* `Portability Working Group <https://github.com/rust-lang-nursery/portability-wg>`_
-* `Ecosystem Working Group <https://github.com/rust-lang-nursery/ecosystem-wg>`_
-* `Networking Working Group <https://github.com/rust-lang-nursery/net-wg>`_
-* `codegen working group <https://github.com/nox/wg-codegen>`_
-
-
-
 練習
 ========================================
 

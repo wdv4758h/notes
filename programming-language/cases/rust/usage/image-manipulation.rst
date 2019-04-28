@@ -29,18 +29,34 @@ imageflow 所提供的功能較少，
 Image - encoding and decoding images
 ========================================
 
-:Repo: https://github.com/PistonDevelopers/image
+:Repo: https://github.com/image-rs/image
 
 
 由 Piston 社群開發的圖像 encode/decode library，
-目標是要提供純 Rust 的實做。
+目標是要提供純 Rust 的實做，
+後來從 Piston 專案轉移到 image-rs 組織底下。
+
+
+* `Transitioning to Image-rs <https://blog.piston.rs/2019/04/15/transitioning-to-image-rs/>`_
 
 
 
-Oxipng - PNG optimizer
+圖片優化
 ========================================
+
+Oxipng - lossless PNG optimizer
+-------------------------------
 
 :Repo: https://github.com/shssoichiro/oxipng
 
 目標是要提供快速地無損 PNG 壓縮優化，
 重寫自原本的 OptiPNG 專案。
+
+
+* `[2018] PNG tools overview (benchmark) <https://css-ig.net/png-tools-overview>`_
+
+
+svgcleaner - lossless SVG optimizer
+------------------------------------
+
+:Repo: https://github.com/RazrFalcon/svgcleaner
