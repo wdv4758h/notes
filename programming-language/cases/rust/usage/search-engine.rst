@@ -49,6 +49,13 @@ Toshi - based on Tantivy, similar to Elasticsearch
 
 
 
+Sonic - fast, lightweight, schema-less search backend
+=====================================================
+
+:Repo: https://github.com/valeriansaliou/sonic
+
+
+
 資料結構
 ========================================
 
