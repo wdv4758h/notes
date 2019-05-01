@@ -6,6 +6,31 @@
 .. contents:: 目錄
 
 
+介紹
+========================================
+
+常見種類：
+
+* Unit Testing
+* Doc Testing
+* Integration Testing
+
+
+Rust 可以特別指定開發測試才用到的相依套件，
+這類套件不會被編進一般釋出中，
+只有在跑測試或範例時引入。
+
+
+相關套件：
+
+* `Mutagen - Breaking your Rust code for fun & profit <https://github.com/llogiq/mutagen>`_
+* `Proptest - Hypothesis-like property testing <https://github.com/altsysrq/proptest>`_
+* `Fake - generating fake data <https://github.com/cksac/fake-rs>`_
+* `Tarpaulin - code coverage tool <https://github.com/xd009642/tarpaulin>`_
+* `cargo benchcmp - comparing micro-benchmarks <https://github.com/BurntSushi/cargo-benchcmp>`_
+* `Criterion.rs - Statistics-driven Microbenchmarking <https://github.com/japaric/criterion.rs>`_
+
+
 Property Testing
 ========================================
 
@@ -77,7 +102,14 @@ kcov 也支援把結果直接上傳到 `Coveralls <http://coveralls.io/>`_ ，
 參考
 ========================================
 
+* `Testing - The Rust Programming Language <https://doc.rust-lang.org/book/ch11-00-testing.html>`_
+* `Rust by Example - Testing <https://doc.rust-lang.org/rust-by-example/testing.html>`_
 * `Rust Code Coverage Guide: kcov + Travis CI + Codecov / Coveralls <http://sunjay.ca/2016/07/25/rust-code-coverage>`_
 * `kcov - Code coverage tool for compiled programs <https://github.com/SimonKagstrom/kcov>`_
 * `Codecov Rust Example <https://github.com/codecov/example-rust>`_
 * `Disabling --gc-sections when --test is specified <https://internals.rust-lang.org/t/disabling-gc-sections-when-test-is-specified/2163>`_
+* `Comparison of several Rust mocking libraries <https://asomers.github.io/mock_shootout/>`_
+
+
+
+* `Pretty Assertions <https://github.com/colin-kiegel/rust-pretty-assertions>`_
