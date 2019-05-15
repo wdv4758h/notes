@@ -24,20 +24,25 @@ CLI/TUI 工具
 * 檔案搜尋
     - find
     - ⭐ fd
-* 字串取代
-    - sed
-    - `fastmod <https://github.com/facebookincubator/fastmod>`_
-    - ⭐ `amber <https://github.com/dalance/amber>`_
 * 檔案搜尋加字串取代
     - find/sed
     - fd/sed
     - ⭐ amber
+* Binary 搜尋
+    - `bingrep <https://github.com/m4b/bingrep>`_
+* 搜尋引擎
+    - `Tantivy <https://github.com/tantivy-search/tantivy>`_
+* 字串取代
+    - sed
+    - `fastmod <https://github.com/facebookincubator/fastmod>`_
+    - ⭐ `amber <https://github.com/dalance/amber>`_
 * 以十六進位輸出 Binary
     - xxd
     - hexdump
     - ⭐ `hex <https://github.com/sitkevij/hex>`_
-* Binary 搜尋
-    - `bingrep <https://github.com/m4b/bingrep>`_
+* 讀檔案內容
+    - cat
+    - `bat <https://github.com/sharkdp/bat>`_
 * 檔案系統
     - `du <du.rst>`_
     - df
@@ -46,6 +51,7 @@ CLI/TUI 工具
     - top
     - ⭐ htop
     - ⭐ dmesg
+        + ``dmesg -T`` 使用人類可讀的時間，而不是以開機時間為基準
 * 壓縮、解壓縮
     - pixz
     - pigz
@@ -59,6 +65,7 @@ CLI/TUI 工具
 * 檔案下載
     - `curl <curl.rst>`_
     - wget
+    - HTTPie
 * 指令文件、範例
     - ⭐ man
     - ⭐ tldr
@@ -91,6 +98,24 @@ CLI/TUI 工具
 * 指令效能測量
     - GNU time
     - ⭐ hyperfine
+* 列出檔案和資料夾
+    - ls
+    - exa
+    - `lsd <https://github.com/Peltoche/lsd>`_
+* Terminal Emulator
+    - xterm
+    - urxvt
+    - GNOME Terminal
+    - Terminator
+    - Guake
+    - Kconsole
+    - LXTerminal
+    - `alacritty <https://github.com/jwilm/alacritty/>`_
+    - `kitty <https://sw.kovidgoyal.net/kitty/>`_
+* 圖片優化
+    - oxipng
+* fuzzy finder
+    - `fzf <https://github.com/junegunn/fzf>`_
 * JSON 處理工具
     - jq
     - jid
