@@ -44,6 +44,8 @@ doc.rs 會自動幫 crates.io 上的專案產生 API 文件。
     - Rust 進階教學
 * `Rust Bibliography <https://forge.rust-lang.org/bibliography.html>`_
     - 和 Rust 相關的論文
+* `Unsafe Code Guidelines Reference <https://rust-lang.github.io/unsafe-code-guidelines/>`_
+    - 撰寫 unsafe 程式碼需要注意的事情
 
 
 語言應用：
