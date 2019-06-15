@@ -85,3 +85,15 @@ MediaInfo 是一個可以用來讀取多媒體檔案資訊的指令。
     Title                                    : simple_aac_recording
     Default                                  : Yes
     Alternate group                          : 1
+
+
+
+更多使用範例
+========================================
+
+計算 Frames 數量
+------------------------------
+
+.. code-block:: sh
+
+    $ mediainfo --Inform="Video;%FrameCount%" input.mp4

@@ -67,12 +67,46 @@ Libav 是 FFmpeg 的分支，
 ========================================
 
 
+列出所有支援
+------------------------------
+
+.. code-block:: sh
+
+    $ ffmpeg -formats
+    $ ffmpeg -encoders
+    $ ffmpeg -decoders
+    $ ffmpeg -demuxers
+    $ ffmpeg -muxers
+    $ ffmpeg -devices
+
+
+轉檔
+------------------------------
+
+.. code-block:: sh
+
+    ffmpeg -i input.mkv out.mp4
+
+
+擷取出指定數量的 Frames
+------------------------------
+
+.. code-block:: sh
+
+    # 1000 frames
+    ffmpeg -i input.mkv -vframes 1000 -c copy out.mkv
+
+
+指定 Codec
+------------------------------
+
 .. code-block:: sh
 
     $ ffmpeg -i input.mp4 -strict experimental -vcodec libx264 output.mp4
 
 
-使用 VAAPI：
+用 VAAPI
+------------------------------
 
 .. code-block:: sh
 
@@ -97,12 +131,30 @@ Libav 是 FFmpeg 的分支，
 
 
 
+FFmpeg 4.0
+========================================
+
+移除 ``ffserver``
+------------------------------
+
+因為程式碼在重構、清理，
+``ffserver`` 使用太多內部的 API 導致重構障礙，
+以及 ``ffserver`` 本身設計造成大大小小的使用困難，
+目前正在使用新的 API 重新設計看如何補上 ``ffserver`` 的功能。
+
+::
+
+    After thorough deliberation, we're announcing that we're about to drop the ffserver program from the project starting with the next release. ffserver has been a problematic program to maintain due to its use of internal APIs, which complicated the recent cleanups to the libavformat library, and block further cleanups and improvements which are desired by API users and will be easier to maintain. Furthermore the program has been hard for users to deploy and run due to reliability issues, lack of knowledgable people to help and confusing configuration file syntax. Current users and members of the community are invited to write a replacement program to fill the same niche that ffserver did using the new APIs and to contact us so we may point users to test and contribute to its development.
+
+
+
 參考
 ========================================
 
 * `Wikipedia - FFmpeg <https://en.wikipedia.org/wiki/FFmpeg>`_
 * `Wikipedia - Libav <https://en.wikipedia.org/wiki/Libav>`_
 * `Arch Wiki - FFmpeg <https://wiki.archlinux.org/index.php/FFmpeg>`_
+* `FFmpeg Static Builds <https://johnvansickle.com/ffmpeg/>`_
 * [GitHub] `FFmpeg <https://github.com/FFmpeg/FFmpeg>`_
 * `[2015][FFmpeg-devel] FFmpegs future and resigning as leader <http://ffmpeg.org/pipermail/ffmpeg-devel/2015-July/176489.html>`_
 * `FFmpeg - H.264 Video Encoding Guide <https://trac.ffmpeg.org/wiki/Encode/H.264>`_
