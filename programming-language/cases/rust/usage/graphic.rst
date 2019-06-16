@@ -6,7 +6,7 @@ Rust & Graphic
 .. contents:: 目錄
 
 
-底層架構介紹 - gfx
+gfx - 繪圖抽象層
 ========================================
 
 專案目標
@@ -46,7 +46,12 @@ Rust & Graphic
        +--------+   +---------+  +-------+  +--------+  +-----+
 
 
-抽象層 - gfx-hal
+參考：
+
+* [2019/06/12] `5 Year Anniversary - Gfx-rs nuts and bolts <https://gfx-rs.github.io/2019/06/12/anniversary-5.html>`_
+
+
+gfx-hal - 平台抽象化
 ------------------------------
 
 :repo: https://github.com/gfx-rs/gfx
@@ -98,7 +103,7 @@ Shader 語言方面提供單一的 SPIR-V 來撰寫，
 支援 GLSL、MSL、HLSL。
 
 
-Vulkan Portability Initiative 實做 - gfx-portability
+gfx-portability - Vulkan Portability Initiative 實做
 ----------------------------------------------------
 
 :repo: https://github.com/gfx-rs/portability
@@ -149,8 +154,18 @@ Vulkan Portability Initiative 實做 - gfx-portability
     - MoltenVK 採用這種方式
 
 
-Shader 界面
+wgpu - WebGPU 實做 (基於 gfx-hal 和 Rendy)
+------------------------------------------
+
+:Repo: https://github.com/gfx-rs/wgpu
+
+
+
+專案內部
 ------------------------------
+
+Shader 界面
+++++++++++++++++++++
 
 Shader parameters (或稱為 uniforms) 為使用者提供的繪製執行的數值，
 例如：
@@ -186,11 +201,11 @@ Shader parameters (或稱為 uniforms) 為使用者提供的繪製執行的數�
 
 
 PSO (Pipeline State Objects)
-------------------------------
+++++++++++++++++++++++++++++
 
 
 Programming Model
-------------------------------
+++++++++++++++++++++
 
 
 相關應用
@@ -199,6 +214,13 @@ Programming Model
 * `RPCS3 and Dolphin on macOS using gfx-portability <https://gfx-rs.github.io/2018/09/03/rpcs3-dolphin.html>`_
 * `RPCS3 - Progress Report: August 2018 <https://rpcs3.net/blog/2018/09/20/august-2018-progress-report/>`_
     - RPCS3 (Sony PlayStation 3 模擬器) 的 macOS 支援使用 gfx-rs
+
+
+
+Rendy - "build your own engine" kit powered by gfx-hal
+======================================================
+
+:Repo: https://github.com/amethyst/rendy
 
 
 
@@ -239,6 +261,7 @@ WebRender
 ========================================
 
 * [2018] `WebRender - Patrick Walton <https://pcwalton.github.io/slides/201808-webrender/>`_
+* [2018] `ported WebRender over and got Firefox and Servo running on gfx-hal <https://github.com/kvark/slides/blob/master/FirefoxOnGFX_OrlandoAllHands.pdf>`_
 
 
 參考
