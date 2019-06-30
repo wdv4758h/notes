@@ -55,15 +55,15 @@ Rust 選擇的是 async/await 的模式，
 也就是下一層要提到的內容。
 
 
-第二層：抽象化包裝 - Mio
-------------------------------
+第二層：作業系統 API 包裝 - Mio
+-------------------------------
 
 如先前所說，
 系統 API 會根據平台不同而有差異，
 因此有數個 library 實做了抽象化，
 例如 libev、libevent、libuv、Gio、Boost.Asio 等等。
 
-在 Rust 生態圈內主要是 `Mio <https://github.com/carllerche/mio>`_
+在 Rust 生態圈內主要是 `Mio <https://github.com/tokio-rs/mio>`_
 在負責系統 Asynchronous I/O 的抽象化，
 支援諸如 Linux/OS X/Windows/FreeBSD 等平台，
 並且盡可能地不增加效能損失，
@@ -71,10 +71,14 @@ Rust 選擇的是 async/await 的模式，
 
 
 
-第二層：高階 API - Tokio
+第三層：高階 API - Tokio/Romio
 ------------------------------
 
 .. image:: /images/rust/tokio-stack.png
+
+
+基於作業系統內相關的 API 包裝，
+實做例如 Thread Pool、Scheduler 等機制。
 
 
 `Tokio <https://github.com/tokio-rs/>`_
@@ -82,6 +86,35 @@ Rust 選擇的是 async/await 的模式，
 藉由底層的 libraries 在上面建立更完整更貼近應用程式的功能，
 提供更多方便的包裝，
 例如 SOCKS5 Proxy Server、HTTP Client、HTTP Server。
+
+
+第四層：跨後端包裝 - Runtime
+------------------------------
+
+:Repo: https://github.com/rustasync/runtime
+
+
+不同 Runtime 實做的抽象化，
+提供簡易的 proc-macro 來使用 Asynchronous，
+未來要更換實做也很容易。
+
+
+.. code-block:: rust
+
+
+    /// Use the default Native Runtime
+    #[runtime::main]
+    async fn main() {}
+
+    /// Use the Tokio Runtime
+    #[runtime::main(runtime_tokio::Tokio)]
+    async fn main() {}
+
+    #[runtime::test]
+    async fn my_test() {}
+
+    #[runtime::bench]
+    async fn my_bench() {}
 
 
 
