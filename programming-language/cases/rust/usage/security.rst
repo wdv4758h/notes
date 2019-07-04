@@ -41,6 +41,8 @@ Dalek - Fast, safe, pure-rust elliptic curve cryptography
 ---------------------------------------------------------
 
 :Site: https://dalek.rs/
+:Repo: https://github.com/dalek-cryptography/
+
 
 * Curve25519
 * Ed25519
@@ -73,6 +75,11 @@ Rustls
 
 基於 ring 和 libwebpki 去實做 TLS library，
 專案程式碼都是 Rust code。
+
+
+參考：
+
+* `TLS performance: rustls versus OpenSSL <https://jbp.io/2019/07/01/rustls-vs-openssl-performance.html>`_
 
 
 rust-native-tls - 系統 TLS library 抽象化
@@ -141,6 +148,17 @@ Quiche (by CloudFlare)
 :Repo: https://github.com/cloudflare/quiche
 
 
+參考：
+
+* `Enjoy a slice of QUIC, and Rust! <https://blog.cloudflare.com/enjoy-a-slice-of-quic-and-rust/>`_
+
+
+Nego (by Mozilla)
+------------------------------
+
+:Repo: https://github.com/mozilla/neqo
+
+
 
 Digital Signature (數位簽章)
 =========================================
@@ -177,4 +195,3 @@ LibreAuth - HOTP/TOTP/...
     - stream cipher algorithms
     - digital signature algorithms
     - cryptographic hash functions
-* `dalek cryptography <https://dalek.rs/>`_
