@@ -71,6 +71,22 @@ CNCF (Cloud Native Computing Foundation)，
 成為 CNCF 旗下扶持的專案。
 
 
+IndraDB - graph database
+------------------------------
+
+:Repo: https://github.com/indradb/indradb
+
+
+
+GraphQL
+========================================
+
+Juniper - GraphQL server library
+--------------------------------
+
+:Repo: https://github.com/graphql-rust/juniper
+
+
 
 Database Management UI
 ========================================
