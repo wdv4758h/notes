@@ -122,9 +122,36 @@ webpki
 專案程式碼都是 Rust code。
 
 
+rcgen - generate X.509 certificates
+-----------------------------------
+
+:Repo: https://github.com/est31/rcgen
+
+小工具，
+簡單快速地產生憑證。
+
+
 
 QUIC
 ========================================
+
+:Layer: Transport
+:Site: https://quicwg.org/
+:Wikipedia: https://en.wikipedia.org/wiki/QUIC
+:實做: https://github.com/quicwg/base-drafts/wiki/Implementations
+:HTTP/3 explained: https://daniel.haxx.se/http3-explained/
+
+
+* QUIC = UDP + TLS + congestion control + loss recovery
+    - 讓 UDP 也有 TCP 的可靠性，同時擁有比 TCP 低的 latency
+* HTTP/3 = HTTP over QUIC
+
+
+參考：
+
+* `Animation for head-of-line blocking issue <https://dirkjan.ochtman.nl/files/head-of-line-blocking.html>`_
+* [2018/10] `Implementation and Analysis of QUIC for MQTT <https://arxiv.org/abs/1810.07730>`_
+
 
 Quinn
 ------------------------------
