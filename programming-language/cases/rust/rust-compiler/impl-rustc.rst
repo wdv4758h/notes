@@ -88,6 +88,7 @@ Rust 有用 ANTLR 做 parser 驗證：
 ========================================
 
 * `rustc performance data <http://perf.rust-lang.org/>`_
+* `rustc performance data - versions compare <https://perf.rust-lang.org/dashboard.html>`_
 * `Some benchmarks for testing rustc performance <https://github.com/rust-lang-nursery/rustc-benchmarks>`_
 
 
@@ -260,6 +261,26 @@ Rust 有用 ANTLR 做 parser 驗證：
 
 * `How to: Run Rust code on your NVIDIA GPU <https://github.com/japaric/nvptx>`_
 * `Experiments with CUDA and Rust <https://github.com/japaric/cuda>`_
+
+
+
+Dashboard
+========================================
+
+* `Rustc PR tracking <https://rust-lang-nursery.github.io/rustc-pr-tracking/>`_
+
+
+
+相關專案
+========================================
+
+* `Chalk <https://github.com/rust-lang-nursery/chalk>`_
+    - Prolog like interpreter
+    - usage: convert Rust trait to logic, solve by Chalk engine
+* `Polonius <https://github.com/rust-lang-nursery/polonius>`_
+    - Rust borrow checker
+* `Salsa <https://github.com/salsa-rs/salsa/>`_
+    - Incremental Computation Framework
 
 
 
