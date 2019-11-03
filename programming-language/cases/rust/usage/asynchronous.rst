@@ -70,9 +70,8 @@ Rust 選擇的是 async/await 的模式，
 讓使用 mio 抽象化的效能跟直接使用系統 API 一樣。
 
 
-
-第三層：高階 API - Tokio/Romio
-------------------------------
+第三層：Executors 及相關生態系 - Tokio/async-std
+------------------------------------------------
 
 .. image:: /images/rust/tokio-stack.png
 
@@ -81,58 +80,50 @@ Rust 選擇的是 async/await 的模式，
 實做例如 Thread Pool、Scheduler 等機制。
 
 
+目前的選擇：
+
+* futures::executor::block_on
+* async_std::task::block_on
+* tokio::main
+
+
+已經淘汰的：
+
+* `Romio <https://github.com/withoutboats/romio>`_
+
+
 `Tokio <https://github.com/tokio-rs/>`_
 是基於 ``futures`` 和 ``mio`` 的 Asynchronous I/O Framework，
 藉由底層的 libraries 在上面建立更完整更貼近應用程式的功能，
 提供更多方便的包裝，
 例如 SOCKS5 Proxy Server、HTTP Client、HTTP Server。
 
-
-第四層：跨後端包裝 - Runtime
-------------------------------
-
-:Repo: https://github.com/rustasync/runtime
-
-
-不同 Runtime 實做的抽象化，
-提供簡易的 proc-macro 來使用 Asynchronous，
-未來要更換實做也很容易。
-
-
-.. code-block:: rust
-
-
-    /// Use the default Native Runtime
-    #[runtime::main]
-    async fn main() {}
-
-    /// Use the Tokio Runtime
-    #[runtime::main(runtime_tokio::Tokio)]
-    async fn main() {}
-
-    #[runtime::test]
-    async fn my_test() {}
-
-    #[runtime::bench]
-    async fn my_bench() {}
+Tokio 發展較早，在 Rust 還未正式支援 ``.await`` 之前就已經可以使用。
+而 async-std 則是 ``.await`` 穩定後，針對這個新功能製作的。
 
 
 
 Futures
 ========================================
 
-Future （有時又被稱為 Promise）是 Asynchronous 程式中很常見的一個概念，
-作為一個中間人來檢查或使用 Asynchronous 產生的值，
-而 Rust 當中也有叫做
-`Futures <https://github.com/rust-lang-nursery/futures-rs>`_
-的 Library 專門負責這件事。
+Rust 在 Standard Library 裡有
+`std::future::Future <https://doc.rust-lang.org/std/future/trait.Future.html>`_ trait，
+這是 asynchronous 的基礎，
+使用 ``async fn`` 定義的函式會回傳 ``impl std::future::Future`` 。
 
-在這個 Library 中，
-Futures 是任何實做了 ``Future`` trait 的型別，
-trait 內包含許多方便使用的函式。
+Future （有時又被稱為 Promise）是 Asynchronous 程式中很常見的一個概念，
+作為一個中間人來檢查或使用 Asynchronous 產生的值。
+
+除了 std::future::Future trait 之外，
+`futures-rs <https://github.com/rust-lang-nursery/futures-rs>`_
+提供了一些相關的實用操作。
+
 
 
 * `Cheatsheet for Futures <https://rufflewind.com/img/rust-futures-cheatsheet.html>`_
+* `rust/src/libcore/task/ <https://github.com/rust-lang/rust/tree/master/src/libcore/task>`_
+* `rust/src/libcore/future/ <https://github.com/rust-lang/rust/tree/master/src/libcore/future>`_
+
 
 * 基本小工具
     - empty => 產生永遠不會結束的 Future
@@ -193,6 +184,23 @@ Selecting (racing) futures:
 
 
 
+async-std
+========================================
+
+async-std 要提供的是 async 版本的 Standard Library，
+操作界面都參考 Standard Library，
+但是提供 async 的支援，
+讓人可以快速上手和更改。
+
+其底層使用了 Mio、Futures、Crossbeam。
+
+
+* [2019/08/16] `Announcing async-std <https://async.rs/blog/announcing-async-std/>`_
+* https://book.async.rs/concepts/tasks.html
+* async-std is a standalone library based on the Future trait and supporting set of traits from the futures library.
+
+
+
 Generator
 ========================================
 
@@ -207,6 +215,7 @@ Coroutines 實做種類：
     - C++ Resumable Functions
     - Erlang
     - Stackless Python
+    - Rust Coroutines
 
 
 目前 Rust 的 generator 實做是
@@ -396,6 +405,7 @@ Tokio: Database
 參考
 ========================================
 
+* `Are we async yet? <https://areweasyncyet.rs>`_
 * `Wikipedia - Asynchronous I/O <https://en.wikipedia.org/wiki/Asynchronous_I/O>`_
 * `Wikipedia - Futures and Promises <https://en.wikipedia.org/wiki/Futures_and_promises>`_
 * `Improving GStreamer performance on a high number of network streams by sharing threads between elements with Rust’s tokio crate <https://coaxion.net/blog/2018/04/improving-gstreamer-performance-on-a-high-number-of-network-streams-by-sharing-threads-between-elements-with-rusts-tokio-crate/>`_
