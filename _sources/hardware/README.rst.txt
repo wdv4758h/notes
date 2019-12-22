@@ -4,11 +4,11 @@
 
 廠商：
 
-* `Intel <intel.rst>`_
-* `AMD <amd.rst>`_
-* `ARM <arm.rst>`_
-* `Qualcomm <qualcomm.rst>`_
-* `Arduino <arduino.rst>`_
+* `Intel <vendor/intel.rst>`_
+* `AMD <vendor/amd.rst>`_
+* `ARM <vendor/arm.rst>`_
+* `Qualcomm <vendor/qualcomm.rst>`_
+* `Arduino <vendor/arduino.rst>`_
 * Zilog
 * OmniVision
 * `Amazon Kindle <kindle.rst>`_
@@ -27,8 +27,8 @@
 * Hard Disk
 * SSD
 * Mobile
-* `鍵盤 <keyboard.rst>`_
-* `螢幕 <monitor.rst>`_
+* `鍵盤 <concept/keyboard.rst>`_
+* `螢幕 <concept/monitor.rst>`_
 * Wifi
 * 電池
 * 充電元件
@@ -40,14 +40,14 @@
 
 語言：
 
-* `Verilog <verilog.rst>`_
+* `Verilog <lang/verilog.rst>`_
 
 
 技術細節：
 
 * `RISC-V <risc-v.rst>`_
 
-* `Serial Port <serial-port.rst>`_
+* `Serial Port <concept/serial-port.rst>`_
 * UART
 * SPI
 * I2C

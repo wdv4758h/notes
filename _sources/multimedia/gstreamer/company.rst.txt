@@ -11,3 +11,5 @@ GStreamer 相關公司
 * `Fluendo <https://fluendo.com/en/about/>`_
 * `RidgeRun <https://www.ridgerun.com/>`_
 * Igalia
+
+* `Pexip <https://pexip.com/>`_

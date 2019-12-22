@@ -54,3 +54,4 @@ C++ Videos
 * [2015] `Understanding Compiler Optimization - Chandler Carruth <https://www.youtube.com/watch?v=FnGCDLhaxKU>`_
 * [2015] `Mind the cache <https://www.youtube.com/watch?v=TipTVUGBFtY>`_
     - `Slide <https://github.com/joaquintides/usingstdcpp2015/blob/master/Mind%20the%20cache.pdf>`_
+* [2018] `Writing cache friendly C++ - Jonathan Müller <https://www.youtube.com/watch?v=Nz9SiF0QVKY>`_

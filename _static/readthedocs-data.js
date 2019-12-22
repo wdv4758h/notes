@@ -10,6 +10,7 @@ var READTHEDOCS_DATA = {
     docroot: "/./",
     source_suffix: ".rst",
     api_host: "https://readthedocs.org",
+    proxied_api_host: "",
     commit: "",
     ad_free: false,
 

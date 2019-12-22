@@ -3,7 +3,9 @@ var DOCUMENTATION_OPTIONS = {
     VERSION: 'latest',
     LANGUAGE: 'zh_TW',
     COLLAPSE_INDEX: false,
+    BUILDER: 'readthedocs',
     FILE_SUFFIX: '.html',
     HAS_SOURCE: true,
-    SOURCELINK_SUFFIX: '.txt'
+    SOURCELINK_SUFFIX: '.txt',
+    NAVIGATION_WITH_KEYS: false
 };
