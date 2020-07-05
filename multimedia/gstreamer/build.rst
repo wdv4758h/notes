@@ -203,4 +203,4 @@ Toolchain 設定在
     - ``dist/android_arm64/`` ，有 ``bin`` 、 ``lib`` 等等
     - ``dist/android_universal/``
     - ``dist/linux_x86_64/``
-* 如果編譯出狀況失敗的話會提供選擇，看是要直接從失敗處重新編譯，該 Recipe 整個重編，提供 shell 做調整，或是放棄等等，不需要整個重頭開始
+* 如果編譯出狀況失敗的話會提供選擇，看是要直接從失敗處重新編譯，該 Recipe 整個重編，提供 shell 做調整，或是放棄等等，不需要整個從頭開始
