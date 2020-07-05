@@ -10,7 +10,7 @@ static
 ========================================
 
 static 關鍵字可以用在兩種地方，
-一個是 class 內用於宣告不用榜定 instance 的 class method 和 class member，
+一個是 class 內用於宣告不用綁定 instance 的 class method 和 class member，
 一個是 class 外用於宣告會在程式一啟動就建立並在程式結束收回的變數。
 
 

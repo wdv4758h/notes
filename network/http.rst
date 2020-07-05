@@ -134,7 +134,7 @@ QUIC Protocol 功能：
     - 先前的 Google QUIC 使用的是自己客製化的加密
 * Transport 與應用
     - 先前的 Google QUIC 把 Transport 和 HTTP 結合在一起，使得應用比較受限
-    - IETF QUIC 把 HTTP 的部份抽開，讓 QUIC 專心處理 Transport 的事情，不再榜定 HTTP
+    - IETF QUIC 把 HTTP 的部份抽開，讓 QUIC 專心處理 Transport 的事情，不再綁定 HTTP
 * HTTP over QUIC
     - 成為 HTTP3
 * Non-HTTP over QUIC

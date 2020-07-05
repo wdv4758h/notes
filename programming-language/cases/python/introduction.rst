@@ -49,7 +49,7 @@ Type & Object
 以 CPython 來說，
 Header 訊息由 Reference Counter 和型別指標組成，
 Reference Counter 會在物件被 Reference 時增加，
-超出 scope 或手動釋放時會撿少，
+超出 scope 或手動釋放時會減少，
 等於 0 時就會被回收（某些特殊的物件永遠不會變成 0），
 以 ``int`` 為例，
 其 Header 為：

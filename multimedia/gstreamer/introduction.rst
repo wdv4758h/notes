@@ -46,7 +46,7 @@ GStreamer 核心的部份是 media-agnostic 的，
 * 使用 GLib 的 GSlice allocator
 * 元件間的連結非常輕量化，資料傳輸的成本也非常小，通常只是指標的存取
 * 擁有直接使用特定記憶體的機制，例如直接使用音效卡內的硬體 buffer
-* reference counting 和 copy on write 來撿少 memcpy 的使用
+* reference counting 和 copy on write 來減少 memcpy 的使用
 * 獨立的串流 thread，由 kernel 排程
 * 支援硬體加速
 * 元件只在真正要使用時才讀入
