@@ -69,6 +69,8 @@ Makefile
 help
 ------------------------------
 
+風格ㄧ:
+
 .. code-block:: make
 
     help:
@@ -83,6 +85,42 @@ help
     $ make help
     bar                            task bar
     foo                            task foo
+
+
+
+風格二:
+
+.. code-block:: make
+
+    help:  ## Display this help
+        @awk 'BEGIN {FS = ":.*##"; printf "\nUsage:\n  make \033[36m<target>\033[0m\n"} /^[a-zA-Z_-]+:.*?##/ { printf "  \033[36m%-15s\033[0m %s\n", $$1, $$2 } /^##@/ { printf "\n\033[1m%s\033[0m\n", substr($$0, 5) } ' $(MAKEFILE_LIST)
+
+    ##@ Section 1
+
+    bar:    ## task bar
+    foo:    ## task foo
+
+    ##@ Section 2
+
+    abc:    ## task abc
+    def:    ## task def
+
+
+.. code-block:: sh
+
+    $ make help
+
+    Usage:
+      make <target>
+      help             Display this help
+
+    Section 1
+      bar              task bar
+      foo              task foo
+
+    Section 2
+      abc              task abc
+      def              task def
 
 
 執行指令前都先輸出是在跑哪一行
