@@ -219,8 +219,27 @@ help
     make ci -j$(proc)
 
 
+繼承另一個 Makefile
+------------------------------
+
+.. code-block:: make
+
+    include ../base.Makefile
+
+
+更改預設
+------------------------------
+
+.. code-block:: make
+
+    .DEFAULT_GOAL := help
+
+
 
 參考
 ========================================
 
 * `Your Makefiles are wrong - Jacob Davis-Hansson <https://tech.davis-hansson.com/p/make/>`_
+* `The Language Agnostic, All-Purpose, Incredible, Makefile <https://blog.mindlessness.life/2019/11/17/the-language-agnostic-all-purpose-incredible-makefile.html>`_
+* `Makefiles, Best Practices <https://danyspin97.org/blog/makefiles-best-practices/>`_
+* `Notes for new Make users <http://gromnitsky.users.sourceforge.net/articles/notes-for-new-make-users/>`_
