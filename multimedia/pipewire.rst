@@ -10,10 +10,14 @@ PipeWire
 ========================================
 
 :site: https://pipewire.org/
+:repo: https://gitlab.freedesktop.org/pipewire/pipewire/
 
 
-* 涵蓋目前 PulseAudio 和 Jack 的使用情境，具有相容層
-* 提供一致的方式來同時支援一半桌面應用和專業低延遲應用
+* 涵蓋目前 PulseAudio 和 JACK 的使用情境，具有相容層
+* 提供一致的方式來同時支援一般桌面應用和專業低延遲應用
+    - 一般桌面應用：較低耗電、延遲不是特別重要、手動設定的東西越少越好
+    - 專業低延遲應用：穩定且低的延遲、耗電不是特別重要、彈性的使用者設定
+    - PipeWire 根據應用程式的需求可以動態地切換模式，藉此專業應用者不需要再重新學另一套設定
 * 除了音訊外，還支援影像，提供和音訊同等的彈性和管理給攝影機、桌面視窗等
 * 提供 sandbox 應用程式的支援
 * 支援 GStreamer
@@ -63,6 +67,108 @@ PulseAudio 的目標是桌面應用，
 PipeWire v.s. JACK
 ========================================
 
+PipeWire 和 JACK 有許多相似的設計，
+例如 scheduling 和 graph model，
+但是主要類似採用 PulseAudio 的 timer-based wakup。
+
+另外相比 JACK 還多支援了格式溝通、動態裝置、動態延遲調整、sandbox 支援等等。
+
+
+
+工具
+========================================
+
+.. code-block:: sh
+
+    $ pw-dump
+    [
+      {
+        "id": 0,
+        "type": "PipeWire:Interface:Core",
+        "version": 3,
+        "permissions": [ "r", "w", "x", "m" ],
+        "info": {
+          "cookie": 629914341,
+          "user-name": "user",
+          "host-name": "archlinux",
+          "version": "0.3.20",
+          "name": "pipewire-0",
+          "name": "pipewire-0",
+          "change-mask": [ "props" ],
+          "props": {
+            "core.name": "pipewire-0",
+            "context.profile.modules": "none",
+            "core.daemon": true,
+            "link.max-buffers": 16,
+            "default.clock.rate": 48000,
+            "default.clock.quantum": 1024,
+            "default.clock.min-quantum": 32,
+            "default.clock.max-quantum": 8192,
+            "default.video.width": 640,
+            "default.video.height": 480,
+            "default.video.rate.num": 25,
+            "default.video.rate.denom": 1,
+            "mem.allow-mlock": true,
+            "cpu.max-align": 64,
+            "object.id": 0
+          }
+        }
+      },
+      {
+        "id": 1,
+        "type": "PipeWire:Interface:Module",
+        "version": 3,
+        "permissions": [ "r", "w", "x", "m" ],
+        "info": {
+          "name": "libpipewire-module-rtkit",
+          "filename": "/usr/lib/pipewire-0.3/libpipewire-module-rtkit.so",
+          "args": null,
+          "change-mask": [ "props" ],
+          "props": {
+            "module.name": "libpipewire-module-rtkit",
+            "object.id": 1,
+            "module.author": "Wim Taymans <wim.taymans@gmail.com>",
+            "module.description": "Use RTKit to raise thread priorities",
+            "module.usage": "[nice.level=<priority: default -11>] [rt.prio=<priority: default 20>] [rt.time.soft=<in usec: default 200000] [rt.time.hard=<in usec: default 200000] ",
+            "module.version": "0.3.20",
+            "nice.level": -11,
+            "rt.prio": 20,
+            "rt.time.soft": 200000,
+            "rt.time.hard": 200000
+          }
+        }
+      },
+      ...
+    ]
+
+
+.. code-block:: sh
+
+    # dump all into DOT file
+    $ pw-dot
+    # dump all into DOT file (linked objects only)
+    $ pw-dot -s
+
+    # graphviz
+    $ dot -Tpng pw.dot > pw.png
+
+
+.. image:: ../images/multimedia/pipewire-firefox.png
+
+
+.. code-block:: sh
+
+    $ pw-top
+    S   ID PERIOD/RATE      WAIT    BUSY   W/P   B/P  ERR  NAME
+
+    !   28      0/0        0.0  s   0.0  s  0.00  0.00    0  Dummy-Driver
+    !   38      0/0        0.0  s   0.0  s  0.00  0.00    0  Midi-Bridge
+    !   43      0/0        0.0  s   0.0  s  0.00  0.00    0  v4l2_output.pci-0000:00:14.0-usb-0:9:1.0
+    !   45      0/0        0.0  s   0.0  s  0.00  0.00    0  v4l2_output.pci-0000:00:14.0-usb-0:9:1.2
+    !   48      0/0        0.0  s   0.0  s  0.00  0.00    0  alsa_output.pci-0000:00:1f.3.analog-stereo
+    !   49      0/0        0.0  s   0.0  s  0.00  0.00    0  alsa_input.pci-0000:00:1f.3.analog-stereo
+    !   62      0/0        0.0  s   0.0  s  0.00  0.00    0  bluez_input.FF:FF:FF:FF:FF:FF.a2dp-sink
+
 
 
 參考
@@ -70,8 +176,9 @@ PipeWire v.s. JACK
 
 * `Wikipedia - PipeWire <https://en.wikipedia.org/wiki/PipeWire>`_
 * `Arch Wiki - PipeWire <https://wiki.archlinux.org/index.php/PipeWire>`_
+* `Arch Wiki - Talk:PipeWire <https://wiki.archlinux.org/index.php/Talk:PipeWire>`_
 * `Gentoo Wiki - PipeWire <https://wiki.gentoo.org/wiki/Pipewire>`_
-* `PipeWire FAQ <https://github.com/PipeWire/pipewire/wiki/FAQ>`_
+* `PipeWire FAQ <https://gitlab.freedesktop.org/pipewire/pipewire/-/wikis/FAQ>`_
 * [2020] `PipeWire: a low-level multimedia subsystem <https://lac2020.sciencesconf.org/307881/document>`_
     - 古早的 Linux 音訊支援是 OSS (Open Sound System)，而且是 Linux 2.4 以前唯一的音訊 API，基於 open/close/read/write/ioctl
     - Linux 2.5 用 ALSA (Advanced Linux Sound Architecture) 取代了 OSS
@@ -91,6 +198,9 @@ PipeWire v.s. JACK
         + 應用程式和音訊伺服器的協定本身爲非同步
         + 格式溝通採用和 GStreamer 一樣的格式描述，可以在兩端點間取交集找到合適的溝通格式
 
-* `Getting the team together to revolutionize Linux audio <https://blogs.gnome.org/uraeus/2018/09/24/getting-the-team-together-to-revolutionize-linux-audio/>`_
-* `FOSDEM 2019 - Pipewire <https://fosdem.org/2019/schedule/event/pipewire/attachments/slides/2826/export/events/attachments/pipewire/slides/2826/PipeWire.pdf>`_
-* `PipeWire, the media service transforming the Linux multimedia landscape <https://www.collabora.com/news-and-blog/blog/2020/03/05/pipewire-the-media-service-transforming-the-linux-multimedia-landscape/>`_
+* [2020] `PipeWire Late Summer Update 2020 — Christian F.K. Schaller <https://blogs.gnome.org/uraeus/2020/09/04/pipewire-late-summer-update-2020/>`_
+* [2020] `PipeWire, the media service transforming the Linux multimedia landscape <https://www.collabora.com/news-and-blog/blog/2020/03/05/pipewire-the-media-service-transforming-the-linux-multimedia-landscape/>`_
+* [2020] `WirePlumber, the PipeWire session manager <https://www.collabora.com/news-and-blog/blog/2020/05/07/wireplumber-the-pipewire-session-manager/>`_
+* [2019] `FOSDEM 2019 - Pipewire <https://fosdem.org/2019/schedule/event/pipewire/attachments/slides/2826/export/events/attachments/pipewire/slides/2826/PipeWire.pdf>`_
+* [2019] `PipeWire in the Automotive Industry - GStreamer conferences <https://gstconf.ubicast.tv/videos/pipewire-in-the-automotive-industry/>`_
+* [2018] `Getting the team together to revolutionize Linux audio <https://blogs.gnome.org/uraeus/2018/09/24/getting-the-team-together-to-revolutionize-linux-audio/>`_
