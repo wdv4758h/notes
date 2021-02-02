@@ -1,5 +1,5 @@
 ========================================
-Regex (Regular Expression)
+Rust x Regex (Regular Expression)
 ========================================
 
 
@@ -25,6 +25,16 @@ Rust 的 regex 實做還參考了 Intel 的 Hyperscan 引入部份 SIMD 加速�
 當使用的正規表達不包含 Lookaround 和 Backtracking 需求時，
 就採用 DFA/NFA 實做，
 否則採用 Backtracking 實做。
+（ `syntect <https://github.com/trishume/syntect#pure-rust-fancy-regex-mode-without-onig>`_
+有支援使用 fancy-regex 作爲引擎，
+在測試資料內，行爲上跟 Oniguruma 相同，但是效能大約只有一半，還有待進一步改善）
+
+使用 NFA 實作的好處是可以控制最差的狀況，
+但是壞處是不能支援特定的操作（如 Lookaround 和 Backtracking）。
+使用 Backtracking 實作的好處是可以支援更豐富的操作，
+壞處是不能控制最差的狀況，
+如果提供給使用者的話，
+有可能成爲 DoS 攻擊點。
 
 
 
@@ -75,54 +85,38 @@ Compile Time Regex
 
 
 
-Regex 相關應用
-========================================
-
-* ripgrep
-* fd
-
-
-
 其他實做比較
 ========================================
 
-* PCRE
-* PCRE-DFA
-* PCRE-sljit
-* Google RE2
+* `PCRE2 <https://vcs.pcre.org/pcre2/code/trunk/>`_
+* PCRE2-DFA
+* PCRE2-sljit
+* `RE2 (Google) <https://github.com/google/re2>`_
 * Go Regexp
-* Oniguruma
-* TRE
+* `Oniguruma <https://github.com/kkos/oniguruma>`_
+* `TRE <https://github.com/laurikari/tre>`_
 * sregex
 * Thompson NFA
 * Perl
 * Python
 * Ruby
 * Henry Spencer's regex library
-* Hyperscan
+* `Hyperscan (Intel) <https://github.com/01org/hyperscan>`_
+    - 使用 SIMD 加速
+    - `Paper: Hyperscan: A Fast Multi-pattern Regex Matcher for Modern CPUs <https://branchfree.org/2019/02/28/paper-hyperscan-a-fast-multi-pattern-regex-matcher-for-modern-cpus/>`_
 
 
 
 參考
 ========================================
 
-Repos
-------------------------------
-
 * `regex <https://github.com/rust-lang/regex>`_
 * `fancy-regex <https://github.com/fancy-regex/fancy-regex>`_
     - 想要嘗試混合的實做，支援 NFA 實做無法達成的功能，同時盡量利用 NFA 實做的效能
-* `Hyperscan <https://github.com/01org/hyperscan>`_
-    - Intel 的 regex engine，使用 SIMD 加速
-    - `Paper: Hyperscan: A Fast Multi-pattern Regex Matcher for Modern CPUs <https://branchfree.org/2019/02/28/paper-hyperscan-a-fast-multi-pattern-regex-matcher-for-modern-cpus/>`_
-* `RE2 <https://github.com/google/re2>`_
-    - Google 的 regex engine
-
-
-其他
-------------------------------
+* `regex-performance - performance comparison of regular expression engines <https://github.com/rust-leipzig/regex-performance>`_
 
 * `Wikipedia - String searching algorithm <https://en.wikipedia.org/wiki/String_searching_algorithm>`_
 * `Wikipedia - Aho-Corasick algorithm <https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm>`_
 * `演算法筆記 - Multi-Pattern String Matching: Aho-Corasick Algorithm <http://www.csie.ntnu.edu.tw/~u91029/StringMatching.html#4>`_
 * `CppCon 2018: Compile Time Regular Expressions <https://cppcon2018.sched.com/event/FnKa/compile-time-regular-expressions>`_
+* `String Matching with Multicore CPUs: Performing Better with the Aho-Corasick Algorithm <https://arxiv.org/pdf/1403.1305.pdf>`_
