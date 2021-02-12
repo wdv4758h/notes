@@ -114,6 +114,9 @@ Compile Time Regex
 * `fancy-regex <https://github.com/fancy-regex/fancy-regex>`_
     - 想要嘗試混合的實做，支援 NFA 實做無法達成的功能，同時盡量利用 NFA 實做的效能
 * `regex-performance - performance comparison of regular expression engines <https://github.com/rust-leipzig/regex-performance>`_
+* `regexm - Rust macro for writing regex pattern matching <https://github.com/TaKO8Ki/regexm>`_
+* `grex - CLI for generating regular expressions from user-provided test cases <https://github.com/pemistahl/grex>`_
+* `Rustexp - online Rust regular expression editor & tester <https://rustexp.lpil.uk>`_
 
 * `Wikipedia - String searching algorithm <https://en.wikipedia.org/wiki/String_searching_algorithm>`_
 * `Wikipedia - Aho-Corasick algorithm <https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm>`_
