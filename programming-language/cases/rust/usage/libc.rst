@@ -6,8 +6,16 @@ libc
 .. contents:: 目錄
 
 
-rust-lang/libc
+libc 功能介紹
 ========================================
+
+
+
+rust-lang/libc - raw bindings to platform APIs
+==============================================
+
+:repo: https://github.com/rust-lang/libc
+
 
 針對各平台 libc 的 binding。
 
@@ -16,27 +24,48 @@ rust-lang/libc
 
 
 
-japaric/libm
+rust-lang/libm - musl libm port
 ========================================
 
-`musl libm <https://github.com/japaric/libm>`_ 移植
+:repo: https://github.com/rust-lang/libm
 
 
 
-steed - Rust standard library without C dependencies
-====================================================
+Redox - relibc
+========================================
 
-:Repo: https://github.com/japaric/steed
+:repo: https://github.com/redox-os/relibc
 
-目標是要達到讓 Rust 真正地易於 cross compile，
-完全不需要 libc 的 libstd 實做是一部分，
-另一部份是把 LLVM lld 加入 rustc。
+
+
+實做研究 - GNU C Library (glibc)
+========================================
+
+:Site: https://www.gnu.org/software/libc/
+
+
+參考：
+
+* `Decoded: GNU coreutils <https://www.maizure.org/projects/decoded-gnu-coreutils/index.html>`_
+
+
+glibc 2.29
+------------------------------
+
+* `Glibc 2.29 release notes <https://sourceware.org/ml/libc-announce/2019/msg00000.html>`_
+* `Glibc 2.29 Is Offering Up Some Nice Performance Improvements <https://www.phoronix.com/scan.php?page=article&item=glibc-229-clear&num=1>`_
+
+
+
+實做研究 - musl
+========================================
 
 
 
 參考
 ========================================
 
+* `RFC 1291 - promote libc <https://github.com/rust-lang/rfcs/blob/master/text/1291-promote-libc.md>`_
 * man libc
 * GNU libc
 * musl libc
@@ -46,4 +75,5 @@ steed - Rust standard library without C dependencies
 * BSD libc
 * dietlibc
 * `Comparison of C/POSIX standard library implementations for Linux <https://www.etalabs.net/compare_libcs.html>`_
+* `[llvm-dev] A libc in LLVM <http://lists.llvm.org/pipermail/llvm-dev/2019-June/133477.html>`_
 * `rusl <https://github.com/anp/rusl>`_
