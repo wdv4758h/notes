@@ -1,112 +1,73 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-TW" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-TW" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Rust 生態圈 (Rust Ecosystem) &mdash; wdv4758h-notes latest 說明文件</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rust 生態圈 (Rust Ecosystem) &mdash; wdv4758h-notes latest documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../../../_static/translations.js"></script>
-        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
-    
-    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
-    <link rel="index" title="索引" href="../../../../genindex.html" />
-    <link rel="search" title="搜尋" href="../../../../search.html" /> 
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
 
 <!-- RTD Extra Head -->
 
-<!-- 
-Always link to the latest version, as canonical.
-http://docs.readthedocs.org/en/latest/canonical.html
--->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/programming-language/cases/rust/usage/ecosystem.html" />
+    <!--
+    Always link to the latest version, as canonical.
+    http://docs.readthedocs.org/en/latest/canonical.html
+    -->
+    <link rel="canonical" href="https://wdv4758h-notes.readthedocs.io/zh_TW/latest/programming-language/cases/rust/usage/ecosystem.html" />
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../../../../_static/readthedocs-data.js"></script>
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": "", "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": "https://wdv4758h-notes.readthedocs.io/zh_TW/latest/", "docroot": "/./", "features": {"docsearch_disabled": false}, "global_analytics_code": "", "language": "en", "page": "programming-language/cases/rust/usage/ecosystem", "programming_language": "", "project": "wdv4758h-notes", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": ""}</script>
 
-<!-- Add page-specific data, which must exist in the page js, not global -->
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = "programming-language/cases/rust/usage/ecosystem"
-READTHEDOCS_DATA['source_suffix'] = ".rst"
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
 </script>
 
-<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js" async="async"></script>
 
 <!-- end RTD <extrahead> -->
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../../../index.html" class="icon icon-home"> wdv4758h-notes
           
-
-          
+          <a href="../../../../index.html" class="icon icon-home">
+            wdv4758h-notes
           </a>
-
-          
-            
-            
-            
               <div class="version">
                 latest
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../algorithm/README.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../algorithm/adt.html">ADT (Abstract Data Type)</a></li>
@@ -116,13 +77,18 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../../algorithm/cache.html">Cache</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../algorithm/cache-friendly.html">Cache Friendly Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../algorithm/dict.html">Dict</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../algorithm/float-to-string.html">Float to String</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../algorithm/heap.html">Heap （堆）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../algorithm/introduction.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../algorithm/inverse-square-root.html">Inverse Square Root</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../algorithm/lock.html">Lock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../algorithm/meta-algorithm.html">Meta Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../algorithm/misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../algorithm/random-number-generator.html">Random Number Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../algorithm/resource.html">演算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../algorithm/sorting.html">Sorting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../algorithm/string-to-float.html">String to Float</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../algorithm/substring-searching.html">Substring Searching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../android/README.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../android/android-emulator.html">Android Emulator</a></li>
@@ -198,7 +164,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../../blog/openmp.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../blog/pypy-brainfuck.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../blog/pypy-brainfuck.html#tutorial">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../blog/pypy-brainfuck.html#id5">額外紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../blog/pypy-brainfuck.html#id4">額外紀錄</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../blog/pypy-brainfuck.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../blog/python-benchmark.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../blog/python-benchmark.html#hello-world">Hello World</a></li>
@@ -225,7 +191,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../../blog/qemu-first-step.html#qemu-with-kvm">QEMU with KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../blog/rust-closure.html">Syntax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../blog/rust-closure.html#closure">Closure 和外部變數</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../blog/rust-closure.html#move-closures">「move」 closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../blog/rust-closure.html#move-closures">“move” closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../blog/rust-closure.html#closure-implementation">Closure implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../blog/rust-closure.html#closures-as-arguments">closures as arguments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../blog/rust-closure.html#returning-closures">returning closures</a></li>
@@ -406,6 +372,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../../continuous-integration/ci.html">Continuous Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../continuous-integration/concourse.html">Concourse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../continuous-integration/drone.html">Drone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../continuous-integration/github-actions.html">Github Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../continuous-integration/jenkins.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../continuous-integration/travis-ci.html">Travis CI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../continuous-integration/workflow-pipeline.html">Workflow Pipeline</a></li>
@@ -415,7 +382,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../../cpp/array.html">std::array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../cpp/assembly.html">C++ &amp; Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../cpp/bit-field.html">C++ Bit Field</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../cpp/c++17.html">C++17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cpp/c%2B%2B17.html">C++17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../cpp/concepts.html">C++ Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../cpp/const.html">C++ const</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../cpp/copy-elision.html">Copy Elision</a></li>
@@ -468,13 +435,16 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../../database/README.html">資料庫 (Database)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../database/cockroachdb.html">CockroachDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../database/consensus-algorithm.html">Raft Consensus Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../database/graph.html">Graph Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../database/leveldb.html">LevelDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../database/materialized-views.html">Materialized Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../database/mongodb.html">MongoDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../database/mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../database/resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../database/rocksdb.html">RocksDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../database/sql.html">SQL (Structured Query Language)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../database/sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../database/tidb.html">TiDB</a></li>
@@ -547,7 +517,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../math/math-on-web.html">Math on Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../math/misc.html">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../memory/W^X.html">W^X (Write XOR Execute)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../memory/W%5EX.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../memory/allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../memory/kernel-memory-management.html">Kernel Memory Management</a></li>
@@ -805,74 +775,34 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../../wiki/resource.html">Wiki</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../../index.html">wdv4758h-notes</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
-        
-      <li>Rust 生態圈 (Rust Ecosystem)</li>
-    
-    
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Rust 生態圈 (Rust Ecosystem)</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/wdv4758h/notes/blob/master/./programming-language/cases/rust/usage/ecosystem.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="rust-rust-ecosystem">
-<h1><a class="toc-backref" href="#id13">Rust 生態圈 (Rust Ecosystem)</a><a class="headerlink" href="#rust-rust-ecosystem" title="本標題的永久連結">¶</a></h1>
-<div class="contents topic" id="id1">
-<p class="topic-title first">目錄</p>
+             
+  <section id="rust-rust-ecosystem">
+<h1><a class="toc-backref" href="#id13" role="doc-backlink">Rust 生態圈 (Rust Ecosystem)</a><a class="headerlink" href="#rust-rust-ecosystem" title="Permalink to this heading"></a></h1>
+<nav class="contents" id="id1">
+<p class="topic-title">目錄</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#rust-rust-ecosystem" id="id13">Rust 生態圈 (Rust Ecosystem)</a></p>
 <ul>
@@ -895,9 +825,9 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="id2">
-<h2><a class="toc-backref" href="#id14">說明</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+</nav>
+<section id="id2">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">說明</a><a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
 <p>對於各套件期望的特色：</p>
 <ul class="simple">
 <li><p>功能豐富</p></li>
@@ -907,9 +837,9 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li><p>使用簡單</p></li>
 <li><p>跨平台</p></li>
 </ul>
-</div>
-<div class="section" id="id3">
-<h2><a class="toc-backref" href="#id15">套件徵求清單</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="id3">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">套件徵求清單</a><a class="headerlink" href="#id3" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><dl class="simple">
 <dt><a class="reference external" href="https://github.com/not-yet-awesome-rust/not-yet-awesome-rust">Not-Yet-Awesome Rust</a></dt><dd><ul>
@@ -926,20 +856,20 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </dl>
 </li>
 </ul>
-</div>
-<div class="section" id="id4">
-<h2><a class="toc-backref" href="#id16">第三方套件平台</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="id4">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">第三方套件平台</a><a class="headerlink" href="#id4" title="Permalink to this heading"></a></h2>
 <p>Rust 的第三方套件都會蒐集在 <a class="reference external" href="https://crates.io/">crates.io</a> ，
 而放在上面的套件都可以在 <a class="reference external" href="https://docs.rs/">docs.rs</a> 找到對應的文件。</p>
-</div>
-<div class="section" id="id5">
-<h2><a class="toc-backref" href="#id17">狀況良好的領域</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="id5">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">狀況良好的領域</a><a class="headerlink" href="#id5" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="regex.rst">Regular Expression</a></p></li>
 </ul>
-</div>
-<div class="section" id="cli">
-<h2><a class="toc-backref" href="#id18">CLI 參數處理</a><a class="headerlink" href="#cli" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="cli">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">CLI 參數處理</a><a class="headerlink" href="#cli" title="Permalink to this heading"></a></h2>
 <p>Rust 官方有提供 <a class="reference external" href="https://github.com/rust-lang-nursery/getopts">getopts</a> library
 可以幫助處理 CLI 參數，
 但是功能比較基本。
@@ -947,23 +877,23 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 其中 <a class="reference external" href="https://github.com/docopt/docopt.rs">docopt</a> 可以直接撰寫 help message 來爬參數，
 而 <a class="reference external" href="https://clap.rs/">clap-rs</a> 則提供多樣化的選擇（Method、Macro、YAML），
 並且可以生出 help message、Shell 補完（Bash、Fish、Zsh、Powershell）、打錯時的建議。</p>
-</div>
-<div class="section" id="id6">
-<h2><a class="toc-backref" href="#id19">生物資訊</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="id6">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">生物資訊</a><a class="headerlink" href="#id6" title="Permalink to this heading"></a></h2>
 <p>目前已經出現針對生物資訊的 library - <a class="reference external" href="https://rust-bio.github.io/">Rust-Bio</a> ，
 已經實做不少格式和演算法的支援，
 例如 FASTQ、FASTA、BED，
 雖然離完整還有段距離，
 但是社群、開發活躍度是可以期待的。</p>
-</div>
-<div class="section" id="ethereum-blockchain">
-<h2><a class="toc-backref" href="#id20">Ethereum (Blockchain)</a><a class="headerlink" href="#ethereum-blockchain" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="ethereum-blockchain">
+<h2><a class="toc-backref" href="#id20" role="doc-backlink">Ethereum (Blockchain)</a><a class="headerlink" href="#ethereum-blockchain" title="Permalink to this heading"></a></h2>
 <p>Rust 實做的 Ethereum client - <a class="reference external" href="https://ethcore.io/parity.html">Parity</a>
 在效能測試上已經是最快的 client 了，
 在效能和實用性上都已經足夠成熟。</p>
-</div>
-<div class="section" id="ffi">
-<h2><a class="toc-backref" href="#id21">FFI</a><a class="headerlink" href="#ffi" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="ffi">
+<h2><a class="toc-backref" href="#id21" role="doc-backlink">FFI</a><a class="headerlink" href="#ffi" title="Permalink to this heading"></a></h2>
 <p>Rust 目前已經有許多 FFI 的專案出現，
 有些成熟度還不夠：</p>
 <ul class="simple">
@@ -1012,9 +942,9 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li><p><a class="reference external" href="https://gitlab.com/rusty-binder/rusty-binder">rusty-binder</a></p></li>
 <li><p><a class="reference external" href="https://github.com/Yamakaky/rust-bindgen">rust-bindgen</a></p></li>
 </ul>
-</div>
-<div class="section" id="id7">
-<h2><a class="toc-backref" href="#id22">科學運算</a><a class="headerlink" href="#id7" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="id7">
+<h2><a class="toc-backref" href="#id22" role="doc-backlink">科學運算</a><a class="headerlink" href="#id7" title="Permalink to this heading"></a></h2>
 <p>目前科學運算相關的套件還沒有像 Python 生態圈那樣充足、蓬勃，
 幾個有稍微規模的專案：</p>
 <ul class="simple">
@@ -1062,9 +992,9 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </dl>
 </li>
 </ul>
-</div>
-<div class="section" id="id9">
-<h2><a class="toc-backref" href="#id23">機器學習</a><a class="headerlink" href="#id9" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="id9">
+<h2><a class="toc-backref" href="#id23" role="doc-backlink">機器學習</a><a class="headerlink" href="#id9" title="Permalink to this heading"></a></h2>
 <p>目前相關的套件還不夠蓬勃，
 只有少量的資源，
 來 Python 生態圈的 <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> 還有不少距離，
@@ -1107,9 +1037,9 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </dl>
 </li>
 </ul>
-</div>
-<div class="section" id="unicode">
-<h2><a class="toc-backref" href="#id24">Unicode</a><a class="headerlink" href="#unicode" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="unicode">
+<h2><a class="toc-backref" href="#id24" role="doc-backlink">Unicode</a><a class="headerlink" href="#unicode" title="Permalink to this heading"></a></h2>
 <p>在處理 Unicode 上面，Rust 有許多基本的操作都在 <a class="reference external" href="https://github.com/unicode-rs">unicode-rs</a> 底下，
 其中的</p>
 <ul class="simple">
@@ -1127,9 +1057,9 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li><p><a class="reference external" href="https://github.com/huonw/unicode_names">unicode_names</a> - char &lt;-&gt; Unicode character name</p></li>
 <li><p><a class="reference external" href="https://github.com/swgillespie/unicode-categories">unicode-categories</a> - allows for unicode categories can be queried for characters</p></li>
 </ul>
-</div>
-<div class="section" id="id10">
-<h2><a class="toc-backref" href="#id25">雜類</a><a class="headerlink" href="#id10" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="id10">
+<h2><a class="toc-backref" href="#id25" role="doc-backlink">雜類</a><a class="headerlink" href="#id10" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><dl class="simple">
 <dt><a class="reference external" href="https://github.com/bluss/rust-itertools">itertools</a></dt><dd><ul>
@@ -1181,27 +1111,27 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </dl>
 </li>
 </ul>
-</div>
-<div class="section" id="parallel">
-<h2><a class="toc-backref" href="#id26">Parallel</a><a class="headerlink" href="#parallel" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="parallel">
+<h2><a class="toc-backref" href="#id26" role="doc-backlink">Parallel</a><a class="headerlink" href="#parallel" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/nikomatsakis/rayon/">rayon</a> - data-parallelism by work stealing</p></li>
 </ul>
-</div>
-<div class="section" id="serialization">
-<h2><a class="toc-backref" href="#id27">Serialization</a><a class="headerlink" href="#serialization" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="serialization">
+<h2><a class="toc-backref" href="#id27" role="doc-backlink">Serialization</a><a class="headerlink" href="#serialization" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://serde.rs/">Serde</a></p></li>
 <li><p><a class="reference external" href="https://github.com/rust-lang-nursery/rustc-serialize">rustc-serialize</a></p></li>
 </ul>
-</div>
-<div class="section" id="id11">
-<h2><a class="toc-backref" href="#id28">網站開發</a><a class="headerlink" href="#id11" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="id11">
+<h2><a class="toc-backref" href="#id28" role="doc-backlink">網站開發</a><a class="headerlink" href="#id11" title="Permalink to this heading"></a></h2>
 <p>網站相關的部份有 <a class="reference external" href="http://hyper.rs/">hyper</a> 負責 HTTP 的處理，
 HTTP 的實做完整度已經非常充足。</p>
-</div>
-<div class="section" id="id12">
-<h2><a class="toc-backref" href="#id29">參考</a><a class="headerlink" href="#id12" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="id12">
+<h2><a class="toc-backref" href="#id29" role="doc-backlink">參考</a><a class="headerlink" href="#id12" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="http://calculist.org/blog/2015/12/23/neon-node-rust/">Neon: Node + Rust = 💖</a></p></li>
 <li><p><a class="reference external" href="https://github.com/shepmaster/rust-ffi-omnibus">The Rust FFI Omnibus</a></p></li>
@@ -1214,37 +1144,33 @@ HTTP 的實做完整度已經非常充足。</p>
 <li><p><a class="reference external" href="http://areweconcurrentyet.com/">Are we concurrent yet?</a></p></li>
 <li><p><a class="reference external" href="https://www.techempower.com/benchmarks/">TechEmpower Framework Benchmarks</a></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016
-
-    </p>
+    <p>&#169; Copyright 2023.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
   
 
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       <span class="fa fa-book"> Read the Docs</span>
       v: latest
@@ -1254,7 +1180,7 @@ HTTP 的實做完整度已經非常充足。</p>
       <dl>
         <dt>Versions</dt>
         
-          <dd><a href="/zh_TW/latest/">latest</a></dd>
+          <dd><a href="https://wdv4758h.github.io/notes/">latest</a></dd>
         
       </dl>
       <dl>
@@ -1264,6 +1190,7 @@ HTTP 的實做完整度已經非常充足。</p>
         
       </dl>
       <dl>
+        
         <dt>On Read the Docs</dt>
           <dd>
             <a href="//readthedocs.org/projects/wdv4758h-notes/?fromdocs=wdv4758h-notes">Project Home</a>
@@ -1272,22 +1199,13 @@ HTTP 的實做完整度已經非常充足。</p>
             <a href="//readthedocs.org/builds/wdv4758h-notes/?fromdocs=wdv4758h-notes">Builds</a>
           </dd>
       </dl>
-      <hr/>
-      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
-
     </div>
   </div>
-
-
-
-  <script type="text/javascript">
+<script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-   
+  </script> 
 
 </body>
 </html>

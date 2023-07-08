@@ -1,112 +1,73 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-TW" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-TW" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Internal and External Linkage in C &mdash; wdv4758h-notes latest 說明文件</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Internal and External Linkage in C &mdash; wdv4758h-notes latest documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../../_static/translations.js"></script>
-        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
-    
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="index" title="索引" href="../../../genindex.html" />
-    <link rel="search" title="搜尋" href="../../../search.html" /> 
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
 
 <!-- RTD Extra Head -->
 
-<!-- 
-Always link to the latest version, as canonical.
-http://docs.readthedocs.org/en/latest/canonical.html
--->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/programming-language/cases/c/internal_and_external_linkage_in_C.html" />
+    <!--
+    Always link to the latest version, as canonical.
+    http://docs.readthedocs.org/en/latest/canonical.html
+    -->
+    <link rel="canonical" href="https://wdv4758h-notes.readthedocs.io/zh_TW/latest/programming-language/cases/c/internal_and_external_linkage_in_C.html" />
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../../../_static/readthedocs-data.js"></script>
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": "", "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": "https://wdv4758h-notes.readthedocs.io/zh_TW/latest/", "docroot": "/./", "features": {"docsearch_disabled": false}, "global_analytics_code": "", "language": "en", "page": "programming-language/cases/c/internal_and_external_linkage_in_C", "programming_language": "", "project": "wdv4758h-notes", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": ""}</script>
 
-<!-- Add page-specific data, which must exist in the page js, not global -->
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = "programming-language/cases/c/internal_and_external_linkage_in_C"
-READTHEDOCS_DATA['source_suffix'] = ".rst"
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
 </script>
 
-<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js" async="async"></script>
 
 <!-- end RTD <extrahead> -->
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../../index.html" class="icon icon-home"> wdv4758h-notes
           
-
-          
+          <a href="../../../index.html" class="icon icon-home">
+            wdv4758h-notes
           </a>
-
-          
-            
-            
-            
               <div class="version">
                 latest
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/README.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/adt.html">ADT (Abstract Data Type)</a></li>
@@ -116,13 +77,18 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/cache.html">Cache</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/cache-friendly.html">Cache Friendly Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/dict.html">Dict</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/float-to-string.html">Float to String</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/heap.html">Heap （堆）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/introduction.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/inverse-square-root.html">Inverse Square Root</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/lock.html">Lock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/meta-algorithm.html">Meta Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/random-number-generator.html">Random Number Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/resource.html">演算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/sorting.html">Sorting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/string-to-float.html">String to Float</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/substring-searching.html">Substring Searching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../android/README.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../android/android-emulator.html">Android Emulator</a></li>
@@ -198,7 +164,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/openmp.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/pypy-brainfuck.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/pypy-brainfuck.html#tutorial">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../blog/pypy-brainfuck.html#id5">額外紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/pypy-brainfuck.html#id4">額外紀錄</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/pypy-brainfuck.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/python-benchmark.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/python-benchmark.html#hello-world">Hello World</a></li>
@@ -225,7 +191,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/qemu-first-step.html#qemu-with-kvm">QEMU with KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html">Syntax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#closure">Closure 和外部變數</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#move-closures">「move」 closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#move-closures">“move” closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#closure-implementation">Closure implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#closures-as-arguments">closures as arguments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#returning-closures">returning closures</a></li>
@@ -406,6 +372,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/ci.html">Continuous Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/concourse.html">Concourse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/drone.html">Drone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/github-actions.html">Github Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/jenkins.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/travis-ci.html">Travis CI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/workflow-pipeline.html">Workflow Pipeline</a></li>
@@ -415,7 +382,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/array.html">std::array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/assembly.html">C++ &amp; Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/bit-field.html">C++ Bit Field</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../cpp/c++17.html">C++17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/c%2B%2B17.html">C++17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/concepts.html">C++ Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/const.html">C++ const</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/copy-elision.html">Copy Elision</a></li>
@@ -468,13 +435,16 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../database/README.html">資料庫 (Database)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/cockroachdb.html">CockroachDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/consensus-algorithm.html">Raft Consensus Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../database/graph.html">Graph Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/leveldb.html">LevelDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../database/materialized-views.html">Materialized Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/mongodb.html">MongoDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../database/rocksdb.html">RocksDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/sql.html">SQL (Structured Query Language)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/tidb.html">TiDB</a></li>
@@ -547,7 +517,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../math/math-on-web.html">Math on Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../math/misc.html">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../memory/W^X.html">W^X (Write XOR Execute)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../memory/W%5EX.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../memory/allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../memory/kernel-memory-management.html">Kernel Memory Management</a></li>
@@ -805,76 +775,36 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../wiki/resource.html">Wiki</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">wdv4758h-notes</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../../index.html">Docs</a> &raquo;</li>
-        
-      <li>Internal and External Linkage in C</li>
-    
-    
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Internal and External Linkage in C</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/wdv4758h/notes/blob/master/./programming-language/cases/c/internal_and_external_linkage_in_C.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="internal-and-external-linkage-in-c">
-<h1><a class="toc-backref" href="#id3">Internal and External Linkage in C</a><a class="headerlink" href="#internal-and-external-linkage-in-c" title="本標題的永久連結">¶</a></h1>
+             
+  <section id="internal-and-external-linkage-in-c">
+<h1><a class="toc-backref" href="#id3" role="doc-backlink">Internal and External Linkage in C</a><a class="headerlink" href="#internal-and-external-linkage-in-c" title="Permalink to this heading"></a></h1>
 <p>(copy from <a class="reference external" href="https://github.com/u1240976/mess_note/blob/master/talk/internal_and_external_linkage_in_C.rst">https://github.com/u1240976/mess_note/blob/master/talk/internal_and_external_linkage_in_C.rst</a>)</p>
 <p>副標題: extern/static/inline variable/function</p>
-<div class="contents topic" id="table-of-contents">
-<p class="topic-title first">Table of Contents</p>
+<nav class="contents" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#internal-and-external-linkage-in-c" id="id3">Internal and External Linkage in C</a></p>
 <ul>
@@ -914,9 +844,9 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="compiling-linking-and-forward-declaration">
-<h2><a class="toc-backref" href="#id4">compiling, linking and forward declaration</a><a class="headerlink" href="#compiling-linking-and-forward-declaration" title="本標題的永久連結">¶</a></h2>
+</nav>
+<section id="compiling-linking-and-forward-declaration">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">compiling, linking and forward declaration</a><a class="headerlink" href="#compiling-linking-and-forward-declaration" title="Permalink to this heading"></a></h2>
 <p>C 在將 source code 轉化為 executable 時, 至少可分為 compile 跟 link 兩個階段.</p>
 <ol class="arabic simple">
 <li><p>在 compile 階段把單獨的 C source code translate 成 cpu instructions 組成的 object code.</p></li>
@@ -956,28 +886,28 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 可參考: <a class="reference external" href="http://blog.longwin.com.tw/2013/03/linux-a-so-la-library-diff-2013/">Tsung’s Blog - Linux 的 .a / .so / .la 函式庫的差異</a></p></li>
 <li><p>header file 不會被單獨 compile, header file 只會被 <code class="docutils literal notranslate"><span class="pre">#include</span></code> 貼入到其他 C source code 裡, 跟 C source code 一起被 compile 成 object code.</p></li>
 </ol>
-</div>
-<div class="section" id="extern-variable">
-<h2><a class="toc-backref" href="#id5">extern variable</a><a class="headerlink" href="#extern-variable" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="extern-variable">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">extern variable</a><a class="headerlink" href="#extern-variable" title="Permalink to this heading"></a></h2>
 <p>(名詞解釋: 這邊的外部檔案指的是除了自己以外其他的 C source codes, libraries)</p>
 <p>當需要使用外部檔案的變數時, 必須在使用前宣告該變數為 <code class="docutils literal notranslate"><span class="pre">extern</span></code> 並且寫上該變數的型別(type).</p>
 <p>example</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* foo.c */</span>
-<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 
 <span class="cm">/* main.c */</span>
-<span class="k">extern</span> <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+<span class="k">extern</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
 
-<span class="kt">void</span> <span class="nf">print_a</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;a = %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">print_a</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;a = %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
-    <span class="n">print_a</span><span class="p">();</span> <span class="c1">// a = 10</span>
-    <span class="n">a</span><span class="o">++</span><span class="p">;</span>
-    <span class="n">print_a</span><span class="p">();</span> <span class="c1">// a = 11</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-    <span class="n">print_a</span><span class="p">();</span> <span class="c1">// a = 100</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
+<span class="w">    </span><span class="n">print_a</span><span class="p">();</span><span class="w"> </span><span class="c1">// a = 10</span>
+<span class="w">    </span><span class="n">a</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="n">print_a</span><span class="p">();</span><span class="w"> </span><span class="c1">// a = 11</span>
+<span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<span class="w">    </span><span class="n">print_a</span><span class="p">();</span><span class="w"> </span><span class="c1">// a = 100</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -985,55 +915,55 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <ul class="simple">
 <li><p>notice: <code class="docutils literal notranslate"><span class="pre">extern</span></code> 只能引用全域變數.</p></li>
 </ul>
-<div class="section" id="restriction">
-<h3><a class="toc-backref" href="#id6">restriction</a><a class="headerlink" href="#restriction" title="本標題的永久連結">¶</a></h3>
+<section id="restriction">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">restriction</a><a class="headerlink" href="#restriction" title="Permalink to this heading"></a></h3>
 <p>因為是引用已經定義好的變數, 對宣告方式有很嚴格的限制.</p>
 <ol class="arabic simple">
 <li><p>型別需跟引用的變數相同, 不然為 undefined behavior. 以上面範例來說, <code class="docutils literal notranslate"><span class="pre">extern</span> <span class="pre">double</span> <span class="pre">a</span></code> 很顯然是錯的.</p></li>
 <li><p>不可給初始值(initialized value). 如 <code class="docutils literal notranslate"><span class="pre">extern</span> <span class="pre">int</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">100</span></code> 很顯然是錯的.</p></li>
 </ol>
-</div>
-<div class="section" id="extern-usage-in-header-file">
-<h3><a class="toc-backref" href="#id7">extern usage in header file</a><a class="headerlink" href="#extern-usage-in-header-file" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="extern-usage-in-header-file">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">extern usage in header file</a><a class="headerlink" href="#extern-usage-in-header-file" title="Permalink to this heading"></a></h3>
 <p>一般來說, 我們會用 <code class="docutils literal notranslate"><span class="pre">extern</span></code> 去引用別的 library 的全域變數.</p>
 <p>通常 library 會把打算讓你引用的變數, 寫到 header file 裡, 讓所有要用的檔案 <code class="docutils literal notranslate"><span class="pre">include</span></code> 就能使用了.</p>
 <p>以上面的 example 為例的話會直接建立一個 <code class="docutils literal notranslate"><span class="pre">foo.h</span></code> 給其他檔案如 <code class="docutils literal notranslate"><span class="pre">main.c</span></code> 來使用.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* foo.h */</span>
-<span class="k">extern</span> <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+<span class="k">extern</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
 
 <span class="cm">/* foo.c */</span>
-<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 
 <span class="cm">/* main.c */</span>
-<span class="cp">#include</span> <span class="cpf">&quot;foo.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;foo.h&quot;</span>
 
-<span class="kt">void</span> <span class="nf">print_a</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;a = %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">print_a</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;a = %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
-    <span class="n">print_a</span><span class="p">();</span> <span class="c1">// a = 10</span>
-    <span class="n">a</span><span class="o">++</span><span class="p">;</span>
-    <span class="n">print_a</span><span class="p">();</span> <span class="c1">// a = 11</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-    <span class="n">print_a</span><span class="p">();</span> <span class="c1">// a = 100</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
+<span class="w">    </span><span class="n">print_a</span><span class="p">();</span><span class="w"> </span><span class="c1">// a = 10</span>
+<span class="w">    </span><span class="n">a</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="n">print_a</span><span class="p">();</span><span class="w"> </span><span class="c1">// a = 11</span>
+<span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<span class="w">    </span><span class="n">print_a</span><span class="p">();</span><span class="w"> </span><span class="c1">// a = 100</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>而事實上, 會出現在 header file 裡的全域變數基本上只會有 extern variable.</p>
 <p>如果一般非 extern/static 的變數出現在 header file 裡, 並且在全域作 <code class="docutils literal notranslate"><span class="pre">#include</span></code>, 便代表你在每個 <code class="docutils literal notranslate"><span class="pre">#include</span></code> 該 header file 的檔案都宣告同名的全域變數, 很顯然有重名問題. 這種作法對 header file 的設計不 make sense.</p>
-</div>
-<div class="section" id="extern-variable-example-in-library">
-<h3><a class="toc-backref" href="#id8">extern variable example in library</a><a class="headerlink" href="#extern-variable-example-in-library" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="extern-variable-example-in-library">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">extern variable example in library</a><a class="headerlink" href="#extern-variable-example-in-library" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">stdin,</span> <span class="pre">stdout,</span> <span class="pre">stderr</span></code></p></li>
 <li><p>old implementation of <code class="docutils literal notranslate"><span class="pre">errno</span></code> (without considering multithreading)</p></li>
 </ul>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// /usr/bin/stdio.h</span>
 <span class="cm">/* Standard streams.  */</span>
-<span class="k">extern</span> <span class="k">struct</span> <span class="n">_IO_FILE</span> <span class="o">*</span><span class="n">stdin</span><span class="p">;</span>              <span class="cm">/* Standard input stream.  */</span>
-<span class="k">extern</span> <span class="k">struct</span> <span class="n">_IO_FILE</span> <span class="o">*</span><span class="n">stdout</span><span class="p">;</span>             <span class="cm">/* Standard output stream.  */</span>
-<span class="k">extern</span> <span class="k">struct</span> <span class="n">_IO_FILE</span> <span class="o">*</span><span class="n">stderr</span><span class="p">;</span>             <span class="cm">/* Standard error output stream.  */</span>
+<span class="k">extern</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">_IO_FILE</span><span class="w"> </span><span class="o">*</span><span class="n">stdin</span><span class="p">;</span><span class="w">              </span><span class="cm">/* Standard input stream.  */</span>
+<span class="k">extern</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">_IO_FILE</span><span class="w"> </span><span class="o">*</span><span class="n">stdout</span><span class="p">;</span><span class="w">             </span><span class="cm">/* Standard output stream.  */</span>
+<span class="k">extern</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">_IO_FILE</span><span class="w"> </span><span class="o">*</span><span class="n">stderr</span><span class="p">;</span><span class="w">             </span><span class="cm">/* Standard error output stream.  */</span>
 <span class="cm">/* C89/C99 say they&#39;re macros.  Make them happy.  */</span>
 <span class="cp">#define stdin stdin</span>
 <span class="cp">#define stdout stdout</span>
@@ -1041,42 +971,42 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 
 <span class="c1">// /usr/bin/errno.h</span>
 <span class="cp">#ifndef errno</span>
-<span class="k">extern</span> <span class="kt">int</span> <span class="n">errno</span><span class="p">;</span>
+<span class="k">extern</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">errno</span><span class="p">;</span>
 <span class="cp">#endif</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="extern-variable-in-function">
-<h3><a class="toc-backref" href="#id9">extern variable in function</a><a class="headerlink" href="#extern-variable-in-function" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="extern-variable-in-function">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">extern variable in function</a><a class="headerlink" href="#extern-variable-in-function" title="Permalink to this heading"></a></h3>
 <p>如果在函式中使用 extern 引用變數, scope 會跟區域變數一樣只在函式的範圍內.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// main.c</span>
-<span class="kt">int</span> <span class="nf">foo</span><span class="p">(){</span>
-    <span class="k">extern</span> <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
-    <span class="p">...</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">foo</span><span class="p">(){</span>
+<span class="w">    </span><span class="k">extern</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<span class="w">    </span><span class="p">...</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span> <span class="c1">// Error!!</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
+<span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="p">;</span><span class="w"> </span><span class="c1">// Error!!</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="static-variable">
-<h2><a class="toc-backref" href="#id10">static variable</a><a class="headerlink" href="#static-variable" title="本標題的永久連結">¶</a></h2>
+</section>
+</section>
+<section id="static-variable">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">static variable</a><a class="headerlink" href="#static-variable" title="Permalink to this heading"></a></h2>
 <p>在 C 語言裡, static 主要有兩個效果</p>
 <ol class="arabic simple">
 <li><p>對函式內的變數用 static 修飾: lifetime 擴展為整個程式的執行期間, 與全域變數的 lifetime 相同, 整個程式期間只存在一個本體, 不像區域變數每個函式有一個本體.</p></li>
 <li><p>對全域變數用 static 修飾: 變數不可被外部引用(連接: link), 也不汙染其他檔案的 namespace(symbol table in C). 也就是內部連結(internal linkage)的效果.</p></li>
 </ol>
 <p>接下來一一解釋兩個效果.</p>
-<div class="section" id="static-internal-linkage">
-<h3><a class="toc-backref" href="#id11">static: internal linkage</a><a class="headerlink" href="#static-internal-linkage" title="本標題的永久連結">¶</a></h3>
+<section id="static-internal-linkage">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">static: internal linkage</a><a class="headerlink" href="#static-internal-linkage" title="Permalink to this heading"></a></h3>
 <p>前面說過, 我們可以用宣告 extern variable 的手法, 使用外部 library 的變數.</p>
 <p>那如果 library 想要造一個內部的全域變數, 不給外部檔案使用, 就可以宣告 <code class="docutils literal notranslate"><span class="pre">static</span></code> 讓變數無法被外部檔案看到, 無法被連接(link).</p>
-</div>
-<div class="section" id="static-variable-in-function">
-<h3><a class="toc-backref" href="#id12">static variable in function</a><a class="headerlink" href="#static-variable-in-function" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="static-variable-in-function">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">static variable in function</a><a class="headerlink" href="#static-variable-in-function" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>static variable in function, 使用效果是可以做出有狀態 (stateful) 的 function.</p>
 <ul>
@@ -1085,16 +1015,16 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </ul>
 </li>
 </ul>
-</div>
-</div>
-<div class="section" id="extern-and-static-function">
-<h2><a class="toc-backref" href="#id13">extern and static function</a><a class="headerlink" href="#extern-and-static-function" title="本標題的永久連結">¶</a></h2>
+</section>
+</section>
+<section id="extern-and-static-function">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">extern and static function</a><a class="headerlink" href="#extern-and-static-function" title="Permalink to this heading"></a></h2>
 <p>當需要使用外部檔案的函式時, 需宣告該函式的 type, 通常稱為 function prototype.</p>
 <p>跟變數不同的是, function prototype 可加可不加 <code class="docutils literal notranslate"><span class="pre">extern</span></code>.</p>
 <p>而將 function prototype 也放在 header file 的原因跟 extern variable 一樣.</p>
 <p>static function 的效果跟 static 的全域變數一樣, 讓函式不可被外部引用.</p>
-<div class="section" id="extern-and-static-function-example">
-<h3><a class="toc-backref" href="#id14">extern and static function example</a><a class="headerlink" href="#extern-and-static-function-example" title="本標題的永久連結">¶</a></h3>
+<section id="extern-and-static-function-example">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">extern and static function example</a><a class="headerlink" href="#extern-and-static-function-example" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>simple example</p>
 <blockquote>
@@ -1106,28 +1036,28 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </li>
 </ul>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* fabonacci.h */</span>
-<span class="kt">int</span> <span class="nf">fabonacci</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">fabonacci</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
 <span class="c1">// extern int fabonacci(int n); // this is still ok.</span>
 
 <span class="cm">/* fabonacci.c */</span>
-<span class="k">static</span> <span class="kt">int</span> <span class="nf">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">);</span>
+<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
 
-<span class="kt">int</span> <span class="nf">fabonacci</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">){</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="k">return</span> <span class="n">add</span><span class="p">(</span><span class="n">fabonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fabonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">));</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">fabonacci</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">){</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">add</span><span class="p">(</span><span class="n">fabonacci</span><span class="p">(</span><span class="n">n</span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">fabonacci</span><span class="p">(</span><span class="n">n</span><span class="mi">-2</span><span class="p">));</span>
 <span class="p">}</span>
 
-<span class="k">static</span> <span class="kt">int</span> <span class="nf">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">){</span>
-    <span class="k">return</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">;</span>
+<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">){</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="cm">/* main.c */</span>
-<span class="cp">#include</span> <span class="cpf">&quot;fabonacci.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;fabonacci.h&quot;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;f(10) = %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">fabonacci</span><span class="p">(</span><span class="mi">10</span><span class="p">));</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;f(10) = %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">fabonacci</span><span class="p">(</span><span class="mi">10</span><span class="p">));</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -1143,30 +1073,30 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </li>
 </ul>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// argparse.c</span>
-<span class="k">static</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span>
-<span class="nf">prefix_skip</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">str</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">prefix</span><span class="p">)</span>
+<span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span>
+<span class="nf">prefix_skip</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">prefix</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="kt">size_t</span> <span class="n">len</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">prefix</span><span class="p">);</span>
-    <span class="k">return</span> <span class="n">strncmp</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="n">prefix</span><span class="p">,</span> <span class="n">len</span><span class="p">)</span> <span class="o">?</span> <span class="nb">NULL</span> <span class="o">:</span> <span class="n">str</span> <span class="o">+</span> <span class="n">len</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">size_t</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">prefix</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">strncmp</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="n">prefix</span><span class="p">,</span><span class="w"> </span><span class="n">len</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nb">NULL</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">len</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="k">static</span> <span class="kt">int</span>
-<span class="nf">prefix_cmp</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">str</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">prefix</span><span class="p">)</span>
+<span class="k">static</span><span class="w"> </span><span class="kt">int</span>
+<span class="nf">prefix_cmp</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">prefix</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="k">for</span> <span class="p">(;;</span> <span class="n">str</span><span class="o">++</span><span class="p">,</span> <span class="n">prefix</span><span class="o">++</span><span class="p">)</span>
-        <span class="k">if</span> <span class="p">(</span><span class="o">!*</span><span class="n">prefix</span><span class="p">)</span>
-            <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">*</span><span class="n">str</span> <span class="o">!=</span> <span class="o">*</span><span class="n">prefix</span><span class="p">)</span>
-            <span class="k">return</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">char</span><span class="p">)</span><span class="o">*</span><span class="n">prefix</span> <span class="o">-</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">char</span><span class="p">)</span><span class="o">*</span><span class="n">str</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(;;</span><span class="w"> </span><span class="n">str</span><span class="o">++</span><span class="p">,</span><span class="w"> </span><span class="n">prefix</span><span class="o">++</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!*</span><span class="n">prefix</span><span class="p">)</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">str</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="o">*</span><span class="n">prefix</span><span class="p">)</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="p">)</span><span class="o">*</span><span class="n">prefix</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="p">)</span><span class="o">*</span><span class="n">str</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="c1">// two functions are not in argparse.h</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="conflict-of-inline-function-and-external-linkage">
-<h2><a class="toc-backref" href="#id15">conflict of inline function and external linkage</a><a class="headerlink" href="#conflict-of-inline-function-and-external-linkage" title="本標題的永久連結">¶</a></h2>
+</section>
+</section>
+<section id="conflict-of-inline-function-and-external-linkage">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">conflict of inline function and external linkage</a><a class="headerlink" href="#conflict-of-inline-function-and-external-linkage" title="Permalink to this heading"></a></h2>
 <p>在講解前, 要先說明一下 function call 在執行檔的樣貌.</p>
 <p>以下的 code 是一個簡單的函式 <code class="docutils literal notranslate"><span class="pre">add</span></code>, 在 x86_64 組語下的實作.</p>
 <p>(C code 是註解, 僅表示哪些 C code 被轉成該組語, 為了方便辨認, 在 C code 前加上 <code class="docutils literal notranslate"><span class="pre">[C]</span></code> 方便辨識.</p>
@@ -1210,15 +1140,15 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <p>不過函式 inline 化這件事基本上是在 compilation 階段完成的, 只能在檔案內 call 這個函式的地方 inline 化.</p>
 <p>如果外部檔案要 function call, 基本上只能正常 call and return, 需要函式的本體, 跟 inline 化的其中一個好處互相衝突.</p>
 <p>因此在這個衝突底下, C 語言讓 programmer 使用 static 跟 extern 關鍵字去做設定要不要保留.</p>
-</div>
-<div class="section" id="c99-static-inline-v-s-extern-inline">
-<h2><a class="toc-backref" href="#id16">[C99] static inline v.s. extern inline</a><a class="headerlink" href="#c99-static-inline-v-s-extern-inline" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="c99-static-inline-v-s-extern-inline">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">[C99] static inline v.s. extern inline</a><a class="headerlink" href="#c99-static-inline-v-s-extern-inline" title="Permalink to this heading"></a></h2>
 <p>static inline 代表 internal linkage, 不給外部檔案使用, 很顯然的也就不需要保留本體.</p>
 <p>反之, extern inline 代表 external linkage, 要給外部檔案使用, 必需要保留本體.</p>
 <p>不過 <code class="docutils literal notranslate"><span class="pre">inline</span></code> 關鍵字是在 C99 在進入 C 標準的, 所以這是 C99 以後的規則, 純 <code class="docutils literal notranslate"><span class="pre">inline</span></code> 的效果也留到下一個 section 講.</p>
-</div>
-<div class="section" id="inline-and-gnu89-inline">
-<h2><a class="toc-backref" href="#id17">inline and gnu89 inline</a><a class="headerlink" href="#inline-and-gnu89-inline" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="inline-and-gnu89-inline">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">inline and gnu89 inline</a><a class="headerlink" href="#inline-and-gnu89-inline" title="Permalink to this heading"></a></h2>
 <p>C89(ANSI C) 的年代, 因為還沒有 <code class="docutils literal notranslate"><span class="pre">inline</span></code>, 所以第一個做出 <code class="docutils literal notranslate"><span class="pre">inline</span></code> 功能的就是 gcc.</p>
 <p>想當然, <code class="docutils literal notranslate"><span class="pre">inline/static</span> <span class="pre">inlink/extern</span> <span class="pre">inline</span></code> 的效果就是 gnu 他們自訂的, 與現在 C99 規格化後的效果不同.</p>
 <p>C99 以前的其他 compiler, 也有可能跟進 gcc 的設計.</p>
@@ -1234,8 +1164,8 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li><p>gnu89 的 inline 跟 C99 的 extern inline 相同, 會保留本體.</p></li>
 <li><p>gnu89 的 extern inline 跟 C99 的 inline 相同, 不過這個效果很詭異不建議使用.</p></li>
 </ul>
-<div class="section" id="id1">
-<h3><a class="toc-backref" href="#id18">實際測試</a><a class="headerlink" href="#id1" title="本標題的永久連結">¶</a></h3>
+<section id="id1">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">實際測試</a><a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>at C99 (gcc v4.9.2 -std=c99)</p>
 <ul>
@@ -1244,10 +1174,10 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </ul>
 </li>
 </ul>
-</div>
-</div>
-<div class="section" id="id2">
-<h2><a class="toc-backref" href="#id19">總結</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+</section>
+</section>
+<section id="id2">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">總結</a><a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>由於 C 的 compilation 流程限制, 每個檔案必須要在變數跟函式使用前加上前綴的型別宣告.</p></li>
 <li><p>static 可以將變數跟函式的 scope 縮小為檔案內, extern variable 跟 function prototype 可以讓你引用別的檔案裡沒被 static 化的變數跟函式.</p></li>
@@ -1255,13 +1185,6 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li><p>extern inline 的 extern 被賦與第二種意義, 讓 inline function 可被外部引用. static inline 中的 static 仍為保護函式不可被外部引用.</p></li>
 </ol>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 28%" />
-<col style="width: 17%" />
-<col style="width: 18%" />
-<col style="width: 18%" />
-<col style="width: 18%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p>inline functions</p></td>
 <td><p>C99 internal function</p></td>
@@ -1317,97 +1240,93 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <span class="cm"> */</span>
 
 <span class="cm">/* libfoo.h */</span>
-<span class="k">extern</span> <span class="kt">int</span> <span class="n">var1</span><span class="p">;</span>
+<span class="k">extern</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">var1</span><span class="p">;</span>
 
-<span class="kt">void</span> <span class="nf">func1</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">func1</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
 
 <span class="cm">/* libfoo.c */</span>
-<span class="cp">#include</span> <span class="cpf">&quot;libfoo.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;libfoo.h&quot;</span>
 
-<span class="kt">int</span> <span class="n">var1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">var2</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-<span class="k">static</span> <span class="kt">int</span> <span class="n">var3</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">var1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">var2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">var3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 
 <span class="c1">// function forward declaration if needed.</span>
-<span class="kt">void</span> <span class="nf">func2</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
-<span class="k">static</span> <span class="kt">void</span> <span class="nf">func3</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">func2</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">func3</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
 
 <span class="c1">// function definition</span>
-<span class="kt">void</span> <span class="nf">func1</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;func1</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">func1</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;func1</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
 <span class="p">}</span>
-<span class="kt">void</span> <span class="nf">func2</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;func2</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">func2</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;func2</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
 <span class="p">}</span>
-<span class="k">static</span> <span class="kt">void</span> <span class="nf">func3</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;func3</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">func3</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;func3</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="cm">/* main.c */</span>
-<span class="cp">#include</span> <span class="cpf">&quot;libfoo.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;libfoo.h&quot;</span>
 
-<span class="k">extern</span> <span class="kt">int</span> <span class="n">var2</span><span class="p">;</span>  <span class="c1">// if using 2.</span>
-<span class="kt">void</span> <span class="nf">func2</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span> <span class="c1">// if using 2.</span>
+<span class="k">extern</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">var2</span><span class="p">;</span><span class="w">  </span><span class="c1">// if using 2.</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">func2</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"> </span><span class="c1">// if using 2.</span>
 
-<span class="k">extern</span> <span class="kt">int</span> <span class="n">var3</span><span class="p">;</span>  <span class="c1">// error</span>
-<span class="k">extern</span> <span class="kt">void</span> <span class="nf">func3</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>  <span class="c1">// error</span>
-<span class="kt">int</span> <span class="n">var3</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span>  <span class="c1">// but main.c can have independent var3</span>
-<span class="kt">void</span> <span class="nf">func3</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span> <span class="c1">// but main.c can have independent func3</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;my func3</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="k">extern</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">var3</span><span class="p">;</span><span class="w">  </span><span class="c1">// error</span>
+<span class="k">extern</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">func3</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w">  </span><span class="c1">// error</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">var3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span><span class="w">  </span><span class="c1">// but main.c can have independent var3</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">func3</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span><span class="w"> </span><span class="c1">// but main.c can have independent func3</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;my func3</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
-    <span class="n">var1</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">// 1. external linkage</span>
-    <span class="n">func1</span><span class="p">();</span>   <span class="c1">// 1. external linkage</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
+<span class="w">    </span><span class="n">var1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="c1">// 1. external linkage</span>
+<span class="w">    </span><span class="n">func1</span><span class="p">();</span><span class="w">   </span><span class="c1">// 1. external linkage</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="reference">
-<h2><a class="toc-backref" href="#id20">reference</a><a class="headerlink" href="#reference" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="reference">
+<h2><a class="toc-backref" href="#id20" role="doc-backlink">reference</a><a class="headerlink" href="#reference" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="http://stackoverflow.com/questions/216510/extern-inline/216546#21654">http://stackoverflow.com/questions/216510/extern-inline/216546#21654</a></p></li>
 </ul>
-<div class="section" id="related-article">
-<h3><a class="toc-backref" href="#id21">related article</a><a class="headerlink" href="#related-article" title="本標題的永久連結">¶</a></h3>
+<section id="related-article">
+<h3><a class="toc-backref" href="#id21" role="doc-backlink">related article</a><a class="headerlink" href="#related-article" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="http://www.lurklurk.org/linkers/linkers.html">Beginner’s Guide to Linkers</a></p></li>
 <li><p><a class="reference external" href="http://openhome.cc/Gossip/CGossip/Scope.html">良葛格學習筆記 - 變數、函式可視範圍 (static 與 extern)</a></p></li>
 <li><p><a class="reference external" href="http://ashinzzz.blogspot.tw/2013/12/extern-static.html">C 陷阱： extern ＆ static ＆ 多檔案、宣告、定義、變數、函式</a></p></li>
 <li><p><a class="reference external" href="https://www.ptt.cc/bbs/C_and_CPP/M.1176329014.A.EF2.html">[C_and_CPP] shyang55 - [語法] 作用範圍(scope) 與 生命期(lifetime)</a></p></li>
 </ul>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>
-           
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016
-
-    </p>
+    <p>&#169; Copyright 2023.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
   
 
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       <span class="fa fa-book"> Read the Docs</span>
       v: latest
@@ -1417,7 +1336,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
       <dl>
         <dt>Versions</dt>
         
-          <dd><a href="/zh_TW/latest/">latest</a></dd>
+          <dd><a href="https://wdv4758h.github.io/notes/">latest</a></dd>
         
       </dl>
       <dl>
@@ -1427,6 +1346,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
         
       </dl>
       <dl>
+        
         <dt>On Read the Docs</dt>
           <dd>
             <a href="//readthedocs.org/projects/wdv4758h-notes/?fromdocs=wdv4758h-notes">Project Home</a>
@@ -1435,22 +1355,13 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
             <a href="//readthedocs.org/builds/wdv4758h-notes/?fromdocs=wdv4758h-notes">Builds</a>
           </dd>
       </dl>
-      <hr/>
-      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
-
     </div>
   </div>
-
-
-
-  <script type="text/javascript">
+<script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-   
+  </script> 
 
 </body>
 </html>

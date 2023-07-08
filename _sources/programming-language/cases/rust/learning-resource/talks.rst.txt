@@ -745,3 +745,28 @@ RustLatam 2019 - Niko Matsakis: What's unique about Rust?
 * DefId
 * Unsubstituted Generics
 * TypeFoldable
+
+
+Oxidize Global 2020 - An Overview of the Embedded Rust Ecosystem
+================================================================
+
+:YouTube: https://youtu.be/vLYit_HHPaY
+
+* SVD files
+    - 由 microcontroller 製造商提供
+    - 描述各個 register 的作用
+    - 可以透過 svd2rust 來利用
+* PACs (Peripheral Access Crates)
+    - 由 svd2rust 產生，加上一些 patches
+    - 大部分爲 safe
+    - 提供很多零成本抽象化
+    - 沒有檢查 peripheral 的相依性，要自己讀 datasheet
+* HALs (Hardware Abstraction Layers)
+    - 基於 PAC 建立的高階介面
+    - 利用 type state 來確保正確的初始化與使用流程
+    - Rust ownership 確保 pins 和 timers 不會被共用
+* RTIC (Real-Time Interrupt-driven Concurrency)
+    - 先前叫 RTFM (Real Time For the Masses)
+    - concurrency framework for real time systems
+* BSP (Board Support Crates)
+* cortex-x crates

@@ -1,114 +1,75 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-TW" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-TW" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Intro. &mdash; wdv4758h-notes latest 說明文件</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intro. &mdash; wdv4758h-notes latest documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="搜尋" href="../search.html" />
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="[Ｏ] Big Number 支援？" href="some-rust.html" />
     <link rel="prev" title="Solution 1" href="rust-project-euler-1.html" /> 
 
 <!-- RTD Extra Head -->
 
-<!-- 
-Always link to the latest version, as canonical.
-http://docs.readthedocs.org/en/latest/canonical.html
--->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/blog/software-testing-intro.html" />
+    <!--
+    Always link to the latest version, as canonical.
+    http://docs.readthedocs.org/en/latest/canonical.html
+    -->
+    <link rel="canonical" href="https://wdv4758h-notes.readthedocs.io/zh_TW/latest/blog/software-testing-intro.html" />
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": "", "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": "https://wdv4758h-notes.readthedocs.io/zh_TW/latest/", "docroot": "/./", "features": {"docsearch_disabled": false}, "global_analytics_code": "", "language": "en", "page": "blog/software-testing-intro", "programming_language": "", "project": "wdv4758h-notes", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": ""}</script>
 
-<!-- Add page-specific data, which must exist in the page js, not global -->
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = "blog/software-testing-intro"
-READTHEDOCS_DATA['source_suffix'] = ".rst"
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
 </script>
 
-<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js" async="async"></script>
 
 <!-- end RTD <extrahead> -->
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../index.html" class="icon icon-home"> wdv4758h-notes
           
-
-          
+          <a href="../index.html" class="icon icon-home">
+            wdv4758h-notes
           </a>
-
-          
-            
-            
-            
               <div class="version">
                 latest
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/README.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/adt.html">ADT (Abstract Data Type)</a></li>
@@ -118,13 +79,18 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/cache.html">Cache</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/cache-friendly.html">Cache Friendly Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/dict.html">Dict</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/float-to-string.html">Float to String</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/heap.html">Heap （堆）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/introduction.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/inverse-square-root.html">Inverse Square Root</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/lock.html">Lock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/meta-algorithm.html">Meta Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/random-number-generator.html">Random Number Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/resource.html">演算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/sorting.html">Sorting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/string-to-float.html">String to Float</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/substring-searching.html">Substring Searching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/README.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/android-emulator.html">Android Emulator</a></li>
@@ -200,7 +166,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="openmp.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pypy-brainfuck.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pypy-brainfuck.html#tutorial">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pypy-brainfuck.html#id5">額外紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pypy-brainfuck.html#id4">額外紀錄</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pypy-brainfuck.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python-benchmark.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python-benchmark.html#hello-world">Hello World</a></li>
@@ -227,7 +193,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="qemu-first-step.html#qemu-with-kvm">QEMU with KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust-closure.html">Syntax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust-closure.html#closure">Closure 和外部變數</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rust-closure.html#move-closures">「move」 closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rust-closure.html#move-closures">“move” closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust-closure.html#closure-implementation">Closure implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust-closure.html#closures-as-arguments">closures as arguments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust-closure.html#returning-closures">returning closures</a></li>
@@ -427,6 +393,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/ci.html">Continuous Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/concourse.html">Concourse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/drone.html">Drone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../continuous-integration/github-actions.html">Github Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/jenkins.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/travis-ci.html">Travis CI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/workflow-pipeline.html">Workflow Pipeline</a></li>
@@ -436,7 +403,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../cpp/array.html">std::array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/assembly.html">C++ &amp; Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/bit-field.html">C++ Bit Field</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cpp/c++17.html">C++17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/c%2B%2B17.html">C++17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/concepts.html">C++ Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/const.html">C++ const</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/copy-elision.html">Copy Elision</a></li>
@@ -489,13 +456,16 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../database/README.html">資料庫 (Database)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/cockroachdb.html">CockroachDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/consensus-algorithm.html">Raft Consensus Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/graph.html">Graph Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/leveldb.html">LevelDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/materialized-views.html">Materialized Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mongodb.html">MongoDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/rocksdb.html">RocksDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sql.html">SQL (Structured Query Language)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/tidb.html">TiDB</a></li>
@@ -568,7 +538,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/math-on-web.html">Math on Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/misc.html">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../memory/W^X.html">W^X (Write XOR Execute)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../memory/W%5EX.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/kernel-memory-management.html">Kernel Memory Management</a></li>
@@ -826,87 +796,47 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../wiki/resource.html">Wiki</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">wdv4758h-notes</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-      <li>Intro.</li>
-    
-    
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Intro.</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/wdv4758h/notes/blob/master/./blog/software-testing-intro.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <p>Note: <strong>本篇仍在未完成狀態</strong></p>
 <hr class="docutils" />
 <ul class="simple">
 <li><p><a class="reference external" href="http://people.cs.nctu.edu.tw/~skhuang/st2014/">課程講義</a></p></li>
 </ul>
 <p>期中考: 第 5,6,7,8,9 章 (boundary value, equivalence class, decision table, path testing, data flow testing)</p>
-<div class="section" id="intro">
-<h1>Intro.<a class="headerlink" href="#intro" title="本標題的永久連結">¶</a></h1>
-<div class="section" id="white-black">
-<h2>white &amp; black<a class="headerlink" href="#white-black" title="本標題的永久連結">¶</a></h2>
+<section id="intro">
+<h1>Intro.<a class="headerlink" href="#intro" title="Permalink to this heading"></a></h1>
+<section id="white-black">
+<h2>white &amp; black<a class="headerlink" href="#white-black" title="Permalink to this heading"></a></h2>
 <p>測試大概可以分成 <strong>白箱測試 (white-box testing)</strong> 與 <strong>黑箱測試 (black-box testing)</strong></p>
 <p>white-box testing 又可以稱為 <strong>透明箱測試 (glass box testing)</strong>，
 因為可以看到內部結構，因此又稱為 <strong>結構測試 (structural testing)</strong> 或 <strong>邏輯驅動測試 (logic-driven testing)</strong></p>
-</div>
-<div class="section" id="test-case-adequacy-criteria">
-<h2>test case adequacy criteria<a class="headerlink" href="#test-case-adequacy-criteria" title="本標題的永久連結">¶</a></h2>
-<p>test case adequacy criteria 討論的是 「需要多少的測試才足夠」，
+</section>
+<section id="test-case-adequacy-criteria">
+<h2>test case adequacy criteria<a class="headerlink" href="#test-case-adequacy-criteria" title="Permalink to this heading"></a></h2>
+<p>test case adequacy criteria 討論的是 “需要多少的測試才足夠”，
 這可以由涵蓋的 control-flow &amp; data-flow 比例來衡量</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -972,10 +902,6 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </pre></div>
 </div>
 <table class="table table-bordered docutils align-default">
-<colgroup>
-<col style="width: 13%" />
-<col style="width: 87%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p>P-use</p></td>
 <td><p>use in predicate</p></td>
@@ -1007,12 +933,6 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li><p><a class="reference external" href="http://www.researchgate.net/publication/261261093_Static_Slicing_for_Python_First-Class_Objects">http://www.researchgate.net/publication/261261093_Static_Slicing_for_Python_First-Class_Objects</a></p></li>
 </ul>
 <table class="table table-bordered docutils align-default">
-<colgroup>
-<col style="width: 17%" />
-<col style="width: 10%" />
-<col style="width: 11%" />
-<col style="width: 63%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p>Spyder</p></td>
 <td><p>ANSI C</p></td>
@@ -1051,62 +971,62 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="decision-to-decision-path-dd-path">
-<h2>decision-to-decision path (DD-path)<a class="headerlink" href="#decision-to-decision-path-dd-path" title="本標題的永久連結">¶</a></h2>
-</div>
-<div class="section" id="coverage-py">
-<h2>coverage.py<a class="headerlink" href="#coverage-py" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="decision-to-decision-path-dd-path">
+<h2>decision-to-decision path (DD-path)<a class="headerlink" href="#decision-to-decision-path-dd-path" title="Permalink to this heading"></a></h2>
+</section>
+<section id="coverage-py">
+<h2>coverage.py<a class="headerlink" href="#coverage-py" title="Permalink to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">coverage</span> <span class="pre">report</span> <span class="pre">-m</span></code></p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ coverageg report -m
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>coverageg<span class="w"> </span>report<span class="w"> </span>-m
 
-Name    Stmts   Miss  Cover   Missing
+Name<span class="w">    </span>Stmts<span class="w">   </span>Miss<span class="w">  </span>Cover<span class="w">   </span>Missing
 -------------------------------------
-hw1        <span class="m">58</span>      <span class="m">2</span>    <span class="m">97</span>%   <span class="m">49</span>-50
-<span class="nb">test</span>       <span class="m">21</span>      <span class="m">0</span>   <span class="m">100</span>%
+hw1<span class="w">        </span><span class="m">58</span><span class="w">      </span><span class="m">2</span><span class="w">    </span><span class="m">97</span>%<span class="w">   </span><span class="m">49</span>-50
+<span class="nb">test</span><span class="w">       </span><span class="m">21</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
 -------------------------------------
-TOTAL      <span class="m">79</span>      <span class="m">2</span>    <span class="m">97</span>%
+TOTAL<span class="w">      </span><span class="m">79</span><span class="w">      </span><span class="m">2</span><span class="w">    </span><span class="m">97</span>%
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="ch5-boundary-value-testing">
-<h1>Ch5 - Boundary Value Testing<a class="headerlink" href="#ch5-boundary-value-testing" title="本標題的永久連結">¶</a></h1>
+</section>
+</section>
+<section id="ch5-boundary-value-testing">
+<h1>Ch5 - Boundary Value Testing<a class="headerlink" href="#ch5-boundary-value-testing" title="Permalink to this heading"></a></h1>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.google.com/presentation/d/1m05eRr-mqSQIrOb6V3rDLxb3Rtj8gO5CkxphlGSv06I/edit#slide=id.g3a0892a38_030">Ch5 課程講義</a></p></li>
 </ul>
-</div>
-<div class="section" id="ch6-equivalence-class-testing">
-<h1>Ch6 - Equivalence Class Testing<a class="headerlink" href="#ch6-equivalence-class-testing" title="本標題的永久連結">¶</a></h1>
+</section>
+<section id="ch6-equivalence-class-testing">
+<h1>Ch6 - Equivalence Class Testing<a class="headerlink" href="#ch6-equivalence-class-testing" title="Permalink to this heading"></a></h1>
 <ul class="simple">
 <li><p>weak normal</p></li>
 <li><p>strong normal</p></li>
 <li><p>weak robust</p></li>
 <li><p>strong robust</p></li>
 </ul>
-</div>
-<div class="section" id="ch7-decision-table-based-testing">
-<h1>Ch7 - Decision Table-based Testing<a class="headerlink" href="#ch7-decision-table-based-testing" title="本標題的永久連結">¶</a></h1>
+</section>
+<section id="ch7-decision-table-based-testing">
+<h1>Ch7 - Decision Table-based Testing<a class="headerlink" href="#ch7-decision-table-based-testing" title="Permalink to this heading"></a></h1>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.google.com/presentation/d/1zUOofTArt4Q-APf-Ne3kE_JUt5gXZFzQTIqBL0VOJqA/edit#slide=id.g4821ca451_016">CH7 課程講義</a></p></li>
 </ul>
-</div>
-<div class="section" id="ch8-path-testing">
-<h1>Ch8 - Path Testing<a class="headerlink" href="#ch8-path-testing" title="本標題的永久連結">¶</a></h1>
-<div class="section" id="program-graphs">
-<h2>Program Graphs<a class="headerlink" href="#program-graphs" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="ch8-path-testing">
+<h1>Ch8 - Path Testing<a class="headerlink" href="#ch8-path-testing" title="Permalink to this heading"></a></h1>
+<section id="program-graphs">
+<h2>Program Graphs<a class="headerlink" href="#program-graphs" title="Permalink to this heading"></a></h2>
 <p>用 imperative 寫出來的程式的 program graphs 會是</p>
 <ul class="simple">
 <li><p>directed graph</p></li>
 <li><p>nodes are statement fragements</p></li>
 <li><p>edges are flow of control</p></li>
 </ul>
-</div>
-<div class="section" id="dd-paths">
-<h2>DD-Paths<a class="headerlink" href="#dd-paths" title="本標題的永久連結">¶</a></h2>
-</div>
-<div class="section" id="test-coverage-metrics">
-<h2>Test Coverage Metrics<a class="headerlink" href="#test-coverage-metrics" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="dd-paths">
+<h2>DD-Paths<a class="headerlink" href="#dd-paths" title="Permalink to this heading"></a></h2>
+</section>
+<section id="test-coverage-metrics">
+<h2>Test Coverage Metrics<a class="headerlink" href="#test-coverage-metrics" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>node coverage</p></li>
 <li><p>edge coverage</p></li>
@@ -1114,17 +1034,17 @@ TOTAL      <span class="m">79</span>      <span class="m">2</span>    <span clas
 <li><p>path coverage</p></li>
 <li><p><a class="reference external" href="https://bitbucket.org/ned/coveragepy">https://bitbucket.org/ned/coveragepy</a></p></li>
 </ul>
-</div>
-<div class="section" id="miller-s-coverage-metrics">
-<h2>Miller’s Coverage Metrics<a class="headerlink" href="#miller-s-coverage-metrics" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="miller-s-coverage-metrics">
+<h2>Miller’s Coverage Metrics<a class="headerlink" href="#miller-s-coverage-metrics" title="Permalink to this heading"></a></h2>
 <p>Todo</p>
-</div>
-<div class="section" id="do-178b">
-<h2>DO-178B<a class="headerlink" href="#do-178b" title="本標題的永久連結">¶</a></h2>
-</div>
-</div>
-<div class="section" id="ch9-data-flow-testing">
-<h1>Ch9 - Data Flow Testing<a class="headerlink" href="#ch9-data-flow-testing" title="本標題的永久連結">¶</a></h1>
+</section>
+<section id="do-178b">
+<h2>DO-178B<a class="headerlink" href="#do-178b" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+<section id="ch9-data-flow-testing">
+<h1>Ch9 - Data Flow Testing<a class="headerlink" href="#ch9-data-flow-testing" title="Permalink to this heading"></a></h1>
 <ul class="simple">
 <li><p>Define/Use Testing</p></li>
 <li><p>Slice-Based Testing</p></li>
@@ -1135,8 +1055,8 @@ TOTAL      <span class="m">79</span>      <span class="m">2</span>    <span clas
 <li><p>unifying structure of <strong>test coverage</strong> metrics</p></li>
 <li><p>program slice (1979 - Mark Weiser)</p></li>
 </ul>
-<div class="section" id="define-reference-anomalies">
-<h2>define/reference anomalies<a class="headerlink" href="#define-reference-anomalies" title="本標題的永久連結">¶</a></h2>
+<section id="define-reference-anomalies">
+<h2>define/reference anomalies<a class="headerlink" href="#define-reference-anomalies" title="Permalink to this heading"></a></h2>
 <p>檢查以下 issue</p>
 <ul class="simple">
 <li><p>只有定義但沒有被使用的變數</p></li>
@@ -1144,61 +1064,51 @@ TOTAL      <span class="m">79</span>      <span class="m">2</span>    <span clas
 <li><p>變數定義了多次</p></li>
 <li><p>變數在使用之前就被 deallocate</p></li>
 </ul>
-</div>
-<div class="section" id="defining-node">
-<h2>defining node<a class="headerlink" href="#defining-node" title="本標題的永久連結">¶</a></h2>
-</div>
-<div class="section" id="usage-node">
-<h2>usage node<a class="headerlink" href="#usage-node" title="本標題的永久連結">¶</a></h2>
-</div>
-<div class="section" id="p-use-c-use">
-<h2>P-use &amp; C-use<a class="headerlink" href="#p-use-c-use" title="本標題的永久連結">¶</a></h2>
-</div>
-</div>
-<div class="section" id="ref">
-<h1>Ref<a class="headerlink" href="#ref" title="本標題的永久連結">¶</a></h1>
+</section>
+<section id="defining-node">
+<h2>defining node<a class="headerlink" href="#defining-node" title="Permalink to this heading"></a></h2>
+</section>
+<section id="usage-node">
+<h2>usage node<a class="headerlink" href="#usage-node" title="Permalink to this heading"></a></h2>
+</section>
+<section id="p-use-c-use">
+<h2>P-use &amp; C-use<a class="headerlink" href="#p-use-c-use" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+<section id="ref">
+<h1>Ref<a class="headerlink" href="#ref" title="Permalink to this heading"></a></h1>
 <ul class="simple">
 <li><p><a class="reference external" href="http://teddy-chen-tw.blogspot.tw/2014/06/blog-post.html">白箱測試與黑箱測試（上）</a></p></li>
 </ul>
-</div>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="some-rust.html" class="btn btn-neutral float-right" title="[Ｏ] Big Number 支援？" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="rust-project-euler-1.html" class="btn btn-neutral float-left" title="Solution 1" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="rust-project-euler-1.html" class="btn btn-neutral float-left" title="Solution 1" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="some-rust.html" class="btn btn-neutral float-right" title="[Ｏ] Big Number 支援？" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016
-
-    </p>
+    <p>&#169; Copyright 2023.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
   
 
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       <span class="fa fa-book"> Read the Docs</span>
       v: latest
@@ -1208,7 +1118,7 @@ TOTAL      <span class="m">79</span>      <span class="m">2</span>    <span clas
       <dl>
         <dt>Versions</dt>
         
-          <dd><a href="/zh_TW/latest/">latest</a></dd>
+          <dd><a href="https://wdv4758h.github.io/notes/">latest</a></dd>
         
       </dl>
       <dl>
@@ -1218,6 +1128,7 @@ TOTAL      <span class="m">79</span>      <span class="m">2</span>    <span clas
         
       </dl>
       <dl>
+        
         <dt>On Read the Docs</dt>
           <dd>
             <a href="//readthedocs.org/projects/wdv4758h-notes/?fromdocs=wdv4758h-notes">Project Home</a>
@@ -1226,22 +1137,13 @@ TOTAL      <span class="m">79</span>      <span class="m">2</span>    <span clas
             <a href="//readthedocs.org/builds/wdv4758h-notes/?fromdocs=wdv4758h-notes">Builds</a>
           </dd>
       </dl>
-      <hr/>
-      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
-
     </div>
   </div>
-
-
-
-  <script type="text/javascript">
+<script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-   
+  </script> 
 
 </body>
 </html>

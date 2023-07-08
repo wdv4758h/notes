@@ -1,112 +1,73 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-TW" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-TW" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>決策樹學習 （Decision Tree） &mdash; wdv4758h-notes latest 說明文件</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>決策樹學習 （Decision Tree） &mdash; wdv4758h-notes latest documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../../_static/translations.js"></script>
-        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
-    
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="index" title="索引" href="../../../genindex.html" />
-    <link rel="search" title="搜尋" href="../../../search.html" /> 
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
 
 <!-- RTD Extra Head -->
 
-<!-- 
-Always link to the latest version, as canonical.
-http://docs.readthedocs.org/en/latest/canonical.html
--->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/machine-learning/types-of-learning-algo/supervised/decision-tree.html" />
+    <!--
+    Always link to the latest version, as canonical.
+    http://docs.readthedocs.org/en/latest/canonical.html
+    -->
+    <link rel="canonical" href="https://wdv4758h-notes.readthedocs.io/zh_TW/latest/machine-learning/types-of-learning-algo/supervised/decision-tree.html" />
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../../../_static/readthedocs-data.js"></script>
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": "", "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": "https://wdv4758h-notes.readthedocs.io/zh_TW/latest/", "docroot": "/./", "features": {"docsearch_disabled": false}, "global_analytics_code": "", "language": "en", "page": "machine-learning/types-of-learning-algo/supervised/decision-tree", "programming_language": "", "project": "wdv4758h-notes", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": ""}</script>
 
-<!-- Add page-specific data, which must exist in the page js, not global -->
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = "machine-learning/types-of-learning-algo/supervised/decision-tree"
-READTHEDOCS_DATA['source_suffix'] = ".rst"
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
 </script>
 
-<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js" async="async"></script>
 
 <!-- end RTD <extrahead> -->
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../../index.html" class="icon icon-home"> wdv4758h-notes
           
-
-          
+          <a href="../../../index.html" class="icon icon-home">
+            wdv4758h-notes
           </a>
-
-          
-            
-            
-            
               <div class="version">
                 latest
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/README.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/adt.html">ADT (Abstract Data Type)</a></li>
@@ -116,13 +77,18 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/cache.html">Cache</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/cache-friendly.html">Cache Friendly Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/dict.html">Dict</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/float-to-string.html">Float to String</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/heap.html">Heap （堆）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/introduction.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/inverse-square-root.html">Inverse Square Root</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/lock.html">Lock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/meta-algorithm.html">Meta Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/random-number-generator.html">Random Number Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/resource.html">演算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/sorting.html">Sorting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/string-to-float.html">String to Float</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/substring-searching.html">Substring Searching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../android/README.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../android/android-emulator.html">Android Emulator</a></li>
@@ -198,7 +164,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/openmp.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/pypy-brainfuck.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/pypy-brainfuck.html#tutorial">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../blog/pypy-brainfuck.html#id5">額外紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/pypy-brainfuck.html#id4">額外紀錄</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/pypy-brainfuck.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/python-benchmark.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/python-benchmark.html#hello-world">Hello World</a></li>
@@ -225,7 +191,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/qemu-first-step.html#qemu-with-kvm">QEMU with KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html">Syntax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#closure">Closure 和外部變數</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#move-closures">「move」 closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#move-closures">“move” closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#closure-implementation">Closure implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#closures-as-arguments">closures as arguments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#returning-closures">returning closures</a></li>
@@ -406,6 +372,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/ci.html">Continuous Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/concourse.html">Concourse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/drone.html">Drone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/github-actions.html">Github Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/jenkins.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/travis-ci.html">Travis CI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/workflow-pipeline.html">Workflow Pipeline</a></li>
@@ -415,7 +382,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/array.html">std::array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/assembly.html">C++ &amp; Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/bit-field.html">C++ Bit Field</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../cpp/c++17.html">C++17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/c%2B%2B17.html">C++17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/concepts.html">C++ Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/const.html">C++ const</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/copy-elision.html">Copy Elision</a></li>
@@ -468,13 +435,16 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../database/README.html">資料庫 (Database)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/cockroachdb.html">CockroachDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/consensus-algorithm.html">Raft Consensus Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../database/graph.html">Graph Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/leveldb.html">LevelDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../database/materialized-views.html">Materialized Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/mongodb.html">MongoDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../database/rocksdb.html">RocksDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/sql.html">SQL (Structured Query Language)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/tidb.html">TiDB</a></li>
@@ -547,7 +517,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../math/math-on-web.html">Math on Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../math/misc.html">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../memory/W^X.html">W^X (Write XOR Execute)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../memory/W%5EX.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../memory/allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../memory/kernel-memory-management.html">Kernel Memory Management</a></li>
@@ -805,80 +775,40 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../wiki/resource.html">Wiki</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">wdv4758h-notes</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../../index.html">Docs</a> &raquo;</li>
-        
-      <li>決策樹學習 （Decision Tree）</li>
-    
-    
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">決策樹學習 （Decision Tree）</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/wdv4758h/notes/blob/master/./machine-learning/types-of-learning-algo/supervised/decision-tree.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="decision-tree">
-<h1><a class="toc-backref" href="#id20">決策樹學習 （Decision Tree）</a><a class="headerlink" href="#decision-tree" title="本標題的永久連結">¶</a></h1>
+             
+  <section id="decision-tree">
+<h1><a class="toc-backref" href="#id20" role="doc-backlink">決策樹學習 （Decision Tree）</a><a class="headerlink" href="#decision-tree" title="Permalink to this heading"></a></h1>
 <dl class="field-list simple">
-<dt class="field-odd">學習種類</dt>
+<dt class="field-odd">學習種類<span class="colon">:</span></dt>
 <dd class="field-odd"><p>監督式學習</p>
 </dd>
-<dt class="field-even">使用領域</dt>
+<dt class="field-even">使用領域<span class="colon">:</span></dt>
 <dd class="field-even"><p>分類、回歸</p>
 </dd>
-<dt class="field-odd">優點</dt>
+<dt class="field-odd">優點<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p>容易理解、視覺化</p></li>
 <li><p>需要的資料前處理較少</p></li>
@@ -886,7 +816,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li><p>可以處理數值型、類別型資料</p></li>
 </ul>
 </dd>
-<dt class="field-even">缺點</dt>
+<dt class="field-even">缺點<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p>可能會 overfitting 造成決策樹過於複雜</p></li>
 <li><p>找到最佳的決策樹是 NP-complete 的問題</p></li>
@@ -895,8 +825,8 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </ul>
 </dd>
 </dl>
-<div class="contents topic" id="id1">
-<p class="topic-title first">目錄</p>
+<nav class="contents" id="id1">
+<p class="topic-title">目錄</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#decision-tree" id="id20">決策樹學習 （Decision Tree）</a></p>
 <ul>
@@ -962,9 +892,9 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="id2">
-<h2><a class="toc-backref" href="#id21">決策樹的種類</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+</nav>
+<section id="id2">
+<h2><a class="toc-backref" href="#id21" role="doc-backlink">決策樹的種類</a><a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>分類樹 （Classification tree）</p></li>
 <li><p>回歸樹 （Regression tree）</p></li>
@@ -976,27 +906,27 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li><p>Boosted Trees</p></li>
 <li><p>Rotation Forest</p></li>
 </ul>
-</div>
-<div class="section" id="metrics">
-<h2><a class="toc-backref" href="#id22">度量 （Metrics）</a><a class="headerlink" href="#metrics" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="metrics">
+<h2><a class="toc-backref" href="#id22" role="doc-backlink">度量 （Metrics）</a><a class="headerlink" href="#metrics" title="Permalink to this heading"></a></h2>
 <p>類似決策樹的 cost functions</p>
 <ul class="simple">
 <li><p>Shannon Entropy</p></li>
 <li><p>Gini Impurity</p></li>
 <li><p>Chi-Square Test</p></li>
 </ul>
-<div class="section" id="shannon-entropy">
-<h3><a class="toc-backref" href="#id23">Shannon Entropy</a><a class="headerlink" href="#shannon-entropy" title="本標題的永久連結">¶</a></h3>
+<section id="shannon-entropy">
+<h3><a class="toc-backref" href="#id23" role="doc-backlink">Shannon Entropy</a><a class="headerlink" href="#shannon-entropy" title="Permalink to this heading"></a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">重要觀念</dt>
+<dt class="field-odd">重要觀念<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p>信息的產生是隨機的</p></li>
 <li><p>發生機率愈小，信息量愈大</p></li>
 </ul>
 </dd>
 </dl>
-<div class="section" id="id3">
-<h4><a class="toc-backref" href="#id24">信息的產生是隨機的</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h4>
+<section id="id3">
+<h4><a class="toc-backref" href="#id24" role="doc-backlink">信息的產生是隨機的</a><a class="headerlink" href="#id3" title="Permalink to this heading"></a></h4>
 <p>如果信息的產生不是隨機的話，
 那就可以事先得知，
 而此時因為這件事變成已知，
@@ -1004,18 +934,18 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 例如，告訴一位正躺在室外曬日光浴的人「現在出太陽」，
 對他而言這是已知的事情，
 因此這句話毫無訊息量，形同廢話。</p>
-</div>
-<div class="section" id="id4">
-<h4><a class="toc-backref" href="#id25">發生機率愈小，信息量愈大</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h4>
+</section>
+<section id="id4">
+<h4><a class="toc-backref" href="#id25" role="doc-backlink">發生機率愈小，信息量愈大</a><a class="headerlink" href="#id4" title="Permalink to this heading"></a></h4>
 <p>假如發生機率是百分之百，
 那就是已知的事情，
 也就是毫無訊息量。
 相反的，如果發生的機率很小，
 那麼這件事的訊息量就會很大。
 例如，你中了樂透頭獎，這件事對你的訊息量就很大。</p>
-</div>
-<div class="section" id="id5">
-<h4><a class="toc-backref" href="#id26">觀念融入公式</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h4>
+</section>
+<section id="id5">
+<h4><a class="toc-backref" href="#id26" role="doc-backlink">觀念融入公式</a><a class="headerlink" href="#id5" title="Permalink to this heading"></a></h4>
 <ol class="arabic simple">
 <li><p>把信息資料用隨機變數 S 表示：</p></li>
 </ol>
@@ -1077,9 +1007,9 @@ log(2, e) = 0.6931471805599453
 log(2, 2) = 1
 </pre></div>
 </div>
-</div>
-<div class="section" id="id6">
-<h4><a class="toc-backref" href="#id27">資訊獲利</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h4>
+</section>
+<section id="id6">
+<h4><a class="toc-backref" href="#id27" role="doc-backlink">資訊獲利</a><a class="headerlink" href="#id6" title="Permalink to this heading"></a></h4>
 <p>（以 Entropy 作為亂度的度量方式，Entropy 愈低，亂度愈低，分辨的愈好）</p>
 <p>資訊獲利（選擇資訊獲利高的路）</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">IG</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> <span class="o">=</span> <span class="n">H</span><span class="p">(</span><span class="n">T</span><span class="p">)</span> <span class="o">-</span> <span class="n">H</span><span class="p">(</span><span class="n">T</span><span class="o">|</span><span class="n">a</span><span class="p">)</span>
@@ -1089,7 +1019,7 @@ log(2, 2) = 1
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">log</span>
 
 <span class="k">def</span> <span class="nf">entropy</span><span class="p">(</span><span class="n">possibility</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    entropy of single condition</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="k">if</span> <span class="n">possibility</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
@@ -1098,7 +1028,7 @@ log(2, 2) = 1
 
 
 <span class="k">def</span> <span class="nf">total_entropy_of_bool</span><span class="p">(</span><span class="n">possibility</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    total entropy of all conditions with two possibility in random variable</span>
 
 <span class="sd">    S = {s1, s2}</span>
@@ -1111,7 +1041,7 @@ log(2, 2) = 1
 
 
 <span class="k">def</span> <span class="nf">total_entropy_of_split</span><span class="p">(</span><span class="n">class1</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">class2</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)):</span>
-    <span class="sd">&#39;&#39;&#39;</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    weighted average entropy</span>
 
 <span class="sd">    &gt;&gt;&gt; total_entropy_of_split((5, 4), (4, 6))</span>
@@ -1127,7 +1057,7 @@ log(2, 2) = 1
 
 
 <span class="k">def</span> <span class="nf">information_gain</span><span class="p">(</span><span class="n">class1</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">class2</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)):</span>
-    <span class="sd">&#39;&#39;&#39;</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    &gt;&gt;&gt; information_gain((5, 4), (4, 6))</span>
 <span class="sd">    0.017517174235947564</span>
 <span class="sd">    &gt;&gt;&gt; information_gain((6, 0), (3, 10))</span>
@@ -1163,16 +1093,16 @@ log(2, 2) = 1
 <span class="c1"># y = f(x[1:])      # fine</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id7">
-<h4><a class="toc-backref" href="#id28">獲利比率</a><a class="headerlink" href="#id7" title="本標題的永久連結">¶</a></h4>
+</section>
+<section id="id7">
+<h4><a class="toc-backref" href="#id28" role="doc-backlink">獲利比率</a><a class="headerlink" href="#id7" title="Permalink to this heading"></a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GainRatio</span><span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="o">=</span> <span class="n">Gain</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span> <span class="o">/</span> <span class="n">SplitInfo</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="gini-impurity">
-<h3><a class="toc-backref" href="#id29">Gini Impurity</a><a class="headerlink" href="#gini-impurity" title="本標題的永久連結">¶</a></h3>
+</section>
+</section>
+<section id="gini-impurity">
+<h3><a class="toc-backref" href="#id29" role="doc-backlink">Gini Impurity</a><a class="headerlink" href="#gini-impurity" title="Permalink to this heading"></a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Gini</span><span class="p">(</span><span class="n">D</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="nb">sum</span><span class="p">(</span><span class="n">pi</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1180,7 +1110,7 @@ log(2, 2) = 1
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fractions</span> <span class="kn">import</span> <span class="n">Fraction</span>
 
 <span class="k">def</span> <span class="nf">gini</span><span class="p">(</span><span class="n">all_possibility</span><span class="o">=</span><span class="p">(</span><span class="n">Fraction</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">laplace</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    &gt;&gt;&gt; gini()</span>
 <span class="sd">    Fraction(0, 1)</span>
 <span class="sd">    &gt;&gt;&gt; gini((Fraction(3, 5), Fraction(2, 5)))</span>
@@ -1197,7 +1127,7 @@ log(2, 2) = 1
 
 
 <span class="k">def</span> <span class="nf">gini_of_bool</span><span class="p">(</span><span class="n">possibility</span><span class="p">,</span> <span class="n">laplace</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    gini of all conditions with two possibility in random variable</span>
 
 <span class="sd">    S = {s1, s2}</span>
@@ -1213,7 +1143,7 @@ log(2, 2) = 1
 
 
 <span class="k">def</span> <span class="nf">gini_of_split</span><span class="p">(</span><span class="n">class1</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">class2</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">laplace</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    weighted gini</span>
 
 <span class="sd">    &gt;&gt;&gt; gini_of_split((1, 1), (1, 2), True)</span>
@@ -1228,7 +1158,7 @@ log(2, 2) = 1
                 <span class="o">*</span> <span class="n">gini_of_bool</span><span class="p">(</span><span class="n">Fraction</span><span class="p">(</span><span class="n">class2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">total2</span><span class="p">),</span> <span class="n">laplace</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">gini_gain</span><span class="p">(</span><span class="n">class1</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">class2</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">laplace</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    &gt;&gt;&gt; gini_gain((6, 2), (3, 3))</span>
 <span class="sd">    -0.030612244897959162</span>
 <span class="sd">    &#39;&#39;&#39;</span>
@@ -1258,24 +1188,17 @@ log(2, 2) = 1
 </div></blockquote>
 </li>
 </ul>
-<div class="section" id="laplace-correction-laplace-estimate">
-<h4><a class="toc-backref" href="#id30">Laplace Correction (Laplace Estimate)</a><a class="headerlink" href="#laplace-correction-laplace-estimate" title="本標題的永久連結">¶</a></h4>
+<section id="laplace-correction-laplace-estimate">
+<h4><a class="toc-backref" href="#id30" role="doc-backlink">Laplace Correction (Laplace Estimate)</a><a class="headerlink" href="#laplace-correction-laplace-estimate" title="Permalink to this heading"></a></h4>
 <p>「機率理論可用於衡量一句話的可信度」</p>
 <p>連續法則（Rule of Succession）</p>
 <p>如果成功了 m 次，失敗了 n 次，
 那下次成功的機率為 <code class="docutils literal notranslate"><span class="pre">(m+1)/(m+n+2)</span></code></p>
-</div>
-<div class="section" id="id8">
-<h4><a class="toc-backref" href="#id31">範例</a><a class="headerlink" href="#id8" title="本標題的永久連結">¶</a></h4>
+</section>
+<section id="id8">
+<h4><a class="toc-backref" href="#id31" role="doc-backlink">範例</a><a class="headerlink" href="#id8" title="Permalink to this heading"></a></h4>
 <p>已知案例（N 代表正常，D 代表有疾病）：</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 17%" />
-<col style="width: 22%" />
-<col style="width: 22%" />
-<col style="width: 22%" />
-<col style="width: 17%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>病患</p></th>
 <th class="head"><p>症狀 1</p></th>
@@ -1319,13 +1242,6 @@ log(2, 2) = 1
 </table>
 <p>欲判斷的病患：</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 17%" />
-<col style="width: 22%" />
-<col style="width: 22%" />
-<col style="width: 22%" />
-<col style="width: 17%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>病患</p></th>
 <th class="head"><p>症狀 1</p></th>
@@ -1343,8 +1259,8 @@ log(2, 2) = 1
 </tr>
 </tbody>
 </table>
-<div class="section" id="id9">
-<h5><a class="toc-backref" href="#id32">第一次分辨</a><a class="headerlink" href="#id9" title="本標題的永久連結">¶</a></h5>
+<section id="id9">
+<h5><a class="toc-backref" href="#id32" role="doc-backlink">第一次分辨</a><a class="headerlink" href="#id9" title="Permalink to this heading"></a></h5>
 <p>建立決策樹：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Gini</span><span class="p">(</span><span class="n">D</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">((</span><span class="mi">3</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">5</span><span class="o">+</span><span class="mi">2</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="p">((</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">5</span><span class="o">+</span><span class="mi">2</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span> <span class="o">=</span> <span class="mi">24</span><span class="o">/</span><span class="mi">49</span> <span class="o">=</span> <span class="mf">0.4849</span>
 <span class="n">Gini</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">症狀1</span><span class="p">)</span> <span class="o">=</span> <span class="mi">2</span><span class="o">/</span><span class="mi">5</span> <span class="o">*</span> <span class="n">Gini</span><span class="p">(</span><span class="n">D11</span><span class="p">)</span> <span class="o">+</span> <span class="mi">3</span><span class="o">/</span><span class="mi">5</span> <span class="o">*</span> <span class="n">Gini</span><span class="p">(</span><span class="n">D12</span><span class="p">)</span>
@@ -1373,16 +1289,11 @@ log(2, 2) = 1
 <span class="n">gini_gain</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="kc">True</span><span class="p">)</span>         <span class="c1"># float: 0.057614512471655326, desired: 0.0518</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id10">
-<h5><a class="toc-backref" href="#id33">第二次分辨</a><a class="headerlink" href="#id10" title="本標題的永久連結">¶</a></h5>
+</section>
+<section id="id10">
+<h5><a class="toc-backref" href="#id33" role="doc-backlink">第二次分辨</a><a class="headerlink" href="#id10" title="Permalink to this heading"></a></h5>
 <p>已知案例－類別一（症狀 3 為 V2）（結果都一樣，不需再分）：</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 30%" />
-<col style="width: 40%" />
-<col style="width: 30%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>病患</p></th>
 <th class="head"><p>症狀 3</p></th>
@@ -1402,12 +1313,6 @@ log(2, 2) = 1
 </table>
 <p>已知案例－類別二（症狀 3 為 V1）：</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 21%" />
-<col style="width: 29%" />
-<col style="width: 29%" />
-<col style="width: 21%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>病患</p></th>
 <th class="head"><p>症狀 1</p></th>
@@ -1435,13 +1340,6 @@ log(2, 2) = 1
 </table>
 <p>欲判斷的病患：</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 17%" />
-<col style="width: 22%" />
-<col style="width: 22%" />
-<col style="width: 22%" />
-<col style="width: 17%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>病患</p></th>
 <th class="head"><p>症狀 1</p></th>
@@ -1467,9 +1365,9 @@ log(2, 2) = 1
 <span class="o">=&gt;</span> <span class="n">不需要再擴增子樹</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id11">
-<h5><a class="toc-backref" href="#id34">結果</a><a class="headerlink" href="#id11" title="本標題的永久連結">¶</a></h5>
+</section>
+<section id="id11">
+<h5><a class="toc-backref" href="#id34" role="doc-backlink">結果</a><a class="headerlink" href="#id11" title="Permalink to this heading"></a></h5>
 <p>決策樹：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>+-----------------+
 | 症狀 3 為 V2 ？ |
@@ -1484,20 +1382,16 @@ log(2, 2) = 1
 </pre></div>
 </div>
 <p>根據建完的決策樹，第六個病患會被判斷為「正常」。</p>
-</div>
-</div>
-</div>
-<div class="section" id="chi-square-test">
-<h3><a class="toc-backref" href="#id35">Chi-Square Test</a><a class="headerlink" href="#chi-square-test" title="本標題的永久連結">¶</a></h3>
-</div>
-</div>
-<div class="section" id="id12">
-<h2><a class="toc-backref" href="#id36">建立決策樹的演算法</a><a class="headerlink" href="#id12" title="本標題的永久連結">¶</a></h2>
+</section>
+</section>
+</section>
+<section id="chi-square-test">
+<h3><a class="toc-backref" href="#id35" role="doc-backlink">Chi-Square Test</a><a class="headerlink" href="#chi-square-test" title="Permalink to this heading"></a></h3>
+</section>
+</section>
+<section id="id12">
+<h2><a class="toc-backref" href="#id36" role="doc-backlink">建立決策樹的演算法</a><a class="headerlink" href="#id12" title="Permalink to this heading"></a></h2>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 68%" />
-<col style="width: 32%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>成本函數</p></th>
 <th class="head"><p>使用者</p></th>
@@ -1525,7 +1419,7 @@ log(2, 2) = 1
     <span class="k">if</span> <span class="nb">all</span> <span class="n">elements</span> <span class="n">of</span> <span class="n">Data</span> <span class="n">have</span> <span class="n">the</span> <span class="n">same</span> <span class="n">y</span> <span class="n">value</span><span class="p">,</span> <span class="n">then</span>
         <span class="n">MakeLeafNode</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
     <span class="k">else</span>
-        <span class="n">feature</span> <span class="p">:</span><span class="o">=</span> <span class="n">PickBestFeature</span><span class="p">(</span><span class="n">Data</span><span class="p">)</span>
+        <span class="n">feature</span> <span class="o">:=</span> <span class="n">PickBestFeature</span><span class="p">(</span><span class="n">Data</span><span class="p">)</span>
         <span class="n">MakeInternalNode</span><span class="p">(</span><span class="n">feature</span><span class="p">,</span>
                          <span class="n">BuildTree</span><span class="p">(</span><span class="n">SelectFalse</span><span class="p">(</span><span class="n">Data</span><span class="p">,</span> <span class="n">feature</span><span class="p">)),</span>
                          <span class="n">BuildTree</span><span class="p">(</span><span class="n">SelectTrue</span><span class="p">(</span><span class="n">Data</span><span class="p">,</span> <span class="n">feature</span><span class="p">)))</span>
@@ -1540,39 +1434,39 @@ log(2, 2) = 1
 <li><p>MARS: extends decision trees to handle numerical data better.</p></li>
 <li><p>Conditional Inference Trees</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ID3</span> <span class="o">---&gt;</span> <span class="n">C4</span><span class="o">.</span><span class="mi">5</span> <span class="o">---&gt;</span> <span class="n">C5</span><span class="o">.</span><span class="mi">0</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ID3</span> <span class="o">---&gt;</span> <span class="n">C4</span><span class="mf">.5</span> <span class="o">---&gt;</span> <span class="n">C5</span><span class="mf">.0</span>
 </pre></div>
 </div>
-<div class="section" id="id13">
-<h3><a class="toc-backref" href="#id37">ID3</a><a class="headerlink" href="#id13" title="本標題的永久連結">¶</a></h3>
-</div>
-<div class="section" id="c4-5">
-<h3><a class="toc-backref" href="#id38">C4.5</a><a class="headerlink" href="#c4-5" title="本標題的永久連結">¶</a></h3>
-</div>
-<div class="section" id="c5-0">
-<h3><a class="toc-backref" href="#id39">C5.0</a><a class="headerlink" href="#c5-0" title="本標題的永久連結">¶</a></h3>
-</div>
-<div class="section" id="cart">
-<h3><a class="toc-backref" href="#id40">CART</a><a class="headerlink" href="#cart" title="本標題的永久連結">¶</a></h3>
-</div>
-<div class="section" id="chaid">
-<h3><a class="toc-backref" href="#id41">CHAID</a><a class="headerlink" href="#chaid" title="本標題的永久連結">¶</a></h3>
-</div>
-<div class="section" id="decision-stump">
-<h3><a class="toc-backref" href="#id42">Decision Stump</a><a class="headerlink" href="#decision-stump" title="本標題的永久連結">¶</a></h3>
-</div>
-<div class="section" id="conditional-decision-tree">
-<h3><a class="toc-backref" href="#id43">Conditional Decision Tree</a><a class="headerlink" href="#conditional-decision-tree" title="本標題的永久連結">¶</a></h3>
-</div>
-<div class="section" id="m5">
-<h3><a class="toc-backref" href="#id44">M5</a><a class="headerlink" href="#m5" title="本標題的永久連結">¶</a></h3>
-</div>
-<div class="section" id="m5p">
-<h3><a class="toc-backref" href="#id45">M5P</a><a class="headerlink" href="#m5p" title="本標題的永久連結">¶</a></h3>
-</div>
-</div>
-<div class="section" id="ensemble-methods">
-<h2><a class="toc-backref" href="#id46">Ensemble Methods</a><a class="headerlink" href="#ensemble-methods" title="本標題的永久連結">¶</a></h2>
+<section id="id13">
+<h3><a class="toc-backref" href="#id37" role="doc-backlink">ID3</a><a class="headerlink" href="#id13" title="Permalink to this heading"></a></h3>
+</section>
+<section id="c4-5">
+<h3><a class="toc-backref" href="#id38" role="doc-backlink">C4.5</a><a class="headerlink" href="#c4-5" title="Permalink to this heading"></a></h3>
+</section>
+<section id="c5-0">
+<h3><a class="toc-backref" href="#id39" role="doc-backlink">C5.0</a><a class="headerlink" href="#c5-0" title="Permalink to this heading"></a></h3>
+</section>
+<section id="cart">
+<h3><a class="toc-backref" href="#id40" role="doc-backlink">CART</a><a class="headerlink" href="#cart" title="Permalink to this heading"></a></h3>
+</section>
+<section id="chaid">
+<h3><a class="toc-backref" href="#id41" role="doc-backlink">CHAID</a><a class="headerlink" href="#chaid" title="Permalink to this heading"></a></h3>
+</section>
+<section id="decision-stump">
+<h3><a class="toc-backref" href="#id42" role="doc-backlink">Decision Stump</a><a class="headerlink" href="#decision-stump" title="Permalink to this heading"></a></h3>
+</section>
+<section id="conditional-decision-tree">
+<h3><a class="toc-backref" href="#id43" role="doc-backlink">Conditional Decision Tree</a><a class="headerlink" href="#conditional-decision-tree" title="Permalink to this heading"></a></h3>
+</section>
+<section id="m5">
+<h3><a class="toc-backref" href="#id44" role="doc-backlink">M5</a><a class="headerlink" href="#m5" title="Permalink to this heading"></a></h3>
+</section>
+<section id="m5p">
+<h3><a class="toc-backref" href="#id45" role="doc-backlink">M5P</a><a class="headerlink" href="#m5p" title="Permalink to this heading"></a></h3>
+</section>
+</section>
+<section id="ensemble-methods">
+<h2><a class="toc-backref" href="#id46" role="doc-backlink">Ensemble Methods</a><a class="headerlink" href="#ensemble-methods" title="Permalink to this heading"></a></h2>
 <p>Ensemble Methods 的目標是把多個基本的估計合起來使用，
 以增加功能性。</p>
 <p>Ensemble Methods 大致可以分成兩種：</p>
@@ -1594,16 +1488,16 @@ log(2, 2) = 1
 </dl>
 </li>
 </ul>
-<div class="section" id="bagging">
-<h3><a class="toc-backref" href="#id47">Bagging</a><a class="headerlink" href="#bagging" title="本標題的永久連結">¶</a></h3>
+<section id="bagging">
+<h3><a class="toc-backref" href="#id47" role="doc-backlink">Bagging</a><a class="headerlink" href="#bagging" title="Permalink to this heading"></a></h3>
 <p>選出訓練資料的數個任意子集合來建立數個估計方法，
 最後結合各估計方法的結果。
 此作法常用來減少單一估計方法的偏差（減少 overfitting 的影響）。
 此方法通常適合使用在強而複雜的模型，
 另一方面加速類型的 Ensemble Methods 則通常適合使用在弱的模型。</p>
-</div>
-<div class="section" id="random-forests">
-<h3><a class="toc-backref" href="#id48">Random Forests</a><a class="headerlink" href="#random-forests" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="random-forests">
+<h3><a class="toc-backref" href="#id48" role="doc-backlink">Random Forests</a><a class="headerlink" href="#random-forests" title="Permalink to this heading"></a></h3>
 <p>從所有的特徵中隨機選取一部份來建立估計，
 建立好數個估計方法後和起來使用，
 最後的出綜合的結論。
@@ -1614,9 +1508,9 @@ log(2, 2) = 1
 「Real-Time Human Pose Recognition in Parts from Single Depth Images」中，
 就有描述到在 Kinect 中使用 Randome Forests 來幫忙判斷人體的姿勢，
 而該篇論文則被 CVPR 選為該年年度最佳論文。</p>
-</div>
-<div class="section" id="adaboost">
-<h3><a class="toc-backref" href="#id49">AdaBoost</a><a class="headerlink" href="#adaboost" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="adaboost">
+<h3><a class="toc-backref" href="#id49" role="doc-backlink">AdaBoost</a><a class="headerlink" href="#adaboost" title="Permalink to this heading"></a></h3>
 <p>AdaBoost 為 1995 年由 Freund 和 Schapire 發表的作法。
 AdaBoost 的概念為把一系列的弱分類器（只比亂猜好一點點，例如很小的決策樹）
 利用權重和投票機制組起來，
@@ -1632,37 +1526,33 @@ AdaBoost 的概念為把一系列的弱分類器（只比亂猜好一點點，�
 現在可以在 OpenCV 之類的專案看到基於該作法的實作，
 可應用在人臉偵測之類的地方。
 （之前修電腦視覺課程時，我跟朋友的期末專題剛好就在看這個 XD）</p>
-</div>
-<div class="section" id="gradient-tree-boosting-gradient-boosted-regression-trees-gbrt">
-<h3><a class="toc-backref" href="#id50">Gradient Tree Boosting (Gradient Boosted Regression Trees) (GBRT)</a><a class="headerlink" href="#gradient-tree-boosting-gradient-boosted-regression-trees-gbrt" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="gradient-tree-boosting-gradient-boosted-regression-trees-gbrt">
+<h3><a class="toc-backref" href="#id50" role="doc-backlink">Gradient Tree Boosting (Gradient Boosted Regression Trees) (GBRT)</a><a class="headerlink" href="#gradient-tree-boosting-gradient-boosted-regression-trees-gbrt" title="Permalink to this heading"></a></h3>
 <p>GBRT 會利用 Gradient Descent 的方式降低給定 cost function 的值，
 因此選用不同的 cost function 可以產生初步同的結果。
 GBRT 常用於像是網頁搜尋排名之類的領域。</p>
-</div>
-<div class="section" id="stacked-generalization-blending">
-<h3><a class="toc-backref" href="#id51">Stacked Generalization (Blending)</a><a class="headerlink" href="#stacked-generalization-blending" title="本標題的永久連結">¶</a></h3>
-</div>
-</div>
-<div class="section" id="id14">
-<h2><a class="toc-backref" href="#id52">決策樹的優點</a><a class="headerlink" href="#id14" title="本標題的永久連結">¶</a></h2>
-</div>
-<div class="section" id="id15">
-<h2><a class="toc-backref" href="#id53">決策樹的缺點</a><a class="headerlink" href="#id15" title="本標題的永久連結">¶</a></h2>
-</div>
-<div class="section" id="id16">
-<h2><a class="toc-backref" href="#id54">混用</a><a class="headerlink" href="#id16" title="本標題的永久連結">¶</a></h2>
-<div class="section" id="decision-tree-naive-bayes">
-<h3><a class="toc-backref" href="#id55">Decision Tree + Naive Bayes</a><a class="headerlink" href="#decision-tree-naive-bayes" title="本標題的永久連結">¶</a></h3>
-</div>
-</div>
-<div class="section" id="id17">
-<h2><a class="toc-backref" href="#id56">實作現況</a><a class="headerlink" href="#id17" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="stacked-generalization-blending">
+<h3><a class="toc-backref" href="#id51" role="doc-backlink">Stacked Generalization (Blending)</a><a class="headerlink" href="#stacked-generalization-blending" title="Permalink to this heading"></a></h3>
+</section>
+</section>
+<section id="id14">
+<h2><a class="toc-backref" href="#id52" role="doc-backlink">決策樹的優點</a><a class="headerlink" href="#id14" title="Permalink to this heading"></a></h2>
+</section>
+<section id="id15">
+<h2><a class="toc-backref" href="#id53" role="doc-backlink">決策樹的缺點</a><a class="headerlink" href="#id15" title="Permalink to this heading"></a></h2>
+</section>
+<section id="id16">
+<h2><a class="toc-backref" href="#id54" role="doc-backlink">混用</a><a class="headerlink" href="#id16" title="Permalink to this heading"></a></h2>
+<section id="decision-tree-naive-bayes">
+<h3><a class="toc-backref" href="#id55" role="doc-backlink">Decision Tree + Naive Bayes</a><a class="headerlink" href="#decision-tree-naive-bayes" title="Permalink to this heading"></a></h3>
+</section>
+</section>
+<section id="id17">
+<h2><a class="toc-backref" href="#id56" role="doc-backlink">實作現況</a><a class="headerlink" href="#id17" title="Permalink to this heading"></a></h2>
 <p>Library 現況：</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Library</p></th>
 <th class="head"><p>實作的演算法</p></th>
@@ -1680,12 +1570,12 @@ GBRT 常用於像是網頁搜尋排名之類的領域。</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.entropy.html">SciPy - scipy.stats.entropy</a></p></li>
 </ul>
-</div>
-<div class="section" id="id18">
-<h2><a class="toc-backref" href="#id57">使用範例</a><a class="headerlink" href="#id18" title="本標題的永久連結">¶</a></h2>
-</div>
-<div class="section" id="id19">
-<h2><a class="toc-backref" href="#id58">參考</a><a class="headerlink" href="#id19" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="id18">
+<h2><a class="toc-backref" href="#id57" role="doc-backlink">使用範例</a><a class="headerlink" href="#id18" title="Permalink to this heading"></a></h2>
+</section>
+<section id="id19">
+<h2><a class="toc-backref" href="#id58" role="doc-backlink">參考</a><a class="headerlink" href="#id19" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Decision_tree_learning">Wikipedia - Decision tree learning</a></p></li>
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Information_gain_in_decision_trees">Wikipedia - Information gain in decision trees</a></p></li>
@@ -1704,37 +1594,33 @@ GBRT 常用於像是網頁搜尋排名之類的領域。</p>
 <li><p><a class="reference external" href="http://history.pansci.asia/post/114321504880/科學史上的今天323拉普拉斯誕辰pierre-simon-laplace">【科學史上的今天】3/23 - 拉普拉斯誕辰（Pierre-Simon Laplace, 1749－1827）</a></p></li>
 <li><p><a class="reference external" href="http://highscope.ch.ntu.edu.tw/wordpress/?p=39287">機率歷史 (The History of Probability)</a></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016
-
-    </p>
+    <p>&#169; Copyright 2023.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
   
 
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       <span class="fa fa-book"> Read the Docs</span>
       v: latest
@@ -1744,7 +1630,7 @@ GBRT 常用於像是網頁搜尋排名之類的領域。</p>
       <dl>
         <dt>Versions</dt>
         
-          <dd><a href="/zh_TW/latest/">latest</a></dd>
+          <dd><a href="https://wdv4758h.github.io/notes/">latest</a></dd>
         
       </dl>
       <dl>
@@ -1754,6 +1640,7 @@ GBRT 常用於像是網頁搜尋排名之類的領域。</p>
         
       </dl>
       <dl>
+        
         <dt>On Read the Docs</dt>
           <dd>
             <a href="//readthedocs.org/projects/wdv4758h-notes/?fromdocs=wdv4758h-notes">Project Home</a>
@@ -1762,22 +1649,13 @@ GBRT 常用於像是網頁搜尋排名之類的領域。</p>
             <a href="//readthedocs.org/builds/wdv4758h-notes/?fromdocs=wdv4758h-notes">Builds</a>
           </dd>
       </dl>
-      <hr/>
-      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
-
     </div>
   </div>
-
-
-
-  <script type="text/javascript">
+<script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-   
+  </script> 
 
 </body>
 </html>

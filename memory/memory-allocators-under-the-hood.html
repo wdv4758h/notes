@@ -1,114 +1,75 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-TW" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-TW" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Memory Allocator - Under The Hood &mdash; wdv4758h-notes latest 說明文件</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memory Allocator - Under The Hood &mdash; wdv4758h-notes latest documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="搜尋" href="../search.html" />
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Memory Hardware" href="memory-hardware.html" />
     <link rel="prev" title="Memory" href="memory.html" /> 
 
 <!-- RTD Extra Head -->
 
-<!-- 
-Always link to the latest version, as canonical.
-http://docs.readthedocs.org/en/latest/canonical.html
--->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/memory/memory-allocators-under-the-hood.html" />
+    <!--
+    Always link to the latest version, as canonical.
+    http://docs.readthedocs.org/en/latest/canonical.html
+    -->
+    <link rel="canonical" href="https://wdv4758h-notes.readthedocs.io/zh_TW/latest/memory/memory-allocators-under-the-hood.html" />
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": "", "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": "https://wdv4758h-notes.readthedocs.io/zh_TW/latest/", "docroot": "/./", "features": {"docsearch_disabled": false}, "global_analytics_code": "", "language": "en", "page": "memory/memory-allocators-under-the-hood", "programming_language": "", "project": "wdv4758h-notes", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": ""}</script>
 
-<!-- Add page-specific data, which must exist in the page js, not global -->
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = "memory/memory-allocators-under-the-hood"
-READTHEDOCS_DATA['source_suffix'] = ".rst"
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
 </script>
 
-<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js" async="async"></script>
 
 <!-- end RTD <extrahead> -->
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../index.html" class="icon icon-home"> wdv4758h-notes
           
-
-          
+          <a href="../index.html" class="icon icon-home">
+            wdv4758h-notes
           </a>
-
-          
-            
-            
-            
               <div class="version">
                 latest
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/README.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/adt.html">ADT (Abstract Data Type)</a></li>
@@ -118,13 +79,18 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/cache.html">Cache</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/cache-friendly.html">Cache Friendly Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/dict.html">Dict</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/float-to-string.html">Float to String</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/heap.html">Heap （堆）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/introduction.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/inverse-square-root.html">Inverse Square Root</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/lock.html">Lock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/meta-algorithm.html">Meta Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/random-number-generator.html">Random Number Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/resource.html">演算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/sorting.html">Sorting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/string-to-float.html">String to Float</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/substring-searching.html">Substring Searching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/README.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/android-emulator.html">Android Emulator</a></li>
@@ -200,7 +166,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../blog/openmp.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#tutorial">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#id5">額外紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#id4">額外紀錄</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/python-benchmark.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/python-benchmark.html#hello-world">Hello World</a></li>
@@ -227,7 +193,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../blog/qemu-first-step.html#qemu-with-kvm">QEMU with KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html">Syntax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closure">Closure 和外部變數</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#move-closures">「move」 closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#move-closures">“move” closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closure-implementation">Closure implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closures-as-arguments">closures as arguments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#returning-closures">returning closures</a></li>
@@ -408,6 +374,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/ci.html">Continuous Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/concourse.html">Concourse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/drone.html">Drone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../continuous-integration/github-actions.html">Github Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/jenkins.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/travis-ci.html">Travis CI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/workflow-pipeline.html">Workflow Pipeline</a></li>
@@ -417,7 +384,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../cpp/array.html">std::array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/assembly.html">C++ &amp; Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/bit-field.html">C++ Bit Field</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cpp/c++17.html">C++17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/c%2B%2B17.html">C++17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/concepts.html">C++ Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/const.html">C++ const</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/copy-elision.html">Copy Elision</a></li>
@@ -470,13 +437,16 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../database/README.html">資料庫 (Database)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/cockroachdb.html">CockroachDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/consensus-algorithm.html">Raft Consensus Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/graph.html">Graph Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/leveldb.html">LevelDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/materialized-views.html">Materialized Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mongodb.html">MongoDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/rocksdb.html">RocksDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sql.html">SQL (Structured Query Language)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/tidb.html">TiDB</a></li>
@@ -549,7 +519,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/math-on-web.html">Math on Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/misc.html">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="W^X.html">W^X (Write XOR Execute)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="W%5EX.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="asan-algo.html">AddressSanitizer Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="kernel-memory-management.html">Kernel Memory Management</a></li>
@@ -824,74 +794,34 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../wiki/resource.html">Wiki</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">wdv4758h-notes</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-      <li>Memory Allocator - Under The Hood</li>
-    
-    
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Memory Allocator - Under The Hood</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/wdv4758h/notes/blob/master/./memory/memory-allocators-under-the-hood.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="memory-allocator-under-the-hood">
-<h1><a class="toc-backref" href="#id1">Memory Allocator - Under The Hood</a><a class="headerlink" href="#memory-allocator-under-the-hood" title="本標題的永久連結">¶</a></h1>
-<div class="contents topic" id="table-of-contents">
-<p class="topic-title first">Table of Contents</p>
+             
+  <section id="memory-allocator-under-the-hood">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Memory Allocator - Under The Hood</a><a class="headerlink" href="#memory-allocator-under-the-hood" title="Permalink to this heading"></a></h1>
+<nav class="contents" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#memory-allocator-under-the-hood" id="id1">Memory Allocator - Under The Hood</a></p>
 <ul>
@@ -915,14 +845,10 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="memory-allocator-in-different-os">
-<h2><a class="toc-backref" href="#id2">Memory Allocator in Different OS</a><a class="headerlink" href="#memory-allocator-in-different-os" title="本標題的永久連結">¶</a></h2>
+</nav>
+<section id="memory-allocator-in-different-os">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Memory Allocator in Different OS</a><a class="headerlink" href="#memory-allocator-in-different-os" title="Permalink to this heading"></a></h2>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 45%" />
-<col style="width: 55%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p>Linux</p></td>
 <td><p>ptmalloc2</p></td>
@@ -932,30 +858,30 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="system-call-for-malloc">
-<h2><a class="toc-backref" href="#id3">System Call for Malloc</a><a class="headerlink" href="#system-call-for-malloc" title="本標題的永久連結">¶</a></h2>
-<div class="section" id="testing">
-<h3><a class="toc-backref" href="#id4">Testing</a><a class="headerlink" href="#testing" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="system-call-for-malloc">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">System Call for Malloc</a><a class="headerlink" href="#system-call-for-malloc" title="Permalink to this heading"></a></h2>
+<section id="testing">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Testing</a><a class="headerlink" href="#testing" title="Permalink to this heading"></a></h3>
 <p>testing program :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// test_malloc.c</span>
 
-<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">puts</span><span class="p">(</span><span class="s">&quot;===========&quot;</span><span class="p">);</span>
-    <span class="n">free</span><span class="p">(</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)));</span>
-    <span class="n">puts</span><span class="p">(</span><span class="s">&quot;===========&quot;</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">puts</span><span class="p">(</span><span class="s">&quot;===========&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">free</span><span class="p">(</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)));</span>
+<span class="w">    </span><span class="n">puts</span><span class="p">(</span><span class="s">&quot;===========&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="section" id="linux">
-<h4><a class="toc-backref" href="#id5">Linux</a><a class="headerlink" href="#linux" title="本標題的永久連結">¶</a></h4>
+<section id="linux">
+<h4><a class="toc-backref" href="#id5" role="doc-backlink">Linux</a><a class="headerlink" href="#linux" title="Permalink to this heading"></a></h4>
 <p>compile, execute, trace system call :</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ gcc test_malloc.c -o test_malloc
-$ strace ./test_malloc  <span class="c1"># Linux</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gcc<span class="w"> </span>test_malloc.c<span class="w"> </span>-o<span class="w"> </span>test_malloc
+$<span class="w"> </span>strace<span class="w"> </span>./test_malloc<span class="w">  </span><span class="c1"># Linux</span>
 </pre></div>
 </div>
 <p>在 trace system call 時，
@@ -964,12 +890,12 @@ $ strace ./test_malloc  <span class="c1"># Linux</span>
 所以我們可以確定的是，
 在 Linux 上目前去 call <code class="docutils literal notranslate"><span class="pre">malloc</span></code> 時，
 會用到 <code class="docutils literal notranslate"><span class="pre">brk</span></code> 這個 system call</p>
-</div>
-<div class="section" id="freebsd">
-<h4><a class="toc-backref" href="#id6">FreeBSD</a><a class="headerlink" href="#freebsd" title="本標題的永久連結">¶</a></h4>
+</section>
+<section id="freebsd">
+<h4><a class="toc-backref" href="#id6" role="doc-backlink">FreeBSD</a><a class="headerlink" href="#freebsd" title="Permalink to this heading"></a></h4>
 <p>compile, execute, trace system call :</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ clang test_malloc.c -o test_malloc
-$ truss ./test_malloc   <span class="c1"># FreeBSD</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>clang<span class="w"> </span>test_malloc.c<span class="w"> </span>-o<span class="w"> </span>test_malloc
+$<span class="w"> </span>truss<span class="w"> </span>./test_malloc<span class="w">   </span><span class="c1"># FreeBSD</span>
 </pre></div>
 </div>
 <p>在 trace system call 時，
@@ -978,68 +904,68 @@ $ truss ./test_malloc   <span class="c1"># FreeBSD</span>
 和 Linux 上不同 (Linux 上是 <code class="docutils literal notranslate"><span class="pre">brk</span></code>)。</p>
 <p><code class="docutils literal notranslate"><span class="pre">madvise(0x2c07000,0x1000,0x5,0xaaaaaaaaaaaaaaab,0x2c00048,0x24c4be0)</span></code> ，
 這是用於 <code class="docutils literal notranslate"><span class="pre">free</span></code> 的</p>
-</div>
-</div>
-<div class="section" id="explain">
-<h3><a class="toc-backref" href="#id7">Explain</a><a class="headerlink" href="#explain" title="本標題的永久連結">¶</a></h3>
+</section>
+</section>
+<section id="explain">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Explain</a><a class="headerlink" href="#explain" title="Permalink to this heading"></a></h3>
 <p>所以到底這些 system call (<code class="docutils literal notranslate"><span class="pre">brk</span></code>, <code class="docutils literal notranslate"><span class="pre">madvise</span></code>) 都做了些什麼勒？
 為什麼 call 完後 heap 就會多出空間可以使用？</p>
 <p>我們先來看看 Linux 上的 Memory 都放了些什麼東西 :</p>
 <img alt="Linux Address Layout" src="../_images/Linux-Address-Layout.png" />
-</div>
-<div class="section" id="sbrk">
-<h3><a class="toc-backref" href="#id8">sbrk</a><a class="headerlink" href="#sbrk" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="sbrk">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">sbrk</a><a class="headerlink" href="#sbrk" title="Permalink to this heading"></a></h3>
 <p>sbrk 是 glibc 的 brk wrapper</p>
-</div>
-</div>
-<div class="section" id="glibc">
-<h2><a class="toc-backref" href="#id9">glibc</a><a class="headerlink" href="#glibc" title="本標題的永久連結">¶</a></h2>
+</section>
+</section>
+<section id="glibc">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">glibc</a><a class="headerlink" href="#glibc" title="Permalink to this heading"></a></h2>
 <p>glibc/misc/sbrk.c :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* Extend the process&#39;s data space by INCREMENT.</span>
 <span class="cm">   If INCREMENT is negative, shrink data space by - INCREMENT.</span>
 <span class="cm">   Return start of new space allocated, or -1 for errors.  */</span>
-<span class="kt">void</span> <span class="o">*</span>
-<span class="nf">__sbrk</span> <span class="p">(</span><span class="kt">intptr_t</span> <span class="n">increment</span><span class="p">)</span>
+<span class="kt">void</span><span class="w"> </span><span class="o">*</span>
+<span class="nf">__sbrk</span><span class="w"> </span><span class="p">(</span><span class="kt">intptr_t</span><span class="w"> </span><span class="n">increment</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="kt">void</span> <span class="o">*</span><span class="n">oldbrk</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">oldbrk</span><span class="p">;</span>
 
-  <span class="cm">/* If this is not part of the dynamic library or the library is used</span>
+<span class="w">  </span><span class="cm">/* If this is not part of the dynamic library or the library is used</span>
 <span class="cm">     via dynamic loading in a statically linked program update</span>
 <span class="cm">     __curbrk from the kernel&#39;s brk value.  That way two separate</span>
 <span class="cm">     instances of __brk and __sbrk can share the heap, returning</span>
 <span class="cm">     interleaved pieces of it.  */</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">__curbrk</span> <span class="o">==</span> <span class="nb">NULL</span> <span class="o">||</span> <span class="n">__libc_multiple_libcs</span><span class="p">)</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">__brk</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>    <span class="cm">/* Initialize the break.  */</span>
-      <span class="k">return</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">__curbrk</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">__libc_multiple_libcs</span><span class="p">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">__brk</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w">    </span><span class="cm">/* Initialize the break.  */</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
 
-  <span class="k">if</span> <span class="p">(</span><span class="n">increment</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">__curbrk</span><span class="p">;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">increment</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">__curbrk</span><span class="p">;</span>
 
-  <span class="n">oldbrk</span> <span class="o">=</span> <span class="n">__curbrk</span><span class="p">;</span>
-  <span class="k">if</span> <span class="p">((</span><span class="n">increment</span> <span class="o">&gt;</span> <span class="mi">0</span>
-       <span class="o">?</span> <span class="p">((</span><span class="kt">uintptr_t</span><span class="p">)</span> <span class="n">oldbrk</span> <span class="o">+</span> <span class="p">(</span><span class="kt">uintptr_t</span><span class="p">)</span> <span class="n">increment</span> <span class="o">&lt;</span> <span class="p">(</span><span class="kt">uintptr_t</span><span class="p">)</span> <span class="n">oldbrk</span><span class="p">)</span>
-       <span class="o">:</span> <span class="p">((</span><span class="kt">uintptr_t</span><span class="p">)</span> <span class="n">oldbrk</span> <span class="o">&lt;</span> <span class="p">(</span><span class="kt">uintptr_t</span><span class="p">)</span> <span class="o">-</span><span class="n">increment</span><span class="p">))</span>
-      <span class="o">||</span> <span class="n">__brk</span> <span class="p">(</span><span class="n">oldbrk</span> <span class="o">+</span> <span class="n">increment</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="k">return</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="n">oldbrk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__curbrk</span><span class="p">;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">increment</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">       </span><span class="o">?</span><span class="w"> </span><span class="p">((</span><span class="kt">uintptr_t</span><span class="p">)</span><span class="w"> </span><span class="n">oldbrk</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="kt">uintptr_t</span><span class="p">)</span><span class="w"> </span><span class="n">increment</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="p">(</span><span class="kt">uintptr_t</span><span class="p">)</span><span class="w"> </span><span class="n">oldbrk</span><span class="p">)</span>
+<span class="w">       </span><span class="o">:</span><span class="w"> </span><span class="p">((</span><span class="kt">uintptr_t</span><span class="p">)</span><span class="w"> </span><span class="n">oldbrk</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="p">(</span><span class="kt">uintptr_t</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="n">increment</span><span class="p">))</span>
+<span class="w">      </span><span class="o">||</span><span class="w"> </span><span class="n">__brk</span><span class="w"> </span><span class="p">(</span><span class="n">oldbrk</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">increment</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
 
-  <span class="k">return</span> <span class="n">oldbrk</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">oldbrk</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>glibc/sysdeps/unix/sysv/linux/generic/brk.c</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span>
-<span class="nf">__brk</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">addr</span><span class="p">)</span>
+<span class="nf">__brk</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">addr</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="n">INTERNAL_SYSCALL_DECL</span> <span class="p">(</span><span class="n">err</span><span class="p">);</span>
+<span class="w">  </span><span class="n">INTERNAL_SYSCALL_DECL</span><span class="w"> </span><span class="p">(</span><span class="n">err</span><span class="p">);</span>
 
-  <span class="n">__curbrk</span> <span class="o">=</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span> <span class="n">INTERNAL_SYSCALL</span> <span class="p">(</span><span class="n">brk</span><span class="p">,</span> <span class="n">err</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">addr</span><span class="p">);</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">__curbrk</span> <span class="o">&lt;</span> <span class="n">addr</span><span class="p">)</span>
-    <span class="p">{</span>
-      <span class="n">__set_errno</span> <span class="p">(</span><span class="n">ENOMEM</span><span class="p">);</span>
-      <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">  </span><span class="n">__curbrk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">INTERNAL_SYSCALL</span><span class="w"> </span><span class="p">(</span><span class="n">brk</span><span class="p">,</span><span class="w"> </span><span class="n">err</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">addr</span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">__curbrk</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">addr</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">__set_errno</span><span class="w"> </span><span class="p">(</span><span class="n">ENOMEM</span><span class="p">);</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -1059,39 +985,39 @@ $ truss ./test_malloc   <span class="c1"># FreeBSD</span>
 <span class="cp">  INTERNAL_SYSCALL_NCS (__NR_##name, err, nr, ##args)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="c-inline-assembly">
-<h2><a class="toc-backref" href="#id10">C - Inline Assembly</a><a class="headerlink" href="#c-inline-assembly" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="c-inline-assembly">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">C - Inline Assembly</a><a class="headerlink" href="#c-inline-assembly" title="Permalink to this heading"></a></h2>
 <p>關鍵字 : <code class="docutils literal notranslate"><span class="pre">asm</span></code></p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">asm</span><span class="p">(</span><span class="s">&quot;movl %ecx %eax&quot;</span><span class="p">);</span>      <span class="cm">/* moves the contents of ecx to eax */</span>
-<span class="n">__asm__</span><span class="p">(</span><span class="s">&quot;movb %bh (%eax)&quot;</span><span class="p">);</span> <span class="cm">/*moves the byte from bh to the memory pointed by eax */</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">asm</span><span class="p">(</span><span class="s">&quot;movl %ecx %eax&quot;</span><span class="p">);</span><span class="w">      </span><span class="cm">/* moves the contents of ecx to eax */</span>
+<span class="n">__asm__</span><span class="p">(</span><span class="s">&quot;movb %bh (%eax)&quot;</span><span class="p">);</span><span class="w"> </span><span class="cm">/*moves the byte from bh to the memory pointed by eax */</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">asm</span></code> 和 <code class="docutils literal notranslate"><span class="pre">__asm__</span></code> 都可以用，當 <code class="docutils literal notranslate"><span class="pre">asm</span></code> 在程式中會 conflict 時就可以使用 <code class="docutils literal notranslate"><span class="pre">__asm__</span></code> ，
-如果 assembly code 有很多行的話，每行結尾加上 「nt」，
+如果 assembly code 有很多行的話，每行結尾加上 “nt”，
 如此一來在把 assembly code 字串丟給後面的 as (ex: GAS (GNU Assembler)) 處理時，
 格式才會是正確的。</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">asm</span> <span class="p">(</span><span class="s">&quot;movl %eax, %ebx</span><span class="se">\n\t</span><span class="s">&quot;</span>
-     <span class="s">&quot;movl $56, %esi</span><span class="se">\n\t</span><span class="s">&quot;</span>
-     <span class="s">&quot;movl %ecx, $label(%edx,%ebx,$4)</span><span class="se">\n\t</span><span class="s">&quot;</span>
-     <span class="s">&quot;movb %ah, (%ebx)&quot;</span><span class="p">);</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">asm</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;movl %eax, %ebx</span><span class="se">\n\t</span><span class="s">&quot;</span>
+<span class="w">     </span><span class="s">&quot;movl $56, %esi</span><span class="se">\n\t</span><span class="s">&quot;</span>
+<span class="w">     </span><span class="s">&quot;movl %ecx, $label(%edx,%ebx,$4)</span><span class="se">\n\t</span><span class="s">&quot;</span>
+<span class="w">     </span><span class="s">&quot;movb %ah, (%ebx)&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>Extended Asm :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">asm</span> <span class="p">(</span> <span class="n">assembler</span> <span class="nl">template</span>
-   <span class="p">:</span> <span class="n">output</span> <span class="n">operands</span>                  <span class="cm">/* optional */</span>
-   <span class="o">:</span> <span class="n">input</span> <span class="n">operands</span>                   <span class="cm">/* optional */</span>
-   <span class="o">:</span> <span class="n">list</span> <span class="n">of</span> <span class="n">clobbered</span> <span class="n">registers</span>      <span class="cm">/* optional */</span>
-   <span class="p">);</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">asm</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">assembler</span><span class="w"> </span><span class="n">template</span>
+<span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">operands</span><span class="w">                  </span><span class="cm">/* optional */</span>
+<span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="n">operands</span><span class="w">                   </span><span class="cm">/* optional */</span>
+<span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">clobbered</span><span class="w"> </span><span class="n">registers</span><span class="w">      </span><span class="cm">/* optional */</span>
+<span class="w">   </span><span class="p">);</span>
 </pre></div>
 </div>
 <hr class="docutils" />
-<p>asm volatile (「syscallnt」 : 「=a」 (result) : 「0」 (SYS_BRK) : 「memory」, 「cc」, 「r11」, 「cx」);</p>
+<p>asm volatile (“syscallnt” : “=a” (result) : “0” (SYS_BRK) : “memory”, “cc”, “r11”, “cx”);</p>
 <hr class="docutils" />
 <p>GCC 用 AT&amp;T/UNIX assembly syntax</p>
 <p>Source-Destination Ordering</p>
 <blockquote>
-<div><p>「Op-code src dst」</p>
+<div><p>“Op-code src dst”</p>
 </div></blockquote>
 <p>Register Naming</p>
 <blockquote>
@@ -1101,10 +1027,6 @@ $ truss ./test_malloc   <span class="c1"># FreeBSD</span>
 <p>Operand Size</p>
 <p>Memory Operands</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 45%" />
-<col style="width: 55%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p>Intel Code</p></td>
 <td><p>AT&amp;T Code</p></td>
@@ -1132,60 +1054,50 @@ subl    -0x20(%ebx,%ecx,0x4),%eax</p></td>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="misc">
-<h2><a class="toc-backref" href="#id11">Misc</a><a class="headerlink" href="#misc" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="misc">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Misc</a><a class="headerlink" href="#misc" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>brk 是什麼的縮寫？</p></li>
 <li><p><a class="reference external" href="https://filippo.io/linux-syscall-table/">Linux Syscall Table</a></p></li>
 </ul>
-</div>
-<div class="section" id="reference">
-<h2><a class="toc-backref" href="#id12">Reference</a><a class="headerlink" href="#reference" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="reference">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Reference</a><a class="headerlink" href="#reference" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.ibiblio.org/gferg/ldp/GCC-Inline-Assembly-HOWTO.html">GCC-Inline-Assembly-HOWTO</a></p></li>
 <li><p><a class="reference external" href="http://www.coranac.com/tonc/text/asm.htm">Whirlwind Tour of ARM Assembly</a></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="memory-hardware.html" class="btn btn-neutral float-right" title="Memory Hardware" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="memory.html" class="btn btn-neutral float-left" title="Memory" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="memory.html" class="btn btn-neutral float-left" title="Memory" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="memory-hardware.html" class="btn btn-neutral float-right" title="Memory Hardware" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016
-
-    </p>
+    <p>&#169; Copyright 2023.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
   
 
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       <span class="fa fa-book"> Read the Docs</span>
       v: latest
@@ -1195,7 +1107,7 @@ subl    -0x20(%ebx,%ecx,0x4),%eax</p></td>
       <dl>
         <dt>Versions</dt>
         
-          <dd><a href="/zh_TW/latest/">latest</a></dd>
+          <dd><a href="https://wdv4758h.github.io/notes/">latest</a></dd>
         
       </dl>
       <dl>
@@ -1205,6 +1117,7 @@ subl    -0x20(%ebx,%ecx,0x4),%eax</p></td>
         
       </dl>
       <dl>
+        
         <dt>On Read the Docs</dt>
           <dd>
             <a href="//readthedocs.org/projects/wdv4758h-notes/?fromdocs=wdv4758h-notes">Project Home</a>
@@ -1213,22 +1126,13 @@ subl    -0x20(%ebx,%ecx,0x4),%eax</p></td>
             <a href="//readthedocs.org/builds/wdv4758h-notes/?fromdocs=wdv4758h-notes">Builds</a>
           </dd>
       </dl>
-      <hr/>
-      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
-
     </div>
   </div>
-
-
-
-  <script type="text/javascript">
+<script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-   
+  </script> 
 
 </body>
 </html>

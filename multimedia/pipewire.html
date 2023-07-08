@@ -1,114 +1,75 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-TW" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-TW" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>PipeWire &mdash; wdv4758h-notes latest 說明文件</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PipeWire &mdash; wdv4758h-notes latest documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="搜尋" href="../search.html" />
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="播放器" href="player.html" />
     <link rel="prev" title="OpenCV" href="opencv.html" /> 
 
 <!-- RTD Extra Head -->
 
-<!-- 
-Always link to the latest version, as canonical.
-http://docs.readthedocs.org/en/latest/canonical.html
--->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/multimedia/pipewire.html" />
+    <!--
+    Always link to the latest version, as canonical.
+    http://docs.readthedocs.org/en/latest/canonical.html
+    -->
+    <link rel="canonical" href="https://wdv4758h-notes.readthedocs.io/zh_TW/latest/multimedia/pipewire.html" />
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": "", "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": "https://wdv4758h-notes.readthedocs.io/zh_TW/latest/", "docroot": "/./", "features": {"docsearch_disabled": false}, "global_analytics_code": "", "language": "en", "page": "multimedia/pipewire", "programming_language": "", "project": "wdv4758h-notes", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": ""}</script>
 
-<!-- Add page-specific data, which must exist in the page js, not global -->
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = "multimedia/pipewire"
-READTHEDOCS_DATA['source_suffix'] = ".rst"
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
 </script>
 
-<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js" async="async"></script>
 
 <!-- end RTD <extrahead> -->
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../index.html" class="icon icon-home"> wdv4758h-notes
           
-
-          
+          <a href="../index.html" class="icon icon-home">
+            wdv4758h-notes
           </a>
-
-          
-            
-            
-            
               <div class="version">
                 latest
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/README.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/adt.html">ADT (Abstract Data Type)</a></li>
@@ -118,13 +79,18 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/cache.html">Cache</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/cache-friendly.html">Cache Friendly Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/dict.html">Dict</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/float-to-string.html">Float to String</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/heap.html">Heap （堆）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/introduction.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/inverse-square-root.html">Inverse Square Root</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/lock.html">Lock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/meta-algorithm.html">Meta Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/random-number-generator.html">Random Number Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/resource.html">演算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/sorting.html">Sorting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/string-to-float.html">String to Float</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/substring-searching.html">Substring Searching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/README.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/android-emulator.html">Android Emulator</a></li>
@@ -200,7 +166,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../blog/openmp.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#tutorial">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#id5">額外紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#id4">額外紀錄</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/python-benchmark.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/python-benchmark.html#hello-world">Hello World</a></li>
@@ -227,7 +193,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../blog/qemu-first-step.html#qemu-with-kvm">QEMU with KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html">Syntax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closure">Closure 和外部變數</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#move-closures">「move」 closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#move-closures">“move” closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closure-implementation">Closure implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closures-as-arguments">closures as arguments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#returning-closures">returning closures</a></li>
@@ -408,6 +374,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/ci.html">Continuous Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/concourse.html">Concourse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/drone.html">Drone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../continuous-integration/github-actions.html">Github Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/jenkins.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/travis-ci.html">Travis CI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/workflow-pipeline.html">Workflow Pipeline</a></li>
@@ -417,7 +384,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../cpp/array.html">std::array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/assembly.html">C++ &amp; Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/bit-field.html">C++ Bit Field</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cpp/c++17.html">C++17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/c%2B%2B17.html">C++17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/concepts.html">C++ Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/const.html">C++ const</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/copy-elision.html">Copy Elision</a></li>
@@ -470,13 +437,16 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../database/README.html">資料庫 (Database)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/cockroachdb.html">CockroachDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/consensus-algorithm.html">Raft Consensus Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/graph.html">Graph Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/leveldb.html">LevelDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/materialized-views.html">Materialized Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mongodb.html">MongoDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/rocksdb.html">RocksDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sql.html">SQL (Structured Query Language)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/tidb.html">TiDB</a></li>
@@ -549,7 +519,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/math-on-web.html">Math on Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/misc.html">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../memory/W^X.html">W^X (Write XOR Execute)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../memory/W%5EX.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/kernel-memory-management.html">Kernel Memory Management</a></li>
@@ -654,7 +624,10 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="opencv.html">OpenCV</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">PipeWire</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id2">介紹</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">參考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pipewire-v-s-pulseaudio">PipeWire v.s. PulseAudio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pipewire-v-s-jack">PipeWire v.s. JACK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="player.html">播放器</a></li>
@@ -811,145 +784,277 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../wiki/resource.html">Wiki</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">wdv4758h-notes</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-      <li>PipeWire</li>
-    
-    
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">PipeWire</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/wdv4758h/notes/blob/master/./multimedia/pipewire.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="pipewire">
-<h1><a class="toc-backref" href="#id4">PipeWire</a><a class="headerlink" href="#pipewire" title="本標題的永久連結">¶</a></h1>
-<div class="contents topic" id="id1">
-<p class="topic-title first">目錄</p>
+             
+  <section id="pipewire">
+<h1><a class="toc-backref" href="#id5" role="doc-backlink">PipeWire</a><a class="headerlink" href="#pipewire" title="Permalink to this heading"></a></h1>
+<nav class="contents" id="id1">
+<p class="topic-title">目錄</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#pipewire" id="id4">PipeWire</a></p>
+<li><p><a class="reference internal" href="#pipewire" id="id5">PipeWire</a></p>
 <ul>
-<li><p><a class="reference internal" href="#id2" id="id5">介紹</a></p></li>
-<li><p><a class="reference internal" href="#id3" id="id6">參考</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id6">介紹</a></p></li>
+<li><p><a class="reference internal" href="#pipewire-v-s-pulseaudio" id="id7">PipeWire v.s. PulseAudio</a></p></li>
+<li><p><a class="reference internal" href="#pipewire-v-s-jack" id="id8">PipeWire v.s. JACK</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id9">工具</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id10">參考</a></p></li>
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="id2">
-<h2><a class="toc-backref" href="#id5">介紹</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+</nav>
+<section id="id2">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">介紹</a><a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
 <dl class="field-list simple">
-<dt class="field-odd">site</dt>
+<dt class="field-odd">site<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://pipewire.org/">https://pipewire.org/</a></p>
+</dd>
+<dt class="field-even">repo<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://gitlab.freedesktop.org/pipewire/pipewire/">https://gitlab.freedesktop.org/pipewire/pipewire/</a></p>
 </dd>
 </dl>
 <ul class="simple">
-<li><p>即時影音串流</p></li>
-<li><p>極低的 Latency</p></li>
+<li><p>涵蓋目前 PulseAudio 和 JACK 的使用情境，具有相容層</p></li>
+<li><dl class="simple">
+<dt>提供一致的方式來同時支援一般桌面應用和專業低延遲應用</dt><dd><ul>
+<li><p>一般桌面應用：較低耗電、延遲不是特別重要、手動設定的東西越少越好</p></li>
+<li><p>專業低延遲應用：穩定且低的延遲、耗電不是特別重要、彈性的使用者設定</p></li>
+<li><p>PipeWire 根據應用程式的需求可以動態地切換模式，藉此專業應用者不需要再重新學另一套設定</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>除了音訊外，還支援影像，提供和音訊同等的彈性和管理給攝影機、桌面視窗等</p></li>
+<li><p>提供 sandbox 應用程式的支援</p></li>
 <li><p>支援 GStreamer</p></li>
-<li><p>涵蓋目前 PulseAudio 和 Jack 的使用情境</p></li>
 </ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>pipewire<span class="w"> </span>pipewire-pulse
+</pre></div>
 </div>
-<div class="section" id="id3">
-<h2><a class="toc-backref" href="#id6">參考</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+<p>如果使用比較輕量的視窗管理而沒有 D-Bus 啓動的話，
+可以在 <code class="docutils literal notranslate"><span class="pre">~/.xinitrc</span></code> 裡面補上：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span>which<span class="w"> </span>dbus-launch<span class="w"> </span>&gt;/dev/null<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">test</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DBUS_SESSION_BUS_ADDRESS</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">eval</span><span class="w"> </span><span class="sb">`</span>dbus-launch<span class="w"> </span>--sh-syntax<span class="w"> </span>--exit-with-session<span class="sb">`</span>
+<span class="k">fi</span>
+</pre></div>
+</div>
+<p>可以使用以下指令檢查：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>systemctl<span class="w"> </span>status<span class="w"> </span>--user<span class="w"> </span>pipewire
+<span class="c1"># 如果有使用 pipewire-pulse 的話</span>
+systemctl<span class="w"> </span>status<span class="w"> </span>--user<span class="w"> </span>pipewire-pulse
+<span class="c1"># 如果有使用 pipewire-pulse 的話，</span>
+<span class="c1"># 會看到類似「Server Name: PulseAudio (on PipeWire 0.3.20)」</span>
+pactl<span class="w"> </span>info
+</pre></div>
+</div>
+</section>
+<section id="pipewire-v-s-pulseaudio">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">PipeWire v.s. PulseAudio</a><a class="headerlink" href="#pipewire-v-s-pulseaudio" title="Permalink to this heading"></a></h2>
+<p>PulseAudio 的目標是桌面應用，
+這也包含在 PipeWire 的目標內。
+既有的 PulseAudio 在一些情境下有使用過多 CPU 的問題，
+而且延遲的問題在既有設計下無法定改善。</p>
+<p>使用 pipewire-pulse 的話可以直接把 PipeWire 當做 PulseAudio 使用，
+藉此可以輕易的替換測試！</p>
+</section>
+<section id="pipewire-v-s-jack">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">PipeWire v.s. JACK</a><a class="headerlink" href="#pipewire-v-s-jack" title="Permalink to this heading"></a></h2>
+<p>PipeWire 和 JACK 有許多相似的設計，
+例如 scheduling 和 graph model，
+但是主要類似採用 PulseAudio 的 timer-based wakup。</p>
+<p>另外相比 JACK 還多支援了格式溝通、動態裝置、動態延遲調整、sandbox 支援等等。</p>
+</section>
+<section id="id3">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">工具</a><a class="headerlink" href="#id3" title="Permalink to this heading"></a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>pw-dump
+<span class="o">[</span>
+<span class="w">  </span><span class="o">{</span>
+<span class="w">    </span><span class="s2">&quot;id&quot;</span>:<span class="w"> </span><span class="m">0</span>,
+<span class="w">    </span><span class="s2">&quot;type&quot;</span>:<span class="w"> </span><span class="s2">&quot;PipeWire:Interface:Core&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;version&quot;</span>:<span class="w"> </span><span class="m">3</span>,
+<span class="w">    </span><span class="s2">&quot;permissions&quot;</span>:<span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;r&quot;</span>,<span class="w"> </span><span class="s2">&quot;w&quot;</span>,<span class="w"> </span><span class="s2">&quot;x&quot;</span>,<span class="w"> </span><span class="s2">&quot;m&quot;</span><span class="w"> </span><span class="o">]</span>,
+<span class="w">    </span><span class="s2">&quot;info&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">      </span><span class="s2">&quot;cookie&quot;</span>:<span class="w"> </span><span class="m">629914341</span>,
+<span class="w">      </span><span class="s2">&quot;user-name&quot;</span>:<span class="w"> </span><span class="s2">&quot;user&quot;</span>,
+<span class="w">      </span><span class="s2">&quot;host-name&quot;</span>:<span class="w"> </span><span class="s2">&quot;archlinux&quot;</span>,
+<span class="w">      </span><span class="s2">&quot;version&quot;</span>:<span class="w"> </span><span class="s2">&quot;0.3.20&quot;</span>,
+<span class="w">      </span><span class="s2">&quot;name&quot;</span>:<span class="w"> </span><span class="s2">&quot;pipewire-0&quot;</span>,
+<span class="w">      </span><span class="s2">&quot;name&quot;</span>:<span class="w"> </span><span class="s2">&quot;pipewire-0&quot;</span>,
+<span class="w">      </span><span class="s2">&quot;change-mask&quot;</span>:<span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;props&quot;</span><span class="w"> </span><span class="o">]</span>,
+<span class="w">      </span><span class="s2">&quot;props&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="s2">&quot;core.name&quot;</span>:<span class="w"> </span><span class="s2">&quot;pipewire-0&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;context.profile.modules&quot;</span>:<span class="w"> </span><span class="s2">&quot;none&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;core.daemon&quot;</span>:<span class="w"> </span>true,
+<span class="w">        </span><span class="s2">&quot;link.max-buffers&quot;</span>:<span class="w"> </span><span class="m">16</span>,
+<span class="w">        </span><span class="s2">&quot;default.clock.rate&quot;</span>:<span class="w"> </span><span class="m">48000</span>,
+<span class="w">        </span><span class="s2">&quot;default.clock.quantum&quot;</span>:<span class="w"> </span><span class="m">1024</span>,
+<span class="w">        </span><span class="s2">&quot;default.clock.min-quantum&quot;</span>:<span class="w"> </span><span class="m">32</span>,
+<span class="w">        </span><span class="s2">&quot;default.clock.max-quantum&quot;</span>:<span class="w"> </span><span class="m">8192</span>,
+<span class="w">        </span><span class="s2">&quot;default.video.width&quot;</span>:<span class="w"> </span><span class="m">640</span>,
+<span class="w">        </span><span class="s2">&quot;default.video.height&quot;</span>:<span class="w"> </span><span class="m">480</span>,
+<span class="w">        </span><span class="s2">&quot;default.video.rate.num&quot;</span>:<span class="w"> </span><span class="m">25</span>,
+<span class="w">        </span><span class="s2">&quot;default.video.rate.denom&quot;</span>:<span class="w"> </span><span class="m">1</span>,
+<span class="w">        </span><span class="s2">&quot;mem.allow-mlock&quot;</span>:<span class="w"> </span>true,
+<span class="w">        </span><span class="s2">&quot;cpu.max-align&quot;</span>:<span class="w"> </span><span class="m">64</span>,
+<span class="w">        </span><span class="s2">&quot;object.id&quot;</span>:<span class="w"> </span><span class="m">0</span>
+<span class="w">      </span><span class="o">}</span>
+<span class="w">    </span><span class="o">}</span>
+<span class="w">  </span><span class="o">}</span>,
+<span class="w">  </span><span class="o">{</span>
+<span class="w">    </span><span class="s2">&quot;id&quot;</span>:<span class="w"> </span><span class="m">1</span>,
+<span class="w">    </span><span class="s2">&quot;type&quot;</span>:<span class="w"> </span><span class="s2">&quot;PipeWire:Interface:Module&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;version&quot;</span>:<span class="w"> </span><span class="m">3</span>,
+<span class="w">    </span><span class="s2">&quot;permissions&quot;</span>:<span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;r&quot;</span>,<span class="w"> </span><span class="s2">&quot;w&quot;</span>,<span class="w"> </span><span class="s2">&quot;x&quot;</span>,<span class="w"> </span><span class="s2">&quot;m&quot;</span><span class="w"> </span><span class="o">]</span>,
+<span class="w">    </span><span class="s2">&quot;info&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">      </span><span class="s2">&quot;name&quot;</span>:<span class="w"> </span><span class="s2">&quot;libpipewire-module-rtkit&quot;</span>,
+<span class="w">      </span><span class="s2">&quot;filename&quot;</span>:<span class="w"> </span><span class="s2">&quot;/usr/lib/pipewire-0.3/libpipewire-module-rtkit.so&quot;</span>,
+<span class="w">      </span><span class="s2">&quot;args&quot;</span>:<span class="w"> </span>null,
+<span class="w">      </span><span class="s2">&quot;change-mask&quot;</span>:<span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;props&quot;</span><span class="w"> </span><span class="o">]</span>,
+<span class="w">      </span><span class="s2">&quot;props&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="s2">&quot;module.name&quot;</span>:<span class="w"> </span><span class="s2">&quot;libpipewire-module-rtkit&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;object.id&quot;</span>:<span class="w"> </span><span class="m">1</span>,
+<span class="w">        </span><span class="s2">&quot;module.author&quot;</span>:<span class="w"> </span><span class="s2">&quot;Wim Taymans &lt;wim.taymans@gmail.com&gt;&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;module.description&quot;</span>:<span class="w"> </span><span class="s2">&quot;Use RTKit to raise thread priorities&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;module.usage&quot;</span>:<span class="w"> </span><span class="s2">&quot;[nice.level=&lt;priority: default -11&gt;] [rt.prio=&lt;priority: default 20&gt;] [rt.time.soft=&lt;in usec: default 200000] [rt.time.hard=&lt;in usec: default 200000] &quot;</span>,
+<span class="w">        </span><span class="s2">&quot;module.version&quot;</span>:<span class="w"> </span><span class="s2">&quot;0.3.20&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;nice.level&quot;</span>:<span class="w"> </span>-11,
+<span class="w">        </span><span class="s2">&quot;rt.prio&quot;</span>:<span class="w"> </span><span class="m">20</span>,
+<span class="w">        </span><span class="s2">&quot;rt.time.soft&quot;</span>:<span class="w"> </span><span class="m">200000</span>,
+<span class="w">        </span><span class="s2">&quot;rt.time.hard&quot;</span>:<span class="w"> </span><span class="m">200000</span>
+<span class="w">      </span><span class="o">}</span>
+<span class="w">    </span><span class="o">}</span>
+<span class="w">  </span><span class="o">}</span>,
+<span class="w">  </span>...
+<span class="o">]</span>
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># dump all into DOT file</span>
+$<span class="w"> </span>pw-dot
+<span class="c1"># dump all into DOT file (linked objects only)</span>
+$<span class="w"> </span>pw-dot<span class="w"> </span>-s
+
+<span class="c1"># graphviz</span>
+$<span class="w"> </span>dot<span class="w"> </span>-Tpng<span class="w"> </span>pw.dot<span class="w"> </span>&gt;<span class="w"> </span>pw.png
+</pre></div>
+</div>
+<img alt="../_images/pipewire-firefox.png" src="../_images/pipewire-firefox.png" />
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>pw-top
+S<span class="w">   </span>ID<span class="w"> </span>PERIOD/RATE<span class="w">      </span>WAIT<span class="w">    </span>BUSY<span class="w">   </span>W/P<span class="w">   </span>B/P<span class="w">  </span>ERR<span class="w">  </span>NAME
+
+!<span class="w">   </span><span class="m">28</span><span class="w">      </span><span class="m">0</span>/0<span class="w">        </span><span class="m">0</span>.0<span class="w">  </span>s<span class="w">   </span><span class="m">0</span>.0<span class="w">  </span>s<span class="w">  </span><span class="m">0</span>.00<span class="w">  </span><span class="m">0</span>.00<span class="w">    </span><span class="m">0</span><span class="w">  </span>Dummy-Driver
+!<span class="w">   </span><span class="m">38</span><span class="w">      </span><span class="m">0</span>/0<span class="w">        </span><span class="m">0</span>.0<span class="w">  </span>s<span class="w">   </span><span class="m">0</span>.0<span class="w">  </span>s<span class="w">  </span><span class="m">0</span>.00<span class="w">  </span><span class="m">0</span>.00<span class="w">    </span><span class="m">0</span><span class="w">  </span>Midi-Bridge
+!<span class="w">   </span><span class="m">43</span><span class="w">      </span><span class="m">0</span>/0<span class="w">        </span><span class="m">0</span>.0<span class="w">  </span>s<span class="w">   </span><span class="m">0</span>.0<span class="w">  </span>s<span class="w">  </span><span class="m">0</span>.00<span class="w">  </span><span class="m">0</span>.00<span class="w">    </span><span class="m">0</span><span class="w">  </span>v4l2_output.pci-0000:00:14.0-usb-0:9:1.0
+!<span class="w">   </span><span class="m">45</span><span class="w">      </span><span class="m">0</span>/0<span class="w">        </span><span class="m">0</span>.0<span class="w">  </span>s<span class="w">   </span><span class="m">0</span>.0<span class="w">  </span>s<span class="w">  </span><span class="m">0</span>.00<span class="w">  </span><span class="m">0</span>.00<span class="w">    </span><span class="m">0</span><span class="w">  </span>v4l2_output.pci-0000:00:14.0-usb-0:9:1.2
+!<span class="w">   </span><span class="m">48</span><span class="w">      </span><span class="m">0</span>/0<span class="w">        </span><span class="m">0</span>.0<span class="w">  </span>s<span class="w">   </span><span class="m">0</span>.0<span class="w">  </span>s<span class="w">  </span><span class="m">0</span>.00<span class="w">  </span><span class="m">0</span>.00<span class="w">    </span><span class="m">0</span><span class="w">  </span>alsa_output.pci-0000:00:1f.3.analog-stereo
+!<span class="w">   </span><span class="m">49</span><span class="w">      </span><span class="m">0</span>/0<span class="w">        </span><span class="m">0</span>.0<span class="w">  </span>s<span class="w">   </span><span class="m">0</span>.0<span class="w">  </span>s<span class="w">  </span><span class="m">0</span>.00<span class="w">  </span><span class="m">0</span>.00<span class="w">    </span><span class="m">0</span><span class="w">  </span>alsa_input.pci-0000:00:1f.3.analog-stereo
+!<span class="w">   </span><span class="m">62</span><span class="w">      </span><span class="m">0</span>/0<span class="w">        </span><span class="m">0</span>.0<span class="w">  </span>s<span class="w">   </span><span class="m">0</span>.0<span class="w">  </span>s<span class="w">  </span><span class="m">0</span>.00<span class="w">  </span><span class="m">0</span>.00<span class="w">    </span><span class="m">0</span><span class="w">  </span>bluez_input.FF:FF:FF:FF:FF:FF.a2dp-sink
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">參考</a><a class="headerlink" href="#id4" title="Permalink to this heading"></a></h2>
 <ul class="simple">
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/PipeWire">Wikipedia - PipeWire</a></p></li>
 <li><p><a class="reference external" href="https://wiki.archlinux.org/index.php/PipeWire">Arch Wiki - PipeWire</a></p></li>
-<li><p><a class="reference external" href="https://github.com/PipeWire/pipewire/wiki/FAQ">PipeWire FAQ</a></p></li>
-<li><p><a class="reference external" href="https://blogs.gnome.org/uraeus/2018/09/24/getting-the-team-together-to-revolutionize-linux-audio/">Getting the team together to revolutionize Linux audio</a></p></li>
-<li><p><a class="reference external" href="https://fosdem.org/2019/schedule/event/pipewire/attachments/slides/2826/export/events/attachments/pipewire/slides/2826/PipeWire.pdf">FOSDEM 2019 - Pipewire</a></p></li>
+<li><p><a class="reference external" href="https://wiki.archlinux.org/index.php/Talk:PipeWire">Arch Wiki - Talk:PipeWire</a></p></li>
+<li><p><a class="reference external" href="https://wiki.gentoo.org/wiki/Pipewire">Gentoo Wiki - PipeWire</a></p></li>
+<li><p><a class="reference external" href="https://gitlab.freedesktop.org/pipewire/pipewire/-/wikis/FAQ">PipeWire FAQ</a></p></li>
+<li><dl class="simple">
+<dt>[2020] <a class="reference external" href="https://lac2020.sciencesconf.org/307881/document">PipeWire: a low-level multimedia subsystem</a></dt><dd><ul>
+<li><p>古早的 Linux 音訊支援是 OSS (Open Sound System)，而且是 Linux 2.4 以前唯一的音訊 API，基於 open/close/read/write/ioctl</p></li>
+<li><p>Linux 2.5 用 ALSA (Advanced Linux Sound Architecture) 取代了 OSS</p></li>
+<li><p>OSS 和 ALSA 都有同時只能有一個應用程式能使用特定裝置的限制</p></li>
+<li><p>後來 ALSA 實作了軟體混音器插件（Dmix），但是有很多缺陷，使用也不夠有彈性</p></li>
+<li><p>EsounD (ESD) 爲早期的 sound server 之一，使用 socket 來接收許多音訊，在送出去之前先混合，使用 TCP，而且不支援低延遲</p></li>
+<li><p>BSD 有另一套簡單的音訊 API 叫 sndio，這 API 也支援 midi，它用 Unix pipe 來傳送音訊，而且也不支援低延遲</p></li>
+<li><dl class="simple">
+<dt>2002 年，Paul Davis 基於 Ardour 內的音訊引擎實作了 JACK，提供及時、低延遲的應用給音訊和 midi</dt><dd><ul>
+<li><p>JACK 內維護一個應用程式的流線圖，各個點之間用 port 連接，使用 device interrupt 來叫醒程式去處理資料</p></li>
+<li><p>JACK 雖然支援低延遲，但是缺少一些桌面應用需要的功能，例如 format support/power saving/dynamic devices/volume control/security/…</p></li>
 </ul>
-</div>
-</div>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>PulseAudio 是模組化的現代音訊伺服器，和先前的實作相比，可以支援自動且動態地建立和配送給多裝置</dt><dd><ul>
+<li><p>PulseAudio 雖然支援省電應用，但是需要花費過多 CPU 來叫醒程式</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>PipeWire 基於先前的經驗，提供改善和相容</dt><dd><ul>
+<li><p>起源於要在 sandbox 環境內使用音訊硬體，但是後來設計上又有了更多改進</p></li>
+<li><p>有相容層給 JACK 和 PulseAudio，既有的應用程式不需要改動就能使用</p></li>
+<li><p>架構中一個重要的角色是 session manager，管理裝置的設定和控制策略</p></li>
+<li><p>應用程式和音訊伺服器的協定本身爲非同步</p></li>
+<li><p>格式溝通採用和 GStreamer 一樣的格式描述，可以在兩端點間取交集找到合適的溝通格式</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>[2020] <a class="reference external" href="https://blogs.gnome.org/uraeus/2020/09/04/pipewire-late-summer-update-2020/">PipeWire Late Summer Update 2020 — Christian F.K. Schaller</a></p></li>
+<li><p>[2020] <a class="reference external" href="https://www.collabora.com/news-and-blog/blog/2020/03/05/pipewire-the-media-service-transforming-the-linux-multimedia-landscape/">PipeWire, the media service transforming the Linux multimedia landscape</a></p></li>
+<li><p>[2020] <a class="reference external" href="https://www.collabora.com/news-and-blog/blog/2020/05/07/wireplumber-the-pipewire-session-manager/">WirePlumber, the PipeWire session manager</a></p></li>
+<li><p>[2019] <a class="reference external" href="https://fosdem.org/2019/schedule/event/pipewire/attachments/slides/2826/export/events/attachments/pipewire/slides/2826/PipeWire.pdf">FOSDEM 2019 - Pipewire</a></p></li>
+<li><p>[2019] <a class="reference external" href="https://gstconf.ubicast.tv/videos/pipewire-in-the-automotive-industry/">PipeWire in the Automotive Industry - GStreamer conferences</a></p></li>
+<li><p>[2018] <a class="reference external" href="https://blogs.gnome.org/uraeus/2018/09/24/getting-the-team-together-to-revolutionize-linux-audio/">Getting the team together to revolutionize Linux audio</a></p></li>
+</ul>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="player.html" class="btn btn-neutral float-right" title="播放器" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="opencv.html" class="btn btn-neutral float-left" title="OpenCV" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="opencv.html" class="btn btn-neutral float-left" title="OpenCV" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="player.html" class="btn btn-neutral float-right" title="播放器" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016
-
-    </p>
+    <p>&#169; Copyright 2023.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
   
 
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       <span class="fa fa-book"> Read the Docs</span>
       v: latest
@@ -959,7 +1064,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
       <dl>
         <dt>Versions</dt>
         
-          <dd><a href="/zh_TW/latest/">latest</a></dd>
+          <dd><a href="https://wdv4758h.github.io/notes/">latest</a></dd>
         
       </dl>
       <dl>
@@ -969,6 +1074,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
         
       </dl>
       <dl>
+        
         <dt>On Read the Docs</dt>
           <dd>
             <a href="//readthedocs.org/projects/wdv4758h-notes/?fromdocs=wdv4758h-notes">Project Home</a>
@@ -977,22 +1083,13 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
             <a href="//readthedocs.org/builds/wdv4758h-notes/?fromdocs=wdv4758h-notes">Builds</a>
           </dd>
       </dl>
-      <hr/>
-      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
-
     </div>
   </div>
-
-
-
-  <script type="text/javascript">
+<script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-   
+  </script> 
 
 </body>
 </html>

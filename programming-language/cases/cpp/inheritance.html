@@ -1,112 +1,73 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-TW" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-TW" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>繼承 (Inheritance) &mdash; wdv4758h-notes latest 說明文件</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>繼承 (Inheritance) &mdash; wdv4758h-notes latest documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../../_static/translations.js"></script>
-        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
-    
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="index" title="索引" href="../../../genindex.html" />
-    <link rel="search" title="搜尋" href="../../../search.html" /> 
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
 
 <!-- RTD Extra Head -->
 
-<!-- 
-Always link to the latest version, as canonical.
-http://docs.readthedocs.org/en/latest/canonical.html
--->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/programming-language/cases/cpp/inheritance.html" />
+    <!--
+    Always link to the latest version, as canonical.
+    http://docs.readthedocs.org/en/latest/canonical.html
+    -->
+    <link rel="canonical" href="https://wdv4758h-notes.readthedocs.io/zh_TW/latest/programming-language/cases/cpp/inheritance.html" />
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../../../_static/readthedocs-data.js"></script>
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": "", "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": "https://wdv4758h-notes.readthedocs.io/zh_TW/latest/", "docroot": "/./", "features": {"docsearch_disabled": false}, "global_analytics_code": "", "language": "en", "page": "programming-language/cases/cpp/inheritance", "programming_language": "", "project": "wdv4758h-notes", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": ""}</script>
 
-<!-- Add page-specific data, which must exist in the page js, not global -->
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = "programming-language/cases/cpp/inheritance"
-READTHEDOCS_DATA['source_suffix'] = ".rst"
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
 </script>
 
-<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js" async="async"></script>
 
 <!-- end RTD <extrahead> -->
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../../index.html" class="icon icon-home"> wdv4758h-notes
           
-
-          
+          <a href="../../../index.html" class="icon icon-home">
+            wdv4758h-notes
           </a>
-
-          
-            
-            
-            
               <div class="version">
                 latest
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/README.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/adt.html">ADT (Abstract Data Type)</a></li>
@@ -116,13 +77,18 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/cache.html">Cache</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/cache-friendly.html">Cache Friendly Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/dict.html">Dict</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/float-to-string.html">Float to String</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/heap.html">Heap （堆）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/introduction.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/inverse-square-root.html">Inverse Square Root</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/lock.html">Lock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/meta-algorithm.html">Meta Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/random-number-generator.html">Random Number Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/resource.html">演算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/sorting.html">Sorting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/string-to-float.html">String to Float</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/substring-searching.html">Substring Searching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../android/README.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../android/android-emulator.html">Android Emulator</a></li>
@@ -198,7 +164,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/openmp.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/pypy-brainfuck.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/pypy-brainfuck.html#tutorial">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../blog/pypy-brainfuck.html#id5">額外紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/pypy-brainfuck.html#id4">額外紀錄</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/pypy-brainfuck.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/python-benchmark.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/python-benchmark.html#hello-world">Hello World</a></li>
@@ -225,7 +191,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/qemu-first-step.html#qemu-with-kvm">QEMU with KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html">Syntax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#closure">Closure 和外部變數</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#move-closures">「move」 closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#move-closures">“move” closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#closure-implementation">Closure implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#closures-as-arguments">closures as arguments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#returning-closures">returning closures</a></li>
@@ -406,6 +372,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/ci.html">Continuous Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/concourse.html">Concourse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/drone.html">Drone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/github-actions.html">Github Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/jenkins.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/travis-ci.html">Travis CI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/workflow-pipeline.html">Workflow Pipeline</a></li>
@@ -415,7 +382,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/array.html">std::array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/assembly.html">C++ &amp; Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/bit-field.html">C++ Bit Field</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../cpp/c++17.html">C++17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/c%2B%2B17.html">C++17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/concepts.html">C++ Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/const.html">C++ const</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/copy-elision.html">Copy Elision</a></li>
@@ -468,13 +435,16 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../database/README.html">資料庫 (Database)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/cockroachdb.html">CockroachDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/consensus-algorithm.html">Raft Consensus Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../database/graph.html">Graph Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/leveldb.html">LevelDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../database/materialized-views.html">Materialized Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/mongodb.html">MongoDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../database/rocksdb.html">RocksDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/sql.html">SQL (Structured Query Language)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/tidb.html">TiDB</a></li>
@@ -547,7 +517,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../math/math-on-web.html">Math on Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../math/misc.html">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../memory/W^X.html">W^X (Write XOR Execute)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../memory/W%5EX.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../memory/allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../memory/kernel-memory-management.html">Kernel Memory Management</a></li>
@@ -805,74 +775,34 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../wiki/resource.html">Wiki</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">wdv4758h-notes</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../../index.html">Docs</a> &raquo;</li>
-        
-      <li>繼承 (Inheritance)</li>
-    
-    
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">繼承 (Inheritance)</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/wdv4758h/notes/blob/master/./programming-language/cases/cpp/inheritance.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="inheritance">
-<h1><a class="toc-backref" href="#id6">繼承 (Inheritance)</a><a class="headerlink" href="#inheritance" title="本標題的永久連結">¶</a></h1>
-<div class="contents topic" id="id1">
-<p class="topic-title first">目錄</p>
+             
+  <section id="inheritance">
+<h1><a class="toc-backref" href="#id6" role="doc-backlink">繼承 (Inheritance)</a><a class="headerlink" href="#inheritance" title="Permalink to this heading"></a></h1>
+<nav class="contents" id="id1">
+<p class="topic-title">目錄</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#inheritance" id="id6">繼承 (Inheritance)</a></p>
 <ul>
@@ -894,9 +824,9 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="id2">
-<h2><a class="toc-backref" href="#id7">基本繼承</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+</nav>
+<section id="id2">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">基本繼承</a><a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><dl class="simple">
 <dt>class 定義</dt><dd><ul>
@@ -919,135 +849,135 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </ul>
 <p>基本上的 priority 就是 <code class="docutils literal notranslate"><span class="pre">private</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">protected</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">public</span></code> ，
 所以在繼承的時候 priority 大的會掩蓋 priorty 小的</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">A</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">A</span>
 <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-    <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 <span class="k">protected</span><span class="o">:</span>
-    <span class="kt">int</span> <span class="n">y</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
 <span class="k">private</span><span class="o">:</span>
-    <span class="kt">int</span> <span class="n">z</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">z</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="k">class</span> <span class="nc">B</span> <span class="o">:</span> <span class="k">public</span> <span class="n">A</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">A</span>
 <span class="p">{</span>
-    <span class="c1">// x is public</span>
-    <span class="c1">// y is protected</span>
-    <span class="c1">// z is not accessible from B</span>
+<span class="w">    </span><span class="c1">// x is public</span>
+<span class="w">    </span><span class="c1">// y is protected</span>
+<span class="w">    </span><span class="c1">// z is not accessible from B</span>
 <span class="p">};</span>
 
-<span class="k">class</span> <span class="nc">C</span> <span class="o">:</span> <span class="k">protected</span> <span class="n">A</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">C</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">protected</span><span class="w"> </span><span class="n">A</span>
 <span class="p">{</span>
-    <span class="c1">// x is protected</span>
-    <span class="c1">// y is protected</span>
-    <span class="c1">// z is not accessible from C</span>
+<span class="w">    </span><span class="c1">// x is protected</span>
+<span class="w">    </span><span class="c1">// y is protected</span>
+<span class="w">    </span><span class="c1">// z is not accessible from C</span>
 <span class="p">};</span>
 
-<span class="k">class</span> <span class="nc">D</span> <span class="o">:</span> <span class="k">private</span> <span class="n">A</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">D</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">A</span>
 <span class="p">{</span>
-    <span class="c1">// x is private</span>
-    <span class="c1">// y is private</span>
-    <span class="c1">// z is not accessible from D</span>
+<span class="w">    </span><span class="c1">// x is private</span>
+<span class="w">    </span><span class="c1">// y is private</span>
+<span class="w">    </span><span class="c1">// z is not accessible from D</span>
 <span class="p">};</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="friend">
-<h2><a class="toc-backref" href="#id8">Friend</a><a class="headerlink" href="#friend" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="friend">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Friend</a><a class="headerlink" href="#friend" title="Permalink to this heading"></a></h2>
 <p>friend 的宣告是要讓其他函式或 class 可以存取自己的 protected 和 private 資料。</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Y</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">data</span><span class="p">;</span>   <span class="c1">// private member</span>
-    <span class="c1">// the non-member function operator&lt;&lt; will have access to Y&#39;s private members</span>
-    <span class="k">friend</span> <span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span> <span class="n">out</span><span class="p">,</span> <span class="k">const</span> <span class="n">Y</span><span class="o">&amp;</span> <span class="n">o</span><span class="p">);</span>
-    <span class="k">friend</span> <span class="kt">char</span><span class="o">*</span> <span class="n">X</span><span class="o">::</span><span class="n">foo</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>       <span class="c1">// members of other classes can be friends too</span>
-    <span class="k">friend</span> <span class="n">X</span><span class="o">::</span><span class="n">X</span><span class="p">(</span><span class="kt">char</span><span class="p">),</span> <span class="n">X</span><span class="o">::~</span><span class="n">X</span><span class="p">();</span>     <span class="c1">// constructors and destructors can be friends</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Y</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">data</span><span class="p">;</span><span class="w">   </span><span class="c1">// private member</span>
+<span class="w">    </span><span class="c1">// the non-member function operator&lt;&lt; will have access to Y&#39;s private members</span>
+<span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span><span class="w"> </span><span class="n">out</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Y</span><span class="o">&amp;</span><span class="w"> </span><span class="n">o</span><span class="p">);</span>
+<span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="nf">X::foo</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span><span class="w">       </span><span class="c1">// members of other classes can be friends too</span>
+<span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="n">X</span><span class="o">::</span><span class="n">X</span><span class="p">(</span><span class="kt">char</span><span class="p">),</span><span class="w"> </span><span class="n">X</span><span class="o">::~</span><span class="n">X</span><span class="p">();</span><span class="w">     </span><span class="c1">// constructors and destructors can be friends</span>
 <span class="p">};</span>
 
 <span class="c1">// friend declaration does not declare a member function</span>
 <span class="c1">// this operator&lt;&lt; still needs to be defined, as a non-member</span>
-<span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span> <span class="n">out</span><span class="p">,</span> <span class="k">const</span> <span class="n">Y</span><span class="o">&amp;</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span><span class="w"> </span><span class="n">out</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Y</span><span class="o">&amp;</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="k">return</span> <span class="n">out</span> <span class="o">&lt;&lt;</span> <span class="n">y</span><span class="p">.</span><span class="n">data</span><span class="p">;</span> <span class="c1">// can access private member Y::data</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">y</span><span class="p">.</span><span class="n">data</span><span class="p">;</span><span class="w"> </span><span class="c1">// can access private member Y::data</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">X</span> <span class="p">{</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-    <span class="k">static</span> <span class="kt">void</span> <span class="n">f</span><span class="p">();</span>
-    <span class="k">friend</span> <span class="kt">void</span> <span class="nf">g</span><span class="p">(</span><span class="n">X</span><span class="o">&amp;</span><span class="p">);</span>
-    <span class="k">friend</span> <span class="kt">void</span> <span class="nf">h</span><span class="p">();</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">();</span>
+<span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="n">X</span><span class="o">&amp;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">h</span><span class="p">();</span>
 <span class="k">private</span><span class="o">:</span>
-    <span class="k">static</span> <span class="kt">int</span> <span class="n">k</span><span class="p">;</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="n">X</span><span class="o">::</span><span class="n">k</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
-<span class="kt">void</span> <span class="n">X</span><span class="o">::</span><span class="n">f</span><span class="p">()</span> <span class="p">{</span> <span class="n">k</span><span class="o">++</span><span class="p">;</span> <span class="p">}</span>
-<span class="kt">void</span> <span class="n">g</span><span class="p">(</span><span class="n">X</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">x</span><span class="p">.</span><span class="n">k</span><span class="o">++</span><span class="p">;</span> <span class="p">}</span>
-<span class="kt">void</span> <span class="n">h</span><span class="p">()</span> <span class="p">{</span> <span class="n">X</span><span class="o">::</span><span class="n">k</span><span class="o">++</span><span class="p">;</span> <span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">X</span><span class="o">::</span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">X::f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">k</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="n">X</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">k</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">h</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">X</span><span class="o">::</span><span class="n">k</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="virutal-function">
-<h2><a class="toc-backref" href="#id9">Virutal Function</a><a class="headerlink" href="#virutal-function" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="virutal-function">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Virutal Function</a><a class="headerlink" href="#virutal-function" title="Permalink to this heading"></a></h2>
 <p>C++ 裡提供了一個 keyword 叫 <code class="docutils literal notranslate"><span class="pre">virtual</span></code> ，
 使用 virtual 關鍵字的 method 會是 Late binding (dynamic binding)，
 在 runtime 的時候才會決定要 call 的 function 位址</p>
 <p>例如 :</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 
-<span class="k">class</span> <span class="nc">A</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">A</span>
 <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-    <span class="kt">void</span> <span class="n">func1</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;func1 in A&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">func1</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;func1 in A&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="k">virtual</span> <span class="kt">void</span> <span class="n">func2</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;func2 in A&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">func2</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;func2 in A&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="k">class</span> <span class="nc">B</span> <span class="o">:</span> <span class="k">public</span> <span class="n">A</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">A</span>
 <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-    <span class="kt">void</span> <span class="n">func1</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;func1 in B&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">func1</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;func1 in B&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="kt">void</span> <span class="n">func2</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;func2 in B&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">func2</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;func2 in B&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
 
-    <span class="n">A</span> <span class="n">a</span> <span class="o">=</span> <span class="n">A</span><span class="p">();</span>
-    <span class="n">B</span> <span class="n">b</span> <span class="o">=</span> <span class="n">B</span><span class="p">();</span>
+<span class="w">    </span><span class="n">A</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">();</span>
+<span class="w">    </span><span class="n">B</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">();</span>
 
-    <span class="n">a</span><span class="p">.</span><span class="n">func1</span><span class="p">();</span>  <span class="c1">// func1 in A</span>
-    <span class="n">a</span><span class="p">.</span><span class="n">func2</span><span class="p">();</span>  <span class="c1">// func2 in A</span>
-    <span class="n">b</span><span class="p">.</span><span class="n">func1</span><span class="p">();</span>  <span class="c1">// func1 in B</span>
-    <span class="n">b</span><span class="p">.</span><span class="n">func2</span><span class="p">();</span>  <span class="c1">// func2 in B</span>
+<span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="n">func1</span><span class="p">();</span><span class="w">  </span><span class="c1">// func1 in A</span>
+<span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="n">func2</span><span class="p">();</span><span class="w">  </span><span class="c1">// func2 in A</span>
+<span class="w">    </span><span class="n">b</span><span class="p">.</span><span class="n">func1</span><span class="p">();</span><span class="w">  </span><span class="c1">// func1 in B</span>
+<span class="w">    </span><span class="n">b</span><span class="p">.</span><span class="n">func2</span><span class="p">();</span><span class="w">  </span><span class="c1">// func2 in B</span>
 
-    <span class="n">A</span> <span class="o">&amp;</span><span class="n">c</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
-    <span class="n">c</span><span class="p">.</span><span class="n">func1</span><span class="p">();</span>  <span class="c1">// func1 in A</span>
-    <span class="n">c</span><span class="p">.</span><span class="n">func2</span><span class="p">();</span>  <span class="c1">// func2 in B</span>
+<span class="w">    </span><span class="n">A</span><span class="w"> </span><span class="o">&amp;</span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">    </span><span class="n">c</span><span class="p">.</span><span class="n">func1</span><span class="p">();</span><span class="w">  </span><span class="c1">// func1 in A</span>
+<span class="w">    </span><span class="n">c</span><span class="p">.</span><span class="n">func2</span><span class="p">();</span><span class="w">  </span><span class="c1">// func2 in B</span>
 
-    <span class="n">A</span> <span class="o">*</span><span class="n">ptr</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+<span class="w">    </span><span class="n">A</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
 
-    <span class="n">ptr</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">;</span>
-    <span class="n">ptr</span><span class="o">-&gt;</span><span class="n">func1</span><span class="p">();</span>  <span class="c1">// func1 in A</span>
-    <span class="n">ptr</span><span class="o">-&gt;</span><span class="n">func2</span><span class="p">();</span>  <span class="c1">// func2 in A</span>
+<span class="w">    </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">;</span>
+<span class="w">    </span><span class="n">ptr</span><span class="o">-&gt;</span><span class="n">func1</span><span class="p">();</span><span class="w">  </span><span class="c1">// func1 in A</span>
+<span class="w">    </span><span class="n">ptr</span><span class="o">-&gt;</span><span class="n">func2</span><span class="p">();</span><span class="w">  </span><span class="c1">// func2 in A</span>
 
-    <span class="n">ptr</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">;</span>
-    <span class="n">ptr</span><span class="o">-&gt;</span><span class="n">func1</span><span class="p">();</span>  <span class="c1">// func1 in A</span>
-    <span class="n">ptr</span><span class="o">-&gt;</span><span class="n">func2</span><span class="p">();</span>  <span class="c1">// func2 in B</span>
+<span class="w">    </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">b</span><span class="p">;</span>
+<span class="w">    </span><span class="n">ptr</span><span class="o">-&gt;</span><span class="n">func1</span><span class="p">();</span><span class="w">  </span><span class="c1">// func1 in A</span>
+<span class="w">    </span><span class="n">ptr</span><span class="o">-&gt;</span><span class="n">func2</span><span class="p">();</span><span class="w">  </span><span class="c1">// func2 in B</span>
 
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -1072,59 +1002,59 @@ base class 的指標或 Reference 不會有 Dynamic Dispatch 的效果，
 <li><p>non-virtual 函式：Static Dispatch，以變數型別來決定呼叫的函式</p></li>
 <li><p>virtual 函式：Dynamic Dispatch，以資料型別來決定呼叫的函式</p></li>
 </ul>
-</div>
-<div class="section" id="override-final-since-c-11">
-<h2><a class="toc-backref" href="#id10">override &amp; final (since C++11)</a><a class="headerlink" href="#override-final-since-c-11" title="本標題的永久連結">¶</a></h2>
-<div class="section" id="override">
-<h3><a class="toc-backref" href="#id11">override</a><a class="headerlink" href="#override" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="override-final-since-c-11">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">override &amp; final (since C++11)</a><a class="headerlink" href="#override-final-since-c-11" title="Permalink to this heading"></a></h2>
+<section id="override">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">override</a><a class="headerlink" href="#override" title="Permalink to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">override</span></code> 是提供給繼承的 class 用的，
 目的是確保 function 有 override 到 base class 的 virtual funcion，
 標上 <code class="docutils literal notranslate"><span class="pre">override</span></code> 後，compiler 可以在 compile time 的時候檢查是否真的有 override，
 可以避免不小心沒寫好造成該 override 的 function 沒有 override 到。</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">A</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">A</span>
 <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-    <span class="k">virtual</span> <span class="kt">void</span> <span class="n">foo</span><span class="p">();</span>
-    <span class="kt">void</span> <span class="nf">bar</span><span class="p">();</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">foo</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">bar</span><span class="p">();</span>
 <span class="p">};</span>
 
-<span class="k">class</span> <span class="nc">B</span> <span class="o">:</span> <span class="n">A</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">A</span>
 <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-    <span class="kt">void</span> <span class="n">foo</span><span class="p">()</span> <span class="k">const</span> <span class="k">override</span><span class="p">;</span>  <span class="c1">// Error: B::foo does not override A::foo</span>
-                                <span class="c1">// (signature mismatch)</span>
-    <span class="kt">void</span> <span class="nf">foo</span><span class="p">()</span> <span class="k">override</span><span class="p">;</span>        <span class="c1">// OK: B::foo overrides A::foo</span>
-    <span class="kt">void</span> <span class="nf">bar</span><span class="p">()</span> <span class="k">override</span><span class="p">;</span>        <span class="c1">// Error: A::bar is not virtual</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">foo</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">override</span><span class="p">;</span><span class="w">  </span><span class="c1">// Error: B::foo does not override A::foo</span>
+<span class="w">                                </span><span class="c1">// (signature mismatch)</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="p">;</span><span class="w">        </span><span class="c1">// OK: B::foo overrides A::foo</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">bar</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="p">;</span><span class="w">        </span><span class="c1">// Error: A::bar is not virtual</span>
 <span class="p">};</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="final">
-<h3><a class="toc-backref" href="#id12">final</a><a class="headerlink" href="#final" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="final">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">final</a><a class="headerlink" href="#final" title="Permalink to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">final</span></code> 是提供給 class 或 base class 的 virtual function 使用的，
 標上 <code class="docutils literal notranslate"><span class="pre">final</span></code> 的 class 不能再被繼承，標上 <code class="docutils literal notranslate"><span class="pre">final</span></code> 的 virutal function 不能再被 override。</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">A</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">A</span>
 <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-    <span class="k">virtual</span> <span class="kt">void</span> <span class="n">foo</span><span class="p">()</span> <span class="k">final</span><span class="p">;</span>   <span class="c1">// A::foo is final</span>
-    <span class="kt">void</span> <span class="nf">bar</span><span class="p">()</span> <span class="k">final</span><span class="p">;</span>           <span class="c1">// Error: non-virtual function cannot be final</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">foo</span><span class="p">()</span><span class="w"> </span><span class="k">final</span><span class="p">;</span><span class="w">   </span><span class="c1">// A::foo is final</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">bar</span><span class="p">()</span><span class="w"> </span><span class="k">final</span><span class="p">;</span><span class="w">           </span><span class="c1">// Error: non-virtual function cannot be final</span>
 <span class="p">};</span>
 
-<span class="k">class</span> <span class="nc">B</span> <span class="k">final</span> <span class="o">:</span> <span class="n">A</span>   <span class="c1">// struct B is final</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="k">final</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">A</span><span class="w">   </span><span class="c1">// struct B is final</span>
 <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-    <span class="kt">void</span> <span class="n">foo</span><span class="p">();</span>     <span class="c1">// Error: foo cannot be overridden as it&#39;s final in A</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">foo</span><span class="p">();</span><span class="w">     </span><span class="c1">// Error: foo cannot be overridden as it&#39;s final in A</span>
 <span class="p">};</span>
 
-<span class="k">class</span> <span class="nc">C</span> <span class="o">:</span> <span class="n">B</span>         <span class="c1">// Error: B is final</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">C</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">B</span><span class="w">         </span><span class="c1">// Error: B is final</span>
 <span class="p">{</span>
 <span class="p">};</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="abstract-class">
-<h2><a class="toc-backref" href="#id13">Abstract Class</a><a class="headerlink" href="#abstract-class" title="本標題的永久連結">¶</a></h2>
+</section>
+</section>
+<section id="abstract-class">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Abstract Class</a><a class="headerlink" href="#abstract-class" title="Permalink to this heading"></a></h2>
 <p>Abstract Class 指的是只能拿來繼承，
 不能直接拿來建立 instance 的 class。</p>
 <p>在 C++ 中要建立這樣的 class 必須要寫成 pure virutal function，
@@ -1132,31 +1062,31 @@ base class 的指標或 Reference 不會有 Dynamic Dispatch 的效果，
 而只要 class 內繼承或宣告了 pure virtual function 沒有覆蓋掉，
 那麼這個 class 就是 Abstract Class，
 範例：</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Base</span> <span class="p">{</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-    <span class="k">virtual</span> <span class="kt">int</span> <span class="n">g</span><span class="p">();</span>
-    <span class="k">virtual</span> <span class="o">~</span><span class="n">Base</span><span class="p">()</span> <span class="p">{}</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">g</span><span class="p">();</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="o">~</span><span class="n">Base</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
 <span class="p">};</span>
 
-<span class="k">class</span> <span class="nc">A</span> <span class="o">:</span> <span class="n">Base</span> <span class="p">{</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-    <span class="c1">// ok, declares three member virtual functions, two of them pure</span>
-    <span class="k">virtual</span> <span class="kt">int</span> <span class="n">f</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">g</span><span class="p">()</span> <span class="k">override</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">h</span><span class="p">();</span>
+<span class="w">    </span><span class="c1">// ok, declares three member virtual functions, two of them pure</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">f</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">h</span><span class="p">();</span>
 
-    <span class="c1">// ok, destructor can be pure too</span>
-    <span class="o">~</span><span class="n">A</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// ok, destructor can be pure too</span>
+<span class="w">    </span><span class="o">~</span><span class="n">A</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 
-    <span class="c1">// error: pure-specifier on a function definition</span>
-    <span class="k">virtual</span> <span class="kt">int</span> <span class="nf">b</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">{}</span>
+<span class="w">    </span><span class="c1">// error: pure-specifier on a function definition</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">b</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{}</span>
 <span class="p">};</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id3">
-<h2><a class="toc-backref" href="#id14">多重繼承</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
-</div>
-<div class="section" id="virtual-inheritance">
-<h2><a class="toc-backref" href="#id15">Virtual Inheritance</a><a class="headerlink" href="#virtual-inheritance" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="id3">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">多重繼承</a><a class="headerlink" href="#id3" title="Permalink to this heading"></a></h2>
+</section>
+<section id="virtual-inheritance">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">Virtual Inheritance</a><a class="headerlink" href="#virtual-inheritance" title="Permalink to this heading"></a></h2>
 <p>在多重繼承的狀況下，
 可能會發生數個 parent class 也都繼承了某個 base class，
 如此一來將會有數個 base class 的存在最後的 derived class 內，
@@ -1167,73 +1097,73 @@ Virtual Inheritance 就是要解決這種問題，
 一個是 virtual function，
 另一個就是這邊的 virtual base class）</p>
 <p>範例程式碼： <a class="reference external" href="examples/virtual-base-class.cpp">examples/virtual-base-class.cpp</a></p>
-</div>
-<div class="section" id="template-class">
-<h2><a class="toc-backref" href="#id16">Template &amp; Class</a><a class="headerlink" href="#template-class" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="template-class">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">Template &amp; Class</a><a class="headerlink" href="#template-class" title="Permalink to this heading"></a></h2>
 <p>一個常見的手法是讓 class 繼承自某個用 template 留空的 class，
 並利用該 class 來實做相關的函式作為界面，
 要為界面提供不同的 backend 時就讓他繼承不同的 class，
 範例：</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">Transport</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">service</span> <span class="o">:</span> <span class="n">Transport</span>   <span class="c1">// private inheritance from the Transport policy</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Transport</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">service</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Transport</span><span class="w">   </span><span class="c1">// private inheritance from the Transport policy</span>
 <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-    <span class="kt">void</span> <span class="n">transmit</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">this</span><span class="o">-&gt;</span><span class="n">send</span><span class="p">(...);</span>    <span class="c1">// send using whatever transport was supplied</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">transmit</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">send</span><span class="p">(...);</span><span class="w">    </span><span class="c1">// send using whatever transport was supplied</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">};</span>
 
 <span class="c1">// TCP transport policy</span>
-<span class="k">class</span> <span class="nc">tcp</span> <span class="p">{</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">tcp</span><span class="w"> </span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-    <span class="kt">void</span> <span class="n">send</span><span class="p">(...);</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">send</span><span class="p">(...);</span>
 <span class="p">};</span>
 
 <span class="c1">// UDP transport policy</span>
-<span class="k">class</span> <span class="nc">udp</span> <span class="p">{</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">udp</span><span class="w"> </span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-    <span class="kt">void</span> <span class="n">send</span><span class="p">(...);</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">send</span><span class="p">(...);</span>
 <span class="p">};</span>
 
-<span class="n">service</span><span class="o">&lt;</span><span class="n">tcp</span><span class="o">&gt;</span> <span class="n">service</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">);</span>
-<span class="n">service</span><span class="p">.</span><span class="n">transmit</span><span class="p">(...);</span>      <span class="c1">// send over TCP</span>
+<span class="n">service</span><span class="o">&lt;</span><span class="n">tcp</span><span class="o">&gt;</span><span class="w"> </span><span class="n">service</span><span class="p">(</span><span class="n">host</span><span class="p">,</span><span class="w"> </span><span class="n">port</span><span class="p">);</span>
+<span class="n">service</span><span class="p">.</span><span class="n">transmit</span><span class="p">(...);</span><span class="w">      </span><span class="c1">// send over TCP</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id4">
-<h2><a class="toc-backref" href="#id17">注意事項</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="id4">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">注意事項</a><a class="headerlink" href="#id4" title="Permalink to this heading"></a></h2>
 <p>存取權限是以 class 為單位在控制，不是 instance。</p>
 <p>所以這是可行的：</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 
-<span class="k">class</span> <span class="nc">A</span> <span class="p">{</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-    <span class="n">A</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span><span class="o">:</span> <span class="n">a</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">{}</span>
-    <span class="kt">void</span> <span class="n">func</span><span class="p">(</span><span class="k">const</span> <span class="n">A</span><span class="o">&amp;</span> <span class="n">foo</span><span class="p">)</span> <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">foo</span><span class="p">.</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span> <span class="p">}</span>
+<span class="w">    </span><span class="n">A</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">func</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">A</span><span class="o">&amp;</span><span class="w"> </span><span class="n">foo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">foo</span><span class="p">.</span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 <span class="k">private</span><span class="o">:</span>
-    <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">auto</span> <span class="n">x</span> <span class="o">=</span> <span class="n">A</span> <span class="p">{</span> <span class="mi">4</span> <span class="p">};</span>
-    <span class="k">auto</span> <span class="n">y</span> <span class="o">=</span> <span class="n">A</span> <span class="p">{</span> <span class="mi">2</span> <span class="p">};</span>
-    <span class="n">y</span><span class="p">.</span><span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>    <span class="c1">// 4</span>
-    <span class="n">x</span><span class="p">.</span><span class="n">func</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>    <span class="c1">// 2</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">};</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">};</span>
+<span class="w">    </span><span class="n">y</span><span class="p">.</span><span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w">    </span><span class="c1">// 4</span>
+<span class="w">    </span><span class="n">x</span><span class="p">.</span><span class="n">func</span><span class="p">(</span><span class="n">y</span><span class="p">);</span><span class="w">    </span><span class="c1">// 2</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>但這是不行的：</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">A</span> <span class="p">{</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span>
 <span class="k">private</span><span class="o">:</span>
-    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="k">class</span> <span class="nc">B</span> <span class="p">{</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-    <span class="n">B</span><span class="p">(</span><span class="k">const</span> <span class="n">A</span><span class="o">&amp;</span> <span class="n">foo</span><span class="p">)</span><span class="o">:</span> <span class="n">b</span><span class="p">(</span><span class="n">foo</span><span class="p">.</span><span class="n">a</span><span class="p">)</span> <span class="p">{}</span>
+<span class="w">    </span><span class="n">B</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">A</span><span class="o">&amp;</span><span class="w"> </span><span class="n">foo</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="n">b</span><span class="p">(</span><span class="n">foo</span><span class="p">.</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 <span class="k">private</span><span class="o">:</span>
-    <span class="kt">int</span> <span class="n">b</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
 <span class="p">};</span>
 </pre></div>
 </div>
@@ -1247,9 +1177,9 @@ Virtual Inheritance 就是要解決這種問題，
 另外一個問題是，
 如果我要從一個 instance 建立另外一個 instance（copy 或 move），
 會發現重要的資料基本上都存取不到。</p>
-</div>
-<div class="section" id="id5">
-<h2><a class="toc-backref" href="#id18">參考</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="id5">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">參考</a><a class="headerlink" href="#id5" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="http://en.cppreference.com/w/cpp/language/class">cppreference - Class declaration</a></p></li>
 <li><p><a class="reference external" href="http://en.cppreference.com/w/cpp/language/virtual">cppreference - virtual</a></p></li>
@@ -1261,37 +1191,33 @@ Virtual Inheritance 就是要解決這種問題，
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Virtual_function">Wikipedia - Virtual function</a></p></li>
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Virtual_method_table">Wikipedia - Virtual method table</a></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016
-
-    </p>
+    <p>&#169; Copyright 2023.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
   
 
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       <span class="fa fa-book"> Read the Docs</span>
       v: latest
@@ -1301,7 +1227,7 @@ Virtual Inheritance 就是要解決這種問題，
       <dl>
         <dt>Versions</dt>
         
-          <dd><a href="/zh_TW/latest/">latest</a></dd>
+          <dd><a href="https://wdv4758h.github.io/notes/">latest</a></dd>
         
       </dl>
       <dl>
@@ -1311,6 +1237,7 @@ Virtual Inheritance 就是要解決這種問題，
         
       </dl>
       <dl>
+        
         <dt>On Read the Docs</dt>
           <dd>
             <a href="//readthedocs.org/projects/wdv4758h-notes/?fromdocs=wdv4758h-notes">Project Home</a>
@@ -1319,22 +1246,13 @@ Virtual Inheritance 就是要解決這種問題，
             <a href="//readthedocs.org/builds/wdv4758h-notes/?fromdocs=wdv4758h-notes">Builds</a>
           </dd>
       </dl>
-      <hr/>
-      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
-
     </div>
   </div>
-
-
-
-  <script type="text/javascript">
+<script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-   
+  </script> 
 
 </body>
 </html>

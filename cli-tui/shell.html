@@ -1,114 +1,75 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-TW" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-TW" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Shell &mdash; wdv4758h-notes latest 說明文件</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shell &mdash; wdv4758h-notes latest documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="搜尋" href="../search.html" />
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="SSH Config" href="ssh-config.html" />
     <link rel="prev" title="sed" href="sed.html" /> 
 
 <!-- RTD Extra Head -->
 
-<!-- 
-Always link to the latest version, as canonical.
-http://docs.readthedocs.org/en/latest/canonical.html
--->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/cli-tui/shell.html" />
+    <!--
+    Always link to the latest version, as canonical.
+    http://docs.readthedocs.org/en/latest/canonical.html
+    -->
+    <link rel="canonical" href="https://wdv4758h-notes.readthedocs.io/zh_TW/latest/cli-tui/shell.html" />
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": "", "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": "https://wdv4758h-notes.readthedocs.io/zh_TW/latest/", "docroot": "/./", "features": {"docsearch_disabled": false}, "global_analytics_code": "", "language": "en", "page": "cli-tui/shell", "programming_language": "", "project": "wdv4758h-notes", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": ""}</script>
 
-<!-- Add page-specific data, which must exist in the page js, not global -->
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = "cli-tui/shell"
-READTHEDOCS_DATA['source_suffix'] = ".rst"
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
 </script>
 
-<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js" async="async"></script>
 
 <!-- end RTD <extrahead> -->
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../index.html" class="icon icon-home"> wdv4758h-notes
           
-
-          
+          <a href="../index.html" class="icon icon-home">
+            wdv4758h-notes
           </a>
-
-          
-            
-            
-            
               <div class="version">
                 latest
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/README.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/adt.html">ADT (Abstract Data Type)</a></li>
@@ -118,13 +79,18 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/cache.html">Cache</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/cache-friendly.html">Cache Friendly Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/dict.html">Dict</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/float-to-string.html">Float to String</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/heap.html">Heap （堆）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/introduction.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/inverse-square-root.html">Inverse Square Root</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/lock.html">Lock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/meta-algorithm.html">Meta Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/random-number-generator.html">Random Number Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/resource.html">演算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/sorting.html">Sorting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/string-to-float.html">String to Float</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/substring-searching.html">Substring Searching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/README.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/android-emulator.html">Android Emulator</a></li>
@@ -200,7 +166,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../blog/openmp.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#tutorial">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#id5">額外紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#id4">額外紀錄</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/python-benchmark.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/python-benchmark.html#hello-world">Hello World</a></li>
@@ -227,7 +193,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../blog/qemu-first-step.html#qemu-with-kvm">QEMU with KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html">Syntax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closure">Closure 和外部變數</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#move-closures">「move」 closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#move-closures">“move” closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closure-implementation">Closure implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closures-as-arguments">closures as arguments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#returning-closures">returning closures</a></li>
@@ -431,6 +397,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/ci.html">Continuous Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/concourse.html">Concourse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/drone.html">Drone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../continuous-integration/github-actions.html">Github Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/jenkins.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/travis-ci.html">Travis CI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/workflow-pipeline.html">Workflow Pipeline</a></li>
@@ -440,7 +407,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../cpp/array.html">std::array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/assembly.html">C++ &amp; Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/bit-field.html">C++ Bit Field</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cpp/c++17.html">C++17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/c%2B%2B17.html">C++17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/concepts.html">C++ Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/const.html">C++ const</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/copy-elision.html">Copy Elision</a></li>
@@ -493,13 +460,16 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../database/README.html">資料庫 (Database)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/cockroachdb.html">CockroachDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/consensus-algorithm.html">Raft Consensus Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/graph.html">Graph Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/leveldb.html">LevelDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/materialized-views.html">Materialized Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mongodb.html">MongoDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/rocksdb.html">RocksDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sql.html">SQL (Structured Query Language)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/tidb.html">TiDB</a></li>
@@ -572,7 +542,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/math-on-web.html">Math on Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/misc.html">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../memory/W^X.html">W^X (Write XOR Execute)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../memory/W%5EX.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/kernel-memory-management.html">Kernel Memory Management</a></li>
@@ -830,74 +800,34 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../wiki/resource.html">Wiki</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">wdv4758h-notes</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-      <li>Shell</li>
-    
-    
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Shell</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/wdv4758h/notes/blob/master/./cli-tui/shell.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="shell">
-<h1><a class="toc-backref" href="#id3">Shell</a><a class="headerlink" href="#shell" title="本標題的永久連結">¶</a></h1>
-<div class="contents topic" id="id1">
-<p class="topic-title first">目錄</p>
+             
+  <section id="shell">
+<h1><a class="toc-backref" href="#id3" role="doc-backlink">Shell</a><a class="headerlink" href="#shell" title="Permalink to this heading"></a></h1>
+<nav class="contents" id="id1">
+<p class="topic-title">目錄</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#shell" id="id3">Shell</a></p>
 <ul>
@@ -926,36 +856,36 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="thompson-shell-first-unix-shell-1971">
-<h2><a class="toc-backref" href="#id4">Thompson shell - first Unix shell - 1971</a><a class="headerlink" href="#thompson-shell-first-unix-shell-1971" title="本標題的永久連結">¶</a></h2>
+</nav>
+<section id="thompson-shell-first-unix-shell-1971">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Thompson shell - first Unix shell - 1971</a><a class="headerlink" href="#thompson-shell-first-unix-shell-1971" title="Permalink to this heading"></a></h2>
 <dl class="field-list simple">
-<dt class="field-odd">Wikipedia</dt>
+<dt class="field-odd">Wikipedia<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://en.wikipedia.org/wiki/Thompson_shell">https://en.wikipedia.org/wiki/Thompson_shell</a></p>
 </dd>
 </dl>
-</div>
-<div class="section" id="bourne-shell-1977">
-<h2><a class="toc-backref" href="#id5">Bourne Shell - 1977</a><a class="headerlink" href="#bourne-shell-1977" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="bourne-shell-1977">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Bourne Shell - 1977</a><a class="headerlink" href="#bourne-shell-1977" title="Permalink to this heading"></a></h2>
 <p>Bell Labs 當初釋出的實做</p>
-</div>
-<div class="section" id="csh-1978">
-<h2><a class="toc-backref" href="#id6">csh - 1978</a><a class="headerlink" href="#csh-1978" title="本標題的永久連結">¶</a></h2>
-</div>
-<div class="section" id="tcsh-1983">
-<h2><a class="toc-backref" href="#id7">tcsh - 1983</a><a class="headerlink" href="#tcsh-1983" title="本標題的永久連結">¶</a></h2>
-</div>
-<div class="section" id="ksh-korn-shell">
-<h2><a class="toc-backref" href="#id8">ksh (Korn Shell)</a><a class="headerlink" href="#ksh-korn-shell" title="本標題的永久連結">¶</a></h2>
-</div>
-<div class="section" id="pdksh-public-domain-korn-shell">
-<h2><a class="toc-backref" href="#id9">pdksh (Public Domain Korn Shell)</a><a class="headerlink" href="#pdksh-public-domain-korn-shell" title="本標題的永久連結">¶</a></h2>
-</div>
-<div class="section" id="mksh">
-<h2><a class="toc-backref" href="#id10">mksh</a><a class="headerlink" href="#mksh" title="本標題的永久連結">¶</a></h2>
-</div>
-<div class="section" id="ash-almquist-shell">
-<h2><a class="toc-backref" href="#id11">ash (Almquist shell)</a><a class="headerlink" href="#ash-almquist-shell" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="csh-1978">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">csh - 1978</a><a class="headerlink" href="#csh-1978" title="Permalink to this heading"></a></h2>
+</section>
+<section id="tcsh-1983">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">tcsh - 1983</a><a class="headerlink" href="#tcsh-1983" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ksh-korn-shell">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">ksh (Korn Shell)</a><a class="headerlink" href="#ksh-korn-shell" title="Permalink to this heading"></a></h2>
+</section>
+<section id="pdksh-public-domain-korn-shell">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">pdksh (Public Domain Korn Shell)</a><a class="headerlink" href="#pdksh-public-domain-korn-shell" title="Permalink to this heading"></a></h2>
+</section>
+<section id="mksh">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">mksh</a><a class="headerlink" href="#mksh" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ash-almquist-shell">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">ash (Almquist shell)</a><a class="headerlink" href="#ash-almquist-shell" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>FreeBSD <code class="docutils literal notranslate"><span class="pre">sh</span></code> 是基於 <code class="docutils literal notranslate"><span class="pre">ash</span></code> (Almquist shell) 再去改的</p></li>
 <li><dl class="simple">
@@ -966,172 +896,162 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </dl>
 </li>
 </ul>
-</div>
-<div class="section" id="bash-bourne-again-shell-gnu-project">
-<h2><a class="toc-backref" href="#id12">Bash (Bourne-again shell) - GNU Project</a><a class="headerlink" href="#bash-bourne-again-shell-gnu-project" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="bash-bourne-again-shell-gnu-project">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Bash (Bourne-again shell) - GNU Project</a><a class="headerlink" href="#bash-bourne-again-shell-gnu-project" title="Permalink to this heading"></a></h2>
 <dl class="field-list simple">
-<dt class="field-odd">Site</dt>
+<dt class="field-odd">Site<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://www.gnu.org/software/bash/">https://www.gnu.org/software/bash/</a></p>
 </dd>
-<dt class="field-even">Repo</dt>
+<dt class="field-even">Repo<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://git.savannah.gnu.org/cgit/bash.git">https://git.savannah.gnu.org/cgit/bash.git</a></p>
 </dd>
-<dt class="field-odd">Extend Framework</dt>
+<dt class="field-odd">Extend Framework<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://github.com/Bash-it/bash-it">https://github.com/Bash-it/bash-it</a></p>
 </dd>
 </dl>
-</div>
-<div class="section" id="dash">
-<h2><a class="toc-backref" href="#id13">dash</a><a class="headerlink" href="#dash" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="dash">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">dash</a><a class="headerlink" href="#dash" title="Permalink to this heading"></a></h2>
 <dl class="field-list simple">
-<dt class="field-odd">Site</dt>
+<dt class="field-odd">Site<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="http://gondor.apana.org.au/~herbert/dash/">http://gondor.apana.org.au/~herbert/dash/</a></p>
 </dd>
-<dt class="field-even">Repo</dt>
+<dt class="field-even">Repo<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://git.kernel.org/pub/scm/utils/dash/dash.git/">https://git.kernel.org/pub/scm/utils/dash/dash.git/</a></p>
 </dd>
 </dl>
-</div>
-<div class="section" id="zsh">
-<h2><a class="toc-backref" href="#id14">zsh</a><a class="headerlink" href="#zsh" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="zsh">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">zsh</a><a class="headerlink" href="#zsh" title="Permalink to this heading"></a></h2>
 <dl class="field-list simple">
-<dt class="field-odd">Site</dt>
+<dt class="field-odd">Site<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://www.zsh.org/">https://www.zsh.org/</a></p>
 </dd>
-<dt class="field-even">Repo</dt>
+<dt class="field-even">Repo<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://sourceforge.net/p/zsh/code/ci/master/tree/">https://sourceforge.net/p/zsh/code/ci/master/tree/</a></p>
 </dd>
-<dt class="field-odd">Repo-GitHub</dt>
+<dt class="field-odd">Repo-GitHub<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://github.com/zsh-users/zsh/">https://github.com/zsh-users/zsh/</a></p>
 </dd>
-<dt class="field-even">Repo-GitLab</dt>
+<dt class="field-even">Repo-GitLab<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://sourceforge.net/p/zsh/code/ci/master/tree/">https://sourceforge.net/p/zsh/code/ci/master/tree/</a></p>
 </dd>
-<dt class="field-odd">Extend Framework</dt>
+<dt class="field-odd">Extend Framework<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://github.com/robbyrussell/oh-my-zsh">https://github.com/robbyrussell/oh-my-zsh</a></p>
 </dd>
 </dl>
-</div>
-<div class="section" id="fish-friendly-interactive-shell">
-<h2><a class="toc-backref" href="#id15">fish - friendly interactive shell</a><a class="headerlink" href="#fish-friendly-interactive-shell" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="fish-friendly-interactive-shell">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">fish - friendly interactive shell</a><a class="headerlink" href="#fish-friendly-interactive-shell" title="Permalink to this heading"></a></h2>
 <dl class="field-list simple">
-<dt class="field-odd">Site</dt>
+<dt class="field-odd">Site<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="http://fishshell.com/">http://fishshell.com/</a></p>
 </dd>
-<dt class="field-even">Repo</dt>
+<dt class="field-even">Repo<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://github.com/fish-shell/fish-shell">https://github.com/fish-shell/fish-shell</a></p>
 </dd>
-<dt class="field-odd">Extend Framework</dt>
+<dt class="field-odd">Extend Framework<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://github.com/oh-my-fish/oh-my-fish">https://github.com/oh-my-fish/oh-my-fish</a></p>
 </dd>
 </dl>
-<div class="section" id="fish-3-0">
-<h3><a class="toc-backref" href="#id16">fish 3.0</a><a class="headerlink" href="#fish-3-0" title="本標題的永久連結">¶</a></h3>
+<section id="fish-3-0">
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">fish 3.0</a><a class="headerlink" href="#fish-3-0" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>支援 <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> <code class="docutils literal notranslate"><span class="pre">||</span></code> <code class="docutils literal notranslate"><span class="pre">!</span></code> 以便從相容 POSIX 規範的 shell 遷移過來</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">math</span></code> 不再是 <code class="docutils literal notranslate"><span class="pre">bc</span></code> 的包裝</p></li>
 <li><p><a class="reference external" href="https://github.com/fish-shell/fish-shell/releases/tag/3.0.0">[GitHub] fish 3.0</a></p></li>
 <li><p><a class="reference external" href="https://news.ycombinator.com/item?id=18776765">[HN] fish 3.0</a></p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="xonsh-cross-platform-unix-gazing-shell-in-python">
-<h2><a class="toc-backref" href="#id17">xonsh - cross-platform, Unix-gazing shell in Python</a><a class="headerlink" href="#xonsh-cross-platform-unix-gazing-shell-in-python" title="本標題的永久連結">¶</a></h2>
+</section>
+</section>
+<section id="xonsh-cross-platform-unix-gazing-shell-in-python">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">xonsh - cross-platform, Unix-gazing shell in Python</a><a class="headerlink" href="#xonsh-cross-platform-unix-gazing-shell-in-python" title="Permalink to this heading"></a></h2>
 <dl class="field-list simple">
-<dt class="field-odd">Site</dt>
+<dt class="field-odd">Site<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="http://xon.sh/">http://xon.sh/</a></p>
 </dd>
-<dt class="field-even">Repo</dt>
+<dt class="field-even">Repo<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://github.com/xonsh/xonsh">https://github.com/xonsh/xonsh</a></p>
 </dd>
 </dl>
 <p>Shell Language 是 Python 3.4+ 的 superset，
 藉由 prompt-toolkit 撰寫互動界面，
 使用 pip 安裝後即可使用。</p>
-</div>
-<div class="section" id="oil-bash-compatible-shell-in-python">
-<h2><a class="toc-backref" href="#id18">Oil - bash-compatible shell in Python</a><a class="headerlink" href="#oil-bash-compatible-shell-in-python" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="oil-bash-compatible-shell-in-python">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">Oil - bash-compatible shell in Python</a><a class="headerlink" href="#oil-bash-compatible-shell-in-python" title="Permalink to this heading"></a></h2>
 <dl class="field-list simple">
-<dt class="field-odd">Site</dt>
+<dt class="field-odd">Site<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://www.oilshell.org/">https://www.oilshell.org/</a></p>
 </dd>
-<dt class="field-even">Repo</dt>
+<dt class="field-even">Repo<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://github.com/oilshell/oil">https://github.com/oilshell/oil</a></p>
 </dd>
 </dl>
 <p>Oil 使用自己 fork 出去的 CPython 2.7，
 會搭配自己的修改後包在最後釋出的執行檔裡。</p>
-</div>
-<div class="section" id="elvish-friendly-interactive-shell-in-go">
-<h2><a class="toc-backref" href="#id19">Elvish - friendly interactive shell in Go</a><a class="headerlink" href="#elvish-friendly-interactive-shell-in-go" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="elvish-friendly-interactive-shell-in-go">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">Elvish - friendly interactive shell in Go</a><a class="headerlink" href="#elvish-friendly-interactive-shell-in-go" title="Permalink to this heading"></a></h2>
 <dl class="field-list simple">
-<dt class="field-odd">Site</dt>
+<dt class="field-odd">Site<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://elv.sh/">https://elv.sh/</a></p>
 </dd>
-<dt class="field-even">Repo</dt>
+<dt class="field-even">Repo<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://github.com/elves/elvish">https://github.com/elves/elvish</a></p>
 </dd>
 </dl>
-</div>
-<div class="section" id="ion-redoxos-shell-in-rust">
-<h2><a class="toc-backref" href="#id20">Ion - RedoxOS shell in Rust</a><a class="headerlink" href="#ion-redoxos-shell-in-rust" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="ion-redoxos-shell-in-rust">
+<h2><a class="toc-backref" href="#id20" role="doc-backlink">Ion - RedoxOS shell in Rust</a><a class="headerlink" href="#ion-redoxos-shell-in-rust" title="Permalink to this heading"></a></h2>
 <dl class="field-list simple">
-<dt class="field-odd">Repo</dt>
+<dt class="field-odd">Repo<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://gitlab.redox-os.org/redox-os/ion">https://gitlab.redox-os.org/redox-os/ion</a></p>
 </dd>
 </dl>
-</div>
-<div class="section" id="id2">
-<h2><a class="toc-backref" href="#id21">工具</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="id2">
+<h2><a class="toc-backref" href="#id21" role="doc-backlink">工具</a><a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/koalaman/shellcheck">ShellCheck - static analysis tool for shell scripts</a></p></li>
 </ul>
-</div>
-<div class="section" id="shell-script">
-<h2><a class="toc-backref" href="#id22">增加 Shell Script 品質的技巧</a><a class="headerlink" href="#shell-script" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="shell-script">
+<h2><a class="toc-backref" href="#id22" role="doc-backlink">增加 Shell Script 品質的技巧</a><a class="headerlink" href="#shell-script" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>函式命名使用 <code class="docutils literal notranslate"><span class="pre">::</span></code> 作為 namespace 的方式（只是函式名稱剛好有這字串）</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="ssh-config.html" class="btn btn-neutral float-right" title="SSH Config" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="sed.html" class="btn btn-neutral float-left" title="sed" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sed.html" class="btn btn-neutral float-left" title="sed" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ssh-config.html" class="btn btn-neutral float-right" title="SSH Config" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016
-
-    </p>
+    <p>&#169; Copyright 2023.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
   
 
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       <span class="fa fa-book"> Read the Docs</span>
       v: latest
@@ -1141,7 +1061,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
       <dl>
         <dt>Versions</dt>
         
-          <dd><a href="/zh_TW/latest/">latest</a></dd>
+          <dd><a href="https://wdv4758h.github.io/notes/">latest</a></dd>
         
       </dl>
       <dl>
@@ -1151,6 +1071,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
         
       </dl>
       <dl>
+        
         <dt>On Read the Docs</dt>
           <dd>
             <a href="//readthedocs.org/projects/wdv4758h-notes/?fromdocs=wdv4758h-notes">Project Home</a>
@@ -1159,22 +1080,13 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
             <a href="//readthedocs.org/builds/wdv4758h-notes/?fromdocs=wdv4758h-notes">Builds</a>
           </dd>
       </dl>
-      <hr/>
-      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
-
     </div>
   </div>
-
-
-
-  <script type="text/javascript">
+<script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-   
+  </script> 
 
 </body>
 </html>

@@ -20,6 +20,22 @@ Arch Linux
     $ pulseaudio -k
     $ pulseaudio --start
 
+    $ rfkill list
+    0: phy0: Wireless LAN
+        Soft blocked: no
+        Hard blocked: no
+    3: hci0: Bluetooth
+        Soft blocked: yes
+        Hard blocked: no
+    $ sudo rfkill unblock <number, e.g. 3>
+    $ rfkill list
+    0: phy0: Wireless LAN
+        Soft blocked: no
+        Hard blocked: no
+    3: hci0: Bluetooth
+        Soft blocked: no
+        Hard blocked: no
+
     $ bluetoothctl
     # select your bluetooth MAC
     [bluetooth]# select FF:FF:FF:FF:FF:FF
@@ -59,3 +75,4 @@ Arch Linux
 
 * `Wikipedia - Bluetooth <https://en.wikipedia.org/wiki/Bluetooth>`_
 * `Arch Wiki - Bluetooth <https://wiki.archlinux.org/index.php/bluetooth>`_
+* `Gentoo Wiki - Bluetooth <https://wiki.gentoo.org/wiki/Bluetooth>`_

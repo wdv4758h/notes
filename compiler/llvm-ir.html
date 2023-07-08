@@ -1,114 +1,75 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-TW" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-TW" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>LLVM IR &mdash; wdv4758h-notes latest 說明文件</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LLVM IR &mdash; wdv4758h-notes latest documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="搜尋" href="../search.html" />
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="LLVM &amp; Python" href="llvm-python.html" />
     <link rel="prev" title="LLVM 輔助測試" href="llvm-help-testing.html" /> 
 
 <!-- RTD Extra Head -->
 
-<!-- 
-Always link to the latest version, as canonical.
-http://docs.readthedocs.org/en/latest/canonical.html
--->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/compiler/llvm-ir.html" />
+    <!--
+    Always link to the latest version, as canonical.
+    http://docs.readthedocs.org/en/latest/canonical.html
+    -->
+    <link rel="canonical" href="https://wdv4758h-notes.readthedocs.io/zh_TW/latest/compiler/llvm-ir.html" />
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": "", "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": "https://wdv4758h-notes.readthedocs.io/zh_TW/latest/", "docroot": "/./", "features": {"docsearch_disabled": false}, "global_analytics_code": "", "language": "en", "page": "compiler/llvm-ir", "programming_language": "", "project": "wdv4758h-notes", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": ""}</script>
 
-<!-- Add page-specific data, which must exist in the page js, not global -->
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = "compiler/llvm-ir"
-READTHEDOCS_DATA['source_suffix'] = ".rst"
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
 </script>
 
-<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js" async="async"></script>
 
 <!-- end RTD <extrahead> -->
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../index.html" class="icon icon-home"> wdv4758h-notes
           
-
-          
+          <a href="../index.html" class="icon icon-home">
+            wdv4758h-notes
           </a>
-
-          
-            
-            
-            
               <div class="version">
                 latest
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/README.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/adt.html">ADT (Abstract Data Type)</a></li>
@@ -118,13 +79,18 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/cache.html">Cache</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/cache-friendly.html">Cache Friendly Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/dict.html">Dict</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/float-to-string.html">Float to String</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/heap.html">Heap （堆）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/introduction.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/inverse-square-root.html">Inverse Square Root</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/lock.html">Lock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/meta-algorithm.html">Meta Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/random-number-generator.html">Random Number Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/resource.html">演算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/sorting.html">Sorting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/string-to-float.html">String to Float</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/substring-searching.html">Substring Searching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/README.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/android-emulator.html">Android Emulator</a></li>
@@ -200,7 +166,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../blog/openmp.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#tutorial">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#id5">額外紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#id4">額外紀錄</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/python-benchmark.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/python-benchmark.html#hello-world">Hello World</a></li>
@@ -227,7 +193,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../blog/qemu-first-step.html#qemu-with-kvm">QEMU with KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html">Syntax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closure">Closure 和外部變數</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#move-closures">「move」 closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#move-closures">“move” closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closure-implementation">Closure implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closures-as-arguments">closures as arguments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#returning-closures">returning closures</a></li>
@@ -437,6 +403,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/ci.html">Continuous Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/concourse.html">Concourse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/drone.html">Drone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../continuous-integration/github-actions.html">Github Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/jenkins.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/travis-ci.html">Travis CI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/workflow-pipeline.html">Workflow Pipeline</a></li>
@@ -446,7 +413,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../cpp/array.html">std::array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/assembly.html">C++ &amp; Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/bit-field.html">C++ Bit Field</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cpp/c++17.html">C++17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/c%2B%2B17.html">C++17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/concepts.html">C++ Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/const.html">C++ const</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/copy-elision.html">Copy Elision</a></li>
@@ -499,13 +466,16 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../database/README.html">資料庫 (Database)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/cockroachdb.html">CockroachDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/consensus-algorithm.html">Raft Consensus Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/graph.html">Graph Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/leveldb.html">LevelDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/materialized-views.html">Materialized Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mongodb.html">MongoDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/rocksdb.html">RocksDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sql.html">SQL (Structured Query Language)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/tidb.html">TiDB</a></li>
@@ -578,7 +548,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/math-on-web.html">Math on Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/misc.html">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../memory/W^X.html">W^X (Write XOR Execute)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../memory/W%5EX.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/kernel-memory-management.html">Kernel Memory Management</a></li>
@@ -836,76 +806,36 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../wiki/resource.html">Wiki</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">wdv4758h-notes</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-      <li>LLVM IR</li>
-    
-    
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">LLVM IR</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/wdv4758h/notes/blob/master/./compiler/llvm-ir.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="llvm-ir">
-<h1>LLVM IR<a class="headerlink" href="#llvm-ir" title="本標題的永久連結">¶</a></h1>
-<div class="section" id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="本標題的永久連結">¶</a></h2>
-<div class="section" id="id1">
-<h3>概念<a class="headerlink" href="#id1" title="本標題的永久連結">¶</a></h3>
+             
+  <section id="llvm-ir">
+<h1>LLVM IR<a class="headerlink" href="#llvm-ir" title="Permalink to this heading"></a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
+<section id="id1">
+<h3>概念<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
 <p>LLVM 對 code 的表示有三種，三種格式是等價的</p>
 <ul class="simple">
 <li><p>in-memory compiler IR</p></li>
@@ -957,77 +887,77 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </li>
 <li><p>Calling Conventions</p></li>
 </ul>
-</div>
-<div class="section" id="id2">
-<h3>編譯參數<a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="id2">
+<h3>編譯參數<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">-S</span> <span class="pre">-emit-llvm</span></code> : 生出 LLVM IR (<code class="docutils literal notranslate"><span class="pre">FILENAME.ll</span></code>)</p></li>
 </ul>
-</div>
-<div class="section" id="id3">
-<h3>LLVM IR 範例<a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h3>
-<div class="section" id="hello-world">
-<h4>Hello World<a class="headerlink" href="#hello-world" title="本標題的永久連結">¶</a></h4>
+</section>
+<section id="id3">
+<h3>LLVM IR 範例<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
+<section id="hello-world">
+<h4>Hello World<a class="headerlink" href="#hello-world" title="Permalink to this heading"></a></h4>
 <p>LLVM IR :</p>
-<div class="highlight-llvm notranslate"><div class="highlight"><pre><span></span><span class="vg">@.str</span> <span class="p">=</span> <span class="k">constant</span> <span class="p">[</span><span class="m">12</span> <span class="k">x</span> <span class="k">i8</span><span class="p">]</span> <span class="k">c</span><span class="s">&quot;Hello World\00&quot;</span>
+<div class="highlight-llvm notranslate"><div class="highlight"><pre><span></span><span class="vg">@.str</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">constant</span><span class="w"> </span><span class="p">[</span><span class="m">12</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i8</span><span class="p">]</span><span class="w"> </span><span class="k">c</span><span class="s">&quot;Hello World\00&quot;</span>
 
-<span class="k">declare</span> <span class="k">i32</span> <span class="vg">@puts</span><span class="p">(</span><span class="k">i8</span><span class="p">*)</span>
+<span class="k">declare</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="vg">@puts</span><span class="p">(</span><span class="kt">i8</span><span class="p">*)</span>
 
-<span class="k">define</span> <span class="k">i32</span> <span class="vg">@main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nv">%var</span> <span class="p">=</span> <span class="k">getelementptr</span> <span class="p">[</span><span class="m">12</span> <span class="k">x</span> <span class="k">i8</span><span class="p">],</span> <span class="p">[</span><span class="m">12</span> <span class="k">x</span> <span class="k">i8</span><span class="p">]*</span> <span class="vg">@.str</span><span class="p">,</span> <span class="k">i64</span> <span class="m">0</span><span class="p">,</span> <span class="k">i64</span> <span class="m">0</span>
-    <span class="k">call</span> <span class="k">i32</span> <span class="vg">@puts</span><span class="p">(</span><span class="k">i8</span><span class="p">*</span> <span class="nv">%var</span><span class="p">)</span>
-    <span class="k">ret</span> <span class="k">i32</span> <span class="m">0</span>
+<span class="k">define</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="vg">@main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nv">%var</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">getelementptr</span><span class="w"> </span><span class="p">[</span><span class="m">12</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i8</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="m">12</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i8</span><span class="p">]*</span><span class="w"> </span><span class="vg">@.str</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="m">0</span>
+<span class="w">    </span><span class="k">call</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="vg">@puts</span><span class="p">(</span><span class="kt">i8</span><span class="p">*</span><span class="w"> </span><span class="nv">%var</span><span class="p">)</span>
+<span class="w">    </span><span class="k">ret</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="m">0</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="user-input">
-<h4>User Input<a class="headerlink" href="#user-input" title="本標題的永久連結">¶</a></h4>
+</section>
+<section id="user-input">
+<h4>User Input<a class="headerlink" href="#user-input" title="Permalink to this heading"></a></h4>
 <p>C :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">value</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">value</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>LLVM IR :</p>
-<div class="highlight-llvm notranslate"><div class="highlight"><pre><span></span><span class="vg">@.str.0</span> <span class="p">=</span> <span class="k">constant</span> <span class="p">[</span><span class="m">3</span> <span class="k">x</span> <span class="k">i8</span><span class="p">]</span> <span class="k">c</span><span class="s">&quot;%d\00&quot;</span>
-<span class="vg">@.str.1</span> <span class="p">=</span> <span class="k">constant</span> <span class="p">[</span><span class="m">4</span> <span class="k">x</span> <span class="k">i8</span><span class="p">]</span> <span class="k">c</span><span class="s">&quot;%d\0A\00&quot;</span>
+<div class="highlight-llvm notranslate"><div class="highlight"><pre><span></span><span class="vg">@.str.0</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">constant</span><span class="w"> </span><span class="p">[</span><span class="m">3</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i8</span><span class="p">]</span><span class="w"> </span><span class="k">c</span><span class="s">&quot;%d\00&quot;</span>
+<span class="vg">@.str.1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">constant</span><span class="w"> </span><span class="p">[</span><span class="m">4</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i8</span><span class="p">]</span><span class="w"> </span><span class="k">c</span><span class="s">&quot;%d\0A\00&quot;</span>
 
-<span class="k">declare</span> <span class="k">i32</span> <span class="vg">@scanf</span><span class="p">(</span><span class="k">i8</span><span class="p">*,</span> <span class="p">...)</span>
-<span class="k">declare</span> <span class="k">i32</span> <span class="vg">@printf</span><span class="p">(</span><span class="k">i8</span><span class="p">*,</span> <span class="p">...)</span>
+<span class="k">declare</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="vg">@scanf</span><span class="p">(</span><span class="kt">i8</span><span class="p">*,</span><span class="w"> </span><span class="p">...)</span>
+<span class="k">declare</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="vg">@printf</span><span class="p">(</span><span class="kt">i8</span><span class="p">*,</span><span class="w"> </span><span class="p">...)</span>
 
-<span class="k">define</span> <span class="k">i32</span> <span class="vg">@main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nv">%ptr</span> <span class="p">=</span> <span class="k">alloca</span> <span class="k">i32</span>       <span class="c">; i32*:ptr</span>
-    <span class="k">call</span> <span class="k">i32</span> <span class="p">(</span><span class="k">i8</span><span class="p">*,</span> <span class="p">...)</span> <span class="vg">@scanf</span><span class="p">(</span><span class="k">i8</span><span class="p">*</span> <span class="k">getelementptr</span> <span class="p">([</span><span class="m">3</span> <span class="k">x</span> <span class="k">i8</span><span class="p">],</span> <span class="p">[</span><span class="m">3</span> <span class="k">x</span> <span class="k">i8</span><span class="p">]*</span> <span class="vg">@.str.0</span><span class="p">,</span> <span class="k">i32</span> <span class="m">0</span><span class="p">,</span> <span class="k">i32</span> <span class="m">0</span><span class="p">),</span>
-                               <span class="k">i32</span><span class="p">*</span> <span class="nv">%ptr</span><span class="p">)</span>
+<span class="k">define</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="vg">@main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nv">%ptr</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">alloca</span><span class="w"> </span><span class="kt">i32</span><span class="w">       </span><span class="c">; i32*:ptr</span>
+<span class="w">    </span><span class="k">call</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="p">(</span><span class="kt">i8</span><span class="p">*,</span><span class="w"> </span><span class="p">...)</span><span class="w"> </span><span class="vg">@scanf</span><span class="p">(</span><span class="kt">i8</span><span class="p">*</span><span class="w"> </span><span class="k">getelementptr</span><span class="w"> </span><span class="p">([</span><span class="m">3</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i8</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="m">3</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i8</span><span class="p">]*</span><span class="w"> </span><span class="vg">@.str.0</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="m">0</span><span class="p">),</span>
+<span class="w">                               </span><span class="kt">i32</span><span class="p">*</span><span class="w"> </span><span class="nv">%ptr</span><span class="p">)</span>
 
 
-    <span class="nv">%value</span> <span class="p">=</span> <span class="k">load</span> <span class="k">i32</span><span class="p">,</span> <span class="k">i32</span><span class="p">*</span> <span class="nv">%ptr</span>    <span class="c">; i32:value = *ptr</span>
-    <span class="k">call</span> <span class="k">i32</span> <span class="p">(</span><span class="k">i8</span><span class="p">*,</span> <span class="p">...)</span> <span class="vg">@printf</span><span class="p">(</span><span class="k">i8</span><span class="p">*</span> <span class="k">getelementptr</span> <span class="p">([</span><span class="m">4</span> <span class="k">x</span> <span class="k">i8</span><span class="p">],</span> <span class="p">[</span><span class="m">4</span> <span class="k">x</span> <span class="k">i8</span><span class="p">]*</span> <span class="vg">@.str.1</span><span class="p">,</span> <span class="k">i32</span> <span class="m">0</span><span class="p">,</span> <span class="k">i32</span> <span class="m">0</span><span class="p">),</span>
-                                <span class="k">i32</span> <span class="nv">%value</span><span class="p">)</span>
-    <span class="k">ret</span> <span class="k">i32</span> <span class="m">0</span>
+<span class="w">    </span><span class="nv">%value</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">load</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">*</span><span class="w"> </span><span class="nv">%ptr</span><span class="w">    </span><span class="c">; i32:value = *ptr</span>
+<span class="w">    </span><span class="k">call</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="p">(</span><span class="kt">i8</span><span class="p">*,</span><span class="w"> </span><span class="p">...)</span><span class="w"> </span><span class="vg">@printf</span><span class="p">(</span><span class="kt">i8</span><span class="p">*</span><span class="w"> </span><span class="k">getelementptr</span><span class="w"> </span><span class="p">([</span><span class="m">4</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i8</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="m">4</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i8</span><span class="p">]*</span><span class="w"> </span><span class="vg">@.str.1</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="m">0</span><span class="p">),</span>
+<span class="w">                                </span><span class="kt">i32</span><span class="w"> </span><span class="nv">%value</span><span class="p">)</span>
+<span class="w">    </span><span class="k">ret</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="m">0</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="fibonacci">
-<h4>Fibonacci<a class="headerlink" href="#fibonacci" title="本標題的永久連結">¶</a></h4>
-</div>
-</div>
-</div>
-<div class="section" id="ssa-static-single-assignment-form">
-<h2>SSA (Static single assignment form)<a class="headerlink" href="#ssa-static-single-assignment-form" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="fibonacci">
+<h4>Fibonacci<a class="headerlink" href="#fibonacci" title="Permalink to this heading"></a></h4>
+</section>
+</section>
+</section>
+<section id="ssa-static-single-assignment-form">
+<h2>SSA (Static single assignment form)<a class="headerlink" href="#ssa-static-single-assignment-form" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Static_single_assignment_form">Wikipedia - Static single assignment form</a></p></li>
 <li><p>[Book] <a class="reference external" href="http://ssabook.gforge.inria.fr/latest/book.pdf">Static Single Assignment Book</a></p></li>
 </ul>
-<div class="section" id="phi-function">
-<h3>Φ (Phi) function<a class="headerlink" href="#phi-function" title="本標題的永久連結">¶</a></h3>
+<section id="phi-function">
+<h3>Φ (Phi) function<a class="headerlink" href="#phi-function" title="Permalink to this heading"></a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>        +----------+
         | x1 &lt; 3 ? |
         +----------+
@@ -1053,16 +983,16 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <ul class="simple">
 <li><p><a class="reference external" href="http://llvm.org/doxygen/classllvm_1_1PHINode.html">LLVM: llvm::PHINode Class Reference</a></p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="llvm-ir-type">
-<h2>LLVM IR Type<a class="headerlink" href="#llvm-ir-type" title="本標題的永久連結">¶</a></h2>
-<div class="section" id="first-class-types">
-<h3>First Class Types<a class="headerlink" href="#first-class-types" title="本標題的永久連結">¶</a></h3>
-<div class="section" id="single-value-types">
-<h4>Single Value Types<a class="headerlink" href="#single-value-types" title="本標題的永久連結">¶</a></h4>
-<div class="section" id="vector-type">
-<h5>Vector Type<a class="headerlink" href="#vector-type" title="本標題的永久連結">¶</a></h5>
+</section>
+</section>
+<section id="llvm-ir-type">
+<h2>LLVM IR Type<a class="headerlink" href="#llvm-ir-type" title="Permalink to this heading"></a></h2>
+<section id="first-class-types">
+<h3>First Class Types<a class="headerlink" href="#first-class-types" title="Permalink to this heading"></a></h3>
+<section id="single-value-types">
+<h4>Single Value Types<a class="headerlink" href="#single-value-types" title="Permalink to this heading"></a></h4>
+<section id="vector-type">
+<h5>Vector Type<a class="headerlink" href="#vector-type" title="Permalink to this heading"></a></h5>
 <p>SIMD</p>
 <p>Syntax</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span> <span class="o">&lt;</span><span class="c1"># elements&gt; x &lt;elementtype&gt; &gt;</span>
@@ -1072,380 +1002,370 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="mi">8</span> <span class="n">x</span> <span class="nb">float</span><span class="o">&gt;</span>     <span class="p">;</span> <span class="n">Vector</span> <span class="n">of</span> <span class="mi">8</span> <span class="mi">32</span><span class="o">-</span><span class="n">bit</span> <span class="n">floating</span><span class="o">-</span><span class="n">point</span> <span class="n">values</span><span class="o">.</span>
 </pre></div>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="llvm-ir-generated-example">
-<h2>LLVM IR Generated Example<a class="headerlink" href="#llvm-ir-generated-example" title="本標題的永久連結">¶</a></h2>
-<div class="section" id="sanitizer">
-<h3>Sanitizer<a class="headerlink" href="#sanitizer" title="本標題的永久連結">¶</a></h3>
+</section>
+</section>
+</section>
+</section>
+<section id="llvm-ir-generated-example">
+<h2>LLVM IR Generated Example<a class="headerlink" href="#llvm-ir-generated-example" title="Permalink to this heading"></a></h2>
+<section id="sanitizer">
+<h3>Sanitizer<a class="headerlink" href="#sanitizer" title="Permalink to this heading"></a></h3>
 <p>C :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">[</span><span class="mi">4</span><span class="p">]);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">4</span><span class="p">]);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>Build :</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ clang -fsanitize<span class="o">=</span>address -S -emit-llvm test.c
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>clang<span class="w"> </span>-fsanitize<span class="o">=</span>address<span class="w"> </span>-S<span class="w"> </span>-emit-llvm<span class="w"> </span>test.c
 </pre></div>
 </div>
 <p>LLVM IR :</p>
 <div class="highlight-llvm notranslate"><div class="highlight"><pre><span></span><span class="c">; ModuleID = &#39;test.c&#39;</span>
-<span class="k">target</span> <span class="k">datalayout</span> <span class="p">=</span> <span class="s">&quot;e-m:e-i64:64-f80:128-n8:16:32:64-S128&quot;</span>
-<span class="k">target</span> <span class="k">triple</span> <span class="p">=</span> <span class="s">&quot;x86_64-unknown-linux-gnu&quot;</span>
+<span class="k">target</span><span class="w"> </span><span class="k">datalayout</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;e-m:e-i64:64-f80:128-n8:16:32:64-S128&quot;</span>
+<span class="k">target</span><span class="w"> </span><span class="k">triple</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;x86_64-unknown-linux-gnu&quot;</span>
 
-<span class="vg">@.str</span> <span class="p">=</span> <span class="k">internal</span> <span class="k">unnamed_addr</span> <span class="k">constant</span> <span class="p">{</span> <span class="p">[</span><span class="m">4</span> <span class="k">x</span> <span class="k">i8</span><span class="p">],</span> <span class="p">[</span><span class="m">60</span> <span class="k">x</span> <span class="k">i8</span><span class="p">]</span> <span class="p">}</span> <span class="p">{</span> <span class="p">[</span><span class="m">4</span> <span class="k">x</span> <span class="k">i8</span><span class="p">]</span> <span class="k">c</span><span class="s">&quot;%d\0A\00&quot;</span><span class="p">,</span> <span class="p">[</span><span class="m">60</span> <span class="k">x</span> <span class="k">i8</span><span class="p">]</span> <span class="k">zeroinitializer</span> <span class="p">},</span> <span class="k">align</span> <span class="m">32</span>
-<span class="vg">@llvm.global_ctors</span> <span class="p">=</span> <span class="k">appending</span> <span class="k">global</span> <span class="p">[</span><span class="m">1</span> <span class="k">x</span> <span class="p">{</span> <span class="k">i32</span><span class="p">,</span> <span class="k">void</span> <span class="p">()*</span> <span class="p">}]</span> <span class="p">[{</span> <span class="k">i32</span><span class="p">,</span> <span class="k">void</span> <span class="p">()*</span> <span class="p">}</span> <span class="p">{</span> <span class="k">i32</span> <span class="m">1</span><span class="p">,</span> <span class="k">void</span> <span class="p">()*</span> <span class="vg">@asan.module_ctor</span> <span class="p">}]</span>
-<span class="vg">@__asan_option_detect_stack_use_after_return</span> <span class="p">=</span> <span class="k">external</span> <span class="k">global</span> <span class="k">i32</span>
-<span class="vg">@__asan_gen_</span> <span class="p">=</span> <span class="k">private</span> <span class="k">unnamed_addr</span> <span class="k">constant</span> <span class="p">[</span><span class="m">12</span> <span class="k">x</span> <span class="k">i8</span><span class="p">]</span> <span class="k">c</span><span class="s">&quot;1 32 16 1 a\00&quot;</span><span class="p">,</span> <span class="k">align</span> <span class="m">1</span>
-<span class="vg">@__asan_gen_.1</span> <span class="p">=</span> <span class="k">private</span> <span class="k">constant</span> <span class="p">[</span><span class="m">7</span> <span class="k">x</span> <span class="k">i8</span><span class="p">]</span> <span class="k">c</span><span class="s">&quot;test.c\00&quot;</span><span class="p">,</span> <span class="k">align</span> <span class="m">1</span>
-<span class="vg">@__asan_gen_.2</span> <span class="p">=</span> <span class="k">private</span> <span class="k">unnamed_addr</span> <span class="k">constant</span> <span class="p">[</span><span class="m">17</span> <span class="k">x</span> <span class="k">i8</span><span class="p">]</span> <span class="k">c</span><span class="s">&quot;&lt;string literal&gt;\00&quot;</span><span class="p">,</span> <span class="k">align</span> <span class="m">1</span>
-<span class="vg">@__asan_gen_.3</span> <span class="p">=</span> <span class="k">private</span> <span class="k">unnamed_addr</span> <span class="k">constant</span> <span class="p">[</span><span class="m">7</span> <span class="k">x</span> <span class="k">i8</span><span class="p">]</span> <span class="k">c</span><span class="s">&quot;test.c\00&quot;</span><span class="p">,</span> <span class="k">align</span> <span class="m">1</span>
-<span class="vg">@__asan_gen_.4</span> <span class="p">=</span> <span class="k">private</span> <span class="k">unnamed_addr</span> <span class="k">constant</span> <span class="p">{</span> <span class="p">[</span><span class="m">7</span> <span class="k">x</span> <span class="k">i8</span><span class="p">]*,</span> <span class="k">i32</span><span class="p">,</span> <span class="k">i32</span> <span class="p">}</span> <span class="p">{</span> <span class="p">[</span><span class="m">7</span> <span class="k">x</span> <span class="k">i8</span><span class="p">]*</span> <span class="vg">@__asan_gen_.3</span><span class="p">,</span> <span class="k">i32</span> <span class="m">5</span><span class="p">,</span> <span class="k">i32</span> <span class="m">12</span> <span class="p">}</span>
-<span class="vg">@0</span> <span class="p">=</span> <span class="k">internal</span> <span class="k">global</span> <span class="p">[</span><span class="m">1</span> <span class="k">x</span> <span class="p">{</span> <span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">,</span> <span class="k">i64</span> <span class="p">}]</span> <span class="p">[{</span> <span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">,</span> <span class="k">i64</span> <span class="p">}</span> <span class="p">{</span> <span class="k">i64</span> <span class="k">ptrtoint</span> <span class="p">({</span> <span class="p">[</span><span class="m">4</span> <span class="k">x</span> <span class="k">i8</span><span class="p">],</span> <span class="p">[</span><span class="m">60</span> <span class="k">x</span> <span class="k">i8</span><span class="p">]</span> <span class="p">}*</span> <span class="vg">@.str</span> <span class="k">to</span> <span class="k">i64</span><span class="p">),</span> <span class="k">i64</span> <span class="m">4</span><span class="p">,</span> <span class="k">i64</span> <span class="m">64</span><span class="p">,</span> <span class="k">i64</span> <span class="k">ptrtoint</span> <span class="p">([</span><span class="m">17</span> <span class="k">x</span> <span class="k">i8</span><span class="p">]*</span> <span class="vg">@__asan_gen_.2</span> <span class="k">to</span> <span class="k">i64</span><span class="p">),</span> <span class="k">i64</span> <span class="k">ptrtoint</span> <span class="p">([</span><span class="m">7</span> <span class="k">x</span> <span class="k">i8</span><span class="p">]*</span> <span class="vg">@__asan_gen_.1</span> <span class="k">to</span> <span class="k">i64</span><span class="p">),</span> <span class="k">i64</span> <span class="m">0</span><span class="p">,</span> <span class="k">i64</span> <span class="k">ptrtoint</span> <span class="p">({</span> <span class="p">[</span><span class="m">7</span> <span class="k">x</span> <span class="k">i8</span><span class="p">]*,</span> <span class="k">i32</span><span class="p">,</span> <span class="k">i32</span> <span class="p">}*</span> <span class="vg">@__asan_gen_.4</span> <span class="k">to</span> <span class="k">i64</span><span class="p">)</span> <span class="p">}]</span>
-<span class="vg">@llvm.global_dtors</span> <span class="p">=</span> <span class="k">appending</span> <span class="k">global</span> <span class="p">[</span><span class="m">1</span> <span class="k">x</span> <span class="p">{</span> <span class="k">i32</span><span class="p">,</span> <span class="k">void</span> <span class="p">()*</span> <span class="p">}]</span> <span class="p">[{</span> <span class="k">i32</span><span class="p">,</span> <span class="k">void</span> <span class="p">()*</span> <span class="p">}</span> <span class="p">{</span> <span class="k">i32</span> <span class="m">1</span><span class="p">,</span> <span class="k">void</span> <span class="p">()*</span> <span class="vg">@asan.module_dtor</span> <span class="p">}]</span>
+<span class="vg">@.str</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">internal</span><span class="w"> </span><span class="k">unnamed_addr</span><span class="w"> </span><span class="k">constant</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">[</span><span class="m">4</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i8</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="m">60</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i8</span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">[</span><span class="m">4</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i8</span><span class="p">]</span><span class="w"> </span><span class="k">c</span><span class="s">&quot;%d\0A\00&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="m">60</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i8</span><span class="p">]</span><span class="w"> </span><span class="k">zeroinitializer</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="k">align</span><span class="w"> </span><span class="m">32</span>
+<span class="vg">@llvm.global_ctors</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">appending</span><span class="w"> </span><span class="k">global</span><span class="w"> </span><span class="p">[</span><span class="m">1</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="p">()*</span><span class="w"> </span><span class="p">}]</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="p">()*</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="p">()*</span><span class="w"> </span><span class="vg">@asan.module_ctor</span><span class="w"> </span><span class="p">}]</span>
+<span class="vg">@__asan_option_detect_stack_use_after_return</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">external</span><span class="w"> </span><span class="k">global</span><span class="w"> </span><span class="kt">i32</span>
+<span class="vg">@__asan_gen_</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="k">unnamed_addr</span><span class="w"> </span><span class="k">constant</span><span class="w"> </span><span class="p">[</span><span class="m">12</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i8</span><span class="p">]</span><span class="w"> </span><span class="k">c</span><span class="s">&quot;1 32 16 1 a\00&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">align</span><span class="w"> </span><span class="m">1</span>
+<span class="vg">@__asan_gen_.1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="k">constant</span><span class="w"> </span><span class="p">[</span><span class="m">7</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i8</span><span class="p">]</span><span class="w"> </span><span class="k">c</span><span class="s">&quot;test.c\00&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">align</span><span class="w"> </span><span class="m">1</span>
+<span class="vg">@__asan_gen_.2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="k">unnamed_addr</span><span class="w"> </span><span class="k">constant</span><span class="w"> </span><span class="p">[</span><span class="m">17</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i8</span><span class="p">]</span><span class="w"> </span><span class="k">c</span><span class="s">&quot;&lt;string literal&gt;\00&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">align</span><span class="w"> </span><span class="m">1</span>
+<span class="vg">@__asan_gen_.3</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="k">unnamed_addr</span><span class="w"> </span><span class="k">constant</span><span class="w"> </span><span class="p">[</span><span class="m">7</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i8</span><span class="p">]</span><span class="w"> </span><span class="k">c</span><span class="s">&quot;test.c\00&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">align</span><span class="w"> </span><span class="m">1</span>
+<span class="vg">@__asan_gen_.4</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="k">unnamed_addr</span><span class="w"> </span><span class="k">constant</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">[</span><span class="m">7</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i8</span><span class="p">]*,</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">[</span><span class="m">7</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i8</span><span class="p">]*</span><span class="w"> </span><span class="vg">@__asan_gen_.3</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="p">}</span>
+<span class="vg">@0</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">internal</span><span class="w"> </span><span class="k">global</span><span class="w"> </span><span class="p">[</span><span class="m">1</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="p">}]</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="k">ptrtoint</span><span class="w"> </span><span class="p">({</span><span class="w"> </span><span class="p">[</span><span class="m">4</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i8</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="m">60</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i8</span><span class="p">]</span><span class="w"> </span><span class="p">}*</span><span class="w"> </span><span class="vg">@.str</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="kt">i64</span><span class="p">),</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="m">64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="k">ptrtoint</span><span class="w"> </span><span class="p">([</span><span class="m">17</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i8</span><span class="p">]*</span><span class="w"> </span><span class="vg">@__asan_gen_.2</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="kt">i64</span><span class="p">),</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="k">ptrtoint</span><span class="w"> </span><span class="p">([</span><span class="m">7</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i8</span><span class="p">]*</span><span class="w"> </span><span class="vg">@__asan_gen_.1</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="kt">i64</span><span class="p">),</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="k">ptrtoint</span><span class="w"> </span><span class="p">({</span><span class="w"> </span><span class="p">[</span><span class="m">7</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i8</span><span class="p">]*,</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="p">}*</span><span class="w"> </span><span class="vg">@__asan_gen_.4</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="kt">i64</span><span class="p">)</span><span class="w"> </span><span class="p">}]</span>
+<span class="vg">@llvm.global_dtors</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">appending</span><span class="w"> </span><span class="k">global</span><span class="w"> </span><span class="p">[</span><span class="m">1</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="p">()*</span><span class="w"> </span><span class="p">}]</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="p">()*</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="p">()*</span><span class="w"> </span><span class="vg">@asan.module_dtor</span><span class="w"> </span><span class="p">}]</span>
 
 <span class="c">; Function Attrs: nounwind sanitize_address uwtable</span>
-<span class="k">define</span> <span class="k">i32</span> <span class="vg">@main</span><span class="p">(</span><span class="k">i32</span> <span class="nv">%argc</span><span class="p">,</span> <span class="k">i8</span><span class="p">**</span> <span class="nv">%argv</span><span class="p">)</span> <span class="vg">#0</span> <span class="p">{</span>
-<span class="nv nv-Anonymous">%1</span> <span class="p">=</span> <span class="k">alloca</span> <span class="k">i32</span><span class="p">,</span> <span class="k">align</span> <span class="m">4</span>
-<span class="nv nv-Anonymous">%2</span> <span class="p">=</span> <span class="k">alloca</span> <span class="k">i32</span><span class="p">,</span> <span class="k">align</span> <span class="m">4</span>
-<span class="nv nv-Anonymous">%3</span> <span class="p">=</span> <span class="k">alloca</span> <span class="k">i8</span><span class="p">**,</span> <span class="k">align</span> <span class="m">8</span>
-<span class="nv nv-Anonymous">%4</span> <span class="p">=</span> <span class="k">load</span> <span class="k">i32</span><span class="p">,</span> <span class="k">i32</span><span class="p">*</span> <span class="vg">@__asan_option_detect_stack_use_after_return</span>
-<span class="nv nv-Anonymous">%5</span> <span class="p">=</span> <span class="k">icmp</span> <span class="k">ne</span> <span class="k">i32</span> <span class="nv nv-Anonymous">%4</span><span class="p">,</span> <span class="m">0</span>
-<span class="k">br</span> <span class="k">i1</span> <span class="nv nv-Anonymous">%5</span><span class="p">,</span> <span class="k">label</span> <span class="nv nv-Anonymous">%6</span><span class="p">,</span> <span class="k">label</span> <span class="nv nv-Anonymous">%8</span>
+<span class="k">define</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="vg">@main</span><span class="p">(</span><span class="kt">i32</span><span class="w"> </span><span class="nv">%argc</span><span class="p">,</span><span class="w"> </span><span class="kt">i8</span><span class="p">**</span><span class="w"> </span><span class="nv">%argv</span><span class="p">)</span><span class="w"> </span><span class="vg">#0</span><span class="w"> </span><span class="p">{</span>
+<span class="nv nv-Anonymous">%1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">alloca</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="k">align</span><span class="w"> </span><span class="m">4</span>
+<span class="nv nv-Anonymous">%2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">alloca</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="k">align</span><span class="w"> </span><span class="m">4</span>
+<span class="nv nv-Anonymous">%3</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">alloca</span><span class="w"> </span><span class="kt">i8</span><span class="p">**,</span><span class="w"> </span><span class="k">align</span><span class="w"> </span><span class="m">8</span>
+<span class="nv nv-Anonymous">%4</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">load</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">*</span><span class="w"> </span><span class="vg">@__asan_option_detect_stack_use_after_return</span>
+<span class="nv nv-Anonymous">%5</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">icmp</span><span class="w"> </span><span class="k">ne</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="nv nv-Anonymous">%4</span><span class="p">,</span><span class="w"> </span><span class="m">0</span>
+<span class="k">br</span><span class="w"> </span><span class="kt">i1</span><span class="w"> </span><span class="nv nv-Anonymous">%5</span><span class="p">,</span><span class="w"> </span><span class="kt">label</span><span class="w"> </span><span class="nv nv-Anonymous">%6</span><span class="p">,</span><span class="w"> </span><span class="kt">label</span><span class="w"> </span><span class="nv nv-Anonymous">%8</span>
 
 <span class="c">; &lt;label&gt;:6                                       ; preds = %0</span>
-<span class="nv nv-Anonymous">%7</span> <span class="p">=</span> <span class="k">call</span> <span class="k">i64</span> <span class="vg">@__asan_stack_malloc_0</span><span class="p">(</span><span class="k">i64</span> <span class="m">64</span><span class="p">)</span>
-<span class="k">br</span> <span class="k">label</span> <span class="nv nv-Anonymous">%8</span>
+<span class="nv nv-Anonymous">%7</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">call</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="vg">@__asan_stack_malloc_0</span><span class="p">(</span><span class="kt">i64</span><span class="w"> </span><span class="m">64</span><span class="p">)</span>
+<span class="k">br</span><span class="w"> </span><span class="kt">label</span><span class="w"> </span><span class="nv nv-Anonymous">%8</span>
 
 <span class="c">; &lt;label&gt;:8                                       ; preds = %0, %6</span>
-<span class="nv nv-Anonymous">%9</span> <span class="p">=</span> <span class="k">phi</span> <span class="k">i64</span> <span class="p">[</span> <span class="m">0</span><span class="p">,</span> <span class="nv nv-Anonymous">%0</span> <span class="p">],</span> <span class="p">[</span> <span class="nv nv-Anonymous">%7</span><span class="p">,</span> <span class="nv nv-Anonymous">%6</span> <span class="p">]</span>
-<span class="nv nv-Anonymous">%10</span> <span class="p">=</span> <span class="k">icmp</span> <span class="k">eq</span> <span class="k">i64</span> <span class="nv nv-Anonymous">%9</span><span class="p">,</span> <span class="m">0</span>
-<span class="k">br</span> <span class="k">i1</span> <span class="nv nv-Anonymous">%10</span><span class="p">,</span> <span class="k">label</span> <span class="nv nv-Anonymous">%11</span><span class="p">,</span> <span class="k">label</span> <span class="nv nv-Anonymous">%13</span>
+<span class="nv nv-Anonymous">%9</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">phi</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="nv nv-Anonymous">%0</span><span class="w"> </span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="nv nv-Anonymous">%7</span><span class="p">,</span><span class="w"> </span><span class="nv nv-Anonymous">%6</span><span class="w"> </span><span class="p">]</span>
+<span class="nv nv-Anonymous">%10</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">icmp</span><span class="w"> </span><span class="k">eq</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="nv nv-Anonymous">%9</span><span class="p">,</span><span class="w"> </span><span class="m">0</span>
+<span class="k">br</span><span class="w"> </span><span class="kt">i1</span><span class="w"> </span><span class="nv nv-Anonymous">%10</span><span class="p">,</span><span class="w"> </span><span class="kt">label</span><span class="w"> </span><span class="nv nv-Anonymous">%11</span><span class="p">,</span><span class="w"> </span><span class="kt">label</span><span class="w"> </span><span class="nv nv-Anonymous">%13</span>
 
 <span class="c">; &lt;label&gt;:11                                      ; preds = %8</span>
-<span class="nv">%MyAlloca</span> <span class="p">=</span> <span class="k">alloca</span> <span class="k">i8</span><span class="p">,</span> <span class="k">i64</span> <span class="m">64</span><span class="p">,</span> <span class="k">align</span> <span class="m">32</span>
-<span class="nv nv-Anonymous">%12</span> <span class="p">=</span> <span class="k">ptrtoint</span> <span class="k">i8</span><span class="p">*</span> <span class="nv">%MyAlloca</span> <span class="k">to</span> <span class="k">i64</span>
-<span class="k">br</span> <span class="k">label</span> <span class="nv nv-Anonymous">%13</span>
+<span class="nv">%MyAlloca</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">alloca</span><span class="w"> </span><span class="kt">i8</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="m">64</span><span class="p">,</span><span class="w"> </span><span class="k">align</span><span class="w"> </span><span class="m">32</span>
+<span class="nv nv-Anonymous">%12</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">ptrtoint</span><span class="w"> </span><span class="kt">i8</span><span class="p">*</span><span class="w"> </span><span class="nv">%MyAlloca</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="kt">i64</span>
+<span class="k">br</span><span class="w"> </span><span class="kt">label</span><span class="w"> </span><span class="nv nv-Anonymous">%13</span>
 
 <span class="c">; &lt;label&gt;:13                                      ; preds = %8, %11</span>
-<span class="nv nv-Anonymous">%14</span> <span class="p">=</span> <span class="k">phi</span> <span class="k">i64</span> <span class="p">[</span> <span class="nv nv-Anonymous">%9</span><span class="p">,</span> <span class="nv nv-Anonymous">%8</span> <span class="p">],</span> <span class="p">[</span> <span class="nv nv-Anonymous">%12</span><span class="p">,</span> <span class="nv nv-Anonymous">%11</span> <span class="p">]</span>
-<span class="nv nv-Anonymous">%15</span> <span class="p">=</span> <span class="k">add</span> <span class="k">i64</span> <span class="nv nv-Anonymous">%14</span><span class="p">,</span> <span class="m">32</span>
-<span class="nv nv-Anonymous">%16</span> <span class="p">=</span> <span class="k">inttoptr</span> <span class="k">i64</span> <span class="nv nv-Anonymous">%15</span> <span class="k">to</span> <span class="p">[</span><span class="m">4</span> <span class="k">x</span> <span class="k">i32</span><span class="p">]*</span>
-<span class="nv nv-Anonymous">%17</span> <span class="p">=</span> <span class="k">inttoptr</span> <span class="k">i64</span> <span class="nv nv-Anonymous">%14</span> <span class="k">to</span> <span class="k">i64</span><span class="p">*</span>
-<span class="k">store</span> <span class="k">i64</span> <span class="m">1102416563</span><span class="p">,</span> <span class="k">i64</span><span class="p">*</span> <span class="nv nv-Anonymous">%17</span>
-<span class="nv nv-Anonymous">%18</span> <span class="p">=</span> <span class="k">add</span> <span class="k">i64</span> <span class="nv nv-Anonymous">%14</span><span class="p">,</span> <span class="m">8</span>
-<span class="nv nv-Anonymous">%19</span> <span class="p">=</span> <span class="k">inttoptr</span> <span class="k">i64</span> <span class="nv nv-Anonymous">%18</span> <span class="k">to</span> <span class="k">i64</span><span class="p">*</span>
-<span class="k">store</span> <span class="k">i64</span> <span class="k">ptrtoint</span> <span class="p">([</span><span class="m">12</span> <span class="k">x</span> <span class="k">i8</span><span class="p">]*</span> <span class="vg">@__asan_gen_</span> <span class="k">to</span> <span class="k">i64</span><span class="p">),</span> <span class="k">i64</span><span class="p">*</span> <span class="nv nv-Anonymous">%19</span>
-<span class="nv nv-Anonymous">%20</span> <span class="p">=</span> <span class="k">add</span> <span class="k">i64</span> <span class="nv nv-Anonymous">%14</span><span class="p">,</span> <span class="m">16</span>
-<span class="nv nv-Anonymous">%21</span> <span class="p">=</span> <span class="k">inttoptr</span> <span class="k">i64</span> <span class="nv nv-Anonymous">%20</span> <span class="k">to</span> <span class="k">i64</span><span class="p">*</span>
-<span class="k">store</span> <span class="k">i64</span> <span class="k">ptrtoint</span> <span class="p">(</span><span class="k">i32</span> <span class="p">(</span><span class="k">i32</span><span class="p">,</span> <span class="k">i8</span><span class="p">**)*</span> <span class="vg">@main</span> <span class="k">to</span> <span class="k">i64</span><span class="p">),</span> <span class="k">i64</span><span class="p">*</span> <span class="nv nv-Anonymous">%21</span>
-<span class="nv nv-Anonymous">%22</span> <span class="p">=</span> <span class="k">lshr</span> <span class="k">i64</span> <span class="nv nv-Anonymous">%14</span><span class="p">,</span> <span class="m">3</span>
-<span class="nv nv-Anonymous">%23</span> <span class="p">=</span> <span class="k">add</span> <span class="k">i64</span> <span class="nv nv-Anonymous">%22</span><span class="p">,</span> <span class="m">2147450880</span>
-<span class="nv nv-Anonymous">%24</span> <span class="p">=</span> <span class="k">add</span> <span class="k">i64</span> <span class="nv nv-Anonymous">%23</span><span class="p">,</span> <span class="m">0</span>
-<span class="nv nv-Anonymous">%25</span> <span class="p">=</span> <span class="k">inttoptr</span> <span class="k">i64</span> <span class="nv nv-Anonymous">%24</span> <span class="k">to</span> <span class="k">i64</span><span class="p">*</span>
-<span class="k">store</span> <span class="k">i64</span> <span class="m">-868350299093208591</span><span class="p">,</span> <span class="k">i64</span><span class="p">*</span> <span class="nv nv-Anonymous">%25</span>
-<span class="k">store</span> <span class="k">i32</span> <span class="m">0</span><span class="p">,</span> <span class="k">i32</span><span class="p">*</span> <span class="nv nv-Anonymous">%1</span>
-<span class="k">store</span> <span class="k">i32</span> <span class="nv">%argc</span><span class="p">,</span> <span class="k">i32</span><span class="p">*</span> <span class="nv nv-Anonymous">%2</span><span class="p">,</span> <span class="k">align</span> <span class="m">4</span>
-<span class="k">store</span> <span class="k">i8</span><span class="p">**</span> <span class="nv">%argv</span><span class="p">,</span> <span class="k">i8</span><span class="p">***</span> <span class="nv nv-Anonymous">%3</span><span class="p">,</span> <span class="k">align</span> <span class="m">8</span>
-<span class="nv nv-Anonymous">%26</span> <span class="p">=</span> <span class="k">getelementptr</span> <span class="k">inbounds</span> <span class="p">[</span><span class="m">4</span> <span class="k">x</span> <span class="k">i32</span><span class="p">],</span> <span class="p">[</span><span class="m">4</span> <span class="k">x</span> <span class="k">i32</span><span class="p">]*</span> <span class="nv nv-Anonymous">%16</span><span class="p">,</span> <span class="k">i32</span> <span class="m">0</span><span class="p">,</span> <span class="k">i64</span> <span class="m">4</span>
-<span class="nv nv-Anonymous">%27</span> <span class="p">=</span> <span class="k">ptrtoint</span> <span class="k">i32</span><span class="p">*</span> <span class="nv nv-Anonymous">%26</span> <span class="k">to</span> <span class="k">i64</span>
-<span class="nv nv-Anonymous">%28</span> <span class="p">=</span> <span class="k">lshr</span> <span class="k">i64</span> <span class="nv nv-Anonymous">%27</span><span class="p">,</span> <span class="m">3</span>
-<span class="nv nv-Anonymous">%29</span> <span class="p">=</span> <span class="k">add</span> <span class="k">i64</span> <span class="nv nv-Anonymous">%28</span><span class="p">,</span> <span class="m">2147450880</span>
-<span class="nv nv-Anonymous">%30</span> <span class="p">=</span> <span class="k">inttoptr</span> <span class="k">i64</span> <span class="nv nv-Anonymous">%29</span> <span class="k">to</span> <span class="k">i8</span><span class="p">*</span>
-<span class="nv nv-Anonymous">%31</span> <span class="p">=</span> <span class="k">load</span> <span class="k">i8</span><span class="p">,</span> <span class="k">i8</span><span class="p">*</span> <span class="nv nv-Anonymous">%30</span>
-<span class="nv nv-Anonymous">%32</span> <span class="p">=</span> <span class="k">icmp</span> <span class="k">ne</span> <span class="k">i8</span> <span class="nv nv-Anonymous">%31</span><span class="p">,</span> <span class="m">0</span>
-<span class="k">br</span> <span class="k">i1</span> <span class="nv nv-Anonymous">%32</span><span class="p">,</span> <span class="k">label</span> <span class="nv nv-Anonymous">%33</span><span class="p">,</span> <span class="k">label</span> <span class="nv nv-Anonymous">%39</span><span class="p">,</span> <span class="nv">!prof</span> <span class="nv nv-Anonymous">!3</span>
+<span class="nv nv-Anonymous">%14</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">phi</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="nv nv-Anonymous">%9</span><span class="p">,</span><span class="w"> </span><span class="nv nv-Anonymous">%8</span><span class="w"> </span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="nv nv-Anonymous">%12</span><span class="p">,</span><span class="w"> </span><span class="nv nv-Anonymous">%11</span><span class="w"> </span><span class="p">]</span>
+<span class="nv nv-Anonymous">%15</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="nv nv-Anonymous">%14</span><span class="p">,</span><span class="w"> </span><span class="m">32</span>
+<span class="nv nv-Anonymous">%16</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">inttoptr</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="nv nv-Anonymous">%15</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="p">[</span><span class="m">4</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i32</span><span class="p">]*</span>
+<span class="nv nv-Anonymous">%17</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">inttoptr</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="nv nv-Anonymous">%14</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="kt">i64</span><span class="p">*</span>
+<span class="k">store</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="m">1102416563</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">*</span><span class="w"> </span><span class="nv nv-Anonymous">%17</span>
+<span class="nv nv-Anonymous">%18</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="nv nv-Anonymous">%14</span><span class="p">,</span><span class="w"> </span><span class="m">8</span>
+<span class="nv nv-Anonymous">%19</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">inttoptr</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="nv nv-Anonymous">%18</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="kt">i64</span><span class="p">*</span>
+<span class="k">store</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="k">ptrtoint</span><span class="w"> </span><span class="p">([</span><span class="m">12</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i8</span><span class="p">]*</span><span class="w"> </span><span class="vg">@__asan_gen_</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="kt">i64</span><span class="p">),</span><span class="w"> </span><span class="kt">i64</span><span class="p">*</span><span class="w"> </span><span class="nv nv-Anonymous">%19</span>
+<span class="nv nv-Anonymous">%20</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="nv nv-Anonymous">%14</span><span class="p">,</span><span class="w"> </span><span class="m">16</span>
+<span class="nv nv-Anonymous">%21</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">inttoptr</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="nv nv-Anonymous">%20</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="kt">i64</span><span class="p">*</span>
+<span class="k">store</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="k">ptrtoint</span><span class="w"> </span><span class="p">(</span><span class="kt">i32</span><span class="w"> </span><span class="p">(</span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="kt">i8</span><span class="p">**)*</span><span class="w"> </span><span class="vg">@main</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="kt">i64</span><span class="p">),</span><span class="w"> </span><span class="kt">i64</span><span class="p">*</span><span class="w"> </span><span class="nv nv-Anonymous">%21</span>
+<span class="nv nv-Anonymous">%22</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">lshr</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="nv nv-Anonymous">%14</span><span class="p">,</span><span class="w"> </span><span class="m">3</span>
+<span class="nv nv-Anonymous">%23</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="nv nv-Anonymous">%22</span><span class="p">,</span><span class="w"> </span><span class="m">2147450880</span>
+<span class="nv nv-Anonymous">%24</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="nv nv-Anonymous">%23</span><span class="p">,</span><span class="w"> </span><span class="m">0</span>
+<span class="nv nv-Anonymous">%25</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">inttoptr</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="nv nv-Anonymous">%24</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="kt">i64</span><span class="p">*</span>
+<span class="k">store</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="m">-868350299093208591</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">*</span><span class="w"> </span><span class="nv nv-Anonymous">%25</span>
+<span class="k">store</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">*</span><span class="w"> </span><span class="nv nv-Anonymous">%1</span>
+<span class="k">store</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="nv">%argc</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">*</span><span class="w"> </span><span class="nv nv-Anonymous">%2</span><span class="p">,</span><span class="w"> </span><span class="k">align</span><span class="w"> </span><span class="m">4</span>
+<span class="k">store</span><span class="w"> </span><span class="kt">i8</span><span class="p">**</span><span class="w"> </span><span class="nv">%argv</span><span class="p">,</span><span class="w"> </span><span class="kt">i8</span><span class="p">***</span><span class="w"> </span><span class="nv nv-Anonymous">%3</span><span class="p">,</span><span class="w"> </span><span class="k">align</span><span class="w"> </span><span class="m">8</span>
+<span class="nv nv-Anonymous">%26</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">getelementptr</span><span class="w"> </span><span class="k">inbounds</span><span class="w"> </span><span class="p">[</span><span class="m">4</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i32</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="m">4</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i32</span><span class="p">]*</span><span class="w"> </span><span class="nv nv-Anonymous">%16</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="m">4</span>
+<span class="nv nv-Anonymous">%27</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">ptrtoint</span><span class="w"> </span><span class="kt">i32</span><span class="p">*</span><span class="w"> </span><span class="nv nv-Anonymous">%26</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="kt">i64</span>
+<span class="nv nv-Anonymous">%28</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">lshr</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="nv nv-Anonymous">%27</span><span class="p">,</span><span class="w"> </span><span class="m">3</span>
+<span class="nv nv-Anonymous">%29</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="nv nv-Anonymous">%28</span><span class="p">,</span><span class="w"> </span><span class="m">2147450880</span>
+<span class="nv nv-Anonymous">%30</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">inttoptr</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="nv nv-Anonymous">%29</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="kt">i8</span><span class="p">*</span>
+<span class="nv nv-Anonymous">%31</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">load</span><span class="w"> </span><span class="kt">i8</span><span class="p">,</span><span class="w"> </span><span class="kt">i8</span><span class="p">*</span><span class="w"> </span><span class="nv nv-Anonymous">%30</span>
+<span class="nv nv-Anonymous">%32</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">icmp</span><span class="w"> </span><span class="k">ne</span><span class="w"> </span><span class="kt">i8</span><span class="w"> </span><span class="nv nv-Anonymous">%31</span><span class="p">,</span><span class="w"> </span><span class="m">0</span>
+<span class="k">br</span><span class="w"> </span><span class="kt">i1</span><span class="w"> </span><span class="nv nv-Anonymous">%32</span><span class="p">,</span><span class="w"> </span><span class="kt">label</span><span class="w"> </span><span class="nv nv-Anonymous">%33</span><span class="p">,</span><span class="w"> </span><span class="kt">label</span><span class="w"> </span><span class="nv nv-Anonymous">%39</span><span class="p">,</span><span class="w"> </span><span class="nv">!prof</span><span class="w"> </span><span class="nv nv-Anonymous">!3</span>
 
 <span class="c">; &lt;label&gt;:33                                      ; preds = %13</span>
-<span class="nv nv-Anonymous">%34</span> <span class="p">=</span> <span class="k">and</span> <span class="k">i64</span> <span class="nv nv-Anonymous">%27</span><span class="p">,</span> <span class="m">7</span>
-<span class="nv nv-Anonymous">%35</span> <span class="p">=</span> <span class="k">add</span> <span class="k">i64</span> <span class="nv nv-Anonymous">%34</span><span class="p">,</span> <span class="m">3</span>
-<span class="nv nv-Anonymous">%36</span> <span class="p">=</span> <span class="k">trunc</span> <span class="k">i64</span> <span class="nv nv-Anonymous">%35</span> <span class="k">to</span> <span class="k">i8</span>
-<span class="nv nv-Anonymous">%37</span> <span class="p">=</span> <span class="k">icmp</span> <span class="k">sge</span> <span class="k">i8</span> <span class="nv nv-Anonymous">%36</span><span class="p">,</span> <span class="nv nv-Anonymous">%31</span>
-<span class="k">br</span> <span class="k">i1</span> <span class="nv nv-Anonymous">%37</span><span class="p">,</span> <span class="k">label</span> <span class="nv nv-Anonymous">%38</span><span class="p">,</span> <span class="k">label</span> <span class="nv nv-Anonymous">%39</span>
+<span class="nv nv-Anonymous">%34</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="nv nv-Anonymous">%27</span><span class="p">,</span><span class="w"> </span><span class="m">7</span>
+<span class="nv nv-Anonymous">%35</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="nv nv-Anonymous">%34</span><span class="p">,</span><span class="w"> </span><span class="m">3</span>
+<span class="nv nv-Anonymous">%36</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">trunc</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="nv nv-Anonymous">%35</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="kt">i8</span>
+<span class="nv nv-Anonymous">%37</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">icmp</span><span class="w"> </span><span class="k">sge</span><span class="w"> </span><span class="kt">i8</span><span class="w"> </span><span class="nv nv-Anonymous">%36</span><span class="p">,</span><span class="w"> </span><span class="nv nv-Anonymous">%31</span>
+<span class="k">br</span><span class="w"> </span><span class="kt">i1</span><span class="w"> </span><span class="nv nv-Anonymous">%37</span><span class="p">,</span><span class="w"> </span><span class="kt">label</span><span class="w"> </span><span class="nv nv-Anonymous">%38</span><span class="p">,</span><span class="w"> </span><span class="kt">label</span><span class="w"> </span><span class="nv nv-Anonymous">%39</span>
 
 <span class="c">; &lt;label&gt;:38                                      ; preds = %33</span>
-<span class="k">call</span> <span class="k">void</span> <span class="vg">@__asan_report_load4</span><span class="p">(</span><span class="k">i64</span> <span class="nv nv-Anonymous">%27</span><span class="p">)</span>
-<span class="k">call</span> <span class="k">void</span> <span class="k">asm</span> <span class="k">sideeffect</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">()</span>
+<span class="k">call</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_report_load4</span><span class="p">(</span><span class="kt">i64</span><span class="w"> </span><span class="nv nv-Anonymous">%27</span><span class="p">)</span>
+<span class="k">call</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="k">asm</span><span class="w"> </span><span class="k">sideeffect</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">()</span>
 <span class="k">unreachable</span>
 
 <span class="c">; &lt;label&gt;:39                                      ; preds = %33, %13</span>
-<span class="nv nv-Anonymous">%40</span> <span class="p">=</span> <span class="k">load</span> <span class="k">i32</span><span class="p">,</span> <span class="k">i32</span><span class="p">*</span> <span class="nv nv-Anonymous">%26</span><span class="p">,</span> <span class="k">align</span> <span class="m">4</span>
-<span class="nv nv-Anonymous">%41</span> <span class="p">=</span> <span class="k">call</span> <span class="k">i32</span> <span class="p">(</span><span class="k">i8</span><span class="p">*,</span> <span class="p">...)</span> <span class="vg">@printf</span><span class="p">(</span><span class="k">i8</span><span class="p">*</span> <span class="k">getelementptr</span> <span class="k">inbounds</span> <span class="p">({</span> <span class="p">[</span><span class="m">4</span> <span class="k">x</span> <span class="k">i8</span><span class="p">],</span> <span class="p">[</span><span class="m">60</span> <span class="k">x</span> <span class="k">i8</span><span class="p">]</span> <span class="p">},</span> <span class="p">{</span> <span class="p">[</span><span class="m">4</span> <span class="k">x</span> <span class="k">i8</span><span class="p">],</span> <span class="p">[</span><span class="m">60</span> <span class="k">x</span> <span class="k">i8</span><span class="p">]</span> <span class="p">}*</span> <span class="vg">@.str</span><span class="p">,</span> <span class="k">i32</span> <span class="m">0</span><span class="p">,</span> <span class="k">i32</span> <span class="m">0</span><span class="p">,</span> <span class="k">i32</span> <span class="m">0</span><span class="p">),</span> <span class="k">i32</span> <span class="nv nv-Anonymous">%40</span><span class="p">)</span>
-<span class="k">store</span> <span class="k">i64</span> <span class="m">1172321806</span><span class="p">,</span> <span class="k">i64</span><span class="p">*</span> <span class="nv nv-Anonymous">%17</span>
-<span class="nv nv-Anonymous">%42</span> <span class="p">=</span> <span class="k">icmp</span> <span class="k">ne</span> <span class="k">i64</span> <span class="nv nv-Anonymous">%9</span><span class="p">,</span> <span class="m">0</span>
-<span class="k">br</span> <span class="k">i1</span> <span class="nv nv-Anonymous">%42</span><span class="p">,</span> <span class="k">label</span> <span class="nv nv-Anonymous">%43</span><span class="p">,</span> <span class="k">label</span> <span class="nv nv-Anonymous">%50</span>
+<span class="nv nv-Anonymous">%40</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">load</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">*</span><span class="w"> </span><span class="nv nv-Anonymous">%26</span><span class="p">,</span><span class="w"> </span><span class="k">align</span><span class="w"> </span><span class="m">4</span>
+<span class="nv nv-Anonymous">%41</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">call</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="p">(</span><span class="kt">i8</span><span class="p">*,</span><span class="w"> </span><span class="p">...)</span><span class="w"> </span><span class="vg">@printf</span><span class="p">(</span><span class="kt">i8</span><span class="p">*</span><span class="w"> </span><span class="k">getelementptr</span><span class="w"> </span><span class="k">inbounds</span><span class="w"> </span><span class="p">({</span><span class="w"> </span><span class="p">[</span><span class="m">4</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i8</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="m">60</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i8</span><span class="p">]</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">[</span><span class="m">4</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i8</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="m">60</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i8</span><span class="p">]</span><span class="w"> </span><span class="p">}*</span><span class="w"> </span><span class="vg">@.str</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="m">0</span><span class="p">),</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="nv nv-Anonymous">%40</span><span class="p">)</span>
+<span class="k">store</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="m">1172321806</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">*</span><span class="w"> </span><span class="nv nv-Anonymous">%17</span>
+<span class="nv nv-Anonymous">%42</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">icmp</span><span class="w"> </span><span class="k">ne</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="nv nv-Anonymous">%9</span><span class="p">,</span><span class="w"> </span><span class="m">0</span>
+<span class="k">br</span><span class="w"> </span><span class="kt">i1</span><span class="w"> </span><span class="nv nv-Anonymous">%42</span><span class="p">,</span><span class="w"> </span><span class="kt">label</span><span class="w"> </span><span class="nv nv-Anonymous">%43</span><span class="p">,</span><span class="w"> </span><span class="kt">label</span><span class="w"> </span><span class="nv nv-Anonymous">%50</span>
 
 <span class="c">; &lt;label&gt;:43                                      ; preds = %39</span>
-<span class="nv nv-Anonymous">%44</span> <span class="p">=</span> <span class="k">add</span> <span class="k">i64</span> <span class="nv nv-Anonymous">%23</span><span class="p">,</span> <span class="m">0</span>
-<span class="nv nv-Anonymous">%45</span> <span class="p">=</span> <span class="k">inttoptr</span> <span class="k">i64</span> <span class="nv nv-Anonymous">%44</span> <span class="k">to</span> <span class="k">i64</span><span class="p">*</span>
-<span class="k">store</span> <span class="k">i64</span> <span class="m">-723401728380766731</span><span class="p">,</span> <span class="k">i64</span><span class="p">*</span> <span class="nv nv-Anonymous">%45</span>
-<span class="nv nv-Anonymous">%46</span> <span class="p">=</span> <span class="k">add</span> <span class="k">i64</span> <span class="nv nv-Anonymous">%9</span><span class="p">,</span> <span class="m">56</span>
-<span class="nv nv-Anonymous">%47</span> <span class="p">=</span> <span class="k">inttoptr</span> <span class="k">i64</span> <span class="nv nv-Anonymous">%46</span> <span class="k">to</span> <span class="k">i64</span><span class="p">*</span>
-<span class="nv nv-Anonymous">%48</span> <span class="p">=</span> <span class="k">load</span> <span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">*</span> <span class="nv nv-Anonymous">%47</span>
-<span class="nv nv-Anonymous">%49</span> <span class="p">=</span> <span class="k">inttoptr</span> <span class="k">i64</span> <span class="nv nv-Anonymous">%48</span> <span class="k">to</span> <span class="k">i8</span><span class="p">*</span>
-<span class="k">store</span> <span class="k">i8</span> <span class="m">0</span><span class="p">,</span> <span class="k">i8</span><span class="p">*</span> <span class="nv nv-Anonymous">%49</span>
-<span class="k">br</span> <span class="k">label</span> <span class="nv nv-Anonymous">%53</span>
+<span class="nv nv-Anonymous">%44</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="nv nv-Anonymous">%23</span><span class="p">,</span><span class="w"> </span><span class="m">0</span>
+<span class="nv nv-Anonymous">%45</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">inttoptr</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="nv nv-Anonymous">%44</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="kt">i64</span><span class="p">*</span>
+<span class="k">store</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="m">-723401728380766731</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">*</span><span class="w"> </span><span class="nv nv-Anonymous">%45</span>
+<span class="nv nv-Anonymous">%46</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="nv nv-Anonymous">%9</span><span class="p">,</span><span class="w"> </span><span class="m">56</span>
+<span class="nv nv-Anonymous">%47</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">inttoptr</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="nv nv-Anonymous">%46</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="kt">i64</span><span class="p">*</span>
+<span class="nv nv-Anonymous">%48</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">load</span><span class="w"> </span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">*</span><span class="w"> </span><span class="nv nv-Anonymous">%47</span>
+<span class="nv nv-Anonymous">%49</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">inttoptr</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="nv nv-Anonymous">%48</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="kt">i8</span><span class="p">*</span>
+<span class="k">store</span><span class="w"> </span><span class="kt">i8</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="kt">i8</span><span class="p">*</span><span class="w"> </span><span class="nv nv-Anonymous">%49</span>
+<span class="k">br</span><span class="w"> </span><span class="kt">label</span><span class="w"> </span><span class="nv nv-Anonymous">%53</span>
 
 <span class="c">; &lt;label&gt;:50                                      ; preds = %39</span>
-<span class="nv nv-Anonymous">%51</span> <span class="p">=</span> <span class="k">add</span> <span class="k">i64</span> <span class="nv nv-Anonymous">%23</span><span class="p">,</span> <span class="m">0</span>
-<span class="nv nv-Anonymous">%52</span> <span class="p">=</span> <span class="k">inttoptr</span> <span class="k">i64</span> <span class="nv nv-Anonymous">%51</span> <span class="k">to</span> <span class="k">i64</span><span class="p">*</span>
-<span class="k">store</span> <span class="k">i64</span> <span class="m">0</span><span class="p">,</span> <span class="k">i64</span><span class="p">*</span> <span class="nv nv-Anonymous">%52</span>
-<span class="k">br</span> <span class="k">label</span> <span class="nv nv-Anonymous">%53</span>
+<span class="nv nv-Anonymous">%51</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="nv nv-Anonymous">%23</span><span class="p">,</span><span class="w"> </span><span class="m">0</span>
+<span class="nv nv-Anonymous">%52</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">inttoptr</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="nv nv-Anonymous">%51</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="kt">i64</span><span class="p">*</span>
+<span class="k">store</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">*</span><span class="w"> </span><span class="nv nv-Anonymous">%52</span>
+<span class="k">br</span><span class="w"> </span><span class="kt">label</span><span class="w"> </span><span class="nv nv-Anonymous">%53</span>
 
 <span class="c">; &lt;label&gt;:53                                      ; preds = %50, %43</span>
-<span class="k">ret</span> <span class="k">i32</span> <span class="m">0</span>
+<span class="k">ret</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="m">0</span>
 <span class="p">}</span>
 
-<span class="k">declare</span> <span class="k">i32</span> <span class="vg">@printf</span><span class="p">(</span><span class="k">i8</span><span class="p">*,</span> <span class="p">...)</span> <span class="vg">#1</span>
+<span class="k">declare</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="vg">@printf</span><span class="p">(</span><span class="kt">i8</span><span class="p">*,</span><span class="w"> </span><span class="p">...)</span><span class="w"> </span><span class="vg">#1</span>
 
-<span class="k">define</span> <span class="k">internal</span> <span class="k">void</span> <span class="vg">@asan.module_ctor</span><span class="p">()</span> <span class="p">{</span>
-<span class="k">call</span> <span class="k">void</span> <span class="vg">@__asan_init_v5</span><span class="p">()</span>
-<span class="k">call</span> <span class="k">void</span> <span class="vg">@__asan_register_globals</span><span class="p">(</span><span class="k">i64</span> <span class="k">ptrtoint</span> <span class="p">([</span><span class="m">1</span> <span class="k">x</span> <span class="p">{</span> <span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">,</span> <span class="k">i64</span> <span class="p">}]*</span> <span class="vg">@0</span> <span class="k">to</span> <span class="k">i64</span><span class="p">),</span> <span class="k">i64</span> <span class="m">1</span><span class="p">)</span>
-<span class="k">ret</span> <span class="k">void</span>
+<span class="k">define</span><span class="w"> </span><span class="k">internal</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@asan.module_ctor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="k">call</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_init_v5</span><span class="p">()</span>
+<span class="k">call</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_register_globals</span><span class="p">(</span><span class="kt">i64</span><span class="w"> </span><span class="k">ptrtoint</span><span class="w"> </span><span class="p">([</span><span class="m">1</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="p">}]*</span><span class="w"> </span><span class="vg">@0</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="kt">i64</span><span class="p">),</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
+<span class="k">ret</span><span class="w"> </span><span class="k">void</span>
 <span class="p">}</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_init_v5</span><span class="p">()</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_init_v5</span><span class="p">()</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_report_load_n</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_report_load_n</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_loadN</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_loadN</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_report_load1</span><span class="p">(</span><span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_report_load1</span><span class="p">(</span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_load1</span><span class="p">(</span><span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_load1</span><span class="p">(</span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_report_load2</span><span class="p">(</span><span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_report_load2</span><span class="p">(</span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_load2</span><span class="p">(</span><span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_load2</span><span class="p">(</span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_report_load4</span><span class="p">(</span><span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_report_load4</span><span class="p">(</span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_load4</span><span class="p">(</span><span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_load4</span><span class="p">(</span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_report_load8</span><span class="p">(</span><span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_report_load8</span><span class="p">(</span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_load8</span><span class="p">(</span><span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_load8</span><span class="p">(</span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_report_load16</span><span class="p">(</span><span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_report_load16</span><span class="p">(</span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_load16</span><span class="p">(</span><span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_load16</span><span class="p">(</span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_report_store_n</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_report_store_n</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_storeN</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_storeN</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_report_store1</span><span class="p">(</span><span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_report_store1</span><span class="p">(</span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_store1</span><span class="p">(</span><span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_store1</span><span class="p">(</span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_report_store2</span><span class="p">(</span><span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_report_store2</span><span class="p">(</span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_store2</span><span class="p">(</span><span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_store2</span><span class="p">(</span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_report_store4</span><span class="p">(</span><span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_report_store4</span><span class="p">(</span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_store4</span><span class="p">(</span><span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_store4</span><span class="p">(</span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_report_store8</span><span class="p">(</span><span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_report_store8</span><span class="p">(</span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_store8</span><span class="p">(</span><span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_store8</span><span class="p">(</span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_report_store16</span><span class="p">(</span><span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_report_store16</span><span class="p">(</span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_store16</span><span class="p">(</span><span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_store16</span><span class="p">(</span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_report_exp_load_n</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">,</span> <span class="k">i32</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_report_exp_load_n</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_exp_loadN</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">,</span> <span class="k">i32</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_exp_loadN</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_report_exp_load1</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i32</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_report_exp_load1</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_exp_load1</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i32</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_exp_load1</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_report_exp_load2</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i32</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_report_exp_load2</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_exp_load2</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i32</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_exp_load2</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_report_exp_load4</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i32</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_report_exp_load4</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_exp_load4</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i32</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_exp_load4</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_report_exp_load8</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i32</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_report_exp_load8</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_exp_load8</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i32</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_exp_load8</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_report_exp_load16</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i32</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_report_exp_load16</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_exp_load16</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i32</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_exp_load16</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_report_exp_store_n</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">,</span> <span class="k">i32</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_report_exp_store_n</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_exp_storeN</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">,</span> <span class="k">i32</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_exp_storeN</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_report_exp_store1</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i32</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_report_exp_store1</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_exp_store1</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i32</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_exp_store1</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_report_exp_store2</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i32</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_report_exp_store2</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_exp_store2</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i32</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_exp_store2</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_report_exp_store4</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i32</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_report_exp_store4</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_exp_store4</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i32</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_exp_store4</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_report_exp_store8</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i32</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_report_exp_store8</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_exp_store8</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i32</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_exp_store8</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_report_exp_store16</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i32</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_report_exp_store16</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_exp_store16</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i32</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_exp_store16</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">i8</span><span class="p">*</span> <span class="vg">@__asan_memmove</span><span class="p">(</span><span class="k">i8</span><span class="p">*,</span> <span class="k">i8</span><span class="p">*,</span> <span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="kt">i8</span><span class="p">*</span><span class="w"> </span><span class="vg">@__asan_memmove</span><span class="p">(</span><span class="kt">i8</span><span class="p">*,</span><span class="w"> </span><span class="kt">i8</span><span class="p">*,</span><span class="w"> </span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">i8</span><span class="p">*</span> <span class="vg">@__asan_memcpy</span><span class="p">(</span><span class="k">i8</span><span class="p">*,</span> <span class="k">i8</span><span class="p">*,</span> <span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="kt">i8</span><span class="p">*</span><span class="w"> </span><span class="vg">@__asan_memcpy</span><span class="p">(</span><span class="kt">i8</span><span class="p">*,</span><span class="w"> </span><span class="kt">i8</span><span class="p">*,</span><span class="w"> </span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">i8</span><span class="p">*</span> <span class="vg">@__asan_memset</span><span class="p">(</span><span class="k">i8</span><span class="p">*,</span> <span class="k">i32</span><span class="p">,</span> <span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="kt">i8</span><span class="p">*</span><span class="w"> </span><span class="vg">@__asan_memset</span><span class="p">(</span><span class="kt">i8</span><span class="p">*,</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_handle_no_return</span><span class="p">()</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_handle_no_return</span><span class="p">()</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__sanitizer_ptr_cmp</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__sanitizer_ptr_cmp</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__sanitizer_ptr_sub</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__sanitizer_ptr_sub</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">i64</span> <span class="vg">@__asan_stack_malloc_0</span><span class="p">(</span><span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="vg">@__asan_stack_malloc_0</span><span class="p">(</span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_stack_free_0</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_stack_free_0</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">i64</span> <span class="vg">@__asan_stack_malloc_1</span><span class="p">(</span><span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="vg">@__asan_stack_malloc_1</span><span class="p">(</span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_stack_free_1</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_stack_free_1</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">i64</span> <span class="vg">@__asan_stack_malloc_2</span><span class="p">(</span><span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="vg">@__asan_stack_malloc_2</span><span class="p">(</span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_stack_free_2</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_stack_free_2</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">i64</span> <span class="vg">@__asan_stack_malloc_3</span><span class="p">(</span><span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="vg">@__asan_stack_malloc_3</span><span class="p">(</span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_stack_free_3</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_stack_free_3</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">i64</span> <span class="vg">@__asan_stack_malloc_4</span><span class="p">(</span><span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="vg">@__asan_stack_malloc_4</span><span class="p">(</span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_stack_free_4</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_stack_free_4</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">i64</span> <span class="vg">@__asan_stack_malloc_5</span><span class="p">(</span><span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="vg">@__asan_stack_malloc_5</span><span class="p">(</span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_stack_free_5</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_stack_free_5</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">i64</span> <span class="vg">@__asan_stack_malloc_6</span><span class="p">(</span><span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="vg">@__asan_stack_malloc_6</span><span class="p">(</span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_stack_free_6</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_stack_free_6</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">i64</span> <span class="vg">@__asan_stack_malloc_7</span><span class="p">(</span><span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="vg">@__asan_stack_malloc_7</span><span class="p">(</span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_stack_free_7</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_stack_free_7</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">i64</span> <span class="vg">@__asan_stack_malloc_8</span><span class="p">(</span><span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="vg">@__asan_stack_malloc_8</span><span class="p">(</span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_stack_free_8</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_stack_free_8</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">i64</span> <span class="vg">@__asan_stack_malloc_9</span><span class="p">(</span><span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="vg">@__asan_stack_malloc_9</span><span class="p">(</span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_stack_free_9</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_stack_free_9</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">i64</span> <span class="vg">@__asan_stack_malloc_10</span><span class="p">(</span><span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="vg">@__asan_stack_malloc_10</span><span class="p">(</span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_stack_free_10</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_stack_free_10</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_poison_stack_memory</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_poison_stack_memory</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_unpoison_stack_memory</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_unpoison_stack_memory</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_alloca_poison</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_alloca_poison</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_allocas_unpoison</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_allocas_unpoison</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_before_dynamic_init</span><span class="p">(</span><span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_before_dynamic_init</span><span class="p">(</span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_after_dynamic_init</span><span class="p">()</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_after_dynamic_init</span><span class="p">()</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_register_globals</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_register_globals</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">declare</span> <span class="k">void</span> <span class="vg">@__asan_unregister_globals</span><span class="p">(</span><span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_unregister_globals</span><span class="p">(</span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">)</span>
 
-<span class="k">define</span> <span class="k">internal</span> <span class="k">void</span> <span class="vg">@asan.module_dtor</span><span class="p">()</span> <span class="p">{</span>
-<span class="k">call</span> <span class="k">void</span> <span class="vg">@__asan_unregister_globals</span><span class="p">(</span><span class="k">i64</span> <span class="k">ptrtoint</span> <span class="p">([</span><span class="m">1</span> <span class="k">x</span> <span class="p">{</span> <span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">,</span> <span class="k">i64</span><span class="p">,</span> <span class="k">i64</span> <span class="p">}]*</span> <span class="vg">@0</span> <span class="k">to</span> <span class="k">i64</span><span class="p">),</span> <span class="k">i64</span> <span class="m">1</span><span class="p">)</span>
-<span class="k">ret</span> <span class="k">void</span>
+<span class="k">define</span><span class="w"> </span><span class="k">internal</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@asan.module_dtor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="k">call</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="vg">@__asan_unregister_globals</span><span class="p">(</span><span class="kt">i64</span><span class="w"> </span><span class="k">ptrtoint</span><span class="w"> </span><span class="p">([</span><span class="m">1</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="p">}]*</span><span class="w"> </span><span class="vg">@0</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="kt">i64</span><span class="p">),</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
+<span class="k">ret</span><span class="w"> </span><span class="k">void</span>
 <span class="p">}</span>
 
-<span class="k">attributes</span> <span class="vg">#0</span> <span class="p">=</span> <span class="p">{</span> <span class="k">nounwind</span> <span class="k">sanitize_address</span> <span class="k">uwtable</span> <span class="s">&quot;disable-tail-calls&quot;</span><span class="p">=</span><span class="s">&quot;false&quot;</span> <span class="s">&quot;less-precise-fpmad&quot;</span><span class="p">=</span><span class="s">&quot;false&quot;</span> <span class="s">&quot;no-frame-pointer-elim&quot;</span><span class="p">=</span><span class="s">&quot;true&quot;</span> <span class="s">&quot;no-frame-pointer-elim-non-leaf&quot;</span> <span class="s">&quot;no-infs-fp-math&quot;</span><span class="p">=</span><span class="s">&quot;false&quot;</span> <span class="s">&quot;no-nans-fp-math&quot;</span><span class="p">=</span><span class="s">&quot;false&quot;</span> <span class="s">&quot;stack-protector-buffer-size&quot;</span><span class="p">=</span><span class="s">&quot;8&quot;</span> <span class="s">&quot;target-cpu&quot;</span><span class="p">=</span><span class="s">&quot;x86-64&quot;</span> <span class="s">&quot;target-features&quot;</span><span class="p">=</span><span class="s">&quot;+sse,+sse2&quot;</span> <span class="s">&quot;unsafe-fp-math&quot;</span><span class="p">=</span><span class="s">&quot;false&quot;</span> <span class="s">&quot;use-soft-float&quot;</span><span class="p">=</span><span class="s">&quot;false&quot;</span> <span class="p">}</span>
-<span class="k">attributes</span> <span class="vg">#1</span> <span class="p">=</span> <span class="p">{</span> <span class="s">&quot;disable-tail-calls&quot;</span><span class="p">=</span><span class="s">&quot;false&quot;</span> <span class="s">&quot;less-precise-fpmad&quot;</span><span class="p">=</span><span class="s">&quot;false&quot;</span> <span class="s">&quot;no-frame-pointer-elim&quot;</span><span class="p">=</span><span class="s">&quot;true&quot;</span> <span class="s">&quot;no-frame-pointer-elim-non-leaf&quot;</span> <span class="s">&quot;no-infs-fp-math&quot;</span><span class="p">=</span><span class="s">&quot;false&quot;</span> <span class="s">&quot;no-nans-fp-math&quot;</span><span class="p">=</span><span class="s">&quot;false&quot;</span> <span class="s">&quot;stack-protector-buffer-size&quot;</span><span class="p">=</span><span class="s">&quot;8&quot;</span> <span class="s">&quot;target-cpu&quot;</span><span class="p">=</span><span class="s">&quot;x86-64&quot;</span> <span class="s">&quot;target-features&quot;</span><span class="p">=</span><span class="s">&quot;+sse,+sse2&quot;</span> <span class="s">&quot;unsafe-fp-math&quot;</span><span class="p">=</span><span class="s">&quot;false&quot;</span> <span class="s">&quot;use-soft-float&quot;</span><span class="p">=</span><span class="s">&quot;false&quot;</span> <span class="p">}</span>
+<span class="k">attributes</span><span class="w"> </span><span class="vg">#0</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">nounwind</span><span class="w"> </span><span class="k">sanitize_address</span><span class="w"> </span><span class="k">uwtable</span><span class="w"> </span><span class="s">&quot;disable-tail-calls&quot;</span><span class="p">=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="s">&quot;less-precise-fpmad&quot;</span><span class="p">=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="s">&quot;no-frame-pointer-elim&quot;</span><span class="p">=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="s">&quot;no-frame-pointer-elim-non-leaf&quot;</span><span class="w"> </span><span class="s">&quot;no-infs-fp-math&quot;</span><span class="p">=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="s">&quot;no-nans-fp-math&quot;</span><span class="p">=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="s">&quot;stack-protector-buffer-size&quot;</span><span class="p">=</span><span class="s">&quot;8&quot;</span><span class="w"> </span><span class="s">&quot;target-cpu&quot;</span><span class="p">=</span><span class="s">&quot;x86-64&quot;</span><span class="w"> </span><span class="s">&quot;target-features&quot;</span><span class="p">=</span><span class="s">&quot;+sse,+sse2&quot;</span><span class="w"> </span><span class="s">&quot;unsafe-fp-math&quot;</span><span class="p">=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="s">&quot;use-soft-float&quot;</span><span class="p">=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="k">attributes</span><span class="w"> </span><span class="vg">#1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s">&quot;disable-tail-calls&quot;</span><span class="p">=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="s">&quot;less-precise-fpmad&quot;</span><span class="p">=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="s">&quot;no-frame-pointer-elim&quot;</span><span class="p">=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="s">&quot;no-frame-pointer-elim-non-leaf&quot;</span><span class="w"> </span><span class="s">&quot;no-infs-fp-math&quot;</span><span class="p">=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="s">&quot;no-nans-fp-math&quot;</span><span class="p">=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="s">&quot;stack-protector-buffer-size&quot;</span><span class="p">=</span><span class="s">&quot;8&quot;</span><span class="w"> </span><span class="s">&quot;target-cpu&quot;</span><span class="p">=</span><span class="s">&quot;x86-64&quot;</span><span class="w"> </span><span class="s">&quot;target-features&quot;</span><span class="p">=</span><span class="s">&quot;+sse,+sse2&quot;</span><span class="w"> </span><span class="s">&quot;unsafe-fp-math&quot;</span><span class="p">=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="s">&quot;use-soft-float&quot;</span><span class="p">=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="p">}</span>
 
-<span class="nv">!llvm.asan.globals</span> <span class="p">=</span> <span class="p">!{</span><span class="nv nv-Anonymous">!0</span><span class="p">}</span>
-<span class="nv">!llvm.ident</span> <span class="p">=</span> <span class="p">!{</span><span class="nv nv-Anonymous">!2</span><span class="p">}</span>
+<span class="nv">!llvm.asan.globals</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">!{</span><span class="nv nv-Anonymous">!0</span><span class="p">}</span>
+<span class="nv">!llvm.ident</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">!{</span><span class="nv nv-Anonymous">!2</span><span class="p">}</span>
 
-<span class="nv nv-Anonymous">!0</span> <span class="p">=</span> <span class="p">!{[</span><span class="m">4</span> <span class="k">x</span> <span class="k">i8</span><span class="p">]*</span> <span class="k">getelementptr</span> <span class="k">inbounds</span> <span class="p">({</span> <span class="p">[</span><span class="m">4</span> <span class="k">x</span> <span class="k">i8</span><span class="p">],</span> <span class="p">[</span><span class="m">60</span> <span class="k">x</span> <span class="k">i8</span><span class="p">]</span> <span class="p">},</span> <span class="p">{</span> <span class="p">[</span><span class="m">4</span> <span class="k">x</span> <span class="k">i8</span><span class="p">],</span> <span class="p">[</span><span class="m">60</span> <span class="k">x</span> <span class="k">i8</span><span class="p">]</span> <span class="p">}*</span> <span class="vg">@.str</span><span class="p">,</span> <span class="k">i32</span> <span class="m">0</span><span class="p">,</span> <span class="k">i32</span> <span class="m">0</span><span class="p">),</span> <span class="nv nv-Anonymous">!1</span><span class="p">,</span> <span class="nv">!&quot;&lt;string literal&gt;&quot;</span><span class="p">,</span> <span class="k">i1</span> <span class="k">false</span><span class="p">,</span> <span class="k">i1</span> <span class="k">false</span><span class="p">}</span>
-<span class="nv nv-Anonymous">!1</span> <span class="p">=</span> <span class="p">!{</span><span class="nv">!&quot;test.c&quot;</span><span class="p">,</span> <span class="k">i32</span> <span class="m">5</span><span class="p">,</span> <span class="k">i32</span> <span class="m">12</span><span class="p">}</span>
-<span class="nv nv-Anonymous">!2</span> <span class="p">=</span> <span class="p">!{</span><span class="nv">!&quot;clang version 3.7.0 (tags/RELEASE_370/final)&quot;</span><span class="p">}</span>
-<span class="nv nv-Anonymous">!3</span> <span class="p">=</span> <span class="p">!{</span><span class="nv">!&quot;branch_weights&quot;</span><span class="p">,</span> <span class="k">i32</span> <span class="m">1</span><span class="p">,</span> <span class="k">i32</span> <span class="m">100000</span><span class="p">}</span>
+<span class="nv nv-Anonymous">!0</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">!{[</span><span class="m">4</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i8</span><span class="p">]*</span><span class="w"> </span><span class="k">getelementptr</span><span class="w"> </span><span class="k">inbounds</span><span class="w"> </span><span class="p">({</span><span class="w"> </span><span class="p">[</span><span class="m">4</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i8</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="m">60</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i8</span><span class="p">]</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">[</span><span class="m">4</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i8</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="m">60</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i8</span><span class="p">]</span><span class="w"> </span><span class="p">}*</span><span class="w"> </span><span class="vg">@.str</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="m">0</span><span class="p">),</span><span class="w"> </span><span class="nv nv-Anonymous">!1</span><span class="p">,</span><span class="w"> </span><span class="nv">!&quot;&lt;string literal&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="kt">i1</span><span class="w"> </span><span class="k">false</span><span class="p">,</span><span class="w"> </span><span class="kt">i1</span><span class="w"> </span><span class="k">false</span><span class="p">}</span>
+<span class="nv nv-Anonymous">!1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">!{</span><span class="nv">!&quot;test.c&quot;</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="m">12</span><span class="p">}</span>
+<span class="nv nv-Anonymous">!2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">!{</span><span class="nv">!&quot;clang version 3.7.0 (tags/RELEASE_370/final)&quot;</span><span class="p">}</span>
+<span class="nv nv-Anonymous">!3</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">!{</span><span class="nv">!&quot;branch_weights&quot;</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="m">100000</span><span class="p">}</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="reference">
-<h2>Reference<a class="headerlink" href="#reference" title="本標題的永久連結">¶</a></h2>
+</section>
+</section>
+<section id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="http://llvm.org/docs/LangRef.html">LLVM Language Reference Manual</a></p></li>
 <li><p><a class="reference external" href="http://www.stephendiehl.com/llvm/">Implementing a JIT Compiled Language with Haskell and LLVM</a></p></li>
 <li><p><a class="reference external" href="http://www.aosabook.org/en/llvm.html">The Architecture of Open Source Applications: LLVM</a></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="llvm-python.html" class="btn btn-neutral float-right" title="LLVM &amp; Python" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="llvm-help-testing.html" class="btn btn-neutral float-left" title="LLVM 輔助測試" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="llvm-help-testing.html" class="btn btn-neutral float-left" title="LLVM 輔助測試" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="llvm-python.html" class="btn btn-neutral float-right" title="LLVM &amp; Python" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016
-
-    </p>
+    <p>&#169; Copyright 2023.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
   
 
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       <span class="fa fa-book"> Read the Docs</span>
       v: latest
@@ -1455,7 +1375,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
       <dl>
         <dt>Versions</dt>
         
-          <dd><a href="/zh_TW/latest/">latest</a></dd>
+          <dd><a href="https://wdv4758h.github.io/notes/">latest</a></dd>
         
       </dl>
       <dl>
@@ -1465,6 +1385,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
         
       </dl>
       <dl>
+        
         <dt>On Read the Docs</dt>
           <dd>
             <a href="//readthedocs.org/projects/wdv4758h-notes/?fromdocs=wdv4758h-notes">Project Home</a>
@@ -1473,22 +1394,13 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
             <a href="//readthedocs.org/builds/wdv4758h-notes/?fromdocs=wdv4758h-notes">Builds</a>
           </dd>
       </dl>
-      <hr/>
-      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
-
     </div>
   </div>
-
-
-
-  <script type="text/javascript">
+<script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-   
+  </script> 
 
 </body>
 </html>

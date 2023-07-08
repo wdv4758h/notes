@@ -1,114 +1,75 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-TW" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-TW" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>[Ｏ] Big Number 支援？ &mdash; wdv4758h-notes latest 說明文件</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[Ｏ] Big Number 支援？ &mdash; wdv4758h-notes latest documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="搜尋" href="../search.html" />
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="&lt;no title&gt;" href="ted-motion-microscope.html" />
     <link rel="prev" title="Intro." href="software-testing-intro.html" /> 
 
 <!-- RTD Extra Head -->
 
-<!-- 
-Always link to the latest version, as canonical.
-http://docs.readthedocs.org/en/latest/canonical.html
--->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/blog/some-rust.html" />
+    <!--
+    Always link to the latest version, as canonical.
+    http://docs.readthedocs.org/en/latest/canonical.html
+    -->
+    <link rel="canonical" href="https://wdv4758h-notes.readthedocs.io/zh_TW/latest/blog/some-rust.html" />
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": "", "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": "https://wdv4758h-notes.readthedocs.io/zh_TW/latest/", "docroot": "/./", "features": {"docsearch_disabled": false}, "global_analytics_code": "", "language": "en", "page": "blog/some-rust", "programming_language": "", "project": "wdv4758h-notes", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": ""}</script>
 
-<!-- Add page-specific data, which must exist in the page js, not global -->
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = "blog/some-rust"
-READTHEDOCS_DATA['source_suffix'] = ".rst"
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
 </script>
 
-<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js" async="async"></script>
 
 <!-- end RTD <extrahead> -->
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../index.html" class="icon icon-home"> wdv4758h-notes
           
-
-          
+          <a href="../index.html" class="icon icon-home">
+            wdv4758h-notes
           </a>
-
-          
-            
-            
-            
               <div class="version">
                 latest
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/README.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/adt.html">ADT (Abstract Data Type)</a></li>
@@ -118,13 +79,18 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/cache.html">Cache</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/cache-friendly.html">Cache Friendly Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/dict.html">Dict</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/float-to-string.html">Float to String</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/heap.html">Heap （堆）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/introduction.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/inverse-square-root.html">Inverse Square Root</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/lock.html">Lock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/meta-algorithm.html">Meta Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/random-number-generator.html">Random Number Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/resource.html">演算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/sorting.html">Sorting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/string-to-float.html">String to Float</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/substring-searching.html">Substring Searching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/README.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/android-emulator.html">Android Emulator</a></li>
@@ -200,7 +166,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="openmp.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pypy-brainfuck.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pypy-brainfuck.html#tutorial">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pypy-brainfuck.html#id5">額外紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pypy-brainfuck.html#id4">額外紀錄</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pypy-brainfuck.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python-benchmark.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python-benchmark.html#hello-world">Hello World</a></li>
@@ -227,7 +193,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="qemu-first-step.html#qemu-with-kvm">QEMU with KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust-closure.html">Syntax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust-closure.html#closure">Closure 和外部變數</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rust-closure.html#move-closures">「move」 closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rust-closure.html#move-closures">“move” closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust-closure.html#closure-implementation">Closure implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust-closure.html#closures-as-arguments">closures as arguments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust-closure.html#returning-closures">returning closures</a></li>
@@ -413,6 +379,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/ci.html">Continuous Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/concourse.html">Concourse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/drone.html">Drone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../continuous-integration/github-actions.html">Github Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/jenkins.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/travis-ci.html">Travis CI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/workflow-pipeline.html">Workflow Pipeline</a></li>
@@ -422,7 +389,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../cpp/array.html">std::array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/assembly.html">C++ &amp; Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/bit-field.html">C++ Bit Field</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cpp/c++17.html">C++17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/c%2B%2B17.html">C++17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/concepts.html">C++ Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/const.html">C++ const</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/copy-elision.html">Copy Elision</a></li>
@@ -475,13 +442,16 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../database/README.html">資料庫 (Database)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/cockroachdb.html">CockroachDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/consensus-algorithm.html">Raft Consensus Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/graph.html">Graph Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/leveldb.html">LevelDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/materialized-views.html">Materialized Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mongodb.html">MongoDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/rocksdb.html">RocksDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sql.html">SQL (Structured Query Language)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/tidb.html">TiDB</a></li>
@@ -554,7 +524,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/math-on-web.html">Math on Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/misc.html">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../memory/W^X.html">W^X (Write XOR Execute)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../memory/W%5EX.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/kernel-memory-management.html">Kernel Memory Management</a></li>
@@ -812,98 +782,58 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../wiki/resource.html">Wiki</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">wdv4758h-notes</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-      <li>[Ｏ] Big Number 支援？</li>
-    
-    
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">[Ｏ] Big Number 支援？</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/wdv4758h/notes/blob/master/./blog/some-rust.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="contents topic" id="id1">
-<p class="topic-title first">目錄</p>
+             
+  <nav class="contents" id="contents" role="doc-toc">
+<p class="topic-title">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#o-big-number" id="id2">[Ｏ] Big Number 支援？</a></p></li>
-<li><p><a class="reference internal" href="#o-first-class-function" id="id3">[Ｏ] First-class function 支援？</a></p></li>
-<li><p><a class="reference internal" href="#o-map-reduce-filter" id="id4">[Ｏ] map / reduce / filter 之類的東西？</a></p></li>
-<li><p><a class="reference internal" href="#o-option-type-maybe-type" id="id5">[Ｏ] Option type (maybe type) ?</a></p></li>
-<li><p><a class="reference internal" href="#o-oop-object-oriented-programming" id="id6">[Ｏ] OOP (object-oriented programming)？</a></p></li>
-<li><p><a class="reference internal" href="#o-type-inference" id="id7">[Ｏ] Type Inference</a></p></li>
-<li><p><a class="reference internal" href="#o-memory-control" id="id8">[Ｏ] 高度的 Memory Control？</a></p></li>
-<li><p><a class="reference internal" href="#repl" id="id9">[－] REPL？</a></p></li>
-<li><p><a class="reference internal" href="#sort-algorithm" id="id10">[？] 預設提供的 Sort Algorithm 是啥？</a></p></li>
-<li><p><a class="reference internal" href="#o-regular-expression" id="id11">[Ｏ] Regular Expression 支援？</a></p></li>
-<li><p><a class="reference internal" href="#o-ffi-foreign-function-interface" id="id12">[Ｏ] FFI (Foreign Function Interface)？</a></p></li>
-<li><p><a class="reference internal" href="#o-import-third-party-library" id="id13">[Ｏ] Import third party library？</a></p></li>
-<li><p><a class="reference internal" href="#o-native-threading-support" id="id14">[Ｏ] Native Threading Support？</a></p></li>
-<li><p><a class="reference internal" href="#x-garbage-collection" id="id15">[Ｘ] Garbage Collection？</a></p></li>
-<li><p><a class="reference internal" href="#o-format-string" id="id16">[Ｏ] Format String？</a></p></li>
-<li><p><a class="reference internal" href="#o-ownership" id="id17">[Ｏ] Ownership？</a></p></li>
-<li><p><a class="reference internal" href="#third-party" id="id18">Third Party</a></p>
+<li><p><a class="reference internal" href="#o-big-number" id="id1">[Ｏ] Big Number 支援？</a></p></li>
+<li><p><a class="reference internal" href="#o-first-class-function" id="id2">[Ｏ] First-class function 支援？</a></p></li>
+<li><p><a class="reference internal" href="#o-map-reduce-filter" id="id3">[Ｏ] map / reduce / filter 之類的東西？</a></p></li>
+<li><p><a class="reference internal" href="#o-option-type-maybe-type" id="id4">[Ｏ] Option type (maybe type) ?</a></p></li>
+<li><p><a class="reference internal" href="#o-oop-object-oriented-programming" id="id5">[Ｏ] OOP (object-oriented programming)？</a></p></li>
+<li><p><a class="reference internal" href="#o-type-inference" id="id6">[Ｏ] Type Inference</a></p></li>
+<li><p><a class="reference internal" href="#o-memory-control" id="id7">[Ｏ] 高度的 Memory Control？</a></p></li>
+<li><p><a class="reference internal" href="#repl" id="id8">[－] REPL？</a></p></li>
+<li><p><a class="reference internal" href="#sort-algorithm" id="id9">[？] 預設提供的 Sort Algorithm 是啥？</a></p></li>
+<li><p><a class="reference internal" href="#o-regular-expression" id="id10">[Ｏ] Regular Expression 支援？</a></p></li>
+<li><p><a class="reference internal" href="#o-ffi-foreign-function-interface" id="id11">[Ｏ] FFI (Foreign Function Interface)？</a></p></li>
+<li><p><a class="reference internal" href="#o-import-third-party-library" id="id12">[Ｏ] Import third party library？</a></p></li>
+<li><p><a class="reference internal" href="#o-native-threading-support" id="id13">[Ｏ] Native Threading Support？</a></p></li>
+<li><p><a class="reference internal" href="#x-garbage-collection" id="id14">[Ｘ] Garbage Collection？</a></p></li>
+<li><p><a class="reference internal" href="#o-format-string" id="id15">[Ｏ] Format String？</a></p></li>
+<li><p><a class="reference internal" href="#o-ownership" id="id16">[Ｏ] Ownership？</a></p></li>
+<li><p><a class="reference internal" href="#third-party" id="id17">Third Party</a></p>
 <ul>
-<li><p><a class="reference internal" href="#django-like-project" id="id19">Django-like project？</a></p></li>
-<li><p><a class="reference internal" href="#game-engine" id="id20">Game Engine？</a></p></li>
-<li><p><a class="reference internal" href="#template-engine" id="id21">Template Engine？</a></p></li>
+<li><p><a class="reference internal" href="#django-like-project" id="id18">Django-like project？</a></p></li>
+<li><p><a class="reference internal" href="#game-engine" id="id19">Game Engine？</a></p></li>
+<li><p><a class="reference internal" href="#template-engine" id="id20">Template Engine？</a></p></li>
 </ul>
 </li>
 </ul>
-</div>
+</nav>
 <p>最近又心血來潮翻了一點 Rust，
 目前版本還在 1.0 beta (現在已經正式 release 啦~)，
 但是有許多東西已經差不多定型了，
@@ -935,27 +865,19 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li><p><a class="reference external" href="https://github.com/kud1ing/awesome-rust">[GitHub] awesome-rust</a></p></li>
 <li><p><a class="reference external" href="http://www.reddit.com/r/rust/">Reddit - Rust</a></p></li>
 </ul>
-<div class="section" id="o-big-number">
-<h1><a class="toc-backref" href="#id2">[Ｏ] Big Number 支援？</a><a class="headerlink" href="#o-big-number" title="本標題的永久連結">¶</a></h1>
+<section id="o-big-number">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">[Ｏ] Big Number 支援？</a><a class="headerlink" href="#o-big-number" title="Permalink to this heading"></a></h1>
 <p>有！</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://doc.rust-lang.org/num/num/bigint/">Rust - Module num::bigint</a></p></li>
 <li><p><a class="reference external" href="http://benchmarksgame.alioth.debian.org/u64/performance.php?test=pidigits">pidigits benchmark | Computer Language Benchmarks Game</a></p></li>
 <li><p><a class="reference external" href="http://www.wilfred.me.uk/blog/2014/10/20/the-fastest-bigint-in-the-west/">The Fastest BigInt In The West</a></p></li>
 </ul>
-</div>
-<div class="section" id="o-first-class-function">
-<h1><a class="toc-backref" href="#id3">[Ｏ] First-class function 支援？</a><a class="headerlink" href="#o-first-class-function" title="本標題的永久連結">¶</a></h1>
+</section>
+<section id="o-first-class-function">
+<h1><a class="toc-backref" href="#id2" role="doc-backlink">[Ｏ] First-class function 支援？</a><a class="headerlink" href="#o-first-class-function" title="Permalink to this heading"></a></h1>
 <p>有！</p>
 <table class="table table-bordered docutils align-default">
-<colgroup>
-<col style="width: 23%" />
-<col style="width: 9%" />
-<col style="width: 17%" />
-<col style="width: 20%" />
-<col style="width: 10%" />
-<col style="width: 20%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head" colspan="2"><p>Higher-order functions</p></th>
 <th class="head" colspan="3"><p>Non-local variables</p></th>
@@ -981,39 +903,39 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <ul class="simple">
 <li><p><a class="reference external" href="http://en.wikipedia.org/wiki/First-class_function">Wikipedia - Firsr-class function</a></p></li>
 </ul>
-</div>
-<div class="section" id="o-map-reduce-filter">
-<h1><a class="toc-backref" href="#id4">[Ｏ] map / reduce / filter 之類的東西？</a><a class="headerlink" href="#o-map-reduce-filter" title="本標題的永久連結">¶</a></h1>
+</section>
+<section id="o-map-reduce-filter">
+<h1><a class="toc-backref" href="#id3" role="doc-backlink">[Ｏ] map / reduce / filter 之類的東西？</a><a class="headerlink" href="#o-map-reduce-filter" title="Permalink to this heading"></a></h1>
 <p>有！在 iterator</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://doc.rust-lang.org/std/iter/trait.Iterator.html">Rust - Trait std::iter::Iterator</a></p></li>
 </ul>
-<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">];</span><span class="w"></span>
+<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">];</span>
 
 <span class="c1">// get a new iterator with map</span>
-<span class="kd">let</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">iter</span><span class="p">().</span><span class="n">map</span><span class="p">(</span><span class="o">|&amp;</span><span class="n">x</span><span class="o">|</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">iter</span><span class="p">().</span><span class="n">map</span><span class="p">(</span><span class="o">|&amp;</span><span class="n">x</span><span class="o">|</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
 
 <span class="c1">// get a new iterator with filter</span>
-<span class="kd">let</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">iter</span><span class="p">().</span><span class="n">filter</span><span class="p">(</span><span class="o">|&amp;</span><span class="n">x</span><span class="o">|</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">iter</span><span class="p">().</span><span class="n">filter</span><span class="p">(</span><span class="o">|&amp;</span><span class="n">x</span><span class="o">|</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 
 <span class="c1">// use fold (reduce) to get summation</span>
-<span class="kd">let</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">];</span><span class="w"></span>
-<span class="kd">let</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">iter</span><span class="p">().</span><span class="n">fold</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="o">|</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">item</span><span class="o">|</span><span class="w"> </span><span class="n">acc</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">item</span><span class="p">);</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">];</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">iter</span><span class="p">().</span><span class="n">fold</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="o">|</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">item</span><span class="o">|</span><span class="w"> </span><span class="n">acc</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">item</span><span class="p">);</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="o-option-type-maybe-type">
-<h1><a class="toc-backref" href="#id5">[Ｏ] Option type (maybe type) ?</a><a class="headerlink" href="#o-option-type-maybe-type" title="本標題的永久連結">¶</a></h1>
+</section>
+<section id="o-option-type-maybe-type">
+<h1><a class="toc-backref" href="#id4" role="doc-backlink">[Ｏ] Option type (maybe type) ?</a><a class="headerlink" href="#o-option-type-maybe-type" title="Permalink to this heading"></a></h1>
 <p>有！</p>
 <p>(目前理解) Maybe monad 裡面可能是該有的值或是 Nothing，
 這樣包起來可以提醒你 handle 好意外狀況。
 在 Rust 裡這樣的 type 叫作 <code class="docutils literal notranslate"><span class="pre">Option</span></code> ，
 <code class="docutils literal notranslate"><span class="pre">Option</span></code> 可以用來表示 function 可能會 fail，
 實際存的資料長這樣 :</p>
-<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">pub</span><span class="w"> </span><span class="k">enum</span> <span class="nb">Option</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nb">None</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nb">Some</span><span class="p">(</span><span class="n">T</span><span class="p">),</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">pub</span><span class="w"> </span><span class="k">enum</span> <span class="nb">Option</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nb">None</span><span class="p">,</span>
+<span class="w">    </span><span class="nb">Some</span><span class="p">(</span><span class="n">T</span><span class="p">),</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>其中可以看到除了預期的型態之外，多加了一個 None 為可能的回傳，
@@ -1023,10 +945,10 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 想要知道為什麼會 fail 的時候，
 可以使用 <code class="docutils literal notranslate"><span class="pre">Result</span></code> ，
 實際存的資料長這樣 :</p>
-<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="nb">Result</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">E</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">   </span><span class="nb">Ok</span><span class="p">(</span><span class="n">T</span><span class="p">),</span><span class="w"></span>
-<span class="w">   </span><span class="nb">Err</span><span class="p">(</span><span class="n">E</span><span class="p">)</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="nb">Result</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">E</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="nb">Ok</span><span class="p">(</span><span class="n">T</span><span class="p">),</span>
+<span class="w">   </span><span class="nb">Err</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>可以看到正常狀況下會回傳 <code class="docutils literal notranslate"><span class="pre">Ok(T)</span></code> ，失敗的話會回傳 <code class="docutils literal notranslate"><span class="pre">Err(E)</span></code> ，
@@ -1040,9 +962,9 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li><p><a class="reference external" href="http://blog.8thlight.com/dave-torre/2015/03/11/the-option-type.html">The Option Type</a></p></li>
 <li><p><a class="reference external" href="http://en.wikipedia.org/wiki/Option_type">Wikipedia - Option type</a></p></li>
 </ul>
-</div>
-<div class="section" id="o-oop-object-oriented-programming">
-<h1><a class="toc-backref" href="#id6">[Ｏ] OOP (object-oriented programming)？</a><a class="headerlink" href="#o-oop-object-oriented-programming" title="本標題的永久連結">¶</a></h1>
+</section>
+<section id="o-oop-object-oriented-programming">
+<h1><a class="toc-backref" href="#id5" role="doc-backlink">[Ｏ] OOP (object-oriented programming)？</a><a class="headerlink" href="#o-oop-object-oriented-programming" title="Permalink to this heading"></a></h1>
 <p>(研讀中 XD)</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://blog.rust-lang.org/2015/05/11/traits.html">Abstraction without overhead: traits in Rust</a></p></li>
@@ -1053,36 +975,32 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li><p><a class="reference external" href="https://github.com/rust-lang/rust-guidelines/blob/master/features/traits/objects.md">rust-guidelines - traits/objects</a></p></li>
 <li><p><a class="reference external" href="http://en.wikipedia.org/wiki/Trait_%28computer_programming%29">Wikipedia - Trait (computer programming)</a></p></li>
 </ul>
-</div>
-<div class="section" id="o-type-inference">
-<h1><a class="toc-backref" href="#id7">[Ｏ] Type Inference</a><a class="headerlink" href="#o-type-inference" title="本標題的永久連結">¶</a></h1>
-</div>
-<div class="section" id="o-memory-control">
-<h1><a class="toc-backref" href="#id8">[Ｏ] 高度的 Memory Control？</a><a class="headerlink" href="#o-memory-control" title="本標題的永久連結">¶</a></h1>
+</section>
+<section id="o-type-inference">
+<h1><a class="toc-backref" href="#id6" role="doc-backlink">[Ｏ] Type Inference</a><a class="headerlink" href="#o-type-inference" title="Permalink to this heading"></a></h1>
+</section>
+<section id="o-memory-control">
+<h1><a class="toc-backref" href="#id7" role="doc-backlink">[Ｏ] 高度的 Memory Control？</a><a class="headerlink" href="#o-memory-control" title="Permalink to this heading"></a></h1>
 <ul class="simple">
 <li><p><a class="reference external" href="http://www.slideshare.net/nikomatsakis/guaranteeing-memory-safety-in-rust-39042975">Guaranteeing Memory Safety in Rust</a></p></li>
 </ul>
-</div>
-<div class="section" id="repl">
-<h1><a class="toc-backref" href="#id9">[－] REPL？</a><a class="headerlink" href="#repl" title="本標題的永久連結">¶</a></h1>
+</section>
+<section id="repl">
+<h1><a class="toc-backref" href="#id8" role="doc-backlink">[－] REPL？</a><a class="headerlink" href="#repl" title="Permalink to this heading"></a></h1>
 <p>官方目前沒有提供，
 但是有專案正在進行中</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/murarth/rusti">[GitHub] rusti</a></p></li>
 </ul>
-</div>
-<div class="section" id="sort-algorithm">
-<h1><a class="toc-backref" href="#id10">[？] 預設提供的 Sort Algorithm 是啥？</a><a class="headerlink" href="#sort-algorithm" title="本標題的永久連結">¶</a></h1>
-<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">];</span><span class="w"></span>
-<span class="n">v</span><span class="p">.</span><span class="n">sort</span><span class="p">();</span><span class="w"></span>
+</section>
+<section id="sort-algorithm">
+<h1><a class="toc-backref" href="#id9" role="doc-backlink">[？] 預設提供的 Sort Algorithm 是啥？</a><a class="headerlink" href="#sort-algorithm" title="Permalink to this heading"></a></h1>
+<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">];</span>
+<span class="n">v</span><span class="p">.</span><span class="n">sort</span><span class="p">();</span>
 </pre></div>
 </div>
 <p>目前看 <code class="docutils literal notranslate"><span class="pre">src/libcollections/slice.rs</span></code> 裡面的 <code class="docutils literal notranslate"><span class="pre">sort_by</span></code> 是去 call <code class="docutils literal notranslate"><span class="pre">merge_sort</span></code></p>
 <table class="table table-bordered docutils align-default">
-<colgroup>
-<col style="width: 54%" />
-<col style="width: 46%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p>Worst Case</p></td>
 <td><p>O(n log n)</p></td>
@@ -1104,17 +1022,17 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <ul class="simple">
 <li><p><a class="reference external" href="https://doc.rust-lang.org/std/primitive.slice.html#method.sort_by">Rust - Primitive Type slice - sort_by</a></p></li>
 </ul>
-</div>
-<div class="section" id="o-regular-expression">
-<h1><a class="toc-backref" href="#id11">[Ｏ] Regular Expression 支援？</a><a class="headerlink" href="#o-regular-expression" title="本標題的永久連結">¶</a></h1>
+</section>
+<section id="o-regular-expression">
+<h1><a class="toc-backref" href="#id10" role="doc-backlink">[Ｏ] Regular Expression 支援？</a><a class="headerlink" href="#o-regular-expression" title="Permalink to this heading"></a></h1>
 <p>官方有實作，也有文件，不過放在另外一個 package</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/rust-lang/regex">[GitHub] rust-lang/regex</a></p></li>
 <li><p><a class="reference external" href="http://doc.rust-lang.org/regex/regex/">Rust - Crate regex</a></p></li>
 </ul>
-</div>
-<div class="section" id="o-ffi-foreign-function-interface">
-<h1><a class="toc-backref" href="#id12">[Ｏ] FFI (Foreign Function Interface)？</a><a class="headerlink" href="#o-ffi-foreign-function-interface" title="本標題的永久連結">¶</a></h1>
+</section>
+<section id="o-ffi-foreign-function-interface">
+<h1><a class="toc-backref" href="#id11" role="doc-backlink">[Ｏ] FFI (Foreign Function Interface)？</a><a class="headerlink" href="#o-ffi-foreign-function-interface" title="Permalink to this heading"></a></h1>
 <ul class="simple">
 <li><p><a class="reference external" href="http://blog.rust-lang.org/2015/04/24/Rust-Once-Run-Everywhere.html">Rust Once, Run Everywhere</a></p></li>
 <li><p><a class="reference external" href="https://doc.rust-lang.org/book/ffi.html">Rust Book - Foreign Function Interface</a></p></li>
@@ -1123,34 +1041,34 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li><p><a class="reference external" href="https://github.com/rust-lang/libc">[GitHub] rust-lang/libc</a></p></li>
 <li><p><a class="reference external" href="https://github.com/alexcrichton/rust-ffi-examples">[GitHub] rust-ffi-examples - FFI examples written in Rust</a></p></li>
 </ul>
-</div>
-<div class="section" id="o-import-third-party-library">
-<h1><a class="toc-backref" href="#id13">[Ｏ] Import third party library？</a><a class="headerlink" href="#o-import-third-party-library" title="本標題的永久連結">¶</a></h1>
-</div>
-<div class="section" id="o-native-threading-support">
-<h1><a class="toc-backref" href="#id14">[Ｏ] Native Threading Support？</a><a class="headerlink" href="#o-native-threading-support" title="本標題的永久連結">¶</a></h1>
+</section>
+<section id="o-import-third-party-library">
+<h1><a class="toc-backref" href="#id12" role="doc-backlink">[Ｏ] Import third party library？</a><a class="headerlink" href="#o-import-third-party-library" title="Permalink to this heading"></a></h1>
+</section>
+<section id="o-native-threading-support">
+<h1><a class="toc-backref" href="#id13" role="doc-backlink">[Ｏ] Native Threading Support？</a><a class="headerlink" href="#o-native-threading-support" title="Permalink to this heading"></a></h1>
 <p>(Native Threads) 目前是 1:1 的 thread，每個 user thread 都會對應到一個 kernel thread</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://doc.rust-lang.org/std/thread/">Rust - Module std::thread</a></p></li>
 <li><p><a class="reference external" href="https://doc.rust-lang.org/book/concurrency.html">Rust Book - Concurrency</a></p></li>
 <li><p><a class="reference external" href="http://blog.rust-lang.org/2015/04/10/Fearless-Concurrency.html">Fearless Concurrency with Rust</a></p></li>
 </ul>
-</div>
-<div class="section" id="x-garbage-collection">
-<h1><a class="toc-backref" href="#id15">[Ｘ] Garbage Collection？</a><a class="headerlink" href="#x-garbage-collection" title="本標題的永久連結">¶</a></h1>
-</div>
-<div class="section" id="o-format-string">
-<h1><a class="toc-backref" href="#id16">[Ｏ] Format String？</a><a class="headerlink" href="#o-format-string" title="本標題的永久連結">¶</a></h1>
+</section>
+<section id="x-garbage-collection">
+<h1><a class="toc-backref" href="#id14" role="doc-backlink">[Ｘ] Garbage Collection？</a><a class="headerlink" href="#x-garbage-collection" title="Permalink to this heading"></a></h1>
+</section>
+<section id="o-format-string">
+<h1><a class="toc-backref" href="#id15" role="doc-backlink">[Ｏ] Format String？</a><a class="headerlink" href="#o-format-string" title="Permalink to this heading"></a></h1>
 <p>使用 macro <code class="docutils literal notranslate"><span class="pre">format!</span></code></p>
-<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">format</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;the value is {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">123</span><span class="p">)</span><span class="w"></span>
+<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="fm">format!</span><span class="p">(</span><span class="s">&quot;the value is {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">123</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p><a class="reference external" href="https://doc.rust-lang.org/std/fmt/">Rust - Module std::fmt</a></p></li>
 </ul>
-</div>
-<div class="section" id="o-ownership">
-<h1><a class="toc-backref" href="#id17">[Ｏ] Ownership？</a><a class="headerlink" href="#o-ownership" title="本標題的永久連結">¶</a></h1>
+</section>
+<section id="o-ownership">
+<h1><a class="toc-backref" href="#id16" role="doc-backlink">[Ｏ] Ownership？</a><a class="headerlink" href="#o-ownership" title="Permalink to this heading"></a></h1>
 <ul class="simple">
 <li><p><a class="reference external" href="http://chrismorgan.info/blog/rust-ownership-the-hard-way.html">Rust ownership, the hard way</a></p></li>
 <li><p><a class="reference external" href="https://github.com/rust-lang/rfcs/blob/master/text/0599-default-object-bound.md">[GitHub] Rust RFCs - 0599 - Default Object Bound</a></p></li>
@@ -1163,11 +1081,11 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </li>
 <li><p><a class="reference external" href="https://www.securecoding.cert.org/confluence/display/c/CERT+C+Coding+Standard">CERT C Coding Standard</a></p></li>
 </ul>
-</div>
-<div class="section" id="third-party">
-<h1><a class="toc-backref" href="#id18">Third Party</a><a class="headerlink" href="#third-party" title="本標題的永久連結">¶</a></h1>
-<div class="section" id="django-like-project">
-<h2><a class="toc-backref" href="#id19">Django-like project？</a><a class="headerlink" href="#django-like-project" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="third-party">
+<h1><a class="toc-backref" href="#id17" role="doc-backlink">Third Party</a><a class="headerlink" href="#third-party" title="Permalink to this heading"></a></h1>
+<section id="django-like-project">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">Django-like project？</a><a class="headerlink" href="#django-like-project" title="Permalink to this heading"></a></h2>
 <p>還在發展中，漸漸有一些 web framework 出現。</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://chrismorgan.info/blog/introducing-teepee.html">Introducing Teepee: the next step for rust-http</a></p></li>
@@ -1185,55 +1103,45 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <ul class="simple">
 <li><p><a class="reference external" href="http://www.reddit.com/r/rust/comments/2myght/are_there_any_rust_projects_that_have_similar/">Are there any Rust projects that have similar goals to Django (i.e. full-featured web framework)? If not, want to start one?</a></p></li>
 </ul>
-</div>
-<div class="section" id="game-engine">
-<h2><a class="toc-backref" href="#id20">Game Engine？</a><a class="headerlink" href="#game-engine" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="game-engine">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">Game Engine？</a><a class="headerlink" href="#game-engine" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="http://www.piston.rs/">http://www.piston.rs/</a></p></li>
 </ul>
-</div>
-<div class="section" id="template-engine">
-<h2><a class="toc-backref" href="#id21">Template Engine？</a><a class="headerlink" href="#template-engine" title="本標題的永久連結">¶</a></h2>
-</div>
-</div>
+</section>
+<section id="template-engine">
+<h2><a class="toc-backref" href="#id20" role="doc-backlink">Template Engine？</a><a class="headerlink" href="#template-engine" title="Permalink to this heading"></a></h2>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="ted-motion-microscope.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="software-testing-intro.html" class="btn btn-neutral float-left" title="Intro." accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="software-testing-intro.html" class="btn btn-neutral float-left" title="Intro." accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ted-motion-microscope.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016
-
-    </p>
+    <p>&#169; Copyright 2023.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
   
 
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       <span class="fa fa-book"> Read the Docs</span>
       v: latest
@@ -1243,7 +1151,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
       <dl>
         <dt>Versions</dt>
         
-          <dd><a href="/zh_TW/latest/">latest</a></dd>
+          <dd><a href="https://wdv4758h.github.io/notes/">latest</a></dd>
         
       </dl>
       <dl>
@@ -1253,6 +1161,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
         
       </dl>
       <dl>
+        
         <dt>On Read the Docs</dt>
           <dd>
             <a href="//readthedocs.org/projects/wdv4758h-notes/?fromdocs=wdv4758h-notes">Project Home</a>
@@ -1261,22 +1170,13 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
             <a href="//readthedocs.org/builds/wdv4758h-notes/?fromdocs=wdv4758h-notes">Builds</a>
           </dd>
       </dl>
-      <hr/>
-      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
-
     </div>
   </div>
-
-
-
-  <script type="text/javascript">
+<script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-   
+  </script> 
 
 </body>
 </html>

@@ -1,112 +1,73 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-TW" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-TW" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Erlang &mdash; wdv4758h-notes latest 說明文件</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Erlang &mdash; wdv4758h-notes latest documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../../_static/translations.js"></script>
-        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
-    
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="index" title="索引" href="../../../genindex.html" />
-    <link rel="search" title="搜尋" href="../../../search.html" /> 
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
 
 <!-- RTD Extra Head -->
 
-<!-- 
-Always link to the latest version, as canonical.
-http://docs.readthedocs.org/en/latest/canonical.html
--->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/programming-language/cases/erlang/erlang.html" />
+    <!--
+    Always link to the latest version, as canonical.
+    http://docs.readthedocs.org/en/latest/canonical.html
+    -->
+    <link rel="canonical" href="https://wdv4758h-notes.readthedocs.io/zh_TW/latest/programming-language/cases/erlang/erlang.html" />
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../../../_static/readthedocs-data.js"></script>
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": "", "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": "https://wdv4758h-notes.readthedocs.io/zh_TW/latest/", "docroot": "/./", "features": {"docsearch_disabled": false}, "global_analytics_code": "", "language": "en", "page": "programming-language/cases/erlang/erlang", "programming_language": "", "project": "wdv4758h-notes", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": ""}</script>
 
-<!-- Add page-specific data, which must exist in the page js, not global -->
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = "programming-language/cases/erlang/erlang"
-READTHEDOCS_DATA['source_suffix'] = ".rst"
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
 </script>
 
-<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js" async="async"></script>
 
 <!-- end RTD <extrahead> -->
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../../index.html" class="icon icon-home"> wdv4758h-notes
           
-
-          
+          <a href="../../../index.html" class="icon icon-home">
+            wdv4758h-notes
           </a>
-
-          
-            
-            
-            
               <div class="version">
                 latest
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/README.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/adt.html">ADT (Abstract Data Type)</a></li>
@@ -116,13 +77,18 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/cache.html">Cache</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/cache-friendly.html">Cache Friendly Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/dict.html">Dict</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/float-to-string.html">Float to String</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/heap.html">Heap （堆）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/introduction.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/inverse-square-root.html">Inverse Square Root</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/lock.html">Lock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/meta-algorithm.html">Meta Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/random-number-generator.html">Random Number Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/resource.html">演算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/sorting.html">Sorting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/string-to-float.html">String to Float</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/substring-searching.html">Substring Searching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../android/README.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../android/android-emulator.html">Android Emulator</a></li>
@@ -198,7 +164,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/openmp.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/pypy-brainfuck.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/pypy-brainfuck.html#tutorial">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../blog/pypy-brainfuck.html#id5">額外紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/pypy-brainfuck.html#id4">額外紀錄</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/pypy-brainfuck.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/python-benchmark.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/python-benchmark.html#hello-world">Hello World</a></li>
@@ -225,7 +191,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/qemu-first-step.html#qemu-with-kvm">QEMU with KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html">Syntax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#closure">Closure 和外部變數</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#move-closures">「move」 closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#move-closures">“move” closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#closure-implementation">Closure implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#closures-as-arguments">closures as arguments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#returning-closures">returning closures</a></li>
@@ -406,6 +372,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/ci.html">Continuous Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/concourse.html">Concourse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/drone.html">Drone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/github-actions.html">Github Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/jenkins.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/travis-ci.html">Travis CI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/workflow-pipeline.html">Workflow Pipeline</a></li>
@@ -415,7 +382,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/array.html">std::array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/assembly.html">C++ &amp; Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/bit-field.html">C++ Bit Field</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../cpp/c++17.html">C++17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/c%2B%2B17.html">C++17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/concepts.html">C++ Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/const.html">C++ const</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/copy-elision.html">Copy Elision</a></li>
@@ -468,13 +435,16 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../database/README.html">資料庫 (Database)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/cockroachdb.html">CockroachDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/consensus-algorithm.html">Raft Consensus Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../database/graph.html">Graph Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/leveldb.html">LevelDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../database/materialized-views.html">Materialized Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/mongodb.html">MongoDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../database/rocksdb.html">RocksDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/sql.html">SQL (Structured Query Language)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/tidb.html">TiDB</a></li>
@@ -547,7 +517,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../math/math-on-web.html">Math on Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../math/misc.html">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../memory/W^X.html">W^X (Write XOR Execute)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../memory/W%5EX.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../memory/allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../memory/kernel-memory-management.html">Kernel Memory Management</a></li>
@@ -805,74 +775,34 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../wiki/resource.html">Wiki</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">wdv4758h-notes</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../../index.html">Docs</a> &raquo;</li>
-        
-      <li>Erlang</li>
-    
-    
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Erlang</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/wdv4758h/notes/blob/master/./programming-language/cases/erlang/erlang.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="erlang">
-<h1><a class="toc-backref" href="#id15">Erlang</a><a class="headerlink" href="#erlang" title="本標題的永久連結">¶</a></h1>
-<div class="contents topic" id="id1">
-<p class="topic-title first">目錄</p>
+             
+  <section id="erlang">
+<h1><a class="toc-backref" href="#id15" role="doc-backlink">Erlang</a><a class="headerlink" href="#erlang" title="Permalink to this heading"></a></h1>
+<nav class="contents" id="id1">
+<p class="topic-title">目錄</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#erlang" id="id15">Erlang</a></p>
 <ul>
@@ -911,9 +841,9 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="id2">
-<h2><a class="toc-backref" href="#id16">介紹</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+</nav>
+<section id="id2">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">介紹</a><a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
 <p>初步聽了 Erlang 的介紹，
 感覺受 Prolog 影響很深 (當初的實作據說就是 Prolog 寫的)。
 變數需要大寫，
@@ -929,9 +859,9 @@ mutiprocesses 下是用 actor model 和 message passing 溝通。</p>
 <p>目前常用的實作為 BEAM，
 Erlang 可以編成 BEAM bytecode 再丟到 VM 上執行，
 BEAM 包含 copying generational GC。</p>
-</div>
-<div class="section" id="id3">
-<h2><a class="toc-backref" href="#id17">歷史發展</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="id3">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">歷史發展</a><a class="headerlink" href="#id3" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><dl class="simple">
 <dt><a class="reference external" href="https://blog.erlang.org/beam-compiler-history/">A Brief History of the BEAM Compiler</a></dt><dd><ul>
@@ -946,7 +876,7 @@ BEAM 包含 copying generational GC。</p>
 <dt>R7B: Enter Core Erlang</dt><dd><ul>
 <li><p>from HiPE</p></li>
 <li><p>IR for Erlang</p></li>
-<li><p>IR named 「Core Erlang」</p></li>
+<li><p>IR named “Core Erlang”</p></li>
 </ul>
 </dd>
 </dl>
@@ -956,9 +886,9 @@ BEAM 包含 copying generational GC。</p>
 </dl>
 </li>
 </ul>
-</div>
-<div class="section" id="id4">
-<h2><a class="toc-backref" href="#id18">特色清單（用於快速建立語言輪廓）</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="id4">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">特色清單（用於快速建立語言輪廓）</a><a class="headerlink" href="#id4" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>具有語言 VM（叫 BEAM VM）</p></li>
 <li><p>有受到邏輯程式語言的影響（例如 Prolog）</p></li>
@@ -971,93 +901,93 @@ BEAM 包含 copying generational GC。</p>
 <li><p>Message Passing</p></li>
 <li><p>CSP (Communicating Sequential Processes)</p></li>
 </ul>
-</div>
-<div class="section" id="id5">
-<h2><a class="toc-backref" href="#id19">安裝</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="id5">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">安裝</a><a class="headerlink" href="#id5" title="Permalink to this heading"></a></h2>
 <p>Arch Linux 上有兩個版本可以裝，
 一個是 <code class="docutils literal notranslate"><span class="pre">erlang</span></code> 一個是 <code class="docutils literal notranslate"><span class="pre">erlang-nox</span></code> ，
 其中的 <code class="docutils literal notranslate"><span class="pre">erlang-nox</span></code> 被標為 <code class="docutils literal notranslate"><span class="pre">headless</span></code> ，
 裡面少了 <code class="docutils literal notranslate"><span class="pre">erlang/lib/wx-1.5/priv/</span></code> 內的東西，
 但是其他部份的 wx 程式碼依然存在。</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo pacman -S erlang-nox
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>erlang-nox
 </pre></div>
 </div>
 <p>安裝完後會得到 <code class="docutils literal notranslate"><span class="pre">erl</span></code> 指令可以打開直譯器</p>
-</div>
-<div class="section" id="id6">
-<h2><a class="toc-backref" href="#id20">練習範例</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="id6">
+<h2><a class="toc-backref" href="#id20" role="doc-backlink">練習範例</a><a class="headerlink" href="#id6" title="Permalink to this heading"></a></h2>
 <p>Erlang 的程式碼是用 <code class="docutils literal notranslate"><span class="pre">.erl</span></code> 作為副檔名。</p>
-<div class="section" id="hello-world">
-<h3><a class="toc-backref" href="#id21">Hello World</a><a class="headerlink" href="#hello-world" title="本標題的永久連結">¶</a></h3>
+<section id="hello-world">
+<h3><a class="toc-backref" href="#id21" role="doc-backlink">Hello World</a><a class="headerlink" href="#hello-world" title="Permalink to this heading"></a></h3>
 <p>hello.erl:</p>
 <div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="p">-</span><span class="ni">module</span><span class="p">(</span><span class="n">hello</span><span class="p">).</span>
 <span class="p">-</span><span class="ni">export</span><span class="p">([</span><span class="n">hello_world</span><span class="o">/</span><span class="mi">0</span><span class="p">]).</span>
 
-<span class="nf">hello_world</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nn">io</span><span class="p">:</span><span class="nf">fwrite</span><span class="p">(</span><span class="s">&quot;hello, world</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">).</span>
+<span class="nf">hello_world</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nn">io</span><span class="p">:</span><span class="nf">fwrite</span><span class="p">(</span><span class="s">&quot;hello, world</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">).</span>
 </pre></div>
 </div>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ erl
-Erlang/OTP <span class="m">19</span> <span class="o">[</span>erts-8.2<span class="o">]</span> <span class="o">[</span>source<span class="o">]</span> <span class="o">[</span><span class="m">64</span>-bit<span class="o">]</span> <span class="o">[</span>smp:8:8<span class="o">]</span> <span class="o">[</span>async-threads:10<span class="o">]</span> <span class="o">[</span>hipe<span class="o">]</span> <span class="o">[</span>kernel-poll:false<span class="o">]</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>erl
+Erlang/OTP<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="o">[</span>erts-8.2<span class="o">]</span><span class="w"> </span><span class="o">[</span>source<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">64</span>-bit<span class="o">]</span><span class="w"> </span><span class="o">[</span>smp:8:8<span class="o">]</span><span class="w"> </span><span class="o">[</span>async-threads:10<span class="o">]</span><span class="w"> </span><span class="o">[</span>hipe<span class="o">]</span><span class="w"> </span><span class="o">[</span>kernel-poll:false<span class="o">]</span>
 
-Eshell V8.2  <span class="o">(</span>abort with ^G<span class="o">)</span>
-<span class="m">1</span>&gt; c<span class="o">(</span>hello<span class="o">)</span>.                % 編譯，產生 hello.beam
+Eshell<span class="w"> </span>V8.2<span class="w">  </span><span class="o">(</span>abort<span class="w"> </span>with<span class="w"> </span>^G<span class="o">)</span>
+<span class="m">1</span>&gt;<span class="w"> </span>c<span class="o">(</span>hello<span class="o">)</span>.<span class="w">                </span>%<span class="w"> </span>編譯，產生<span class="w"> </span>hello.beam
 <span class="o">{</span>ok,hello<span class="o">}</span>
-<span class="m">2</span>&gt; hello:hello_world<span class="o">()</span>.     % 呼叫，只有一個冒號
-hello, world
+<span class="m">2</span>&gt;<span class="w"> </span>hello:hello_world<span class="o">()</span>.<span class="w">     </span>%<span class="w"> </span>呼叫，只有一個冒號
+hello,<span class="w"> </span>world
 ok
 <span class="m">3</span>&gt;
 </pre></div>
 </div>
 <p>不開 Interactive Shell（REPL）：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ erl -compile hello.erl    <span class="c1"># 編譯，產生 hello.beam</span>
-$ erl -noshell -s hello hello_world -s init stop    <span class="c1"># 執行</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>erl<span class="w"> </span>-compile<span class="w"> </span>hello.erl<span class="w">    </span><span class="c1"># 編譯，產生 hello.beam</span>
+$<span class="w"> </span>erl<span class="w"> </span>-noshell<span class="w"> </span>-s<span class="w"> </span>hello<span class="w"> </span>hello_world<span class="w"> </span>-s<span class="w"> </span>init<span class="w"> </span>stop<span class="w">    </span><span class="c1"># 執行</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="fibonacci">
-<h3><a class="toc-backref" href="#id22">Fibonacci</a><a class="headerlink" href="#fibonacci" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="fibonacci">
+<h3><a class="toc-backref" href="#id22" role="doc-backlink">Fibonacci</a><a class="headerlink" href="#fibonacci" title="Permalink to this heading"></a></h3>
 <p>這次以 escript 的形式讀 stdin 來計算 Fibonacci 後輸出到 stdout。</p>
 <div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env escript</span>
 
-<span class="nf">fib</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="mi">0</span><span class="p">;</span>
-<span class="nf">fib</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="mi">1</span><span class="p">;</span>
-<span class="nf">fib</span><span class="p">(</span><span class="nv">N</span><span class="p">)</span> <span class="k">when</span> <span class="nv">N</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">-&gt;</span> <span class="n">fib</span><span class="p">(</span><span class="nv">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="nv">N</span><span class="o">-</span><span class="mi">2</span><span class="p">).</span>
+<span class="nf">fib</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="nf">fib</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="nf">fib</span><span class="p">(</span><span class="nv">N</span><span class="p">)</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="nv">N</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">fib</span><span class="p">(</span><span class="nv">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">fib</span><span class="p">(</span><span class="nv">N</span><span class="o">-</span><span class="mi">2</span><span class="p">).</span>
 
-<span class="nf">main</span><span class="p">(_)</span> <span class="o">-&gt;</span>
-    <span class="c">%% reads the number</span>
-    <span class="p">{</span><span class="n">ok</span><span class="p">,</span> <span class="p">[</span><span class="nv">N</span><span class="p">]}</span> <span class="o">=</span> <span class="nn">io</span><span class="p">:</span><span class="nf">fread</span><span class="p">(</span><span class="s">&quot;fib&gt; &quot;</span><span class="p">,</span> <span class="s">&quot;</span><span class="si">~d</span><span class="s">&quot;</span><span class="p">),</span>
-    <span class="c">%% call fib</span>
-    <span class="nn">io</span><span class="p">:</span><span class="nf">fwrite</span><span class="p">(</span><span class="s">&quot;result: </span><span class="si">~B~n</span><span class="s">&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">fib</span><span class="p">(</span><span class="nv">N</span><span class="p">)]).</span>
+<span class="nf">main</span><span class="p">(_)</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">    </span><span class="c">%% reads the number</span>
+<span class="w">    </span><span class="p">{</span><span class="n">ok</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="nv">N</span><span class="p">]}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">io</span><span class="p">:</span><span class="nf">fread</span><span class="p">(</span><span class="s">&quot;fib&gt; &quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;</span><span class="si">~d</span><span class="s">&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="c">%% call fib</span>
+<span class="w">    </span><span class="nn">io</span><span class="p">:</span><span class="nf">fwrite</span><span class="p">(</span><span class="s">&quot;result: </span><span class="si">~B~n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">fib</span><span class="p">(</span><span class="nv">N</span><span class="p">)]).</span>
 </pre></div>
 </div>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ chmod +x fib.erl
-$ ./fib.erl
-fib&gt; <span class="m">10</span>
-result: <span class="m">55</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>fib.erl
+$<span class="w"> </span>./fib.erl
+fib&gt;<span class="w"> </span><span class="m">10</span>
+result:<span class="w"> </span><span class="m">55</span>
 </pre></div>
 </div>
 <p>增加讀入 CLI 參數的能力：</p>
 <div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env escript</span>
 
-<span class="nf">fib</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="mi">0</span><span class="p">;</span>
-<span class="nf">fib</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="mi">1</span><span class="p">;</span>
-<span class="nf">fib</span><span class="p">(</span><span class="nv">N</span><span class="p">)</span> <span class="k">when</span> <span class="nv">N</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">-&gt;</span> <span class="n">fib</span><span class="p">(</span><span class="nv">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="nv">N</span><span class="o">-</span><span class="mi">2</span><span class="p">).</span>
+<span class="nf">fib</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="nf">fib</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="nf">fib</span><span class="p">(</span><span class="nv">N</span><span class="p">)</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="nv">N</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">fib</span><span class="p">(</span><span class="nv">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">fib</span><span class="p">(</span><span class="nv">N</span><span class="o">-</span><span class="mi">2</span><span class="p">).</span>
 
-<span class="nf">main</span><span class="p">([</span><span class="nv">String</span><span class="p">])</span> <span class="o">-&gt;</span>
-    <span class="c">%% convert string to number</span>
-    <span class="nv">N</span> <span class="o">=</span> <span class="nb">list_to_integer</span><span class="p">(</span><span class="nv">String</span><span class="p">),</span>
-    <span class="c">%% call fib</span>
-    <span class="nn">io</span><span class="p">:</span><span class="nf">fwrite</span><span class="p">(</span><span class="s">&quot;result: </span><span class="si">~B~n</span><span class="s">&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">fib</span><span class="p">(</span><span class="nv">N</span><span class="p">)]);</span>
+<span class="nf">main</span><span class="p">([</span><span class="nv">String</span><span class="p">])</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">    </span><span class="c">%% convert string to number</span>
+<span class="w">    </span><span class="nv">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">list_to_integer</span><span class="p">(</span><span class="nv">String</span><span class="p">),</span>
+<span class="w">    </span><span class="c">%% call fib</span>
+<span class="w">    </span><span class="nn">io</span><span class="p">:</span><span class="nf">fwrite</span><span class="p">(</span><span class="s">&quot;result: </span><span class="si">~B~n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">fib</span><span class="p">(</span><span class="nv">N</span><span class="p">)]);</span>
 
-<span class="nf">main</span><span class="p">(_)</span> <span class="o">-&gt;</span>
-    <span class="c">%% reads the number</span>
-    <span class="p">{</span><span class="n">ok</span><span class="p">,</span> <span class="p">[</span><span class="nv">N</span><span class="p">]}</span> <span class="o">=</span> <span class="nn">io</span><span class="p">:</span><span class="nf">fread</span><span class="p">(</span><span class="s">&quot;fib&gt; &quot;</span><span class="p">,</span> <span class="s">&quot;</span><span class="si">~d</span><span class="s">&quot;</span><span class="p">),</span>
-    <span class="c">%% call fib</span>
-    <span class="nn">io</span><span class="p">:</span><span class="nf">fwrite</span><span class="p">(</span><span class="s">&quot;result: </span><span class="si">~B~n</span><span class="s">&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">fib</span><span class="p">(</span><span class="nv">N</span><span class="p">)]).</span>
+<span class="nf">main</span><span class="p">(_)</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">    </span><span class="c">%% reads the number</span>
+<span class="w">    </span><span class="p">{</span><span class="n">ok</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="nv">N</span><span class="p">]}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">io</span><span class="p">:</span><span class="nf">fread</span><span class="p">(</span><span class="s">&quot;fib&gt; &quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;</span><span class="si">~d</span><span class="s">&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="c">%% call fib</span>
+<span class="w">    </span><span class="nn">io</span><span class="p">:</span><span class="nf">fwrite</span><span class="p">(</span><span class="s">&quot;result: </span><span class="si">~B~n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">fib</span><span class="p">(</span><span class="nv">N</span><span class="p">)]).</span>
 </pre></div>
 </div>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ./fib.erl <span class="m">10</span>
-result: <span class="m">55</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./fib.erl<span class="w"> </span><span class="m">10</span>
+result:<span class="w"> </span><span class="m">55</span>
 </pre></div>
 </div>
 <p>增加清理參數的能力，
@@ -1066,51 +996,51 @@ result: <span class="m">55</span>
 <span class="c">%% -*- erlang -*-</span>
 <span class="c">%%! -smp enable -sname fib -mnesia debug verbose</span>
 
-<span class="nf">fib</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="mi">0</span><span class="p">;</span>
-<span class="nf">fib</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="mi">1</span><span class="p">;</span>
-<span class="nf">fib</span><span class="p">(</span><span class="nv">N</span><span class="p">)</span> <span class="k">when</span> <span class="nv">N</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">-&gt;</span> <span class="n">fib</span><span class="p">(</span><span class="nv">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="nv">N</span><span class="o">-</span><span class="mi">2</span><span class="p">).</span>
+<span class="nf">fib</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="nf">fib</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="nf">fib</span><span class="p">(</span><span class="nv">N</span><span class="p">)</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="nv">N</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">fib</span><span class="p">(</span><span class="nv">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">fib</span><span class="p">(</span><span class="nv">N</span><span class="o">-</span><span class="mi">2</span><span class="p">).</span>
 
 <span class="c">% from CLI argument</span>
-<span class="nf">main</span><span class="p">([</span><span class="nv">String</span><span class="p">])</span> <span class="o">-&gt;</span>
-    <span class="k">try</span>
-        <span class="c">%% clean spaces and newlines</span>
-        <span class="nv">S</span> <span class="o">=</span> <span class="nn">re</span><span class="p">:</span><span class="nf">replace</span><span class="p">(</span><span class="nv">String</span><span class="p">,</span> <span class="s">&quot;(^</span><span class="se">\\</span><span class="s">s+)|(</span><span class="se">\\</span><span class="s">s+$)&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">global</span><span class="p">,{</span><span class="n">return</span><span class="p">,</span><span class="n">list</span><span class="p">}]),</span>
-        <span class="c">%% convert string to number</span>
-        <span class="nv">N</span> <span class="o">=</span> <span class="nb">list_to_integer</span><span class="p">(</span><span class="nn">string</span><span class="p">:</span><span class="nf">strip</span><span class="p">(</span><span class="nv">S</span><span class="p">)),</span>
-        <span class="c">%% call fib</span>
-        <span class="nn">io</span><span class="p">:</span><span class="nf">fwrite</span><span class="p">(</span><span class="s">&quot;result: </span><span class="si">~B~n</span><span class="s">&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">fib</span><span class="p">(</span><span class="nv">N</span><span class="p">)])</span>
-    <span class="k">catch</span>
-        <span class="p">_:_</span> <span class="o">-&gt;</span>
-            <span class="n">usage</span><span class="p">()</span>
-    <span class="k">end</span><span class="p">;</span>
+<span class="nf">main</span><span class="p">([</span><span class="nv">String</span><span class="p">])</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">    </span><span class="k">try</span>
+<span class="w">        </span><span class="c">%% clean spaces and newlines</span>
+<span class="w">        </span><span class="nv">S</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">re</span><span class="p">:</span><span class="nf">replace</span><span class="p">(</span><span class="nv">String</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;(^</span><span class="se">\\</span><span class="s">s+)|(</span><span class="se">\\</span><span class="s">s+$)&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">global</span><span class="p">,{</span><span class="n">return</span><span class="p">,</span><span class="n">list</span><span class="p">}]),</span>
+<span class="w">        </span><span class="c">%% convert string to number</span>
+<span class="w">        </span><span class="nv">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">list_to_integer</span><span class="p">(</span><span class="nn">string</span><span class="p">:</span><span class="nf">strip</span><span class="p">(</span><span class="nv">S</span><span class="p">)),</span>
+<span class="w">        </span><span class="c">%% call fib</span>
+<span class="w">        </span><span class="nn">io</span><span class="p">:</span><span class="nf">fwrite</span><span class="p">(</span><span class="s">&quot;result: </span><span class="si">~B~n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">fib</span><span class="p">(</span><span class="nv">N</span><span class="p">)])</span>
+<span class="w">    </span><span class="k">catch</span>
+<span class="w">        </span><span class="p">_:_</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">            </span><span class="n">usage</span><span class="p">()</span>
+<span class="w">    </span><span class="k">end</span><span class="p">;</span>
 
 <span class="c">% from custom prompt</span>
-<span class="nf">main</span><span class="p">(_)</span> <span class="o">-&gt;</span>
-    <span class="c">%% reads the number</span>
-    <span class="nv">String</span> <span class="o">=</span> <span class="nn">io</span><span class="p">:</span><span class="nf">get_line</span><span class="p">(</span><span class="s">&quot;fib&gt; &quot;</span><span class="p">),</span>
-    <span class="n">main</span><span class="p">([</span><span class="nv">String</span><span class="p">]).</span>
+<span class="nf">main</span><span class="p">(_)</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">    </span><span class="c">%% reads the number</span>
+<span class="w">    </span><span class="nv">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">io</span><span class="p">:</span><span class="nf">get_line</span><span class="p">(</span><span class="s">&quot;fib&gt; &quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="n">main</span><span class="p">([</span><span class="nv">String</span><span class="p">]).</span>
 
-<span class="nf">usage</span><span class="p">()</span> <span class="o">-&gt;</span>
-    <span class="nn">io</span><span class="p">:</span><span class="nf">format</span><span class="p">(</span><span class="s">&quot;usage: fibonacci integer</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">),</span>
-    <span class="n">halt</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span>
+<span class="nf">usage</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">    </span><span class="nn">io</span><span class="p">:</span><span class="nf">format</span><span class="p">(</span><span class="s">&quot;usage: fibonacci integer</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="n">halt</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id7">
-<h3><a class="toc-backref" href="#id23">動態程式更新</a><a class="headerlink" href="#id7" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="id7">
+<h3><a class="toc-backref" href="#id23" role="doc-backlink">動態程式更新</a><a class="headerlink" href="#id7" title="Permalink to this heading"></a></h3>
 <p>code_change/2</p>
-</div>
-</div>
-<div class="section" id="escript-erlang-scripting">
-<h2><a class="toc-backref" href="#id24">escript - Erlang Scripting</a><a class="headerlink" href="#escript-erlang-scripting" title="本標題的永久連結">¶</a></h2>
+</section>
+</section>
+<section id="escript-erlang-scripting">
+<h2><a class="toc-backref" href="#id24" role="doc-backlink">escript - Erlang Scripting</a><a class="headerlink" href="#escript-erlang-scripting" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="http://erlang.org/doc/man/escript.html">escript</a></p></li>
 </ul>
-</div>
-<div class="section" id="id8">
-<h2><a class="toc-backref" href="#id25">專案輔助工具</a><a class="headerlink" href="#id8" title="本標題的永久連結">¶</a></h2>
-<div class="section" id="rebar3">
-<h3><a class="toc-backref" href="#id26">Rebar3</a><a class="headerlink" href="#rebar3" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="id8">
+<h2><a class="toc-backref" href="#id25" role="doc-backlink">專案輔助工具</a><a class="headerlink" href="#id8" title="Permalink to this heading"></a></h2>
+<section id="rebar3">
+<h3><a class="toc-backref" href="#id26" role="doc-backlink">Rebar3</a><a class="headerlink" href="#rebar3" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.rebar3.org/">Rebar3</a></p></li>
 <li><p>[GitHub] <a class="reference external" href="https://github.com/erlang/rebar3">erlang/rebar3</a></p></li>
@@ -1118,189 +1048,189 @@ result: <span class="m">55</span>
 <li><p><a class="reference external" href="https://hex.pm/">Hex</a></p></li>
 </ul>
 <p>安裝：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ wget https://s3.amazonaws.com/rebar3/rebar3
-$ chmod +x rebar3
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>wget<span class="w"> </span>https://s3.amazonaws.com/rebar3/rebar3
+$<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>rebar3
 </pre></div>
 </div>
 <p>建立專案：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ rebar3 new
-app <span class="o">(</span>built-in<span class="o">)</span>: Complete OTP Application structure.
-cmake <span class="o">(</span>built-in<span class="o">)</span>: Standalone Makefile <span class="k">for</span> building C/C++ in c_src
-escript <span class="o">(</span>built-in<span class="o">)</span>: Complete escriptized application structure
-lib <span class="o">(</span>built-in<span class="o">)</span>: Complete OTP Library application <span class="o">(</span>no processes<span class="o">)</span> structure
-plugin <span class="o">(</span>built-in<span class="o">)</span>: Rebar3 plugin project structure
-release <span class="o">(</span>built-in<span class="o">)</span>: OTP Release structure <span class="k">for</span> executable programs
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>rebar3<span class="w"> </span>new
+app<span class="w"> </span><span class="o">(</span>built-in<span class="o">)</span>:<span class="w"> </span>Complete<span class="w"> </span>OTP<span class="w"> </span>Application<span class="w"> </span>structure.
+cmake<span class="w"> </span><span class="o">(</span>built-in<span class="o">)</span>:<span class="w"> </span>Standalone<span class="w"> </span>Makefile<span class="w"> </span><span class="k">for</span><span class="w"> </span>building<span class="w"> </span>C/C++<span class="w"> </span><span class="k">in</span><span class="w"> </span>c_src
+escript<span class="w"> </span><span class="o">(</span>built-in<span class="o">)</span>:<span class="w"> </span>Complete<span class="w"> </span>escriptized<span class="w"> </span>application<span class="w"> </span>structure
+lib<span class="w"> </span><span class="o">(</span>built-in<span class="o">)</span>:<span class="w"> </span>Complete<span class="w"> </span>OTP<span class="w"> </span>Library<span class="w"> </span>application<span class="w"> </span><span class="o">(</span>no<span class="w"> </span>processes<span class="o">)</span><span class="w"> </span>structure
+plugin<span class="w"> </span><span class="o">(</span>built-in<span class="o">)</span>:<span class="w"> </span>Rebar3<span class="w"> </span>plugin<span class="w"> </span>project<span class="w"> </span>structure
+release<span class="w"> </span><span class="o">(</span>built-in<span class="o">)</span>:<span class="w"> </span>OTP<span class="w"> </span>Release<span class="w"> </span>structure<span class="w"> </span><span class="k">for</span><span class="w"> </span>executable<span class="w"> </span>programs
 
-$ rebar3 new release <span class="nv">myrelease</span>
-<span class="o">===</span>&gt; Writing myrelease/apps/myrelease/src/myrelease_app.erl
-<span class="o">===</span>&gt; Writing myrelease/apps/myrelease/src/myrelease_sup.erl
-<span class="o">===</span>&gt; Writing myrelease/apps/myrelease/src/myrelease.app.src
-<span class="o">===</span>&gt; Writing myrelease/rebar.config
-<span class="o">===</span>&gt; Writing myrelease/config/sys.config
-<span class="o">===</span>&gt; Writing myrelease/config/vm.args
-<span class="o">===</span>&gt; Writing myrelease/.gitignore
-<span class="o">===</span>&gt; Writing myrelease/LICENSE
-<span class="o">===</span>&gt; Writing myrelease/README.md
+$<span class="w"> </span>rebar3<span class="w"> </span>new<span class="w"> </span>release<span class="w"> </span><span class="nv">myrelease</span>
+<span class="o">===</span>&gt;<span class="w"> </span>Writing<span class="w"> </span>myrelease/apps/myrelease/src/myrelease_app.erl
+<span class="o">===</span>&gt;<span class="w"> </span>Writing<span class="w"> </span>myrelease/apps/myrelease/src/myrelease_sup.erl
+<span class="o">===</span>&gt;<span class="w"> </span>Writing<span class="w"> </span>myrelease/apps/myrelease/src/myrelease.app.src
+<span class="o">===</span>&gt;<span class="w"> </span>Writing<span class="w"> </span>myrelease/rebar.config
+<span class="o">===</span>&gt;<span class="w"> </span>Writing<span class="w"> </span>myrelease/config/sys.config
+<span class="o">===</span>&gt;<span class="w"> </span>Writing<span class="w"> </span>myrelease/config/vm.args
+<span class="o">===</span>&gt;<span class="w"> </span>Writing<span class="w"> </span>myrelease/.gitignore
+<span class="o">===</span>&gt;<span class="w"> </span>Writing<span class="w"> </span>myrelease/LICENSE
+<span class="o">===</span>&gt;<span class="w"> </span>Writing<span class="w"> </span>myrelease/README.md
 
-$ tree myrelease/
+$<span class="w"> </span>tree<span class="w"> </span>myrelease/
 myrelease/
-├── apps
-│   └── myrelease
-│       └── src
-│           ├── myrelease_app.erl
-│           ├── myrelease.app.src
-│           └── myrelease_sup.erl
-├── config
-│   ├── sys.config
-│   └── vm.args
-├── LICENSE
-├── README.md
-└── rebar.config
+├──<span class="w"> </span>apps
+│<span class="w">   </span>└──<span class="w"> </span>myrelease
+│<span class="w">       </span>└──<span class="w"> </span>src
+│<span class="w">           </span>├──<span class="w"> </span>myrelease_app.erl
+│<span class="w">           </span>├──<span class="w"> </span>myrelease.app.src
+│<span class="w">           </span>└──<span class="w"> </span>myrelease_sup.erl
+├──<span class="w"> </span>config
+│<span class="w">   </span>├──<span class="w"> </span>sys.config
+│<span class="w">   </span>└──<span class="w"> </span>vm.args
+├──<span class="w"> </span>LICENSE
+├──<span class="w"> </span>README.md
+└──<span class="w"> </span>rebar.config
 
-<span class="m">4</span> directories, <span class="m">8</span> files
+<span class="m">4</span><span class="w"> </span>directories,<span class="w"> </span><span class="m">8</span><span class="w"> </span>files
 
-$ <span class="nb">cd</span> myrelease
-$ rebar3 <span class="nv">compile</span>
-<span class="o">===</span>&gt; Verifying dependencies...
-<span class="o">===</span>&gt; Compiling myrelease
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>myrelease
+$<span class="w"> </span>rebar3<span class="w"> </span><span class="nv">compile</span>
+<span class="o">===</span>&gt;<span class="w"> </span>Verifying<span class="w"> </span>dependencies...
+<span class="o">===</span>&gt;<span class="w"> </span>Compiling<span class="w"> </span>myrelease
 
-$ tree _build/
+$<span class="w"> </span>tree<span class="w"> </span>_build/
 _build/
-└── default
-    └── lib
-        └── myrelease
-            ├── ebin
-            │   ├── myrelease.app
-            │   ├── myrelease_app.beam
-            │   └── myrelease_sup.beam
-            ├── include -&gt; ../../../../apps/myrelease/include
-            ├── priv -&gt; ../../../../apps/myrelease/priv
-            └── src -&gt; ../../../../apps/myrelease/src
+└──<span class="w"> </span>default
+<span class="w">    </span>└──<span class="w"> </span>lib
+<span class="w">        </span>└──<span class="w"> </span>myrelease
+<span class="w">            </span>├──<span class="w"> </span>ebin
+<span class="w">            </span>│<span class="w">   </span>├──<span class="w"> </span>myrelease.app
+<span class="w">            </span>│<span class="w">   </span>├──<span class="w"> </span>myrelease_app.beam
+<span class="w">            </span>│<span class="w">   </span>└──<span class="w"> </span>myrelease_sup.beam
+<span class="w">            </span>├──<span class="w"> </span>include<span class="w"> </span>-&gt;<span class="w"> </span>../../../../apps/myrelease/include
+<span class="w">            </span>├──<span class="w"> </span>priv<span class="w"> </span>-&gt;<span class="w"> </span>../../../../apps/myrelease/priv
+<span class="w">            </span>└──<span class="w"> </span>src<span class="w"> </span>-&gt;<span class="w"> </span>../../../../apps/myrelease/src
 
-<span class="m">5</span> directories, <span class="m">5</span> files
+<span class="m">5</span><span class="w"> </span>directories,<span class="w"> </span><span class="m">5</span><span class="w"> </span>files
 
-$ rebar3 <span class="nv">release</span>
-<span class="o">===</span>&gt; Verifying dependencies...
-<span class="o">===</span>&gt; Compiling <span class="nv">myrelease</span>
-<span class="o">===</span>&gt; Starting relx build process ...
-<span class="o">===</span>&gt; Resolving OTP Applications from directories:
-          /tmp/myrelease/_build/default/lib
-          /tmp/myrelease/apps
-          /usr/lib/erlang/lib
-<span class="o">===</span>&gt; Resolved myrelease-0.1.0
-<span class="o">===</span>&gt; Dev mode enabled, release will be <span class="nv">symlinked</span>
-<span class="o">===</span>&gt; release successfully created!
+$<span class="w"> </span>rebar3<span class="w"> </span><span class="nv">release</span>
+<span class="o">===</span>&gt;<span class="w"> </span>Verifying<span class="w"> </span>dependencies...
+<span class="o">===</span>&gt;<span class="w"> </span>Compiling<span class="w"> </span><span class="nv">myrelease</span>
+<span class="o">===</span>&gt;<span class="w"> </span>Starting<span class="w"> </span>relx<span class="w"> </span>build<span class="w"> </span>process<span class="w"> </span>...
+<span class="o">===</span>&gt;<span class="w"> </span>Resolving<span class="w"> </span>OTP<span class="w"> </span>Applications<span class="w"> </span>from<span class="w"> </span>directories:
+<span class="w">          </span>/tmp/myrelease/_build/default/lib
+<span class="w">          </span>/tmp/myrelease/apps
+<span class="w">          </span>/usr/lib/erlang/lib
+<span class="o">===</span>&gt;<span class="w"> </span>Resolved<span class="w"> </span>myrelease-0.1.0
+<span class="o">===</span>&gt;<span class="w"> </span>Dev<span class="w"> </span>mode<span class="w"> </span>enabled,<span class="w"> </span>release<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span><span class="nv">symlinked</span>
+<span class="o">===</span>&gt;<span class="w"> </span>release<span class="w"> </span>successfully<span class="w"> </span>created!
 
-$ tree _build/default/rel/
+$<span class="w"> </span>tree<span class="w"> </span>_build/default/rel/
 _build/default/rel/
-└── myrelease
-    ├── bin
-    │   ├── install_upgrade.escript
-    │   ├── myrelease
-    │   ├── myrelease-0.1.0
-    │   ├── nodetool
-    │   └── start_clean.boot
-    ├── lib
-    │   └── myrelease-0.1.0 -&gt; /tmp/myrelease/_build/default/lib/myrelease
-    └── releases
-        ├── <span class="m">0</span>.1.0
-        │   ├── myrelease.boot
-        │   ├── myrelease.rel
-        │   ├── myrelease.script
-        │   ├── start_clean.boot
-        │   ├── sys.config -&gt; /tmp/myrelease/config/sys.config
-        │   └── vm.args -&gt; /tmp/myrelease/config/vm.args
-        ├── RELEASES
-        └── start_erl.data
+└──<span class="w"> </span>myrelease
+<span class="w">    </span>├──<span class="w"> </span>bin
+<span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>install_upgrade.escript
+<span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>myrelease
+<span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>myrelease-0.1.0
+<span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>nodetool
+<span class="w">    </span>│<span class="w">   </span>└──<span class="w"> </span>start_clean.boot
+<span class="w">    </span>├──<span class="w"> </span>lib
+<span class="w">    </span>│<span class="w">   </span>└──<span class="w"> </span>myrelease-0.1.0<span class="w"> </span>-&gt;<span class="w"> </span>/tmp/myrelease/_build/default/lib/myrelease
+<span class="w">    </span>└──<span class="w"> </span>releases
+<span class="w">        </span>├──<span class="w"> </span><span class="m">0</span>.1.0
+<span class="w">        </span>│<span class="w">   </span>├──<span class="w"> </span>myrelease.boot
+<span class="w">        </span>│<span class="w">   </span>├──<span class="w"> </span>myrelease.rel
+<span class="w">        </span>│<span class="w">   </span>├──<span class="w"> </span>myrelease.script
+<span class="w">        </span>│<span class="w">   </span>├──<span class="w"> </span>start_clean.boot
+<span class="w">        </span>│<span class="w">   </span>├──<span class="w"> </span>sys.config<span class="w"> </span>-&gt;<span class="w"> </span>/tmp/myrelease/config/sys.config
+<span class="w">        </span>│<span class="w">   </span>└──<span class="w"> </span>vm.args<span class="w"> </span>-&gt;<span class="w"> </span>/tmp/myrelease/config/vm.args
+<span class="w">        </span>├──<span class="w"> </span>RELEASES
+<span class="w">        </span>└──<span class="w"> </span>start_erl.data
 
-<span class="m">6</span> directories, <span class="m">13</span> files
+<span class="m">6</span><span class="w"> </span>directories,<span class="w"> </span><span class="m">13</span><span class="w"> </span>files
 
 <span class="c1"># 打包</span>
-$ rebar3 as prod <span class="nv">tar</span>
-<span class="o">===</span>&gt; Verifying dependencies...
-<span class="o">===</span>&gt; Compiling <span class="nv">myrelease</span>
-<span class="o">===</span>&gt; Starting relx build process ...
-<span class="o">===</span>&gt; Resolving OTP Applications from directories:
-          /tmp/myrelease/_build/prod/lib
-          /tmp/myrelease/apps
-          /usr/lib/erlang/lib
-<span class="o">===</span>&gt; Resolved myrelease-0.1.0
-<span class="o">===</span>&gt; Including Erts from /usr/lib/erlang
-<span class="o">===</span>&gt; release successfully created!
-<span class="o">===</span>&gt; Starting relx build process ...
-<span class="o">===</span>&gt; Resolving OTP Applications from directories:
-          /tmp/myrelease/_build/prod/lib
-          /tmp/myrelease/apps
-          /usr/lib/erlang/lib
-          /tmp/myrelease/_build/prod/rel
-<span class="o">===</span>&gt; Resolved myrelease-0.1.0
-<span class="o">===</span>&gt; tarball /tmp/myrelease/_build/prod/rel/myrelease/myrelease-0.1.0.tar.gz successfully created!
+$<span class="w"> </span>rebar3<span class="w"> </span>as<span class="w"> </span>prod<span class="w"> </span><span class="nv">tar</span>
+<span class="o">===</span>&gt;<span class="w"> </span>Verifying<span class="w"> </span>dependencies...
+<span class="o">===</span>&gt;<span class="w"> </span>Compiling<span class="w"> </span><span class="nv">myrelease</span>
+<span class="o">===</span>&gt;<span class="w"> </span>Starting<span class="w"> </span>relx<span class="w"> </span>build<span class="w"> </span>process<span class="w"> </span>...
+<span class="o">===</span>&gt;<span class="w"> </span>Resolving<span class="w"> </span>OTP<span class="w"> </span>Applications<span class="w"> </span>from<span class="w"> </span>directories:
+<span class="w">          </span>/tmp/myrelease/_build/prod/lib
+<span class="w">          </span>/tmp/myrelease/apps
+<span class="w">          </span>/usr/lib/erlang/lib
+<span class="o">===</span>&gt;<span class="w"> </span>Resolved<span class="w"> </span>myrelease-0.1.0
+<span class="o">===</span>&gt;<span class="w"> </span>Including<span class="w"> </span>Erts<span class="w"> </span>from<span class="w"> </span>/usr/lib/erlang
+<span class="o">===</span>&gt;<span class="w"> </span>release<span class="w"> </span>successfully<span class="w"> </span>created!
+<span class="o">===</span>&gt;<span class="w"> </span>Starting<span class="w"> </span>relx<span class="w"> </span>build<span class="w"> </span>process<span class="w"> </span>...
+<span class="o">===</span>&gt;<span class="w"> </span>Resolving<span class="w"> </span>OTP<span class="w"> </span>Applications<span class="w"> </span>from<span class="w"> </span>directories:
+<span class="w">          </span>/tmp/myrelease/_build/prod/lib
+<span class="w">          </span>/tmp/myrelease/apps
+<span class="w">          </span>/usr/lib/erlang/lib
+<span class="w">          </span>/tmp/myrelease/_build/prod/rel
+<span class="o">===</span>&gt;<span class="w"> </span>Resolved<span class="w"> </span>myrelease-0.1.0
+<span class="o">===</span>&gt;<span class="w"> </span>tarball<span class="w"> </span>/tmp/myrelease/_build/prod/rel/myrelease/myrelease-0.1.0.tar.gz<span class="w"> </span>successfully<span class="w"> </span>created!
 
 
-$ rebar3 <span class="nv">shell</span>
-<span class="o">===</span>&gt; Verifying dependencies...
-<span class="o">===</span>&gt; Compiling myrelease
-Erlang/OTP <span class="m">19</span> <span class="o">[</span>erts-8.2<span class="o">]</span> <span class="o">[</span>source<span class="o">]</span> <span class="o">[</span><span class="m">64</span>-bit<span class="o">]</span> <span class="o">[</span>smp:8:8<span class="o">]</span> <span class="o">[</span>async-threads:0<span class="o">]</span> <span class="o">[</span>hipe<span class="o">]</span> <span class="o">[</span>kernel-poll:false<span class="o">]</span>
+$<span class="w"> </span>rebar3<span class="w"> </span><span class="nv">shell</span>
+<span class="o">===</span>&gt;<span class="w"> </span>Verifying<span class="w"> </span>dependencies...
+<span class="o">===</span>&gt;<span class="w"> </span>Compiling<span class="w"> </span>myrelease
+Erlang/OTP<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="o">[</span>erts-8.2<span class="o">]</span><span class="w"> </span><span class="o">[</span>source<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">64</span>-bit<span class="o">]</span><span class="w"> </span><span class="o">[</span>smp:8:8<span class="o">]</span><span class="w"> </span><span class="o">[</span>async-threads:0<span class="o">]</span><span class="w"> </span><span class="o">[</span>hipe<span class="o">]</span><span class="w"> </span><span class="o">[</span>kernel-poll:false<span class="o">]</span>
 
-Eshell V8.2  <span class="o">(</span>abort with ^G<span class="o">)</span>
-<span class="m">1</span>&gt; <span class="o">===</span>&gt; The rebar3 shell is a development tool<span class="p">;</span> to deploy applications in production, consider using releases <span class="o">(</span>
+Eshell<span class="w"> </span>V8.2<span class="w">  </span><span class="o">(</span>abort<span class="w"> </span>with<span class="w"> </span>^G<span class="o">)</span>
+<span class="m">1</span>&gt;<span class="w"> </span><span class="o">===</span>&gt;<span class="w"> </span>The<span class="w"> </span>rebar3<span class="w"> </span>shell<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>development<span class="w"> </span>tool<span class="p">;</span><span class="w"> </span>to<span class="w"> </span>deploy<span class="w"> </span>applications<span class="w"> </span><span class="k">in</span><span class="w"> </span>production,<span class="w"> </span>consider<span class="w"> </span>using<span class="w"> </span>releases<span class="w"> </span><span class="o">(</span>
 http://www.rebar3.org/docs/releases<span class="o">)</span>
 
-<span class="o">=</span>PROGRESS <span class="nv">REPORT</span><span class="o">====</span> <span class="m">5</span>-Feb-2017::16:17:27 <span class="o">===</span>
-          supervisor: <span class="o">{</span>local,sasl_safe_sup<span class="o">}</span>
-             started: <span class="o">[{</span>pid,&lt;<span class="m">0</span>.107.0&gt;<span class="o">}</span>,
-                       <span class="o">{</span>id,alarm_handler<span class="o">}</span>,
-                       <span class="o">{</span>mfargs,<span class="o">{</span>alarm_handler,start_link,<span class="o">[]}}</span>,
-                       <span class="o">{</span>restart_type,permanent<span class="o">}</span>,
-                       <span class="o">{</span>shutdown,2000<span class="o">}</span>,
-                       <span class="o">{</span>child_type,worker<span class="o">}]</span>
-<span class="o">===</span>&gt; Booted <span class="nv">myrelease</span>
+<span class="o">=</span>PROGRESS<span class="w"> </span><span class="nv">REPORT</span><span class="o">====</span><span class="w"> </span><span class="m">5</span>-Feb-2017::16:17:27<span class="w"> </span><span class="o">===</span>
+<span class="w">          </span>supervisor:<span class="w"> </span><span class="o">{</span>local,sasl_safe_sup<span class="o">}</span>
+<span class="w">             </span>started:<span class="w"> </span><span class="o">[{</span>pid,&lt;<span class="m">0</span>.107.0&gt;<span class="o">}</span>,
+<span class="w">                       </span><span class="o">{</span>id,alarm_handler<span class="o">}</span>,
+<span class="w">                       </span><span class="o">{</span>mfargs,<span class="o">{</span>alarm_handler,start_link,<span class="o">[]}}</span>,
+<span class="w">                       </span><span class="o">{</span>restart_type,permanent<span class="o">}</span>,
+<span class="w">                       </span><span class="o">{</span>shutdown,2000<span class="o">}</span>,
+<span class="w">                       </span><span class="o">{</span>child_type,worker<span class="o">}]</span>
+<span class="o">===</span>&gt;<span class="w"> </span>Booted<span class="w"> </span><span class="nv">myrelease</span>
 
-<span class="o">=</span>PROGRESS <span class="nv">REPORT</span><span class="o">====</span> <span class="m">5</span>-Feb-2017::16:17:27 <span class="o">===</span>
-          supervisor: <span class="o">{</span>local,sasl_sup<span class="o">}</span>
-             started: <span class="o">[{</span>pid,&lt;<span class="m">0</span>.106.0&gt;<span class="o">}</span>,
-                       <span class="o">{</span>id,sasl_safe_sup<span class="o">}</span>,
-                       <span class="o">{</span>mfargs,
-                           <span class="o">{</span>supervisor,start_link,
-                               <span class="o">[{</span>local,sasl_safe_sup<span class="o">}</span>,sasl,safe<span class="o">]}}</span>,
-                       <span class="o">{</span>restart_type,permanent<span class="o">}</span>,
-                       <span class="o">{</span>shutdown,infinity<span class="o">}</span>,
-                       <span class="o">{</span>child_type,supervisor<span class="o">}]</span>
-<span class="o">===</span>&gt; Booted <span class="nv">sasl</span>
+<span class="o">=</span>PROGRESS<span class="w"> </span><span class="nv">REPORT</span><span class="o">====</span><span class="w"> </span><span class="m">5</span>-Feb-2017::16:17:27<span class="w"> </span><span class="o">===</span>
+<span class="w">          </span>supervisor:<span class="w"> </span><span class="o">{</span>local,sasl_sup<span class="o">}</span>
+<span class="w">             </span>started:<span class="w"> </span><span class="o">[{</span>pid,&lt;<span class="m">0</span>.106.0&gt;<span class="o">}</span>,
+<span class="w">                       </span><span class="o">{</span>id,sasl_safe_sup<span class="o">}</span>,
+<span class="w">                       </span><span class="o">{</span>mfargs,
+<span class="w">                           </span><span class="o">{</span>supervisor,start_link,
+<span class="w">                               </span><span class="o">[{</span>local,sasl_safe_sup<span class="o">}</span>,sasl,safe<span class="o">]}}</span>,
+<span class="w">                       </span><span class="o">{</span>restart_type,permanent<span class="o">}</span>,
+<span class="w">                       </span><span class="o">{</span>shutdown,infinity<span class="o">}</span>,
+<span class="w">                       </span><span class="o">{</span>child_type,supervisor<span class="o">}]</span>
+<span class="o">===</span>&gt;<span class="w"> </span>Booted<span class="w"> </span><span class="nv">sasl</span>
 
-<span class="o">=</span>PROGRESS <span class="nv">REPORT</span><span class="o">====</span> <span class="m">5</span>-Feb-2017::16:17:27 <span class="o">===</span>
-          supervisor: <span class="o">{</span>local,sasl_sup<span class="o">}</span>
-             started: <span class="o">[{</span>pid,&lt;<span class="m">0</span>.108.0&gt;<span class="o">}</span>,
-                       <span class="o">{</span>id,release_handler<span class="o">}</span>,
-                       <span class="o">{</span>mfargs,<span class="o">{</span>release_handler,start_link,<span class="o">[]}}</span>,
-                       <span class="o">{</span>restart_type,permanent<span class="o">}</span>,
-                       <span class="o">{</span>shutdown,2000<span class="o">}</span>,
-                       <span class="o">{</span>child_type,worker<span class="o">}]</span>
+<span class="o">=</span>PROGRESS<span class="w"> </span><span class="nv">REPORT</span><span class="o">====</span><span class="w"> </span><span class="m">5</span>-Feb-2017::16:17:27<span class="w"> </span><span class="o">===</span>
+<span class="w">          </span>supervisor:<span class="w"> </span><span class="o">{</span>local,sasl_sup<span class="o">}</span>
+<span class="w">             </span>started:<span class="w"> </span><span class="o">[{</span>pid,&lt;<span class="m">0</span>.108.0&gt;<span class="o">}</span>,
+<span class="w">                       </span><span class="o">{</span>id,release_handler<span class="o">}</span>,
+<span class="w">                       </span><span class="o">{</span>mfargs,<span class="o">{</span>release_handler,start_link,<span class="o">[]}}</span>,
+<span class="w">                       </span><span class="o">{</span>restart_type,permanent<span class="o">}</span>,
+<span class="w">                       </span><span class="o">{</span>shutdown,2000<span class="o">}</span>,
+<span class="w">                       </span><span class="o">{</span>child_type,worker<span class="o">}]</span>
 
-<span class="o">=</span>PROGRESS <span class="nv">REPORT</span><span class="o">====</span> <span class="m">5</span>-Feb-2017::16:17:27 <span class="o">===</span>
-         application: sasl
-          started_at: nonode@nohost
+<span class="o">=</span>PROGRESS<span class="w"> </span><span class="nv">REPORT</span><span class="o">====</span><span class="w"> </span><span class="m">5</span>-Feb-2017::16:17:27<span class="w"> </span><span class="o">===</span>
+<span class="w">         </span>application:<span class="w"> </span>sasl
+<span class="w">          </span>started_at:<span class="w"> </span>nonode@nohost
 
 <span class="m">1</span>&gt;
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="hex-beam-vm">
-<h2><a class="toc-backref" href="#id27">Hex - BEAM VM 生態圈的套件平台</a><a class="headerlink" href="#hex-beam-vm" title="本標題的永久連結">¶</a></h2>
+</section>
+</section>
+<section id="hex-beam-vm">
+<h2><a class="toc-backref" href="#id27" role="doc-backlink">Hex - BEAM VM 生態圈的套件平台</a><a class="headerlink" href="#hex-beam-vm" title="Permalink to this heading"></a></h2>
 <p>Hex 是 Erlang 的 BEAM VM 的套件管理工具及平台，
 可以共享於 Erlang 和 Elixir 之間，
 也有 Erlang Rebar3 的 Plugin 可以使用。</p>
 <p><code class="docutils literal notranslate"><span class="pre">~/.config/rebar3/rebar.config</span></code> :</p>
-<div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">plugins</span><span class="p">,</span> <span class="p">[</span><span class="n">rebar3_hex</span><span class="p">]}.</span>
+<div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">plugins</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">rebar3_hex</span><span class="p">]}.</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="otp">
-<h2><a class="toc-backref" href="#id28">OTP</a><a class="headerlink" href="#otp" title="本標題的永久連結">¶</a></h2>
-</div>
-<div class="section" id="dialyzer">
-<h2><a class="toc-backref" href="#id29">Dialyzer - 靜態型別檢查</a><a class="headerlink" href="#dialyzer" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="otp">
+<h2><a class="toc-backref" href="#id28" role="doc-backlink">OTP</a><a class="headerlink" href="#otp" title="Permalink to this heading"></a></h2>
+</section>
+<section id="dialyzer">
+<h2><a class="toc-backref" href="#id29" role="doc-backlink">Dialyzer - 靜態型別檢查</a><a class="headerlink" href="#dialyzer" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="http://erlang.org/doc/apps/dialyzer/dialyzer_chapter.html">Dialyzer User’s Guide</a></p></li>
 <li><p><a class="reference external" href="http://erlang.org/doc/man/dialyzer.html">Dialyzer</a></p></li>
@@ -1311,55 +1241,55 @@ http://www.rebar3.org/docs/releases<span class="o">)</span>
 還是會有 Type Inference 可以幫忙找出部份錯誤，
 但是加上 Type Annotation 會更好，
 可以找到更多問題。</p>
-</div>
-<div class="section" id="id11">
-<h2><a class="toc-backref" href="#id30">Erlang 與其他程式語言</a><a class="headerlink" href="#id11" title="本標題的永久連結">¶</a></h2>
-<div class="section" id="erlport">
-<h3><a class="toc-backref" href="#id31">ErlPort</a><a class="headerlink" href="#erlport" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="id11">
+<h2><a class="toc-backref" href="#id30" role="doc-backlink">Erlang 與其他程式語言</a><a class="headerlink" href="#id11" title="Permalink to this heading"></a></h2>
+<section id="erlport">
+<h3><a class="toc-backref" href="#id31" role="doc-backlink">ErlPort</a><a class="headerlink" href="#erlport" title="Permalink to this heading"></a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">URL</dt>
+<dt class="field-odd">URL<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://github.com/hdima/erlport">https://github.com/hdima/erlport</a></p>
 </dd>
 </dl>
-</div>
-<div class="section" id="py-distributed-python-for-the-erlang-ecosystem">
-<h3><a class="toc-backref" href="#id32">py - Distributed Python for the Erlang Ecosystem</a><a class="headerlink" href="#py-distributed-python-for-the-erlang-ecosystem" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="py-distributed-python-for-the-erlang-ecosystem">
+<h3><a class="toc-backref" href="#id32" role="doc-backlink">py - Distributed Python for the Erlang Ecosystem</a><a class="headerlink" href="#py-distributed-python-for-the-erlang-ecosystem" title="Permalink to this heading"></a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">URL</dt>
+<dt class="field-odd">URL<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://github.com/lfex/py">https://github.com/lfex/py</a></p>
 </dd>
 </dl>
-</div>
-</div>
-<div class="section" id="nif-natively-implemented-function">
-<h2><a class="toc-backref" href="#id33">NIF (Natively Implemented Function)</a><a class="headerlink" href="#nif-natively-implemented-function" title="本標題的永久連結">¶</a></h2>
+</section>
+</section>
+<section id="nif-natively-implemented-function">
+<h2><a class="toc-backref" href="#id33" role="doc-backlink">NIF (Natively Implemented Function)</a><a class="headerlink" href="#nif-natively-implemented-function" title="Permalink to this heading"></a></h2>
 <p>a shorthand for replacing Erlang code with C</p>
-</div>
-<div class="section" id="ds-dirty-scheduler">
-<h2><a class="toc-backref" href="#id34">DS (Dirty Scheduler)</a><a class="headerlink" href="#ds-dirty-scheduler" title="本標題的永久連結">¶</a></h2>
-</div>
-<div class="section" id="garbage-collection">
-<h2><a class="toc-backref" href="#id35">Garbage Collection</a><a class="headerlink" href="#garbage-collection" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="ds-dirty-scheduler">
+<h2><a class="toc-backref" href="#id34" role="doc-backlink">DS (Dirty Scheduler)</a><a class="headerlink" href="#ds-dirty-scheduler" title="Permalink to this heading"></a></h2>
+</section>
+<section id="garbage-collection">
+<h2><a class="toc-backref" href="#id35" role="doc-backlink">Garbage Collection</a><a class="headerlink" href="#garbage-collection" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://hamidreza-s.github.io/erlang%20garbage%20collection%20memory%20layout%20soft%20realtime/2015/08/24/erlang-garbage-collection-details-and-why-it-matters.html">Erlang Garbage Collection Details and Why It Matters</a></p></li>
 </ul>
-</div>
-<div class="section" id="id12">
-<h2><a class="toc-backref" href="#id36">書籍</a><a class="headerlink" href="#id12" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="id12">
+<h2><a class="toc-backref" href="#id36" role="doc-backlink">書籍</a><a class="headerlink" href="#id12" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="http://learnyousomeerlang.com/">Learn You Some Erlang for Great Good!</a></p></li>
 </ul>
-</div>
-<div class="section" id="id13">
-<h2><a class="toc-backref" href="#id37">實做</a><a class="headerlink" href="#id13" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="id13">
+<h2><a class="toc-backref" href="#id37" role="doc-backlink">實做</a><a class="headerlink" href="#id13" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>BEAM VM</p></li>
 <li><p><a class="reference external" href="https://github.com/trifork/erjang">Erjang - JVM-based Erlang VM</a></p></li>
 <li><p><a class="reference external" href="https://github.com/kvakvs/E4VM">MicroErlang - Erlang on embedded systems</a></p></li>
 </ul>
-</div>
-<div class="section" id="id14">
-<h2><a class="toc-backref" href="#id38">參考</a><a class="headerlink" href="#id14" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="id14">
+<h2><a class="toc-backref" href="#id38" role="doc-backlink">參考</a><a class="headerlink" href="#id14" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Erlang_%28programming_language%29">Wikipedia - Erlang (programming language)</a></p></li>
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Guard_%28computer_science%29">Wikipedia - Guard (computer science)</a></p></li>
@@ -1378,37 +1308,33 @@ http://www.rebar3.org/docs/releases<span class="o">)</span>
 <li><p><a class="reference external" href="http://lup.lub.lu.se/luur/download?func=downloadFile&amp;recordOId=5470892&amp;fileOId=5470933">[2015] A Tracing JIT Compiler for Erlang using LLVM</a></p></li>
 <li><p><a class="reference external" href="https://medium.com/&#64;jlouis666/erlang-dirty-scheduler-overhead-6e1219dcc7">Erlang Dirty Scheduler Overhead - Using DTrace to figure out what calls cost</a></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016
-
-    </p>
+    <p>&#169; Copyright 2023.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
   
 
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       <span class="fa fa-book"> Read the Docs</span>
       v: latest
@@ -1418,7 +1344,7 @@ http://www.rebar3.org/docs/releases<span class="o">)</span>
       <dl>
         <dt>Versions</dt>
         
-          <dd><a href="/zh_TW/latest/">latest</a></dd>
+          <dd><a href="https://wdv4758h.github.io/notes/">latest</a></dd>
         
       </dl>
       <dl>
@@ -1428,6 +1354,7 @@ http://www.rebar3.org/docs/releases<span class="o">)</span>
         
       </dl>
       <dl>
+        
         <dt>On Read the Docs</dt>
           <dd>
             <a href="//readthedocs.org/projects/wdv4758h-notes/?fromdocs=wdv4758h-notes">Project Home</a>
@@ -1436,22 +1363,13 @@ http://www.rebar3.org/docs/releases<span class="o">)</span>
             <a href="//readthedocs.org/builds/wdv4758h-notes/?fromdocs=wdv4758h-notes">Builds</a>
           </dd>
       </dl>
-      <hr/>
-      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
-
     </div>
   </div>
-
-
-
-  <script type="text/javascript">
+<script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-   
+  </script> 
 
 </body>
 </html>

@@ -1,112 +1,73 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-TW" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-TW" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>MPI &mdash; wdv4758h-notes latest 說明文件</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MPI &mdash; wdv4758h-notes latest documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/translations.js"></script>
-        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="index" title="索引" href="../../genindex.html" />
-    <link rel="search" title="搜尋" href="../../search.html" /> 
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
 
 <!-- RTD Extra Head -->
 
-<!-- 
-Always link to the latest version, as canonical.
-http://docs.readthedocs.org/en/latest/canonical.html
--->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/parallel/mpi/mpi.html" />
+    <!--
+    Always link to the latest version, as canonical.
+    http://docs.readthedocs.org/en/latest/canonical.html
+    -->
+    <link rel="canonical" href="https://wdv4758h-notes.readthedocs.io/zh_TW/latest/parallel/mpi/mpi.html" />
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../../_static/readthedocs-data.js"></script>
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": "", "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": "https://wdv4758h-notes.readthedocs.io/zh_TW/latest/", "docroot": "/./", "features": {"docsearch_disabled": false}, "global_analytics_code": "", "language": "en", "page": "parallel/mpi/mpi", "programming_language": "", "project": "wdv4758h-notes", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": ""}</script>
 
-<!-- Add page-specific data, which must exist in the page js, not global -->
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = "parallel/mpi/mpi"
-READTHEDOCS_DATA['source_suffix'] = ".rst"
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
 </script>
 
-<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js" async="async"></script>
 
 <!-- end RTD <extrahead> -->
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../index.html" class="icon icon-home"> wdv4758h-notes
           
-
-          
+          <a href="../../index.html" class="icon icon-home">
+            wdv4758h-notes
           </a>
-
-          
-            
-            
-            
               <div class="version">
                 latest
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/README.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/adt.html">ADT (Abstract Data Type)</a></li>
@@ -116,13 +77,18 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/cache.html">Cache</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/cache-friendly.html">Cache Friendly Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/dict.html">Dict</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/float-to-string.html">Float to String</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/heap.html">Heap （堆）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/introduction.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/inverse-square-root.html">Inverse Square Root</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/lock.html">Lock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/meta-algorithm.html">Meta Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/random-number-generator.html">Random Number Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/resource.html">演算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/sorting.html">Sorting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/string-to-float.html">String to Float</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/substring-searching.html">Substring Searching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../android/README.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../android/android-emulator.html">Android Emulator</a></li>
@@ -198,7 +164,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../blog/openmp.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/pypy-brainfuck.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/pypy-brainfuck.html#tutorial">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../blog/pypy-brainfuck.html#id5">額外紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../blog/pypy-brainfuck.html#id4">額外紀錄</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/pypy-brainfuck.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/python-benchmark.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/python-benchmark.html#hello-world">Hello World</a></li>
@@ -225,7 +191,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../blog/qemu-first-step.html#qemu-with-kvm">QEMU with KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html">Syntax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#closure">Closure 和外部變數</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#move-closures">「move」 closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#move-closures">“move” closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#closure-implementation">Closure implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#closures-as-arguments">closures as arguments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#returning-closures">returning closures</a></li>
@@ -406,6 +372,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/ci.html">Continuous Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/concourse.html">Concourse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/drone.html">Drone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/github-actions.html">Github Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/jenkins.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/travis-ci.html">Travis CI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/workflow-pipeline.html">Workflow Pipeline</a></li>
@@ -415,7 +382,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/array.html">std::array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/assembly.html">C++ &amp; Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/bit-field.html">C++ Bit Field</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../cpp/c++17.html">C++17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/c%2B%2B17.html">C++17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/concepts.html">C++ Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/const.html">C++ const</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/copy-elision.html">Copy Elision</a></li>
@@ -468,13 +435,16 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../database/README.html">資料庫 (Database)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/cockroachdb.html">CockroachDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/consensus-algorithm.html">Raft Consensus Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../database/graph.html">Graph Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/leveldb.html">LevelDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../database/materialized-views.html">Materialized Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/mongodb.html">MongoDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../database/rocksdb.html">RocksDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/sql.html">SQL (Structured Query Language)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/tidb.html">TiDB</a></li>
@@ -547,7 +517,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../math/math-on-web.html">Math on Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../math/misc.html">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../memory/W^X.html">W^X (Write XOR Execute)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../memory/W%5EX.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../memory/allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../memory/kernel-memory-management.html">Kernel Memory Management</a></li>
@@ -805,96 +775,56 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../wiki/resource.html">Wiki</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">wdv4758h-notes</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
-      <li>MPI</li>
-    
-    
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">MPI</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/wdv4758h/notes/blob/master/./parallel/mpi/mpi.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="mpi">
-<h1>MPI<a class="headerlink" href="#mpi" title="本標題的永久連結">¶</a></h1>
-<div class="section" id="ssh-key-setup">
-<h2>SSH Key Setup<a class="headerlink" href="#ssh-key-setup" title="本標題的永久連結">¶</a></h2>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">&quot;username@mail.com&quot;</span>
+             
+  <section id="mpi">
+<h1>MPI<a class="headerlink" href="#mpi" title="Permalink to this heading"></a></h1>
+<section id="ssh-key-setup">
+<h2>SSH Key Setup<a class="headerlink" href="#ssh-key-setup" title="Permalink to this heading"></a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>rsa<span class="w"> </span>-b<span class="w"> </span><span class="m">4096</span><span class="w"> </span>-C<span class="w"> </span><span class="s2">&quot;username@mail.com&quot;</span>
 
 <span class="c1"># method 1</span>
-$ scp ~/.ssh/id_rsa.pub HOSTNAME:~/.ssh/
-$ ssh HOSTNAME
-$ cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
+$<span class="w"> </span>scp<span class="w"> </span>~/.ssh/id_rsa.pub<span class="w"> </span>HOSTNAME:~/.ssh/
+$<span class="w"> </span>ssh<span class="w"> </span>HOSTNAME
+$<span class="w"> </span>cat<span class="w"> </span>~/.ssh/id_rsa.pub<span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.ssh/authorized_keys
 
 <span class="c1"># method 2</span>
-$ ssh-copy-id -i ~/.ssh/id_rsa.pub HOSTNAME
+$<span class="w"> </span>ssh-copy-id<span class="w"> </span>-i<span class="w"> </span>~/.ssh/id_rsa.pub<span class="w"> </span>HOSTNAME
 </pre></div>
 </div>
-</div>
-<div class="section" id="hosts-file">
-<h2>Hosts File<a class="headerlink" href="#hosts-file" title="本標題的永久連結">¶</a></h2>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ cat ~/hostfile
-<span class="m">10</span>.10.0.173 <span class="nv">slots</span><span class="o">=</span><span class="m">4</span>
-<span class="m">10</span>.10.0.174 <span class="nv">slots</span><span class="o">=</span><span class="m">4</span>
-<span class="m">10</span>.10.0.175 <span class="nv">slots</span><span class="o">=</span><span class="m">4</span>
-<span class="m">10</span>.10.0.176 <span class="nv">slots</span><span class="o">=</span><span class="m">4</span>
+</section>
+<section id="hosts-file">
+<h2>Hosts File<a class="headerlink" href="#hosts-file" title="Permalink to this heading"></a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>cat<span class="w"> </span>~/hostfile
+<span class="m">10</span>.10.0.173<span class="w"> </span><span class="nv">slots</span><span class="o">=</span><span class="m">4</span>
+<span class="m">10</span>.10.0.174<span class="w"> </span><span class="nv">slots</span><span class="o">=</span><span class="m">4</span>
+<span class="m">10</span>.10.0.175<span class="w"> </span><span class="nv">slots</span><span class="o">=</span><span class="m">4</span>
+<span class="m">10</span>.10.0.176<span class="w"> </span><span class="nv">slots</span><span class="o">=</span><span class="m">4</span>
 </pre></div>
 </div>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ mpirun -np <span class="m">16</span> --hostfile ~/hostfile hostname
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mpirun<span class="w"> </span>-np<span class="w"> </span><span class="m">16</span><span class="w"> </span>--hostfile<span class="w"> </span>~/hostfile<span class="w"> </span>hostname
 master
 slave1
 slave2
@@ -911,89 +841,89 @@ slave3
 slave3
 slave3
 slave3
-$ mpirun -np <span class="m">16</span> --hostfile ~/hostfile uptime
- <span class="m">07</span>:19:03 up <span class="m">22</span> days, <span class="m">0</span> min, <span class="m">15</span> users,  load average: <span class="m">2</span>.09, <span class="m">2</span>.03, <span class="m">2</span>.02
- <span class="m">07</span>:19:03 up <span class="m">22</span> days, <span class="m">0</span> min, <span class="m">15</span> users,  load average: <span class="m">2</span>.09, <span class="m">2</span>.03, <span class="m">2</span>.02
- <span class="m">07</span>:19:03 up <span class="m">22</span> days, <span class="m">0</span> min, <span class="m">15</span> users,  load average: <span class="m">2</span>.09, <span class="m">2</span>.03, <span class="m">2</span>.02
- <span class="m">07</span>:19:03 up <span class="m">22</span> days, <span class="m">0</span> min,  <span class="m">1</span> user,  load average: <span class="m">2</span>.08, <span class="m">2</span>.03, <span class="m">2</span>.01
- <span class="m">07</span>:19:02 up <span class="m">22</span> days, <span class="m">0</span> min,  <span class="m">2</span> users,  load average: <span class="m">2</span>.00, <span class="m">2</span>.01, <span class="m">2</span>.05
- <span class="m">07</span>:19:03 up <span class="m">22</span> days, <span class="m">0</span> min,  <span class="m">1</span> user,  load average: <span class="m">2</span>.08, <span class="m">2</span>.03, <span class="m">2</span>.01
- <span class="m">07</span>:19:03 up <span class="m">22</span> days, <span class="m">0</span> min, <span class="m">15</span> users,  load average: <span class="m">2</span>.09, <span class="m">2</span>.03, <span class="m">2</span>.02
- <span class="m">07</span>:19:03 up <span class="m">22</span> days, <span class="m">0</span> min,  <span class="m">1</span> user,  load average: <span class="m">2</span>.08, <span class="m">2</span>.03, <span class="m">2</span>.01
- <span class="m">07</span>:19:03 up <span class="m">22</span> days, <span class="m">0</span> min,  <span class="m">1</span> user,  load average: <span class="m">2</span>.08, <span class="m">2</span>.03, <span class="m">2</span>.01
- <span class="m">07</span>:19:02 up <span class="m">22</span> days, <span class="m">0</span> min,  <span class="m">2</span> users,  load average: <span class="m">2</span>.00, <span class="m">2</span>.01, <span class="m">2</span>.05
- <span class="m">07</span>:19:02 up <span class="m">22</span> days, <span class="m">0</span> min,  <span class="m">2</span> users,  load average: <span class="m">2</span>.00, <span class="m">2</span>.01, <span class="m">2</span>.05
- <span class="m">07</span>:19:02 up <span class="m">22</span> days, <span class="m">0</span> min,  <span class="m">2</span> users,  load average: <span class="m">2</span>.00, <span class="m">2</span>.01, <span class="m">2</span>.05
- <span class="m">07</span>:19:03 up <span class="m">22</span> days, <span class="m">0</span> min,  <span class="m">4</span> users,  load average: <span class="m">2</span>.00, <span class="m">2</span>.01, <span class="m">2</span>.01
- <span class="m">07</span>:19:03 up <span class="m">22</span> days, <span class="m">0</span> min,  <span class="m">4</span> users,  load average: <span class="m">2</span>.00, <span class="m">2</span>.01, <span class="m">2</span>.01
- <span class="m">07</span>:19:03 up <span class="m">22</span> days, <span class="m">0</span> min,  <span class="m">4</span> users,  load average: <span class="m">2</span>.00, <span class="m">2</span>.01, <span class="m">2</span>.01
- <span class="m">07</span>:19:03 up <span class="m">22</span> days, <span class="m">0</span> min,  <span class="m">4</span> users,  load average: <span class="m">2</span>.00, <span class="m">2</span>.01, <span class="m">2</span>.01
-$ mpirun -np <span class="m">16</span> --hostfile ~/hostfile ~/hello.out
-Hello world from processor master, rank <span class="m">1</span> out of <span class="m">16</span> processors
-Hello world from processor slave1, rank <span class="m">6</span> out of <span class="m">16</span> processors
-Hello world from processor slave2, rank <span class="m">9</span> out of <span class="m">16</span> processors
-Hello world from processor slave3, rank <span class="m">15</span> out of <span class="m">16</span> processors
-Hello world from processor slave1, rank <span class="m">5</span> out of <span class="m">16</span> processors
-Hello world from processor slave2, rank <span class="m">8</span> out of <span class="m">16</span> processors
-Hello world from processor master, rank <span class="m">0</span> out of <span class="m">16</span> processors
-Hello world from processor slave3, rank <span class="m">13</span> out of <span class="m">16</span> processors
-Hello world from processor slave3, rank <span class="m">14</span> out of <span class="m">16</span> processors
-Hello world from processor slave3, rank <span class="m">12</span> out of <span class="m">16</span> processors
-Hello world from processor slave2, rank <span class="m">10</span> out of <span class="m">16</span> processors
-Hello world from processor slave1, rank <span class="m">4</span> out of <span class="m">16</span> processors
-Hello world from processor master, rank <span class="m">3</span> out of <span class="m">16</span> processors
-Hello world from processor slave2, rank <span class="m">11</span> out of <span class="m">16</span> processors
-Hello world from processor slave1, rank <span class="m">7</span> out of <span class="m">16</span> processors
-Hello world from processor master, rank <span class="m">2</span> out of <span class="m">16</span> processors
+$<span class="w"> </span>mpirun<span class="w"> </span>-np<span class="w"> </span><span class="m">16</span><span class="w"> </span>--hostfile<span class="w"> </span>~/hostfile<span class="w"> </span>uptime
+<span class="w"> </span><span class="m">07</span>:19:03<span class="w"> </span>up<span class="w"> </span><span class="m">22</span><span class="w"> </span>days,<span class="w"> </span><span class="m">0</span><span class="w"> </span>min,<span class="w"> </span><span class="m">15</span><span class="w"> </span>users,<span class="w">  </span>load<span class="w"> </span>average:<span class="w"> </span><span class="m">2</span>.09,<span class="w"> </span><span class="m">2</span>.03,<span class="w"> </span><span class="m">2</span>.02
+<span class="w"> </span><span class="m">07</span>:19:03<span class="w"> </span>up<span class="w"> </span><span class="m">22</span><span class="w"> </span>days,<span class="w"> </span><span class="m">0</span><span class="w"> </span>min,<span class="w"> </span><span class="m">15</span><span class="w"> </span>users,<span class="w">  </span>load<span class="w"> </span>average:<span class="w"> </span><span class="m">2</span>.09,<span class="w"> </span><span class="m">2</span>.03,<span class="w"> </span><span class="m">2</span>.02
+<span class="w"> </span><span class="m">07</span>:19:03<span class="w"> </span>up<span class="w"> </span><span class="m">22</span><span class="w"> </span>days,<span class="w"> </span><span class="m">0</span><span class="w"> </span>min,<span class="w"> </span><span class="m">15</span><span class="w"> </span>users,<span class="w">  </span>load<span class="w"> </span>average:<span class="w"> </span><span class="m">2</span>.09,<span class="w"> </span><span class="m">2</span>.03,<span class="w"> </span><span class="m">2</span>.02
+<span class="w"> </span><span class="m">07</span>:19:03<span class="w"> </span>up<span class="w"> </span><span class="m">22</span><span class="w"> </span>days,<span class="w"> </span><span class="m">0</span><span class="w"> </span>min,<span class="w">  </span><span class="m">1</span><span class="w"> </span>user,<span class="w">  </span>load<span class="w"> </span>average:<span class="w"> </span><span class="m">2</span>.08,<span class="w"> </span><span class="m">2</span>.03,<span class="w"> </span><span class="m">2</span>.01
+<span class="w"> </span><span class="m">07</span>:19:02<span class="w"> </span>up<span class="w"> </span><span class="m">22</span><span class="w"> </span>days,<span class="w"> </span><span class="m">0</span><span class="w"> </span>min,<span class="w">  </span><span class="m">2</span><span class="w"> </span>users,<span class="w">  </span>load<span class="w"> </span>average:<span class="w"> </span><span class="m">2</span>.00,<span class="w"> </span><span class="m">2</span>.01,<span class="w"> </span><span class="m">2</span>.05
+<span class="w"> </span><span class="m">07</span>:19:03<span class="w"> </span>up<span class="w"> </span><span class="m">22</span><span class="w"> </span>days,<span class="w"> </span><span class="m">0</span><span class="w"> </span>min,<span class="w">  </span><span class="m">1</span><span class="w"> </span>user,<span class="w">  </span>load<span class="w"> </span>average:<span class="w"> </span><span class="m">2</span>.08,<span class="w"> </span><span class="m">2</span>.03,<span class="w"> </span><span class="m">2</span>.01
+<span class="w"> </span><span class="m">07</span>:19:03<span class="w"> </span>up<span class="w"> </span><span class="m">22</span><span class="w"> </span>days,<span class="w"> </span><span class="m">0</span><span class="w"> </span>min,<span class="w"> </span><span class="m">15</span><span class="w"> </span>users,<span class="w">  </span>load<span class="w"> </span>average:<span class="w"> </span><span class="m">2</span>.09,<span class="w"> </span><span class="m">2</span>.03,<span class="w"> </span><span class="m">2</span>.02
+<span class="w"> </span><span class="m">07</span>:19:03<span class="w"> </span>up<span class="w"> </span><span class="m">22</span><span class="w"> </span>days,<span class="w"> </span><span class="m">0</span><span class="w"> </span>min,<span class="w">  </span><span class="m">1</span><span class="w"> </span>user,<span class="w">  </span>load<span class="w"> </span>average:<span class="w"> </span><span class="m">2</span>.08,<span class="w"> </span><span class="m">2</span>.03,<span class="w"> </span><span class="m">2</span>.01
+<span class="w"> </span><span class="m">07</span>:19:03<span class="w"> </span>up<span class="w"> </span><span class="m">22</span><span class="w"> </span>days,<span class="w"> </span><span class="m">0</span><span class="w"> </span>min,<span class="w">  </span><span class="m">1</span><span class="w"> </span>user,<span class="w">  </span>load<span class="w"> </span>average:<span class="w"> </span><span class="m">2</span>.08,<span class="w"> </span><span class="m">2</span>.03,<span class="w"> </span><span class="m">2</span>.01
+<span class="w"> </span><span class="m">07</span>:19:02<span class="w"> </span>up<span class="w"> </span><span class="m">22</span><span class="w"> </span>days,<span class="w"> </span><span class="m">0</span><span class="w"> </span>min,<span class="w">  </span><span class="m">2</span><span class="w"> </span>users,<span class="w">  </span>load<span class="w"> </span>average:<span class="w"> </span><span class="m">2</span>.00,<span class="w"> </span><span class="m">2</span>.01,<span class="w"> </span><span class="m">2</span>.05
+<span class="w"> </span><span class="m">07</span>:19:02<span class="w"> </span>up<span class="w"> </span><span class="m">22</span><span class="w"> </span>days,<span class="w"> </span><span class="m">0</span><span class="w"> </span>min,<span class="w">  </span><span class="m">2</span><span class="w"> </span>users,<span class="w">  </span>load<span class="w"> </span>average:<span class="w"> </span><span class="m">2</span>.00,<span class="w"> </span><span class="m">2</span>.01,<span class="w"> </span><span class="m">2</span>.05
+<span class="w"> </span><span class="m">07</span>:19:02<span class="w"> </span>up<span class="w"> </span><span class="m">22</span><span class="w"> </span>days,<span class="w"> </span><span class="m">0</span><span class="w"> </span>min,<span class="w">  </span><span class="m">2</span><span class="w"> </span>users,<span class="w">  </span>load<span class="w"> </span>average:<span class="w"> </span><span class="m">2</span>.00,<span class="w"> </span><span class="m">2</span>.01,<span class="w"> </span><span class="m">2</span>.05
+<span class="w"> </span><span class="m">07</span>:19:03<span class="w"> </span>up<span class="w"> </span><span class="m">22</span><span class="w"> </span>days,<span class="w"> </span><span class="m">0</span><span class="w"> </span>min,<span class="w">  </span><span class="m">4</span><span class="w"> </span>users,<span class="w">  </span>load<span class="w"> </span>average:<span class="w"> </span><span class="m">2</span>.00,<span class="w"> </span><span class="m">2</span>.01,<span class="w"> </span><span class="m">2</span>.01
+<span class="w"> </span><span class="m">07</span>:19:03<span class="w"> </span>up<span class="w"> </span><span class="m">22</span><span class="w"> </span>days,<span class="w"> </span><span class="m">0</span><span class="w"> </span>min,<span class="w">  </span><span class="m">4</span><span class="w"> </span>users,<span class="w">  </span>load<span class="w"> </span>average:<span class="w"> </span><span class="m">2</span>.00,<span class="w"> </span><span class="m">2</span>.01,<span class="w"> </span><span class="m">2</span>.01
+<span class="w"> </span><span class="m">07</span>:19:03<span class="w"> </span>up<span class="w"> </span><span class="m">22</span><span class="w"> </span>days,<span class="w"> </span><span class="m">0</span><span class="w"> </span>min,<span class="w">  </span><span class="m">4</span><span class="w"> </span>users,<span class="w">  </span>load<span class="w"> </span>average:<span class="w"> </span><span class="m">2</span>.00,<span class="w"> </span><span class="m">2</span>.01,<span class="w"> </span><span class="m">2</span>.01
+<span class="w"> </span><span class="m">07</span>:19:03<span class="w"> </span>up<span class="w"> </span><span class="m">22</span><span class="w"> </span>days,<span class="w"> </span><span class="m">0</span><span class="w"> </span>min,<span class="w">  </span><span class="m">4</span><span class="w"> </span>users,<span class="w">  </span>load<span class="w"> </span>average:<span class="w"> </span><span class="m">2</span>.00,<span class="w"> </span><span class="m">2</span>.01,<span class="w"> </span><span class="m">2</span>.01
+$<span class="w"> </span>mpirun<span class="w"> </span>-np<span class="w"> </span><span class="m">16</span><span class="w"> </span>--hostfile<span class="w"> </span>~/hostfile<span class="w"> </span>~/hello.out
+Hello<span class="w"> </span>world<span class="w"> </span>from<span class="w"> </span>processor<span class="w"> </span>master,<span class="w"> </span>rank<span class="w"> </span><span class="m">1</span><span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span><span class="m">16</span><span class="w"> </span>processors
+Hello<span class="w"> </span>world<span class="w"> </span>from<span class="w"> </span>processor<span class="w"> </span>slave1,<span class="w"> </span>rank<span class="w"> </span><span class="m">6</span><span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span><span class="m">16</span><span class="w"> </span>processors
+Hello<span class="w"> </span>world<span class="w"> </span>from<span class="w"> </span>processor<span class="w"> </span>slave2,<span class="w"> </span>rank<span class="w"> </span><span class="m">9</span><span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span><span class="m">16</span><span class="w"> </span>processors
+Hello<span class="w"> </span>world<span class="w"> </span>from<span class="w"> </span>processor<span class="w"> </span>slave3,<span class="w"> </span>rank<span class="w"> </span><span class="m">15</span><span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span><span class="m">16</span><span class="w"> </span>processors
+Hello<span class="w"> </span>world<span class="w"> </span>from<span class="w"> </span>processor<span class="w"> </span>slave1,<span class="w"> </span>rank<span class="w"> </span><span class="m">5</span><span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span><span class="m">16</span><span class="w"> </span>processors
+Hello<span class="w"> </span>world<span class="w"> </span>from<span class="w"> </span>processor<span class="w"> </span>slave2,<span class="w"> </span>rank<span class="w"> </span><span class="m">8</span><span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span><span class="m">16</span><span class="w"> </span>processors
+Hello<span class="w"> </span>world<span class="w"> </span>from<span class="w"> </span>processor<span class="w"> </span>master,<span class="w"> </span>rank<span class="w"> </span><span class="m">0</span><span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span><span class="m">16</span><span class="w"> </span>processors
+Hello<span class="w"> </span>world<span class="w"> </span>from<span class="w"> </span>processor<span class="w"> </span>slave3,<span class="w"> </span>rank<span class="w"> </span><span class="m">13</span><span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span><span class="m">16</span><span class="w"> </span>processors
+Hello<span class="w"> </span>world<span class="w"> </span>from<span class="w"> </span>processor<span class="w"> </span>slave3,<span class="w"> </span>rank<span class="w"> </span><span class="m">14</span><span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span><span class="m">16</span><span class="w"> </span>processors
+Hello<span class="w"> </span>world<span class="w"> </span>from<span class="w"> </span>processor<span class="w"> </span>slave3,<span class="w"> </span>rank<span class="w"> </span><span class="m">12</span><span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span><span class="m">16</span><span class="w"> </span>processors
+Hello<span class="w"> </span>world<span class="w"> </span>from<span class="w"> </span>processor<span class="w"> </span>slave2,<span class="w"> </span>rank<span class="w"> </span><span class="m">10</span><span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span><span class="m">16</span><span class="w"> </span>processors
+Hello<span class="w"> </span>world<span class="w"> </span>from<span class="w"> </span>processor<span class="w"> </span>slave1,<span class="w"> </span>rank<span class="w"> </span><span class="m">4</span><span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span><span class="m">16</span><span class="w"> </span>processors
+Hello<span class="w"> </span>world<span class="w"> </span>from<span class="w"> </span>processor<span class="w"> </span>master,<span class="w"> </span>rank<span class="w"> </span><span class="m">3</span><span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span><span class="m">16</span><span class="w"> </span>processors
+Hello<span class="w"> </span>world<span class="w"> </span>from<span class="w"> </span>processor<span class="w"> </span>slave2,<span class="w"> </span>rank<span class="w"> </span><span class="m">11</span><span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span><span class="m">16</span><span class="w"> </span>processors
+Hello<span class="w"> </span>world<span class="w"> </span>from<span class="w"> </span>processor<span class="w"> </span>slave1,<span class="w"> </span>rank<span class="w"> </span><span class="m">7</span><span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span><span class="m">16</span><span class="w"> </span>processors
+Hello<span class="w"> </span>world<span class="w"> </span>from<span class="w"> </span>processor<span class="w"> </span>master,<span class="w"> </span>rank<span class="w"> </span><span class="m">2</span><span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span><span class="m">16</span><span class="w"> </span>processors
 </pre></div>
 </div>
-</div>
-<div class="section" id="openmpi">
-<h2>OpenMPI<a class="headerlink" href="#openmpi" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="openmpi">
+<h2>OpenMPI<a class="headerlink" href="#openmpi" title="Permalink to this heading"></a></h2>
 <p>Build :</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ mpicc -v
-Using built-in specs.
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mpicc<span class="w"> </span>-v
+Using<span class="w"> </span>built-in<span class="w"> </span>specs.
 <span class="nv">COLLECT_GCC</span><span class="o">=</span>/usr/bin/gcc
 <span class="nv">COLLECT_LTO_WRAPPER</span><span class="o">=</span>/usr/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/lto-wrapper
-Target: x86_64-unknown-linux-gnu
-Configured with: /build/gcc-multilib/src/gcc-5.2.0/configure --prefix<span class="o">=</span>/usr --libdir<span class="o">=</span>/usr/lib --libexecdir<span class="o">=</span>/usr/lib --mandir<span class="o">=</span>/usr/share/man --infodir<span class="o">=</span>/usr/share/info --with-bugurl<span class="o">=</span>https://bugs.archlinux.org/ --enable-languages<span class="o">=</span>c,c++,ada,fortran,go,lto,objc,obj-c++ --enable-shared --enable-threads<span class="o">=</span>posix --enable-libmpx --with-system-zlib --with-isl --enable-__cxa_atexit --disable-libunwind-exceptions --enable-clocale<span class="o">=</span>gnu --disable-libstdcxx-pch --disable-libssp --enable-gnu-unique-object --enable-linker-build-id --enable-lto --enable-plugin --enable-install-libiberty --with-linker-hash-style<span class="o">=</span>gnu --enable-gnu-indirect-function --enable-multilib --disable-werror --enable-checking<span class="o">=</span>release --with-default-libstdcxx-abi<span class="o">=</span>gcc4-compatible
-Thread model: posix
-gcc version <span class="m">5</span>.2.0 <span class="o">(</span>GCC<span class="o">)</span>
-$ <span class="nv">OMPI_CC</span><span class="o">=</span>clang mpicc -v
-clang version <span class="m">4</span>.7.0 <span class="o">(</span>tags/RELEASE_370/final<span class="o">)</span>
-Target: x86_64-unknown-linux-gnu
-Thread model: posix
-Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-unknown-linux-gnu/5.2.0
-Found candidate GCC installation: /usr/bin/../lib64/gcc/x86_64-unknown-linux-gnu/5.2.0
-Found candidate GCC installation: /usr/lib/gcc/x86_64-unknown-linux-gnu/5.2.0
-Found candidate GCC installation: /usr/lib64/gcc/x86_64-unknown-linux-gnu/5.2.0
-Selected GCC installation: /usr/bin/../lib64/gcc/x86_64-unknown-linux-gnu/5.2.0
-Candidate multilib: .<span class="p">;</span>@m64
-Candidate multilib: <span class="m">32</span><span class="p">;</span>@m32
-Selected multilib: .<span class="p">;</span>@m64
+Target:<span class="w"> </span>x86_64-unknown-linux-gnu
+Configured<span class="w"> </span>with:<span class="w"> </span>/build/gcc-multilib/src/gcc-5.2.0/configure<span class="w"> </span>--prefix<span class="o">=</span>/usr<span class="w"> </span>--libdir<span class="o">=</span>/usr/lib<span class="w"> </span>--libexecdir<span class="o">=</span>/usr/lib<span class="w"> </span>--mandir<span class="o">=</span>/usr/share/man<span class="w"> </span>--infodir<span class="o">=</span>/usr/share/info<span class="w"> </span>--with-bugurl<span class="o">=</span>https://bugs.archlinux.org/<span class="w"> </span>--enable-languages<span class="o">=</span>c,c++,ada,fortran,go,lto,objc,obj-c++<span class="w"> </span>--enable-shared<span class="w"> </span>--enable-threads<span class="o">=</span>posix<span class="w"> </span>--enable-libmpx<span class="w"> </span>--with-system-zlib<span class="w"> </span>--with-isl<span class="w"> </span>--enable-__cxa_atexit<span class="w"> </span>--disable-libunwind-exceptions<span class="w"> </span>--enable-clocale<span class="o">=</span>gnu<span class="w"> </span>--disable-libstdcxx-pch<span class="w"> </span>--disable-libssp<span class="w"> </span>--enable-gnu-unique-object<span class="w"> </span>--enable-linker-build-id<span class="w"> </span>--enable-lto<span class="w"> </span>--enable-plugin<span class="w"> </span>--enable-install-libiberty<span class="w"> </span>--with-linker-hash-style<span class="o">=</span>gnu<span class="w"> </span>--enable-gnu-indirect-function<span class="w"> </span>--enable-multilib<span class="w"> </span>--disable-werror<span class="w"> </span>--enable-checking<span class="o">=</span>release<span class="w"> </span>--with-default-libstdcxx-abi<span class="o">=</span>gcc4-compatible
+Thread<span class="w"> </span>model:<span class="w"> </span>posix
+gcc<span class="w"> </span>version<span class="w"> </span><span class="m">5</span>.2.0<span class="w"> </span><span class="o">(</span>GCC<span class="o">)</span>
+$<span class="w"> </span><span class="nv">OMPI_CC</span><span class="o">=</span>clang<span class="w"> </span>mpicc<span class="w"> </span>-v
+clang<span class="w"> </span>version<span class="w"> </span><span class="m">4</span>.7.0<span class="w"> </span><span class="o">(</span>tags/RELEASE_370/final<span class="o">)</span>
+Target:<span class="w"> </span>x86_64-unknown-linux-gnu
+Thread<span class="w"> </span>model:<span class="w"> </span>posix
+Found<span class="w"> </span>candidate<span class="w"> </span>GCC<span class="w"> </span>installation:<span class="w"> </span>/usr/bin/../lib/gcc/x86_64-unknown-linux-gnu/5.2.0
+Found<span class="w"> </span>candidate<span class="w"> </span>GCC<span class="w"> </span>installation:<span class="w"> </span>/usr/bin/../lib64/gcc/x86_64-unknown-linux-gnu/5.2.0
+Found<span class="w"> </span>candidate<span class="w"> </span>GCC<span class="w"> </span>installation:<span class="w"> </span>/usr/lib/gcc/x86_64-unknown-linux-gnu/5.2.0
+Found<span class="w"> </span>candidate<span class="w"> </span>GCC<span class="w"> </span>installation:<span class="w"> </span>/usr/lib64/gcc/x86_64-unknown-linux-gnu/5.2.0
+Selected<span class="w"> </span>GCC<span class="w"> </span>installation:<span class="w"> </span>/usr/bin/../lib64/gcc/x86_64-unknown-linux-gnu/5.2.0
+Candidate<span class="w"> </span>multilib:<span class="w"> </span>.<span class="p">;</span>@m64
+Candidate<span class="w"> </span>multilib:<span class="w"> </span><span class="m">32</span><span class="p">;</span>@m32
+Selected<span class="w"> </span>multilib:<span class="w"> </span>.<span class="p">;</span>@m64
 </pre></div>
 </div>
 <p>Show Flags :</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show the flags necessary to compile MPI C applications</span>
-$ mpicc --showme:compile
+$<span class="w"> </span>mpicc<span class="w"> </span>--showme:compile
 -pthread
 <span class="c1"># Show the flags necessary to link MPI C applications</span>
-$ mpicc --showme:link
--pthread -Wl,-rpath -Wl,/usr/lib/openmpi -Wl,--enable-new-dtags -L/usr/lib/openmpi -lmpi
-$ mpicc hello.c --showme
-gcc hello.c -pthread -Wl,-rpath -Wl,/usr/lib/openmpi -Wl,--enable-new-dtags -L/usr/lib/openmpi -lmpi
+$<span class="w"> </span>mpicc<span class="w"> </span>--showme:link
+-pthread<span class="w"> </span>-Wl,-rpath<span class="w"> </span>-Wl,/usr/lib/openmpi<span class="w"> </span>-Wl,--enable-new-dtags<span class="w"> </span>-L/usr/lib/openmpi<span class="w"> </span>-lmpi
+$<span class="w"> </span>mpicc<span class="w"> </span>hello.c<span class="w"> </span>--showme
+gcc<span class="w"> </span>hello.c<span class="w"> </span>-pthread<span class="w"> </span>-Wl,-rpath<span class="w"> </span>-Wl,/usr/lib/openmpi<span class="w"> </span>-Wl,--enable-new-dtags<span class="w"> </span>-L/usr/lib/openmpi<span class="w"> </span>-lmpi
 </pre></div>
 </div>
 <p>Makefile for use your compiler directly (not using OpenMPI wrapper compilers) :</p>
-<div class="highlight-make notranslate"><div class="highlight"><pre><span></span><span class="nv">MPI_COMPILE_FLAGS</span> <span class="o">=</span> <span class="k">$(</span>shell mpicc --showme:compile<span class="k">)</span>
-<span class="nv">MPI_LINK_FLAGS</span> <span class="o">=</span> <span class="k">$(</span>shell mpicc --showme:link<span class="k">)</span>
+<div class="highlight-make notranslate"><div class="highlight"><pre><span></span><span class="nv">MPI_COMPILE_FLAGS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">$(</span>shell<span class="w"> </span>mpicc<span class="w"> </span>--showme:compile<span class="k">)</span>
+<span class="nv">MPI_LINK_FLAGS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">$(</span>shell<span class="w"> </span>mpicc<span class="w"> </span>--showme:link<span class="k">)</span>
 
-<span class="nf">my_app</span><span class="o">:</span> <span class="n">my_app</span>.<span class="n">c</span>
-        <span class="k">$(</span>CC<span class="k">)</span> <span class="k">$(</span>MPI_COMPILE_FLAGS<span class="k">)</span> my_app.c <span class="k">$(</span>MPI_LINK_FLAGS<span class="k">)</span> -o my_app
+<span class="nf">my_app</span><span class="o">:</span><span class="w"> </span><span class="n">my_app</span>.<span class="n">c</span>
+<span class="w">        </span><span class="k">$(</span>CC<span class="k">)</span><span class="w"> </span><span class="k">$(</span>MPI_COMPILE_FLAGS<span class="k">)</span><span class="w"> </span>my_app.c<span class="w"> </span><span class="k">$(</span>MPI_LINK_FLAGS<span class="k">)</span><span class="w"> </span>-o<span class="w"> </span>my_app
 </pre></div>
 </div>
 <p>Information :</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ompi_info
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ompi_info
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>　               Package: Open MPI builduser@anatol Distribution
@@ -1199,19 +1129,19 @@ Memory debugging support: no
 </pre></div>
 </div>
 <p>More Information :</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ompi_info --all --parsable
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ompi_info<span class="w"> </span>--all<span class="w"> </span>--parsable
 ...
 </pre></div>
 </div>
-</div>
-<div class="section" id="id1">
-<h2>MPI<a class="headerlink" href="#id1" title="本標題的永久連結">¶</a></h2>
-<div class="section" id="parallel-for">
-<h3>Parallel For<a class="headerlink" href="#parallel-for" title="本標題的永久連結">¶</a></h3>
-</div>
-</div>
-<div class="section" id="reference">
-<h2>Reference<a class="headerlink" href="#reference" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="id1">
+<h2>MPI<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
+<section id="parallel-for">
+<h3>Parallel For<a class="headerlink" href="#parallel-for" title="Permalink to this heading"></a></h3>
+</section>
+</section>
+<section id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="http://mpitutorial.com/tutorials/">MPI Tutorial</a></p></li>
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Open_MPI">Wikipedia - Open MPI</a></p></li>
@@ -1220,37 +1150,33 @@ Memory debugging support: no
 <li><p><a class="reference external" href="http://www.open-mpi.org/faq/?category=mpi-apps#override-wrappers-after-v1.0">Open MPI - FAQ - Compiling MPI applications - How do I override the flags specified by Open MPI’s wrapper compilers? (v1.1 series and beyond)</a></p></li>
 <li><p><a class="reference external" href="https://www.open-mpi.org/faq/?category=running">Open MPI - FAQ - Running MPI jobs</a></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016
-
-    </p>
+    <p>&#169; Copyright 2023.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
   
 
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       <span class="fa fa-book"> Read the Docs</span>
       v: latest
@@ -1260,7 +1186,7 @@ Memory debugging support: no
       <dl>
         <dt>Versions</dt>
         
-          <dd><a href="/zh_TW/latest/">latest</a></dd>
+          <dd><a href="https://wdv4758h.github.io/notes/">latest</a></dd>
         
       </dl>
       <dl>
@@ -1270,6 +1196,7 @@ Memory debugging support: no
         
       </dl>
       <dl>
+        
         <dt>On Read the Docs</dt>
           <dd>
             <a href="//readthedocs.org/projects/wdv4758h-notes/?fromdocs=wdv4758h-notes">Project Home</a>
@@ -1278,22 +1205,13 @@ Memory debugging support: no
             <a href="//readthedocs.org/builds/wdv4758h-notes/?fromdocs=wdv4758h-notes">Builds</a>
           </dd>
       </dl>
-      <hr/>
-      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
-
     </div>
   </div>
-
-
-
-  <script type="text/javascript">
+<script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-   
+  </script> 
 
 </body>
 </html>

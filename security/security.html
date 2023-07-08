@@ -1,114 +1,75 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-TW" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-TW" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Security &mdash; wdv4758h-notes latest 說明文件</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Security &mdash; wdv4758h-notes latest documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="搜尋" href="../search.html" />
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Security Libs" href="security-libs.html" />
     <link rel="prev" title="SGX (Secure Guard Extensions)" href="secure-guard-extensions.html" /> 
 
 <!-- RTD Extra Head -->
 
-<!-- 
-Always link to the latest version, as canonical.
-http://docs.readthedocs.org/en/latest/canonical.html
--->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/security/security.html" />
+    <!--
+    Always link to the latest version, as canonical.
+    http://docs.readthedocs.org/en/latest/canonical.html
+    -->
+    <link rel="canonical" href="https://wdv4758h-notes.readthedocs.io/zh_TW/latest/security/security.html" />
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": "", "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": "https://wdv4758h-notes.readthedocs.io/zh_TW/latest/", "docroot": "/./", "features": {"docsearch_disabled": false}, "global_analytics_code": "", "language": "en", "page": "security/security", "programming_language": "", "project": "wdv4758h-notes", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": ""}</script>
 
-<!-- Add page-specific data, which must exist in the page js, not global -->
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = "security/security"
-READTHEDOCS_DATA['source_suffix'] = ".rst"
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
 </script>
 
-<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js" async="async"></script>
 
 <!-- end RTD <extrahead> -->
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../index.html" class="icon icon-home"> wdv4758h-notes
           
-
-          
+          <a href="../index.html" class="icon icon-home">
+            wdv4758h-notes
           </a>
-
-          
-            
-            
-            
               <div class="version">
                 latest
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/README.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/adt.html">ADT (Abstract Data Type)</a></li>
@@ -118,13 +79,18 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/cache.html">Cache</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/cache-friendly.html">Cache Friendly Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/dict.html">Dict</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/float-to-string.html">Float to String</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/heap.html">Heap （堆）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/introduction.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/inverse-square-root.html">Inverse Square Root</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/lock.html">Lock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/meta-algorithm.html">Meta Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/random-number-generator.html">Random Number Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/resource.html">演算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/sorting.html">Sorting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/string-to-float.html">String to Float</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/substring-searching.html">Substring Searching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/README.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/android-emulator.html">Android Emulator</a></li>
@@ -200,7 +166,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../blog/openmp.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#tutorial">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#id5">額外紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#id4">額外紀錄</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/python-benchmark.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/python-benchmark.html#hello-world">Hello World</a></li>
@@ -227,7 +193,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../blog/qemu-first-step.html#qemu-with-kvm">QEMU with KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html">Syntax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closure">Closure 和外部變數</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#move-closures">「move」 closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#move-closures">“move” closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closure-implementation">Closure implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closures-as-arguments">closures as arguments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#returning-closures">returning closures</a></li>
@@ -408,6 +374,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/ci.html">Continuous Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/concourse.html">Concourse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/drone.html">Drone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../continuous-integration/github-actions.html">Github Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/jenkins.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/travis-ci.html">Travis CI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/workflow-pipeline.html">Workflow Pipeline</a></li>
@@ -417,7 +384,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../cpp/array.html">std::array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/assembly.html">C++ &amp; Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/bit-field.html">C++ Bit Field</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cpp/c++17.html">C++17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/c%2B%2B17.html">C++17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/concepts.html">C++ Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/const.html">C++ const</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/copy-elision.html">Copy Elision</a></li>
@@ -470,13 +437,16 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../database/README.html">資料庫 (Database)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/cockroachdb.html">CockroachDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/consensus-algorithm.html">Raft Consensus Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/graph.html">Graph Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/leveldb.html">LevelDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/materialized-views.html">Materialized Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mongodb.html">MongoDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/rocksdb.html">RocksDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sql.html">SQL (Structured Query Language)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/tidb.html">TiDB</a></li>
@@ -549,7 +519,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/math-on-web.html">Math on Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/misc.html">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../memory/W^X.html">W^X (Write XOR Execute)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../memory/W%5EX.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/kernel-memory-management.html">Kernel Memory Management</a></li>
@@ -826,74 +796,34 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../wiki/resource.html">Wiki</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">wdv4758h-notes</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-      <li>Security</li>
-    
-    
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Security</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/wdv4758h/notes/blob/master/./security/security.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="security">
-<h1>Security<a class="headerlink" href="#security" title="本標題的永久連結">¶</a></h1>
-<div class="section" id="useful-commands">
-<h2>Useful Commands<a class="headerlink" href="#useful-commands" title="本標題的永久連結">¶</a></h2>
+             
+  <section id="security">
+<h1>Security<a class="headerlink" href="#security" title="Permalink to this heading"></a></h1>
+<section id="useful-commands">
+<h2>Useful Commands<a class="headerlink" href="#useful-commands" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>file</p></li>
 <li><p>hexdump</p></li>
@@ -904,44 +834,44 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li><p>valgrind</p></li>
 <li><p>dmesg</p></li>
 </ul>
-</div>
-<div class="section" id="binary-to-assembly">
-<h2>Binary to Assembly<a class="headerlink" href="#binary-to-assembly" title="本標題的永久連結">¶</a></h2>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo pacman -S nasm
-$ ndisasm BINARY
+</section>
+<section id="binary-to-assembly">
+<h2>Binary to Assembly<a class="headerlink" href="#binary-to-assembly" title="Permalink to this heading"></a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>nasm
+$<span class="w"> </span>ndisasm<span class="w"> </span>BINARY
 </pre></div>
 </div>
-</div>
-<div class="section" id="memory-checking">
-<h2>Memory Checking<a class="headerlink" href="#memory-checking" title="本標題的永久連結">¶</a></h2>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo pacman -S valgrind-multilib  <span class="c1"># for both x86_64 and x86</span>
+</section>
+<section id="memory-checking">
+<h2>Memory Checking<a class="headerlink" href="#memory-checking" title="Permalink to this heading"></a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>valgrind-multilib<span class="w">  </span><span class="c1"># for both x86_64 and x86</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="ida-pro">
-<h2>IDA Pro<a class="headerlink" href="#ida-pro" title="本標題的永久連結">¶</a></h2>
-</div>
-<div class="section" id="buffer-overflow">
-<h2>Buffer Overflow<a class="headerlink" href="#buffer-overflow" title="本標題的永久連結">¶</a></h2>
-<div class="section" id="buffer-overflow-example-1">
-<h3>Buffer Overflow - Example 1<a class="headerlink" href="#buffer-overflow-example-1" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="ida-pro">
+<h2>IDA Pro<a class="headerlink" href="#ida-pro" title="Permalink to this heading"></a></h2>
+</section>
+<section id="buffer-overflow">
+<h2>Buffer Overflow<a class="headerlink" href="#buffer-overflow" title="Permalink to this heading"></a></h2>
+<section id="buffer-overflow-example-1">
+<h3>Buffer Overflow - Example 1<a class="headerlink" href="#buffer-overflow-example-1" title="Permalink to this heading"></a></h3>
 <p>hack EIP in your own code</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;     // system</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="c1">     // system</span>
 
-<span class="kt">void</span> <span class="nf">func</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;buffer overflow</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-    <span class="n">system</span><span class="p">(</span><span class="s">&quot;/bin/sh&quot;</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;buffer overflow</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">system</span><span class="p">(</span><span class="s">&quot;/bin/sh&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">bof</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
-    <span class="o">*</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">buf</span><span class="p">[</span><span class="mi">10</span> <span class="o">+</span> <span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="n">func</span><span class="p">;</span>   <span class="c1">// buf[10] =&gt; ebp, buf[14] =&gt; eip</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">bof</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+<span class="w">    </span><span class="o">*</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="n">buf</span><span class="p">[</span><span class="mi">10</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">func</span><span class="p">;</span><span class="w">   </span><span class="c1">// buf[10] =&gt; ebp, buf[14] =&gt; eip</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">bof</span><span class="p">();</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">bof</span><span class="p">();</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="cm">/*</span>
@@ -999,35 +929,35 @@ $ ndisasm BINARY
 </pre></div>
 </div>
 <p>compile</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ gcc -m32 bof_1.c -o bof_1
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gcc<span class="w"> </span>-m32<span class="w"> </span>bof_1.c<span class="w"> </span>-o<span class="w"> </span>bof_1
 </pre></div>
 </div>
-</div>
-<div class="section" id="buffer-overflow-example-2">
-<h3>Buffer Overflow - Example 2<a class="headerlink" href="#buffer-overflow-example-2" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="buffer-overflow-example-2">
+<h3>Buffer Overflow - Example 2<a class="headerlink" href="#buffer-overflow-example-2" title="Permalink to this heading"></a></h3>
 <p>hack EIP in your own code (with arguments)</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;     // system</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="c1">     // system</span>
 
-<span class="kt">void</span> <span class="nf">func</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;buffer overflow</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-    <span class="n">system</span><span class="p">(</span><span class="s">&quot;/bin/sh&quot;</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;buffer overflow</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">system</span><span class="p">(</span><span class="s">&quot;/bin/sh&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">bof</span><span class="p">(</span><span class="kt">long</span> <span class="n">a</span><span class="p">,</span> <span class="kt">long</span> <span class="n">b</span><span class="p">,</span> <span class="kt">long</span> <span class="n">c</span><span class="p">,</span> <span class="kt">long</span> <span class="n">d</span><span class="p">,</span>
-         <span class="kt">long</span> <span class="n">e</span><span class="p">,</span> <span class="kt">long</span> <span class="n">f</span><span class="p">,</span> <span class="kt">long</span> <span class="n">g</span><span class="p">,</span> <span class="kt">long</span> <span class="n">h</span><span class="p">)</span> <span class="p">{</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">bof</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">d</span><span class="p">,</span>
+<span class="w">         </span><span class="kt">long</span><span class="w"> </span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">h</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;bof test</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-    <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
-    <span class="o">*</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">buf</span><span class="p">[</span><span class="mi">10</span> <span class="o">+</span> <span class="mi">8</span> <span class="o">+</span> <span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="n">func</span><span class="p">;</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;bof test</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+<span class="w">    </span><span class="o">*</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="n">buf</span><span class="p">[</span><span class="mi">10</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">func</span><span class="p">;</span>
 
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;start</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-    <span class="n">bof</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;end</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;start</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">bof</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;end</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="cm">/*</span>
@@ -1164,264 +1094,254 @@ $ ndisasm BINARY
 </pre></div>
 </div>
 <p>compile</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ gcc -m32 bof_2.c -o bof_2
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gcc<span class="w"> </span>-m32<span class="w"> </span>bof_2.c<span class="w"> </span>-o<span class="w"> </span>bof_2
 </pre></div>
 </div>
-</div>
-<div class="section" id="buffer-overflow-example-3">
-<h3>Buffer Overflow - Example 3<a class="headerlink" href="#buffer-overflow-example-3" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="buffer-overflow-example-3">
+<h3>Buffer Overflow - Example 3<a class="headerlink" href="#buffer-overflow-example-3" title="Permalink to this heading"></a></h3>
 <p>hack EIP by scanf</p>
-<p>(notice: scanf 和 gets 都會在結尾加上 『0』)</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;     // system</span><span class="cp"></span>
+<p>(notice: scanf 和 gets 都會在結尾加上 ‘0’)</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="c1">     // system</span>
 
-<span class="kt">void</span> <span class="nf">func</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;buffer overflow</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-    <span class="n">system</span><span class="p">(</span><span class="s">&quot;/bin/sh&quot;</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;buffer overflow</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">system</span><span class="p">(</span><span class="s">&quot;/bin/sh&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">bof</span><span class="p">(</span><span class="kt">long</span> <span class="n">a</span><span class="p">,</span> <span class="kt">long</span> <span class="n">b</span><span class="p">,</span> <span class="kt">long</span> <span class="n">c</span><span class="p">,</span> <span class="kt">long</span> <span class="n">d</span><span class="p">,</span>
-         <span class="kt">long</span> <span class="n">e</span><span class="p">,</span> <span class="kt">long</span> <span class="n">f</span><span class="p">,</span> <span class="kt">long</span> <span class="n">g</span><span class="p">,</span> <span class="kt">long</span> <span class="n">h</span><span class="p">)</span> <span class="p">{</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">bof</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">d</span><span class="p">,</span>
+<span class="w">         </span><span class="kt">long</span><span class="w"> </span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">h</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;bof test</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-    <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span> <span class="n">buf</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;bof test</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">);</span>
 
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;start</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-    <span class="n">bof</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;end</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;start</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">bof</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;end</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>compile</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ gcc -m32 bof_3.c -o bof_3
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gcc<span class="w"> </span>-m32<span class="w"> </span>bof_3.c<span class="w"> </span>-o<span class="w"> </span>bof_3
 </pre></div>
 </div>
 <p>generate input</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ readelf -a ./bof_3  <span class="p">|</span> grep func   <span class="c1"># func&#39;s address is 0x080484fb</span>
-    <span class="m">40</span>: 080484fb    <span class="m">41</span> FUNC    GLOBAL DEFAULT   <span class="m">13</span> func
-$ python -c <span class="s2">&quot;print(&#39;0123456789123456781234&#39; + chr(0xfb) + chr(0x84) + chr(0x04) + chr(0x08))&quot;</span> &gt; input.utf8
-$ iconv -f utf-8 -t iso-8859-1 input.utf8 &gt; input.latin1    <span class="c1"># use eight-bit ASCII extensions instead of UTF8</span>
-$ ./bof_3 &lt; input.latin1
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>readelf<span class="w"> </span>-a<span class="w"> </span>./bof_3<span class="w">  </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>func<span class="w">   </span><span class="c1"># func&#39;s address is 0x080484fb</span>
+<span class="w">    </span><span class="m">40</span>:<span class="w"> </span>080484fb<span class="w">    </span><span class="m">41</span><span class="w"> </span>FUNC<span class="w">    </span>GLOBAL<span class="w"> </span>DEFAULT<span class="w">   </span><span class="m">13</span><span class="w"> </span>func
+$<span class="w"> </span>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;print(&#39;0123456789123456781234&#39; + chr(0xfb) + chr(0x84) + chr(0x04) + chr(0x08))&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>input.utf8
+$<span class="w"> </span>iconv<span class="w"> </span>-f<span class="w"> </span>utf-8<span class="w"> </span>-t<span class="w"> </span>iso-8859-1<span class="w"> </span>input.utf8<span class="w"> </span>&gt;<span class="w"> </span>input.latin1<span class="w">    </span><span class="c1"># use eight-bit ASCII extensions instead of UTF8</span>
+$<span class="w"> </span>./bof_3<span class="w"> </span>&lt;<span class="w"> </span>input.latin1
 start
-bof <span class="nb">test</span>
-buffer overflow
-Segmentation fault <span class="o">(</span>core dumped<span class="o">)</span>
+bof<span class="w"> </span><span class="nb">test</span>
+buffer<span class="w"> </span>overflow
+Segmentation<span class="w"> </span>fault<span class="w"> </span><span class="o">(</span>core<span class="w"> </span>dumped<span class="o">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="buffer-overflow-example-4">
-<h3>Buffer Overflow - Example 4<a class="headerlink" href="#buffer-overflow-example-4" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="buffer-overflow-example-4">
+<h3>Buffer Overflow - Example 4<a class="headerlink" href="#buffer-overflow-example-4" title="Permalink to this heading"></a></h3>
 <p>[todo]</p>
 <p>inject your code (shellcode)</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 
-<span class="kt">void</span> <span class="nf">bof</span><span class="p">(</span><span class="kt">long</span> <span class="n">a</span><span class="p">,</span> <span class="kt">long</span> <span class="n">b</span><span class="p">,</span> <span class="kt">long</span> <span class="n">c</span><span class="p">,</span> <span class="kt">long</span> <span class="n">d</span><span class="p">,</span>
-         <span class="kt">long</span> <span class="n">e</span><span class="p">,</span> <span class="kt">long</span> <span class="n">f</span><span class="p">,</span> <span class="kt">long</span> <span class="n">g</span><span class="p">,</span> <span class="kt">long</span> <span class="n">h</span><span class="p">)</span> <span class="p">{</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">bof</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">d</span><span class="p">,</span>
+<span class="w">         </span><span class="kt">long</span><span class="w"> </span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">h</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;bof test</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-    <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span> <span class="n">buf</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;bof test</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">);</span>
 
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;start</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-    <span class="n">bof</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;end</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;start</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">bof</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;end</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="section" id="assembly-practice">
-<h4>Assembly Practice<a class="headerlink" href="#assembly-practice" title="本標題的永久連結">¶</a></h4>
+<section id="assembly-practice">
+<h4>Assembly Practice<a class="headerlink" href="#assembly-practice" title="Permalink to this heading"></a></h4>
 <p>寫到 stdout：</p>
 <div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="na">.data</span>
 <span class="nl">msg:</span>
-    <span class="na">.ascii</span> <span class="s">&quot;Hello World!\n&quot;</span>
+<span class="w">    </span><span class="na">.ascii</span><span class="w"> </span><span class="s">&quot;Hello World!\n&quot;</span>
 
 <span class="na">.text</span>
-<span class="na">.globl</span> <span class="no">_start</span>
+<span class="na">.globl</span><span class="w"> </span><span class="no">_start</span>
 
 <span class="nl">_start:</span>
-    <span class="nf">movl</span> <span class="no">$4</span><span class="p">,</span> <span class="nv">%eax</span>   <span class="c"># use the write syscall</span>
-    <span class="nf">movl</span> <span class="no">$1</span><span class="p">,</span> <span class="nv">%ebx</span>   <span class="c"># write to stdout</span>
-    <span class="nf">movl</span> <span class="no">$msg</span><span class="p">,</span> <span class="nv">%ecx</span> <span class="c"># use string of msg</span>
-    <span class="nf">movl</span> <span class="no">$13</span><span class="p">,</span> <span class="nv">%edx</span>  <span class="c"># write 13 characters</span>
-    <span class="nf">int</span> <span class="no">$0x80</span>       <span class="c"># make syscall</span>
+<span class="w">    </span><span class="nf">movl</span><span class="w"> </span><span class="no">$4</span><span class="p">,</span><span class="w"> </span><span class="nv">%eax</span><span class="w">   </span><span class="c1"># use the write syscall</span>
+<span class="w">    </span><span class="nf">movl</span><span class="w"> </span><span class="no">$1</span><span class="p">,</span><span class="w"> </span><span class="nv">%ebx</span><span class="w">   </span><span class="c1"># write to stdout</span>
+<span class="w">    </span><span class="nf">movl</span><span class="w"> </span><span class="no">$msg</span><span class="p">,</span><span class="w"> </span><span class="nv">%ecx</span><span class="w"> </span><span class="c1"># use string of msg</span>
+<span class="w">    </span><span class="nf">movl</span><span class="w"> </span><span class="no">$13</span><span class="p">,</span><span class="w"> </span><span class="nv">%edx</span><span class="w">  </span><span class="c1"># write 13 characters</span>
+<span class="w">    </span><span class="nf">int</span><span class="w"> </span><span class="no">$0x80</span><span class="w">       </span><span class="c1"># make syscall</span>
 
-    <span class="nf">movl</span> <span class="no">$1</span><span class="p">,</span> <span class="nv">%eax</span>   <span class="c"># use the _exit syscall</span>
-    <span class="nf">movl</span> <span class="no">$0</span><span class="p">,</span> <span class="nv">%ebx</span>   <span class="c"># error code 0</span>
-    <span class="nf">int</span> <span class="no">$0x80</span>       <span class="c"># make syscall</span>
+<span class="w">    </span><span class="nf">movl</span><span class="w"> </span><span class="no">$1</span><span class="p">,</span><span class="w"> </span><span class="nv">%eax</span><span class="w">   </span><span class="c1"># use the _exit syscall</span>
+<span class="w">    </span><span class="nf">movl</span><span class="w"> </span><span class="no">$0</span><span class="p">,</span><span class="w"> </span><span class="nv">%ebx</span><span class="w">   </span><span class="c1"># error code 0</span>
+<span class="w">    </span><span class="nf">int</span><span class="w"> </span><span class="no">$0x80</span><span class="w">       </span><span class="c1"># make syscall</span>
 </pre></div>
 </div>
 <p>使用 execve system call</p>
 <div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="na">.data</span>
 <span class="nl">cmd:</span>
-    <span class="na">.ascii</span> <span class="s">&quot;/bin/sh&quot;</span>
+<span class="w">    </span><span class="na">.ascii</span><span class="w"> </span><span class="s">&quot;/bin/sh&quot;</span>
 
 <span class="na">.text</span>
-<span class="na">.globl</span> <span class="no">_start</span>
+<span class="na">.globl</span><span class="w"> </span><span class="no">_start</span>
 
 <span class="nl">_start:</span>
-    <span class="nf">movl</span> <span class="no">$11</span><span class="p">,</span> <span class="nv">%eax</span>  <span class="c"># use the execve syscall</span>
-    <span class="nf">movl</span> <span class="no">$cmd</span><span class="p">,</span> <span class="nv">%ebx</span> <span class="c"># use string of cmd</span>
-    <span class="nf">int</span> <span class="no">$0x80</span>       <span class="c"># make syscall</span>
+<span class="w">    </span><span class="nf">movl</span><span class="w"> </span><span class="no">$11</span><span class="p">,</span><span class="w"> </span><span class="nv">%eax</span><span class="w">  </span><span class="c1"># use the execve syscall</span>
+<span class="w">    </span><span class="nf">movl</span><span class="w"> </span><span class="no">$cmd</span><span class="p">,</span><span class="w"> </span><span class="nv">%ebx</span><span class="w"> </span><span class="c1"># use string of cmd</span>
+<span class="w">    </span><span class="nf">int</span><span class="w"> </span><span class="no">$0x80</span><span class="w">       </span><span class="c1"># make syscall</span>
 
-    <span class="nf">movl</span> <span class="no">$1</span><span class="p">,</span> <span class="nv">%eax</span>   <span class="c"># use the _exit syscall</span>
-    <span class="nf">movl</span> <span class="no">$0</span><span class="p">,</span> <span class="nv">%ebx</span>   <span class="c"># error code 0</span>
-    <span class="nf">int</span> <span class="no">$0x80</span>       <span class="c"># make syscall</span>
+<span class="w">    </span><span class="nf">movl</span><span class="w"> </span><span class="no">$1</span><span class="p">,</span><span class="w"> </span><span class="nv">%eax</span><span class="w">   </span><span class="c1"># use the _exit syscall</span>
+<span class="w">    </span><span class="nf">movl</span><span class="w"> </span><span class="no">$0</span><span class="p">,</span><span class="w"> </span><span class="nv">%ebx</span><span class="w">   </span><span class="c1"># error code 0</span>
+<span class="w">    </span><span class="nf">int</span><span class="w"> </span><span class="no">$0x80</span><span class="w">       </span><span class="c1"># make syscall</span>
 </pre></div>
 </div>
 <p>ignore _exit, make it shorter</p>
 <div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="na">.data</span>
 <span class="nl">cmd:</span>
-    <span class="na">.ascii</span> <span class="s">&quot;/bin/sh&quot;</span>
+<span class="w">    </span><span class="na">.ascii</span><span class="w"> </span><span class="s">&quot;/bin/sh&quot;</span>
 
 <span class="na">.text</span>
-<span class="na">.globl</span> <span class="no">_start</span>
+<span class="na">.globl</span><span class="w"> </span><span class="no">_start</span>
 
 <span class="nl">_start:</span>
-    <span class="nf">movl</span> <span class="no">$11</span><span class="p">,</span> <span class="nv">%eax</span>  <span class="c"># use the execve syscall</span>
-    <span class="nf">movl</span> <span class="no">$cmd</span><span class="p">,</span> <span class="nv">%ebx</span> <span class="c"># use string of cmd</span>
-    <span class="nf">int</span> <span class="no">$0x80</span>       <span class="c"># make syscall</span>
+<span class="w">    </span><span class="nf">movl</span><span class="w"> </span><span class="no">$11</span><span class="p">,</span><span class="w"> </span><span class="nv">%eax</span><span class="w">  </span><span class="c1"># use the execve syscall</span>
+<span class="w">    </span><span class="nf">movl</span><span class="w"> </span><span class="no">$cmd</span><span class="p">,</span><span class="w"> </span><span class="nv">%ebx</span><span class="w"> </span><span class="c1"># use string of cmd</span>
+<span class="w">    </span><span class="nf">int</span><span class="w"> </span><span class="no">$0x80</span><span class="w">       </span><span class="c1"># make syscall</span>
 </pre></div>
 </div>
 <p>compile</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ gcc -nostdlib practice.s -o practice
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gcc<span class="w"> </span>-nostdlib<span class="w"> </span>practice.s<span class="w"> </span>-o<span class="w"> </span>practice
 </pre></div>
 </div>
-</div>
-<div class="section" id="id1">
-<h4>觀察<a class="headerlink" href="#id1" title="本標題的永久連結">¶</a></h4>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ gdb /usr/lib32/libc.so.6
-<span class="o">(</span>gdb<span class="o">)</span> disassemble execve
-Dump of assembler code <span class="k">for</span> <span class="k">function</span> execve:
-0x000b29a0 &lt;+0&gt;:     push   %ebx
-0x000b29a1 &lt;+1&gt;:     mov    0x10<span class="o">(</span>%esp<span class="o">)</span>,%edx  <span class="c1"># put address of **envp into edx register</span>
-0x000b29a5 &lt;+5&gt;:     mov    0xc<span class="o">(</span>%esp<span class="o">)</span>,%ecx   <span class="c1"># put address of **argv into ecx register</span>
-0x000b29a9 &lt;+9&gt;:     mov    0x8<span class="o">(</span>%esp<span class="o">)</span>,%ebx   <span class="c1"># put address of *filename into ebx register</span>
-0x000b29ad &lt;+13&gt;:    mov    <span class="nv">$0</span>xb,%eax        <span class="c1"># put 0xb in eax register; 0xb == execve in the internal system call table (32 bits Linux kernel)</span>
-0x000b29b2 &lt;+18&gt;:    call   *%gs:0x10
-0x000b29b9 &lt;+25&gt;:    pop    %ebx
-0x000b29ba &lt;+26&gt;:    cmp    <span class="nv">$0</span>xfffff001,%eax
-0x000b29bf &lt;+31&gt;:    jae    0xb29c2 &lt;execve+34&gt;
-0x000b29c1 &lt;+33&gt;:    ret
-0x000b29c2 &lt;+34&gt;:    call   0x12158d &lt;__x86.get_pc_thunk.cx&gt;
-0x000b29c7 &lt;+39&gt;:    add    <span class="nv">$0</span>x100639,%ecx
-0x000b29cd &lt;+45&gt;:    mov    -0xe4<span class="o">(</span>%ecx<span class="o">)</span>,%ecx
-0x000b29d3 &lt;+51&gt;:    neg    %eax
-0x000b29d5 &lt;+53&gt;:    add    %gs:0x0,%ecx
-0x000b29dc &lt;+60&gt;:    mov    %eax,<span class="o">(</span>%ecx<span class="o">)</span>
-0x000b29de &lt;+62&gt;:    or     <span class="nv">$0</span>xffffffff,%eax
-0x000b29e1 &lt;+65&gt;:    ret
-End of assembler dump.
-<span class="o">(</span>gdb<span class="o">)</span> disassemble system
-Dump of assembler code <span class="k">for</span> <span class="k">function</span> system:
-0x0003ae00 &lt;+0&gt;:     sub    <span class="nv">$0</span>xc,%esp
-0x0003ae03 &lt;+3&gt;:     mov    0x10<span class="o">(</span>%esp<span class="o">)</span>,%eax
-0x0003ae07 &lt;+7&gt;:     call   0x121585 &lt;__x86.get_pc_thunk.dx&gt;
-0x0003ae0c &lt;+12&gt;:    add    <span class="nv">$0</span>x1781f4,%edx
-0x0003ae12 &lt;+18&gt;:    <span class="nb">test</span>   %eax,%eax
-0x0003ae14 &lt;+20&gt;:    je     0x3ae20 &lt;system+32&gt;
-0x0003ae16 &lt;+22&gt;:    add    <span class="nv">$0</span>xc,%esp
-0x0003ae19 &lt;+25&gt;:    jmp    0x3a8a0 &lt;do_system&gt;
-0x0003ae1e &lt;+30&gt;:    xchg   %ax,%ax
-0x0003ae20 &lt;+32&gt;:    lea    -0x55d5f<span class="o">(</span>%edx<span class="o">)</span>,%eax
-0x0003ae26 &lt;+38&gt;:    call   0x3a8a0 &lt;do_system&gt;
-0x0003ae2b &lt;+43&gt;:    <span class="nb">test</span>   %eax,%eax
-0x0003ae2d &lt;+45&gt;:    sete   %al
-0x0003ae30 &lt;+48&gt;:    add    <span class="nv">$0</span>xc,%esp
-0x0003ae33 &lt;+51&gt;:    movzbl %al,%eax
-0x0003ae36 &lt;+54&gt;:    ret
-End of assembler dump.
+</section>
+<section id="id1">
+<h4>觀察<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h4>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gdb<span class="w"> </span>/usr/lib32/libc.so.6
+<span class="o">(</span>gdb<span class="o">)</span><span class="w"> </span>disassemble<span class="w"> </span>execve
+Dump<span class="w"> </span>of<span class="w"> </span>assembler<span class="w"> </span>code<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">function</span><span class="w"> </span>execve:
+0x000b29a0<span class="w"> </span>&lt;+0&gt;:<span class="w">     </span>push<span class="w">   </span>%ebx
+0x000b29a1<span class="w"> </span>&lt;+1&gt;:<span class="w">     </span>mov<span class="w">    </span>0x10<span class="o">(</span>%esp<span class="o">)</span>,%edx<span class="w">  </span><span class="c1"># put address of **envp into edx register</span>
+0x000b29a5<span class="w"> </span>&lt;+5&gt;:<span class="w">     </span>mov<span class="w">    </span>0xc<span class="o">(</span>%esp<span class="o">)</span>,%ecx<span class="w">   </span><span class="c1"># put address of **argv into ecx register</span>
+0x000b29a9<span class="w"> </span>&lt;+9&gt;:<span class="w">     </span>mov<span class="w">    </span>0x8<span class="o">(</span>%esp<span class="o">)</span>,%ebx<span class="w">   </span><span class="c1"># put address of *filename into ebx register</span>
+0x000b29ad<span class="w"> </span>&lt;+13&gt;:<span class="w">    </span>mov<span class="w">    </span><span class="nv">$0</span>xb,%eax<span class="w">        </span><span class="c1"># put 0xb in eax register; 0xb == execve in the internal system call table (32 bits Linux kernel)</span>
+0x000b29b2<span class="w"> </span>&lt;+18&gt;:<span class="w">    </span>call<span class="w">   </span>*%gs:0x10
+0x000b29b9<span class="w"> </span>&lt;+25&gt;:<span class="w">    </span>pop<span class="w">    </span>%ebx
+0x000b29ba<span class="w"> </span>&lt;+26&gt;:<span class="w">    </span>cmp<span class="w">    </span><span class="nv">$0</span>xfffff001,%eax
+0x000b29bf<span class="w"> </span>&lt;+31&gt;:<span class="w">    </span>jae<span class="w">    </span>0xb29c2<span class="w"> </span>&lt;execve+34&gt;
+0x000b29c1<span class="w"> </span>&lt;+33&gt;:<span class="w">    </span>ret
+0x000b29c2<span class="w"> </span>&lt;+34&gt;:<span class="w">    </span>call<span class="w">   </span>0x12158d<span class="w"> </span>&lt;__x86.get_pc_thunk.cx&gt;
+0x000b29c7<span class="w"> </span>&lt;+39&gt;:<span class="w">    </span>add<span class="w">    </span><span class="nv">$0</span>x100639,%ecx
+0x000b29cd<span class="w"> </span>&lt;+45&gt;:<span class="w">    </span>mov<span class="w">    </span>-0xe4<span class="o">(</span>%ecx<span class="o">)</span>,%ecx
+0x000b29d3<span class="w"> </span>&lt;+51&gt;:<span class="w">    </span>neg<span class="w">    </span>%eax
+0x000b29d5<span class="w"> </span>&lt;+53&gt;:<span class="w">    </span>add<span class="w">    </span>%gs:0x0,%ecx
+0x000b29dc<span class="w"> </span>&lt;+60&gt;:<span class="w">    </span>mov<span class="w">    </span>%eax,<span class="o">(</span>%ecx<span class="o">)</span>
+0x000b29de<span class="w"> </span>&lt;+62&gt;:<span class="w">    </span>or<span class="w">     </span><span class="nv">$0</span>xffffffff,%eax
+0x000b29e1<span class="w"> </span>&lt;+65&gt;:<span class="w">    </span>ret
+End<span class="w"> </span>of<span class="w"> </span>assembler<span class="w"> </span>dump.
+<span class="o">(</span>gdb<span class="o">)</span><span class="w"> </span>disassemble<span class="w"> </span>system
+Dump<span class="w"> </span>of<span class="w"> </span>assembler<span class="w"> </span>code<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">function</span><span class="w"> </span>system:
+0x0003ae00<span class="w"> </span>&lt;+0&gt;:<span class="w">     </span>sub<span class="w">    </span><span class="nv">$0</span>xc,%esp
+0x0003ae03<span class="w"> </span>&lt;+3&gt;:<span class="w">     </span>mov<span class="w">    </span>0x10<span class="o">(</span>%esp<span class="o">)</span>,%eax
+0x0003ae07<span class="w"> </span>&lt;+7&gt;:<span class="w">     </span>call<span class="w">   </span>0x121585<span class="w"> </span>&lt;__x86.get_pc_thunk.dx&gt;
+0x0003ae0c<span class="w"> </span>&lt;+12&gt;:<span class="w">    </span>add<span class="w">    </span><span class="nv">$0</span>x1781f4,%edx
+0x0003ae12<span class="w"> </span>&lt;+18&gt;:<span class="w">    </span><span class="nb">test</span><span class="w">   </span>%eax,%eax
+0x0003ae14<span class="w"> </span>&lt;+20&gt;:<span class="w">    </span>je<span class="w">     </span>0x3ae20<span class="w"> </span>&lt;system+32&gt;
+0x0003ae16<span class="w"> </span>&lt;+22&gt;:<span class="w">    </span>add<span class="w">    </span><span class="nv">$0</span>xc,%esp
+0x0003ae19<span class="w"> </span>&lt;+25&gt;:<span class="w">    </span>jmp<span class="w">    </span>0x3a8a0<span class="w"> </span>&lt;do_system&gt;
+0x0003ae1e<span class="w"> </span>&lt;+30&gt;:<span class="w">    </span>xchg<span class="w">   </span>%ax,%ax
+0x0003ae20<span class="w"> </span>&lt;+32&gt;:<span class="w">    </span>lea<span class="w">    </span>-0x55d5f<span class="o">(</span>%edx<span class="o">)</span>,%eax
+0x0003ae26<span class="w"> </span>&lt;+38&gt;:<span class="w">    </span>call<span class="w">   </span>0x3a8a0<span class="w"> </span>&lt;do_system&gt;
+0x0003ae2b<span class="w"> </span>&lt;+43&gt;:<span class="w">    </span><span class="nb">test</span><span class="w">   </span>%eax,%eax
+0x0003ae2d<span class="w"> </span>&lt;+45&gt;:<span class="w">    </span>sete<span class="w">   </span>%al
+0x0003ae30<span class="w"> </span>&lt;+48&gt;:<span class="w">    </span>add<span class="w">    </span><span class="nv">$0</span>xc,%esp
+0x0003ae33<span class="w"> </span>&lt;+51&gt;:<span class="w">    </span>movzbl<span class="w"> </span>%al,%eax
+0x0003ae36<span class="w"> </span>&lt;+54&gt;:<span class="w">    </span>ret
+End<span class="w"> </span>of<span class="w"> </span>assembler<span class="w"> </span>dump.
 </pre></div>
 </div>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ gdb /usr/lib/libc.so.6
-<span class="o">(</span>gdb<span class="o">)</span> disassemble execve
-Dump of assembler code <span class="k">for</span> <span class="k">function</span> execve:
-0x00000000000b7c90 &lt;+0&gt;:     mov    <span class="nv">$0</span>x3b,%eax
-0x00000000000b7c95 &lt;+5&gt;:     syscall
-0x00000000000b7c97 &lt;+7&gt;:     cmp    <span class="nv">$0</span>xfffffffffffff001,%rax
-0x00000000000b7c9d &lt;+13&gt;:    jae    0xb7ca0 &lt;execve+16&gt;
-0x00000000000b7c9f &lt;+15&gt;:    retq
-0x00000000000b7ca0 &lt;+16&gt;:    mov    0x2e41b1<span class="o">(</span>%rip<span class="o">)</span>,%rcx        <span class="c1"># 0x39be58</span>
-0x00000000000b7ca7 &lt;+23&gt;:    neg    %eax
-0x00000000000b7ca9 &lt;+25&gt;:    mov    %eax,%fs:<span class="o">(</span>%rcx<span class="o">)</span>
-0x00000000000b7cac &lt;+28&gt;:    or     <span class="nv">$0</span>xffffffffffffffff,%rax
-0x00000000000b7cb0 &lt;+32&gt;:    retq
-End of assembler dump.
-<span class="o">(</span>gdb<span class="o">)</span> disassemble system
-Dump of assembler code <span class="k">for</span> <span class="k">function</span> system:
-0x000000000003f820 &lt;+0&gt;:     <span class="nb">test</span>   %rdi,%rdi
-0x000000000003f823 &lt;+3&gt;:     je     0x3f830 &lt;system+16&gt;
-0x000000000003f825 &lt;+5&gt;:     jmpq   0x3f2b0 &lt;do_system&gt;
-0x000000000003f82a &lt;+10&gt;:    nopw   0x0<span class="o">(</span>%rax,%rax,1<span class="o">)</span>
-0x000000000003f830 &lt;+16&gt;:    lea    0x124449<span class="o">(</span>%rip<span class="o">)</span>,%rdi        <span class="c1"># 0x163c80</span>
-0x000000000003f837 &lt;+23&gt;:    sub    <span class="nv">$0</span>x8,%rsp
-0x000000000003f83b &lt;+27&gt;:    callq  0x3f2b0 &lt;do_system&gt;
-0x000000000003f840 &lt;+32&gt;:    <span class="nb">test</span>   %eax,%eax
-0x000000000003f842 &lt;+34&gt;:    sete   %al
-0x000000000003f845 &lt;+37&gt;:    add    <span class="nv">$0</span>x8,%rsp
-0x000000000003f849 &lt;+41&gt;:    movzbl %al,%eax
-0x000000000003f84c &lt;+44&gt;:    retq
-End of assembler dump.
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gdb<span class="w"> </span>/usr/lib/libc.so.6
+<span class="o">(</span>gdb<span class="o">)</span><span class="w"> </span>disassemble<span class="w"> </span>execve
+Dump<span class="w"> </span>of<span class="w"> </span>assembler<span class="w"> </span>code<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">function</span><span class="w"> </span>execve:
+0x00000000000b7c90<span class="w"> </span>&lt;+0&gt;:<span class="w">     </span>mov<span class="w">    </span><span class="nv">$0</span>x3b,%eax
+0x00000000000b7c95<span class="w"> </span>&lt;+5&gt;:<span class="w">     </span>syscall
+0x00000000000b7c97<span class="w"> </span>&lt;+7&gt;:<span class="w">     </span>cmp<span class="w">    </span><span class="nv">$0</span>xfffffffffffff001,%rax
+0x00000000000b7c9d<span class="w"> </span>&lt;+13&gt;:<span class="w">    </span>jae<span class="w">    </span>0xb7ca0<span class="w"> </span>&lt;execve+16&gt;
+0x00000000000b7c9f<span class="w"> </span>&lt;+15&gt;:<span class="w">    </span>retq
+0x00000000000b7ca0<span class="w"> </span>&lt;+16&gt;:<span class="w">    </span>mov<span class="w">    </span>0x2e41b1<span class="o">(</span>%rip<span class="o">)</span>,%rcx<span class="w">        </span><span class="c1"># 0x39be58</span>
+0x00000000000b7ca7<span class="w"> </span>&lt;+23&gt;:<span class="w">    </span>neg<span class="w">    </span>%eax
+0x00000000000b7ca9<span class="w"> </span>&lt;+25&gt;:<span class="w">    </span>mov<span class="w">    </span>%eax,%fs:<span class="o">(</span>%rcx<span class="o">)</span>
+0x00000000000b7cac<span class="w"> </span>&lt;+28&gt;:<span class="w">    </span>or<span class="w">     </span><span class="nv">$0</span>xffffffffffffffff,%rax
+0x00000000000b7cb0<span class="w"> </span>&lt;+32&gt;:<span class="w">    </span>retq
+End<span class="w"> </span>of<span class="w"> </span>assembler<span class="w"> </span>dump.
+<span class="o">(</span>gdb<span class="o">)</span><span class="w"> </span>disassemble<span class="w"> </span>system
+Dump<span class="w"> </span>of<span class="w"> </span>assembler<span class="w"> </span>code<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">function</span><span class="w"> </span>system:
+0x000000000003f820<span class="w"> </span>&lt;+0&gt;:<span class="w">     </span><span class="nb">test</span><span class="w">   </span>%rdi,%rdi
+0x000000000003f823<span class="w"> </span>&lt;+3&gt;:<span class="w">     </span>je<span class="w">     </span>0x3f830<span class="w"> </span>&lt;system+16&gt;
+0x000000000003f825<span class="w"> </span>&lt;+5&gt;:<span class="w">     </span>jmpq<span class="w">   </span>0x3f2b0<span class="w"> </span>&lt;do_system&gt;
+0x000000000003f82a<span class="w"> </span>&lt;+10&gt;:<span class="w">    </span>nopw<span class="w">   </span>0x0<span class="o">(</span>%rax,%rax,1<span class="o">)</span>
+0x000000000003f830<span class="w"> </span>&lt;+16&gt;:<span class="w">    </span>lea<span class="w">    </span>0x124449<span class="o">(</span>%rip<span class="o">)</span>,%rdi<span class="w">        </span><span class="c1"># 0x163c80</span>
+0x000000000003f837<span class="w"> </span>&lt;+23&gt;:<span class="w">    </span>sub<span class="w">    </span><span class="nv">$0</span>x8,%rsp
+0x000000000003f83b<span class="w"> </span>&lt;+27&gt;:<span class="w">    </span>callq<span class="w">  </span>0x3f2b0<span class="w"> </span>&lt;do_system&gt;
+0x000000000003f840<span class="w"> </span>&lt;+32&gt;:<span class="w">    </span><span class="nb">test</span><span class="w">   </span>%eax,%eax
+0x000000000003f842<span class="w"> </span>&lt;+34&gt;:<span class="w">    </span>sete<span class="w">   </span>%al
+0x000000000003f845<span class="w"> </span>&lt;+37&gt;:<span class="w">    </span>add<span class="w">    </span><span class="nv">$0</span>x8,%rsp
+0x000000000003f849<span class="w"> </span>&lt;+41&gt;:<span class="w">    </span>movzbl<span class="w"> </span>%al,%eax
+0x000000000003f84c<span class="w"> </span>&lt;+44&gt;:<span class="w">    </span>retq
+End<span class="w"> </span>of<span class="w"> </span>assembler<span class="w"> </span>dump.
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="buffer-overflow-example-5">
-<h3>Buffer Overflow - Example 5<a class="headerlink" href="#buffer-overflow-example-5" title="本標題的永久連結">¶</a></h3>
+</section>
+</section>
+<section id="buffer-overflow-example-5">
+<h3>Buffer Overflow - Example 5<a class="headerlink" href="#buffer-overflow-example-5" title="Permalink to this heading"></a></h3>
 <p>[todo]</p>
-</div>
-<div class="section" id="buffer-overflow-example-6">
-<h3>Buffer Overflow - Example 6<a class="headerlink" href="#buffer-overflow-example-6" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="buffer-overflow-example-6">
+<h3>Buffer Overflow - Example 6<a class="headerlink" href="#buffer-overflow-example-6" title="Permalink to this heading"></a></h3>
 <p>[todo]</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="security-libs.html" class="btn btn-neutral float-right" title="Security Libs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="secure-guard-extensions.html" class="btn btn-neutral float-left" title="SGX (Secure Guard Extensions)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="secure-guard-extensions.html" class="btn btn-neutral float-left" title="SGX (Secure Guard Extensions)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="security-libs.html" class="btn btn-neutral float-right" title="Security Libs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016
-
-    </p>
+    <p>&#169; Copyright 2023.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
   
 
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       <span class="fa fa-book"> Read the Docs</span>
       v: latest
@@ -1431,7 +1351,7 @@ End of assembler dump.
       <dl>
         <dt>Versions</dt>
         
-          <dd><a href="/zh_TW/latest/">latest</a></dd>
+          <dd><a href="https://wdv4758h.github.io/notes/">latest</a></dd>
         
       </dl>
       <dl>
@@ -1441,6 +1361,7 @@ End of assembler dump.
         
       </dl>
       <dl>
+        
         <dt>On Read the Docs</dt>
           <dd>
             <a href="//readthedocs.org/projects/wdv4758h-notes/?fromdocs=wdv4758h-notes">Project Home</a>
@@ -1449,22 +1370,13 @@ End of assembler dump.
             <a href="//readthedocs.org/builds/wdv4758h-notes/?fromdocs=wdv4758h-notes">Builds</a>
           </dd>
       </dl>
-      <hr/>
-      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
-
     </div>
   </div>
-
-
-
-  <script type="text/javascript">
+<script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-   
+  </script> 
 
 </body>
 </html>

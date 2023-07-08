@@ -1,112 +1,73 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-TW" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-TW" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Polymorphism (多型) &mdash; wdv4758h-notes latest 說明文件</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Polymorphism (多型) &mdash; wdv4758h-notes latest documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/translations.js"></script>
-        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="index" title="索引" href="../../genindex.html" />
-    <link rel="search" title="搜尋" href="../../search.html" /> 
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
 
 <!-- RTD Extra Head -->
 
-<!-- 
-Always link to the latest version, as canonical.
-http://docs.readthedocs.org/en/latest/canonical.html
--->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/programming-language/theory-and-concepts/polymorphism.html" />
+    <!--
+    Always link to the latest version, as canonical.
+    http://docs.readthedocs.org/en/latest/canonical.html
+    -->
+    <link rel="canonical" href="https://wdv4758h-notes.readthedocs.io/zh_TW/latest/programming-language/theory-and-concepts/polymorphism.html" />
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../../_static/readthedocs-data.js"></script>
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": "", "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": "https://wdv4758h-notes.readthedocs.io/zh_TW/latest/", "docroot": "/./", "features": {"docsearch_disabled": false}, "global_analytics_code": "", "language": "en", "page": "programming-language/theory-and-concepts/polymorphism", "programming_language": "", "project": "wdv4758h-notes", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": ""}</script>
 
-<!-- Add page-specific data, which must exist in the page js, not global -->
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = "programming-language/theory-and-concepts/polymorphism"
-READTHEDOCS_DATA['source_suffix'] = ".rst"
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
 </script>
 
-<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js" async="async"></script>
 
 <!-- end RTD <extrahead> -->
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../index.html" class="icon icon-home"> wdv4758h-notes
           
-
-          
+          <a href="../../index.html" class="icon icon-home">
+            wdv4758h-notes
           </a>
-
-          
-            
-            
-            
               <div class="version">
                 latest
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/README.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/adt.html">ADT (Abstract Data Type)</a></li>
@@ -116,13 +77,18 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/cache.html">Cache</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/cache-friendly.html">Cache Friendly Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/dict.html">Dict</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/float-to-string.html">Float to String</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/heap.html">Heap （堆）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/introduction.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/inverse-square-root.html">Inverse Square Root</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/lock.html">Lock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/meta-algorithm.html">Meta Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/random-number-generator.html">Random Number Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/resource.html">演算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/sorting.html">Sorting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/string-to-float.html">String to Float</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/substring-searching.html">Substring Searching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../android/README.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../android/android-emulator.html">Android Emulator</a></li>
@@ -198,7 +164,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../blog/openmp.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/pypy-brainfuck.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/pypy-brainfuck.html#tutorial">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../blog/pypy-brainfuck.html#id5">額外紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../blog/pypy-brainfuck.html#id4">額外紀錄</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/pypy-brainfuck.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/python-benchmark.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/python-benchmark.html#hello-world">Hello World</a></li>
@@ -225,7 +191,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../blog/qemu-first-step.html#qemu-with-kvm">QEMU with KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html">Syntax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#closure">Closure 和外部變數</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#move-closures">「move」 closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#move-closures">“move” closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#closure-implementation">Closure implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#closures-as-arguments">closures as arguments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#returning-closures">returning closures</a></li>
@@ -406,6 +372,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/ci.html">Continuous Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/concourse.html">Concourse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/drone.html">Drone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/github-actions.html">Github Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/jenkins.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/travis-ci.html">Travis CI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/workflow-pipeline.html">Workflow Pipeline</a></li>
@@ -415,7 +382,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/array.html">std::array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/assembly.html">C++ &amp; Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/bit-field.html">C++ Bit Field</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../cpp/c++17.html">C++17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/c%2B%2B17.html">C++17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/concepts.html">C++ Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/const.html">C++ const</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/copy-elision.html">Copy Elision</a></li>
@@ -468,13 +435,16 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../database/README.html">資料庫 (Database)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/cockroachdb.html">CockroachDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/consensus-algorithm.html">Raft Consensus Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../database/graph.html">Graph Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/leveldb.html">LevelDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../database/materialized-views.html">Materialized Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/mongodb.html">MongoDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../database/rocksdb.html">RocksDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/sql.html">SQL (Structured Query Language)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/tidb.html">TiDB</a></li>
@@ -547,7 +517,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../math/math-on-web.html">Math on Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../math/misc.html">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../memory/W^X.html">W^X (Write XOR Execute)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../memory/W%5EX.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../memory/allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../memory/kernel-memory-management.html">Kernel Memory Management</a></li>
@@ -805,74 +775,34 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../wiki/resource.html">Wiki</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">wdv4758h-notes</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
-      <li>Polymorphism (多型)</li>
-    
-    
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Polymorphism (多型)</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/wdv4758h/notes/blob/master/./programming-language/theory-and-concepts/polymorphism.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="polymorphism">
-<h1><a class="toc-backref" href="#id2">Polymorphism (多型)</a><a class="headerlink" href="#polymorphism" title="本標題的永久連結">¶</a></h1>
-<div class="contents topic" id="id1">
-<p class="topic-title first">目錄</p>
+             
+  <section id="polymorphism">
+<h1><a class="toc-backref" href="#id2" role="doc-backlink">Polymorphism (多型)</a><a class="headerlink" href="#polymorphism" title="Permalink to this heading"></a></h1>
+<nav class="contents" id="id1">
+<p class="topic-title">目錄</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#polymorphism" id="id2">Polymorphism (多型)</a></p>
 <ul>
@@ -917,9 +847,9 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="introduction">
-<h2><a class="toc-backref" href="#id3">Introduction</a><a class="headerlink" href="#introduction" title="本標題的永久連結">¶</a></h2>
+</nav>
+<section id="introduction">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
 <p>Polymorphism 的概念是「為不同的 type 提供單一的介面」。</p>
 <p>在 Polymorphism 的概念底下可以延伸好幾種不同的方式，
 分別為：</p>
@@ -979,8 +909,8 @@ programmers 可以把 type 的部份做保留，
 (A : Type) → (Sup : Type) → A ∈ Sup → Implemantation for A → A → A → A
 </pre></div>
 </div>
-<div class="section" id="variance">
-<h3><a class="toc-backref" href="#id4">Variance</a><a class="headerlink" href="#variance" title="本標題的永久連結">¶</a></h3>
+<section id="variance">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Variance</a><a class="headerlink" href="#variance" title="Permalink to this heading"></a></h3>
 <p>假設有個 type 叫作 <code class="docutils literal notranslate"><span class="pre">Animal</span></code> ，
 另外有個繼承自 <code class="docutils literal notranslate"><span class="pre">Animal</span></code> 的 type 叫 <code class="docutils literal notranslate"><span class="pre">Cat</span></code> ，
 那對於他們的 array 分別可以有幾種不同的關係：</p>
@@ -990,11 +920,6 @@ programmers 可以把 type 的部份做保留，
 <li><p>Invariant:  <code class="docutils literal notranslate"><span class="pre">Animal[]</span></code> 不是 <code class="docutils literal notranslate"><span class="pre">Cat[]</span></code> ， <code class="docutils literal notranslate"><span class="pre">Cat[]</span></code> 不是 <code class="docutils literal notranslate"><span class="pre">Animal[]</span></code></p></li>
 </ul>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 43%" />
-<col style="width: 31%" />
-<col style="width: 27%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"></th>
 <th class="head"><p>Argument Type</p></th>
@@ -1020,9 +945,9 @@ programmers 可以把 type 的部份做保留，
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="bounded-quantification-bounded-polymorphism">
-<h3><a class="toc-backref" href="#id5">Bounded Quantification (Bounded Polymorphism)</a><a class="headerlink" href="#bounded-quantification-bounded-polymorphism" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="bounded-quantification-bounded-polymorphism">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Bounded Quantification (Bounded Polymorphism)</a><a class="headerlink" href="#bounded-quantification-bounded-polymorphism" title="Permalink to this heading"></a></h3>
 <p>在原先沒有 polymorphism 的狀況下，
 一個 function 名稱只能吃固定的 type 當參數並回傳固定的 type。
 有了 polymorphism 後可以吃各種不同的 type 當參數並回傳各種不同的 type。
@@ -1030,80 +955,80 @@ programmers 可以把 type 的部份做保留，
 <p>Bounded Quantification 就是要利用 subtyping
 來對原本沒有限制 type 的 parametric polymorphism 做一些限制，
 藉此保留可以使用任意 type 的彈性又確保該 type 含有特定的性質。</p>
-<div class="section" id="rust-bounds-trait-restrictions">
-<h4><a class="toc-backref" href="#id6">Rust - Bounds (trait restrictions)</a><a class="headerlink" href="#rust-bounds-trait-restrictions" title="本標題的永久連結">¶</a></h4>
-<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">trait</span><span class="w"> </span><span class="n">MyTrait</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">fn</span> <span class="nf">func</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<section id="rust-bounds-trait-restrictions">
+<h4><a class="toc-backref" href="#id6" role="doc-backlink">Rust - Bounds (trait restrictions)</a><a class="headerlink" href="#rust-bounds-trait-restrictions" title="Permalink to this heading"></a></h4>
+<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">trait</span><span class="w"> </span><span class="n">MyTrait</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">func</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span><span class="p">;</span>
+<span class="p">}</span>
 
-<span class="k">impl</span><span class="w"> </span><span class="n">MyTrait</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">fn</span> <span class="nf">func</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">data</span>: <span class="kt">i32</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span> <span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="bp">self</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">data</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="k">impl</span><span class="w"> </span><span class="n">MyTrait</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">func</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">data</span>: <span class="kt">i32</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span> <span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="bp">self</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">data</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 
 <span class="c1">// Bounds, type &quot;T&quot; must have implmentation of &quot;MyTrait&quot;</span>
-<span class="k">fn</span> <span class="nf">f</span><span class="o">&lt;</span><span class="n">T</span>: <span class="nc">MyTrait</span><span class="o">&gt;</span><span class="p">(</span><span class="n">data</span>: <span class="nc">T</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">func</span><span class="p">(</span><span class="mi">100</span><span class="p">));</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="k">fn</span> <span class="nf">f</span><span class="o">&lt;</span><span class="n">T</span>: <span class="nc">MyTrait</span><span class="o">&gt;</span><span class="p">(</span><span class="n">data</span>: <span class="nc">T</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">func</span><span class="p">(</span><span class="mi">100</span><span class="p">));</span>
+<span class="p">}</span>
 
-<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">f</span><span class="p">(</span><span class="mi">30_</span><span class="k">i32</span><span class="p">);</span><span class="w">   </span><span class="c1">// pass, 130</span>
 <span class="w">    </span><span class="n">f</span><span class="p">(</span><span class="mi">30_</span><span class="k">i64</span><span class="p">);</span><span class="w">   </span><span class="c1">// fail, &quot;MyTrait&quot; is not implemented for the type &quot;i64&quot;, can not call &quot;f&quot;</span>
-<span class="p">}</span><span class="w"></span>
+<span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="c-crtp">
-<h4><a class="toc-backref" href="#id7">C++ CRTP</a><a class="headerlink" href="#c-crtp" title="本標題的永久連結">¶</a></h4>
+</section>
+<section id="c-crtp">
+<h4><a class="toc-backref" href="#id7" role="doc-backlink">C++ CRTP</a><a class="headerlink" href="#c-crtp" title="Permalink to this heading"></a></h4>
 <p>C++ 中使用到的 CRTP 技巧即是 Bounded Quantification，
 其稱為 F-bounded quantification 或是 recursively bounded quantification，
 範例：</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// The Curiously Recurring Template Pattern (CRTP)</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">Base</span> <span class="p">{</span>
-    <span class="c1">// methods within Base can use template to access members of Derived</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// methods within Base can use template to access members of Derived</span>
 <span class="p">};</span>
-<span class="k">class</span> <span class="nc">Derived</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Base</span><span class="o">&lt;</span><span class="n">Derived</span><span class="o">&gt;</span> <span class="p">{</span>  <span class="c1">// Here !!!</span>
-    <span class="c1">// ...</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Derived</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span><span class="o">&lt;</span><span class="n">Derived</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// Here !!!</span>
+<span class="w">    </span><span class="c1">// ...</span>
 <span class="p">};</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="julia-operator">
-<h4><a class="toc-backref" href="#id8">Julia - <code class="docutils literal notranslate"><span class="pre">&lt;:</span></code> operator</a><a class="headerlink" href="#julia-operator" title="本標題的永久連結">¶</a></h4>
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">X</span>
-    <span class="n">data</span><span class="o">::</span><span class="kt">Int32</span>
-    <span class="n">func</span><span class="o">::</span><span class="kt">Function</span>
+</section>
+<section id="julia-operator">
+<h4><a class="toc-backref" href="#id8" role="doc-backlink">Julia - <code class="docutils literal notranslate"><span class="pre">&lt;:</span></code> operator</a><a class="headerlink" href="#julia-operator" title="Permalink to this heading"></a></h4>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">type</span><span class="w"> </span><span class="n">X</span>
+<span class="w">    </span><span class="n">data</span><span class="o">::</span><span class="kt">Int32</span>
+<span class="w">    </span><span class="n">func</span><span class="o">::</span><span class="kt">Function</span>
 
-    <span class="k">function</span> <span class="n">X</span><span class="p">()</span>
-        <span class="n">instance</span> <span class="o">=</span> <span class="n">new</span><span class="p">()</span>
-        <span class="n">instance</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="mi">42</span>
-        <span class="n">instance</span><span class="o">.</span><span class="n">func</span> <span class="o">=</span> <span class="k">function</span> <span class="p">()</span>
-            <span class="k">return</span> <span class="n">instance</span><span class="o">.</span><span class="n">data</span> <span class="o">+</span> <span class="mi">42</span>
-        <span class="k">end</span>
-        <span class="k">return</span> <span class="n">instance</span>
-    <span class="k">end</span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="n">X</span><span class="p">()</span>
+<span class="w">        </span><span class="n">instance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new</span><span class="p">()</span>
+<span class="w">        </span><span class="n">instance</span><span class="o">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span>
+<span class="w">        </span><span class="n">instance</span><span class="o">.</span><span class="n">func</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">function</span><span class="w"> </span><span class="p">()</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">instance</span><span class="o">.</span><span class="n">data</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">42</span>
+<span class="w">        </span><span class="k">end</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">instance</span>
+<span class="w">    </span><span class="k">end</span>
 <span class="k">end</span>
 
-<span class="k">function</span> <span class="n">f</span><span class="p">{</span><span class="n">T</span><span class="o">&lt;:</span><span class="n">X</span><span class="p">}(</span><span class="n">data</span><span class="o">::</span><span class="n">T</span><span class="p">)</span>   <span class="c"># T must be subtype of X</span>
-    <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">func</span><span class="p">()</span>
+<span class="k">function</span><span class="w"> </span><span class="kt">f</span><span class="p">{</span><span class="kt">T</span><span class="o">&lt;:</span><span class="kt">X</span><span class="p">}(</span><span class="n">data</span><span class="o">::</span><span class="kt">T</span><span class="p">)</span><span class="w">   </span><span class="c"># T must be subtype of X</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">data</span><span class="o">.</span><span class="n">func</span><span class="p">()</span>
 <span class="k">end</span>
 </pre></div>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="polymorphism-in-rust">
-<h2><a class="toc-backref" href="#id9">Polymorphism in Rust</a><a class="headerlink" href="#polymorphism-in-rust" title="本標題的永久連結">¶</a></h2>
+</section>
+</section>
+</section>
+<section id="polymorphism-in-rust">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Polymorphism in Rust</a><a class="headerlink" href="#polymorphism-in-rust" title="Permalink to this heading"></a></h2>
 <p>trait 有兩種方式來達到 polymorphic，
 分別是：</p>
 <ul class="simple">
 <li><p>monomorphisation</p></li>
 <li><p>trait objects</p></li>
 </ul>
-<div class="section" id="monomorphisation">
-<h3><a class="toc-backref" href="#id10">Monomorphisation</a><a class="headerlink" href="#monomorphisation" title="本標題的永久連結">¶</a></h3>
+<section id="monomorphisation">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Monomorphisation</a><a class="headerlink" href="#monomorphisation" title="Permalink to this heading"></a></h3>
 <p>Monomorphisation 為最常使用的作法，
 compiler 為不同 type 生出 generic function 的特製版，
 例如 C++ 的 Template 或是 Rust 中 <code class="docutils literal notranslate"><span class="pre">fn</span> <span class="pre">func&lt;T:</span> <span class="pre">Foo&gt;(x:</span> <span class="pre">&amp;T)</span></code> 的寫法，
@@ -1117,47 +1042,47 @@ compiler 為不同 type 生出 generic function 的特製版，
 <li><p>可以使用 static dispatch</p></li>
 <li><p>binary size 會因許多特製化而變大</p></li>
 </ul>
-</div>
-<div class="section" id="trait-objects">
-<h3><a class="toc-backref" href="#id11">Trait Objects</a><a class="headerlink" href="#trait-objects" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="trait-objects">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Trait Objects</a><a class="headerlink" href="#trait-objects" title="Permalink to this heading"></a></h3>
 <p>特點：</p>
 <ul class="simple">
 <li><p>dynamic dispatch</p></li>
 <li><p>不會有許多特製化的版本</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="static-and-dynamic-polymorphism">
-<h2><a class="toc-backref" href="#id12">Static and Dynamic Polymorphism</a><a class="headerlink" href="#static-and-dynamic-polymorphism" title="本標題的永久連結">¶</a></h2>
+</section>
+</section>
+<section id="static-and-dynamic-polymorphism">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Static and Dynamic Polymorphism</a><a class="headerlink" href="#static-and-dynamic-polymorphism" title="Permalink to this heading"></a></h2>
 <p>Static Polymorphism 和 Dynamic Polymorphism 是從實作面來做的區分，
 可以在 Compile Time 決定執行到的 code 版本就稱為 Static，
 必須在 run time 才能決定執行到的 code 版本就稱為 Dynamic (通常利用 virtual function)。</p>
-<div class="section" id="static-binding-name-binding-early-binding">
-<h3><a class="toc-backref" href="#id13">Static Binding (Name Binding) (Early Binding)</a><a class="headerlink" href="#static-binding-name-binding-early-binding" title="本標題的永久連結">¶</a></h3>
+<section id="static-binding-name-binding-early-binding">
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Static Binding (Name Binding) (Early Binding)</a><a class="headerlink" href="#static-binding-name-binding-early-binding" title="Permalink to this heading"></a></h3>
 <p>在程式執行之前就把 name 都 binding 完</p>
-<div class="section" id="direct-c-function-call">
-<h4><a class="toc-backref" href="#id14">direct C function call</a><a class="headerlink" href="#direct-c-function-call" title="本標題的永久連結">¶</a></h4>
+<section id="direct-c-function-call">
+<h4><a class="toc-backref" href="#id14" role="doc-backlink">direct C function call</a><a class="headerlink" href="#direct-c-function-call" title="Permalink to this heading"></a></h4>
 <p>Static Binding 的簡單範例：</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// C</span>
 
-<span class="cp">#include</span> <span class="cpf">&lt;math.h&gt;   // -lm</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;math.h&gt;</span><span class="c1">   // -lm</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kt">double</span> <span class="n">result</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="mf">0.7</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sin</span><span class="p">(</span><span class="mf">0.7</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="late-static-binding">
-<h3><a class="toc-backref" href="#id15">Late Static Binding</a><a class="headerlink" href="#late-static-binding" title="本標題的永久連結">¶</a></h3>
+</section>
+</section>
+<section id="late-static-binding">
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">Late Static Binding</a><a class="headerlink" href="#late-static-binding" title="Permalink to this heading"></a></h3>
 <p>介於 Static Binding 和 Dynamic Binding 之間的機制，
 跟單純的 Static Binding 不同，
 但是依然會在程式執行前決定好內容，
 卻又可以在後續的 code 裡影響到前面的行為。</p>
-<div class="section" id="php-5-3-late-static-binding">
-<h4><a class="toc-backref" href="#id16">PHP 5.3+ - Late Static Binding</a><a class="headerlink" href="#php-5-3-late-static-binding" title="本標題的永久連結">¶</a></h4>
+<section id="php-5-3-late-static-binding">
+<h4><a class="toc-backref" href="#id16" role="doc-backlink">PHP 5.3+ - Late Static Binding</a><a class="headerlink" href="#php-5-3-late-static-binding" title="Permalink to this heading"></a></h4>
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
 
 <span class="k">class</span> <span class="nc">A</span> <span class="p">{</span>
@@ -1174,41 +1099,41 @@ compiler 為不同 type 生出 generic function 的特製版，
 <span class="nx">B</span><span class="o">::</span><span class="na">f2</span><span class="p">();</span>    <span class="c1">// late static</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="dynamic-binding-late-binding-virtual-binding">
-<h3><a class="toc-backref" href="#id17">Dynamic Binding (Late Binding) (Virtual Binding)</a><a class="headerlink" href="#dynamic-binding-late-binding-virtual-binding" title="本標題的永久連結">¶</a></h3>
+</section>
+</section>
+<section id="dynamic-binding-late-binding-virtual-binding">
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">Dynamic Binding (Late Binding) (Virtual Binding)</a><a class="headerlink" href="#dynamic-binding-late-binding-virtual-binding" title="Permalink to this heading"></a></h3>
 <p>在程式執行期間才把 name 都 binding 好，
 例如 Dynamic Dispatch (e.g. C++ Virtual Method Call)</p>
-<div class="section" id="c-virtual-table">
-<h4><a class="toc-backref" href="#id18">C++ - Virtual Table</a><a class="headerlink" href="#c-virtual-table" title="本標題的永久連結">¶</a></h4>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Base</span>
+<section id="c-virtual-table">
+<h4><a class="toc-backref" href="#id18" role="doc-backlink">C++ - Virtual Table</a><a class="headerlink" href="#c-virtual-table" title="Permalink to this heading"></a></h4>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Base</span>
 <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-    <span class="n">FunctionPointer</span> <span class="o">*</span><span class="n">__vptr</span><span class="p">;</span>
-    <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">function1</span><span class="p">()</span> <span class="p">{};</span>
-    <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">function2</span><span class="p">()</span> <span class="p">{};</span>
+<span class="w">    </span><span class="n">FunctionPointer</span><span class="w"> </span><span class="o">*</span><span class="n">__vptr</span><span class="p">;</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">function1</span><span class="p">()</span><span class="w"> </span><span class="p">{};</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">function2</span><span class="p">()</span><span class="w"> </span><span class="p">{};</span>
 <span class="p">};</span>
 
-<span class="k">class</span> <span class="nc">D1</span><span class="o">:</span> <span class="k">public</span> <span class="n">Base</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">D1</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span>
 <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-    <span class="k">virtual</span> <span class="kt">void</span> <span class="n">function1</span><span class="p">()</span> <span class="p">{};</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">function1</span><span class="p">()</span><span class="w"> </span><span class="p">{};</span>
 <span class="p">};</span>
 
-<span class="k">class</span> <span class="nc">D2</span><span class="o">:</span> <span class="k">public</span> <span class="n">Base</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">D2</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span>
 <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-    <span class="k">virtual</span> <span class="kt">void</span> <span class="n">function2</span><span class="p">()</span> <span class="p">{};</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">function2</span><span class="p">()</span><span class="w"> </span><span class="p">{};</span>
 <span class="p">};</span>
 </pre></div>
 </div>
 <img alt="http://www.learncpp.com/cpp-tutorial/125-the-virtual-table/" src="../../_images/vtable.gif" />
-</div>
-</div>
-</div>
-<div class="section" id="reference">
-<h2><a class="toc-backref" href="#id19">Reference</a><a class="headerlink" href="#reference" title="本標題的永久連結">¶</a></h2>
+</section>
+</section>
+</section>
+<section id="reference">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">Reference</a><a class="headerlink" href="#reference" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><dl class="simple">
 <dt>Rust</dt><dd><ul>
@@ -1236,37 +1161,33 @@ compiler 為不同 type 生出 generic function 的特製版，
 </dl>
 </li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016
-
-    </p>
+    <p>&#169; Copyright 2023.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
   
 
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       <span class="fa fa-book"> Read the Docs</span>
       v: latest
@@ -1276,7 +1197,7 @@ compiler 為不同 type 生出 generic function 的特製版，
       <dl>
         <dt>Versions</dt>
         
-          <dd><a href="/zh_TW/latest/">latest</a></dd>
+          <dd><a href="https://wdv4758h.github.io/notes/">latest</a></dd>
         
       </dl>
       <dl>
@@ -1286,6 +1207,7 @@ compiler 為不同 type 生出 generic function 的特製版，
         
       </dl>
       <dl>
+        
         <dt>On Read the Docs</dt>
           <dd>
             <a href="//readthedocs.org/projects/wdv4758h-notes/?fromdocs=wdv4758h-notes">Project Home</a>
@@ -1294,22 +1216,13 @@ compiler 為不同 type 生出 generic function 的特製版，
             <a href="//readthedocs.org/builds/wdv4758h-notes/?fromdocs=wdv4758h-notes">Builds</a>
           </dd>
       </dl>
-      <hr/>
-      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
-
     </div>
   </div>
-
-
-
-  <script type="text/javascript">
+<script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-   
+  </script> 
 
 </body>
 </html>

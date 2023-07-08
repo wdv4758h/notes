@@ -1,114 +1,75 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-TW" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-TW" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Android NDK &mdash; wdv4758h-notes latest 說明文件</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Android NDK &mdash; wdv4758h-notes latest documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="搜尋" href="../search.html" />
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="移植到新硬體 (Porting to new Hardware)" href="porting-to-new-hardware.html" />
     <link rel="prev" title="Linux environment on Android" href="linux-environment-on-android.html" /> 
 
 <!-- RTD Extra Head -->
 
-<!-- 
-Always link to the latest version, as canonical.
-http://docs.readthedocs.org/en/latest/canonical.html
--->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/android/ndk.html" />
+    <!--
+    Always link to the latest version, as canonical.
+    http://docs.readthedocs.org/en/latest/canonical.html
+    -->
+    <link rel="canonical" href="https://wdv4758h-notes.readthedocs.io/zh_TW/latest/android/ndk.html" />
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": "", "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": "https://wdv4758h-notes.readthedocs.io/zh_TW/latest/", "docroot": "/./", "features": {"docsearch_disabled": false}, "global_analytics_code": "", "language": "en", "page": "android/ndk", "programming_language": "", "project": "wdv4758h-notes", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": ""}</script>
 
-<!-- Add page-specific data, which must exist in the page js, not global -->
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = "android/ndk"
-READTHEDOCS_DATA['source_suffix'] = ".rst"
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
 </script>
 
-<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js" async="async"></script>
 
 <!-- end RTD <extrahead> -->
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../index.html" class="icon icon-home"> wdv4758h-notes
           
-
-          
+          <a href="../index.html" class="icon icon-home">
+            wdv4758h-notes
           </a>
-
-          
-            
-            
-            
               <div class="version">
                 latest
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/README.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/adt.html">ADT (Abstract Data Type)</a></li>
@@ -118,13 +79,18 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/cache.html">Cache</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/cache-friendly.html">Cache Friendly Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/dict.html">Dict</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/float-to-string.html">Float to String</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/heap.html">Heap （堆）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/introduction.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/inverse-square-root.html">Inverse Square Root</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/lock.html">Lock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/meta-algorithm.html">Meta Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/random-number-generator.html">Random Number Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/resource.html">演算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/sorting.html">Sorting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/string-to-float.html">String to Float</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/substring-searching.html">Substring Searching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="README.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="android-emulator.html">Android Emulator</a></li>
@@ -158,7 +124,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#compiler-rt">compiler-rt</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#build-llvm-from-source-for-android">Build LLVM From Source For Android</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cpufeatures-library">「cpufeatures」 Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cpufeatures-library">“cpufeatures” Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#build-your-ndk">Build Your NDK</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#crystax-ndk">CrystaX NDK</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
@@ -220,7 +186,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../blog/openmp.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#tutorial">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#id5">額外紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#id4">額外紀錄</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/python-benchmark.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/python-benchmark.html#hello-world">Hello World</a></li>
@@ -247,7 +213,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../blog/qemu-first-step.html#qemu-with-kvm">QEMU with KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html">Syntax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closure">Closure 和外部變數</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#move-closures">「move」 closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#move-closures">“move” closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closure-implementation">Closure implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closures-as-arguments">closures as arguments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#returning-closures">returning closures</a></li>
@@ -428,6 +394,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/ci.html">Continuous Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/concourse.html">Concourse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/drone.html">Drone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../continuous-integration/github-actions.html">Github Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/jenkins.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/travis-ci.html">Travis CI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/workflow-pipeline.html">Workflow Pipeline</a></li>
@@ -437,7 +404,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../cpp/array.html">std::array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/assembly.html">C++ &amp; Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/bit-field.html">C++ Bit Field</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cpp/c++17.html">C++17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/c%2B%2B17.html">C++17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/concepts.html">C++ Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/const.html">C++ const</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/copy-elision.html">Copy Elision</a></li>
@@ -490,13 +457,16 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../database/README.html">資料庫 (Database)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/cockroachdb.html">CockroachDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/consensus-algorithm.html">Raft Consensus Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/graph.html">Graph Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/leveldb.html">LevelDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/materialized-views.html">Materialized Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mongodb.html">MongoDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/rocksdb.html">RocksDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sql.html">SQL (Structured Query Language)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/tidb.html">TiDB</a></li>
@@ -569,7 +539,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/math-on-web.html">Math on Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/misc.html">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../memory/W^X.html">W^X (Write XOR Execute)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../memory/W%5EX.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/kernel-memory-management.html">Kernel Memory Management</a></li>
@@ -827,74 +797,34 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../wiki/resource.html">Wiki</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">wdv4758h-notes</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-      <li>Android NDK</li>
-    
-    
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Android NDK</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/wdv4758h/notes/blob/master/./android/ndk.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="android-ndk">
-<h1><a class="toc-backref" href="#id2">Android NDK</a><a class="headerlink" href="#android-ndk" title="本標題的永久連結">¶</a></h1>
-<div class="contents topic" id="id1">
-<p class="topic-title first">目錄</p>
+             
+  <section id="android-ndk">
+<h1><a class="toc-backref" href="#id2" role="doc-backlink">Android NDK</a><a class="headerlink" href="#android-ndk" title="Permalink to this heading"></a></h1>
+<nav class="contents" id="id1">
+<p class="topic-title">目錄</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#android-ndk" id="id2">Android NDK</a></p>
 <ul>
@@ -913,51 +843,51 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </li>
 <li><p><a class="reference internal" href="#compiler-rt" id="id13">compiler-rt</a></p></li>
 <li><p><a class="reference internal" href="#build-llvm-from-source-for-android" id="id14">Build LLVM From Source For Android</a></p></li>
-<li><p><a class="reference internal" href="#cpufeatures-library" id="id15">「cpufeatures」 Library</a></p></li>
+<li><p><a class="reference internal" href="#cpufeatures-library" id="id15">“cpufeatures” Library</a></p></li>
 <li><p><a class="reference internal" href="#build-your-ndk" id="id16">Build Your NDK</a></p></li>
 <li><p><a class="reference internal" href="#crystax-ndk" id="id17">CrystaX NDK</a></p></li>
 <li><p><a class="reference internal" href="#reference" id="id18">Reference</a></p></li>
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="introduction">
-<h2><a class="toc-backref" href="#id3">介紹 (Introduction)</a><a class="headerlink" href="#introduction" title="本標題的永久連結">¶</a></h2>
+</nav>
+<section id="introduction">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">介紹 (Introduction)</a><a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
 <p>Android NDK 裡面會附上 Cross Compile 用的程式，
 例如 <code class="docutils literal notranslate"><span class="pre">toolchains/</span></code> 資料夾裡面就包含不同平台的 GCC Cross Compiler 的執行檔，
 另外則含有 Clang 的 Makefile 設定。
 (GCC 的 Cross Compile 需要先編成不同的 GCC Binary，Clang 則是有更好的支援，使用 <code class="docutils literal notranslate"><span class="pre">-target</span></code> 參數選擇即可)</p>
-</div>
-<div class="section" id="installation">
-<h2><a class="toc-backref" href="#id4">安裝 (Installation)</a><a class="headerlink" href="#installation" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="installation">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">安裝 (Installation)</a><a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
 <p>環境變數設定：</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>...
 </pre></div>
 </div>
-</div>
-<div class="section" id="build-standalone-clang-cross-compile-toolchain">
-<h2><a class="toc-backref" href="#id5">Build Standalone Clang Cross Compile Toolchain</a><a class="headerlink" href="#build-standalone-clang-cross-compile-toolchain" title="本標題的永久連結">¶</a></h2>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ android-ndk-r10e/build/tools/make-standalone-toolchain.sh <span class="se">\</span>
-    --toolchain<span class="o">=</span>arm-linux-androideabi-clang3.6 <span class="se">\</span>
-    --llvm-version<span class="o">=</span><span class="m">3</span>.6 <span class="se">\</span>
-    --arch<span class="o">=</span>arm <span class="se">\</span>
-    --abis<span class="o">=</span>armeabi-v7a-hard <span class="se">\</span>
-    --platform<span class="o">=</span>android-21 <span class="se">\</span>
-    --package-dir<span class="o">=</span>/tmp
-Auto-config: --toolchain<span class="o">=</span>arm-linux-androideabi-4.8, --llvm-version<span class="o">=</span><span class="m">3</span>.6
-Copying prebuilt binaries...
-Copying sysroot headers and libraries...
-Copying c++ runtime headers and libraries...
-Creating package file: /tmp/arm-linux-androideabi-4.8.tar.bz2
-Cleaning up...
+</section>
+<section id="build-standalone-clang-cross-compile-toolchain">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Build Standalone Clang Cross Compile Toolchain</a><a class="headerlink" href="#build-standalone-clang-cross-compile-toolchain" title="Permalink to this heading"></a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>android-ndk-r10e/build/tools/make-standalone-toolchain.sh<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--toolchain<span class="o">=</span>arm-linux-androideabi-clang3.6<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--llvm-version<span class="o">=</span><span class="m">3</span>.6<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--arch<span class="o">=</span>arm<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--abis<span class="o">=</span>armeabi-v7a-hard<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--platform<span class="o">=</span>android-21<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--package-dir<span class="o">=</span>/tmp
+Auto-config:<span class="w"> </span>--toolchain<span class="o">=</span>arm-linux-androideabi-4.8,<span class="w"> </span>--llvm-version<span class="o">=</span><span class="m">3</span>.6
+Copying<span class="w"> </span>prebuilt<span class="w"> </span>binaries...
+Copying<span class="w"> </span>sysroot<span class="w"> </span>headers<span class="w"> </span>and<span class="w"> </span>libraries...
+Copying<span class="w"> </span>c++<span class="w"> </span>runtime<span class="w"> </span>headers<span class="w"> </span>and<span class="w"> </span>libraries...
+Creating<span class="w"> </span>package<span class="w"> </span>file:<span class="w"> </span>/tmp/arm-linux-androideabi-4.8.tar.bz2
+Cleaning<span class="w"> </span>up...
 Done.
-$ file /tmp/arm-linux-androideabi-4.8.tar.bz2
-/tmp/arm-linux-androideabi-4.8.tar.bz2: bzip2 compressed data, block <span class="nv">size</span> <span class="o">=</span> 900k
+$<span class="w"> </span>file<span class="w"> </span>/tmp/arm-linux-androideabi-4.8.tar.bz2
+/tmp/arm-linux-androideabi-4.8.tar.bz2:<span class="w"> </span>bzip2<span class="w"> </span>compressed<span class="w"> </span>data,<span class="w"> </span>block<span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>900k
 </pre></div>
 </div>
-</div>
-<div class="section" id="c">
-<h2><a class="toc-backref" href="#id6">C++ 支援</a><a class="headerlink" href="#c" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="c">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">C++ 支援</a><a class="headerlink" href="#c" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><dl class="simple">
 <dt>libc++</dt><dd><ul>
@@ -988,9 +918,9 @@ $ file /tmp/arm-linux-androideabi-4.8.tar.bz2
 </dl>
 </li>
 </ul>
-</div>
-<div class="section" id="cross-compile">
-<h2><a class="toc-backref" href="#id7">Cross Compile 注意事項</a><a class="headerlink" href="#cross-compile" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="cross-compile">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Cross Compile 注意事項</a><a class="headerlink" href="#cross-compile" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><dl class="simple">
 <dt>可以先參考其他平台的編譯設定</dt><dd><ul>
@@ -1039,23 +969,23 @@ $ file /tmp/arm-linux-androideabi-4.8.tar.bz2
 </li>
 <li><p>pkg-config 設定</p></li>
 </ul>
-</div>
-<div class="section" id="build-system-cross-compile">
-<h2><a class="toc-backref" href="#id8">各 Build System 的 Cross Compile</a><a class="headerlink" href="#build-system-cross-compile" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="build-system-cross-compile">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">各 Build System 的 Cross Compile</a><a class="headerlink" href="#build-system-cross-compile" title="Permalink to this heading"></a></h2>
 <p>幸運的狀況是環境變數設好之後就可以成功編起來，
 麻煩一點的狀況是要加額外的設定參數，
 更麻煩的是要直接改專案的程式碼。</p>
-<div class="section" id="makefile">
-<h3><a class="toc-backref" href="#id9">單純的 Makefile</a><a class="headerlink" href="#makefile" title="本標題的永久連結">¶</a></h3>
-</div>
-<div class="section" id="cmake">
-<h3><a class="toc-backref" href="#id10">CMake</a><a class="headerlink" href="#cmake" title="本標題的永久連結">¶</a></h3>
-</div>
-<div class="section" id="autotools">
-<h3><a class="toc-backref" href="#id11">autotools</a><a class="headerlink" href="#autotools" title="本標題的永久連結">¶</a></h3>
-</div>
-<div class="section" id="cpython-extension">
-<h3><a class="toc-backref" href="#id12">CPython Extension</a><a class="headerlink" href="#cpython-extension" title="本標題的永久連結">¶</a></h3>
+<section id="makefile">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">單純的 Makefile</a><a class="headerlink" href="#makefile" title="Permalink to this heading"></a></h3>
+</section>
+<section id="cmake">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">CMake</a><a class="headerlink" href="#cmake" title="Permalink to this heading"></a></h3>
+</section>
+<section id="autotools">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">autotools</a><a class="headerlink" href="#autotools" title="Permalink to this heading"></a></h3>
+</section>
+<section id="cpython-extension">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">CPython Extension</a><a class="headerlink" href="#cpython-extension" title="Permalink to this heading"></a></h3>
 <p>設定 <code class="docutils literal notranslate"><span class="pre">_PYTHON_HOST_PLATFORM=&quot;linux-aarch64&quot;</span></code> ，
 這會直接改變 <code class="docutils literal notranslate"><span class="pre">disutils.utils</span></code> 裡 <code class="docutils literal notranslate"><span class="pre">get_platform</span></code> 的結果。</p>
 <ul class="simple">
@@ -1063,51 +993,51 @@ $ file /tmp/arm-linux-androideabi-4.8.tar.bz2
 <li><p><a class="reference external" href="https://github.com/python/cpython/commit/1abe1c5fe13ca64c54e16db25de7c4dd5578a7c1">https://github.com/python/cpython/commit/1abe1c5fe13ca64c54e16db25de7c4dd5578a7c1</a></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">PYTHON_FOR_BUILD</span></code></p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="compiler-rt">
-<h2><a class="toc-backref" href="#id13">compiler-rt</a><a class="headerlink" href="#compiler-rt" title="本標題的永久連結">¶</a></h2>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ls -al arm-linux-androideabi-4.8/lib/clang/3.6/lib/linux/
-total <span class="m">7332</span>
--rw-r----- <span class="m">1</span> dv dv <span class="m">2323826</span> Apr  <span class="m">1</span> <span class="m">06</span>:26 libclang_rt.asan-arm-android.a
--rw-r----- <span class="m">1</span> dv dv   <span class="m">36437</span> Apr  <span class="m">1</span> <span class="m">06</span>:27 libclang_rt.asan-arm-android.a.syms
--rwxr-x--- <span class="m">1</span> dv dv <span class="m">1599248</span> Apr  <span class="m">1</span> <span class="m">06</span>:27 libclang_rt.asan-arm-android.so*
--rw-r----- <span class="m">1</span> dv dv   <span class="m">16596</span> Apr  <span class="m">1</span> <span class="m">06</span>:26 libclang_rt.asan_cxx-arm-android.a
--rw-r----- <span class="m">1</span> dv dv      <span class="m">73</span> Apr  <span class="m">1</span> <span class="m">06</span>:26 libclang_rt.asan_cxx-arm-android.a.syms
--rw-r----- <span class="m">1</span> dv dv   <span class="m">14064</span> Apr  <span class="m">1</span> <span class="m">06</span>:34 libclang_rt.asan_cxx-i686-android.a
--rw-r----- <span class="m">1</span> dv dv <span class="m">1986448</span> Apr  <span class="m">1</span> <span class="m">06</span>:34 libclang_rt.asan-i686-android.a
--rwxr-x--- <span class="m">1</span> dv dv <span class="m">1504988</span> Apr  <span class="m">1</span> <span class="m">06</span>:35 libclang_rt.asan-i686-android.so*
--rw-r----- <span class="m">1</span> dv dv    <span class="m">2100</span> Apr  <span class="m">1</span> <span class="m">06</span>:26 libclang_rt.asan-preinit-arm-android.a
--rw-r----- <span class="m">1</span> dv dv    <span class="m">1844</span> Apr  <span class="m">1</span> <span class="m">06</span>:34 libclang_rt.asan-preinit-i686-android.a
-$ file android-ndk-r10e/toolchains/llvm-3.6/prebuilt/linux-x86_64/lib/clang/3.6/lib/linux/libclang_rt.asan-arm-android.so
-android-ndk-r10e/toolchains/llvm-3.6/prebuilt/linux-x86_64/lib/clang/3.6/lib/linux/libclang_rt.asan-arm-android.so: ELF <span class="m">32</span>-bit LSB shared object, ARM, EABI5 version <span class="m">1</span> <span class="o">(</span>SYSV<span class="o">)</span>, dynamically linked, interpreter /system/bin/linker, BuildID<span class="o">[</span>sha1<span class="o">]=</span>414a26fe76bb09de2d0d101e3ed6200da5d1cadc, not stripped
+</section>
+</section>
+<section id="compiler-rt">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">compiler-rt</a><a class="headerlink" href="#compiler-rt" title="Permalink to this heading"></a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls<span class="w"> </span>-al<span class="w"> </span>arm-linux-androideabi-4.8/lib/clang/3.6/lib/linux/
+total<span class="w"> </span><span class="m">7332</span>
+-rw-r-----<span class="w"> </span><span class="m">1</span><span class="w"> </span>dv<span class="w"> </span>dv<span class="w"> </span><span class="m">2323826</span><span class="w"> </span>Apr<span class="w">  </span><span class="m">1</span><span class="w"> </span><span class="m">06</span>:26<span class="w"> </span>libclang_rt.asan-arm-android.a
+-rw-r-----<span class="w"> </span><span class="m">1</span><span class="w"> </span>dv<span class="w"> </span>dv<span class="w">   </span><span class="m">36437</span><span class="w"> </span>Apr<span class="w">  </span><span class="m">1</span><span class="w"> </span><span class="m">06</span>:27<span class="w"> </span>libclang_rt.asan-arm-android.a.syms
+-rwxr-x---<span class="w"> </span><span class="m">1</span><span class="w"> </span>dv<span class="w"> </span>dv<span class="w"> </span><span class="m">1599248</span><span class="w"> </span>Apr<span class="w">  </span><span class="m">1</span><span class="w"> </span><span class="m">06</span>:27<span class="w"> </span>libclang_rt.asan-arm-android.so*
+-rw-r-----<span class="w"> </span><span class="m">1</span><span class="w"> </span>dv<span class="w"> </span>dv<span class="w">   </span><span class="m">16596</span><span class="w"> </span>Apr<span class="w">  </span><span class="m">1</span><span class="w"> </span><span class="m">06</span>:26<span class="w"> </span>libclang_rt.asan_cxx-arm-android.a
+-rw-r-----<span class="w"> </span><span class="m">1</span><span class="w"> </span>dv<span class="w"> </span>dv<span class="w">      </span><span class="m">73</span><span class="w"> </span>Apr<span class="w">  </span><span class="m">1</span><span class="w"> </span><span class="m">06</span>:26<span class="w"> </span>libclang_rt.asan_cxx-arm-android.a.syms
+-rw-r-----<span class="w"> </span><span class="m">1</span><span class="w"> </span>dv<span class="w"> </span>dv<span class="w">   </span><span class="m">14064</span><span class="w"> </span>Apr<span class="w">  </span><span class="m">1</span><span class="w"> </span><span class="m">06</span>:34<span class="w"> </span>libclang_rt.asan_cxx-i686-android.a
+-rw-r-----<span class="w"> </span><span class="m">1</span><span class="w"> </span>dv<span class="w"> </span>dv<span class="w"> </span><span class="m">1986448</span><span class="w"> </span>Apr<span class="w">  </span><span class="m">1</span><span class="w"> </span><span class="m">06</span>:34<span class="w"> </span>libclang_rt.asan-i686-android.a
+-rwxr-x---<span class="w"> </span><span class="m">1</span><span class="w"> </span>dv<span class="w"> </span>dv<span class="w"> </span><span class="m">1504988</span><span class="w"> </span>Apr<span class="w">  </span><span class="m">1</span><span class="w"> </span><span class="m">06</span>:35<span class="w"> </span>libclang_rt.asan-i686-android.so*
+-rw-r-----<span class="w"> </span><span class="m">1</span><span class="w"> </span>dv<span class="w"> </span>dv<span class="w">    </span><span class="m">2100</span><span class="w"> </span>Apr<span class="w">  </span><span class="m">1</span><span class="w"> </span><span class="m">06</span>:26<span class="w"> </span>libclang_rt.asan-preinit-arm-android.a
+-rw-r-----<span class="w"> </span><span class="m">1</span><span class="w"> </span>dv<span class="w"> </span>dv<span class="w">    </span><span class="m">1844</span><span class="w"> </span>Apr<span class="w">  </span><span class="m">1</span><span class="w"> </span><span class="m">06</span>:34<span class="w"> </span>libclang_rt.asan-preinit-i686-android.a
+$<span class="w"> </span>file<span class="w"> </span>android-ndk-r10e/toolchains/llvm-3.6/prebuilt/linux-x86_64/lib/clang/3.6/lib/linux/libclang_rt.asan-arm-android.so
+android-ndk-r10e/toolchains/llvm-3.6/prebuilt/linux-x86_64/lib/clang/3.6/lib/linux/libclang_rt.asan-arm-android.so:<span class="w"> </span>ELF<span class="w"> </span><span class="m">32</span>-bit<span class="w"> </span>LSB<span class="w"> </span>shared<span class="w"> </span>object,<span class="w"> </span>ARM,<span class="w"> </span>EABI5<span class="w"> </span>version<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>SYSV<span class="o">)</span>,<span class="w"> </span>dynamically<span class="w"> </span>linked,<span class="w"> </span>interpreter<span class="w"> </span>/system/bin/linker,<span class="w"> </span>BuildID<span class="o">[</span>sha1<span class="o">]=</span>414a26fe76bb09de2d0d101e3ed6200da5d1cadc,<span class="w"> </span>not<span class="w"> </span>stripped
 </pre></div>
 </div>
-</div>
-<div class="section" id="build-llvm-from-source-for-android">
-<h2><a class="toc-backref" href="#id14">Build LLVM From Source For Android</a><a class="headerlink" href="#build-llvm-from-source-for-android" title="本標題的永久連結">¶</a></h2>
-</div>
-<div class="section" id="cpufeatures-library">
-<h2><a class="toc-backref" href="#id15">「cpufeatures」 Library</a><a class="headerlink" href="#cpufeatures-library" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="build-llvm-from-source-for-android">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">Build LLVM From Source For Android</a><a class="headerlink" href="#build-llvm-from-source-for-android" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cpufeatures-library">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">“cpufeatures” Library</a><a class="headerlink" href="#cpufeatures-library" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://developer.android.com/ndk/guides/cpu-features.html">The cpufeatures Library</a></p></li>
 </ul>
-</div>
-<div class="section" id="build-your-ndk">
-<h2><a class="toc-backref" href="#id16">Build Your NDK</a><a class="headerlink" href="#build-your-ndk" title="本標題的永久連結">¶</a></h2>
-</div>
-<div class="section" id="crystax-ndk">
-<h2><a class="toc-backref" href="#id17">CrystaX NDK</a><a class="headerlink" href="#crystax-ndk" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="build-your-ndk">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">Build Your NDK</a><a class="headerlink" href="#build-your-ndk" title="Permalink to this heading"></a></h2>
+</section>
+<section id="crystax-ndk">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">CrystaX NDK</a><a class="headerlink" href="#crystax-ndk" title="Permalink to this heading"></a></h2>
 <dl class="field-list simple">
-<dt class="field-odd">Site</dt>
+<dt class="field-odd">Site<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://www.crystax.net/en/">https://www.crystax.net/en/</a></p>
 </dd>
 </dl>
 <p>CrystaX NDK 是一套第三方的 Android NDK，
 目的是要提供更多的功能來輔助 Android 相關開發。</p>
-</div>
-<div class="section" id="reference">
-<h2><a class="toc-backref" href="#id18">Reference</a><a class="headerlink" href="#reference" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="reference">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">Reference</a><a class="headerlink" href="#reference" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://developer.android.com/ndk/guides/abis.html">Android NDK ABIs</a></p></li>
 <li><p><a class="reference external" href="https://android-review.googlesource.com/#/q/project:platform/ndk">Google Code Review - NDK</a></p></li>
@@ -1121,46 +1051,36 @@ android-ndk-r10e/toolchains/llvm-3.6/prebuilt/linux-x86_64/lib/clang/3.6/lib/lin
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Bionic_(software)">Wikipedia - Bionic (software)</a></p></li>
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Position-independent_code">Wikipedia - Position-independent code</a></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="porting-to-new-hardware.html" class="btn btn-neutral float-right" title="移植到新硬體 (Porting to new Hardware)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="linux-environment-on-android.html" class="btn btn-neutral float-left" title="Linux environment on Android" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="linux-environment-on-android.html" class="btn btn-neutral float-left" title="Linux environment on Android" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="porting-to-new-hardware.html" class="btn btn-neutral float-right" title="移植到新硬體 (Porting to new Hardware)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016
-
-    </p>
+    <p>&#169; Copyright 2023.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
   
 
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       <span class="fa fa-book"> Read the Docs</span>
       v: latest
@@ -1170,7 +1090,7 @@ android-ndk-r10e/toolchains/llvm-3.6/prebuilt/linux-x86_64/lib/clang/3.6/lib/lin
       <dl>
         <dt>Versions</dt>
         
-          <dd><a href="/zh_TW/latest/">latest</a></dd>
+          <dd><a href="https://wdv4758h.github.io/notes/">latest</a></dd>
         
       </dl>
       <dl>
@@ -1180,6 +1100,7 @@ android-ndk-r10e/toolchains/llvm-3.6/prebuilt/linux-x86_64/lib/clang/3.6/lib/lin
         
       </dl>
       <dl>
+        
         <dt>On Read the Docs</dt>
           <dd>
             <a href="//readthedocs.org/projects/wdv4758h-notes/?fromdocs=wdv4758h-notes">Project Home</a>
@@ -1188,22 +1109,13 @@ android-ndk-r10e/toolchains/llvm-3.6/prebuilt/linux-x86_64/lib/clang/3.6/lib/lin
             <a href="//readthedocs.org/builds/wdv4758h-notes/?fromdocs=wdv4758h-notes">Builds</a>
           </dd>
       </dl>
-      <hr/>
-      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
-
     </div>
   </div>
-
-
-
-  <script type="text/javascript">
+<script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-   
+  </script> 
 
 </body>
 </html>

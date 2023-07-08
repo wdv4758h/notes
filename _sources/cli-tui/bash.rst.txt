@@ -6,6 +6,31 @@ Bash
 .. contents:: 目錄
 
 
+Tips
+========================================
+
+Fail Fast
+------------------------------
+
+.. code-block:: sh
+
+    set -Eeuo pipefail
+
+
+Cleanup
+------------------------------
+
+.. code-block:: sh
+
+    trap cleanup SIGINT SIGTERM ERR EXIT
+
+    cleanup() {
+      trap - SIGINT SIGTERM ERR EXIT
+      # script cleanup here
+    }
+
+
+
 Job Control
 ========================================
 
@@ -145,7 +170,9 @@ Logging
 參考
 ========================================
 
+* `Let's do Bash right! <https://github.com/progrium/bashstyle>`_
 * `The Bash Hackers Wiki <http://wiki.bash-hackers.org/start>`_
+* `pure bash bible <https://github.com/dylanaraps/pure-bash-bible>`_
 * `Using "${a:-b}" for variable assignment in scripts <https://unix.stackexchange.com/questions/122845/using-a-b-for-variable-assignment-in-scripts>`_
 * `bash - What's a concise way to check that environment variables are set in a Unix shell script? <https://stackoverflow.com/questions/307503/whats-a-concise-way-to-check-that-environment-variables-are-set-in-a-unix-shell>`_
 * `Bash Pitfalls <https://mywiki.wooledge.org/BashPitfalls>`_
@@ -156,3 +183,5 @@ Logging
 * `Bash Boilerplate <https://github.com/alphabetum/bash-boilerplate>`_
 * `A best practices Bash script template with several useful functions <https://github.com/ralish/bash-script-template>`_
 * `100 shell script examples <https://github.com/epety/100-shell-script-examples>`_
+* `Learn Bash Debugging Techniques the Hard Way <https://zwischenzugs.com/2018/10/09/learn-bash-debugging-techniques-the-hard-way/>`_
+* `Minimal safe Bash script template | Better Dev <https://betterdev.blog/minimal-safe-bash-script-template/>`_

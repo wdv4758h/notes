@@ -1,114 +1,75 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-TW" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-TW" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>LLVM &mdash; wdv4758h-notes latest 說明文件</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LLVM &mdash; wdv4758h-notes latest documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="搜尋" href="../search.html" />
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Android With LLVM" href="llvm-android.html" />
     <link rel="prev" title="Legalization" href="legalization.html" /> 
 
 <!-- RTD Extra Head -->
 
-<!-- 
-Always link to the latest version, as canonical.
-http://docs.readthedocs.org/en/latest/canonical.html
--->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/compiler/llvm.html" />
+    <!--
+    Always link to the latest version, as canonical.
+    http://docs.readthedocs.org/en/latest/canonical.html
+    -->
+    <link rel="canonical" href="https://wdv4758h-notes.readthedocs.io/zh_TW/latest/compiler/llvm.html" />
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": "", "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": "https://wdv4758h-notes.readthedocs.io/zh_TW/latest/", "docroot": "/./", "features": {"docsearch_disabled": false}, "global_analytics_code": "", "language": "en", "page": "compiler/llvm", "programming_language": "", "project": "wdv4758h-notes", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": ""}</script>
 
-<!-- Add page-specific data, which must exist in the page js, not global -->
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = "compiler/llvm"
-READTHEDOCS_DATA['source_suffix'] = ".rst"
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
 </script>
 
-<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js" async="async"></script>
 
 <!-- end RTD <extrahead> -->
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../index.html" class="icon icon-home"> wdv4758h-notes
           
-
-          
+          <a href="../index.html" class="icon icon-home">
+            wdv4758h-notes
           </a>
-
-          
-            
-            
-            
               <div class="version">
                 latest
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/README.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/adt.html">ADT (Abstract Data Type)</a></li>
@@ -118,13 +79,18 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/cache.html">Cache</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/cache-friendly.html">Cache Friendly Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/dict.html">Dict</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/float-to-string.html">Float to String</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/heap.html">Heap （堆）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/introduction.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/inverse-square-root.html">Inverse Square Root</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/lock.html">Lock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/meta-algorithm.html">Meta Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/random-number-generator.html">Random Number Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/resource.html">演算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/sorting.html">Sorting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/string-to-float.html">String to Float</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/substring-searching.html">Substring Searching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/README.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/android-emulator.html">Android Emulator</a></li>
@@ -200,7 +166,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../blog/openmp.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#tutorial">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#id5">額外紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#id4">額外紀錄</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/python-benchmark.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/python-benchmark.html#hello-world">Hello World</a></li>
@@ -227,7 +193,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../blog/qemu-first-step.html#qemu-with-kvm">QEMU with KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html">Syntax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closure">Closure 和外部變數</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#move-closures">「move」 closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#move-closures">“move” closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closure-implementation">Closure implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closures-as-arguments">closures as arguments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#returning-closures">returning closures</a></li>
@@ -432,6 +398,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/ci.html">Continuous Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/concourse.html">Concourse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/drone.html">Drone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../continuous-integration/github-actions.html">Github Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/jenkins.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/travis-ci.html">Travis CI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/workflow-pipeline.html">Workflow Pipeline</a></li>
@@ -441,7 +408,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../cpp/array.html">std::array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/assembly.html">C++ &amp; Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/bit-field.html">C++ Bit Field</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cpp/c++17.html">C++17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/c%2B%2B17.html">C++17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/concepts.html">C++ Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/const.html">C++ const</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/copy-elision.html">Copy Elision</a></li>
@@ -494,13 +461,16 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../database/README.html">資料庫 (Database)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/cockroachdb.html">CockroachDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/consensus-algorithm.html">Raft Consensus Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/graph.html">Graph Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/leveldb.html">LevelDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/materialized-views.html">Materialized Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mongodb.html">MongoDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/rocksdb.html">RocksDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sql.html">SQL (Structured Query Language)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/tidb.html">TiDB</a></li>
@@ -573,7 +543,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/math-on-web.html">Math on Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/misc.html">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../memory/W^X.html">W^X (Write XOR Execute)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../memory/W%5EX.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/kernel-memory-management.html">Kernel Memory Management</a></li>
@@ -831,74 +801,34 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../wiki/resource.html">Wiki</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">wdv4758h-notes</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-      <li>LLVM</li>
-    
-    
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">LLVM</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/wdv4758h/notes/blob/master/./compiler/llvm.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="llvm">
-<h1><a class="toc-backref" href="#id5">LLVM</a><a class="headerlink" href="#llvm" title="本標題的永久連結">¶</a></h1>
-<div class="contents topic" id="table-of-contents">
-<p class="topic-title first">Table of Contents</p>
+             
+  <section id="llvm">
+<h1><a class="toc-backref" href="#id5" role="doc-backlink">LLVM</a><a class="headerlink" href="#llvm" title="Permalink to this heading"></a></h1>
+<nav class="contents" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#llvm" id="id5">LLVM</a></p>
 <ul>
@@ -929,10 +859,10 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </ul>
 </li>
 </ul>
-</div>
+</nav>
 <p>(LLVM 用 reStructuredText 跟 Sphinx 在寫 Documentation)</p>
-<div class="section" id="introduction">
-<h2><a class="toc-backref" href="#id6">Introduction</a><a class="headerlink" href="#introduction" title="本標題的永久連結">¶</a></h2>
+<section id="introduction">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
 <p>LLVM 是 <strong>Chris Lattner</strong> 於 2000 年在 UIUC 展開、發表於 2004 年的碩士論文專案，
 原名為 「Low Level Virtual Machine」，
 當中使用到的概念取自於 2003 年發表的論文
@@ -947,30 +877,30 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 每次新 release 即升一個小版號，
 直到小版號超過九，
 就升一次大版號。</p>
-</div>
-<div class="section" id="get-your-llvm">
-<h2><a class="toc-backref" href="#id7">Get Your LLVM</a><a class="headerlink" href="#get-your-llvm" title="本標題的永久連結">¶</a></h2>
-<div class="section" id="release-prebuilt">
-<h3><a class="toc-backref" href="#id8">Release Prebuilt</a><a class="headerlink" href="#release-prebuilt" title="本標題的永久連結">¶</a></h3>
-</div>
-<div class="section" id="llvm-snapshot-builds">
-<h3><a class="toc-backref" href="#id9">LLVM Snapshot Builds</a><a class="headerlink" href="#llvm-snapshot-builds" title="本標題的永久連結">¶</a></h3>
-</div>
-<div class="section" id="autotools">
-<h3><a class="toc-backref" href="#id10">Autotools</a><a class="headerlink" href="#autotools" title="本標題的永久連結">¶</a></h3>
-</div>
-<div class="section" id="cmake-ninja">
-<h3><a class="toc-backref" href="#id11">CMake &amp; Ninja</a><a class="headerlink" href="#cmake-ninja" title="本標題的永久連結">¶</a></h3>
-</div>
-</div>
-<div class="section" id="dragonegg-plugin">
-<h2><a class="toc-backref" href="#id12">DragonEgg Plugin</a><a class="headerlink" href="#dragonegg-plugin" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="get-your-llvm">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Get Your LLVM</a><a class="headerlink" href="#get-your-llvm" title="Permalink to this heading"></a></h2>
+<section id="release-prebuilt">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Release Prebuilt</a><a class="headerlink" href="#release-prebuilt" title="Permalink to this heading"></a></h3>
+</section>
+<section id="llvm-snapshot-builds">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">LLVM Snapshot Builds</a><a class="headerlink" href="#llvm-snapshot-builds" title="Permalink to this heading"></a></h3>
+</section>
+<section id="autotools">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Autotools</a><a class="headerlink" href="#autotools" title="Permalink to this heading"></a></h3>
+</section>
+<section id="cmake-ninja">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">CMake &amp; Ninja</a><a class="headerlink" href="#cmake-ninja" title="Permalink to this heading"></a></h3>
+</section>
+</section>
+<section id="dragonegg-plugin">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">DragonEgg Plugin</a><a class="headerlink" href="#dragonegg-plugin" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="http://dragonegg.llvm.org/">DragonEgg - Using LLVM as a GCC backend</a></p></li>
 </ul>
-</div>
-<div class="section" id="polly">
-<h2><a class="toc-backref" href="#id13">Polly</a><a class="headerlink" href="#polly" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="polly">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Polly</a><a class="headerlink" href="#polly" title="Permalink to this heading"></a></h2>
 <p>polyhedral optimizer</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://polly.llvm.org/changelog.html">LLVM Framework for High-Level Loop and Data-Locality Optimizations</a></p></li>
@@ -978,84 +908,84 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Polytope_model">Wikipedia - Polytope model</a></p></li>
 <li><p><a class="reference external" href="http://llvm.org/devmtg/2010-11/Grosser-Polly.pdf">[2010] Polly - Polyhedral Transformations for LLVM</a></p></li>
 </ul>
-</div>
-<div class="section" id="llvm-linker">
-<h2><a class="toc-backref" href="#id14">LLVM Linker</a><a class="headerlink" href="#llvm-linker" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="llvm-linker">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">LLVM Linker</a><a class="headerlink" href="#llvm-linker" title="Permalink to this heading"></a></h2>
 <p>lld</p>
-</div>
-<div class="section" id="register-allocation">
-<h2><a class="toc-backref" href="#id15">Register Allocation</a><a class="headerlink" href="#register-allocation" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="register-allocation">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">Register Allocation</a><a class="headerlink" href="#register-allocation" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="http://llvm.org/devmtg/2011-11/Olesen_RegisterAllocation.pdf">[2011] Register Allocation in LLVM 3.0</a></p></li>
 <li><p><a class="reference external" href="https://cgcheng.hackpad.com/LLVM-register-allocation-quymvAj80nQ">LLVM register allocation</a></p></li>
 </ul>
-</div>
-<div class="section" id="llc">
-<h2><a class="toc-backref" href="#id16">llc</a><a class="headerlink" href="#llc" title="本標題的永久連結">¶</a></h2>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ llc --version
-LLVM <span class="o">(</span>http://llvm.org/<span class="o">)</span>:
-LLVM version <span class="m">3</span>.5.2
-Optimized build.
-Built Apr <span class="m">23</span> <span class="m">2015</span> <span class="o">(</span><span class="m">08</span>:23:12<span class="o">)</span>.
-Default target: x86_64-unknown-linux-gnu
-Host CPU: core-avx-i
+</section>
+<section id="llc">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">llc</a><a class="headerlink" href="#llc" title="Permalink to this heading"></a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>llc<span class="w"> </span>--version
+LLVM<span class="w"> </span><span class="o">(</span>http://llvm.org/<span class="o">)</span>:
+LLVM<span class="w"> </span>version<span class="w"> </span><span class="m">3</span>.5.2
+Optimized<span class="w"> </span>build.
+Built<span class="w"> </span>Apr<span class="w"> </span><span class="m">23</span><span class="w"> </span><span class="m">2015</span><span class="w"> </span><span class="o">(</span><span class="m">08</span>:23:12<span class="o">)</span>.
+Default<span class="w"> </span>target:<span class="w"> </span>x86_64-unknown-linux-gnu
+Host<span class="w"> </span>CPU:<span class="w"> </span>core-avx-i
 
-Registered Targets:
-    aarch64    - AArch64 <span class="o">(</span>little endian<span class="o">)</span>
-    aarch64_be - AArch64 <span class="o">(</span>big endian<span class="o">)</span>
-    arm        - ARM
-    arm64      - AArch64 <span class="o">(</span>little endian<span class="o">)</span>
-    arm64_be   - AArch64 <span class="o">(</span>big endian<span class="o">)</span>
-    armeb      - ARM <span class="o">(</span>big endian<span class="o">)</span>
-    cpp        - C++ backend
-    hexagon    - Hexagon
-    mips       - Mips
-    mips64     - Mips64 <span class="o">[</span>experimental<span class="o">]</span>
-    mips64el   - Mips64el <span class="o">[</span>experimental<span class="o">]</span>
-    mipsel     - Mipsel
-    msp430     - MSP430 <span class="o">[</span>experimental<span class="o">]</span>
-    nvptx      - NVIDIA PTX <span class="m">32</span>-bit
-    nvptx64    - NVIDIA PTX <span class="m">64</span>-bit
-    ppc32      - PowerPC <span class="m">32</span>
-    ppc64      - PowerPC <span class="m">64</span>
-    ppc64le    - PowerPC <span class="m">64</span> LE
-    r600       - AMD GPUs HD2XXX-HD6XXX
-    sparc      - Sparc
-    sparcv9    - Sparc V9
-    systemz    - SystemZ
-    thumb      - Thumb
-    thumbeb    - Thumb <span class="o">(</span>big endian<span class="o">)</span>
-    x86        - <span class="m">32</span>-bit X86: Pentium-Pro and above
-    x86-64     - <span class="m">64</span>-bit X86: EM64T and AMD64
-    xcore      - XCore
+Registered<span class="w"> </span>Targets:
+<span class="w">    </span>aarch64<span class="w">    </span>-<span class="w"> </span>AArch64<span class="w"> </span><span class="o">(</span>little<span class="w"> </span>endian<span class="o">)</span>
+<span class="w">    </span>aarch64_be<span class="w"> </span>-<span class="w"> </span>AArch64<span class="w"> </span><span class="o">(</span>big<span class="w"> </span>endian<span class="o">)</span>
+<span class="w">    </span>arm<span class="w">        </span>-<span class="w"> </span>ARM
+<span class="w">    </span>arm64<span class="w">      </span>-<span class="w"> </span>AArch64<span class="w"> </span><span class="o">(</span>little<span class="w"> </span>endian<span class="o">)</span>
+<span class="w">    </span>arm64_be<span class="w">   </span>-<span class="w"> </span>AArch64<span class="w"> </span><span class="o">(</span>big<span class="w"> </span>endian<span class="o">)</span>
+<span class="w">    </span>armeb<span class="w">      </span>-<span class="w"> </span>ARM<span class="w"> </span><span class="o">(</span>big<span class="w"> </span>endian<span class="o">)</span>
+<span class="w">    </span>cpp<span class="w">        </span>-<span class="w"> </span>C++<span class="w"> </span>backend
+<span class="w">    </span>hexagon<span class="w">    </span>-<span class="w"> </span>Hexagon
+<span class="w">    </span>mips<span class="w">       </span>-<span class="w"> </span>Mips
+<span class="w">    </span>mips64<span class="w">     </span>-<span class="w"> </span>Mips64<span class="w"> </span><span class="o">[</span>experimental<span class="o">]</span>
+<span class="w">    </span>mips64el<span class="w">   </span>-<span class="w"> </span>Mips64el<span class="w"> </span><span class="o">[</span>experimental<span class="o">]</span>
+<span class="w">    </span>mipsel<span class="w">     </span>-<span class="w"> </span>Mipsel
+<span class="w">    </span>msp430<span class="w">     </span>-<span class="w"> </span>MSP430<span class="w"> </span><span class="o">[</span>experimental<span class="o">]</span>
+<span class="w">    </span>nvptx<span class="w">      </span>-<span class="w"> </span>NVIDIA<span class="w"> </span>PTX<span class="w"> </span><span class="m">32</span>-bit
+<span class="w">    </span>nvptx64<span class="w">    </span>-<span class="w"> </span>NVIDIA<span class="w"> </span>PTX<span class="w"> </span><span class="m">64</span>-bit
+<span class="w">    </span>ppc32<span class="w">      </span>-<span class="w"> </span>PowerPC<span class="w"> </span><span class="m">32</span>
+<span class="w">    </span>ppc64<span class="w">      </span>-<span class="w"> </span>PowerPC<span class="w"> </span><span class="m">64</span>
+<span class="w">    </span>ppc64le<span class="w">    </span>-<span class="w"> </span>PowerPC<span class="w"> </span><span class="m">64</span><span class="w"> </span>LE
+<span class="w">    </span>r600<span class="w">       </span>-<span class="w"> </span>AMD<span class="w"> </span>GPUs<span class="w"> </span>HD2XXX-HD6XXX
+<span class="w">    </span>sparc<span class="w">      </span>-<span class="w"> </span>Sparc
+<span class="w">    </span>sparcv9<span class="w">    </span>-<span class="w"> </span>Sparc<span class="w"> </span>V9
+<span class="w">    </span>systemz<span class="w">    </span>-<span class="w"> </span>SystemZ
+<span class="w">    </span>thumb<span class="w">      </span>-<span class="w"> </span>Thumb
+<span class="w">    </span>thumbeb<span class="w">    </span>-<span class="w"> </span>Thumb<span class="w"> </span><span class="o">(</span>big<span class="w"> </span>endian<span class="o">)</span>
+<span class="w">    </span>x86<span class="w">        </span>-<span class="w"> </span><span class="m">32</span>-bit<span class="w"> </span>X86:<span class="w"> </span>Pentium-Pro<span class="w"> </span>and<span class="w"> </span>above
+<span class="w">    </span>x86-64<span class="w">     </span>-<span class="w"> </span><span class="m">64</span>-bit<span class="w"> </span>X86:<span class="w"> </span>EM64T<span class="w"> </span>and<span class="w"> </span>AMD64
+<span class="w">    </span>xcore<span class="w">      </span>-<span class="w"> </span>XCore
 </pre></div>
 </div>
-</div>
-<div class="section" id="garbage-collection">
-<h2><a class="toc-backref" href="#id17">Garbage Collection</a><a class="headerlink" href="#garbage-collection" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="garbage-collection">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">Garbage Collection</a><a class="headerlink" href="#garbage-collection" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="http://llvm.org/docs/GarbageCollection.html">Garbage Collection with LLVM</a></p></li>
 <li><p><a class="reference external" href="https://eschew.wordpress.com/2013/10/28/on-llvms-gc-infrastructure/">[2013] On LLVM’s GC Infrastructure</a></p></li>
 <li><p><a class="reference external" href="http://llvm.org/devmtg/2014-10/Slides/Reames-GarbageCollection.pdf">[2014] Practical Fully Relocating Garbage Collection in LLVM</a></p></li>
 </ul>
-</div>
-<div class="section" id="llvm-pass">
-<h2><a class="toc-backref" href="#id18">LLVM Pass</a><a class="headerlink" href="#llvm-pass" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="llvm-pass">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">LLVM Pass</a><a class="headerlink" href="#llvm-pass" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="http://llvm.org/docs/WritingAnLLVMPass.html">Writing an LLVM Pass</a></p></li>
 <li><p><a class="reference external" href="http://llvm.org/devmtg/2014-04/PDFs/Talks/Passes.pdf">[2014] Passes in LLVM</a></p></li>
 <li><p><a class="reference external" href="http://llvm.org/devmtg/2014-10/Slides/Carruth-TheLLVMPassManagerPart2.pdf">[2014] The LLVM Pass Manager Part 2</a></p></li>
 </ul>
-</div>
-<div class="section" id="misc">
-<h2><a class="toc-backref" href="#id19">Misc</a><a class="headerlink" href="#misc" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="misc">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">Misc</a><a class="headerlink" href="#misc" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="http://eces.colorado.edu/~blomsted/llvmpin/llvmpin.html">LLVMPin Instrumentation Framework</a></p></li>
 <li><p><a class="reference external" href="http://llvm.org/devmtg/2015-04/slides/CConcurrency_EuroLLVM2015.pdf">C Concurrency: Still Tricky</a></p></li>
 </ul>
-</div>
-<div class="section" id="idea">
-<h2><a class="toc-backref" href="#id20">Idea</a><a class="headerlink" href="#idea" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="idea">
+<h2><a class="toc-backref" href="#id20" role="doc-backlink">Idea</a><a class="headerlink" href="#idea" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><dl class="simple">
 <dt>LLVM For Writing Database</dt><dd><ul>
@@ -1103,11 +1033,11 @@ Registered Targets:
 </li>
 <li><p>code suggestion</p></li>
 </ul>
-</div>
-<div class="section" id="id1">
-<h2><a class="toc-backref" href="#id21">參考</a><a class="headerlink" href="#id1" title="本標題的永久連結">¶</a></h2>
-<div class="section" id="id2">
-<h3><a class="toc-backref" href="#id22">LLVM</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="id1">
+<h2><a class="toc-backref" href="#id21" role="doc-backlink">參考</a><a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
+<section id="id2">
+<h3><a class="toc-backref" href="#id22" role="doc-backlink">LLVM</a><a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/LLVM">Wikipedia - LLVM</a></p></li>
 <li><p>[Book] Getting Started with LLVM Core Libraries</p></li>
@@ -1116,9 +1046,9 @@ Registered Targets:
 <li><p>[2014] <a class="reference external" href="http://llvm.org/pubs/2004-01-30-CGO-LLVM.pdf">LLVM: A Compilation Framework for Lifelong Program Analysis &amp; Transformation</a></p></li>
 <li><p><a class="reference external" href="https://blog.tartanllama.xyz/llvm-alias-analysis/">Custom Alias Analysis in LLVM</a></p></li>
 </ul>
-</div>
-<div class="section" id="ninja">
-<h3><a class="toc-backref" href="#id23">Ninja</a><a class="headerlink" href="#ninja" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="ninja">
+<h3><a class="toc-backref" href="#id23" role="doc-backlink">Ninja</a><a class="headerlink" href="#ninja" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/martine/ninja">[GitHub] martine/ninja</a></p></li>
 <li><p><a class="reference external" href="http://martine.github.io/ninja/">Ninja</a></p></li>
@@ -1126,47 +1056,37 @@ Registered Targets:
 <li><p><a class="reference external" href="http://jpospisil.com/2014/03/16/replacing-make-with-ninja.html">Replacing Make with Ninja</a></p></li>
 <li><p><a class="reference external" href="http://hamelot.co.uk/programming/make-vs-ninja-performance-comparison/">Make vs Ninja Performance Comparison</a></p></li>
 </ul>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="llvm-android.html" class="btn btn-neutral float-right" title="Android With LLVM" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="legalization.html" class="btn btn-neutral float-left" title="Legalization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="legalization.html" class="btn btn-neutral float-left" title="Legalization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="llvm-android.html" class="btn btn-neutral float-right" title="Android With LLVM" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016
-
-    </p>
+    <p>&#169; Copyright 2023.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
   
 
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       <span class="fa fa-book"> Read the Docs</span>
       v: latest
@@ -1176,7 +1096,7 @@ Registered Targets:
       <dl>
         <dt>Versions</dt>
         
-          <dd><a href="/zh_TW/latest/">latest</a></dd>
+          <dd><a href="https://wdv4758h.github.io/notes/">latest</a></dd>
         
       </dl>
       <dl>
@@ -1186,6 +1106,7 @@ Registered Targets:
         
       </dl>
       <dl>
+        
         <dt>On Read the Docs</dt>
           <dd>
             <a href="//readthedocs.org/projects/wdv4758h-notes/?fromdocs=wdv4758h-notes">Project Home</a>
@@ -1194,22 +1115,13 @@ Registered Targets:
             <a href="//readthedocs.org/builds/wdv4758h-notes/?fromdocs=wdv4758h-notes">Builds</a>
           </dd>
       </dl>
-      <hr/>
-      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
-
     </div>
   </div>
-
-
-
-  <script type="text/javascript">
+<script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-   
+  </script> 
 
 </body>
 </html>

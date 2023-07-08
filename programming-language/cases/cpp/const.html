@@ -1,112 +1,73 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-TW" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-TW" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>C++ const &mdash; wdv4758h-notes latest 說明文件</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>C++ const &mdash; wdv4758h-notes latest documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../../_static/translations.js"></script>
-        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
-    
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="index" title="索引" href="../../../genindex.html" />
-    <link rel="search" title="搜尋" href="../../../search.html" /> 
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
 
 <!-- RTD Extra Head -->
 
-<!-- 
-Always link to the latest version, as canonical.
-http://docs.readthedocs.org/en/latest/canonical.html
--->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/programming-language/cases/cpp/const.html" />
+    <!--
+    Always link to the latest version, as canonical.
+    http://docs.readthedocs.org/en/latest/canonical.html
+    -->
+    <link rel="canonical" href="https://wdv4758h-notes.readthedocs.io/zh_TW/latest/programming-language/cases/cpp/const.html" />
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../../../_static/readthedocs-data.js"></script>
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": "", "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": "https://wdv4758h-notes.readthedocs.io/zh_TW/latest/", "docroot": "/./", "features": {"docsearch_disabled": false}, "global_analytics_code": "", "language": "en", "page": "programming-language/cases/cpp/const", "programming_language": "", "project": "wdv4758h-notes", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": ""}</script>
 
-<!-- Add page-specific data, which must exist in the page js, not global -->
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = "programming-language/cases/cpp/const"
-READTHEDOCS_DATA['source_suffix'] = ".rst"
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
 </script>
 
-<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js" async="async"></script>
 
 <!-- end RTD <extrahead> -->
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../../index.html" class="icon icon-home"> wdv4758h-notes
           
-
-          
+          <a href="../../../index.html" class="icon icon-home">
+            wdv4758h-notes
           </a>
-
-          
-            
-            
-            
               <div class="version">
                 latest
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/README.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/adt.html">ADT (Abstract Data Type)</a></li>
@@ -116,13 +77,18 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/cache.html">Cache</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/cache-friendly.html">Cache Friendly Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/dict.html">Dict</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/float-to-string.html">Float to String</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/heap.html">Heap （堆）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/introduction.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/inverse-square-root.html">Inverse Square Root</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/lock.html">Lock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/meta-algorithm.html">Meta Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/random-number-generator.html">Random Number Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/resource.html">演算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/sorting.html">Sorting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/string-to-float.html">String to Float</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/substring-searching.html">Substring Searching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../android/README.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../android/android-emulator.html">Android Emulator</a></li>
@@ -198,7 +164,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/openmp.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/pypy-brainfuck.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/pypy-brainfuck.html#tutorial">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../blog/pypy-brainfuck.html#id5">額外紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/pypy-brainfuck.html#id4">額外紀錄</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/pypy-brainfuck.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/python-benchmark.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/python-benchmark.html#hello-world">Hello World</a></li>
@@ -225,7 +191,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/qemu-first-step.html#qemu-with-kvm">QEMU with KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html">Syntax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#closure">Closure 和外部變數</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#move-closures">「move」 closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#move-closures">“move” closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#closure-implementation">Closure implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#closures-as-arguments">closures as arguments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#returning-closures">returning closures</a></li>
@@ -406,6 +372,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/ci.html">Continuous Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/concourse.html">Concourse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/drone.html">Drone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/github-actions.html">Github Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/jenkins.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/travis-ci.html">Travis CI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/workflow-pipeline.html">Workflow Pipeline</a></li>
@@ -415,7 +382,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/array.html">std::array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/assembly.html">C++ &amp; Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/bit-field.html">C++ Bit Field</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../cpp/c++17.html">C++17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/c%2B%2B17.html">C++17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/concepts.html">C++ Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/const.html">C++ const</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/copy-elision.html">Copy Elision</a></li>
@@ -468,13 +435,16 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../database/README.html">資料庫 (Database)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/cockroachdb.html">CockroachDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/consensus-algorithm.html">Raft Consensus Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../database/graph.html">Graph Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/leveldb.html">LevelDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../database/materialized-views.html">Materialized Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/mongodb.html">MongoDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../database/rocksdb.html">RocksDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/sql.html">SQL (Structured Query Language)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/tidb.html">TiDB</a></li>
@@ -547,7 +517,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../math/math-on-web.html">Math on Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../math/misc.html">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../memory/W^X.html">W^X (Write XOR Execute)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../memory/W%5EX.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../memory/allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../memory/kernel-memory-management.html">Kernel Memory Management</a></li>
@@ -805,72 +775,32 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../wiki/resource.html">Wiki</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">wdv4758h-notes</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../../index.html">Docs</a> &raquo;</li>
-        
-      <li>C++ const</li>
-    
-    
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">C++ const</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/wdv4758h/notes/blob/master/./programming-language/cases/cpp/const.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="c-const">
-<h1>C++ const<a class="headerlink" href="#c-const" title="本標題的永久連結">¶</a></h1>
+             
+  <section id="c-const">
+<h1>C++ const<a class="headerlink" href="#c-const" title="Permalink to this heading"></a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">const</span></code> qualifiers 在 C 和 C++ 裡面都很常見，
 但是觀念不清楚的話就不能好好利用，
 以下做些觀念紀錄。</p>
@@ -881,30 +811,30 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li><p>該加 const 的儘量加</p></li>
 <li><p>愈早加愈好</p></li>
 </ul>
-<div class="section" id="const-in-declaration">
-<h2>const in declaration<a class="headerlink" href="#const-in-declaration" title="本標題的永久連結">¶</a></h2>
+<section id="const-in-declaration">
+<h2>const in declaration<a class="headerlink" href="#const-in-declaration" title="Permalink to this heading"></a></h2>
 <p>由右至左解釋變數宣告：</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">const</span> <span class="n">X</span> <span class="n">p</span>       <span class="c1">// p is an X that is const</span>
-<span class="n">X</span> <span class="k">const</span> <span class="n">p</span>       <span class="c1">// p is a const X</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="n">X</span><span class="w"> </span><span class="n">p</span><span class="w">       </span><span class="c1">// p is an X that is const</span>
+<span class="n">X</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">p</span><span class="w">       </span><span class="c1">// p is a const X</span>
 
-<span class="k">const</span> <span class="n">X</span> <span class="o">*</span> <span class="n">p</span>     <span class="c1">// p points to an X that is const</span>
-<span class="n">X</span> <span class="k">const</span> <span class="o">*</span> <span class="n">p</span>     <span class="c1">// p points to a const X</span>
+<span class="k">const</span><span class="w"> </span><span class="n">X</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w">     </span><span class="c1">// p points to an X that is const</span>
+<span class="n">X</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w">     </span><span class="c1">// p points to a const X</span>
 
-<span class="n">X</span> <span class="o">*</span> <span class="k">const</span> <span class="n">p</span>     <span class="c1">// p is a const pointer to an X</span>
+<span class="n">X</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">p</span><span class="w">     </span><span class="c1">// p is a const pointer to an X</span>
 
-<span class="n">X</span> <span class="k">const</span> <span class="o">*</span> <span class="k">const</span> <span class="n">p</span>     <span class="c1">// p is a const pointer to a const X</span>
-<span class="k">const</span> <span class="n">X</span> <span class="o">*</span> <span class="k">const</span> <span class="n">p</span>     <span class="c1">// p is a const pointer to an X that is const</span>
+<span class="n">X</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">p</span><span class="w">     </span><span class="c1">// p is a const pointer to a const X</span>
+<span class="k">const</span><span class="w"> </span><span class="n">X</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">p</span><span class="w">     </span><span class="c1">// p is a const pointer to an X that is const</span>
 
-<span class="k">const</span> <span class="n">X</span><span class="o">&amp;</span> <span class="n">p</span>      <span class="c1">// p is a reference to an X that is const</span>
-<span class="n">X</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">p</span>      <span class="c1">// p is a reference to a const X</span>
+<span class="k">const</span><span class="w"> </span><span class="n">X</span><span class="o">&amp;</span><span class="w"> </span><span class="n">p</span><span class="w">      </span><span class="c1">// p is a reference to an X that is const</span>
+<span class="n">X</span><span class="w"> </span><span class="k">const</span><span class="o">&amp;</span><span class="w"> </span><span class="n">p</span><span class="w">      </span><span class="c1">// p is a reference to a const X</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="const-in-function-parameters">
-<h2>const in function parameters<a class="headerlink" href="#const-in-function-parameters" title="本標題的永久連結">¶</a></h2>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">f1</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">s</span><span class="p">);</span>     <span class="c1">// Pass by reference-to-const</span>
-<span class="kt">void</span> <span class="nf">f2</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">*</span> <span class="n">sptr</span><span class="p">);</span>  <span class="c1">// Pass by pointer-to-const</span>
-<span class="kt">void</span> <span class="nf">f3</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">s</span><span class="p">);</span>            <span class="c1">// Pass by value</span>
+</section>
+<section id="const-in-function-parameters">
+<h2>const in function parameters<a class="headerlink" href="#const-in-function-parameters" title="Permalink to this heading"></a></h2>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">f1</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">);</span><span class="w">     </span><span class="c1">// Pass by reference-to-const</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f2</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">*</span><span class="w"> </span><span class="n">sptr</span><span class="p">);</span><span class="w">  </span><span class="c1">// Pass by pointer-to-const</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f3</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s</span><span class="p">);</span><span class="w">            </span><span class="c1">// Pass by value</span>
 </pre></div>
 </div>
 <p>注意的是在 Pass by Value 的情況下，
@@ -913,37 +843,37 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 不需要在宣告時為參數加上 const，
 在寫實做時再依需求決定是否加上 const 來向內部標注 read-only 即可。
 （反正 Pass by Value 會複製一份，原本的資料到底是不是 const 已經不重要了）</p>
-</div>
-<div class="section" id="const-member-function">
-<h2>const member function<a class="headerlink" href="#const-member-function" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="const-member-function">
+<h2>const member function<a class="headerlink" href="#const-member-function" title="Permalink to this heading"></a></h2>
 <p>const member function 又稱為 inspectors，
 不會更動 object 的 observable state，
 也就是對於這個 object 沒有副作用
 （內部有標明 mutable 的變數仍然可以更動，例如 Cache，
 維護的是 logically const 而不是 physically const）：</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span> <span class="p">{</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="w"> </span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-    <span class="kt">void</span> <span class="n">inspect</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>   <span class="c1">// This member promises NOT to change *this</span>
-    <span class="kt">void</span> <span class="nf">mutate</span><span class="p">();</span>          <span class="c1">// This member function might change *this</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">inspect</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w">   </span><span class="c1">// This member promises NOT to change *this</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">mutate</span><span class="p">();</span><span class="w">          </span><span class="c1">// This member function might change *this</span>
 <span class="p">};</span>
 </pre></div>
 </div>
 <p>如果想要從 const member function 裡用 reference 的方式回傳 <code class="docutils literal notranslate"><span class="pre">this</span></code> object 裡的 member 的話，
 必須使用 reference-to-const 或是 by value：</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span> <span class="p">{</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="w"> </span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
 
-    <span class="c1">// inspect member function will return ``this`` object&#39;s member</span>
+<span class="w">    </span><span class="c1">// inspect member function will return ``this`` object&#39;s member</span>
 
-    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">inspect_pass_1</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>    <span class="c1">// Pass, the caller can&#39;t change the object</span>
-          <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">inspect_fail_1</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>    <span class="c1">// Compile-time error, the caller can change the object</span>
-    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span>  <span class="n">inspect_pass_2</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>    <span class="c1">// Pass, the caller can&#39;t change the object</span>
-          <span class="n">std</span><span class="o">::</span><span class="n">string</span>  <span class="n">inspect_pass_2</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>    <span class="c1">// Pass, the caller can&#39;t change the object</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">inspect_pass_1</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w">    </span><span class="c1">// Pass, the caller can&#39;t change the object</span>
+<span class="w">          </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">inspect_fail_1</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w">    </span><span class="c1">// Compile-time error, the caller can change the object</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w">  </span><span class="nf">inspect_pass_2</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w">    </span><span class="c1">// Pass, the caller can&#39;t change the object</span>
+<span class="w">          </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w">  </span><span class="nf">inspect_pass_2</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w">    </span><span class="c1">// Pass, the caller can&#39;t change the object</span>
 
-    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">inspect_pass_3</span><span class="p">();</span>          <span class="c1">// Pass</span>
-          <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">inspect_pass_4</span><span class="p">();</span>          <span class="c1">// Pass</span>
-    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span>  <span class="n">inspect_pass_5</span><span class="p">();</span>          <span class="c1">// Pass</span>
-          <span class="n">std</span><span class="o">::</span><span class="n">string</span>  <span class="n">inspect_pass_5</span><span class="p">();</span>          <span class="c1">// Pass</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">inspect_pass_3</span><span class="p">();</span><span class="w">          </span><span class="c1">// Pass</span>
+<span class="w">          </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">inspect_pass_4</span><span class="p">();</span><span class="w">          </span><span class="c1">// Pass</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w">  </span><span class="nf">inspect_pass_5</span><span class="p">();</span><span class="w">          </span><span class="c1">// Pass</span>
+<span class="w">          </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w">  </span><span class="nf">inspect_pass_5</span><span class="p">();</span><span class="w">          </span><span class="c1">// Pass</span>
 <span class="p">};</span>
 </pre></div>
 </div>
@@ -951,12 +881,12 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 但是仍然要把它視為 const member function，
 則須把該 member 宣告為 mutable
 （writable but logically const）。</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span> <span class="p">{</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="w"> </span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
 
-    <span class="kt">void</span> <span class="n">inspect</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span> <span class="o">++</span><span class="n">count</span><span class="p">;</span> <span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">inspect</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">++</span><span class="n">count</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 
-    <span class="k">mutable</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">mutable</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 
 <span class="p">};</span>
 </pre></div>
@@ -964,40 +894,40 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <p>如果要在多執行緒下跑，
 mutable 變數要額外做同步，
 例如用 mutex 或 atomic 的型別。</p>
-</div>
-<div class="section" id="const-overloading">
-<h2>const overloading<a class="headerlink" href="#const-overloading" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="const-overloading">
+<h2>const overloading<a class="headerlink" href="#const-overloading" title="Permalink to this heading"></a></h2>
 <p>const-overloading 指的是有兩個名稱相同的 member function，差別只在 const，
 所以 const 和 non-const 的 object 會呼叫到不同函數，
 形成 overloading。</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span> <span class="p">{</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="w"> </span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
 
-    <span class="c1">// Subscript operators often come in pairs</span>
+<span class="w">    </span><span class="c1">// Subscript operators often come in pairs</span>
 
-    <span class="k">const</span> <span class="n">MyClass</span><span class="o">&amp;</span> <span class="k">operator</span><span class="p">[]</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="n">index</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-          <span class="n">MyClass</span><span class="o">&amp;</span> <span class="k">operator</span><span class="p">[]</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="n">index</span><span class="p">);</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">MyClass</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="p">[]</span><span class="w"> </span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="n">index</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">          </span><span class="n">MyClass</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="p">[]</span><span class="w"> </span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="n">index</span><span class="p">);</span>
 <span class="p">};</span>
 </pre></div>
 </div>
-<div class="section" id="id1">
-<h3>注意事項<a class="headerlink" href="#id1" title="本標題的永久連結">¶</a></h3>
+<section id="id1">
+<h3>注意事項<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
 <p>同樣是 member function 的 const，
 C++98 思考的是 single-thread model，
 隱含 logically const。
 C++11 後思考的是 concurrency model，
 隱含的是真的 read-only 或是會同步，
 不需要 caller 做額外的同步處理。</p>
-</div>
-<div class="section" id="reference">
-<h3>Reference<a class="headerlink" href="#reference" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="reference">
+<h3>Reference<a class="headerlink" href="#reference" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://isocpp.org/wiki/faq/const-correctness">C++ FAQ - Const Correctness</a></p></li>
 <li><dl class="simple">
 <dt><a class="reference external" href="https://herbsutter.com/2013/05/24/gotw-6a-const-correctness-part-1-3/">GotW #6a Solution: Const-Correctness, Part 1</a></dt><dd><ul>
-<li><p>With C++98, we taught a generation of C++ developers that 「const means logically const, not physically/bitwise const」.</p></li>
-<li><p>With C++11 and onward, const now really does mean 「read-only, or safe to read concurrently」-either truly physically/bitwise const, or internally synchronized so that any actual writes are synchronized with any possible concurrent const accesses so the callers can’t tell the difference.</p></li>
-<li><p>「Concurrent const operations on the same object are required to be safe without the calling code doing external synchronization.」</p></li>
+<li><p>With C++98, we taught a generation of C++ developers that “const means logically const, not physically/bitwise const”.</p></li>
+<li><p>With C++11 and onward, const now really does mean “read-only, or safe to read concurrently”-either truly physically/bitwise const, or internally synchronized so that any actual writes are synchronized with any possible concurrent const accesses so the callers can’t tell the difference.</p></li>
+<li><p>“Concurrent const operations on the same object are required to be safe without the calling code doing external synchronization.”</p></li>
 </ul>
 </dd>
 </dl>
@@ -1005,38 +935,34 @@ C++11 後思考的是 concurrency model，
 <li><p><a class="reference external" href="https://herbsutter.com/2013/05/28/gotw-6b-solution-const-correctness-part-2/">GotW #6b Solution: Const-Correctness, Part 2</a></p></li>
 <li><p><a class="reference external" href="http://stackoverflow.com/questions/14127379/does-const-mean-thread-safe-in-c11">Does const mean thread-safe in C++11?</a></p></li>
 </ul>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>
-           
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016
-
-    </p>
+    <p>&#169; Copyright 2023.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
   
 
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       <span class="fa fa-book"> Read the Docs</span>
       v: latest
@@ -1046,7 +972,7 @@ C++11 後思考的是 concurrency model，
       <dl>
         <dt>Versions</dt>
         
-          <dd><a href="/zh_TW/latest/">latest</a></dd>
+          <dd><a href="https://wdv4758h.github.io/notes/">latest</a></dd>
         
       </dl>
       <dl>
@@ -1056,6 +982,7 @@ C++11 後思考的是 concurrency model，
         
       </dl>
       <dl>
+        
         <dt>On Read the Docs</dt>
           <dd>
             <a href="//readthedocs.org/projects/wdv4758h-notes/?fromdocs=wdv4758h-notes">Project Home</a>
@@ -1064,22 +991,13 @@ C++11 後思考的是 concurrency model，
             <a href="//readthedocs.org/builds/wdv4758h-notes/?fromdocs=wdv4758h-notes">Builds</a>
           </dd>
       </dl>
-      <hr/>
-      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
-
     </div>
   </div>
-
-
-
-  <script type="text/javascript">
+<script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-   
+  </script> 
 
 </body>
 </html>

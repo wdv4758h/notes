@@ -6,8 +6,12 @@ ORM
 .. contents:: 目錄
 
 
-Diesel
-========================================
+Diesel - Safe, Extensible ORM and Query Builder
+===============================================
+
+:site: https://diesel.rs
+:repo: https://github.com/diesel-rs/diesel
+
 
 特色：
 
@@ -19,6 +23,12 @@ Diesel
 * 效能跟直接寫 SQL 語法一樣好
 * 容易擴充
 * 目前支援 SQLite、MySQL、PostgreSQL
+
+
+參考：
+
+* `Announcing Diesel — A Safe, Extensible ORM and Query Builder for Rust <https://medium.com/@sgrif/announcing-diesel-a-safe-extensible-orm-and-query-builder-for-rust-fdf57966a16c>`_
+* `Grokking Diesel <https://hackernoon.com/grokking-diesel-652cb8886a63>`_
 
 
 Infer Schema
@@ -116,9 +126,25 @@ CLI
 
 
 
+Native Driver
+========================================
+
+* `Rust-Postgres <https://github.com/sfackler/rust-postgres>`_
+
+
+
+Connection Pool
+========================================
+
+* `r2d2 <https://github.com/sfackler/r2d2>`_
+* `mobc <https://github.com/importcjj/mobc>`_
+
+
+
 參考
 ========================================
 
-* `Diesel - A safe, extensible ORM and Query Builder for Rust <https://github.com/sgrif/diesel>`_
-* `Announcing Diesel — A Safe, Extensible ORM and Query Builder for Rust <https://medium.com/@sgrif/announcing-diesel-a-safe-extensible-orm-and-query-builder-for-rust-fdf57966a16c>`_
-* `Grokking Diesel <https://hackernoon.com/grokking-diesel-652cb8886a63>`_
+* `Refinery - SQL migration toolkit <https://github.com/rust-db/refinery>`_
+* `Barrel - database schema migration builder <https://github.com/rust-db/barrel>`_
+* `Quaint - SQL Query AST and Visitor <https://github.com/prisma/quaint>`_
+* `SQLx - async, pure Rust, SQL crate featuring compile-time checked queries without a DSL <https://github.com/launchbadge/sqlx>`_

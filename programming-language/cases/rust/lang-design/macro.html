@@ -1,112 +1,73 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-TW" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-TW" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Macro &mdash; wdv4758h-notes latest 說明文件</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Macro &mdash; wdv4758h-notes latest documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../../../_static/translations.js"></script>
-        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
-    
-    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
-    <link rel="index" title="索引" href="../../../../genindex.html" />
-    <link rel="search" title="搜尋" href="../../../../search.html" /> 
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
 
 <!-- RTD Extra Head -->
 
-<!-- 
-Always link to the latest version, as canonical.
-http://docs.readthedocs.org/en/latest/canonical.html
--->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/programming-language/cases/rust/lang-design/macro.html" />
+    <!--
+    Always link to the latest version, as canonical.
+    http://docs.readthedocs.org/en/latest/canonical.html
+    -->
+    <link rel="canonical" href="https://wdv4758h-notes.readthedocs.io/zh_TW/latest/programming-language/cases/rust/lang-design/macro.html" />
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../../../../_static/readthedocs-data.js"></script>
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": "", "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": "https://wdv4758h-notes.readthedocs.io/zh_TW/latest/", "docroot": "/./", "features": {"docsearch_disabled": false}, "global_analytics_code": "", "language": "en", "page": "programming-language/cases/rust/lang-design/macro", "programming_language": "", "project": "wdv4758h-notes", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": ""}</script>
 
-<!-- Add page-specific data, which must exist in the page js, not global -->
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = "programming-language/cases/rust/lang-design/macro"
-READTHEDOCS_DATA['source_suffix'] = ".rst"
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
 </script>
 
-<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js" async="async"></script>
 
 <!-- end RTD <extrahead> -->
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../../../index.html" class="icon icon-home"> wdv4758h-notes
           
-
-          
+          <a href="../../../../index.html" class="icon icon-home">
+            wdv4758h-notes
           </a>
-
-          
-            
-            
-            
               <div class="version">
                 latest
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../algorithm/README.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../algorithm/adt.html">ADT (Abstract Data Type)</a></li>
@@ -116,13 +77,18 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../../algorithm/cache.html">Cache</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../algorithm/cache-friendly.html">Cache Friendly Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../algorithm/dict.html">Dict</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../algorithm/float-to-string.html">Float to String</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../algorithm/heap.html">Heap （堆）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../algorithm/introduction.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../algorithm/inverse-square-root.html">Inverse Square Root</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../algorithm/lock.html">Lock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../algorithm/meta-algorithm.html">Meta Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../algorithm/misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../algorithm/random-number-generator.html">Random Number Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../algorithm/resource.html">演算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../algorithm/sorting.html">Sorting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../algorithm/string-to-float.html">String to Float</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../algorithm/substring-searching.html">Substring Searching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../android/README.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../android/android-emulator.html">Android Emulator</a></li>
@@ -198,7 +164,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../../blog/openmp.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../blog/pypy-brainfuck.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../blog/pypy-brainfuck.html#tutorial">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../blog/pypy-brainfuck.html#id5">額外紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../blog/pypy-brainfuck.html#id4">額外紀錄</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../blog/pypy-brainfuck.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../blog/python-benchmark.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../blog/python-benchmark.html#hello-world">Hello World</a></li>
@@ -225,7 +191,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../../blog/qemu-first-step.html#qemu-with-kvm">QEMU with KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../blog/rust-closure.html">Syntax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../blog/rust-closure.html#closure">Closure 和外部變數</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../blog/rust-closure.html#move-closures">「move」 closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../blog/rust-closure.html#move-closures">“move” closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../blog/rust-closure.html#closure-implementation">Closure implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../blog/rust-closure.html#closures-as-arguments">closures as arguments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../blog/rust-closure.html#returning-closures">returning closures</a></li>
@@ -406,6 +372,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../../continuous-integration/ci.html">Continuous Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../continuous-integration/concourse.html">Concourse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../continuous-integration/drone.html">Drone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../continuous-integration/github-actions.html">Github Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../continuous-integration/jenkins.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../continuous-integration/travis-ci.html">Travis CI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../continuous-integration/workflow-pipeline.html">Workflow Pipeline</a></li>
@@ -415,7 +382,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../../cpp/array.html">std::array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../cpp/assembly.html">C++ &amp; Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../cpp/bit-field.html">C++ Bit Field</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../cpp/c++17.html">C++17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cpp/c%2B%2B17.html">C++17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../cpp/concepts.html">C++ Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../cpp/const.html">C++ const</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../cpp/copy-elision.html">Copy Elision</a></li>
@@ -468,13 +435,16 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../../database/README.html">資料庫 (Database)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../database/cockroachdb.html">CockroachDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../database/consensus-algorithm.html">Raft Consensus Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../database/graph.html">Graph Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../database/leveldb.html">LevelDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../database/materialized-views.html">Materialized Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../database/mongodb.html">MongoDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../database/mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../database/resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../database/rocksdb.html">RocksDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../database/sql.html">SQL (Structured Query Language)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../database/sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../database/tidb.html">TiDB</a></li>
@@ -547,7 +517,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../math/math-on-web.html">Math on Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../math/misc.html">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../memory/W^X.html">W^X (Write XOR Execute)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../memory/W%5EX.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../memory/allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../memory/kernel-memory-management.html">Kernel Memory Management</a></li>
@@ -805,74 +775,34 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../../wiki/resource.html">Wiki</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../../index.html">wdv4758h-notes</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
-        
-      <li>Macro</li>
-    
-    
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Macro</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/wdv4758h/notes/blob/master/./programming-language/cases/rust/lang-design/macro.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="macro">
-<h1><a class="toc-backref" href="#id9">Macro</a><a class="headerlink" href="#macro" title="本標題的永久連結">¶</a></h1>
-<div class="contents topic" id="id1">
-<p class="topic-title first">目錄</p>
+             
+  <section id="macro">
+<h1><a class="toc-backref" href="#id9" role="doc-backlink">Macro</a><a class="headerlink" href="#macro" title="Permalink to this heading"></a></h1>
+<nav class="contents" id="id1">
+<p class="topic-title">目錄</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#macro" id="id9">Macro</a></p>
 <ul>
@@ -899,69 +829,69 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="id2">
-<h2><a class="toc-backref" href="#id10">介紹</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
-<div class="section" id="id3">
-<h3><a class="toc-backref" href="#id11">基本觀念</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h3>
+</nav>
+<section id="id2">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">介紹</a><a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
+<section id="id3">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">基本觀念</a><a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
 <p>syntactic programming language</p>
-</div>
-<div class="section" id="id4">
-<h3><a class="toc-backref" href="#id12">使用方式</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="id4">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">使用方式</a><a class="headerlink" href="#id4" title="Permalink to this heading"></a></h3>
 <p>Rust 的 macros 使用就像 function 一樣，
 但是結尾會多 <code class="docutils literal notranslate"><span class="pre">!</span></code> 表示其為 macros，
 例如： <code class="docutils literal notranslate"><span class="pre">mymacro!(mydata)</span></code></p>
-</div>
-</div>
-<div class="section" id="id5">
-<h2><a class="toc-backref" href="#id13">我會其他語言</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h2>
-<div class="section" id="c-c">
-<h3><a class="toc-backref" href="#id14">如果你會 C 或 C++</a><a class="headerlink" href="#c-c" title="本標題的永久連結">¶</a></h3>
+</section>
+</section>
+<section id="id5">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">我會其他語言</a><a class="headerlink" href="#id5" title="Permalink to this heading"></a></h2>
+<section id="c-c">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">如果你會 C 或 C++</a><a class="headerlink" href="#c-c" title="Permalink to this heading"></a></h3>
 <p>很抱歉，
 這邊要討論的 macros 跟一般 C 或 C++ 在討論的不太一樣，
 C 或 C++ 的 macros 會被分類為「Text-substitution macros」，
 也就是說是以字串取代為基底架構成的。</p>
-</div>
-<div class="section" id="lisp">
-<h3><a class="toc-backref" href="#id15">如果你會 Lisp</a><a class="headerlink" href="#lisp" title="本標題的永久連結">¶</a></h3>
-</div>
-<div class="section" id="python">
-<h3><a class="toc-backref" href="#id16">如果你會 Python</a><a class="headerlink" href="#python" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="lisp">
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">如果你會 Lisp</a><a class="headerlink" href="#lisp" title="Permalink to this heading"></a></h3>
+</section>
+<section id="python">
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">如果你會 Python</a><a class="headerlink" href="#python" title="Permalink to this heading"></a></h3>
 <p>很抱歉，
 預設並沒有提供好專門的相關語法可以使用，
 但是有相關的 Library （例如 <a class="reference external" href="https://github.com/lihaoyi/macropy">MacroPy</a> ）
 可以達成類似的事情。</p>
-</div>
-<div class="section" id="scheme">
-<h3><a class="toc-backref" href="#id17">如果你會 Scheme</a><a class="headerlink" href="#scheme" title="本標題的永久連結">¶</a></h3>
-</div>
-</div>
-<div class="section" id="macros">
-<h2><a class="toc-backref" href="#id18">macros 歷史發展</a><a class="headerlink" href="#macros" title="本標題的永久連結">¶</a></h2>
-</div>
-<div class="section" id="macro-rules-macros">
-<h2><a class="toc-backref" href="#id19"><code class="docutils literal notranslate"><span class="pre">macro_rules</span></code> macros</a><a class="headerlink" href="#macro-rules-macros" title="本標題的永久連結">¶</a></h2>
-<p>「macros by example」</p>
+</section>
+<section id="scheme">
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">如果你會 Scheme</a><a class="headerlink" href="#scheme" title="Permalink to this heading"></a></h3>
+</section>
+</section>
+<section id="macros">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">macros 歷史發展</a><a class="headerlink" href="#macros" title="Permalink to this heading"></a></h2>
+</section>
+<section id="macro-rules-macros">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink"><code class="docutils literal notranslate"><span class="pre">macro_rules</span></code> macros</a><a class="headerlink" href="#macro-rules-macros" title="Permalink to this heading"></a></h2>
+<p>“macros by example”</p>
 <p><code class="docutils literal notranslate"><span class="pre">macro_rules!</span></code> 讓程式設計師可以利用 Pattern Matching 來撰寫 syntactic macros，
 以下是一個非常簡單的範例：</p>
-<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">macro_rules</span><span class="o">!</span><span class="w"> </span><span class="n">hello</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;hello world&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="fm">macro_rules!</span><span class="w"> </span><span class="n">hello</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;hello world&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
 
-<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">hello</span><span class="o">!</span><span class="p">();</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">hello</span><span class="o">!</span><span class="p">();</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>加上簡單的參數：</p>
-<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">macro_rules</span><span class="o">!</span><span class="w"> </span><span class="n">hello</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="p">(</span><span class="cp">$name</span>: <span class="nc">expr</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{}: hello world&quot;</span><span class="p">,</span><span class="w"> </span><span class="cp">$name</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="fm">macro_rules!</span><span class="w"> </span><span class="n">hello</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">(</span><span class="cp">$name</span>: <span class="nc">expr</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{}: hello world&quot;</span><span class="p">,</span><span class="w"> </span><span class="cp">$name</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
 
-<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">hello</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;Rust&quot;</span><span class="p">);</span><span class="w">     </span><span class="c1">// Rust: hello world</span>
 <span class="w">    </span><span class="n">hello</span><span class="o">!</span><span class="p">(</span><span class="mi">5566</span><span class="p">);</span><span class="w">       </span><span class="c1">// 5566: hello world</span>
-<span class="p">}</span><span class="w"></span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>注意幾個地方：</p>
@@ -976,25 +906,25 @@ C 或 C++ 的 macros 會被分類為「Text-substitution macros」，
 </dl>
 </li>
 </ul>
-<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">macro_rules</span><span class="o">!</span><span class="w"> </span><span class="n">hello</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="p">(</span><span class="n">robot</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="cp">$name</span>: <span class="nc">expr</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;robot/{}: hello world&quot;</span><span class="p">,</span><span class="w"> </span><span class="cp">$name</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">};</span><span class="w"></span>
-<span class="w">    </span><span class="p">(</span><span class="cp">$name</span>: <span class="nc">expr</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{}: hello world&quot;</span><span class="p">,</span><span class="w"> </span><span class="cp">$name</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">};</span><span class="w"></span>
-<span class="w">    </span><span class="p">(</span><span class="cp">$var</span>: <span class="nc">ident</span><span class="p">,</span><span class="w"> </span><span class="cp">$name</span>: <span class="nc">expr</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="cp">$var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">format</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{}: hello world&quot;</span><span class="p">,</span><span class="w"> </span><span class="cp">$name</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">};</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="fm">macro_rules!</span><span class="w"> </span><span class="n">hello</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">(</span><span class="n">robot</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="cp">$name</span>: <span class="nc">expr</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;robot/{}: hello world&quot;</span><span class="p">,</span><span class="w"> </span><span class="cp">$name</span><span class="p">);</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="w">    </span><span class="p">(</span><span class="cp">$name</span>: <span class="nc">expr</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{}: hello world&quot;</span><span class="p">,</span><span class="w"> </span><span class="cp">$name</span><span class="p">);</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="w">    </span><span class="p">(</span><span class="cp">$var</span>: <span class="nc">ident</span><span class="p">,</span><span class="w"> </span><span class="cp">$name</span>: <span class="nc">expr</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="cp">$var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="fm">format!</span><span class="p">(</span><span class="s">&quot;{}: hello world&quot;</span><span class="p">,</span><span class="w"> </span><span class="cp">$name</span><span class="p">);</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="p">}</span>
 
-<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">hello</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;Rust&quot;</span><span class="p">);</span><span class="w">             </span><span class="c1">// Rust: hello world</span>
 <span class="w">    </span><span class="n">hello</span><span class="o">!</span><span class="p">(</span><span class="mi">5566</span><span class="p">);</span><span class="w">               </span><span class="c1">// 5566: hello world</span>
-<span class="w">    </span><span class="n">hello</span><span class="o">!</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Rust&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w">          </span><span class="c1">// Rust: hello world</span>
+<span class="w">    </span><span class="n">hello</span><span class="o">!</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Rust&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w">          </span><span class="c1">// Rust: hello world</span>
 <span class="w">    </span><span class="n">hello</span><span class="o">!</span><span class="p">(</span><span class="n">robot</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="s">&quot;Rust&quot;</span><span class="p">);</span><span class="w">     </span><span class="c1">// robot/Rust: hello world</span>
-<span class="p">}</span><span class="w"></span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -1020,16 +950,16 @@ C 或 C++ 的 macros 會被分類為「Text-substitution macros」，
 <p>Macros 的使用可以搭配不同的括弧，
 不同的括弧並不影響功能，
 例如：</p>
-<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">macro_rules</span><span class="o">!</span><span class="w"> </span><span class="n">hello</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;hello world&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="fm">macro_rules!</span><span class="w"> </span><span class="n">hello</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;hello world&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
 
-<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">hello</span><span class="o">!</span><span class="p">();</span><span class="w">   </span><span class="c1">// function-like</span>
 <span class="w">    </span><span class="n">hello</span><span class="o">!</span><span class="p">[];</span><span class="w">   </span><span class="c1">// array-like</span>
 <span class="w">    </span><span class="n">hello</span><span class="o">!</span><span class="p">{}</span><span class="w">    </span><span class="c1">// item-like （可以不加「;」）</span>
 <span class="w">    </span><span class="n">hello</span><span class="o">!</span><span class="p">{};</span><span class="w">   </span><span class="c1">// item-like</span>
-<span class="p">}</span><span class="w"></span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>Macros 還支援重複的 pattern，
@@ -1038,9 +968,9 @@ C 或 C++ 的 macros 會被分類為「Text-substitution macros」，
 例如 <code class="docutils literal notranslate"><span class="pre">$($x:expr),*</span></code> 可以 match 到 <code class="docutils literal notranslate"><span class="pre">a</span></code> 或 <code class="docutils literal notranslate"><span class="pre">a,</span> <span class="pre">b,</span> <span class="pre">c</span></code> 等等，
 而 <code class="docutils literal notranslate"><span class="pre">$($x:expr),*</span></code> 則會 match 到 <code class="docutils literal notranslate"><span class="pre">a,</span></code> 或 <code class="docutils literal notranslate"><span class="pre">a,</span> <span class="pre">b,</span> <span class="pre">c,</span></code> 等等。
 除此之外可以使用 <code class="docutils literal notranslate"><span class="pre">+</span></code> 來取代 <code class="docutils literal notranslate"><span class="pre">*</span></code> 以限制至少要 match 一次。</p>
-</div>
-<div class="section" id="procedural-macros">
-<h2><a class="toc-backref" href="#id20">procedural macros</a><a class="headerlink" href="#procedural-macros" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="procedural-macros">
+<h2><a class="toc-backref" href="#id20" role="doc-backlink">procedural macros</a><a class="headerlink" href="#procedural-macros" title="Permalink to this heading"></a></h2>
 <p>「procedural macros」又被稱為「syntax extensions」或「syntax plugins」
 或「compiler plugins」。</p>
 <p>procedural macros 是使用純 Rust 在 meta level 實做，
@@ -1061,8 +991,8 @@ procedural macro 的使用可以不限於前面提到的幾種，
 </ul>
 <p>attribute-like 的 macros 會符合以下 grammar
 （其中 <code class="docutils literal notranslate"><span class="pre">lit</span></code> 是 Rust literal，包含字串、數字）：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">attribute</span><span class="o">-</span><span class="n">like</span><span class="o">-</span><span class="n">macro</span> <span class="p">::</span><span class="o">=</span> <span class="c1">#[item] | #![item]</span>
-<span class="n">item</span> <span class="p">::</span><span class="o">=</span> <span class="n">name</span> <span class="o">|</span> <span class="n">name</span> <span class="o">=</span> <span class="n">lit</span> <span class="o">|</span> <span class="n">name</span><span class="p">(</span><span class="n">item</span><span class="p">,</span><span class="o">*</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">attribute</span><span class="o">-</span><span class="n">like</span><span class="o">-</span><span class="n">macro</span> <span class="p">:</span><span class="o">:=</span> <span class="c1">#[item] | #![item]</span>
+<span class="n">item</span> <span class="p">:</span><span class="o">:=</span> <span class="n">name</span> <span class="o">|</span> <span class="n">name</span> <span class="o">=</span> <span class="n">lit</span> <span class="o">|</span> <span class="n">name</span><span class="p">(</span><span class="n">item</span><span class="p">,</span><span class="o">*</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>要使用 procedural macros 必須使用 <code class="docutils literal notranslate"><span class="pre">#![plugin(foo)]</span></code> （拉相依套件，以便於編譯時使用），
@@ -1093,21 +1023,21 @@ procedural macro 的使用可以不限於前面提到的幾種，
 並傳入 type 為 interned string 的 macro 名稱 <code class="docutils literal notranslate"><span class="pre">::syntax::parse::token::intern(&quot;foo&quot;)</span></code> ，
 還有 <code class="docutils literal notranslate"><span class="pre">SyntaxExtension</span></code> enum 的 instance。
 （以上這些會需要加上 <code class="docutils literal notranslate"><span class="pre">#![feature(plugin_registrar)]</span></code> 來開啟）</p>
-</div>
-<div class="section" id="libmacro">
-<h2><a class="toc-backref" href="#id21">libmacro</a><a class="headerlink" href="#libmacro" title="本標題的永久連結">¶</a></h2>
-</div>
-<div class="section" id="built-in-macros">
-<h2><a class="toc-backref" href="#id22">built-in macros</a><a class="headerlink" href="#built-in-macros" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="libmacro">
+<h2><a class="toc-backref" href="#id21" role="doc-backlink">libmacro</a><a class="headerlink" href="#libmacro" title="Permalink to this heading"></a></h2>
+</section>
+<section id="built-in-macros">
+<h2><a class="toc-backref" href="#id22" role="doc-backlink">built-in macros</a><a class="headerlink" href="#built-in-macros" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>println!</p></li>
 <li><p>asm!</p></li>
 <li><p>#[cfg]</p></li>
 <li><p>#[derive()]</p></li>
 </ul>
-</div>
-<div class="section" id="id6">
-<h2><a class="toc-backref" href="#id23">參考</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="id6">
+<h2><a class="toc-backref" href="#id23" role="doc-backlink">參考</a><a class="headerlink" href="#id6" title="Permalink to this heading"></a></h2>
 <p>Nick Cameron</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://www.ncameron.org/blog/macros/">Macros</a></p></li>
@@ -1134,37 +1064,33 @@ procedural macro 的使用可以不限於前面提到的幾種，
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Hygienic_macro">Wikipedia - Hygienic macro</a></p></li>
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Macro_(computer_science)">Wikipedia - Macro (computer science)</a></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016
-
-    </p>
+    <p>&#169; Copyright 2023.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
   
 
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       <span class="fa fa-book"> Read the Docs</span>
       v: latest
@@ -1174,7 +1100,7 @@ procedural macro 的使用可以不限於前面提到的幾種，
       <dl>
         <dt>Versions</dt>
         
-          <dd><a href="/zh_TW/latest/">latest</a></dd>
+          <dd><a href="https://wdv4758h.github.io/notes/">latest</a></dd>
         
       </dl>
       <dl>
@@ -1184,6 +1110,7 @@ procedural macro 的使用可以不限於前面提到的幾種，
         
       </dl>
       <dl>
+        
         <dt>On Read the Docs</dt>
           <dd>
             <a href="//readthedocs.org/projects/wdv4758h-notes/?fromdocs=wdv4758h-notes">Project Home</a>
@@ -1192,22 +1119,13 @@ procedural macro 的使用可以不限於前面提到的幾種，
             <a href="//readthedocs.org/builds/wdv4758h-notes/?fromdocs=wdv4758h-notes">Builds</a>
           </dd>
       </dl>
-      <hr/>
-      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
-
     </div>
   </div>
-
-
-
-  <script type="text/javascript">
+<script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-   
+  </script> 
 
 </body>
 </html>

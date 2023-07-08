@@ -1,114 +1,75 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-TW" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-TW" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Introduction &mdash; wdv4758h-notes latest 說明文件</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction &mdash; wdv4758h-notes latest documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="搜尋" href="../search.html" />
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Introduction" href="python-benchmark.html" />
     <link rel="prev" title="Introduction" href="openmp.html" /> 
 
 <!-- RTD Extra Head -->
 
-<!-- 
-Always link to the latest version, as canonical.
-http://docs.readthedocs.org/en/latest/canonical.html
--->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/blog/pypy-brainfuck.html" />
+    <!--
+    Always link to the latest version, as canonical.
+    http://docs.readthedocs.org/en/latest/canonical.html
+    -->
+    <link rel="canonical" href="https://wdv4758h-notes.readthedocs.io/zh_TW/latest/blog/pypy-brainfuck.html" />
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": "", "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": "https://wdv4758h-notes.readthedocs.io/zh_TW/latest/", "docroot": "/./", "features": {"docsearch_disabled": false}, "global_analytics_code": "", "language": "en", "page": "blog/pypy-brainfuck", "programming_language": "", "project": "wdv4758h-notes", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": ""}</script>
 
-<!-- Add page-specific data, which must exist in the page js, not global -->
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = "blog/pypy-brainfuck"
-READTHEDOCS_DATA['source_suffix'] = ".rst"
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
 </script>
 
-<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js" async="async"></script>
 
 <!-- end RTD <extrahead> -->
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../index.html" class="icon icon-home"> wdv4758h-notes
           
-
-          
+          <a href="../index.html" class="icon icon-home">
+            wdv4758h-notes
           </a>
-
-          
-            
-            
-            
               <div class="version">
                 latest
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/README.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/adt.html">ADT (Abstract Data Type)</a></li>
@@ -118,13 +79,18 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/cache.html">Cache</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/cache-friendly.html">Cache Friendly Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/dict.html">Dict</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/float-to-string.html">Float to String</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/heap.html">Heap （堆）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/introduction.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/inverse-square-root.html">Inverse Square Root</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/lock.html">Lock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/meta-algorithm.html">Meta Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/random-number-generator.html">Random Number Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/resource.html">演算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/sorting.html">Sorting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/string-to-float.html">String to Float</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/substring-searching.html">Substring Searching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/README.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/android-emulator.html">Android Emulator</a></li>
@@ -219,10 +185,10 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l3"><a class="reference internal" href="#compact">Compact</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">總結</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">總結</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#id5">額外紀錄</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="#id4">額外紀錄</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#with-statement-in-rpython">with statement in RPython</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#rpython-s-print-statement">RPython’s print statement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#comple-with-clang">Comple with Clang</a></li>
@@ -258,7 +224,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="qemu-first-step.html#qemu-with-kvm">QEMU with KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust-closure.html">Syntax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust-closure.html#closure">Closure 和外部變數</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rust-closure.html#move-closures">「move」 closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rust-closure.html#move-closures">“move” closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust-closure.html#closure-implementation">Closure implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust-closure.html#closures-as-arguments">closures as arguments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust-closure.html#returning-closures">returning closures</a></li>
@@ -439,6 +405,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/ci.html">Continuous Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/concourse.html">Concourse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/drone.html">Drone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../continuous-integration/github-actions.html">Github Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/jenkins.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/travis-ci.html">Travis CI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/workflow-pipeline.html">Workflow Pipeline</a></li>
@@ -448,7 +415,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../cpp/array.html">std::array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/assembly.html">C++ &amp; Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/bit-field.html">C++ Bit Field</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cpp/c++17.html">C++17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/c%2B%2B17.html">C++17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/concepts.html">C++ Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/const.html">C++ const</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/copy-elision.html">Copy Elision</a></li>
@@ -501,13 +468,16 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../database/README.html">資料庫 (Database)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/cockroachdb.html">CockroachDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/consensus-algorithm.html">Raft Consensus Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/graph.html">Graph Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/leveldb.html">LevelDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/materialized-views.html">Materialized Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mongodb.html">MongoDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/rocksdb.html">RocksDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sql.html">SQL (Structured Query Language)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/tidb.html">TiDB</a></li>
@@ -580,7 +550,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/math-on-web.html">Math on Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/misc.html">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../memory/W^X.html">W^X (Write XOR Execute)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../memory/W%5EX.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/kernel-memory-management.html">Kernel Memory Management</a></li>
@@ -838,117 +808,77 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../wiki/resource.html">Wiki</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">wdv4758h-notes</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-      <li>Introduction</li>
-    
-    
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Introduction</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/wdv4758h/notes/blob/master/./blog/pypy-brainfuck.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="contents topic" id="id1">
-<p class="topic-title first">目錄</p>
+             
+  <nav class="contents" id="contents" role="doc-toc">
+<p class="topic-title">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#introduction" id="id6">Introduction</a></p></li>
-<li><p><a class="reference internal" href="#tutorial" id="id7">Tutorial</a></p>
+<li><p><a class="reference internal" href="#introduction" id="id5">Introduction</a></p></li>
+<li><p><a class="reference internal" href="#tutorial" id="id6">Tutorial</a></p>
 <ul>
-<li><p><a class="reference internal" href="#brainfuck-interpreter-begin" id="id8">Brainfuck Interpreter - Begin</a></p>
+<li><p><a class="reference internal" href="#brainfuck-interpreter-begin" id="id7">Brainfuck Interpreter - Begin</a></p>
 <ul>
-<li><p><a class="reference internal" href="#pypy-translation" id="id9">PyPy Translation</a></p></li>
-<li><p><a class="reference internal" href="#compile-with-clang" id="id10">Compile with Clang</a></p></li>
-<li><p><a class="reference internal" href="#more-jobs" id="id11">More Jobs</a></p></li>
-<li><p><a class="reference internal" href="#garbage-collection" id="id12">Garbage Collection</a></p></li>
+<li><p><a class="reference internal" href="#pypy-translation" id="id8">PyPy Translation</a></p></li>
+<li><p><a class="reference internal" href="#compile-with-clang" id="id9">Compile with Clang</a></p></li>
+<li><p><a class="reference internal" href="#more-jobs" id="id10">More Jobs</a></p></li>
+<li><p><a class="reference internal" href="#garbage-collection" id="id11">Garbage Collection</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#brainfuck-interpreter-jit" id="id13">Brainfuck Interpreter - JIT</a></p></li>
-<li><p><a class="reference internal" href="#tracing-jit" id="id14">Tracing JIT</a></p>
+<li><p><a class="reference internal" href="#brainfuck-interpreter-jit" id="id12">Brainfuck Interpreter - JIT</a></p></li>
+<li><p><a class="reference internal" href="#tracing-jit" id="id13">Tracing JIT</a></p>
 <ul>
-<li><p><a class="reference internal" href="#debug-and-trace-log" id="id15">Debug and Trace Log</a></p></li>
+<li><p><a class="reference internal" href="#debug-and-trace-log" id="id14">Debug and Trace Log</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#optimize" id="id16">Optimize</a></p>
+<li><p><a class="reference internal" href="#optimize" id="id15">Optimize</a></p>
 <ul>
-<li><p><a class="reference internal" href="#elidable-old-purefunction" id="id17">elidable (old : purefunction)</a></p></li>
-<li><p><a class="reference internal" href="#delay-output" id="id18">Delay Output</a></p></li>
-<li><p><a class="reference internal" href="#zero" id="id19">Zero</a></p></li>
-<li><p><a class="reference internal" href="#compact" id="id20">Compact</a></p></li>
+<li><p><a class="reference internal" href="#elidable-old-purefunction" id="id16">elidable (old : purefunction)</a></p></li>
+<li><p><a class="reference internal" href="#delay-output" id="id17">Delay Output</a></p></li>
+<li><p><a class="reference internal" href="#zero" id="id18">Zero</a></p></li>
+<li><p><a class="reference internal" href="#compact" id="id19">Compact</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#id3" id="id21">總結</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id20">總結</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#id5" id="id22">額外紀錄</a></p>
+<li><p><a class="reference internal" href="#id4" id="id21">額外紀錄</a></p>
 <ul>
-<li><p><a class="reference internal" href="#with-statement-in-rpython" id="id23">with statement in RPython</a></p></li>
-<li><p><a class="reference internal" href="#rpython-s-print-statement" id="id24">RPython’s print statement</a></p></li>
-<li><p><a class="reference internal" href="#comple-with-clang" id="id25">Comple with Clang</a></p></li>
-<li><p><a class="reference internal" href="#if-elif" id="id26">if … elif</a></p></li>
-<li><p><a class="reference internal" href="#string-replace" id="id27">string replace</a></p></li>
-<li><p><a class="reference internal" href="#rpython-rlib-jit-py" id="id28">rpython/rlib/jit.py</a></p></li>
-<li><p><a class="reference internal" href="#embedding-pypy" id="id29">Embedding PyPy</a></p></li>
+<li><p><a class="reference internal" href="#with-statement-in-rpython" id="id22">with statement in RPython</a></p></li>
+<li><p><a class="reference internal" href="#rpython-s-print-statement" id="id23">RPython’s print statement</a></p></li>
+<li><p><a class="reference internal" href="#comple-with-clang" id="id24">Comple with Clang</a></p></li>
+<li><p><a class="reference internal" href="#if-elif" id="id25">if … elif</a></p></li>
+<li><p><a class="reference internal" href="#string-replace" id="id26">string replace</a></p></li>
+<li><p><a class="reference internal" href="#rpython-rlib-jit-py" id="id27">rpython/rlib/jit.py</a></p></li>
+<li><p><a class="reference internal" href="#embedding-pypy" id="id28">Embedding PyPy</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#reference" id="id30">Reference</a></p></li>
+<li><p><a class="reference internal" href="#reference" id="id29">Reference</a></p></li>
 </ul>
-</div>
-<div class="section" id="introduction">
-<h1><a class="toc-backref" href="#id6">Introduction</a><a class="headerlink" href="#introduction" title="本標題的永久連結">¶</a></h1>
+</nav>
+<section id="introduction">
+<h1><a class="toc-backref" href="#id5" role="doc-backlink">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h1>
 <p>Python 是一個 Dynamic Language，
 官方提供了一個叫作 CPython 的 Interpreter 實作，
 Interpreter 讓這類 Dynamic Language 不用事先 compile 過才可以執行，
@@ -977,9 +907,9 @@ PyPy 的效能來自於 JIT、更有效率 Garbage Collection、更有效率的 
 有 Dropbox 企業的金錢、人力資助下，
 只要這專案持續下去，相信出來的效能是會蠻有看頭的，
 不過專案目前還在早期開發中，就靜觀其變囉。</p>
-</div>
-<div class="section" id="tutorial">
-<h1><a class="toc-backref" href="#id7">Tutorial</a><a class="headerlink" href="#tutorial" title="本標題的永久連結">¶</a></h1>
+</section>
+<section id="tutorial">
+<h1><a class="toc-backref" href="#id6" role="doc-backlink">Tutorial</a><a class="headerlink" href="#tutorial" title="Permalink to this heading"></a></h1>
 <p>PyPy 的官方 Blog 上，
 在 2011 年發了兩篇由 Andrew Brown 撰寫用 PyPy 來實作 Brainfuck Interpreter 的 Tutorial，
 時至今日，已經來到了 2015 年，中間也經過了許多 release，
@@ -995,8 +925,8 @@ PyPy 的效能來自於 JIT、更有效率 Garbage Collection、更有效率的 
 <li><p>Python 的 Interpreter 實作</p></li>
 <li><p>撰寫 Dynamic Languages 的 Interpreter 的 framework</p></li>
 </ul>
-<p>「Interpreter 的 framework」 是 PyPy 這 project 最特別的地方，
-接下來這篇的重點將會放在 「撰寫 Interpreter」</p>
+<p>“Interpreter 的 framework” 是 PyPy 這 project 最特別的地方，
+接下來這篇的重點將會放在 “撰寫 Interpreter”</p>
 <p>要做一個 Language 的 Interpreter 會需要以下事情</p>
 <ul class="simple">
 <li><p>source code parser</p></li>
@@ -1009,7 +939,7 @@ PyPy 的效能來自於 JIT、更有效率 Garbage Collection、更有效率的 
 <p>如果可以用一個高階一點的語言來實作，那前面提到的事情就可以大幅化簡，
 可以利用到一些高階語言的特色，
 像是不用自己考慮記 Memory 管理、有好用的 Data Type 等，
-但是講到這，想必有人就會想到這個實作的速度應該會 「很慢」，
+但是講到這，想必有人就會想到這個實作的速度應該會 “很慢”，
 在高階語言上在建一層來實作自己的語言，
 速度會比原本可能就不快的高階語言還來的更慢，
 所以 PyPy 就是來解決這部份的問題啦。</p>
@@ -1023,56 +953,52 @@ PyPy 的效能來自於 JIT、更有效率 Garbage Collection、更有效率的 
 藉此你可以獲得 native code 的 interpreter，所以會跑的比原本疊在 interpreter 上的 interpreter 來的快，
 在這當中 PyPy 還可以幫你處理 Garbage Collecion 和 JIT。</p>
 <p>關於 RPython 的內容，有興趣的話可以看
-2007 年 「<strong>RPython: a Step Towards Reconciling Dynamically and Statically Typed OO Languages</strong>」
+2007 年 “<strong>RPython: a Step Towards Reconciling Dynamically and Statically Typed OO Languages</strong>”
 這篇 paper 裡的內容 (Bibtex key : AACM-DLS07)，
 或是這邊有 <a class="reference external" href="https://speakerdeck.com/antocuni/rpython-a-step-towards-reconciling-dynamically-and-statically-typed-object-oriented-languages">slide 版本</a> 。</p>
 <p>關於 PyPy 裡面用到的 JIT 技術可以看這篇 <a class="reference external" href="https://speakerdeck.com/antocuni/pypy-jit-under-the-hood">(2012) PyPy JIT under the hood</a> 當作入門。</p>
-<div class="section" id="brainfuck-interpreter-begin">
-<h2><a class="toc-backref" href="#id8">Brainfuck Interpreter - Begin</a><a class="headerlink" href="#brainfuck-interpreter-begin" title="本標題的永久連結">¶</a></h2>
+<section id="brainfuck-interpreter-begin">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Brainfuck Interpreter - Begin</a><a class="headerlink" href="#brainfuck-interpreter-begin" title="Permalink to this heading"></a></h2>
 <p>Brainfuck spec :</p>
 <table class="table table-bordered docutils align-default">
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 75%" />
-</colgroup>
 <tbody>
-<tr class="row-odd"><td><div class="highlight-bf notranslate"><div class="highlight"><pre><span></span><span class="nv">&gt;</span><span class="c"></span>
+<tr class="row-odd"><td><div class="highlight-bf notranslate"><div class="highlight"><pre><span></span><span class="nv">&gt;</span>
 </pre></div>
 </div>
 </td>
 <td><p>指標加一</p></td>
 </tr>
-<tr class="row-even"><td><div class="highlight-bf notranslate"><div class="highlight"><pre><span></span><span class="nv">&lt;</span><span class="c"></span>
+<tr class="row-even"><td><div class="highlight-bf notranslate"><div class="highlight"><pre><span></span><span class="nv">&lt;</span>
 </pre></div>
 </div>
 </td>
 <td><p>指標減一</p></td>
 </tr>
-<tr class="row-odd"><td><div class="highlight-bf notranslate"><div class="highlight"><pre><span></span><span class="nb">+</span><span class="c"></span>
+<tr class="row-odd"><td><div class="highlight-bf notranslate"><div class="highlight"><pre><span></span><span class="nb">+</span>
 </pre></div>
 </div>
 </td>
 <td><p>指標指向的 byte 的值加一</p></td>
 </tr>
-<tr class="row-even"><td><div class="highlight-bf notranslate"><div class="highlight"><pre><span></span><span class="nb">-</span><span class="c"></span>
+<tr class="row-even"><td><div class="highlight-bf notranslate"><div class="highlight"><pre><span></span><span class="nb">-</span>
 </pre></div>
 </div>
 </td>
 <td><p>指標指向的 byte 的值減一</p></td>
 </tr>
-<tr class="row-odd"><td><div class="highlight-bf notranslate"><div class="highlight"><pre><span></span><span class="nt">.</span><span class="c"></span>
+<tr class="row-odd"><td><div class="highlight-bf notranslate"><div class="highlight"><pre><span></span><span class="nt">.</span>
 </pre></div>
 </div>
 </td>
 <td><p>輸出指標指向的 byte (ASCII)</p></td>
 </tr>
-<tr class="row-even"><td><div class="highlight-bf notranslate"><div class="highlight"><pre><span></span><span class="nt">,</span><span class="c"></span>
+<tr class="row-even"><td><div class="highlight-bf notranslate"><div class="highlight"><pre><span></span><span class="nt">,</span>
 </pre></div>
 </div>
 </td>
 <td><p>輸入到指標指向的 byte (ASCII)</p></td>
 </tr>
-<tr class="row-odd"><td><div class="highlight-bf notranslate"><div class="highlight"><pre><span></span><span class="k">[</span><span class="c"></span>
+<tr class="row-odd"><td><div class="highlight-bf notranslate"><div class="highlight"><pre><span></span><span class="k">[</span>
 </pre></div>
 </div>
 </td>
@@ -1086,12 +1012,8 @@ PyPy 的效能來自於 JIT、更有效率 Garbage Collection、更有效率的 
 </tr>
 </tbody>
 </table>
-<p>Brainfuck to C (assuming 「ptr」 is of type 「unsigned char*」) :</p>
+<p>Brainfuck to C (assuming “ptr” is of type “unsigned char*”) :</p>
 <table class="table table-bordered docutils align-default">
-<colgroup>
-<col style="width: 30%" />
-<col style="width: 70%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>brainfuck command</p></th>
 <th class="head"><p>C equivalent</p></th>
@@ -1099,13 +1021,13 @@ PyPy 的效能來自於 JIT、更有效率 Garbage Collection、更有效率的 
 </thead>
 <tbody>
 <tr class="row-even"><td><p>(Program Start)</p></td>
-<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">array</span><span class="p">[</span><span class="n">infinitely</span> <span class="n">large</span> <span class="n">size</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
-<span class="kt">char</span> <span class="o">*</span><span class="n">ptr</span><span class="o">=</span><span class="n">array</span><span class="p">;</span>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="n">infinitely</span><span class="w"> </span><span class="n">large</span><span class="w"> </span><span class="n">size</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+<span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="o">=</span><span class="n">array</span><span class="p">;</span>
 </pre></div>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><div class="highlight-bf notranslate"><div class="highlight"><pre><span></span><span class="nv">&gt;</span><span class="c"></span>
+<tr class="row-odd"><td><div class="highlight-bf notranslate"><div class="highlight"><pre><span></span><span class="nv">&gt;</span>
 </pre></div>
 </div>
 </td>
@@ -1114,7 +1036,7 @@ PyPy 的效能來自於 JIT、更有效率 Garbage Collection、更有效率的 
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><div class="highlight-bf notranslate"><div class="highlight"><pre><span></span><span class="nv">&lt;</span><span class="c"></span>
+<tr class="row-even"><td><div class="highlight-bf notranslate"><div class="highlight"><pre><span></span><span class="nv">&lt;</span>
 </pre></div>
 </div>
 </td>
@@ -1123,7 +1045,7 @@ PyPy 的效能來自於 JIT、更有效率 Garbage Collection、更有效率的 
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><div class="highlight-bf notranslate"><div class="highlight"><pre><span></span><span class="nb">+</span><span class="c"></span>
+<tr class="row-odd"><td><div class="highlight-bf notranslate"><div class="highlight"><pre><span></span><span class="nb">+</span>
 </pre></div>
 </div>
 </td>
@@ -1132,7 +1054,7 @@ PyPy 的效能來自於 JIT、更有效率 Garbage Collection、更有效率的 
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><div class="highlight-bf notranslate"><div class="highlight"><pre><span></span><span class="nb">-</span><span class="c"></span>
+<tr class="row-even"><td><div class="highlight-bf notranslate"><div class="highlight"><pre><span></span><span class="nb">-</span>
 </pre></div>
 </div>
 </td>
@@ -1141,7 +1063,7 @@ PyPy 的效能來自於 JIT、更有效率 Garbage Collection、更有效率的 
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><div class="highlight-bf notranslate"><div class="highlight"><pre><span></span><span class="nt">.</span><span class="c"></span>
+<tr class="row-odd"><td><div class="highlight-bf notranslate"><div class="highlight"><pre><span></span><span class="nt">.</span>
 </pre></div>
 </div>
 </td>
@@ -1150,7 +1072,7 @@ PyPy 的效能來自於 JIT、更有效率 Garbage Collection、更有效率的 
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><div class="highlight-bf notranslate"><div class="highlight"><pre><span></span><span class="nt">,</span><span class="c"></span>
+<tr class="row-even"><td><div class="highlight-bf notranslate"><div class="highlight"><pre><span></span><span class="nt">,</span>
 </pre></div>
 </div>
 </td>
@@ -1159,11 +1081,11 @@ PyPy 的效能來自於 JIT、更有效率 Garbage Collection、更有效率的 
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><div class="highlight-bf notranslate"><div class="highlight"><pre><span></span><span class="k">[</span><span class="c"></span>
+<tr class="row-odd"><td><div class="highlight-bf notranslate"><div class="highlight"><pre><span></span><span class="k">[</span>
 </pre></div>
 </div>
 </td>
-<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="p">(</span><span class="o">*</span><span class="n">ptr</span><span class="p">)</span> <span class="p">{</span>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">ptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </pre></div>
 </div>
 </td>
@@ -1188,7 +1110,7 @@ PyPy 的效能來自於 JIT、更有效率 Garbage Collection、更有效率的 
 <span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="k">class</span> <span class="nc">Tape</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    因為 Brainfuck 的 code 就像是在 Tape 上操作一樣，</span>
 <span class="sd">    所以有這個 class 來處理所有 action</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1287,8 +1209,8 @@ PyPy 的效能來自於 JIT、更有效率 Garbage Collection、更有效率的 
     <span class="n">run</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
-<div class="section" id="pypy-translation">
-<h3><a class="toc-backref" href="#id9">PyPy Translation</a><a class="headerlink" href="#pypy-translation" title="本標題的永久連結">¶</a></h3>
+<section id="pypy-translation">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">PyPy Translation</a><a class="headerlink" href="#pypy-translation" title="Permalink to this heading"></a></h3>
 <p>在 PyPy repo 的 <code class="docutils literal notranslate"><span class="pre">pypy/rpython/translator/goal/</span></code> 裡有一些範例，
 其中 <code class="docutils literal notranslate"><span class="pre">targetnopstandalone.py</span></code> 是簡單的 Hello World</p>
 <p>在這邊，我們需要一個叫做 <code class="docutils literal notranslate"><span class="pre">target</span></code> 的 function，
@@ -1337,21 +1259,17 @@ call 它後從它回傳的 function 開始翻譯，
 </pre></div>
 </div>
 <p>接下來需要抓 PyPy 的 source code :</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>hg clone https://bitbucket.org/pypy/pypy
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>hg<span class="w"> </span>clone<span class="w"> </span>https://bitbucket.org/pypy/pypy
 </pre></div>
 </div>
 <p>接下來就交給 PyPy 做轉換</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pypy/rpython/bin/rpython example2.py
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pypy/rpython/bin/rpython<span class="w"> </span>example2.py
 </pre></div>
 </div>
 <p>然後就會看到許多 PyPy 吐出來的訊息，最後產生 <code class="docutils literal notranslate"><span class="pre">example2-c</span></code> 這個執行檔，
 這個轉換在我機器 (虛擬機) 上大約需要 4x ~ 5x 秒</p>
 <p>結果 :</p>
 <table class="table table-bordered docutils align-default">
-<colgroup>
-<col style="width: 56%" />
-<col style="width: 44%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p>File Size</p></td>
 <td><p>290552 bytes</p></td>
@@ -1362,10 +1280,6 @@ call 它後從它回傳的 function 開始翻譯，
 </tbody>
 </table>
 <table class="table table-bordered docutils align-default">
-<colgroup>
-<col style="width: 41%" />
-<col style="width: 59%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Test File</p></th>
 <th class="head"><p>Execution Time</p></th>
@@ -1378,15 +1292,15 @@ call 它後從它回傳的 function 開始翻譯，
 </tbody>
 </table>
 <p>接著試跑一下</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>./example2-c mandel.b
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>./example2-c<span class="w"> </span>mandel.b
 </pre></div>
 </div>
 <p>Bash 裡有自己的 time command 可以看執行時間，
 但是如果要更多資訊的話 (-v)，需要 GNU 版的 time command</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo pacman -S <span class="nb">time</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span><span class="nb">time</span>
 </pre></div>
 </div>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">time</span> -v ./example2-c mandel.b
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">time</span><span class="w"> </span>-v<span class="w"> </span>./example2-c<span class="w"> </span>mandel.b
 </pre></div>
 </div>
 <p>以上是成功的利用 RPython 寫了 Brainfuck Interpreter 交給 PyPy 的 RPython toolchain 轉成 machine code ~</p>
@@ -1397,18 +1311,18 @@ call 它後從它回傳的 function 開始翻譯，
 </ul>
 <p>如果想看更多 translate 時可以開的優化參數的話可以看
 <a class="reference external" href="https://pypy.readthedocs.org/en/latest/config/commandline.html">這裡</a></p>
-</div>
-<div class="section" id="compile-with-clang">
-<h3><a class="toc-backref" href="#id10">Compile with Clang</a><a class="headerlink" href="#compile-with-clang" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="compile-with-clang">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Compile with Clang</a><a class="headerlink" href="#compile-with-clang" title="Permalink to this heading"></a></h3>
 <p>參數 : <code class="docutils literal notranslate"><span class="pre">--cc=clang</span></code></p>
-</div>
-<div class="section" id="more-jobs">
-<h3><a class="toc-backref" href="#id11">More Jobs</a><a class="headerlink" href="#more-jobs" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="more-jobs">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">More Jobs</a><a class="headerlink" href="#more-jobs" title="Permalink to this heading"></a></h3>
 <p>參數 : <code class="docutils literal notranslate"><span class="pre">--make-jobs=8</span></code></p>
 <p>(針對 C backend compile 時的 <code class="docutils literal notranslate"><span class="pre">-j</span></code> 參數)</p>
-</div>
-<div class="section" id="garbage-collection">
-<h3><a class="toc-backref" href="#id12">Garbage Collection</a><a class="headerlink" href="#garbage-collection" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="garbage-collection">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Garbage Collection</a><a class="headerlink" href="#garbage-collection" title="Permalink to this heading"></a></h3>
 <p>參數 : <code class="docutils literal notranslate"><span class="pre">--gc=incminimark</span></code></p>
 <p>目前可用的選項 :</p>
 <ul class="simple">
@@ -1422,10 +1336,10 @@ call 它後從它回傳的 function 開始翻譯，
 <li><p>incminimark</p></li>
 <li><p>none</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="brainfuck-interpreter-jit">
-<h2><a class="toc-backref" href="#id13">Brainfuck Interpreter - JIT</a><a class="headerlink" href="#brainfuck-interpreter-jit" title="本標題的永久連結">¶</a></h2>
+</section>
+</section>
+<section id="brainfuck-interpreter-jit">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Brainfuck Interpreter - JIT</a><a class="headerlink" href="#brainfuck-interpreter-jit" title="Permalink to this heading"></a></h2>
 <p>前面試過了利用 PyPy 的 RPython toolchain 幫我們把 RPython code 轉成 C 去 compile，
 接下來是利用 PyPy 幫我們做 JIT 出來，
 感謝 PyPy 開發者的努力，我們要在 RPython 上做出 JIT 並不難，
@@ -1443,9 +1357,9 @@ call 它後從它回傳的 function 開始翻譯，
 在我們的 Brainfuck Interpreter 中並沒有真的 stack frame，
 這問題就變成在執行一個 command 的時候，
 哪些東西是不變的，哪些是會變的，
-不變的被稱做 「<strong>green</strong>」，會變的稱做 「<strong>red</strong>」，
-在我們的例子中，green 有 「pc」、」program」、」brakcet_map」，
-red 有 「tape」，
+不變的被稱做 “<strong>green</strong>”，會變的稱做 “<strong>red</strong>”，
+在我們的例子中，green 有 “pc”、”program”、”brakcet_map”，
+red 有 “tape”，
 接著就從 <code class="docutils literal notranslate"><span class="pre">rpython.rlib.jit</span></code> 取得 <code class="docutils literal notranslate"><span class="pre">JitDriver</span></code> 這個 metaclass 來生出我們需要要的 class</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rpython.rlib.jit</span> <span class="kn">import</span> <span class="n">JitDriver</span>
 <span class="n">jitdriver</span> <span class="o">=</span> <span class="n">JitDriver</span><span class="p">(</span><span class="n">greens</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;pc&#39;</span><span class="p">,</span> <span class="s1">&#39;program&#39;</span><span class="p">,</span> <span class="s1">&#39;bracket_map&#39;</span><span class="p">],</span> <span class="n">reds</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;tape&#39;</span><span class="p">])</span>
@@ -1456,7 +1370,7 @@ red 有 「tape」，
 </pre></div>
 </div>
 <p>接下來轉換的時候多加一個 <code class="docutils literal notranslate"><span class="pre">--opt=jit</span></code> 參數</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pypy/rpython/bin/rpython --opt<span class="o">=</span>jit example3.py
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pypy/rpython/bin/rpython<span class="w"> </span>--opt<span class="o">=</span>jit<span class="w"> </span>example3.py
 </pre></div>
 </div>
 <p>總結需要做的事 :</p>
@@ -1468,10 +1382,6 @@ red 有 「tape」，
 <p>開 JIT 參數後，轉換的時間就變長，檔案也變大，但是跑下去就快很多</p>
 <p>結果 :</p>
 <table class="table table-bordered docutils align-default">
-<colgroup>
-<col style="width: 55%" />
-<col style="width: 45%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p>File Size</p></td>
 <td><p>5954320 bytes</p></td>
@@ -1482,10 +1392,6 @@ red 有 「tape」，
 </tbody>
 </table>
 <table class="table table-bordered docutils align-default">
-<colgroup>
-<col style="width: 41%" />
-<col style="width: 59%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Test File</p></th>
 <th class="head"><p>Execution Time</p></th>
@@ -1510,14 +1416,14 @@ red 有 「tape」，
     <span class="k">return</span> <span class="n">JitPolicy</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="tracing-jit">
-<h2><a class="toc-backref" href="#id14">Tracing JIT</a><a class="headerlink" href="#tracing-jit" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="tracing-jit">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Tracing JIT</a><a class="headerlink" href="#tracing-jit" title="Permalink to this heading"></a></h2>
 <p>在試完生出的 JIT 的速度後，
 來了解一下它是怎麼運作的。</p>
 <p>Interpreter 執行的是我們寫的 interpreter code，
 當發現 target laugange (Brainfuck) 寫的某段 code 很常跑時，
-會把這部份標成 「Hot」，並且會做追蹤，當下一次進到這個循環的時候，
+會把這部份標成 “Hot”，並且會做追蹤，當下一次進到這個循環的時候，
 interpreter 會進入 tracing mode，把每個指令紀錄下來，循環結束後，
 tracing mode 就停止，把追蹤紀錄丟給 optimizer，
 接著丟給 assembler，產生 machine code 在之後執行時使用。</p>
@@ -1525,8 +1431,8 @@ tracing mode 就停止，把追蹤紀錄丟給 optimizer，
 生出的 machine code 通常會對很多地方進行優化，
 因此生出的 machine code 會包含一些 guard 做驗證，
 驗證失敗的話就退回去使用原本 interpreter 的 code。</p>
-<div class="section" id="debug-and-trace-log">
-<h3><a class="toc-backref" href="#id15">Debug and Trace Log</a><a class="headerlink" href="#debug-and-trace-log" title="本標題的永久連結">¶</a></h3>
+<section id="debug-and-trace-log">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Debug and Trace Log</a><a class="headerlink" href="#debug-and-trace-log" title="Permalink to this heading"></a></h3>
 <p>雖然前面已經生出了不錯的結果，
 但是總是會想要知道還能不能更好，
 所以我們需要知道 JIT 做了些什麼事，
@@ -1544,11 +1450,11 @@ tracing mode 就停止，把追蹤紀錄丟給 optimizer，
 </pre></div>
 </div>
 <p>用跟前面一樣的方式轉換 :</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pypy/rpython/bin/rpython --opt<span class="o">=</span>jit example4.py
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pypy/rpython/bin/rpython<span class="w"> </span>--opt<span class="o">=</span>jit<span class="w"> </span>example4.py
 </pre></div>
 </div>
 <p>接下來跑程式的時候先加環境變數來把操作寫進 log</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nv">PYPYLOG</span><span class="o">=</span>jit-log-opt:logfile ./example4-c test.b
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nv">PYPYLOG</span><span class="o">=</span>jit-log-opt:logfile<span class="w"> </span>./example4-c<span class="w"> </span>test.b
 </pre></div>
 </div>
 <p>這 log 可以看出有哪些部份被轉成了 machine code，
@@ -1562,12 +1468,12 @@ tracing mode 就停止，把追蹤紀錄丟給 optimizer，
 </pre></div>
 </div>
 <p>中間則是每次執行的操作，有些操作如果被優化掉的話就不會出現</p>
-</div>
-</div>
-<div class="section" id="optimize">
-<h2><a class="toc-backref" href="#id16">Optimize</a><a class="headerlink" href="#optimize" title="本標題的永久連結">¶</a></h2>
-<div class="section" id="elidable-old-purefunction">
-<h3><a class="toc-backref" href="#id17">elidable (old : purefunction)</a><a class="headerlink" href="#elidable-old-purefunction" title="本標題的永久連結">¶</a></h3>
+</section>
+</section>
+<section id="optimize">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">Optimize</a><a class="headerlink" href="#optimize" title="Permalink to this heading"></a></h2>
+<section id="elidable-old-purefunction">
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">elidable (old : purefunction)</a><a class="headerlink" href="#elidable-old-purefunction" title="Permalink to this heading"></a></h3>
 <p>由於每次的 loop 都會去 dictionary 裡查對應的位址，
 但是其實這個 dictionary 裡的資訊是不會變的，
 所以是可以直接編成 machine code 來加速，
@@ -1586,10 +1492,6 @@ tracing mode 就停止，把追蹤紀錄丟給 optimizer，
 </div>
 <p>接下來跟前面一樣做轉換，最後拿到的程式就比原本快很多</p>
 <table class="table table-bordered docutils align-default">
-<colgroup>
-<col style="width: 55%" />
-<col style="width: 45%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p>File Size</p></td>
 <td><p>5852352 bytes</p></td>
@@ -1600,10 +1502,6 @@ tracing mode 就停止，把追蹤紀錄丟給 optimizer，
 </tbody>
 </table>
 <table class="table table-bordered docutils align-default">
-<colgroup>
-<col style="width: 41%" />
-<col style="width: 59%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Test File</p></th>
 <th class="head"><p>Execution Time</p></th>
@@ -1616,9 +1514,9 @@ tracing mode 就停止，把追蹤紀錄丟給 optimizer，
 </tbody>
 </table>
 <p>結果從 27.64 s 降到了 9.58 s</p>
-</div>
-<div class="section" id="delay-output">
-<h3><a class="toc-backref" href="#id18">Delay Output</a><a class="headerlink" href="#delay-output" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="delay-output">
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">Delay Output</a><a class="headerlink" href="#delay-output" title="Permalink to this heading"></a></h3>
 <p>對電腦來說 I/O 是很慢的，所以原本每個 byte 這樣讀讀寫寫也會有一點效能損失，
 所以可以把直先存起來，之後再一次 output，
 對於有大量 output 的 brainfuck 程式可能可以有一點點的幫助 (不多)</p>
@@ -1670,25 +1568,25 @@ tracing mode 就停止，把追蹤紀錄丟給 optimizer，
             <span class="bp">self</span><span class="o">.</span><span class="n">output</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="zero">
-<h3><a class="toc-backref" href="#id19">Zero</a><a class="headerlink" href="#zero" title="本標題的永久連結">¶</a></h3>
-<p>Brainfuck code 裡面的 「[-]」 這樣的 loop 其實就是把目前指到的值歸零，
+</section>
+<section id="zero">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">Zero</a><a class="headerlink" href="#zero" title="Permalink to this heading"></a></h3>
+<p>Brainfuck code 裡面的 “[-]” 這樣的 loop 其實就是把目前指到的值歸零，
 所以可以直接把它 assign 成零，不要再慢慢減了，
 這樣換掉後可以有些許的提升</p>
-</div>
-<div class="section" id="compact">
-<h3><a class="toc-backref" href="#id20">Compact</a><a class="headerlink" href="#compact" title="本標題的永久連結">¶</a></h3>
-<p>Brainfuck 的 code 裡面常常會出現連續的 「+」 或 「-」 或 「&lt;」 或 「&gt;」，
-但是這是可以一次完成的 (連續的 「&gt;」、」&lt;」 都可以和起來，」+」、」-」 也可以)，
+</section>
+<section id="compact">
+<h3><a class="toc-backref" href="#id19" role="doc-backlink">Compact</a><a class="headerlink" href="#compact" title="Permalink to this heading"></a></h3>
+<p>Brainfuck 的 code 裡面常常會出現連續的 “+” 或 “-” 或 “&lt;” 或 “&gt;”，
+但是這是可以一次完成的 (連續的 “&gt;”、”&lt;” 都可以和起來，”+”、”-” 也可以)，
 不需要一個一個慢慢加、一個一個慢慢移，
 所以如果把這部份處理掉，
 做更有效率的計算，
 可以獲得一部份的效能提升 ~</p>
-</div>
-</div>
-<div class="section" id="id3">
-<h2><a class="toc-backref" href="#id21">總結</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+</section>
+</section>
+<section id="id2">
+<h2><a class="toc-backref" href="#id20" role="doc-backlink">總結</a><a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
 <p>這個 Tutorial 做的只是簡單的 Brainfuck Interpreter，
 離真正實用的語言的 interpreter 還有很大的差距，
 但這邊可以讓我們看出在還沒化很多心力下去調整效能前，
@@ -1726,14 +1624,14 @@ Well, okay: money. (And time, people, resources, but if you have money, you can 
 <li><p>用 RPython 寫你的 Interpreter (需要有 target function)</p></li>
 <li><p>針對 main loop 把變數分類、call JIT 的 Driver class</p></li>
 <li><p>丟下去 toolchain 轉換</p></li>
-<li><p>效能還不夠時，找出不會變得地方用 「<strong>elidable</strong>」 decorator 做告知</p></li>
+<li><p>效能還不夠時，找出不會變得地方用 “<strong>elidable</strong>” decorator 做告知</p></li>
 </ol>
-</div>
-</div>
-<div class="section" id="id5">
-<h1><a class="toc-backref" href="#id22">額外紀錄</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h1>
-<div class="section" id="with-statement-in-rpython">
-<h2><a class="toc-backref" href="#id23">with statement in RPython</a><a class="headerlink" href="#with-statement-in-rpython" title="本標題的永久連結">¶</a></h2>
+</section>
+</section>
+<section id="id4">
+<h1><a class="toc-backref" href="#id21" role="doc-backlink">額外紀錄</a><a class="headerlink" href="#id4" title="Permalink to this heading"></a></h1>
+<section id="with-statement-in-rpython">
+<h2><a class="toc-backref" href="#id22" role="doc-backlink">with statement in RPython</a><a class="headerlink" href="#with-statement-in-rpython" title="Permalink to this heading"></a></h2>
 <p>在寫 example 的時候，我開檔案那邊用的是 with statement 來幫我 handle，
 結果發現丟下去轉換的時候不會過，去 PyPy irc 問了後，
 發現其實 RPython 是有支援 with statement 的，
@@ -1745,13 +1643,13 @@ RPython 的 RFile 實作的是完整的 Python files 的 subset，
 <a class="reference external" href="https://bitbucket.org/pypy/pypy/commits/6657cb5a838dae0e9ad8453d6d412ef96ee155fa">一個 commit</a>
 補上了這部份，
 于是乎，我可以繼續用 with statement 丟下去給 PyPy 轉了 ~</p>
-</div>
-<div class="section" id="rpython-s-print-statement">
-<h2><a class="toc-backref" href="#id24">RPython’s print statement</a><a class="headerlink" href="#rpython-s-print-statement" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="rpython-s-print-statement">
+<h2><a class="toc-backref" href="#id23" role="doc-backlink">RPython’s print statement</a><a class="headerlink" href="#rpython-s-print-statement" title="Permalink to this heading"></a></h2>
 <p>RPython 裡面其實是有支援 print statement 的，
 但是那大多只用於 debug，
 多數情況都用 os.read / os.write，
-不過其實可以用類似 「os.fdopen(1)」 的方法來拿到 stdout
+不過其實可以用類似 “os.fdopen(1)” 的方法來拿到 stdout
 (不過要在 RPython function 裡，而不是 module global)，
 所以其實可以做到當我在 RPython 用 sys.stdout 時其實後面是 call rfile.py 裡面類似 getstdout() 的 function，
 它會取得並且 cache 用 os.fdopen() 取得的 rfile。</p>
@@ -1761,9 +1659,9 @@ RPython 的 RFile 實作的是完整的 Python files 的 subset，
 不過 PyPy team 應該也是缺錢缺人手，
 這也不算是核心大問題，
 暫時就先這樣吧，等看看哪天有人 contribute XD</p>
-</div>
-<div class="section" id="comple-with-clang">
-<h2><a class="toc-backref" href="#id25">Comple with Clang</a><a class="headerlink" href="#comple-with-clang" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="comple-with-clang">
+<h2><a class="toc-backref" href="#id24" role="doc-backlink">Comple with Clang</a><a class="headerlink" href="#comple-with-clang" title="Permalink to this heading"></a></h2>
 <p>雖然前面有提到可以用 <code class="docutils literal notranslate"><span class="pre">--cc=clang</span></code> 來用 clang compile，
 但其實我在試的時候有出現問題，
 不過到 irc 上尋問後得到了解法，
@@ -1777,17 +1675,17 @@ RPython 的 RFile 實作的是完整的 Python files 的 subset，
 <span class="n">usually</span> <span class="n">we</span> <span class="n">have</span> <span class="n">to</span> <span class="n">fix</span> <span class="n">it</span> <span class="n">slightly</span> <span class="k">for</span> <span class="n">every</span> <span class="n">new</span> <span class="n">version</span> <span class="n">of</span> <span class="n">gcc</span><span class="o">...</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="if-elif">
-<h2><a class="toc-backref" href="#id26">if … elif</a><a class="headerlink" href="#if-elif" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="if-elif">
+<h2><a class="toc-backref" href="#id25" role="doc-backlink">if … elif</a><a class="headerlink" href="#if-elif" title="Permalink to this heading"></a></h2>
 <p>在翻參數的時候，發現有個優化參數叫作 <code class="docutils literal notranslate"><span class="pre">merge_if_blocks</span></code> ，
 顧名思義就是把 Python 多層的 if … elif block 合成 C 裡 switch 的形式，
 可以看
 <a class="reference external" href="https://pypy.readthedocs.org/en/latest/config/translation.backendopt.merge_if_blocks.html">documentation 裡的說明</a>
 裡面有示意圖 XD</p>
-</div>
-<div class="section" id="string-replace">
-<h2><a class="toc-backref" href="#id27">string replace</a><a class="headerlink" href="#string-replace" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="string-replace">
+<h2><a class="toc-backref" href="#id26" role="doc-backlink">string replace</a><a class="headerlink" href="#string-replace" title="Permalink to this heading"></a></h2>
 <p>RPython 裡的 str 目前只支援 char 的 replace，
 但是可以從 <code class="docutils literal notranslate"><span class="pre">rpython/rlib/rstring.py</span></code> 裡找到 replace function 來替代，
 <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">rpython.rlib.rstring</span> <span class="pre">import</span> <span class="pre">replace</span></code> ，
@@ -1800,22 +1698,22 @@ RPython 的 RFile 實作的是完整的 Python files 的 subset，
 <span class="n">cfbolz</span><span class="o">|</span> <span class="n">ronan</span><span class="p">,</span> <span class="n">wdv</span><span class="p">:</span> <span class="n">there</span> <span class="ow">is</span> <span class="n">even</span> <span class="n">a</span> <span class="n">usable</span> <span class="n">implementation</span><span class="p">,</span> <span class="ow">in</span> <span class="n">rlib</span><span class="o">.</span><span class="n">rstring</span><span class="p">,</span> <span class="n">I</span> <span class="n">think</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="rpython-rlib-jit-py">
-<h2><a class="toc-backref" href="#id28">rpython/rlib/jit.py</a><a class="headerlink" href="#rpython-rlib-jit-py" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="rpython-rlib-jit-py">
+<h2><a class="toc-backref" href="#id27" role="doc-backlink">rpython/rlib/jit.py</a><a class="headerlink" href="#rpython-rlib-jit-py" title="Permalink to this heading"></a></h2>
 <p>由於在看前面的 <code class="docutils literal notranslate"><span class="pre">rpython/rlib/rstring.py</span></code> 裡的 replace function 時，
 發現上面有一些 decorator，其中一個是 <code class="docutils literal notranslate"><span class="pre">jit.elidable</span></code> ，
 覺得好奇就去翻了一下，不翻還好，
 億翻發現就 tutorial 上寫的 <code class="docutils literal notranslate"><span class="pre">purefunction</span></code> 已經 deprecated 了 XD，
-現在要用剛剛看到的 「<strong>elidable</strong>」，
+現在要用剛剛看到的 “<strong>elidable</strong>”，
 趕快來改一下 ~</p>
-</div>
-<div class="section" id="embedding-pypy">
-<h2><a class="toc-backref" href="#id29">Embedding PyPy</a><a class="headerlink" href="#embedding-pypy" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="embedding-pypy">
+<h2><a class="toc-backref" href="#id28" role="doc-backlink">Embedding PyPy</a><a class="headerlink" href="#embedding-pypy" title="Permalink to this heading"></a></h2>
 <p>在 irc 上問問題的時候，剛好看到前面有人問了 <code class="docutils literal notranslate"><span class="pre">libpypy-c.so</span></code> 是幹嘛用的，
 原來是近期 PyPy 提供的功能，可以把 PyPy 嵌入其他地方，
 <a class="reference external" href="http://pypy.readthedocs.org/en/latest/embedding.html">官方 Document</a>
-有寫了簡單的 C 範例，include 「PyPy.h」 後，
+有寫了簡單的 C 範例，include “PyPy.h” 後，
 把在 C 程式裡的 Python code char array 丟進去執行，
 甚至可以把丟參數給 Python 端的 function，
 提供了未來把 PyPy 嵌入別的地方的機會 ~</p>
@@ -1826,10 +1724,10 @@ RPython 的 RFile 實作的是完整的 Python files 的 subset，
           very small and just calls libpypy-c.so, but other programs may call it too
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="reference">
-<h1><a class="toc-backref" href="#id30">Reference</a><a class="headerlink" href="#reference" title="本標題的永久連結">¶</a></h1>
+</section>
+</section>
+<section id="reference">
+<h1><a class="toc-backref" href="#id29" role="doc-backlink">Reference</a><a class="headerlink" href="#reference" title="Permalink to this heading"></a></h1>
 <ul class="simple">
 <li><p><a class="reference external" href="http://en.wikipedia.org/wiki/Just-in-time_compilation">Wikipedia - Just-in-time compilation</a></p></li>
 <li><p><a class="reference external" href="http://en.wikipedia.org/wiki/Tracing_just-in-time_compilation">Wikipedia - Tracing just-in-time compilation</a></p></li>
@@ -1849,45 +1747,35 @@ RPython 的 RFile 實作的是完整的 Python files 的 subset，
 <li><p><a class="reference external" href="https://speakerdeck.com/antocuni/rpython-a-step-towards-reconciling-dynamically-and-statically-typed-object-oriented-languages">RPython: a Step Towards Reconciling Dynamically and Statically Typed OO Languages</a></p></li>
 <li><p><a class="reference external" href="http://llvm.org/pubs/2006-10-DLS-PyPy.pdf">PyPy’s Approach to Virtual Machine Construction</a></p></li>
 </ul>
-</div>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="python-benchmark.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="openmp.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="openmp.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="python-benchmark.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016
-
-    </p>
+    <p>&#169; Copyright 2023.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
   
 
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       <span class="fa fa-book"> Read the Docs</span>
       v: latest
@@ -1897,7 +1785,7 @@ RPython 的 RFile 實作的是完整的 Python files 的 subset，
       <dl>
         <dt>Versions</dt>
         
-          <dd><a href="/zh_TW/latest/">latest</a></dd>
+          <dd><a href="https://wdv4758h.github.io/notes/">latest</a></dd>
         
       </dl>
       <dl>
@@ -1907,6 +1795,7 @@ RPython 的 RFile 實作的是完整的 Python files 的 subset，
         
       </dl>
       <dl>
+        
         <dt>On Read the Docs</dt>
           <dd>
             <a href="//readthedocs.org/projects/wdv4758h-notes/?fromdocs=wdv4758h-notes">Project Home</a>
@@ -1915,22 +1804,13 @@ RPython 的 RFile 實作的是完整的 Python files 的 subset，
             <a href="//readthedocs.org/builds/wdv4758h-notes/?fromdocs=wdv4758h-notes">Builds</a>
           </dd>
       </dl>
-      <hr/>
-      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
-
     </div>
   </div>
-
-
-
-  <script type="text/javascript">
+<script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-   
+  </script> 
 
 </body>
 </html>

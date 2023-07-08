@@ -1,20 +1,34 @@
 ========================================
-Search Engine
+Rust x 搜尋引擎 (Search Engine)
 ========================================
 
 
 .. contents:: 目錄
 
 
-Tantivy, inspired by Lucene
-========================================
+Tantivy - full-text search engine library
+=========================================
 
-:Repo: https://github.com/tantivy-search/tantivy
+:repo: https://github.com/tantivy-search/tantivy
+:benchmark: https://tantivy-search.github.io/bench/
 
 
-Tantivy 是參考 Lucene 設計而用 Rust 寫成的搜尋引擎，
+Tantivy 的專案目標是像 Lucene 這樣的搜尋引擎 library，
+而不是像 Elasticsearch 這樣的搜尋伺服器，
+分散式搜尋也不在專案目標內。
+而如同 Elasticsearch 是基於 Lucene，
+其他人也可以基於 Tantivy 建立出類似 Elasticsearch 的專案。
+
+Tantivy 參考 Lucene 的設計，
 內部使用了 FST 的結構做搜尋，
-在眾多測試項目中已經開始顯現比 Lucene 好的效能。
+在衆多測試項目中都已經有比 Lucene 好的效能。
+
+另外效能比較中，
+有專案 `PISA (Performant Indexes and Search for Academia) <https://github.com/pisa-engine/pisa>`_ ，
+儘管 Tantivy 以及比 Lucene 快，
+但是 PISA 的效能更快，
+具有更優良的演算法，
+是未來學習的對象。
 
 
 tantivy-cli
@@ -45,14 +59,14 @@ tantivy-cli
 Toshi - based on Tantivy, similar to Elasticsearch
 ==================================================
 
-:Repo: https://github.com/toshi-search/Toshi/
+:repo: https://github.com/toshi-search/Toshi/
 
 
 
 Sonic - fast, lightweight, schema-less search backend
 =====================================================
 
-:Repo: https://github.com/valeriansaliou/sonic
+:repo: https://github.com/valeriansaliou/sonic
 
 
 

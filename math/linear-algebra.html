@@ -1,114 +1,75 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-TW" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-TW" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>線性代數 （Linear Algebra） &mdash; wdv4758h-notes latest 說明文件</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>線性代數 （Linear Algebra） &mdash; wdv4758h-notes latest documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="搜尋" href="../search.html" />
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Math on Web" href="math-on-web.html" />
     <link rel="prev" title="數學相關套件 (Math Libraries)" href="libraries.html" /> 
 
 <!-- RTD Extra Head -->
 
-<!-- 
-Always link to the latest version, as canonical.
-http://docs.readthedocs.org/en/latest/canonical.html
--->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/math/linear-algebra.html" />
+    <!--
+    Always link to the latest version, as canonical.
+    http://docs.readthedocs.org/en/latest/canonical.html
+    -->
+    <link rel="canonical" href="https://wdv4758h-notes.readthedocs.io/zh_TW/latest/math/linear-algebra.html" />
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": "", "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": "https://wdv4758h-notes.readthedocs.io/zh_TW/latest/", "docroot": "/./", "features": {"docsearch_disabled": false}, "global_analytics_code": "", "language": "en", "page": "math/linear-algebra", "programming_language": "", "project": "wdv4758h-notes", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": ""}</script>
 
-<!-- Add page-specific data, which must exist in the page js, not global -->
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = "math/linear-algebra"
-READTHEDOCS_DATA['source_suffix'] = ".rst"
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
 </script>
 
-<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js" async="async"></script>
 
 <!-- end RTD <extrahead> -->
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../index.html" class="icon icon-home"> wdv4758h-notes
           
-
-          
+          <a href="../index.html" class="icon icon-home">
+            wdv4758h-notes
           </a>
-
-          
-            
-            
-            
               <div class="version">
                 latest
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/README.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/adt.html">ADT (Abstract Data Type)</a></li>
@@ -118,13 +79,18 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/cache.html">Cache</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/cache-friendly.html">Cache Friendly Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/dict.html">Dict</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/float-to-string.html">Float to String</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/heap.html">Heap （堆）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/introduction.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/inverse-square-root.html">Inverse Square Root</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/lock.html">Lock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/meta-algorithm.html">Meta Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/random-number-generator.html">Random Number Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/resource.html">演算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/sorting.html">Sorting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/string-to-float.html">String to Float</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/substring-searching.html">Substring Searching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/README.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/android-emulator.html">Android Emulator</a></li>
@@ -200,7 +166,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../blog/openmp.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#tutorial">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#id5">額外紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#id4">額外紀錄</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/python-benchmark.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/python-benchmark.html#hello-world">Hello World</a></li>
@@ -227,7 +193,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../blog/qemu-first-step.html#qemu-with-kvm">QEMU with KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html">Syntax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closure">Closure 和外部變數</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#move-closures">「move」 closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#move-closures">“move” closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closure-implementation">Closure implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closures-as-arguments">closures as arguments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#returning-closures">returning closures</a></li>
@@ -408,6 +374,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/ci.html">Continuous Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/concourse.html">Concourse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/drone.html">Drone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../continuous-integration/github-actions.html">Github Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/jenkins.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/travis-ci.html">Travis CI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/workflow-pipeline.html">Workflow Pipeline</a></li>
@@ -417,7 +384,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../cpp/array.html">std::array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/assembly.html">C++ &amp; Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/bit-field.html">C++ Bit Field</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cpp/c++17.html">C++17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/c%2B%2B17.html">C++17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/concepts.html">C++ Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/const.html">C++ const</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/copy-elision.html">Copy Elision</a></li>
@@ -470,13 +437,16 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../database/README.html">資料庫 (Database)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/cockroachdb.html">CockroachDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/consensus-algorithm.html">Raft Consensus Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/graph.html">Graph Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/leveldb.html">LevelDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/materialized-views.html">Materialized Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mongodb.html">MongoDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/rocksdb.html">RocksDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sql.html">SQL (Structured Query Language)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/tidb.html">TiDB</a></li>
@@ -576,7 +546,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </li>
 <li class="toctree-l1"><a class="reference internal" href="math-on-web.html">Math on Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc.html">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../memory/W^X.html">W^X (Write XOR Execute)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../memory/W%5EX.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/kernel-memory-management.html">Kernel Memory Management</a></li>
@@ -834,76 +804,36 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../wiki/resource.html">Wiki</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">wdv4758h-notes</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-      <li>線性代數 （Linear Algebra）</li>
-    
-    
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">線性代數 （Linear Algebra）</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/wdv4758h/notes/blob/master/./math/linear-algebra.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="linear-algebra">
-<h1><a class="toc-backref" href="#id7">線性代數 （Linear Algebra）</a><a class="headerlink" href="#linear-algebra" title="本標題的永久連結">¶</a></h1>
+             
+  <section id="linear-algebra">
+<h1><a class="toc-backref" href="#id7" role="doc-backlink">線性代數 （Linear Algebra）</a><a class="headerlink" href="#linear-algebra" title="Permalink to this heading"></a></h1>
 <p>當初在學線性代數的時候沒學好，
 希望未來有機會可以理解它 … QQ</p>
-<div class="contents topic" id="id1">
-<p class="topic-title first">目錄</p>
+<nav class="contents" id="id1">
+<p class="topic-title">目錄</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#linear-algebra" id="id7">線性代數 （Linear Algebra）</a></p>
 <ul>
@@ -940,37 +870,37 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="id2">
-<h2><a class="toc-backref" href="#id8">核心問題</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+</nav>
+<section id="id2">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">核心問題</a><a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>線性系統</p></li>
 <li><p>最小平方法</p></li>
 <li><p>特徵值與特徵向量</p></li>
 <li><p>奇異值分解</p></li>
 </ul>
-<div class="section" id="id3">
-<h3><a class="toc-backref" href="#id9">線性系統</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h3>
+<section id="id3">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">線性系統</a><a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">核心問題</dt>
+<dt class="field-odd">核心問題<span class="colon">:</span></dt>
 <dd class="field-odd"><p>線性系統</p>
 </dd>
-<dt class="field-even">重要觀念</dt>
+<dt class="field-even">重要觀念<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p>線性方程式（Linear Equation）</p></li>
 <li><p>矩陣代數</p></li>
 <li><p>向量空間（Vector Space）</p></li>
 </ul>
 </dd>
-<dt class="field-odd">應用</dt>
+<dt class="field-odd">應用<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p>解 N 元一次方程式</p></li>
 </ul>
 </dd>
-<dt class="field-even">NumPy</dt>
+<dt class="field-even">NumPy<span class="colon">:</span></dt>
 <dd class="field-even"><p>numpy.linalg.solve</p>
 </dd>
-<dt class="field-odd">SymPy</dt>
+<dt class="field-odd">SymPy<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Matrix.solve</p>
 </dd>
 </dl>
@@ -980,8 +910,8 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <p>m 個點，每個點維度為 n，
 解方程式
 （最少需要 n 個點）。</p>
-<div class="section" id="numpy-linalg-solve">
-<h4><a class="toc-backref" href="#id10">NumPy 使用範例－linalg.solve</a><a class="headerlink" href="#numpy-linalg-solve" title="本標題的永久連結">¶</a></h4>
+<section id="numpy-linalg-solve">
+<h4><a class="toc-backref" href="#id10" role="doc-backlink">NumPy 使用範例－linalg.solve</a><a class="headerlink" href="#numpy-linalg-solve" title="Permalink to this heading"></a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="s1">&#39;1 2 3; 1 3 8; 3 5 7&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">14</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">34</span><span class="p">])</span>
@@ -990,9 +920,9 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <span class="go">array([ 1.,  2.,  3.])</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="sympy-matrix-solve">
-<h4><a class="toc-backref" href="#id11">SymPy 使用範例－Matrix.solve</a><a class="headerlink" href="#sympy-matrix-solve" title="本標題的永久連結">¶</a></h4>
+</section>
+<section id="sympy-matrix-solve">
+<h4><a class="toc-backref" href="#id11" role="doc-backlink">SymPy 使用範例－Matrix.solve</a><a class="headerlink" href="#sympy-matrix-solve" title="Permalink to this heading"></a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sympy</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sympy</span><span class="o">.</span><span class="n">init_printing</span><span class="p">(</span><span class="n">use_unicode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">]])</span>
@@ -1017,29 +947,29 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <span class="go">⎣3⎦</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="id4">
-<h3><a class="toc-backref" href="#id12">最小平方法</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h3>
+</section>
+</section>
+<section id="id4">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">最小平方法</a><a class="headerlink" href="#id4" title="Permalink to this heading"></a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">核心問題</dt>
+<dt class="field-odd">核心問題<span class="colon">:</span></dt>
 <dd class="field-odd"><p>最小平方法</p>
 </dd>
-<dt class="field-even">重要觀念</dt>
+<dt class="field-even">重要觀念<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p>線性變換</p></li>
 <li><p>內積空間</p></li>
 </ul>
 </dd>
-<dt class="field-odd">應用</dt>
+<dt class="field-odd">應用<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p>線性回歸</p></li>
 </ul>
 </dd>
-<dt class="field-even">NumPy</dt>
+<dt class="field-even">NumPy<span class="colon">:</span></dt>
 <dd class="field-even"><p>numpy.linalg.lstsq</p>
 </dd>
-<dt class="field-odd">SymPy</dt>
+<dt class="field-odd">SymPy<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Matrix.solve_least_squares</p>
 </dd>
 </dl>
@@ -1048,8 +978,8 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 使得 <code class="docutils literal notranslate"><span class="pre">∥</span> <span class="pre">b</span> <span class="pre">-</span> <span class="pre">A</span> <span class="pre">x-hat</span> <span class="pre">∥²</span></code> 有最小值。</p>
 <p>m 個點，每個點維度為 n，
 解線性回歸。</p>
-<div class="section" id="numpy-linalg-lstsq">
-<h4><a class="toc-backref" href="#id13">NumPy 使用範例－linalg.lstsq</a><a class="headerlink" href="#numpy-linalg-lstsq" title="本標題的永久連結">¶</a></h4>
+<section id="numpy-linalg-lstsq">
+<h4><a class="toc-backref" href="#id13" role="doc-backlink">NumPy 使用範例－linalg.lstsq</a><a class="headerlink" href="#numpy-linalg-lstsq" title="Permalink to this heading"></a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="s1">&#39;1 2 3; 4 5 6; 7 8 9&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
@@ -1057,9 +987,9 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <span class="gt">Traceback (most recent call last):</span>
   File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
   File <span class="nb">&quot;/home/user/venv/lib/python3.5/site-packages/numpy/linalg/linalg.py&quot;</span>, line <span class="m">384</span>, in <span class="n">solve</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">gufunc</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">signature</span><span class="o">=</span><span class="n">signature</span><span class="p">,</span> <span class="n">extobj</span><span class="o">=</span><span class="n">extobj</span><span class="p">)</span>
+<span class="w">    </span><span class="n">r</span> <span class="o">=</span> <span class="n">gufunc</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">signature</span><span class="o">=</span><span class="n">signature</span><span class="p">,</span> <span class="n">extobj</span><span class="o">=</span><span class="n">extobj</span><span class="p">)</span>
   File <span class="nb">&quot;/home/user/venv/lib/python3.5/site-packages/numpy/linalg/linalg.py&quot;</span>, line <span class="m">90</span>, in <span class="n">_raise_linalgerror_singular</span>
-    <span class="k">raise</span> <span class="n">LinAlgError</span><span class="p">(</span><span class="s2">&quot;Singular matrix&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="k">raise</span> <span class="n">LinAlgError</span><span class="p">(</span><span class="s2">&quot;Singular matrix&quot;</span><span class="p">)</span>
 <span class="gr">numpy.linalg.linalg.LinAlgError</span>: <span class="n">Singular matrix</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">lstsq</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
@@ -1069,9 +999,9 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <span class="go"> array([  1.68481034e+01,   1.06836951e+00,   4.41842475e-16]))</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="sympy-matrix-solve-least-squares">
-<h4><a class="toc-backref" href="#id14">SymPy 使用範例－Matrix.solve_least_squares</a><a class="headerlink" href="#sympy-matrix-solve-least-squares" title="本標題的永久連結">¶</a></h4>
+</section>
+<section id="sympy-matrix-solve-least-squares">
+<h4><a class="toc-backref" href="#id14" role="doc-backlink">SymPy 使用範例－Matrix.solve_least_squares</a><a class="headerlink" href="#sympy-matrix-solve-least-squares" title="Permalink to this heading"></a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sympy</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sympy</span><span class="o">.</span><span class="n">init_printing</span><span class="p">(</span><span class="n">use_unicode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span>
@@ -1092,45 +1022,45 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <span class="gt">Traceback (most recent call last):</span>
   File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
   File <span class="nb">&quot;/home/user/venv/lib/python3.5/site-packages/sympy/matrices/matrices.py&quot;</span>, line <span class="m">991</span>, in <span class="n">solve_least_squares</span>
-    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cholesky_solve</span><span class="p">(</span><span class="n">rhs</span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cholesky_solve</span><span class="p">(</span><span class="n">rhs</span><span class="p">)</span>
   File <span class="nb">&quot;/home/user/venv/lib/python3.5/site-packages/sympy/matrices/matrices.py&quot;</span>, line <span class="m">861</span>, in <span class="n">cholesky_solve</span>
-    <span class="n">Y</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">_lower_triangular_solve</span><span class="p">(</span><span class="n">rhs</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Y</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">_lower_triangular_solve</span><span class="p">(</span><span class="n">rhs</span><span class="p">)</span>
   File <span class="nb">&quot;/home/user/venv/lib/python3.5/site-packages/sympy/matrices/dense.py&quot;</span>, line <span class="m">420</span>, in <span class="n">_lower_triangular_solve</span>
-    <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Matrix must be non-singular.&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Matrix must be non-singular.&quot;</span><span class="p">)</span>
 <span class="gr">TypeError</span>: <span class="n">Matrix must be non-singular.</span>
 
-<span class="go"># TODO !</span>
+<span class="x"># TODO !</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="eigenvalues-eigenvectors">
-<h3><a class="toc-backref" href="#id15">特徵值與特徵向量（Eigenvalues &amp; Eigenvectors）</a><a class="headerlink" href="#eigenvalues-eigenvectors" title="本標題的永久連結">¶</a></h3>
+</section>
+</section>
+<section id="eigenvalues-eigenvectors">
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">特徵值與特徵向量（Eigenvalues &amp; Eigenvectors）</a><a class="headerlink" href="#eigenvalues-eigenvectors" title="Permalink to this heading"></a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">核心問題</dt>
+<dt class="field-odd">核心問題<span class="colon">:</span></dt>
 <dd class="field-odd"><p>特徵值與特徵向量</p>
 </dd>
-<dt class="field-even">重要觀念</dt>
+<dt class="field-even">重要觀念<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p>行列式</p></li>
 <li><p>特徵分析</p></li>
 <li><p>典型形式</p></li>
 </ul>
 </dd>
-<dt class="field-odd">應用</dt>
+<dt class="field-odd">應用<span class="colon">:</span></dt>
 <dd class="field-odd"><p></p></dd>
-<dt class="field-even">NumPy</dt>
+<dt class="field-even">NumPy<span class="colon">:</span></dt>
 <dd class="field-even"><p>numpy.linalg.eig</p>
 </dd>
-<dt class="field-odd">SymPy</dt>
+<dt class="field-odd">SymPy<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Matrix.eigenvals, Matrix.eigenvects</p>
 </dd>
 </dl>
-<div class="section" id="markov-matrices">
-<h4><a class="toc-backref" href="#id16">Markov Matrices</a><a class="headerlink" href="#markov-matrices" title="本標題的永久連結">¶</a></h4>
-</div>
-<div class="section" id="numpy-linalg-eig">
-<h4><a class="toc-backref" href="#id17">NumPy 使用範例－linalg.eig</a><a class="headerlink" href="#numpy-linalg-eig" title="本標題的永久連結">¶</a></h4>
+<section id="markov-matrices">
+<h4><a class="toc-backref" href="#id16" role="doc-backlink">Markov Matrices</a><a class="headerlink" href="#markov-matrices" title="Permalink to this heading"></a></h4>
+</section>
+<section id="numpy-linalg-eig">
+<h4><a class="toc-backref" href="#id17" role="doc-backlink">NumPy 使用範例－linalg.eig</a><a class="headerlink" href="#numpy-linalg-eig" title="Permalink to this heading"></a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="s1">&#39;1 2 3; 4 5 6; 7 8 9&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">eigenvalues</span><span class="p">,</span> <span class="n">eigenvectors</span><span class="p">)</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
@@ -1142,9 +1072,9 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <span class="go">        [-0.8186735 ,  0.61232756,  0.40824829]])</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="sympy-matrix-eigenvalsmatrix-eigenvects">
-<h4><a class="toc-backref" href="#id18">SymPy 使用範例－Matrix.eigenvals、Matrix.eigenvects</a><a class="headerlink" href="#sympy-matrix-eigenvalsmatrix-eigenvects" title="本標題的永久連結">¶</a></h4>
+</section>
+<section id="sympy-matrix-eigenvalsmatrix-eigenvects">
+<h4><a class="toc-backref" href="#id18" role="doc-backlink">SymPy 使用範例－Matrix.eigenvals、Matrix.eigenvects</a><a class="headerlink" href="#sympy-matrix-eigenvalsmatrix-eigenvects" title="Permalink to this heading"></a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sympy</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sympy</span><span class="o">.</span><span class="n">init_printing</span><span class="p">(</span><span class="n">use_unicode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span>
@@ -1190,30 +1120,30 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <span class="go">⎝                 ⎣⎣                    1                    ⎦⎦⎠⎦</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="id5">
-<h3><a class="toc-backref" href="#id19">奇異值分解</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h3>
+</section>
+</section>
+<section id="id5">
+<h3><a class="toc-backref" href="#id19" role="doc-backlink">奇異值分解</a><a class="headerlink" href="#id5" title="Permalink to this heading"></a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">核心問題</dt>
+<dt class="field-odd">核心問題<span class="colon">:</span></dt>
 <dd class="field-odd"><p>奇異值分解</p>
 </dd>
-<dt class="field-even">重要觀念</dt>
+<dt class="field-even">重要觀念<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p>二次型</p></li>
 </ul>
 </dd>
-<dt class="field-odd">應用</dt>
+<dt class="field-odd">應用<span class="colon">:</span></dt>
 <dd class="field-odd"><p></p></dd>
-<dt class="field-even">NumPy</dt>
+<dt class="field-even">NumPy<span class="colon">:</span></dt>
 <dd class="field-even"><p>numpy.linalg.svd</p>
 </dd>
-<dt class="field-odd">SymPy</dt>
+<dt class="field-odd">SymPy<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Matrix.singular_values</p>
 </dd>
 </dl>
-<div class="section" id="numpy-linalg-svd">
-<h4><a class="toc-backref" href="#id20">NumPy 使用範例－linalg.svd</a><a class="headerlink" href="#numpy-linalg-svd" title="本標題的永久連結">¶</a></h4>
+<section id="numpy-linalg-svd">
+<h4><a class="toc-backref" href="#id20" role="doc-backlink">NumPy 使用範例－linalg.svd</a><a class="headerlink" href="#numpy-linalg-svd" title="Permalink to this heading"></a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="s1">&#39;1 2 3; 4 5 6; 7 8 9&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
@@ -1229,9 +1159,9 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <span class="go">        [-0.40824829,  0.81649658, -0.40824829]])</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="sympy-matrix-singular-values">
-<h4><a class="toc-backref" href="#id21">SymPy 使用範例－Matrix.singular_values</a><a class="headerlink" href="#sympy-matrix-singular-values" title="本標題的永久連結">¶</a></h4>
+</section>
+<section id="sympy-matrix-singular-values">
+<h4><a class="toc-backref" href="#id21" role="doc-backlink">SymPy 使用範例－Matrix.singular_values</a><a class="headerlink" href="#sympy-matrix-singular-values" title="Permalink to this heading"></a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sympy</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sympy</span><span class="o">.</span><span class="n">init_printing</span><span class="p">(</span><span class="n">use_unicode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span>
@@ -1249,11 +1179,11 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <span class="go">⎣╲╱      2       2    ╲╱        2       2     ⎦</span>
 </pre></div>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="id6">
-<h2><a class="toc-backref" href="#id22">參考</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h2>
+</section>
+</section>
+</section>
+<section id="id6">
+<h2><a class="toc-backref" href="#id22" role="doc-backlink">參考</a><a class="headerlink" href="#id6" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://jeremykun.com/2011/06/19/linear-algebra-a-primer/">Linear Algebra – A Primer</a></p></li>
 </ul>
@@ -1268,46 +1198,36 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li><p><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.linalg.html">Linear algebra (numpy.linalg)</a></p></li>
 <li><p><a class="reference external" href="http://docs.sympy.org/latest/tutorial/matrices.html">Matrices — SymPy</a></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="math-on-web.html" class="btn btn-neutral float-right" title="Math on Web" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="libraries.html" class="btn btn-neutral float-left" title="數學相關套件 (Math Libraries)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="libraries.html" class="btn btn-neutral float-left" title="數學相關套件 (Math Libraries)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="math-on-web.html" class="btn btn-neutral float-right" title="Math on Web" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016
-
-    </p>
+    <p>&#169; Copyright 2023.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
   
 
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       <span class="fa fa-book"> Read the Docs</span>
       v: latest
@@ -1317,7 +1237,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
       <dl>
         <dt>Versions</dt>
         
-          <dd><a href="/zh_TW/latest/">latest</a></dd>
+          <dd><a href="https://wdv4758h.github.io/notes/">latest</a></dd>
         
       </dl>
       <dl>
@@ -1327,6 +1247,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
         
       </dl>
       <dl>
+        
         <dt>On Read the Docs</dt>
           <dd>
             <a href="//readthedocs.org/projects/wdv4758h-notes/?fromdocs=wdv4758h-notes">Project Home</a>
@@ -1335,22 +1256,13 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
             <a href="//readthedocs.org/builds/wdv4758h-notes/?fromdocs=wdv4758h-notes">Builds</a>
           </dd>
       </dl>
-      <hr/>
-      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
-
     </div>
   </div>
-
-
-
-  <script type="text/javascript">
+<script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-   
+  </script> 
 
 </body>
 </html>

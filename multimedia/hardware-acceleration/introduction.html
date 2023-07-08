@@ -1,112 +1,73 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-TW" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-TW" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>硬體加速 (Hardware Acceleration) &mdash; wdv4758h-notes latest 說明文件</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>硬體加速 (Hardware Acceleration) &mdash; wdv4758h-notes latest documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/translations.js"></script>
-        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="index" title="索引" href="../../genindex.html" />
-    <link rel="search" title="搜尋" href="../../search.html" /> 
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
 
 <!-- RTD Extra Head -->
 
-<!-- 
-Always link to the latest version, as canonical.
-http://docs.readthedocs.org/en/latest/canonical.html
--->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/multimedia/hardware-acceleration/introduction.html" />
+    <!--
+    Always link to the latest version, as canonical.
+    http://docs.readthedocs.org/en/latest/canonical.html
+    -->
+    <link rel="canonical" href="https://wdv4758h-notes.readthedocs.io/zh_TW/latest/multimedia/hardware-acceleration/introduction.html" />
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../../_static/readthedocs-data.js"></script>
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": "", "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": "https://wdv4758h-notes.readthedocs.io/zh_TW/latest/", "docroot": "/./", "features": {"docsearch_disabled": false}, "global_analytics_code": "", "language": "en", "page": "multimedia/hardware-acceleration/introduction", "programming_language": "", "project": "wdv4758h-notes", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": ""}</script>
 
-<!-- Add page-specific data, which must exist in the page js, not global -->
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = "multimedia/hardware-acceleration/introduction"
-READTHEDOCS_DATA['source_suffix'] = ".rst"
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
 </script>
 
-<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js" async="async"></script>
 
 <!-- end RTD <extrahead> -->
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../index.html" class="icon icon-home"> wdv4758h-notes
           
-
-          
+          <a href="../../index.html" class="icon icon-home">
+            wdv4758h-notes
           </a>
-
-          
-            
-            
-            
               <div class="version">
                 latest
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/README.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/adt.html">ADT (Abstract Data Type)</a></li>
@@ -116,13 +77,18 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/cache.html">Cache</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/cache-friendly.html">Cache Friendly Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/dict.html">Dict</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/float-to-string.html">Float to String</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/heap.html">Heap （堆）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/introduction.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/inverse-square-root.html">Inverse Square Root</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/lock.html">Lock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/meta-algorithm.html">Meta Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/random-number-generator.html">Random Number Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/resource.html">演算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/sorting.html">Sorting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/string-to-float.html">String to Float</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/substring-searching.html">Substring Searching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../android/README.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../android/android-emulator.html">Android Emulator</a></li>
@@ -198,7 +164,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../blog/openmp.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/pypy-brainfuck.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/pypy-brainfuck.html#tutorial">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../blog/pypy-brainfuck.html#id5">額外紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../blog/pypy-brainfuck.html#id4">額外紀錄</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/pypy-brainfuck.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/python-benchmark.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/python-benchmark.html#hello-world">Hello World</a></li>
@@ -225,7 +191,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../blog/qemu-first-step.html#qemu-with-kvm">QEMU with KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html">Syntax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#closure">Closure 和外部變數</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#move-closures">「move」 closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#move-closures">“move” closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#closure-implementation">Closure implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#closures-as-arguments">closures as arguments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#returning-closures">returning closures</a></li>
@@ -406,6 +372,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/ci.html">Continuous Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/concourse.html">Concourse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/drone.html">Drone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/github-actions.html">Github Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/jenkins.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/travis-ci.html">Travis CI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/workflow-pipeline.html">Workflow Pipeline</a></li>
@@ -415,7 +382,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/array.html">std::array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/assembly.html">C++ &amp; Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/bit-field.html">C++ Bit Field</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../cpp/c++17.html">C++17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/c%2B%2B17.html">C++17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/concepts.html">C++ Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/const.html">C++ const</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/copy-elision.html">Copy Elision</a></li>
@@ -468,13 +435,16 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../database/README.html">資料庫 (Database)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/cockroachdb.html">CockroachDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/consensus-algorithm.html">Raft Consensus Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../database/graph.html">Graph Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/leveldb.html">LevelDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../database/materialized-views.html">Materialized Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/mongodb.html">MongoDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../database/rocksdb.html">RocksDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/sql.html">SQL (Structured Query Language)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/tidb.html">TiDB</a></li>
@@ -547,7 +517,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../math/math-on-web.html">Math on Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../math/misc.html">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../memory/W^X.html">W^X (Write XOR Execute)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../memory/W%5EX.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../memory/allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../memory/kernel-memory-management.html">Kernel Memory Management</a></li>
@@ -805,74 +775,34 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../wiki/resource.html">Wiki</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">wdv4758h-notes</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
-      <li>硬體加速 (Hardware Acceleration)</li>
-    
-    
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">硬體加速 (Hardware Acceleration)</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/wdv4758h/notes/blob/master/./multimedia/hardware-acceleration/introduction.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="hardware-acceleration">
-<h1><a class="toc-backref" href="#id4">硬體加速 (Hardware Acceleration)</a><a class="headerlink" href="#hardware-acceleration" title="本標題的永久連結">¶</a></h1>
-<div class="contents topic" id="id1">
-<p class="topic-title first">目錄</p>
+             
+  <section id="hardware-acceleration">
+<h1><a class="toc-backref" href="#id4" role="doc-backlink">硬體加速 (Hardware Acceleration)</a><a class="headerlink" href="#hardware-acceleration" title="Permalink to this heading"></a></h1>
+<nav class="contents" id="id1">
+<p class="topic-title">目錄</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#hardware-acceleration" id="id4">硬體加速 (Hardware Acceleration)</a></p>
 <ul>
@@ -886,9 +816,9 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="id2">
-<h2><a class="toc-backref" href="#id5">介紹</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+</nav>
+<section id="id2">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">介紹</a><a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
 <p>VA-API (Video Acceleration API) 是 Intel 在 2007 年提出的一套 royalty-free API，
 實作在 <code class="docutils literal notranslate"><span class="pre">libVA</span></code> 以 MIT license 釋出。
 目的是讓其他程式可以使用 Video 硬體加速。</p>
@@ -899,184 +829,184 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <p>VDPAU 也可以當作 VA-API 的 backend (libva-vdpau-driver)，
 VA-API 也可以當作 VDPAU 的 backend (libvdpau-va-gl)，
 他們有一部份是重疊的。</p>
-</div>
-<div class="section" id="vdpau">
-<h2><a class="toc-backref" href="#id6">VDPAU</a><a class="headerlink" href="#vdpau" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="vdpau">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">VDPAU</a><a class="headerlink" href="#vdpau" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Intel : libvdpau-va-gl</p></li>
 <li><p>AMD : mesa-vdpau</p></li>
 <li><p>NVIDIA : mesa-vdpau</p></li>
 </ul>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Intel</span>
-$ sudo pacman -S libvdpau-va-gl
+$<span class="w"> </span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>libvdpau-va-gl
 </pre></div>
 </div>
 <p>可以裝 <code class="docutils literal notranslate"><span class="pre">vdpauinfo</span></code> 這個 package 來知道目前這台機器上的 GPU 支援的 features</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># 裝 vdpauinfo 來看相關資訊</span>
-$ sudo pacman -S vdpauinfo
+$<span class="w"> </span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>vdpauinfo
 
 <span class="c1"># 跑 vdpauinfo 來取得訊息</span>
 <span class="c1"># 但是在我筆電上 (Intel i5-3210M, HD Graphics 4000) 會出現找不到 shared object 的錯誤</span>
 <span class="c1"># 感覺算是 bug</span>
-$ vdpauinfo
-display: :0   screen: <span class="m">0</span>
-Failed to open VDPAU backend libvdpau_i965.so: cannot open shared object file: No such file or directory
-Error creating VDPAU device: <span class="m">1</span>
+$<span class="w"> </span>vdpauinfo
+display:<span class="w"> </span>:0<span class="w">   </span>screen:<span class="w"> </span><span class="m">0</span>
+Failed<span class="w"> </span>to<span class="w"> </span>open<span class="w"> </span>VDPAU<span class="w"> </span>backend<span class="w"> </span>libvdpau_i965.so:<span class="w"> </span>cannot<span class="w"> </span>open<span class="w"> </span>shared<span class="w"> </span>object<span class="w"> </span>file:<span class="w"> </span>No<span class="w"> </span>such<span class="w"> </span>file<span class="w"> </span>or<span class="w"> </span>directory
+Error<span class="w"> </span>creating<span class="w"> </span>VDPAU<span class="w"> </span>device:<span class="w"> </span><span class="m">1</span>
 
 <span class="c1"># 用 VDPAU_DRIVER 這個環境變數來指定 driver 後就正常了</span>
-$ env <span class="nv">VDPAU_DRIVER</span><span class="o">=</span>va_gl vdpauinfo
-display: :0   screen: <span class="m">0</span>
-<span class="o">[</span>VS<span class="o">]</span> Software VDPAU backend library initialized
-libva info: VA-API version <span class="m">0</span>.37.0
-libva info: va_getDriverName<span class="o">()</span> returns <span class="m">0</span>
-libva info: Trying to open /usr/lib/dri/i965_drv_video.so
-libva info: Found init <span class="k">function</span> __vaDriverInit_0_37
-libva info: va_openDriver<span class="o">()</span> returns <span class="m">0</span>
-API version: <span class="m">1</span>
-Information string: OpenGL/VAAPI/libswscale backend <span class="k">for</span> VDPAU
+$<span class="w"> </span>env<span class="w"> </span><span class="nv">VDPAU_DRIVER</span><span class="o">=</span>va_gl<span class="w"> </span>vdpauinfo
+display:<span class="w"> </span>:0<span class="w">   </span>screen:<span class="w"> </span><span class="m">0</span>
+<span class="o">[</span>VS<span class="o">]</span><span class="w"> </span>Software<span class="w"> </span>VDPAU<span class="w"> </span>backend<span class="w"> </span>library<span class="w"> </span>initialized
+libva<span class="w"> </span>info:<span class="w"> </span>VA-API<span class="w"> </span>version<span class="w"> </span><span class="m">0</span>.37.0
+libva<span class="w"> </span>info:<span class="w"> </span>va_getDriverName<span class="o">()</span><span class="w"> </span>returns<span class="w"> </span><span class="m">0</span>
+libva<span class="w"> </span>info:<span class="w"> </span>Trying<span class="w"> </span>to<span class="w"> </span>open<span class="w"> </span>/usr/lib/dri/i965_drv_video.so
+libva<span class="w"> </span>info:<span class="w"> </span>Found<span class="w"> </span>init<span class="w"> </span><span class="k">function</span><span class="w"> </span>__vaDriverInit_0_37
+libva<span class="w"> </span>info:<span class="w"> </span>va_openDriver<span class="o">()</span><span class="w"> </span>returns<span class="w"> </span><span class="m">0</span>
+API<span class="w"> </span>version:<span class="w"> </span><span class="m">1</span>
+Information<span class="w"> </span>string:<span class="w"> </span>OpenGL/VAAPI/libswscale<span class="w"> </span>backend<span class="w"> </span><span class="k">for</span><span class="w"> </span>VDPAU
 
-Video surface:
+Video<span class="w"> </span>surface:
 
-name   width height types
+name<span class="w">   </span>width<span class="w"> </span>height<span class="w"> </span>types
 -------------------------------------------
-<span class="m">420</span>     <span class="m">1920</span>  <span class="m">1080</span>  NV12 YV12 UYVY YUYV Y8U8V8A8 V8U8Y8A8
-<span class="m">422</span>     <span class="m">1920</span>  <span class="m">1080</span>  NV12 YV12 UYVY YUYV Y8U8V8A8 V8U8Y8A8
-<span class="m">444</span>     <span class="m">1920</span>  <span class="m">1080</span>  NV12 YV12 UYVY YUYV Y8U8V8A8 V8U8Y8A8
+<span class="m">420</span><span class="w">     </span><span class="m">1920</span><span class="w">  </span><span class="m">1080</span><span class="w">  </span>NV12<span class="w"> </span>YV12<span class="w"> </span>UYVY<span class="w"> </span>YUYV<span class="w"> </span>Y8U8V8A8<span class="w"> </span>V8U8Y8A8
+<span class="m">422</span><span class="w">     </span><span class="m">1920</span><span class="w">  </span><span class="m">1080</span><span class="w">  </span>NV12<span class="w"> </span>YV12<span class="w"> </span>UYVY<span class="w"> </span>YUYV<span class="w"> </span>Y8U8V8A8<span class="w"> </span>V8U8Y8A8
+<span class="m">444</span><span class="w">     </span><span class="m">1920</span><span class="w">  </span><span class="m">1080</span><span class="w">  </span>NV12<span class="w"> </span>YV12<span class="w"> </span>UYVY<span class="w"> </span>YUYV<span class="w"> </span>Y8U8V8A8<span class="w"> </span>V8U8Y8A8
 
-Decoder capabilities:
+Decoder<span class="w"> </span>capabilities:
 
-name                        level macbs width height
+name<span class="w">                        </span>level<span class="w"> </span>macbs<span class="w"> </span>width<span class="w"> </span>height
 ----------------------------------------------------
-MPEG1                          --- not supported ---
-MPEG2_SIMPLE                   --- not supported ---
-MPEG2_MAIN                     --- not supported ---
-H264_BASELINE                  <span class="m">51</span> <span class="m">16384</span>  <span class="m">2048</span>  <span class="m">2048</span>
-H264_MAIN                      <span class="m">51</span> <span class="m">16384</span>  <span class="m">2048</span>  <span class="m">2048</span>
-H264_HIGH                      <span class="m">51</span> <span class="m">16384</span>  <span class="m">2048</span>  <span class="m">2048</span>
-VC1_SIMPLE                     --- not supported ---
-VC1_MAIN                       --- not supported ---
-VC1_ADVANCED                   --- not supported ---
-MPEG4_PART2_SP                 --- not supported ---
-MPEG4_PART2_ASP                --- not supported ---
-DIVX4_QMOBILE                  --- not supported ---
-DIVX4_MOBILE                   --- not supported ---
-DIVX4_HOME_THEATER             --- not supported ---
-DIVX4_HD_1080P                 --- not supported ---
-DIVX5_QMOBILE                  --- not supported ---
-DIVX5_MOBILE                   --- not supported ---
-DIVX5_HOME_THEATER             --- not supported ---
-DIVX5_HD_1080P                 --- not supported ---
-H264_CONSTRAINED_BASELINE      --- not supported ---
-H264_EXTENDED                  --- not supported ---
-H264_PROGRESSIVE_HIGH          --- not supported ---
-H264_CONSTRAINED_HIGH          --- not supported ---
-H264_HIGH_444_PREDICTIVE       --- not supported ---
+MPEG1<span class="w">                          </span>---<span class="w"> </span>not<span class="w"> </span>supported<span class="w"> </span>---
+MPEG2_SIMPLE<span class="w">                   </span>---<span class="w"> </span>not<span class="w"> </span>supported<span class="w"> </span>---
+MPEG2_MAIN<span class="w">                     </span>---<span class="w"> </span>not<span class="w"> </span>supported<span class="w"> </span>---
+H264_BASELINE<span class="w">                  </span><span class="m">51</span><span class="w"> </span><span class="m">16384</span><span class="w">  </span><span class="m">2048</span><span class="w">  </span><span class="m">2048</span>
+H264_MAIN<span class="w">                      </span><span class="m">51</span><span class="w"> </span><span class="m">16384</span><span class="w">  </span><span class="m">2048</span><span class="w">  </span><span class="m">2048</span>
+H264_HIGH<span class="w">                      </span><span class="m">51</span><span class="w"> </span><span class="m">16384</span><span class="w">  </span><span class="m">2048</span><span class="w">  </span><span class="m">2048</span>
+VC1_SIMPLE<span class="w">                     </span>---<span class="w"> </span>not<span class="w"> </span>supported<span class="w"> </span>---
+VC1_MAIN<span class="w">                       </span>---<span class="w"> </span>not<span class="w"> </span>supported<span class="w"> </span>---
+VC1_ADVANCED<span class="w">                   </span>---<span class="w"> </span>not<span class="w"> </span>supported<span class="w"> </span>---
+MPEG4_PART2_SP<span class="w">                 </span>---<span class="w"> </span>not<span class="w"> </span>supported<span class="w"> </span>---
+MPEG4_PART2_ASP<span class="w">                </span>---<span class="w"> </span>not<span class="w"> </span>supported<span class="w"> </span>---
+DIVX4_QMOBILE<span class="w">                  </span>---<span class="w"> </span>not<span class="w"> </span>supported<span class="w"> </span>---
+DIVX4_MOBILE<span class="w">                   </span>---<span class="w"> </span>not<span class="w"> </span>supported<span class="w"> </span>---
+DIVX4_HOME_THEATER<span class="w">             </span>---<span class="w"> </span>not<span class="w"> </span>supported<span class="w"> </span>---
+DIVX4_HD_1080P<span class="w">                 </span>---<span class="w"> </span>not<span class="w"> </span>supported<span class="w"> </span>---
+DIVX5_QMOBILE<span class="w">                  </span>---<span class="w"> </span>not<span class="w"> </span>supported<span class="w"> </span>---
+DIVX5_MOBILE<span class="w">                   </span>---<span class="w"> </span>not<span class="w"> </span>supported<span class="w"> </span>---
+DIVX5_HOME_THEATER<span class="w">             </span>---<span class="w"> </span>not<span class="w"> </span>supported<span class="w"> </span>---
+DIVX5_HD_1080P<span class="w">                 </span>---<span class="w"> </span>not<span class="w"> </span>supported<span class="w"> </span>---
+H264_CONSTRAINED_BASELINE<span class="w">      </span>---<span class="w"> </span>not<span class="w"> </span>supported<span class="w"> </span>---
+H264_EXTENDED<span class="w">                  </span>---<span class="w"> </span>not<span class="w"> </span>supported<span class="w"> </span>---
+H264_PROGRESSIVE_HIGH<span class="w">          </span>---<span class="w"> </span>not<span class="w"> </span>supported<span class="w"> </span>---
+H264_CONSTRAINED_HIGH<span class="w">          </span>---<span class="w"> </span>not<span class="w"> </span>supported<span class="w"> </span>---
+H264_HIGH_444_PREDICTIVE<span class="w">       </span>---<span class="w"> </span>not<span class="w"> </span>supported<span class="w"> </span>---
 
-Output surface:
+Output<span class="w"> </span>surface:
 
-name              width height nat types
+name<span class="w">              </span>width<span class="w"> </span>height<span class="w"> </span>nat<span class="w"> </span>types
 ----------------------------------------------------
-B8G8R8A8            <span class="m">53</span>    <span class="m">53</span>    y
-R8G8B8A8             <span class="m">0</span>     <span class="m">0</span>    y
-R10G10B10A2          <span class="m">0</span>     <span class="m">0</span>    y
-B10G10R10A2          <span class="m">0</span>     <span class="m">0</span>    y
-A8                   <span class="m">0</span>     <span class="m">0</span>    y
+B8G8R8A8<span class="w">            </span><span class="m">53</span><span class="w">    </span><span class="m">53</span><span class="w">    </span>y
+R8G8B8A8<span class="w">             </span><span class="m">0</span><span class="w">     </span><span class="m">0</span><span class="w">    </span>y
+R10G10B10A2<span class="w">          </span><span class="m">0</span><span class="w">     </span><span class="m">0</span><span class="w">    </span>y
+B10G10R10A2<span class="w">          </span><span class="m">0</span><span class="w">     </span><span class="m">0</span><span class="w">    </span>y
+A8<span class="w">                   </span><span class="m">0</span><span class="w">     </span><span class="m">0</span><span class="w">    </span>y
 
-Bitmap surface:
+Bitmap<span class="w"> </span>surface:
 
-name              width height
+name<span class="w">              </span>width<span class="w"> </span>height
 ------------------------------
-B8G8R8A8          <span class="m">8192</span>  <span class="m">8192</span>
-R8G8B8A8          <span class="m">8192</span>  <span class="m">8192</span>
-R10G10B10A2       <span class="m">8192</span>  <span class="m">8192</span>
-B10G10R10A2       <span class="m">8192</span>  <span class="m">8192</span>
-A8                <span class="m">8192</span>  <span class="m">8192</span>
+B8G8R8A8<span class="w">          </span><span class="m">8192</span><span class="w">  </span><span class="m">8192</span>
+R8G8B8A8<span class="w">          </span><span class="m">8192</span><span class="w">  </span><span class="m">8192</span>
+R10G10B10A2<span class="w">       </span><span class="m">8192</span><span class="w">  </span><span class="m">8192</span>
+B10G10R10A2<span class="w">       </span><span class="m">8192</span><span class="w">  </span><span class="m">8192</span>
+A8<span class="w">                </span><span class="m">8192</span><span class="w">  </span><span class="m">8192</span>
 
-Video mixer:
+Video<span class="w"> </span>mixer:
 
-feature name                    sup
+feature<span class="w"> </span>name<span class="w">                    </span>sup
 ------------------------------------
-DEINTERLACE_TEMPORAL             -
-DEINTERLACE_TEMPORAL_SPATIAL     -
-INVERSE_TELECINE                 -
-NOISE_REDUCTION                  -
-SHARPNESS                        -
-LUMA_KEY                         -
-HIGH QUALITY SCALING - L1        -
-HIGH QUALITY SCALING - L2        -
-HIGH QUALITY SCALING - L3        -
-HIGH QUALITY SCALING - L4        -
-HIGH QUALITY SCALING - L5        -
-HIGH QUALITY SCALING - L6        -
-HIGH QUALITY SCALING - L7        -
-HIGH QUALITY SCALING - L8        -
-HIGH QUALITY SCALING - L9        -
+DEINTERLACE_TEMPORAL<span class="w">             </span>-
+DEINTERLACE_TEMPORAL_SPATIAL<span class="w">     </span>-
+INVERSE_TELECINE<span class="w">                 </span>-
+NOISE_REDUCTION<span class="w">                  </span>-
+SHARPNESS<span class="w">                        </span>-
+LUMA_KEY<span class="w">                         </span>-
+HIGH<span class="w"> </span>QUALITY<span class="w"> </span>SCALING<span class="w"> </span>-<span class="w"> </span>L1<span class="w">        </span>-
+HIGH<span class="w"> </span>QUALITY<span class="w"> </span>SCALING<span class="w"> </span>-<span class="w"> </span>L2<span class="w">        </span>-
+HIGH<span class="w"> </span>QUALITY<span class="w"> </span>SCALING<span class="w"> </span>-<span class="w"> </span>L3<span class="w">        </span>-
+HIGH<span class="w"> </span>QUALITY<span class="w"> </span>SCALING<span class="w"> </span>-<span class="w"> </span>L4<span class="w">        </span>-
+HIGH<span class="w"> </span>QUALITY<span class="w"> </span>SCALING<span class="w"> </span>-<span class="w"> </span>L5<span class="w">        </span>-
+HIGH<span class="w"> </span>QUALITY<span class="w"> </span>SCALING<span class="w"> </span>-<span class="w"> </span>L6<span class="w">        </span>-
+HIGH<span class="w"> </span>QUALITY<span class="w"> </span>SCALING<span class="w"> </span>-<span class="w"> </span>L7<span class="w">        </span>-
+HIGH<span class="w"> </span>QUALITY<span class="w"> </span>SCALING<span class="w"> </span>-<span class="w"> </span>L8<span class="w">        </span>-
+HIGH<span class="w"> </span>QUALITY<span class="w"> </span>SCALING<span class="w"> </span>-<span class="w"> </span>L9<span class="w">        </span>-
 
-parameter name                  sup      min      max
+parameter<span class="w"> </span>name<span class="w">                  </span>sup<span class="w">      </span>min<span class="w">      </span>max
 -----------------------------------------------------
-VIDEO_SURFACE_WIDTH              -
-VIDEO_SURFACE_HEIGHT             -
-CHROMA_TYPE                      -
-LAYERS                           -
+VIDEO_SURFACE_WIDTH<span class="w">              </span>-
+VIDEO_SURFACE_HEIGHT<span class="w">             </span>-
+CHROMA_TYPE<span class="w">                      </span>-
+LAYERS<span class="w">                           </span>-
 
-attribute name                  sup      min      max
+attribute<span class="w"> </span>name<span class="w">                  </span>sup<span class="w">      </span>min<span class="w">      </span>max
 -----------------------------------------------------
-BACKGROUND_COLOR                 -
-CSC_MATRIX                       -
-NOISE_REDUCTION_LEVEL            -
-SHARPNESS_LEVEL                  -
-LUMA_KEY_MIN_LUMA                -
-LUMA_KEY_MAX_LUMA                -
+BACKGROUND_COLOR<span class="w">                 </span>-
+CSC_MATRIX<span class="w">                       </span>-
+NOISE_REDUCTION_LEVEL<span class="w">            </span>-
+SHARPNESS_LEVEL<span class="w">                  </span>-
+LUMA_KEY_MIN_LUMA<span class="w">                </span>-
+LUMA_KEY_MAX_LUMA<span class="w">                </span>-
 </pre></div>
 </div>
-</div>
-<div class="section" id="va-api">
-<h2><a class="toc-backref" href="#id7">VA-API</a><a class="headerlink" href="#va-api" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="va-api">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">VA-API</a><a class="headerlink" href="#va-api" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Intel : libva-intel-driver</p></li>
 <li><p>AMD : libva-mesa-driver 或 libva-vdpau-driver</p></li>
 <li><p>NVIDIA : libva-vdpau-driver</p></li>
 </ul>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo pacman -S libva
-$ vainfo    <span class="c1"># 看硬體解碼支援哪些格式</span>
-libva info: VA-API version <span class="m">0</span>.37.0
-libva info: va_getDriverName<span class="o">()</span> returns <span class="m">0</span>
-libva info: Trying to open /usr/lib/dri/i965_drv_video.so
-libva info: Found init <span class="k">function</span> __vaDriverInit_0_37
-libva info: va_openDriver<span class="o">()</span> returns <span class="m">0</span>
-vainfo: VA-API version: <span class="m">0</span>.37 <span class="o">(</span>libva <span class="m">1</span>.5.0<span class="o">)</span>
-vainfo: Driver version: Intel i965 driver <span class="k">for</span> Intel<span class="o">(</span>R<span class="o">)</span> Ivybridge Mobile - <span class="m">1</span>.5.0
-vainfo: Supported profile and entrypoints
-      VAProfileMPEG2Simple            :     VAEntrypointVLD
-      VAProfileMPEG2Simple            :     VAEntrypointEncSlice
-      VAProfileMPEG2Main              :     VAEntrypointVLD
-      VAProfileMPEG2Main              :     VAEntrypointEncSlice
-      VAProfileH264ConstrainedBaseline:     VAEntrypointVLD
-      VAProfileH264ConstrainedBaseline:     VAEntrypointEncSlice
-      VAProfileH264Main               :     VAEntrypointVLD
-      VAProfileH264Main               :     VAEntrypointEncSlice
-      VAProfileH264High               :     VAEntrypointVLD
-      VAProfileH264High               :     VAEntrypointEncSlice
-      VAProfileH264StereoHigh         :     VAEntrypointVLD
-      VAProfileVC1Simple              :     VAEntrypointVLD
-      VAProfileVC1Main                :     VAEntrypointVLD
-      VAProfileVC1Advanced            :     VAEntrypointVLD
-      VAProfileNone                   :     VAEntrypointVideoProc
-      VAProfileJPEGBaseline           :     VAEntrypointVLD
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>libva
+$<span class="w"> </span>vainfo<span class="w">    </span><span class="c1"># 看硬體解碼支援哪些格式</span>
+libva<span class="w"> </span>info:<span class="w"> </span>VA-API<span class="w"> </span>version<span class="w"> </span><span class="m">0</span>.37.0
+libva<span class="w"> </span>info:<span class="w"> </span>va_getDriverName<span class="o">()</span><span class="w"> </span>returns<span class="w"> </span><span class="m">0</span>
+libva<span class="w"> </span>info:<span class="w"> </span>Trying<span class="w"> </span>to<span class="w"> </span>open<span class="w"> </span>/usr/lib/dri/i965_drv_video.so
+libva<span class="w"> </span>info:<span class="w"> </span>Found<span class="w"> </span>init<span class="w"> </span><span class="k">function</span><span class="w"> </span>__vaDriverInit_0_37
+libva<span class="w"> </span>info:<span class="w"> </span>va_openDriver<span class="o">()</span><span class="w"> </span>returns<span class="w"> </span><span class="m">0</span>
+vainfo:<span class="w"> </span>VA-API<span class="w"> </span>version:<span class="w"> </span><span class="m">0</span>.37<span class="w"> </span><span class="o">(</span>libva<span class="w"> </span><span class="m">1</span>.5.0<span class="o">)</span>
+vainfo:<span class="w"> </span>Driver<span class="w"> </span>version:<span class="w"> </span>Intel<span class="w"> </span>i965<span class="w"> </span>driver<span class="w"> </span><span class="k">for</span><span class="w"> </span>Intel<span class="o">(</span>R<span class="o">)</span><span class="w"> </span>Ivybridge<span class="w"> </span>Mobile<span class="w"> </span>-<span class="w"> </span><span class="m">1</span>.5.0
+vainfo:<span class="w"> </span>Supported<span class="w"> </span>profile<span class="w"> </span>and<span class="w"> </span>entrypoints
+<span class="w">      </span>VAProfileMPEG2Simple<span class="w">            </span>:<span class="w">     </span>VAEntrypointVLD
+<span class="w">      </span>VAProfileMPEG2Simple<span class="w">            </span>:<span class="w">     </span>VAEntrypointEncSlice
+<span class="w">      </span>VAProfileMPEG2Main<span class="w">              </span>:<span class="w">     </span>VAEntrypointVLD
+<span class="w">      </span>VAProfileMPEG2Main<span class="w">              </span>:<span class="w">     </span>VAEntrypointEncSlice
+<span class="w">      </span>VAProfileH264ConstrainedBaseline:<span class="w">     </span>VAEntrypointVLD
+<span class="w">      </span>VAProfileH264ConstrainedBaseline:<span class="w">     </span>VAEntrypointEncSlice
+<span class="w">      </span>VAProfileH264Main<span class="w">               </span>:<span class="w">     </span>VAEntrypointVLD
+<span class="w">      </span>VAProfileH264Main<span class="w">               </span>:<span class="w">     </span>VAEntrypointEncSlice
+<span class="w">      </span>VAProfileH264High<span class="w">               </span>:<span class="w">     </span>VAEntrypointVLD
+<span class="w">      </span>VAProfileH264High<span class="w">               </span>:<span class="w">     </span>VAEntrypointEncSlice
+<span class="w">      </span>VAProfileH264StereoHigh<span class="w">         </span>:<span class="w">     </span>VAEntrypointVLD
+<span class="w">      </span>VAProfileVC1Simple<span class="w">              </span>:<span class="w">     </span>VAEntrypointVLD
+<span class="w">      </span>VAProfileVC1Main<span class="w">                </span>:<span class="w">     </span>VAEntrypointVLD
+<span class="w">      </span>VAProfileVC1Advanced<span class="w">            </span>:<span class="w">     </span>VAEntrypointVLD
+<span class="w">      </span>VAProfileNone<span class="w">                   </span>:<span class="w">     </span>VAEntrypointVideoProc
+<span class="w">      </span>VAProfileJPEGBaseline<span class="w">           </span>:<span class="w">     </span>VAEntrypointVLD
 </pre></div>
 </div>
-</div>
-<div class="section" id="openmax">
-<h2><a class="toc-backref" href="#id8">OpenMAX</a><a class="headerlink" href="#openmax" title="本標題的永久連結">¶</a></h2>
-</div>
-<div class="section" id="v4l2">
-<h2><a class="toc-backref" href="#id9">V4L2</a><a class="headerlink" href="#v4l2" title="本標題的永久連結">¶</a></h2>
-</div>
-<div class="section" id="nvidia-nvdec-nvenc">
-<h2><a class="toc-backref" href="#id10">Nvidia NVDEC/NVENC</a><a class="headerlink" href="#nvidia-nvdec-nvenc" title="本標題的永久連結">¶</a></h2>
-</div>
-<div class="section" id="id3">
-<h2><a class="toc-backref" href="#id11">參考</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="openmax">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">OpenMAX</a><a class="headerlink" href="#openmax" title="Permalink to this heading"></a></h2>
+</section>
+<section id="v4l2">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">V4L2</a><a class="headerlink" href="#v4l2" title="Permalink to this heading"></a></h2>
+</section>
+<section id="nvidia-nvdec-nvenc">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Nvidia NVDEC/NVENC</a><a class="headerlink" href="#nvidia-nvdec-nvenc" title="Permalink to this heading"></a></h2>
+</section>
+<section id="id3">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">參考</a><a class="headerlink" href="#id3" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://wiki.archlinux.org/index.php/Hardware_video_acceleration">Arch Wiki - Hardware video acceleration</a></p></li>
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/VDPAU">Wikipedia - VDPAU</a></p></li>
@@ -1087,37 +1017,33 @@ vainfo: Supported profile and entrypoints
 <li><p><a class="reference external" href="https://01.org/linuxgraphics/community/vaapi">Linux Graphics - VAAPI</a></p></li>
 <li><p><a class="reference external" href="https://trac.ffmpeg.org/wiki/HWAccelIntro">FFmpeg - HWAccelIntro</a></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016
-
-    </p>
+    <p>&#169; Copyright 2023.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
   
 
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       <span class="fa fa-book"> Read the Docs</span>
       v: latest
@@ -1127,7 +1053,7 @@ vainfo: Supported profile and entrypoints
       <dl>
         <dt>Versions</dt>
         
-          <dd><a href="/zh_TW/latest/">latest</a></dd>
+          <dd><a href="https://wdv4758h.github.io/notes/">latest</a></dd>
         
       </dl>
       <dl>
@@ -1137,6 +1063,7 @@ vainfo: Supported profile and entrypoints
         
       </dl>
       <dl>
+        
         <dt>On Read the Docs</dt>
           <dd>
             <a href="//readthedocs.org/projects/wdv4758h-notes/?fromdocs=wdv4758h-notes">Project Home</a>
@@ -1145,22 +1072,13 @@ vainfo: Supported profile and entrypoints
             <a href="//readthedocs.org/builds/wdv4758h-notes/?fromdocs=wdv4758h-notes">Builds</a>
           </dd>
       </dl>
-      <hr/>
-      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
-
     </div>
   </div>
-
-
-
-  <script type="text/javascript">
+<script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-   
+  </script> 
 
 </body>
 </html>

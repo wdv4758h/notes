@@ -1,112 +1,73 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-TW" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-TW" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>UEFI &mdash; wdv4758h-notes latest 說明文件</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UEFI &mdash; wdv4758h-notes latest documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/translations.js"></script>
-        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="index" title="索引" href="../../genindex.html" />
-    <link rel="search" title="搜尋" href="../../search.html" /> 
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
 
 <!-- RTD Extra Head -->
 
-<!-- 
-Always link to the latest version, as canonical.
-http://docs.readthedocs.org/en/latest/canonical.html
--->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/operating-system/archlinux/UEFI.html" />
+    <!--
+    Always link to the latest version, as canonical.
+    http://docs.readthedocs.org/en/latest/canonical.html
+    -->
+    <link rel="canonical" href="https://wdv4758h-notes.readthedocs.io/zh_TW/latest/operating-system/archlinux/UEFI.html" />
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../../_static/readthedocs-data.js"></script>
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": "", "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": "https://wdv4758h-notes.readthedocs.io/zh_TW/latest/", "docroot": "/./", "features": {"docsearch_disabled": false}, "global_analytics_code": "", "language": "en", "page": "operating-system/archlinux/UEFI", "programming_language": "", "project": "wdv4758h-notes", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": ""}</script>
 
-<!-- Add page-specific data, which must exist in the page js, not global -->
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = "operating-system/archlinux/UEFI"
-READTHEDOCS_DATA['source_suffix'] = ".rst"
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
 </script>
 
-<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js" async="async"></script>
 
 <!-- end RTD <extrahead> -->
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../index.html" class="icon icon-home"> wdv4758h-notes
           
-
-          
+          <a href="../../index.html" class="icon icon-home">
+            wdv4758h-notes
           </a>
-
-          
-            
-            
-            
               <div class="version">
                 latest
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/README.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/adt.html">ADT (Abstract Data Type)</a></li>
@@ -116,13 +77,18 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/cache.html">Cache</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/cache-friendly.html">Cache Friendly Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/dict.html">Dict</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/float-to-string.html">Float to String</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/heap.html">Heap （堆）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/introduction.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/inverse-square-root.html">Inverse Square Root</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/lock.html">Lock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/meta-algorithm.html">Meta Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/random-number-generator.html">Random Number Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/resource.html">演算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/sorting.html">Sorting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/string-to-float.html">String to Float</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/substring-searching.html">Substring Searching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../android/README.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../android/android-emulator.html">Android Emulator</a></li>
@@ -198,7 +164,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../blog/openmp.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/pypy-brainfuck.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/pypy-brainfuck.html#tutorial">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../blog/pypy-brainfuck.html#id5">額外紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../blog/pypy-brainfuck.html#id4">額外紀錄</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/pypy-brainfuck.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/python-benchmark.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/python-benchmark.html#hello-world">Hello World</a></li>
@@ -225,7 +191,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../blog/qemu-first-step.html#qemu-with-kvm">QEMU with KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html">Syntax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#closure">Closure 和外部變數</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#move-closures">「move」 closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#move-closures">“move” closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#closure-implementation">Closure implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#closures-as-arguments">closures as arguments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#returning-closures">returning closures</a></li>
@@ -406,6 +372,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/ci.html">Continuous Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/concourse.html">Concourse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/drone.html">Drone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/github-actions.html">Github Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/jenkins.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/travis-ci.html">Travis CI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/workflow-pipeline.html">Workflow Pipeline</a></li>
@@ -415,7 +382,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/array.html">std::array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/assembly.html">C++ &amp; Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/bit-field.html">C++ Bit Field</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../cpp/c++17.html">C++17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/c%2B%2B17.html">C++17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/concepts.html">C++ Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/const.html">C++ const</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/copy-elision.html">Copy Elision</a></li>
@@ -468,13 +435,16 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../database/README.html">資料庫 (Database)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/cockroachdb.html">CockroachDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/consensus-algorithm.html">Raft Consensus Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../database/graph.html">Graph Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/leveldb.html">LevelDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../database/materialized-views.html">Materialized Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/mongodb.html">MongoDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../database/rocksdb.html">RocksDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/sql.html">SQL (Structured Query Language)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/tidb.html">TiDB</a></li>
@@ -547,7 +517,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../math/math-on-web.html">Math on Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../math/misc.html">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../memory/W^X.html">W^X (Write XOR Execute)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../memory/W%5EX.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../memory/allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../memory/kernel-memory-management.html">Kernel Memory Management</a></li>
@@ -805,233 +775,189 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../wiki/resource.html">Wiki</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">wdv4758h-notes</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
-      <li>UEFI</li>
-    
-    
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">UEFI</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/wdv4758h/notes/blob/master/./operating-system/archlinux/UEFI.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="uefi">
-<h1>UEFI<a class="headerlink" href="#uefi" title="本標題的永久連結">¶</a></h1>
-<div class="section" id="qemu-with-uefi">
-<h2>QEMU with UEFI<a class="headerlink" href="#qemu-with-uefi" title="本標題的永久連結">¶</a></h2>
+             
+  <section id="uefi">
+<h1>UEFI<a class="headerlink" href="#uefi" title="Permalink to this heading"></a></h1>
+<section id="qemu-with-uefi">
+<h2>QEMU with UEFI<a class="headerlink" href="#qemu-with-uefi" title="Permalink to this heading"></a></h2>
 <p>先從 <a class="reference external" href="http://www.tianocore.org/ovmf/">TianoCore</a> 下載提供給 QEMU 的 smaple UEFI firmware，
 載下來後會獲得一個叫 <code class="docutils literal notranslate"><span class="pre">OVMF.fd</span></code> 的檔案，
 接著在開啟 QEMU 時加上參數指定使用這個檔案 (<code class="docutils literal notranslate"><span class="pre">-bios</span> <span class="pre">OVMF.fd</span></code>)，
 所以參數可能像這樣：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ qemu-img create -f qcow2 test.qcow2 100G
-$ qemu-system-x86_64 <span class="se">\</span>
-    -enable-kvm <span class="se">\</span>
-    -bios ./OVMF.fd <span class="se">\</span>
-    -smp <span class="nv">cpus</span><span class="o">=</span><span class="m">4</span>,cores<span class="o">=</span><span class="m">2</span> -cpu host <span class="se">\</span>
-    -m 2G <span class="se">\</span>
-    -cdrom ./archlinux.iso -boot <span class="nv">order</span><span class="o">=</span>d <span class="se">\</span>
-    test.qcow2
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>qemu-img<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>qcow2<span class="w"> </span>test.qcow2<span class="w"> </span>100G
+$<span class="w"> </span>qemu-system-x86_64<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-enable-kvm<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-bios<span class="w"> </span>./OVMF.fd<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-smp<span class="w"> </span><span class="nv">cpus</span><span class="o">=</span><span class="m">4</span>,cores<span class="o">=</span><span class="m">2</span><span class="w"> </span>-cpu<span class="w"> </span>host<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-m<span class="w"> </span>2G<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-cdrom<span class="w"> </span>./archlinux.iso<span class="w"> </span>-boot<span class="w"> </span><span class="nv">order</span><span class="o">=</span>d<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>test.qcow2
 </pre></div>
 </div>
 <p>接下來可以選擇進入 Arch Linux 的安裝流程，
-詳情請看 <a class="reference external" href="https://wiki.archlinux.org/index.php/beginners'_guide">Arch Wiki 上的 Beginners』 guide</a> ，
+詳情請看 <a class="reference external" href="https://wiki.archlinux.org/index.php/beginners'_guide">Arch Wiki 上的 Beginners’ guide</a> ，
 其中注意所有跟 <strong>UEFI</strong> 相關的地方。</p>
 <p>如果主機板有開 UEFI 支援的話，
 Arch Linux 的 CD/USB 會自動用 <a class="reference external" href="http://www.freedesktop.org/wiki/Software/systemd/systemd-boot/">systemd-boot</a>
 來啟動整個系統。
 拿到 root shell 後，
 可以使用指令檢查是否有 UEFI 相關的資訊：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ls /sys/firmware/efi/efivars
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls<span class="w"> </span>/sys/firmware/efi/efivars
 </pre></div>
 </div>
 <p>確定有正確抓到 UEFI 後可以做一些基本的設定 (keyboard layout、連上網路、更新系統時間、…)。
 接著準備需要的儲存裝置，
 先用 <code class="docutils literal notranslate"><span class="pre">lsblk</span></code> 來看系統上 block devices 的狀況：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ lsblk
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>lsblk
 </pre></div>
 </div>
 <p>從中找到想要安裝到的 device 的編號 (例如 <code class="docutils literal notranslate"><span class="pre">/dev/sdx</span></code>)，
 接著開始規劃分割區：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ parted /dev/sdx
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>parted<span class="w"> </span>/dev/sdx
 
 <span class="c1"># 建立 GPT</span>
-<span class="o">(</span>parted<span class="o">)</span> mklabel gpt
+<span class="o">(</span>parted<span class="o">)</span><span class="w"> </span>mklabel<span class="w"> </span>gpt
 
 <span class="c1"># 切出 EFI System Partition</span>
-<span class="o">(</span>parted<span class="o">)</span> mkpart ESP fat32 1MiB 513MiB
-<span class="o">(</span>parted<span class="o">)</span> <span class="nb">set</span> <span class="m">1</span> boot on
+<span class="o">(</span>parted<span class="o">)</span><span class="w"> </span>mkpart<span class="w"> </span>ESP<span class="w"> </span>fat32<span class="w"> </span>1MiB<span class="w"> </span>513MiB
+<span class="o">(</span>parted<span class="o">)</span><span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>boot<span class="w"> </span>on
 
 <span class="c1"># 剩下的使用 (這邊範例直接把全部拿來分給根目錄)</span>
-<span class="o">(</span>parted<span class="o">)</span> mkpart primary ext4 513MiB <span class="m">100</span>%
+<span class="o">(</span>parted<span class="o">)</span><span class="w"> </span>mkpart<span class="w"> </span>primary<span class="w"> </span>ext4<span class="w"> </span>513MiB<span class="w"> </span><span class="m">100</span>%
 
 <span class="c1"># 離開 parted</span>
-<span class="o">(</span>parted<span class="o">)</span> quit
+<span class="o">(</span>parted<span class="o">)</span><span class="w"> </span>quit
 </pre></div>
 </div>
 <p>分割區畫好後開始格式化檔案系統：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ lsblk /dev/sdx    <span class="c1"># 確認編號</span>
-$ mkfs.fat -F32 /dev/sdx1
-$ mkfs.ext4 /dev/sdx2
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>lsblk<span class="w"> </span>/dev/sdx<span class="w">    </span><span class="c1"># 確認編號</span>
+$<span class="w"> </span>mkfs.fat<span class="w"> </span>-F32<span class="w"> </span>/dev/sdx1
+$<span class="w"> </span>mkfs.ext4<span class="w"> </span>/dev/sdx2
 </pre></div>
 </div>
 <p>完成後就可以 mount 起來使用：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ mount /dev/sdx1 /mnt
-$ mkdir /mnt/boot
-$ mount /dev/sdx2 /mnt/boot
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mount<span class="w"> </span>/dev/sdx1<span class="w"> </span>/mnt
+$<span class="w"> </span>mkdir<span class="w"> </span>/mnt/boot
+$<span class="w"> </span>mount<span class="w"> </span>/dev/sdx2<span class="w"> </span>/mnt/boot
 </pre></div>
 </div>
 <p>掛起來後安裝 base system 進去：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pacstrap -i /mnt base base-devel
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>pacstrap<span class="w"> </span>-i<span class="w"> </span>/mnt<span class="w"> </span>base<span class="w"> </span>base-devel
 </pre></div>
 </div>
 <p>為未來啟動系統時可以自動找到需要 mount 的位置而產生 fstab：</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># -U for UUID</span>
 <span class="c1"># -L for Lables</span>
-$ genfstab -U /mnt &gt; /mnt/etc/fstab
+$<span class="w"> </span>genfstab<span class="w"> </span>-U<span class="w"> </span>/mnt<span class="w"> </span>&gt;<span class="w"> </span>/mnt/etc/fstab
 </pre></div>
 </div>
 <p>chroot 進去剛準備好的基本版系統：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ arch-chroot /mnt /bin/bash
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>arch-chroot<span class="w"> </span>/mnt<span class="w"> </span>/bin/bash
 </pre></div>
 </div>
 <p>此時可以做一些基本的設定 (生 local、調時間、…)。</p>
 <p>產生 initramfs：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ mkinitcpio -p linux
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mkinitcpio<span class="w"> </span>-p<span class="w"> </span>linux
 </pre></div>
 </div>
 <p>安裝 boot loader：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ bootctl install   <span class="c1"># 安裝 systemd-boot 到 EFI system partition</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>bootctl<span class="w"> </span>install<span class="w">   </span><span class="c1"># 安裝 systemd-boot 到 EFI system partition</span>
 </pre></div>
 </div>
 <p>修改 boot loader 的設定：</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># sample 檔在 /usr/share/systemd/bootctl/loader.conf</span>
-$ edit /boot/loader/loader.conf
-default  arch
-timeout  <span class="m">4</span>
-editor   <span class="m">0</span>
+$<span class="w"> </span>edit<span class="w"> </span>/boot/loader/loader.conf
+default<span class="w">  </span>arch
+timeout<span class="w">  </span><span class="m">4</span>
+editor<span class="w">   </span><span class="m">0</span>
 
 <span class="c1"># sample 檔在 /usr/share/systemd/bootctl/arch.conf</span>
-$ edit /boot/loader/entries/arch.conf
-title          Arch Linux
-linux          /vmlinuz-linux
-initrd         /initramfs-linux.img
-options        <span class="nv">root</span><span class="o">=</span>/dev/sdx2
+$<span class="w"> </span>edit<span class="w"> </span>/boot/loader/entries/arch.conf
+title<span class="w">          </span>Arch<span class="w"> </span>Linux
+linux<span class="w">          </span>/vmlinuz-linux
+initrd<span class="w">         </span>/initramfs-linux.img
+options<span class="w">        </span><span class="nv">root</span><span class="o">=</span>/dev/sdx2
 </pre></div>
 </div>
 <p>到這邊基本上已經建好可以開機的系統了，
 剩下的就是系統上使用者想要裝哪些軟體的問題。</p>
 <p>離開並且重新開機：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">exit</span>
-$ umount -R /mnt
-$ reboot
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">exit</span>
+$<span class="w"> </span>umount<span class="w"> </span>-R<span class="w"> </span>/mnt
+$<span class="w"> </span>reboot
 </pre></div>
 </div>
-</div>
-<div class="section" id="misc">
-<h2>Misc<a class="headerlink" href="#misc" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="misc">
+<h2>Misc<a class="headerlink" href="#misc" title="Permalink to this heading"></a></h2>
 <p>如果中間有碰到問題導致不能正常啟動的話，
 可以再次使用 CD/USB 開機，
 進入後再把先前的分割區掛上去，
 接著再在找出問題處理掉：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ mount /dev/sdx1 /mnt
-$ mount /dev/sdx2 /mnt/boot
-$ arch-chroot /mnt /bin/bash
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mount<span class="w"> </span>/dev/sdx1<span class="w"> </span>/mnt
+$<span class="w"> </span>mount<span class="w"> </span>/dev/sdx2<span class="w"> </span>/mnt/boot
+$<span class="w"> </span>arch-chroot<span class="w"> </span>/mnt<span class="w"> </span>/bin/bash
 </pre></div>
 </div>
-</div>
-<div class="section" id="reference">
-<h2>Reference<a class="headerlink" href="#reference" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this heading"></a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://wiki.archlinux.org/index.php/beginners'_guide">Arch Wiki - Beginners』 guide</a></p></li>
+<li><p><a class="reference external" href="https://wiki.archlinux.org/index.php/beginners'_guide">Arch Wiki - Beginners’ guide</a></p></li>
 <li><p><a class="reference external" href="https://wiki.archlinux.org/index.php/Systemd-boot">Arch Wiki - systemd-boot</a></p></li>
 <li><p><a class="reference external" href="https://wiki.archlinux.org/index.php/Unified_Extensible_Firmware_Interface">Arch Wiki - UEFI</a></p></li>
 <li><p><a class="reference external" href="http://wiki.osdev.org/UEFI">OS Dev - UEFI</a></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016
-
-    </p>
+    <p>&#169; Copyright 2023.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
   
 
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       <span class="fa fa-book"> Read the Docs</span>
       v: latest
@@ -1041,7 +967,7 @@ $ arch-chroot /mnt /bin/bash
       <dl>
         <dt>Versions</dt>
         
-          <dd><a href="/zh_TW/latest/">latest</a></dd>
+          <dd><a href="https://wdv4758h.github.io/notes/">latest</a></dd>
         
       </dl>
       <dl>
@@ -1051,6 +977,7 @@ $ arch-chroot /mnt /bin/bash
         
       </dl>
       <dl>
+        
         <dt>On Read the Docs</dt>
           <dd>
             <a href="//readthedocs.org/projects/wdv4758h-notes/?fromdocs=wdv4758h-notes">Project Home</a>
@@ -1059,22 +986,13 @@ $ arch-chroot /mnt /bin/bash
             <a href="//readthedocs.org/builds/wdv4758h-notes/?fromdocs=wdv4758h-notes">Builds</a>
           </dd>
       </dl>
-      <hr/>
-      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
-
     </div>
   </div>
-
-
-
-  <script type="text/javascript">
+<script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-   
+  </script> 
 
 </body>
 </html>

@@ -6,6 +6,8 @@ CI (Continouse Integration)
 * `Jenkins <jenkins.rst>`_
 * `Travis CI <travis-ci.rst>`_
 * Circle CI
+* AppVeyor
+* `GitHub Actions <github-actions.rst>`_
 * `Concourse <concourse.rst>`_
 * `Drone <drone.rst>`_
 

@@ -1,114 +1,75 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-TW" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-TW" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Sanitizer &mdash; wdv4758h-notes latest 說明文件</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sanitizer &mdash; wdv4758h-notes latest documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="搜尋" href="../search.html" />
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Stack Protection" href="stack-protection.html" />
     <link rel="prev" title="Memory Profiling" href="memory-profiling.html" /> 
 
 <!-- RTD Extra Head -->
 
-<!-- 
-Always link to the latest version, as canonical.
-http://docs.readthedocs.org/en/latest/canonical.html
--->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/memory/sanitizer.html" />
+    <!--
+    Always link to the latest version, as canonical.
+    http://docs.readthedocs.org/en/latest/canonical.html
+    -->
+    <link rel="canonical" href="https://wdv4758h-notes.readthedocs.io/zh_TW/latest/memory/sanitizer.html" />
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": "", "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": "https://wdv4758h-notes.readthedocs.io/zh_TW/latest/", "docroot": "/./", "features": {"docsearch_disabled": false}, "global_analytics_code": "", "language": "en", "page": "memory/sanitizer", "programming_language": "", "project": "wdv4758h-notes", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": ""}</script>
 
-<!-- Add page-specific data, which must exist in the page js, not global -->
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = "memory/sanitizer"
-READTHEDOCS_DATA['source_suffix'] = ".rst"
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
 </script>
 
-<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js" async="async"></script>
 
 <!-- end RTD <extrahead> -->
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../index.html" class="icon icon-home"> wdv4758h-notes
           
-
-          
+          <a href="../index.html" class="icon icon-home">
+            wdv4758h-notes
           </a>
-
-          
-            
-            
-            
               <div class="version">
                 latest
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/README.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/adt.html">ADT (Abstract Data Type)</a></li>
@@ -118,13 +79,18 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/cache.html">Cache</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/cache-friendly.html">Cache Friendly Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/dict.html">Dict</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/float-to-string.html">Float to String</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/heap.html">Heap （堆）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/introduction.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/inverse-square-root.html">Inverse Square Root</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/lock.html">Lock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/meta-algorithm.html">Meta Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/random-number-generator.html">Random Number Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/resource.html">演算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/sorting.html">Sorting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/string-to-float.html">String to Float</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/substring-searching.html">Substring Searching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/README.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/android-emulator.html">Android Emulator</a></li>
@@ -200,7 +166,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../blog/openmp.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#tutorial">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#id5">額外紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#id4">額外紀錄</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/python-benchmark.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/python-benchmark.html#hello-world">Hello World</a></li>
@@ -227,7 +193,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../blog/qemu-first-step.html#qemu-with-kvm">QEMU with KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html">Syntax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closure">Closure 和外部變數</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#move-closures">「move」 closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#move-closures">“move” closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closure-implementation">Closure implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closures-as-arguments">closures as arguments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#returning-closures">returning closures</a></li>
@@ -408,6 +374,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/ci.html">Continuous Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/concourse.html">Concourse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/drone.html">Drone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../continuous-integration/github-actions.html">Github Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/jenkins.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/travis-ci.html">Travis CI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/workflow-pipeline.html">Workflow Pipeline</a></li>
@@ -417,7 +384,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../cpp/array.html">std::array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/assembly.html">C++ &amp; Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/bit-field.html">C++ Bit Field</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cpp/c++17.html">C++17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/c%2B%2B17.html">C++17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/concepts.html">C++ Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/const.html">C++ const</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/copy-elision.html">Copy Elision</a></li>
@@ -470,13 +437,16 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../database/README.html">資料庫 (Database)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/cockroachdb.html">CockroachDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/consensus-algorithm.html">Raft Consensus Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/graph.html">Graph Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/leveldb.html">LevelDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/materialized-views.html">Materialized Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mongodb.html">MongoDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/rocksdb.html">RocksDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sql.html">SQL (Structured Query Language)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/tidb.html">TiDB</a></li>
@@ -549,7 +519,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/math-on-web.html">Math on Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/misc.html">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="W^X.html">W^X (Write XOR Execute)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="W%5EX.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="asan-algo.html">AddressSanitizer Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="kernel-memory-management.html">Kernel Memory Management</a></li>
@@ -830,74 +800,34 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../wiki/resource.html">Wiki</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">wdv4758h-notes</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-      <li>Sanitizer</li>
-    
-    
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Sanitizer</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/wdv4758h/notes/blob/master/./memory/sanitizer.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="sanitizer">
-<h1>Sanitizer<a class="headerlink" href="#sanitizer" title="本標題的永久連結">¶</a></h1>
-<div class="section" id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="本標題的永久連結">¶</a></h2>
+             
+  <section id="sanitizer">
+<h1>Sanitizer<a class="headerlink" href="#sanitizer" title="Permalink to this heading"></a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
 <p>寫程式常碰到有 bug，
 用 C 或 C++ 這種程式語言寫的話，
 bug 又常跟記憶體有關，
@@ -961,12 +891,6 @@ bug 又常跟記憶體有關，
 <li><p>LeakSanitizer 目前只可以和 AddressSanitizer 一起用 (或自己用)</p></li>
 </ul>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 28%" />
-<col style="width: 28%" />
-<col style="width: 20%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Slowdown</p></th>
@@ -1080,9 +1004,9 @@ bug 又常跟記憶體有關，
 </dl>
 </li>
 </ul>
-</div>
-<div class="section" id="id1">
-<h2>AddressSanitizer<a class="headerlink" href="#id1" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="id1">
+<h2>AddressSanitizer<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
 <p>AddressSanitizer 目前支援以下幾種情況：</p>
 <ul class="simple">
 <li><p>(OOB) Out-of-bounds accesses to heap, stack and globals</p></li>
@@ -1093,168 +1017,168 @@ bug 又常跟記憶體有關，
 </ul>
 <p>(最後生成 executable 時，需要把 AddressSanitizer run-time library link 上去，所以最後的 link step 要用 clang，不能用 ld)</p>
 <p>遇到錯誤會馬上停止，developer 會被強迫修正問題後才能繼續執行。</p>
-<div class="section" id="example-1">
-<h3>Example 1<a class="headerlink" href="#example-1" title="本標題的永久連結">¶</a></h3>
+<section id="example-1">
+<h3>Example 1<a class="headerlink" href="#example-1" title="Permalink to this heading"></a></h3>
 <p>Source Code :</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// UAF (Use After Free)</span>
-    <span class="kt">int</span> <span class="o">*</span><span class="n">array</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="mi">42</span><span class="p">];</span>
-    <span class="k">delete</span> <span class="p">[]</span> <span class="n">array</span><span class="p">;</span>
-    <span class="k">return</span> <span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>    <span class="c1">// BOOM</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// UAF (Use After Free)</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="mi">42</span><span class="p">];</span>
+<span class="w">    </span><span class="k">delete</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="n">array</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span><span class="w">    </span><span class="c1">// BOOM</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>Compile :</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ clang++ -O1 -g -fsanitize<span class="o">=</span>address -fno-omit-frame-pointer example.cpp -o example
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>clang++<span class="w"> </span>-O1<span class="w"> </span>-g<span class="w"> </span>-fsanitize<span class="o">=</span>address<span class="w"> </span>-fno-omit-frame-pointer<span class="w"> </span>example.cpp<span class="w"> </span>-o<span class="w"> </span>example
 </pre></div>
 </div>
 <p>Run :</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ./example
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./example
 <span class="o">=================================================================</span>
-<span class="o">==</span><span class="nv">26771</span><span class="o">==</span>ERROR: AddressSanitizer: heap-use-after-free on address 0x60f00000ef50 at pc 0x0000004dc22c bp 0x7fffc3c85060 sp 0x7fffc3c85058
-READ of size <span class="m">4</span> at 0x60f00000ef50 thread T0
-    <span class="c1">#0 0x4dc22b in main /tmp/example.cpp:5:12</span>
-    <span class="c1">#1 0x300042078f in __libc_start_main (/usr/lib/libc.so.6+0x300042078f)</span>
-    <span class="c1">#2 0x434fa8 in _start (/tmp/example+0x434fa8)</span>
+<span class="o">==</span><span class="nv">26771</span><span class="o">==</span>ERROR:<span class="w"> </span>AddressSanitizer:<span class="w"> </span>heap-use-after-free<span class="w"> </span>on<span class="w"> </span>address<span class="w"> </span>0x60f00000ef50<span class="w"> </span>at<span class="w"> </span>pc<span class="w"> </span>0x0000004dc22c<span class="w"> </span>bp<span class="w"> </span>0x7fffc3c85060<span class="w"> </span>sp<span class="w"> </span>0x7fffc3c85058
+READ<span class="w"> </span>of<span class="w"> </span>size<span class="w"> </span><span class="m">4</span><span class="w"> </span>at<span class="w"> </span>0x60f00000ef50<span class="w"> </span>thread<span class="w"> </span>T0
+<span class="w">    </span><span class="c1">#0 0x4dc22b in main /tmp/example.cpp:5:12</span>
+<span class="w">    </span><span class="c1">#1 0x300042078f in __libc_start_main (/usr/lib/libc.so.6+0x300042078f)</span>
+<span class="w">    </span><span class="c1">#2 0x434fa8 in _start (/tmp/example+0x434fa8)</span>
 
-0x60f00000ef50 is located <span class="m">0</span> bytes inside of <span class="m">168</span>-byte region <span class="o">[</span>0x60f00000ef50,0x60f00000eff8<span class="o">)</span>
-freed by thread T0 here:
-    <span class="c1">#0 0x4dbb22 in operator delete[](void*) (/tmp/example+0x4dbb22)</span>
-    <span class="c1">#1 0x4dc1fa in main /tmp/example.cpp:4:5</span>
-    <span class="c1">#2 0x300042078f in __libc_start_main (/usr/lib/libc.so.6+0x300042078f)</span>
+0x60f00000ef50<span class="w"> </span>is<span class="w"> </span>located<span class="w"> </span><span class="m">0</span><span class="w"> </span>bytes<span class="w"> </span>inside<span class="w"> </span>of<span class="w"> </span><span class="m">168</span>-byte<span class="w"> </span>region<span class="w"> </span><span class="o">[</span>0x60f00000ef50,0x60f00000eff8<span class="o">)</span>
+freed<span class="w"> </span>by<span class="w"> </span>thread<span class="w"> </span>T0<span class="w"> </span>here:
+<span class="w">    </span><span class="c1">#0 0x4dbb22 in operator delete[](void*) (/tmp/example+0x4dbb22)</span>
+<span class="w">    </span><span class="c1">#1 0x4dc1fa in main /tmp/example.cpp:4:5</span>
+<span class="w">    </span><span class="c1">#2 0x300042078f in __libc_start_main (/usr/lib/libc.so.6+0x300042078f)</span>
 
-previously allocated by thread T0 here:
-    <span class="c1">#0 0x4db562 in operator new[](unsigned long) (/tmp/example+0x4db562)</span>
-    <span class="c1">#1 0x4dc1ef in main /tmp/example.cpp:3:18</span>
-    <span class="c1">#2 0x300042078f in __libc_start_main (/usr/lib/libc.so.6+0x300042078f)</span>
+previously<span class="w"> </span>allocated<span class="w"> </span>by<span class="w"> </span>thread<span class="w"> </span>T0<span class="w"> </span>here:
+<span class="w">    </span><span class="c1">#0 0x4db562 in operator new[](unsigned long) (/tmp/example+0x4db562)</span>
+<span class="w">    </span><span class="c1">#1 0x4dc1ef in main /tmp/example.cpp:3:18</span>
+<span class="w">    </span><span class="c1">#2 0x300042078f in __libc_start_main (/usr/lib/libc.so.6+0x300042078f)</span>
 
-SUMMARY: AddressSanitizer: heap-use-after-free /tmp/example.cpp:5 main
-Shadow bytes around the buggy address:
-0x0c1e7fff9d90: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
-0x0c1e7fff9da0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
-0x0c1e7fff9db0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
-0x0c1e7fff9dc0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
-0x0c1e7fff9dd0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa <span class="nv">fa</span>
-<span class="o">=</span>&gt;0x0c1e7fff9de0: fa fa fa fa fa fa fa fa fa fa<span class="o">[</span>fd<span class="o">]</span>fd fd fd fd fd
-0x0c1e7fff9df0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fa
-0x0c1e7fff9e00: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
-0x0c1e7fff9e10: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
-0x0c1e7fff9e20: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
-0x0c1e7fff9e30: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
-Shadow byte legend <span class="o">(</span>one shadow byte represents <span class="m">8</span> application bytes<span class="o">)</span>:
-Addressable:           <span class="m">00</span>
-Partially addressable: <span class="m">01</span> <span class="m">02</span> <span class="m">03</span> <span class="m">04</span> <span class="m">05</span> <span class="m">06</span> <span class="m">07</span>
-Heap left redzone:       fa
-Heap right redzone:      fb
-Freed heap region:       fd
-Stack left redzone:      f1
-Stack mid redzone:       f2
-Stack right redzone:     f3
-Stack partial redzone:   f4
-Stack after <span class="k">return</span>:      f5
-Stack use after scope:   f8
-Global redzone:          f9
-Global init order:       f6
-Poisoned by user:        f7
-Container overflow:      <span class="nb">fc</span>
-Array cookie:            ac
-Intra object redzone:    bb
-ASan internal:           fe
-Left alloca redzone:     ca
-Right alloca redzone:    <span class="nv">cb</span>
+SUMMARY:<span class="w"> </span>AddressSanitizer:<span class="w"> </span>heap-use-after-free<span class="w"> </span>/tmp/example.cpp:5<span class="w"> </span>main
+Shadow<span class="w"> </span>bytes<span class="w"> </span>around<span class="w"> </span>the<span class="w"> </span>buggy<span class="w"> </span>address:
+0x0c1e7fff9d90:<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa
+0x0c1e7fff9da0:<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa
+0x0c1e7fff9db0:<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa
+0x0c1e7fff9dc0:<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa
+0x0c1e7fff9dd0:<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span><span class="nv">fa</span>
+<span class="o">=</span>&gt;0x0c1e7fff9de0:<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="o">[</span>fd<span class="o">]</span>fd<span class="w"> </span>fd<span class="w"> </span>fd<span class="w"> </span>fd<span class="w"> </span>fd
+0x0c1e7fff9df0:<span class="w"> </span>fd<span class="w"> </span>fd<span class="w"> </span>fd<span class="w"> </span>fd<span class="w"> </span>fd<span class="w"> </span>fd<span class="w"> </span>fd<span class="w"> </span>fd<span class="w"> </span>fd<span class="w"> </span>fd<span class="w"> </span>fd<span class="w"> </span>fd<span class="w"> </span>fd<span class="w"> </span>fd<span class="w"> </span>fd<span class="w"> </span>fa
+0x0c1e7fff9e00:<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa
+0x0c1e7fff9e10:<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa
+0x0c1e7fff9e20:<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa
+0x0c1e7fff9e30:<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa
+Shadow<span class="w"> </span>byte<span class="w"> </span>legend<span class="w"> </span><span class="o">(</span>one<span class="w"> </span>shadow<span class="w"> </span>byte<span class="w"> </span>represents<span class="w"> </span><span class="m">8</span><span class="w"> </span>application<span class="w"> </span>bytes<span class="o">)</span>:
+Addressable:<span class="w">           </span><span class="m">00</span>
+Partially<span class="w"> </span>addressable:<span class="w"> </span><span class="m">01</span><span class="w"> </span><span class="m">02</span><span class="w"> </span><span class="m">03</span><span class="w"> </span><span class="m">04</span><span class="w"> </span><span class="m">05</span><span class="w"> </span><span class="m">06</span><span class="w"> </span><span class="m">07</span>
+Heap<span class="w"> </span>left<span class="w"> </span>redzone:<span class="w">       </span>fa
+Heap<span class="w"> </span>right<span class="w"> </span>redzone:<span class="w">      </span>fb
+Freed<span class="w"> </span>heap<span class="w"> </span>region:<span class="w">       </span>fd
+Stack<span class="w"> </span>left<span class="w"> </span>redzone:<span class="w">      </span>f1
+Stack<span class="w"> </span>mid<span class="w"> </span>redzone:<span class="w">       </span>f2
+Stack<span class="w"> </span>right<span class="w"> </span>redzone:<span class="w">     </span>f3
+Stack<span class="w"> </span>partial<span class="w"> </span>redzone:<span class="w">   </span>f4
+Stack<span class="w"> </span>after<span class="w"> </span><span class="k">return</span>:<span class="w">      </span>f5
+Stack<span class="w"> </span>use<span class="w"> </span>after<span class="w"> </span>scope:<span class="w">   </span>f8
+Global<span class="w"> </span>redzone:<span class="w">          </span>f9
+Global<span class="w"> </span>init<span class="w"> </span>order:<span class="w">       </span>f6
+Poisoned<span class="w"> </span>by<span class="w"> </span>user:<span class="w">        </span>f7
+Container<span class="w"> </span>overflow:<span class="w">      </span><span class="nb">fc</span>
+Array<span class="w"> </span>cookie:<span class="w">            </span>ac
+Intra<span class="w"> </span>object<span class="w"> </span>redzone:<span class="w">    </span>bb
+ASan<span class="w"> </span>internal:<span class="w">           </span>fe
+Left<span class="w"> </span>alloca<span class="w"> </span>redzone:<span class="w">     </span>ca
+Right<span class="w"> </span>alloca<span class="w"> </span>redzone:<span class="w">    </span><span class="nv">cb</span>
 <span class="o">==</span><span class="nv">26771</span><span class="o">==</span>ABORTING
 </pre></div>
 </div>
 <p>Compile :</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ clang++ -O1 -g -fsanitize<span class="o">=</span>address -fno-omit-frame-pointer example.cpp -o example
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>clang++<span class="w"> </span>-O1<span class="w"> </span>-g<span class="w"> </span>-fsanitize<span class="o">=</span>address<span class="w"> </span>-fno-omit-frame-pointer<span class="w"> </span>example.cpp<span class="w"> </span>-o<span class="w"> </span>example
 </pre></div>
 </div>
 <p>Run with Valgrind :</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ valgrind ./example
-<span class="o">==</span><span class="nv">28951</span><span class="o">==</span> Memcheck, a memory error <span class="nv">detector</span>
-<span class="o">==</span><span class="nv">28951</span><span class="o">==</span> Copyright <span class="o">(</span>C<span class="o">)</span> <span class="m">2002</span>-2013, and GNU GPL<span class="s1">&#39;d, by Julian Seward et al.</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>valgrind<span class="w"> </span>./example
+<span class="o">==</span><span class="nv">28951</span><span class="o">==</span><span class="w"> </span>Memcheck,<span class="w"> </span>a<span class="w"> </span>memory<span class="w"> </span>error<span class="w"> </span><span class="nv">detector</span>
+<span class="o">==</span><span class="nv">28951</span><span class="o">==</span><span class="w"> </span>Copyright<span class="w"> </span><span class="o">(</span>C<span class="o">)</span><span class="w"> </span><span class="m">2002</span>-2013,<span class="w"> </span>and<span class="w"> </span>GNU<span class="w"> </span>GPL<span class="s1">&#39;d, by Julian Seward et al.</span>
 <span class="s1">==28951== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info</span>
 <span class="s1">==28951== Command: ./example</span>
 <span class="s1">==28951==</span>
 <span class="s1">==28951== Invalid read of size 4</span>
 <span class="s1">==28951==    at 0x4005A7: main (in /tmp/example)</span>
-<span class="s1">==28951==  Address 0xfff000674 is on thread 1&#39;</span>s <span class="nv">stack</span>
-<span class="o">==</span><span class="nv">28951</span><span class="o">==</span>  <span class="m">412</span> bytes below stack <span class="nv">pointer</span>
+<span class="s1">==28951==  Address 0xfff000674 is on thread 1&#39;</span>s<span class="w"> </span><span class="nv">stack</span>
+<span class="o">==</span><span class="nv">28951</span><span class="o">==</span><span class="w">  </span><span class="m">412</span><span class="w"> </span>bytes<span class="w"> </span>below<span class="w"> </span>stack<span class="w"> </span><span class="nv">pointer</span>
 <span class="o">==</span><span class="nv">28951</span><span class="o">==</span>
 <span class="o">==</span><span class="nv">28951</span><span class="o">==</span>
-<span class="o">==</span><span class="nv">28951</span><span class="o">==</span> HEAP SUMMARY:
-<span class="o">==</span><span class="nv">28951</span><span class="o">==</span>     in use at exit: <span class="m">72</span>,704 bytes in <span class="m">1</span> <span class="nv">blocks</span>
-<span class="o">==</span><span class="nv">28951</span><span class="o">==</span>   total heap usage: <span class="m">1</span> allocs, <span class="m">0</span> frees, <span class="m">72</span>,704 bytes <span class="nv">allocated</span>
+<span class="o">==</span><span class="nv">28951</span><span class="o">==</span><span class="w"> </span>HEAP<span class="w"> </span>SUMMARY:
+<span class="o">==</span><span class="nv">28951</span><span class="o">==</span><span class="w">     </span><span class="k">in</span><span class="w"> </span>use<span class="w"> </span>at<span class="w"> </span>exit:<span class="w"> </span><span class="m">72</span>,704<span class="w"> </span>bytes<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="nv">blocks</span>
+<span class="o">==</span><span class="nv">28951</span><span class="o">==</span><span class="w">   </span>total<span class="w"> </span>heap<span class="w"> </span>usage:<span class="w"> </span><span class="m">1</span><span class="w"> </span>allocs,<span class="w"> </span><span class="m">0</span><span class="w"> </span>frees,<span class="w"> </span><span class="m">72</span>,704<span class="w"> </span>bytes<span class="w"> </span><span class="nv">allocated</span>
 <span class="o">==</span><span class="nv">28951</span><span class="o">==</span>
-<span class="o">==</span><span class="nv">28951</span><span class="o">==</span> LEAK SUMMARY:
-<span class="o">==</span><span class="nv">28951</span><span class="o">==</span>    definitely lost: <span class="m">0</span> bytes in <span class="m">0</span> <span class="nv">blocks</span>
-<span class="o">==</span><span class="nv">28951</span><span class="o">==</span>    indirectly lost: <span class="m">0</span> bytes in <span class="m">0</span> <span class="nv">blocks</span>
-<span class="o">==</span><span class="nv">28951</span><span class="o">==</span>      possibly lost: <span class="m">0</span> bytes in <span class="m">0</span> <span class="nv">blocks</span>
-<span class="o">==</span><span class="nv">28951</span><span class="o">==</span>    still reachable: <span class="m">72</span>,704 bytes in <span class="m">1</span> <span class="nv">blocks</span>
-<span class="o">==</span><span class="nv">28951</span><span class="o">==</span>         suppressed: <span class="m">0</span> bytes in <span class="m">0</span> <span class="nv">blocks</span>
-<span class="o">==</span><span class="nv">28951</span><span class="o">==</span> Rerun with --leak-check<span class="o">=</span>full to see details of leaked <span class="nv">memory</span>
+<span class="o">==</span><span class="nv">28951</span><span class="o">==</span><span class="w"> </span>LEAK<span class="w"> </span>SUMMARY:
+<span class="o">==</span><span class="nv">28951</span><span class="o">==</span><span class="w">    </span>definitely<span class="w"> </span>lost:<span class="w"> </span><span class="m">0</span><span class="w"> </span>bytes<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="nv">blocks</span>
+<span class="o">==</span><span class="nv">28951</span><span class="o">==</span><span class="w">    </span>indirectly<span class="w"> </span>lost:<span class="w"> </span><span class="m">0</span><span class="w"> </span>bytes<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="nv">blocks</span>
+<span class="o">==</span><span class="nv">28951</span><span class="o">==</span><span class="w">      </span>possibly<span class="w"> </span>lost:<span class="w"> </span><span class="m">0</span><span class="w"> </span>bytes<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="nv">blocks</span>
+<span class="o">==</span><span class="nv">28951</span><span class="o">==</span><span class="w">    </span>still<span class="w"> </span>reachable:<span class="w"> </span><span class="m">72</span>,704<span class="w"> </span>bytes<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="nv">blocks</span>
+<span class="o">==</span><span class="nv">28951</span><span class="o">==</span><span class="w">         </span>suppressed:<span class="w"> </span><span class="m">0</span><span class="w"> </span>bytes<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="nv">blocks</span>
+<span class="o">==</span><span class="nv">28951</span><span class="o">==</span><span class="w"> </span>Rerun<span class="w"> </span>with<span class="w"> </span>--leak-check<span class="o">=</span>full<span class="w"> </span>to<span class="w"> </span>see<span class="w"> </span>details<span class="w"> </span>of<span class="w"> </span>leaked<span class="w"> </span><span class="nv">memory</span>
 <span class="o">==</span><span class="nv">28951</span><span class="o">==</span>
-<span class="o">==</span><span class="nv">28951</span><span class="o">==</span> For counts of detected and suppressed errors, rerun with: -v
-<span class="o">==</span><span class="nv">28951</span><span class="o">==</span> ERROR SUMMARY: <span class="m">1</span> errors from <span class="m">1</span> contexts <span class="o">(</span>suppressed: <span class="m">0</span> from <span class="m">0</span><span class="o">)</span>
+<span class="o">==</span><span class="nv">28951</span><span class="o">==</span><span class="w"> </span>For<span class="w"> </span>counts<span class="w"> </span>of<span class="w"> </span>detected<span class="w"> </span>and<span class="w"> </span>suppressed<span class="w"> </span>errors,<span class="w"> </span>rerun<span class="w"> </span>with:<span class="w"> </span>-v
+<span class="o">==</span><span class="nv">28951</span><span class="o">==</span><span class="w"> </span>ERROR<span class="w"> </span>SUMMARY:<span class="w"> </span><span class="m">1</span><span class="w"> </span>errors<span class="w"> </span>from<span class="w"> </span><span class="m">1</span><span class="w"> </span>contexts<span class="w"> </span><span class="o">(</span>suppressed:<span class="w"> </span><span class="m">0</span><span class="w"> </span>from<span class="w"> </span><span class="m">0</span><span class="o">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="example-2-can-not-detect-neither-valgrind">
-<h3>Example 2 (Can Not Detect) (Neither Valgrind …)<a class="headerlink" href="#example-2-can-not-detect-neither-valgrind" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="example-2-can-not-detect-neither-valgrind">
+<h3>Example 2 (Can Not Detect) (Neither Valgrind …)<a class="headerlink" href="#example-2-can-not-detect-neither-valgrind" title="Permalink to this heading"></a></h3>
 <p>Source Code :</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="o">*</span><span class="n">ptr</span><span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
 
-    <span class="p">{</span>
-        <span class="kt">int</span> <span class="n">array</span><span class="p">[</span><span class="mi">42</span><span class="p">];</span>
-        <span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
-        <span class="n">ptr</span> <span class="o">=</span> <span class="n">array</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="mi">42</span><span class="p">];</span>
+<span class="w">        </span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
+<span class="w">        </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">array</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="n">ptr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">99</span><span class="p">;</span>
+<span class="w">    </span><span class="n">ptr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">99</span><span class="p">;</span>
 
-    <span class="k">return</span> <span class="n">ptr</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>    <span class="c1">// ptr points to an array which is out of scope !!!</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ptr</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span><span class="w">    </span><span class="c1">// ptr points to an array which is out of scope !!!</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>Compile :</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ clang++ -O1 -g -fsanitize<span class="o">=</span>address -fno-omit-frame-pointer example.cpp -o example
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>clang++<span class="w"> </span>-O1<span class="w"> </span>-g<span class="w"> </span>-fsanitize<span class="o">=</span>address<span class="w"> </span>-fno-omit-frame-pointer<span class="w"> </span>example.cpp<span class="w"> </span>-o<span class="w"> </span>example
 </pre></div>
 </div>
 <p>Run :</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ./example
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./example
 <span class="c1"># nothing happen ...</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="example-3-can-not-detect-valgrind-can-find-it">
-<h3>Example 3 (Can Not Detect) (Valgrind can find it !!!)<a class="headerlink" href="#example-3-can-not-detect-valgrind-can-find-it" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="example-3-can-not-detect-valgrind-can-find-it">
+<h3>Example 3 (Can Not Detect) (Valgrind can find it !!!)<a class="headerlink" href="#example-3-can-not-detect-valgrind-can-find-it" title="Permalink to this heading"></a></h3>
 <p>Source Code :</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="kt">int</span> <span class="o">**</span><span class="n">pptr</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">array</span><span class="p">[</span><span class="mi">42</span><span class="p">];</span>
-    <span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
-    <span class="o">*</span><span class="n">pptr</span> <span class="o">=</span> <span class="n">array</span><span class="p">;</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">**</span><span class="n">pptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="mi">42</span><span class="p">];</span>
+<span class="w">    </span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
+<span class="w">    </span><span class="o">*</span><span class="n">pptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">array</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="o">*</span><span class="n">ptr</span><span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
-    <span class="n">f</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ptr</span><span class="p">);</span>
-    <span class="n">ptr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">99</span><span class="p">;</span>
-    <span class="k">return</span> <span class="n">ptr</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>    <span class="c1">// ptr points to an array which is out of scope !!!</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<span class="w">    </span><span class="n">f</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ptr</span><span class="p">);</span>
+<span class="w">    </span><span class="n">ptr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">99</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ptr</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span><span class="w">    </span><span class="c1">// ptr points to an array which is out of scope !!!</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>Compile :</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ clang++ -O1 -g -fsanitize<span class="o">=</span>address -fno-omit-frame-pointer example.cpp -o example
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>clang++<span class="w"> </span>-O1<span class="w"> </span>-g<span class="w"> </span>-fsanitize<span class="o">=</span>address<span class="w"> </span>-fno-omit-frame-pointer<span class="w"> </span>example.cpp<span class="w"> </span>-o<span class="w"> </span>example
 </pre></div>
 </div>
 <p>Run :</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ./example
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./example
 <span class="c1"># nothing happen ...</span>
 </pre></div>
 </div>
 <p>Compile :</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ clang++ -O1 -g -fsanitize<span class="o">=</span>address -fno-omit-frame-pointer example.cpp -o example
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>clang++<span class="w"> </span>-O1<span class="w"> </span>-g<span class="w"> </span>-fsanitize<span class="o">=</span>address<span class="w"> </span>-fno-omit-frame-pointer<span class="w"> </span>example.cpp<span class="w"> </span>-o<span class="w"> </span>example
 </pre></div>
 </div>
 <p>Run with Valgrind :</p>
@@ -1291,116 +1215,116 @@ Right alloca redzone:    <span class="nv">cb</span>
 ==13109== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
 </pre></div>
 </div>
-</div>
-<div class="section" id="example-4-can-not-detect-valgrind-can-find-it">
-<h3>Example 4 (Can Not Detect) (Valgrind can find it !!!)<a class="headerlink" href="#example-4-can-not-detect-valgrind-can-find-it" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="example-4-can-not-detect-valgrind-can-find-it">
+<h3>Example 4 (Can Not Detect) (Valgrind can find it !!!)<a class="headerlink" href="#example-4-can-not-detect-valgrind-can-find-it" title="Permalink to this heading"></a></h3>
 <p>from <a class="reference external" href="https://code.google.com/p/address-sanitizer/wiki/ExampleUseAfterReturn">address-sanitizer - Example: UseAfterReturn</a></p>
 <p>Source Code :</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="o">*</span><span class="n">ptr</span><span class="p">;</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">;</span>
 <span class="n">__attribute__</span><span class="p">((</span><span class="n">noinline</span><span class="p">))</span>
-<span class="kt">void</span> <span class="n">FunctionThatEscapesLocalObject</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">local</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
-    <span class="n">ptr</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">local</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">FunctionThatEscapesLocalObject</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">local</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+<span class="w">    </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">local</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">FunctionThatEscapesLocalObject</span><span class="p">();</span>
-    <span class="k">return</span> <span class="n">ptr</span><span class="p">[</span><span class="n">argc</span><span class="p">];</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">FunctionThatEscapesLocalObject</span><span class="p">();</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ptr</span><span class="p">[</span><span class="n">argc</span><span class="p">];</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>Compile :</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ clang++ -O1 -g -fsanitize<span class="o">=</span>address -fno-omit-frame-pointer example.cpp -o example
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>clang++<span class="w"> </span>-O1<span class="w"> </span>-g<span class="w"> </span>-fsanitize<span class="o">=</span>address<span class="w"> </span>-fno-omit-frame-pointer<span class="w"> </span>example.cpp<span class="w"> </span>-o<span class="w"> </span>example
 </pre></div>
 </div>
 <p>Run :</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ./example
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./example
 <span class="c1"># nothing happen ...</span>
 </pre></div>
 </div>
 <p>Compile :</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ clang++ -O1 -g -fno-omit-frame-pointer example.cpp -o example
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>clang++<span class="w"> </span>-O1<span class="w"> </span>-g<span class="w"> </span>-fno-omit-frame-pointer<span class="w"> </span>example.cpp<span class="w"> </span>-o<span class="w"> </span>example
 </pre></div>
 </div>
 <p>Run with Valgrind :</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ valgrind ./example
-<span class="o">==</span><span class="nv">27388</span><span class="o">==</span> Memcheck, a memory error <span class="nv">detector</span>
-<span class="o">==</span><span class="nv">27388</span><span class="o">==</span> Copyright <span class="o">(</span>C<span class="o">)</span> <span class="m">2002</span>-2013, and GNU GPL<span class="s1">&#39;d, by Julian Seward et al.</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>valgrind<span class="w"> </span>./example
+<span class="o">==</span><span class="nv">27388</span><span class="o">==</span><span class="w"> </span>Memcheck,<span class="w"> </span>a<span class="w"> </span>memory<span class="w"> </span>error<span class="w"> </span><span class="nv">detector</span>
+<span class="o">==</span><span class="nv">27388</span><span class="o">==</span><span class="w"> </span>Copyright<span class="w"> </span><span class="o">(</span>C<span class="o">)</span><span class="w"> </span><span class="m">2002</span>-2013,<span class="w"> </span>and<span class="w"> </span>GNU<span class="w"> </span>GPL<span class="s1">&#39;d, by Julian Seward et al.</span>
 <span class="s1">==27388== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info</span>
 <span class="s1">==27388== Command: ./example</span>
 <span class="s1">==27388==</span>
 <span class="s1">==27388== Invalid read of size 4</span>
 <span class="s1">==27388==    at 0x4005A7: main (in /tmp/example)</span>
-<span class="s1">==27388==  Address 0xfff000674 is on thread 1&#39;</span>s <span class="nv">stack</span>
-<span class="o">==</span><span class="nv">27388</span><span class="o">==</span>  <span class="m">412</span> bytes below stack <span class="nv">pointer</span>
+<span class="s1">==27388==  Address 0xfff000674 is on thread 1&#39;</span>s<span class="w"> </span><span class="nv">stack</span>
+<span class="o">==</span><span class="nv">27388</span><span class="o">==</span><span class="w">  </span><span class="m">412</span><span class="w"> </span>bytes<span class="w"> </span>below<span class="w"> </span>stack<span class="w"> </span><span class="nv">pointer</span>
 <span class="o">==</span><span class="nv">27388</span><span class="o">==</span>
 <span class="o">==</span><span class="nv">27388</span><span class="o">==</span>
-<span class="o">==</span><span class="nv">27388</span><span class="o">==</span> HEAP SUMMARY:
-<span class="o">==</span><span class="nv">27388</span><span class="o">==</span>     in use at exit: <span class="m">72</span>,704 bytes in <span class="m">1</span> <span class="nv">blocks</span>
-<span class="o">==</span><span class="nv">27388</span><span class="o">==</span>   total heap usage: <span class="m">1</span> allocs, <span class="m">0</span> frees, <span class="m">72</span>,704 bytes <span class="nv">allocated</span>
+<span class="o">==</span><span class="nv">27388</span><span class="o">==</span><span class="w"> </span>HEAP<span class="w"> </span>SUMMARY:
+<span class="o">==</span><span class="nv">27388</span><span class="o">==</span><span class="w">     </span><span class="k">in</span><span class="w"> </span>use<span class="w"> </span>at<span class="w"> </span>exit:<span class="w"> </span><span class="m">72</span>,704<span class="w"> </span>bytes<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="nv">blocks</span>
+<span class="o">==</span><span class="nv">27388</span><span class="o">==</span><span class="w">   </span>total<span class="w"> </span>heap<span class="w"> </span>usage:<span class="w"> </span><span class="m">1</span><span class="w"> </span>allocs,<span class="w"> </span><span class="m">0</span><span class="w"> </span>frees,<span class="w"> </span><span class="m">72</span>,704<span class="w"> </span>bytes<span class="w"> </span><span class="nv">allocated</span>
 <span class="o">==</span><span class="nv">27388</span><span class="o">==</span>
-<span class="o">==</span><span class="nv">27388</span><span class="o">==</span> LEAK SUMMARY:
-<span class="o">==</span><span class="nv">27388</span><span class="o">==</span>    definitely lost: <span class="m">0</span> bytes in <span class="m">0</span> <span class="nv">blocks</span>
-<span class="o">==</span><span class="nv">27388</span><span class="o">==</span>    indirectly lost: <span class="m">0</span> bytes in <span class="m">0</span> <span class="nv">blocks</span>
-<span class="o">==</span><span class="nv">27388</span><span class="o">==</span>      possibly lost: <span class="m">0</span> bytes in <span class="m">0</span> <span class="nv">blocks</span>
-<span class="o">==</span><span class="nv">27388</span><span class="o">==</span>    still reachable: <span class="m">72</span>,704 bytes in <span class="m">1</span> <span class="nv">blocks</span>
-<span class="o">==</span><span class="nv">27388</span><span class="o">==</span>         suppressed: <span class="m">0</span> bytes in <span class="m">0</span> <span class="nv">blocks</span>
-<span class="o">==</span><span class="nv">27388</span><span class="o">==</span> Rerun with --leak-check<span class="o">=</span>full to see details of leaked <span class="nv">memory</span>
+<span class="o">==</span><span class="nv">27388</span><span class="o">==</span><span class="w"> </span>LEAK<span class="w"> </span>SUMMARY:
+<span class="o">==</span><span class="nv">27388</span><span class="o">==</span><span class="w">    </span>definitely<span class="w"> </span>lost:<span class="w"> </span><span class="m">0</span><span class="w"> </span>bytes<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="nv">blocks</span>
+<span class="o">==</span><span class="nv">27388</span><span class="o">==</span><span class="w">    </span>indirectly<span class="w"> </span>lost:<span class="w"> </span><span class="m">0</span><span class="w"> </span>bytes<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="nv">blocks</span>
+<span class="o">==</span><span class="nv">27388</span><span class="o">==</span><span class="w">      </span>possibly<span class="w"> </span>lost:<span class="w"> </span><span class="m">0</span><span class="w"> </span>bytes<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="nv">blocks</span>
+<span class="o">==</span><span class="nv">27388</span><span class="o">==</span><span class="w">    </span>still<span class="w"> </span>reachable:<span class="w"> </span><span class="m">72</span>,704<span class="w"> </span>bytes<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="nv">blocks</span>
+<span class="o">==</span><span class="nv">27388</span><span class="o">==</span><span class="w">         </span>suppressed:<span class="w"> </span><span class="m">0</span><span class="w"> </span>bytes<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="nv">blocks</span>
+<span class="o">==</span><span class="nv">27388</span><span class="o">==</span><span class="w"> </span>Rerun<span class="w"> </span>with<span class="w"> </span>--leak-check<span class="o">=</span>full<span class="w"> </span>to<span class="w"> </span>see<span class="w"> </span>details<span class="w"> </span>of<span class="w"> </span>leaked<span class="w"> </span><span class="nv">memory</span>
 <span class="o">==</span><span class="nv">27388</span><span class="o">==</span>
-<span class="o">==</span><span class="nv">27388</span><span class="o">==</span> For counts of detected and suppressed errors, rerun with: -v
-<span class="o">==</span><span class="nv">27388</span><span class="o">==</span> ERROR SUMMARY: <span class="m">1</span> errors from <span class="m">1</span> contexts <span class="o">(</span>suppressed: <span class="m">0</span> from <span class="m">0</span><span class="o">)</span>
+<span class="o">==</span><span class="nv">27388</span><span class="o">==</span><span class="w"> </span>For<span class="w"> </span>counts<span class="w"> </span>of<span class="w"> </span>detected<span class="w"> </span>and<span class="w"> </span>suppressed<span class="w"> </span>errors,<span class="w"> </span>rerun<span class="w"> </span>with:<span class="w"> </span>-v
+<span class="o">==</span><span class="nv">27388</span><span class="o">==</span><span class="w"> </span>ERROR<span class="w"> </span>SUMMARY:<span class="w"> </span><span class="m">1</span><span class="w"> </span>errors<span class="w"> </span>from<span class="w"> </span><span class="m">1</span><span class="w"> </span>contexts<span class="w"> </span><span class="o">(</span>suppressed:<span class="w"> </span><span class="m">0</span><span class="w"> </span>from<span class="w"> </span><span class="m">0</span><span class="o">)</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="id2">
-<h2>MemorySanitizer<a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+</section>
+</section>
+<section id="id2">
+<h2>MemorySanitizer<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
 <p>compile 時加上參數 : <code class="docutils literal notranslate"><span class="pre">-fsanitize=address</span></code></p>
-<div class="section" id="id3">
-<h3>Example 1<a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h3>
+<section id="id3">
+<h3>Example 1<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
 <p>前面用過的範例，再用一次</p>
 <p>Source Code :</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="o">*</span><span class="n">ptr</span><span class="p">;</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">;</span>
 <span class="n">__attribute__</span><span class="p">((</span><span class="n">noinline</span><span class="p">))</span>
-<span class="kt">void</span> <span class="n">FunctionThatEscapesLocalObject</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">local</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
-    <span class="n">ptr</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">local</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">FunctionThatEscapesLocalObject</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">local</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+<span class="w">    </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">local</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">FunctionThatEscapesLocalObject</span><span class="p">();</span>
-    <span class="k">return</span> <span class="n">ptr</span><span class="p">[</span><span class="n">argc</span><span class="p">];</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">FunctionThatEscapesLocalObject</span><span class="p">();</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ptr</span><span class="p">[</span><span class="n">argc</span><span class="p">];</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>Compile :</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ clang++ -O1 -g -fsanitize<span class="o">=</span>memory -fno-omit-frame-pointer example.cpp -o example
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>clang++<span class="w"> </span>-O1<span class="w"> </span>-g<span class="w"> </span>-fsanitize<span class="o">=</span>memory<span class="w"> </span>-fno-omit-frame-pointer<span class="w"> </span>example.cpp<span class="w"> </span>-o<span class="w"> </span>example
 </pre></div>
 </div>
 <p>Run :</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ./example
-<span class="o">==</span><span class="nv">12719</span><span class="o">==</span> WARNING: MemorySanitizer: use-of-uninitialized-value
-    <span class="c1">#0 0x7f1030669d16 in main /tmp/example.cpp:11:9</span>
-    <span class="c1">#1 0x7f102f17578f in __libc_start_main (/usr/lib/libc.so.6+0x300042078f)</span>
-    <span class="c1">#2 0x7f1030615798 in _start (/tmp/example+0x35798)</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./example
+<span class="o">==</span><span class="nv">12719</span><span class="o">==</span><span class="w"> </span>WARNING:<span class="w"> </span>MemorySanitizer:<span class="w"> </span>use-of-uninitialized-value
+<span class="w">    </span><span class="c1">#0 0x7f1030669d16 in main /tmp/example.cpp:11:9</span>
+<span class="w">    </span><span class="c1">#1 0x7f102f17578f in __libc_start_main (/usr/lib/libc.so.6+0x300042078f)</span>
+<span class="w">    </span><span class="c1">#2 0x7f1030615798 in _start (/tmp/example+0x35798)</span>
 
-SUMMARY: MemorySanitizer: use-of-uninitialized-value /tmp/example.cpp:11 main
+SUMMARY:<span class="w"> </span>MemorySanitizer:<span class="w"> </span>use-of-uninitialized-value<span class="w"> </span>/tmp/example.cpp:11<span class="w"> </span>main
 Exiting
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="algorithm">
-<h2>Algorithm<a class="headerlink" href="#algorithm" title="本標題的永久連結">¶</a></h2>
+</section>
+</section>
+<section id="algorithm">
+<h2>Algorithm<a class="headerlink" href="#algorithm" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://code.google.com/p/address-sanitizer/wiki/AddressSanitizerAlgorithm">AddressSanitizer algorithm</a></p></li>
 </ul>
-</div>
-<div class="section" id="status">
-<h2>Status<a class="headerlink" href="#status" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="status">
+<h2>Status<a class="headerlink" href="#status" title="Permalink to this heading"></a></h2>
 <img alt="../_images/sanitizer-status.png" src="../_images/sanitizer-status.png" />
-<div class="section" id="asan">
-<h3>ASan<a class="headerlink" href="#asan" title="本標題的永久連結">¶</a></h3>
+<section id="asan">
+<h3>ASan<a class="headerlink" href="#asan" title="Permalink to this heading"></a></h3>
 <p>目前支援：</p>
 <ul class="simple">
 <li><p>i386</p></li>
@@ -1412,9 +1336,9 @@ Exiting
 <li><p>MIPS64</p></li>
 <li><p>…</p></li>
 </ul>
-</div>
-<div class="section" id="lsan">
-<h3>LSan<a class="headerlink" href="#lsan" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="lsan">
+<h3>LSan<a class="headerlink" href="#lsan" title="Permalink to this heading"></a></h3>
 <p>目前支援：</p>
 <ul class="simple">
 <li><p>x86_64</p></li>
@@ -1429,28 +1353,28 @@ Exiting
 <li><p><a class="reference external" href="https://code.google.com/p/address-sanitizer/issues/detail?id=294">Port LSan to arm</a></p></li>
 <li><p><a class="reference external" href="https://code.google.com/p/address-sanitizer/issues/detail?id=379">Leak sanitizer support for Android on arm64</a></p></li>
 </ul>
-</div>
-<div class="section" id="msan">
-<h3>MSan<a class="headerlink" href="#msan" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="msan">
+<h3>MSan<a class="headerlink" href="#msan" title="Permalink to this heading"></a></h3>
 <p>目前支援：</p>
 <ul class="simple">
 <li><p>x86_64</p></li>
 <li><p>MIPS64</p></li>
 <li><p>MIPS64EL</p></li>
 </ul>
-</div>
-<div class="section" id="tsan">
-<h3>TSan<a class="headerlink" href="#tsan" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="tsan">
+<h3>TSan<a class="headerlink" href="#tsan" title="Permalink to this heading"></a></h3>
 <p>目前支援：</p>
 <ul class="simple">
 <li><p>x86_64</p></li>
 <li><p>MIPS64</p></li>
 <li><p>MIPS64EL</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="reference">
-<h2>Reference<a class="headerlink" href="#reference" title="本標題的永久連結">¶</a></h2>
+</section>
+</section>
+<section id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/AddressSanitizer">Wikipedia - AddressSanitizer</a></p></li>
 <li><p><a class="reference external" href="https://code.google.com/p/address-sanitizer/w/list">address-sanitizer - wiki</a></p></li>
@@ -1471,46 +1395,36 @@ Exiting
 <li><p><a class="reference external" href="http://research.google.com/pubs/pub43308.html">[2015] MemorySanitizer: fast detector of uninitialized memory use in C++</a></p></li>
 <li><p><a class="reference external" href="https://code.google.com/p/valgrind-variant/wiki/LeakCheckingOn32bits">[2011] RFC: Why Memcheck can’t see many leaks on large 32-bit C++ apps</a></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="stack-protection.html" class="btn btn-neutral float-right" title="Stack Protection" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="memory-profiling.html" class="btn btn-neutral float-left" title="Memory Profiling" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="memory-profiling.html" class="btn btn-neutral float-left" title="Memory Profiling" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="stack-protection.html" class="btn btn-neutral float-right" title="Stack Protection" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016
-
-    </p>
+    <p>&#169; Copyright 2023.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
   
 
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       <span class="fa fa-book"> Read the Docs</span>
       v: latest
@@ -1520,7 +1434,7 @@ Exiting
       <dl>
         <dt>Versions</dt>
         
-          <dd><a href="/zh_TW/latest/">latest</a></dd>
+          <dd><a href="https://wdv4758h.github.io/notes/">latest</a></dd>
         
       </dl>
       <dl>
@@ -1530,6 +1444,7 @@ Exiting
         
       </dl>
       <dl>
+        
         <dt>On Read the Docs</dt>
           <dd>
             <a href="//readthedocs.org/projects/wdv4758h-notes/?fromdocs=wdv4758h-notes">Project Home</a>
@@ -1538,22 +1453,13 @@ Exiting
             <a href="//readthedocs.org/builds/wdv4758h-notes/?fromdocs=wdv4758h-notes">Builds</a>
           </dd>
       </dl>
-      <hr/>
-      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
-
     </div>
   </div>
-
-
-
-  <script type="text/javascript">
+<script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-   
+  </script> 
 
 </body>
 </html>

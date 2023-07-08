@@ -13,7 +13,7 @@ lambda function 又稱為 anonymous function，
 中文翻譯叫匿名函式，
 其定義沒有名稱，
 而且會依據定義的位置而有不同的 context，
-而 function instance 和其榜定的 non-local 資料又稱為 closure。
+而 function instance 和其綁定的 non-local 資料又稱為 closure。
 
 
 

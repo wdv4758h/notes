@@ -1,5 +1,5 @@
 ========================================
-Logging
+Rust x Logging
 ========================================
 
 
@@ -15,7 +15,7 @@ Logging 是撰寫程式不可或缺的一塊，
 而不用自己額外新增和刪除 stdout 輸出。
 
 而在 Logging 這塊 Rust 官方已經有良好的抽象化，
-官方有個 crate 就叫 `log <https://github.com/rust-lang-nursery/log>`_ ，
+官方有個 crate 就叫 `log <https://github.com/rust-lang/log>`_ ，
 專案目的為提供統一的 logging API，
 抽象化各 logging 的實作，
 libraries 可以用這個 API 來撰寫，
@@ -76,13 +76,30 @@ libraries 可以用這個 API 來撰寫，
 如此一來就不需依賴於 ``std`` 。
 
 
-開啟特定層級的 log：
 
-.. code-block:: sh
+Structured Logging
+========================================
 
-    $ RUST_LOG=mylib=info ./myapplication
+:RFC: https://github.com/rust-lang/log/blob/master/rfcs/0296-structured-logging.md
+:issue: https://github.com/rust-lang/log/issues/328
+
+
+目的是要讓 ``log`` 除了文字資訊外，
+可以夾帶更多具有型別的資料。
+從 ``slog`` 和 ``tokio-trace`` 中學習經驗，
+提供這塊的 facade 讓 Rust 生態系在 structured logging 有更好的相容性。
 
 
 
 env_logger
 ========================================
+
+:repo: https://github.com/env-logger-rs/env_logger
+
+
+簡單的 logger 實作，使用後可以透過環境變數 ``RUST_LOG`` 來控制 logging 等級：
+
+.. code-block:: sh
+
+    $ RUST_LOG=info ./myapplication
+    $ RUST_LOG=mylib=info ./myapplication

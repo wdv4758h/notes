@@ -1,112 +1,73 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-TW" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-TW" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Servo &mdash; wdv4758h-notes latest 說明文件</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Servo &mdash; wdv4758h-notes latest documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/translations.js"></script>
-        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="index" title="索引" href="../../genindex.html" />
-    <link rel="search" title="搜尋" href="../../search.html" /> 
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
 
 <!-- RTD Extra Head -->
 
-<!-- 
-Always link to the latest version, as canonical.
-http://docs.readthedocs.org/en/latest/canonical.html
--->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/rust/adoption/servo.html" />
+    <!--
+    Always link to the latest version, as canonical.
+    http://docs.readthedocs.org/en/latest/canonical.html
+    -->
+    <link rel="canonical" href="https://wdv4758h-notes.readthedocs.io/zh_TW/latest/rust/adoption/servo.html" />
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../../_static/readthedocs-data.js"></script>
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": "", "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": "https://wdv4758h-notes.readthedocs.io/zh_TW/latest/", "docroot": "/./", "features": {"docsearch_disabled": false}, "global_analytics_code": "", "language": "en", "page": "rust/adoption/servo", "programming_language": "", "project": "wdv4758h-notes", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": ""}</script>
 
-<!-- Add page-specific data, which must exist in the page js, not global -->
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = "rust/adoption/servo"
-READTHEDOCS_DATA['source_suffix'] = ".rst"
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
 </script>
 
-<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js" async="async"></script>
 
 <!-- end RTD <extrahead> -->
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../index.html" class="icon icon-home"> wdv4758h-notes
           
-
-          
+          <a href="../../index.html" class="icon icon-home">
+            wdv4758h-notes
           </a>
-
-          
-            
-            
-            
               <div class="version">
                 latest
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/README.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/adt.html">ADT (Abstract Data Type)</a></li>
@@ -116,13 +77,18 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/cache.html">Cache</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/cache-friendly.html">Cache Friendly Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/dict.html">Dict</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/float-to-string.html">Float to String</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/heap.html">Heap （堆）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/introduction.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/inverse-square-root.html">Inverse Square Root</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/lock.html">Lock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/meta-algorithm.html">Meta Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/random-number-generator.html">Random Number Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/resource.html">演算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/sorting.html">Sorting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/string-to-float.html">String to Float</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/substring-searching.html">Substring Searching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../android/README.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../android/android-emulator.html">Android Emulator</a></li>
@@ -198,7 +164,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../blog/openmp.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/pypy-brainfuck.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/pypy-brainfuck.html#tutorial">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../blog/pypy-brainfuck.html#id5">額外紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../blog/pypy-brainfuck.html#id4">額外紀錄</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/pypy-brainfuck.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/python-benchmark.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/python-benchmark.html#hello-world">Hello World</a></li>
@@ -225,7 +191,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../blog/qemu-first-step.html#qemu-with-kvm">QEMU with KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html">Syntax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#closure">Closure 和外部變數</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#move-closures">「move」 closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#move-closures">“move” closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#closure-implementation">Closure implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#closures-as-arguments">closures as arguments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#returning-closures">returning closures</a></li>
@@ -406,6 +372,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/ci.html">Continuous Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/concourse.html">Concourse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/drone.html">Drone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/github-actions.html">Github Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/jenkins.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/travis-ci.html">Travis CI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/workflow-pipeline.html">Workflow Pipeline</a></li>
@@ -415,7 +382,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/array.html">std::array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/assembly.html">C++ &amp; Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/bit-field.html">C++ Bit Field</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../cpp/c++17.html">C++17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/c%2B%2B17.html">C++17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/concepts.html">C++ Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/const.html">C++ const</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/copy-elision.html">Copy Elision</a></li>
@@ -468,13 +435,16 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../database/README.html">資料庫 (Database)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/cockroachdb.html">CockroachDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/consensus-algorithm.html">Raft Consensus Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../database/graph.html">Graph Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/leveldb.html">LevelDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../database/materialized-views.html">Materialized Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/mongodb.html">MongoDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../database/rocksdb.html">RocksDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/sql.html">SQL (Structured Query Language)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/tidb.html">TiDB</a></li>
@@ -547,7 +517,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../math/math-on-web.html">Math on Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../math/misc.html">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../memory/W^X.html">W^X (Write XOR Execute)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../memory/W%5EX.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../memory/allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../memory/kernel-memory-management.html">Kernel Memory Management</a></li>
@@ -805,74 +775,34 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../wiki/resource.html">Wiki</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">wdv4758h-notes</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
-      <li>Servo</li>
-    
-    
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Servo</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/wdv4758h/notes/blob/master/./rust/adoption/servo.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="servo">
-<h1><a class="toc-backref" href="#id11">Servo</a><a class="headerlink" href="#servo" title="本標題的永久連結">¶</a></h1>
-<div class="contents topic" id="id1">
-<p class="topic-title first">目錄</p>
+             
+  <section id="servo">
+<h1><a class="toc-backref" href="#id11" role="doc-backlink">Servo</a><a class="headerlink" href="#servo" title="Permalink to this heading"></a></h1>
+<nav class="contents" id="id1">
+<p class="topic-title">目錄</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#servo" id="id11">Servo</a></p>
 <ul>
@@ -896,18 +826,18 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="id2">
-<h2><a class="toc-backref" href="#id12">編譯</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+</nav>
+<section id="id2">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">編譯</a><a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># 依需求選擇編 release 或 dev</span>
 <span class="c1"># 可以加上 -j &lt;NUM&gt; 參數來使用多核心編譯</span>
-./mach build -r -j4     <span class="c1"># release</span>
-./mach build -d -j4     <span class="c1"># dev</span>
+./mach<span class="w"> </span>build<span class="w"> </span>-r<span class="w"> </span>-j4<span class="w">     </span><span class="c1"># release</span>
+./mach<span class="w"> </span>build<span class="w"> </span>-d<span class="w"> </span>-j4<span class="w">     </span><span class="c1"># dev</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id3">
-<h2><a class="toc-backref" href="#id13">打包編譯結果</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="id3">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">打包編譯結果</a><a class="headerlink" href="#id3" title="Permalink to this heading"></a></h2>
 <p>要跑起 Servo 需要的是：</p>
 <ul class="simple">
 <li><p>編譯完的 <code class="docutils literal notranslate"><span class="pre">servo</span></code> 執行檔（會在 <code class="docutils literal notranslate"><span class="pre">target/release/servo</span></code> ）</p></li>
@@ -918,54 +848,54 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <ul class="simple">
 <li><p>一些 <code class="docutils literal notranslate"><span class="pre">HTML/CSS/JavaScript/PNG/...</span></code> （在 <code class="docutils literal notranslate"><span class="pre">target/release/build/browserhtml-*/out/</span></code> ）</p></li>
 </ul>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>rm -rf servo-prebuilt
-mkdir servo-prebuilt
-<span class="nb">cd</span> servo-prebuilt
-cp ../target/release/servo ./
-cp -r ../resources/ ./
-cp -r ../target/release/build/browserhtml-*/out/ ./browserhtml
-<span class="nb">cd</span> ../
-tar Jcvf servo-prebuilt.tar.xz servo-prebuilt/
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>rm<span class="w"> </span>-rf<span class="w"> </span>servo-prebuilt
+mkdir<span class="w"> </span>servo-prebuilt
+<span class="nb">cd</span><span class="w"> </span>servo-prebuilt
+cp<span class="w"> </span>../target/release/servo<span class="w"> </span>./
+cp<span class="w"> </span>-r<span class="w"> </span>../resources/<span class="w"> </span>./
+cp<span class="w"> </span>-r<span class="w"> </span>../target/release/build/browserhtml-*/out/<span class="w"> </span>./browserhtml
+<span class="nb">cd</span><span class="w"> </span>../
+tar<span class="w"> </span>Jcvf<span class="w"> </span>servo-prebuilt.tar.xz<span class="w"> </span>servo-prebuilt/
 </pre></div>
 </div>
 <p>直接使用 Servo 專案內建的指令：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>./mach package -r   <span class="c1"># release</span>
-./mach package -d   <span class="c1"># dev</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>./mach<span class="w"> </span>package<span class="w"> </span>-r<span class="w">   </span><span class="c1"># release</span>
+./mach<span class="w"> </span>package<span class="w"> </span>-d<span class="w">   </span><span class="c1"># dev</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id4">
-<h2><a class="toc-backref" href="#id14">執行</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="id4">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">執行</a><a class="headerlink" href="#id4" title="Permalink to this heading"></a></h2>
 <p>一般（非 <code class="docutils literal notranslate"><span class="pre">Browser.html</span></code> ）：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>./servo URL_or_HTML
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>./servo<span class="w"> </span>URL_or_HTML
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">Browser.html</span></code> ：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>./servo ./browserhtml/index.html
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>./servo<span class="w"> </span>./browserhtml/index.html
 </pre></div>
 </div>
 <p>Servo 還有許多參數可以選擇，
 自行去 <code class="docutils literal notranslate"><span class="pre">./servo</span> <span class="pre">--help</span></code> 中尋找、選用。</p>
-</div>
-<div class="section" id="id5">
-<h2><a class="toc-backref" href="#id15">測試</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="id5">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">測試</a><a class="headerlink" href="#id5" title="Permalink to this heading"></a></h2>
 <p>所有更動都需要跑的程式風格檢查：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>./mach test-tidy
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>./mach<span class="w"> </span>test-tidy
 </pre></div>
 </div>
 <p>指定特定的 unit （以 <code class="docutils literal notranslate"><span class="pre">components/net/</span></code> 為例）：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>./mach test-unit -p net
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>./mach<span class="w"> </span>test-unit<span class="w"> </span>-p<span class="w"> </span>net
 </pre></div>
 </div>
 <p>W3C 的 Web Platform Tests ：</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># 全部的 WPT</span>
-./mach test-wpt
+./mach<span class="w"> </span>test-wpt
 
 <span class="c1"># XMLHttpRequest 內的 WPT</span>
-./mach test-wpt tests/wpt/web-platform-tests/XMLHttpRequest/
+./mach<span class="w"> </span>test-wpt<span class="w"> </span>tests/wpt/web-platform-tests/XMLHttpRequest/
 
 <span class="c1"># 單一一個 WPT</span>
-./mach test-wpt tests/wpt/web-platform-tests/XMLHttpRequest/formdata-foreach.html
+./mach<span class="w"> </span>test-wpt<span class="w"> </span>tests/wpt/web-platform-tests/XMLHttpRequest/formdata-foreach.html
 </pre></div>
 </div>
 <p>要加入新的 WPT 需要更改 <code class="docutils literal notranslate"><span class="pre">tests/wpt/metadata/MANIFEST.json</span></code> ，
@@ -974,28 +904,28 @@ tar Jcvf servo-prebuilt.tar.xz servo-prebuilt/
 例如： <code class="docutils literal notranslate"><span class="pre">tests/wpt/metadata/XMLHttpRequest/formdata-foreach.ini</span></code> ，
 內容範例：</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[formdata-foreach.html]</span>
-  <span class="na">type: testharness</span>
-  <span class="k">[Iterator should return duplicate keys and non-deleted values]</span>
-    <span class="na">expected: FAIL</span>
+<span class="w">  </span><span class="na">type</span><span class="o">:</span><span class="w"> </span><span class="s">testharness</span>
+<span class="w">  </span><span class="k">[Iterator should return duplicate keys and non-deleted values]</span>
+<span class="w">    </span><span class="na">expected</span><span class="o">:</span><span class="w"> </span><span class="s">FAIL</span>
 
-  <span class="k">[Entries iterator should return duplicate keys and non-deleted values]</span>
-    <span class="na">expected: FAIL</span>
+<span class="w">  </span><span class="k">[Entries iterator should return duplicate keys and non-deleted values]</span>
+<span class="w">    </span><span class="na">expected</span><span class="o">:</span><span class="w"> </span><span class="s">FAIL</span>
 
-  <span class="k">[Keys iterator should return duplicates]</span>
-    <span class="na">expected: FAIL</span>
+<span class="w">  </span><span class="k">[Keys iterator should return duplicates]</span>
+<span class="w">    </span><span class="na">expected</span><span class="o">:</span><span class="w"> </span><span class="s">FAIL</span>
 
-  <span class="k">[Values iterator should return non-deleted values]</span>
-    <span class="na">expected: FAIL</span>
+<span class="w">  </span><span class="k">[Values iterator should return non-deleted values]</span>
+<span class="w">    </span><span class="na">expected</span><span class="o">:</span><span class="w"> </span><span class="s">FAIL</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id6">
-<h2><a class="toc-backref" href="#id16">架構</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="id6">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">架構</a><a class="headerlink" href="#id6" title="Permalink to this heading"></a></h2>
 <p>瀏覽器提供給 JavaScript 使用的 methods 會用 <code class="docutils literal notranslate"><span class="pre">WebIDL</span></code> 定義，
 Servo 中視放在 <code class="docutils literal notranslate"><span class="pre">components/script/dom/webidls/</span></code> 內，
 裡面的 <code class="docutils literal notranslate"><span class="pre">WebIDL</span></code> 幾乎都來自 W3C 的規範。</p>
-<div class="section" id="dom-document-object-model">
-<h3><a class="toc-backref" href="#id17">DOM (Document Object Model)</a><a class="headerlink" href="#dom-document-object-model" title="本標題的永久連結">¶</a></h3>
+<section id="dom-document-object-model">
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">DOM (Document Object Model)</a><a class="headerlink" href="#dom-document-object-model" title="Permalink to this heading"></a></h3>
 <p>DOM 是由 WebIDL 定義成的界面，
 在 Servo 中以 Rust struct 的方式實做。</p>
 <p>Servo 的 DOM 會含有兩個不同但相關連的資料：</p>
@@ -1010,19 +940,19 @@ Servo 中視放在 <code class="docutils literal notranslate"><span class="pre">
 <li><p><code class="docutils literal notranslate"><span class="pre">trace</span></code> 實做</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Trusted</span></code> smart pointer</p></li>
 </ul>
-</div>
-<div class="section" id="webgl">
-<h3><a class="toc-backref" href="#id18">WebGL</a><a class="headerlink" href="#webgl" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="webgl">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">WebGL</a><a class="headerlink" href="#webgl" title="Permalink to this heading"></a></h3>
 <p>資料</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/servo/servo/issues/10209">Fully implement WebGL 1.0</a></p></li>
 <li><p>WebGL 1.0 spec</p></li>
 <li><p>GLES 2.0 spec</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="bots">
-<h2><a class="toc-backref" href="#id19">Bots</a><a class="headerlink" href="#bots" title="本標題的永久連結">¶</a></h2>
+</section>
+</section>
+<section id="bots">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">Bots</a><a class="headerlink" href="#bots" title="Permalink to this heading"></a></h2>
 <p>Servo 無論在 GitHub 還是在 IRC 上都有使用機器人，
 以下是相關列表：</p>
 <ul class="simple">
@@ -1053,55 +983,51 @@ Servo 中視放在 <code class="docutils literal notranslate"><span class="pre">
 </dl>
 </li>
 </ul>
-</div>
-<div class="section" id="id7">
-<h2><a class="toc-backref" href="#id20">參考</a><a class="headerlink" href="#id7" title="本標題的永久連結">¶</a></h2>
-<div class="section" id="id8">
-<h3><a class="toc-backref" href="#id21">官方資料</a><a class="headerlink" href="#id8" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="id7">
+<h2><a class="toc-backref" href="#id20" role="doc-backlink">參考</a><a class="headerlink" href="#id7" title="Permalink to this heading"></a></h2>
+<section id="id8">
+<h3><a class="toc-backref" href="#id21" role="doc-backlink">官方資料</a><a class="headerlink" href="#id8" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/servo/servo/blob/master/docs/HACKING_QUICKSTART.md#hacking-servo---quickstart">Hacking Servo - Quickstart</a></p></li>
 <li><p><a class="reference external" href="https://github.com/servo/servo/blob/master/docs/ORGANIZATION.md">Servo’s directory structure</a></p></li>
 <li><p><a class="reference external" href="https://starters.servo.org/">Servo Starters - a list of easy tasks that are good for beginners to rust or servo</a></p></li>
 <li><p>[2015] <a class="reference external" href="https://arxiv.org/abs/1505.07383">Experience Report: Developing the Servo Web Browser Engine using Rust</a></p></li>
 </ul>
-</div>
-<div class="section" id="id9">
-<h3><a class="toc-backref" href="#id22">其他</a><a class="headerlink" href="#id9" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="id9">
+<h3><a class="toc-backref" href="#id22" role="doc-backlink">其他</a><a class="headerlink" href="#id9" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.facebook.com/groups/608787195932135/">Servo 中文開發者社群</a></p></li>
 </ul>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>
-           
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016
-
-    </p>
+    <p>&#169; Copyright 2023.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
   
 
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       <span class="fa fa-book"> Read the Docs</span>
       v: latest
@@ -1111,7 +1037,7 @@ Servo 中視放在 <code class="docutils literal notranslate"><span class="pre">
       <dl>
         <dt>Versions</dt>
         
-          <dd><a href="/zh_TW/latest/">latest</a></dd>
+          <dd><a href="https://wdv4758h.github.io/notes/">latest</a></dd>
         
       </dl>
       <dl>
@@ -1121,6 +1047,7 @@ Servo 中視放在 <code class="docutils literal notranslate"><span class="pre">
         
       </dl>
       <dl>
+        
         <dt>On Read the Docs</dt>
           <dd>
             <a href="//readthedocs.org/projects/wdv4758h-notes/?fromdocs=wdv4758h-notes">Project Home</a>
@@ -1129,22 +1056,13 @@ Servo 中視放在 <code class="docutils literal notranslate"><span class="pre">
             <a href="//readthedocs.org/builds/wdv4758h-notes/?fromdocs=wdv4758h-notes">Builds</a>
           </dd>
       </dl>
-      <hr/>
-      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
-
     </div>
   </div>
-
-
-
-  <script type="text/javascript">
+<script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-   
+  </script> 
 
 </body>
 </html>

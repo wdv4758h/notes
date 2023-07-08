@@ -1,114 +1,75 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-TW" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-TW" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>ch 14-1 - functional programming &mdash; wdv4758h-notes latest 說明文件</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ch 14-1 - functional programming &mdash; wdv4758h-notes latest documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="搜尋" href="../search.html" />
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="ch 2-5 Duck Typing" href="pythoner-read-ruby-book-2.html" />
     <link rel="prev" title="Introduction" href="python-celery.html" /> 
 
 <!-- RTD Extra Head -->
 
-<!-- 
-Always link to the latest version, as canonical.
-http://docs.readthedocs.org/en/latest/canonical.html
--->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/blog/pythoner-read-ruby-book-1.html" />
+    <!--
+    Always link to the latest version, as canonical.
+    http://docs.readthedocs.org/en/latest/canonical.html
+    -->
+    <link rel="canonical" href="https://wdv4758h-notes.readthedocs.io/zh_TW/latest/blog/pythoner-read-ruby-book-1.html" />
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": "", "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": "https://wdv4758h-notes.readthedocs.io/zh_TW/latest/", "docroot": "/./", "features": {"docsearch_disabled": false}, "global_analytics_code": "", "language": "en", "page": "blog/pythoner-read-ruby-book-1", "programming_language": "", "project": "wdv4758h-notes", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": ""}</script>
 
-<!-- Add page-specific data, which must exist in the page js, not global -->
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = "blog/pythoner-read-ruby-book-1"
-READTHEDOCS_DATA['source_suffix'] = ".rst"
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
 </script>
 
-<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js" async="async"></script>
 
 <!-- end RTD <extrahead> -->
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../index.html" class="icon icon-home"> wdv4758h-notes
           
-
-          
+          <a href="../index.html" class="icon icon-home">
+            wdv4758h-notes
           </a>
-
-          
-            
-            
-            
               <div class="version">
                 latest
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/README.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/adt.html">ADT (Abstract Data Type)</a></li>
@@ -118,13 +79,18 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/cache.html">Cache</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/cache-friendly.html">Cache Friendly Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/dict.html">Dict</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/float-to-string.html">Float to String</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/heap.html">Heap （堆）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/introduction.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/inverse-square-root.html">Inverse Square Root</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/lock.html">Lock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/meta-algorithm.html">Meta Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/random-number-generator.html">Random Number Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/resource.html">演算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/sorting.html">Sorting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/string-to-float.html">String to Float</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/substring-searching.html">Substring Searching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/README.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/android-emulator.html">Android Emulator</a></li>
@@ -200,7 +166,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="openmp.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pypy-brainfuck.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pypy-brainfuck.html#tutorial">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pypy-brainfuck.html#id5">額外紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pypy-brainfuck.html#id4">額外紀錄</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pypy-brainfuck.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python-benchmark.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python-benchmark.html#hello-world">Hello World</a></li>
@@ -240,7 +206,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="qemu-first-step.html#qemu-with-kvm">QEMU with KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust-closure.html">Syntax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust-closure.html#closure">Closure 和外部變數</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rust-closure.html#move-closures">「move」 closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rust-closure.html#move-closures">“move” closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust-closure.html#closure-implementation">Closure implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust-closure.html#closures-as-arguments">closures as arguments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust-closure.html#returning-closures">returning closures</a></li>
@@ -421,6 +387,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/ci.html">Continuous Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/concourse.html">Concourse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/drone.html">Drone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../continuous-integration/github-actions.html">Github Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/jenkins.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/travis-ci.html">Travis CI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/workflow-pipeline.html">Workflow Pipeline</a></li>
@@ -430,7 +397,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../cpp/array.html">std::array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/assembly.html">C++ &amp; Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/bit-field.html">C++ Bit Field</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cpp/c++17.html">C++17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/c%2B%2B17.html">C++17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/concepts.html">C++ Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/const.html">C++ const</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/copy-elision.html">Copy Elision</a></li>
@@ -483,13 +450,16 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../database/README.html">資料庫 (Database)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/cockroachdb.html">CockroachDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/consensus-algorithm.html">Raft Consensus Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/graph.html">Graph Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/leveldb.html">LevelDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/materialized-views.html">Materialized Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mongodb.html">MongoDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/rocksdb.html">RocksDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sql.html">SQL (Structured Query Language)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/tidb.html">TiDB</a></li>
@@ -562,7 +532,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/math-on-web.html">Math on Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/misc.html">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../memory/W^X.html">W^X (Write XOR Execute)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../memory/W%5EX.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/kernel-memory-management.html">Kernel Memory Management</a></li>
@@ -820,77 +790,37 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../wiki/resource.html">Wiki</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">wdv4758h-notes</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-      <li>ch 14-1 - functional programming</li>
-    
-    
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ch 14-1 - functional programming</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/wdv4758h/notes/blob/master/./blog/pythoner-read-ruby-book-1.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <p>這邊是讀了書上內容的節錄和獨後自己查的資料</p>
 <p>目前心得 : 可以看到一些觀念，但是有些例子就 … (尤其是少部份有提到 Python 的)</p>
-<div class="section" id="ch-14-1-functional-programming">
-<h1>ch 14-1 - functional programming<a class="headerlink" href="#ch-14-1-functional-programming" title="本標題的永久連結">¶</a></h1>
+<section id="ch-14-1-functional-programming">
+<h1>ch 14-1 - functional programming<a class="headerlink" href="#ch-14-1-functional-programming" title="Permalink to this heading"></a></h1>
 <p>是的沒錯，我第一個翻的章節是 chapter 14 …</p>
 <p>Fortran 設計者為 John Backus (John Backus 還發明了 BNF)，
-其在 1997 年 Turing Award 上發表的語言 「FP」 被認為是 Functional Programming 的起點</p>
+其在 1997 年 Turing Award 上發表的語言 “FP” 被認為是 Functional Programming 的起點</p>
 <p>Feature:</p>
 <ul class="simple">
 <li><p>Higher-order function</p></li>
@@ -902,8 +832,8 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </dl>
 </li>
 </ul>
-<div class="section" id="lisp">
-<h2>Lisp<a class="headerlink" href="#lisp" title="本標題的永久連結">¶</a></h2>
+<section id="lisp">
+<h2>Lisp<a class="headerlink" href="#lisp" title="Permalink to this heading"></a></h2>
 <p>Lisp 的基礎是 Alonzo Church 提的 lambda calculus，也支援 Higher-order function</p>
 <p>Lisp 具有一些 functional 的特性，但不是純粹的 functional</p>
 <p>Lisp 最大的特色是 S-expression</p>
@@ -914,10 +844,6 @@ cons 是從建立新 cell 的 function : cons (construct) 而來，
 構成 list 的資料成為 atom (symbol or number)</p>
 <p>cons cell:</p>
 <table class="table table-bordered docutils align-default">
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p>car</p></td>
 <td><p>cdr</p></td>
@@ -925,9 +851,9 @@ cons 是從建立新 cell 的 function : cons (construct) 而來，
 </tbody>
 </table>
 <p>Lisp 的 list 底下結構是 singly linked-list</p>
-</div>
-<div class="section" id="haskell">
-<h2>Haskell<a class="headerlink" href="#haskell" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="haskell">
+<h2>Haskell<a class="headerlink" href="#haskell" title="Permalink to this heading"></a></h2>
 <p>Haskell Curry 的 Combinatory logic 和 Alonzo Church 的 lambda calculus 幾乎相同的東西</p>
 <p>Haskell feature:</p>
 <ul class="simple">
@@ -941,9 +867,9 @@ cons 是從建立新 cell 的 function : cons (construct) 而來，
 </ul>
 <p>Haskell 有靜態多型的型別系統和 type inference，可以在接近 duck typing 的情況下，
 在編譯時完成 type checking</p>
-</div>
-<div class="section" id="ocaml">
-<h2>OCaml<a class="headerlink" href="#ocaml" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="ocaml">
+<h2>OCaml<a class="headerlink" href="#ocaml" title="Permalink to this heading"></a></h2>
 <p>OCaml 歷史比 Haskell 早，誕生於法國</p>
 <p>和 Haskell 相比有些不同:</p>
 <ul class="simple">
@@ -952,15 +878,15 @@ cons 是從建立新 cell 的 function : cons (construct) 而來，
 <li><p>module system</p></li>
 </ul>
 <p>OCaml 想要 lazy evaluation 時可以明確標示</p>
-</div>
-<div class="section" id="erlang">
-<h2>Erlang<a class="headerlink" href="#erlang" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="erlang">
+<h2>Erlang<a class="headerlink" href="#erlang" title="Permalink to this heading"></a></h2>
 <p>Erlang 是為了平行處理而設計的，設計受到 Prolog 影響</p>
 <p>dynamic type, no lazy evaluation</p>
 <p>以 actor 理論為基礎</p>
-</div>
-<div class="section" id="ruby">
-<h2>Ruby<a class="headerlink" href="#ruby" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="ruby">
+<h2>Ruby<a class="headerlink" href="#ruby" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Block</p></li>
 <li><p>Proc object</p></li>
@@ -968,26 +894,26 @@ cons 是從建立新 cell 的 function : cons (construct) 而來，
 <li><p>enumerator</p></li>
 <li><p><a class="reference external" href="http://awaxman11.github.io/blog/2013/08/05/what-is-the-difference-between-a-block/">What Is the Difference Between a Block, a Proc, and a Lambda in Ruby?</a></p></li>
 </ul>
-<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">].</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">x</span><span class="o">*</span><span class="mi">2</span> <span class="p">}</span>
+<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">].</span><span class="n">each</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">|</span><span class="n">x</span><span class="o">|</span><span class="w"> </span><span class="nb">puts</span><span class="w"> </span><span class="n">x</span><span class="o">*</span><span class="mi">2</span><span class="w"> </span><span class="p">}</span>
 
-<span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">].</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span>
-    <span class="nb">puts</span> <span class="n">x</span><span class="o">*</span><span class="mi">2</span>         <span class="c1"># block is everything between the do and end</span>
+<span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">].</span><span class="n">each</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">x</span><span class="o">|</span>
+<span class="w">    </span><span class="nb">puts</span><span class="w"> </span><span class="n">x</span><span class="o">*</span><span class="mi">2</span><span class="w">         </span><span class="c1"># block is everything between the do and end</span>
 <span class="k">end</span>
 
-<span class="n">lam</span> <span class="o">=</span> <span class="nb">lambda</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">x</span><span class="o">*</span><span class="mi">2</span> <span class="p">}</span>
+<span class="n">lam</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">lambda</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">|</span><span class="n">x</span><span class="o">|</span><span class="w"> </span><span class="nb">puts</span><span class="w"> </span><span class="n">x</span><span class="o">*</span><span class="mi">2</span><span class="w"> </span><span class="p">}</span>
 <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">].</span><span class="n">each</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lam</span><span class="p">)</span>
 
-<span class="nb">p</span> <span class="o">=</span> <span class="no">Proc</span><span class="o">.</span><span class="n">new</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">x</span><span class="o">*</span><span class="mi">2</span> <span class="p">}</span>
-<span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">].</span><span class="n">each</span><span class="p">(</span><span class="o">&amp;</span><span class="nb">p</span><span class="p">)</span>     <span class="c1"># The &#39;&amp;&#39; tells ruby to turn the proc into a block</span>
+<span class="nb">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Proc</span><span class="o">.</span><span class="n">new</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">|</span><span class="n">x</span><span class="o">|</span><span class="w"> </span><span class="nb">puts</span><span class="w"> </span><span class="n">x</span><span class="o">*</span><span class="mi">2</span><span class="w"> </span><span class="p">}</span>
+<span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">].</span><span class="n">each</span><span class="p">(</span><span class="o">&amp;</span><span class="nb">p</span><span class="p">)</span><span class="w">     </span><span class="c1"># The &#39;&amp;&#39; tells ruby to turn the proc into a block</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="ch-14-2-code-generation">
-<h2>ch 14-2 Code Generation<a class="headerlink" href="#ch-14-2-code-generation" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="ch-14-2-code-generation">
+<h2>ch 14-2 Code Generation<a class="headerlink" href="#ch-14-2-code-generation" title="Permalink to this heading"></a></h2>
 <p>nothing</p>
-</div>
-<div class="section" id="ch-14-3-memory-management">
-<h2>ch 14-3 Memory Management<a class="headerlink" href="#ch-14-3-memory-management" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="ch-14-3-memory-management">
+<h2>ch 14-3 Memory Management<a class="headerlink" href="#ch-14-3-memory-management" title="Permalink to this heading"></a></h2>
 <p>因為一些概念之前有看過了，所以這邊算是複習和加強 XD</p>
 <p>Garbage Collection 的誕生是在 1960 年代，
 起因於 Lisp 需要產生大量 cons cell object，不能明確管理各個 object</p>
@@ -1003,8 +929,8 @@ cons 是從建立新 cell 的 function : cons (construct) 而來，
 </dl>
 </li>
 </ul>
-<div class="section" id="no-gc">
-<h3>no GC<a class="headerlink" href="#no-gc" title="本標題的永久連結">¶</a></h3>
+<section id="no-gc">
+<h3>no GC<a class="headerlink" href="#no-gc" title="Permalink to this heading"></a></h3>
 <p>例如 C 或 C++，programmer 自己管理 memory，自己 malloc/free、new/delete</p>
 <p>programmer 沒把程式寫好會造成:</p>
 <ul class="simple">
@@ -1013,15 +939,10 @@ cons 是從建立新 cell 的 function : cons (construct) 而來，
 <li><p>double free</p></li>
 </ul>
 <p>要檢查這些問題可以使用 valgrind</p>
-</div>
-<div class="section" id="gc-algorithm">
-<h3>GC algorithm<a class="headerlink" href="#gc-algorithm" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="gc-algorithm">
+<h3>GC algorithm<a class="headerlink" href="#gc-algorithm" title="Permalink to this heading"></a></h3>
 <table class="table table-bordered docutils align-default">
-<colgroup>
-<col style="width: 18%" />
-<col style="width: 50%" />
-<col style="width: 31%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Algorithm</p></th>
 <th class="head"><p>Description</p></th>
@@ -1063,10 +984,6 @@ cons 是從建立新 cell 的 function : cons (construct) 而來，
 </tbody>
 </table>
 <table class="table table-bordered docutils align-default">
-<colgroup>
-<col style="width: 15%" />
-<col style="width: 85%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Algorithm</p></th>
 <th class="head"><p>Description</p></th>
@@ -1080,8 +997,8 @@ cons 是從建立新 cell 的 function : cons (construct) 而來，
 </tr>
 <tr class="row-odd"><td><p>Conservative</p></td>
 <td><p>在 C 這種本來沒有 GC 的語言，compile 後就沒有區分 integer 和 pointer 的資訊，
-因為 CPU 不需要，這時可以使用 Conservative 實作，概念是 「碰到 address 相同時，
-代表可能被引用，視為存活」</p>
+因為 CPU 不需要，這時可以使用 Conservative 實作，概念是 “碰到 address 相同時，
+代表可能被引用，視為存活”</p>
 <p>(heap 會整個被掃過)</p>
 </td>
 </tr>
@@ -1099,55 +1016,45 @@ Bitmap Marking 就是用來降低複製 page 的次數，不時直接對 object 
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-</div>
-<div class="section" id="ch-14-4-ruby-with-c">
-<h1>ch 14-4 Ruby with C<a class="headerlink" href="#ch-14-4-ruby-with-c" title="本標題的永久連結">¶</a></h1>
+</section>
+</section>
+</section>
+<section id="ch-14-4-ruby-with-c">
+<h1>ch 14-4 Ruby with C<a class="headerlink" href="#ch-14-4-ruby-with-c" title="Permalink to this heading"></a></h1>
 <p>介紹 Ruby 如何和 C 一起用</p>
-</div>
-<div class="section" id="ch-14-5-open-source">
-<h1>ch 14-5 Open Source<a class="headerlink" href="#ch-14-5-open-source" title="本標題的永久連結">¶</a></h1>
+</section>
+<section id="ch-14-5-open-source">
+<h1>ch 14-5 Open Source<a class="headerlink" href="#ch-14-5-open-source" title="Permalink to this heading"></a></h1>
 <p>Open Source 發展簡史</p>
-</div>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="pythoner-read-ruby-book-2.html" class="btn btn-neutral float-right" title="ch 2-5 Duck Typing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="python-celery.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="python-celery.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pythoner-read-ruby-book-2.html" class="btn btn-neutral float-right" title="ch 2-5 Duck Typing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016
-
-    </p>
+    <p>&#169; Copyright 2023.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
   
 
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       <span class="fa fa-book"> Read the Docs</span>
       v: latest
@@ -1157,7 +1064,7 @@ Bitmap Marking 就是用來降低複製 page 的次數，不時直接對 object 
       <dl>
         <dt>Versions</dt>
         
-          <dd><a href="/zh_TW/latest/">latest</a></dd>
+          <dd><a href="https://wdv4758h.github.io/notes/">latest</a></dd>
         
       </dl>
       <dl>
@@ -1167,6 +1074,7 @@ Bitmap Marking 就是用來降低複製 page 的次數，不時直接對 object 
         
       </dl>
       <dl>
+        
         <dt>On Read the Docs</dt>
           <dd>
             <a href="//readthedocs.org/projects/wdv4758h-notes/?fromdocs=wdv4758h-notes">Project Home</a>
@@ -1175,22 +1083,13 @@ Bitmap Marking 就是用來降低複製 page 的次數，不時直接對 object 
             <a href="//readthedocs.org/builds/wdv4758h-notes/?fromdocs=wdv4758h-notes">Builds</a>
           </dd>
       </dl>
-      <hr/>
-      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
-
     </div>
   </div>
-
-
-
-  <script type="text/javascript">
+<script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-   
+  </script> 
 
 </body>
 </html>

@@ -1,112 +1,73 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-TW" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-TW" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>OpenCL (Open Computing Language) &mdash; wdv4758h-notes latest 說明文件</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OpenCL (Open Computing Language) &mdash; wdv4758h-notes latest documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/translations.js"></script>
-        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="index" title="索引" href="../../genindex.html" />
-    <link rel="search" title="搜尋" href="../../search.html" /> 
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
 
 <!-- RTD Extra Head -->
 
-<!-- 
-Always link to the latest version, as canonical.
-http://docs.readthedocs.org/en/latest/canonical.html
--->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/gpgpu/opencl/README.html" />
+    <!--
+    Always link to the latest version, as canonical.
+    http://docs.readthedocs.org/en/latest/canonical.html
+    -->
+    <link rel="canonical" href="https://wdv4758h-notes.readthedocs.io/zh_TW/latest/gpgpu/opencl/README.html" />
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../../_static/readthedocs-data.js"></script>
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": "", "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": "https://wdv4758h-notes.readthedocs.io/zh_TW/latest/", "docroot": "/./", "features": {"docsearch_disabled": false}, "global_analytics_code": "", "language": "en", "page": "gpgpu/opencl/README", "programming_language": "", "project": "wdv4758h-notes", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": ""}</script>
 
-<!-- Add page-specific data, which must exist in the page js, not global -->
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = "gpgpu/opencl/README"
-READTHEDOCS_DATA['source_suffix'] = ".rst"
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
 </script>
 
-<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js" async="async"></script>
 
 <!-- end RTD <extrahead> -->
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../index.html" class="icon icon-home"> wdv4758h-notes
           
-
-          
+          <a href="../../index.html" class="icon icon-home">
+            wdv4758h-notes
           </a>
-
-          
-            
-            
-            
               <div class="version">
                 latest
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/README.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/adt.html">ADT (Abstract Data Type)</a></li>
@@ -116,13 +77,18 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/cache.html">Cache</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/cache-friendly.html">Cache Friendly Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/dict.html">Dict</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/float-to-string.html">Float to String</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/heap.html">Heap （堆）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/introduction.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/inverse-square-root.html">Inverse Square Root</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/lock.html">Lock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/meta-algorithm.html">Meta Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/random-number-generator.html">Random Number Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/resource.html">演算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/sorting.html">Sorting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/string-to-float.html">String to Float</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/substring-searching.html">Substring Searching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../android/README.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../android/android-emulator.html">Android Emulator</a></li>
@@ -198,7 +164,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../blog/openmp.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/pypy-brainfuck.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/pypy-brainfuck.html#tutorial">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../blog/pypy-brainfuck.html#id5">額外紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../blog/pypy-brainfuck.html#id4">額外紀錄</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/pypy-brainfuck.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/python-benchmark.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/python-benchmark.html#hello-world">Hello World</a></li>
@@ -225,7 +191,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../blog/qemu-first-step.html#qemu-with-kvm">QEMU with KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html">Syntax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#closure">Closure 和外部變數</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#move-closures">「move」 closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#move-closures">“move” closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#closure-implementation">Closure implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#closures-as-arguments">closures as arguments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#returning-closures">returning closures</a></li>
@@ -406,6 +372,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/ci.html">Continuous Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/concourse.html">Concourse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/drone.html">Drone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/github-actions.html">Github Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/jenkins.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/travis-ci.html">Travis CI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/workflow-pipeline.html">Workflow Pipeline</a></li>
@@ -415,7 +382,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/array.html">std::array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/assembly.html">C++ &amp; Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/bit-field.html">C++ Bit Field</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../cpp/c++17.html">C++17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/c%2B%2B17.html">C++17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/concepts.html">C++ Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/const.html">C++ const</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/copy-elision.html">Copy Elision</a></li>
@@ -468,13 +435,16 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../database/README.html">資料庫 (Database)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/cockroachdb.html">CockroachDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/consensus-algorithm.html">Raft Consensus Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../database/graph.html">Graph Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/leveldb.html">LevelDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../database/materialized-views.html">Materialized Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/mongodb.html">MongoDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../database/rocksdb.html">RocksDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/sql.html">SQL (Structured Query Language)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/tidb.html">TiDB</a></li>
@@ -547,7 +517,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../math/math-on-web.html">Math on Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../math/misc.html">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../memory/W^X.html">W^X (Write XOR Execute)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../memory/W%5EX.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../memory/allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../memory/kernel-memory-management.html">Kernel Memory Management</a></li>
@@ -805,74 +775,34 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../wiki/resource.html">Wiki</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">wdv4758h-notes</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
-      <li>OpenCL (Open Computing Language)</li>
-    
-    
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">OpenCL (Open Computing Language)</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/wdv4758h/notes/blob/master/./gpgpu/opencl/README.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="opencl-open-computing-language">
-<h1><a class="toc-backref" href="#id10">OpenCL (Open Computing Language)</a><a class="headerlink" href="#opencl-open-computing-language" title="本標題的永久連結">¶</a></h1>
-<div class="contents topic" id="id1">
-<p class="topic-title first">目錄</p>
+             
+  <section id="opencl-open-computing-language">
+<h1><a class="toc-backref" href="#id10" role="doc-backlink">OpenCL (Open Computing Language)</a><a class="headerlink" href="#opencl-open-computing-language" title="Permalink to this heading"></a></h1>
+<nav class="contents" id="id1">
+<p class="topic-title">目錄</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#opencl-open-computing-language" id="id10">OpenCL (Open Computing Language)</a></p>
 <ul>
@@ -919,11 +849,11 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="installation">
-<h2><a class="toc-backref" href="#id11">Installation</a><a class="headerlink" href="#installation" title="本標題的永久連結">¶</a></h2>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo pacman -S opencl-nvidia  <span class="c1"># NVIDIA</span>
-$ sudo pacman -S beignet        <span class="c1"># Intel</span>
+</nav>
+<section id="installation">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Installation</a><a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>opencl-nvidia<span class="w">  </span><span class="c1"># NVIDIA</span>
+$<span class="w"> </span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>beignet<span class="w">        </span><span class="c1"># Intel</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -932,16 +862,16 @@ $ sudo pacman -S beignet        <span class="c1"># Intel</span>
 <li><p>NVIDIA GPU</p></li>
 <li><p>ARM</p></li>
 </ul>
-</div>
-<div class="section" id="id2">
-<h2><a class="toc-backref" href="#id12">概念學習</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
-<div class="section" id="heterogeneous-parallel-computing">
-<h3><a class="toc-backref" href="#id13">異質運算 (Heterogeneous Parallel Computing)</a><a class="headerlink" href="#heterogeneous-parallel-computing" title="本標題的永久連結">¶</a></h3>
-</div>
-<div class="section" id="opencl">
-<h3><a class="toc-backref" href="#id14">OpenCL 概念</a><a class="headerlink" href="#opencl" title="本標題的永久連結">¶</a></h3>
-<div class="section" id="id3">
-<h4><a class="toc-backref" href="#id15">基本介紹</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h4>
+</section>
+<section id="id2">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">概念學習</a><a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
+<section id="heterogeneous-parallel-computing">
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">異質運算 (Heterogeneous Parallel Computing)</a><a class="headerlink" href="#heterogeneous-parallel-computing" title="Permalink to this heading"></a></h3>
+</section>
+<section id="opencl">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">OpenCL 概念</a><a class="headerlink" href="#opencl" title="Permalink to this heading"></a></h3>
+<section id="id3">
+<h4><a class="toc-backref" href="#id15" role="doc-backlink">基本介紹</a><a class="headerlink" href="#id3" title="Permalink to this heading"></a></h4>
 <p>現今的運算平台通常都具有多種運算元件，
 可能是多個 CPU、GPU、DSP、加速器等等，
 OpenCL 的目標是提供一個統一且方便的方式來撰寫程式以善用這些資源。</p>
@@ -965,12 +895,12 @@ loader 實做理論上也可以用在其他平台，
 但是這些 loader 通常不是最新的，
 因此可以使用 <code class="docutils literal notranslate"><span class="pre">ocl-icd</span></code> 來負責這塊。</p>
 <p>檢查目前機器上已經可以使用的 OpenCL 實做（相關套件已經裝了）：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ls /etc/OpenCL/vendors
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls<span class="w"> </span>/etc/OpenCL/vendors
 </pre></div>
 </div>
 <p>要知道更多詳細的資訊可以安裝 <code class="docutils literal notranslate"><span class="pre">clinfo</span></code> ：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo pacman -S clinfo
-$ clinfo
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>clinfo
+$<span class="w"> </span>clinfo
 </pre></div>
 </div>
 <p>OpenCL 平台模型：</p>
@@ -990,9 +920,9 @@ $ clinfo
 一個 Compute Unit 擁有 n 個 Processing Element。
 另外每個 GPU 都各自視為 OpenCL Device，
 可以利用 OpenCL 來 concurrent 地控制 CPU 和 GPU。</p>
-</div>
-<div class="section" id="platform-info">
-<h4><a class="toc-backref" href="#id16">Platform Info</a><a class="headerlink" href="#platform-info" title="本標題的永久連結">¶</a></h4>
+</section>
+<section id="platform-info">
+<h4><a class="toc-backref" href="#id16" role="doc-backlink">Platform Info</a><a class="headerlink" href="#platform-info" title="Permalink to this heading"></a></h4>
 <p>C:</p>
 <p>C++:</p>
 <p>Python:</p>
@@ -1007,13 +937,13 @@ $ clinfo
 
 
 <span class="k">def</span> <span class="nf">get_platform_info</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get OpenCL platform info.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">platforms</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">get_platforms</span><span class="p">()</span>
     <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Number of platform: {len(platforms)}&#39;</span><span class="p">)</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Number of platform: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">platforms</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
     <span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;│  &#39;</span>
     <span class="n">prefix_head</span> <span class="o">=</span> <span class="s1">&#39;├──&#39;</span>
     <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">platform</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">platforms</span><span class="p">):</span>
@@ -1022,10 +952,10 @@ $ clinfo
             <span class="n">prefix_head</span> <span class="o">=</span> <span class="s1">&#39;└──&#39;</span>
         <span class="n">devices</span> <span class="o">=</span> <span class="n">platform</span><span class="o">.</span><span class="n">get_devices</span><span class="p">()</span>
         <span class="n">result</span><span class="o">.</span><span class="n">extend</span><span class="p">((</span>
-            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{prefix_head}</span><span class="s1">Platform: </span><span class="si">{platform.name}</span><span class="s1">&#39;</span><span class="p">,</span>
-            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{prefix}</span><span class="s1">Vendor: </span><span class="si">{platform.vendor}</span><span class="s1">&#39;</span><span class="p">,</span>
-            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{prefix}</span><span class="s1">Version: </span><span class="si">{platform.version}</span><span class="s1">&#39;</span><span class="p">,</span>
-            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{prefix}</span><span class="s1">Number of devices: {len(devices)}&#39;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">prefix_head</span><span class="si">}</span><span class="s1">Platform: </span><span class="si">{</span><span class="n">platform</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s1">Vendor: </span><span class="si">{</span><span class="n">platform</span><span class="o">.</span><span class="n">vendor</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s1">Version: </span><span class="si">{</span><span class="n">platform</span><span class="o">.</span><span class="n">version</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s1">Number of devices: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">devices</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
         <span class="p">))</span>
         <span class="n">subprefix</span> <span class="o">=</span> <span class="n">prefix</span> <span class="o">+</span> <span class="s1">&#39;│  &#39;</span>
         <span class="n">subprefix_head</span> <span class="o">=</span> <span class="n">prefix</span> <span class="o">+</span> <span class="s1">&#39;├──&#39;</span>
@@ -1034,14 +964,14 @@ $ clinfo
                 <span class="n">subprefix</span> <span class="o">=</span> <span class="n">prefix</span> <span class="o">+</span> <span class="s1">&#39;   &#39;</span>
                 <span class="n">subprefix_head</span> <span class="o">=</span> <span class="n">prefix</span> <span class="o">+</span> <span class="s1">&#39;└──&#39;</span>
             <span class="n">result</span><span class="o">.</span><span class="n">extend</span><span class="p">((</span>
-                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{subprefix_head}</span><span class="s1">Name: </span><span class="si">{device.name}</span><span class="s1">&#39;</span><span class="p">,</span>
-                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{subprefix}</span><span class="s1">Version: </span><span class="si">{device.opencl_c_version}</span><span class="s1">&#39;</span><span class="p">,</span>
-                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{subprefix}</span><span class="s1">Max Compute Units: </span><span class="si">{device.max_compute_units}</span><span class="s1">&#39;</span><span class="p">,</span>
-                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{subprefix}</span><span class="s1">Local Memory Size: {device.local_mem_size/1024} KB&#39;</span><span class="p">,</span>
-                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{subprefix}</span><span class="s1">Global Memory Size: {device.global_mem_size/(1024*1024)} MB&#39;</span><span class="p">,</span>
-                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{subprefix}</span><span class="s1">Max Alloc Size: {device.max_mem_alloc_size/(1024*1024)} MB&#39;</span><span class="p">,</span>
-                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{subprefix}</span><span class="s1">Max Work-group Total Size: </span><span class="si">{device.max_work_group_size}</span><span class="s1">&#39;</span><span class="p">,</span>
-                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{subprefix}</span><span class="s1">Max Work-group Dims: </span><span class="si">{device.max_work_item_sizes}</span><span class="s1">&#39;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">subprefix_head</span><span class="si">}</span><span class="s1">Name: </span><span class="si">{</span><span class="n">device</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">subprefix</span><span class="si">}</span><span class="s1">Version: </span><span class="si">{</span><span class="n">device</span><span class="o">.</span><span class="n">opencl_c_version</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">subprefix</span><span class="si">}</span><span class="s1">Max Compute Units: </span><span class="si">{</span><span class="n">device</span><span class="o">.</span><span class="n">max_compute_units</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">subprefix</span><span class="si">}</span><span class="s1">Local Memory Size: </span><span class="si">{</span><span class="n">device</span><span class="o">.</span><span class="n">local_mem_size</span><span class="o">/</span><span class="mi">1024</span><span class="si">}</span><span class="s1"> KB&#39;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">subprefix</span><span class="si">}</span><span class="s1">Global Memory Size: </span><span class="si">{</span><span class="n">device</span><span class="o">.</span><span class="n">global_mem_size</span><span class="o">/</span><span class="p">(</span><span class="mi">1024</span><span class="o">*</span><span class="mi">1024</span><span class="p">)</span><span class="si">}</span><span class="s1"> MB&#39;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">subprefix</span><span class="si">}</span><span class="s1">Max Alloc Size: </span><span class="si">{</span><span class="n">device</span><span class="o">.</span><span class="n">max_mem_alloc_size</span><span class="o">/</span><span class="p">(</span><span class="mi">1024</span><span class="o">*</span><span class="mi">1024</span><span class="p">)</span><span class="si">}</span><span class="s1"> MB&#39;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">subprefix</span><span class="si">}</span><span class="s1">Max Work-group Total Size: </span><span class="si">{</span><span class="n">device</span><span class="o">.</span><span class="n">max_work_group_size</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">subprefix</span><span class="si">}</span><span class="s1">Max Work-group Dims: </span><span class="si">{</span><span class="n">device</span><span class="o">.</span><span class="n">max_work_item_sizes</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
             <span class="p">))</span>
     <span class="k">return</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 
@@ -1050,34 +980,34 @@ $ clinfo
     <span class="nb">print</span><span class="p">(</span><span class="n">get_platform_info</span><span class="p">())</span>
 </pre></div>
 </div>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ python cl-platform-info.py
-Number of platform: <span class="m">1</span>
-└──Platform: Intel Gen OCL Driver
-   Vendor: Intel
-   Version: OpenCL <span class="m">2</span>.0 beignet <span class="m">1</span>.3
-   Number of devices: <span class="m">1</span>
-   └──Name: Intel<span class="o">(</span>R<span class="o">)</span> HD Graphics Skylake ULT GT2
-      Version: OpenCL C <span class="m">2</span>.0 beignet <span class="m">1</span>.3
-      Max Compute Units: <span class="m">24</span>
-      Local Memory Size: <span class="m">64</span>.0 KB
-      Global Memory Size: <span class="m">3959</span>.0 MB
-      Max Alloc Size: <span class="m">2969</span>.0 MB
-      Max Work-group Total Size: <span class="m">512</span>
-      Max Work-group Dims: <span class="o">[</span><span class="m">512</span>, <span class="m">512</span>, <span class="m">512</span><span class="o">]</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python<span class="w"> </span>cl-platform-info.py
+Number<span class="w"> </span>of<span class="w"> </span>platform:<span class="w"> </span><span class="m">1</span>
+└──Platform:<span class="w"> </span>Intel<span class="w"> </span>Gen<span class="w"> </span>OCL<span class="w"> </span>Driver
+<span class="w">   </span>Vendor:<span class="w"> </span>Intel
+<span class="w">   </span>Version:<span class="w"> </span>OpenCL<span class="w"> </span><span class="m">2</span>.0<span class="w"> </span>beignet<span class="w"> </span><span class="m">1</span>.3
+<span class="w">   </span>Number<span class="w"> </span>of<span class="w"> </span>devices:<span class="w"> </span><span class="m">1</span>
+<span class="w">   </span>└──Name:<span class="w"> </span>Intel<span class="o">(</span>R<span class="o">)</span><span class="w"> </span>HD<span class="w"> </span>Graphics<span class="w"> </span>Skylake<span class="w"> </span>ULT<span class="w"> </span>GT2
+<span class="w">      </span>Version:<span class="w"> </span>OpenCL<span class="w"> </span>C<span class="w"> </span><span class="m">2</span>.0<span class="w"> </span>beignet<span class="w"> </span><span class="m">1</span>.3
+<span class="w">      </span>Max<span class="w"> </span>Compute<span class="w"> </span>Units:<span class="w"> </span><span class="m">24</span>
+<span class="w">      </span>Local<span class="w"> </span>Memory<span class="w"> </span>Size:<span class="w"> </span><span class="m">64</span>.0<span class="w"> </span>KB
+<span class="w">      </span>Global<span class="w"> </span>Memory<span class="w"> </span>Size:<span class="w"> </span><span class="m">3959</span>.0<span class="w"> </span>MB
+<span class="w">      </span>Max<span class="w"> </span>Alloc<span class="w"> </span>Size:<span class="w"> </span><span class="m">2969</span>.0<span class="w"> </span>MB
+<span class="w">      </span>Max<span class="w"> </span>Work-group<span class="w"> </span>Total<span class="w"> </span>Size:<span class="w"> </span><span class="m">512</span>
+<span class="w">      </span>Max<span class="w"> </span>Work-group<span class="w"> </span>Dims:<span class="w"> </span><span class="o">[</span><span class="m">512</span>,<span class="w"> </span><span class="m">512</span>,<span class="w"> </span><span class="m">512</span><span class="o">]</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id4">
-<h4><a class="toc-backref" href="#id17">改寫</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h4>
+</section>
+<section id="id4">
+<h4><a class="toc-backref" href="#id17" role="doc-backlink">改寫</a><a class="headerlink" href="#id4" title="Permalink to this heading"></a></h4>
 <p>假設原本有這樣的 C 程式：</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">mul</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span> <span class="n">length</span><span class="p">,</span>
-         <span class="k">const</span> <span class="kt">float</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span>
-         <span class="k">const</span> <span class="kt">float</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
-         <span class="kt">float</span> <span class="o">*</span><span class="n">c</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-    <span class="p">}</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">mul</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">length</span><span class="p">,</span>
+<span class="w">         </span><span class="k">const</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="p">,</span>
+<span class="w">         </span><span class="k">const</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">b</span><span class="p">,</span>
+<span class="w">         </span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -1105,59 +1035,59 @@ __kernel void mul(__global const float *a,
 <li><p>Offline Compilation: OpenCL kernel 在執行前就編譯好，執行期間直接使用編譯好的 kernel</p></li>
 </ul>
 <p>Online Compilation:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ clang -lOpenCL main-online.c
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>clang<span class="w"> </span>-lOpenCL<span class="w"> </span>main-online.c
 </pre></div>
 </div>
 <p>Offline Compilation:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># 會生出 SPIR (Standard Portable Intermediate Representation)</span>
-$ clang -include clc/clc.h -std<span class="o">=</span>cl2.0 -S -emit-llvm -target nvptx64-nvidia-nvcl kernel.cl
-$ llvm-link /usr/lib/clc/nvptx64--nvidiacl.bc kernel.ll -o kernel.linked.bc
-$ clang -target nvptx64-nvidia-nvcl kernel.linked.bc -S -o kernel.nvptx.s
-$ clang -lOpenCL main-offline.c
+$<span class="w"> </span>clang<span class="w"> </span>-include<span class="w"> </span>clc/clc.h<span class="w"> </span>-std<span class="o">=</span>cl2.0<span class="w"> </span>-S<span class="w"> </span>-emit-llvm<span class="w"> </span>-target<span class="w"> </span>nvptx64-nvidia-nvcl<span class="w"> </span>kernel.cl
+$<span class="w"> </span>llvm-link<span class="w"> </span>/usr/lib/clc/nvptx64--nvidiacl.bc<span class="w"> </span>kernel.ll<span class="w"> </span>-o<span class="w"> </span>kernel.linked.bc
+$<span class="w"> </span>clang<span class="w"> </span>-target<span class="w"> </span>nvptx64-nvidia-nvcl<span class="w"> </span>kernel.linked.bc<span class="w"> </span>-S<span class="w"> </span>-o<span class="w"> </span>kernel.nvptx.s
+$<span class="w"> </span>clang<span class="w"> </span>-lOpenCL<span class="w"> </span>main-offline.c
 </pre></div>
 </div>
 <p>稍微把 Offline Compilation 的變動地方抽出來：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">export</span> <span class="nv">TARGET</span><span class="o">=</span><span class="s2">&quot;nvptx64-nvidia-nvcl&quot;</span>
-$ <span class="nb">export</span> <span class="nv">TARGET_BIT_CODE</span><span class="o">=</span><span class="s2">&quot;/usr/lib/clc/nvptx64--nvidiacl.bc&quot;</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">TARGET</span><span class="o">=</span><span class="s2">&quot;nvptx64-nvidia-nvcl&quot;</span>
+$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">TARGET_BIT_CODE</span><span class="o">=</span><span class="s2">&quot;/usr/lib/clc/nvptx64--nvidiacl.bc&quot;</span>
 <span class="c1"># 會生出 SPIR (Standard Portable Intermediate Representation)</span>
-$ clang -include clc/clc.h -std<span class="o">=</span>cl2.0 -S -emit-llvm -target <span class="nv">$TARGET</span> kernel.cl
-$ llvm-link <span class="nv">$TARGET_BIT_CODE</span> kernel.ll -o kernel.linked.bc
-$ clang -target <span class="nv">$TARGET</span> kernel.linked.bc -S -o kernel.s
-$ clang -lOpenCL main-offline.c
+$<span class="w"> </span>clang<span class="w"> </span>-include<span class="w"> </span>clc/clc.h<span class="w"> </span>-std<span class="o">=</span>cl2.0<span class="w"> </span>-S<span class="w"> </span>-emit-llvm<span class="w"> </span>-target<span class="w"> </span><span class="nv">$TARGET</span><span class="w"> </span>kernel.cl
+$<span class="w"> </span>llvm-link<span class="w"> </span><span class="nv">$TARGET_BIT_CODE</span><span class="w"> </span>kernel.ll<span class="w"> </span>-o<span class="w"> </span>kernel.linked.bc
+$<span class="w"> </span>clang<span class="w"> </span>-target<span class="w"> </span><span class="nv">$TARGET</span><span class="w"> </span>kernel.linked.bc<span class="w"> </span>-S<span class="w"> </span>-o<span class="w"> </span>kernel.s
+$<span class="w"> </span>clang<span class="w"> </span>-lOpenCL<span class="w"> </span>main-offline.c
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="id5">
-<h3><a class="toc-backref" href="#id18">同步</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h3>
-</div>
-</div>
-<div class="section" id="id6">
-<h2><a class="toc-backref" href="#id19">OpenCL 演進</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h2>
-<div class="section" id="opencl-1-0">
-<h3><a class="toc-backref" href="#id20">OpenCL 1.0</a><a class="headerlink" href="#opencl-1-0" title="本標題的永久連結">¶</a></h3>
-</div>
-<div class="section" id="opencl-1-1">
-<h3><a class="toc-backref" href="#id21">OpenCL 1.1</a><a class="headerlink" href="#opencl-1-1" title="本標題的永久連結">¶</a></h3>
-</div>
-<div class="section" id="opencl-1-2">
-<h3><a class="toc-backref" href="#id22">OpenCL 1.2</a><a class="headerlink" href="#opencl-1-2" title="本標題的永久連結">¶</a></h3>
-</div>
-<div class="section" id="opencl-2-0">
-<h3><a class="toc-backref" href="#id23">OpenCL 2.0</a><a class="headerlink" href="#opencl-2-0" title="本標題的永久連結">¶</a></h3>
+</section>
+</section>
+<section id="id5">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">同步</a><a class="headerlink" href="#id5" title="Permalink to this heading"></a></h3>
+</section>
+</section>
+<section id="id6">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">OpenCL 演進</a><a class="headerlink" href="#id6" title="Permalink to this heading"></a></h2>
+<section id="opencl-1-0">
+<h3><a class="toc-backref" href="#id20" role="doc-backlink">OpenCL 1.0</a><a class="headerlink" href="#opencl-1-0" title="Permalink to this heading"></a></h3>
+</section>
+<section id="opencl-1-1">
+<h3><a class="toc-backref" href="#id21" role="doc-backlink">OpenCL 1.1</a><a class="headerlink" href="#opencl-1-1" title="Permalink to this heading"></a></h3>
+</section>
+<section id="opencl-1-2">
+<h3><a class="toc-backref" href="#id22" role="doc-backlink">OpenCL 1.2</a><a class="headerlink" href="#opencl-1-2" title="Permalink to this heading"></a></h3>
+</section>
+<section id="opencl-2-0">
+<h3><a class="toc-backref" href="#id23" role="doc-backlink">OpenCL 2.0</a><a class="headerlink" href="#opencl-2-0" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="http://developer.amd.com/community/blog/2014/11/17/opencl-2-0-device-enqueue/">OpenCL™ 2.0: Device Enqueue and Workgroup Built-in Functions</a></p></li>
 </ul>
-</div>
-<div class="section" id="opencl-2-1">
-<h3><a class="toc-backref" href="#id24">OpenCL 2.1</a><a class="headerlink" href="#opencl-2-1" title="本標題的永久連結">¶</a></h3>
-</div>
-<div class="section" id="opencl-2-2">
-<h3><a class="toc-backref" href="#id25">OpenCL 2.2</a><a class="headerlink" href="#opencl-2-2" title="本標題的永久連結">¶</a></h3>
-</div>
-</div>
-<div class="section" id="open-source">
-<h2><a class="toc-backref" href="#id26">Open Source 實做</a><a class="headerlink" href="#open-source" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="opencl-2-1">
+<h3><a class="toc-backref" href="#id24" role="doc-backlink">OpenCL 2.1</a><a class="headerlink" href="#opencl-2-1" title="Permalink to this heading"></a></h3>
+</section>
+<section id="opencl-2-2">
+<h3><a class="toc-backref" href="#id25" role="doc-backlink">OpenCL 2.2</a><a class="headerlink" href="#opencl-2-2" title="Permalink to this heading"></a></h3>
+</section>
+</section>
+<section id="open-source">
+<h2><a class="toc-backref" href="#id26" role="doc-backlink">Open Source 實做</a><a class="headerlink" href="#open-source" title="Permalink to this heading"></a></h2>
 <p>OpenCL 定義的是 C/C++ API 用於撰寫程式，
 要怎麼實做是另外一回事。
 目前的 Open Source 實做幾乎都是用 Clang 作為編譯器，
@@ -1170,34 +1100,34 @@ $ clang -lOpenCL main-offline.c
 轉換成 LLVM 支援的平台。</p>
 <p>libclc 則提供 OpenCL 需要的一些 Standard Library 函式，
 這是 Clover 和 pocl 都沒有完全支援的。</p>
-<div class="section" id="libclc">
-<h3><a class="toc-backref" href="#id27">libclc</a><a class="headerlink" href="#libclc" title="本標題的永久連結">¶</a></h3>
+<section id="libclc">
+<h3><a class="toc-backref" href="#id27" role="doc-backlink">libclc</a><a class="headerlink" href="#libclc" title="Permalink to this heading"></a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">Site</dt>
+<dt class="field-odd">Site<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://libclc.llvm.org/">https://libclc.llvm.org/</a></p>
 </dd>
-<dt class="field-even">Repo</dt>
+<dt class="field-even">Repo<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://github.com/llvm-mirror/libclc">https://github.com/llvm-mirror/libclc</a></p>
 </dd>
 </dl>
 <p>libclc 是 LLVM 中對 OpenCL 語言的實做，
 以 Clang 作為前端做處理，
 目前支援 AMDGCN 和 NVPTX。</p>
-</div>
-<div class="section" id="pocl">
-<h3><a class="toc-backref" href="#id28">pocl</a><a class="headerlink" href="#pocl" title="本標題的永久連結">¶</a></h3>
-</div>
-<div class="section" id="clover">
-<h3><a class="toc-backref" href="#id29">Clover</a><a class="headerlink" href="#clover" title="本標題的永久連結">¶</a></h3>
-</div>
-</div>
-<div class="section" id="cuda-to-opencl">
-<h2><a class="toc-backref" href="#id30">CUDA to OpenCL</a><a class="headerlink" href="#cuda-to-opencl" title="本標題的永久連結">¶</a></h2>
-</div>
-<div class="section" id="id7">
-<h2><a class="toc-backref" href="#id31">參考</a><a class="headerlink" href="#id7" title="本標題的永久連結">¶</a></h2>
-<div class="section" id="general">
-<h3><a class="toc-backref" href="#id32">General</a><a class="headerlink" href="#general" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="pocl">
+<h3><a class="toc-backref" href="#id28" role="doc-backlink">pocl</a><a class="headerlink" href="#pocl" title="Permalink to this heading"></a></h3>
+</section>
+<section id="clover">
+<h3><a class="toc-backref" href="#id29" role="doc-backlink">Clover</a><a class="headerlink" href="#clover" title="Permalink to this heading"></a></h3>
+</section>
+</section>
+<section id="cuda-to-opencl">
+<h2><a class="toc-backref" href="#id30" role="doc-backlink">CUDA to OpenCL</a><a class="headerlink" href="#cuda-to-opencl" title="Permalink to this heading"></a></h2>
+</section>
+<section id="id7">
+<h2><a class="toc-backref" href="#id31" role="doc-backlink">參考</a><a class="headerlink" href="#id7" title="Permalink to this heading"></a></h2>
+<section id="general">
+<h3><a class="toc-backref" href="#id32" role="doc-backlink">General</a><a class="headerlink" href="#general" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/OpenCL">Wikipedia - OpenCL</a></p></li>
 <li><p><a class="reference external" href="https://www.khronos.org/opencl/resources/opencl-applications-using-opencl">Khronos - OpenCL Resources</a></p></li>
@@ -1220,59 +1150,55 @@ $ clang -lOpenCL main-offline.c
 <li><p><a class="reference external" href="https://wiki.archlinux.org/index.php/GPGPU">Arch Wiki - GPGPU</a></p></li>
 <li><p><a class="reference external" href="https://rocm.github.io/">ROCm - Platform for GPU-Enabled HPC and Ultrascale Computing</a></p></li>
 </ul>
-</div>
-<div class="section" id="intel">
-<h3><a class="toc-backref" href="#id33">Intel</a><a class="headerlink" href="#intel" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="intel">
+<h3><a class="toc-backref" href="#id33" role="doc-backlink">Intel</a><a class="headerlink" href="#intel" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://software.intel.com/en-us/intel-opencl">Intel SDK for OpenCL™ Applications</a></p></li>
 <li><p><a class="reference external" href="https://www.altera.com/products/design-software/embedded-software-developers/opencl/overview.html">Intel FPGA SDK for OpenCL</a></p></li>
 </ul>
-</div>
-<div class="section" id="llvm">
-<h3><a class="toc-backref" href="#id34">LLVM</a><a class="headerlink" href="#llvm" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="llvm">
+<h3><a class="toc-backref" href="#id34" role="doc-backlink">LLVM</a><a class="headerlink" href="#llvm" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/llvm-mirror/llvm/blob/master/include/llvm/ADT/Triple.h">LLVM - include/llvm/ADT/Triple.h</a></p></li>
 </ul>
-</div>
-<div class="section" id="tutorial">
-<h3><a class="toc-backref" href="#id35">Tutorial</a><a class="headerlink" href="#tutorial" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="tutorial">
+<h3><a class="toc-backref" href="#id35" role="doc-backlink">Tutorial</a><a class="headerlink" href="#tutorial" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://handsonopencl.github.io/">Hands On OpenCL</a></p></li>
 <li><p><a class="reference external" href="https://anteru.net/2012/11/03/2009/">Getting started with OpenCL, Part #1</a></p></li>
 <li><p><a class="reference external" href="http://enja.org/2010/07/13/adventures-in-opencl-part-1-getting-started/">Adventures in OpenCL: Part 1, Getting Started</a></p></li>
 </ul>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>
-           
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016
-
-    </p>
+    <p>&#169; Copyright 2023.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
   
 
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       <span class="fa fa-book"> Read the Docs</span>
       v: latest
@@ -1282,7 +1208,7 @@ $ clang -lOpenCL main-offline.c
       <dl>
         <dt>Versions</dt>
         
-          <dd><a href="/zh_TW/latest/">latest</a></dd>
+          <dd><a href="https://wdv4758h.github.io/notes/">latest</a></dd>
         
       </dl>
       <dl>
@@ -1292,6 +1218,7 @@ $ clang -lOpenCL main-offline.c
         
       </dl>
       <dl>
+        
         <dt>On Read the Docs</dt>
           <dd>
             <a href="//readthedocs.org/projects/wdv4758h-notes/?fromdocs=wdv4758h-notes">Project Home</a>
@@ -1300,22 +1227,13 @@ $ clang -lOpenCL main-offline.c
             <a href="//readthedocs.org/builds/wdv4758h-notes/?fromdocs=wdv4758h-notes">Builds</a>
           </dd>
       </dl>
-      <hr/>
-      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
-
     </div>
   </div>
-
-
-
-  <script type="text/javascript">
+<script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-   
+  </script> 
 
 </body>
 </html>

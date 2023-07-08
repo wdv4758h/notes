@@ -1,114 +1,75 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-TW" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-TW" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>BusyBox - 人人都該備一個在身邊的執行檔 &mdash; wdv4758h-notes latest 說明文件</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BusyBox - 人人都該備一個在身邊的執行檔 &mdash; wdv4758h-notes latest documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="搜尋" href="../search.html" />
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="晶片讀卡機" href="card-reader.html" />
     <link rel="prev" title="Basic System Utils" href="basic-system-utils.html" /> 
 
 <!-- RTD Extra Head -->
 
-<!-- 
-Always link to the latest version, as canonical.
-http://docs.readthedocs.org/en/latest/canonical.html
--->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/cli-tui/busybox.html" />
+    <!--
+    Always link to the latest version, as canonical.
+    http://docs.readthedocs.org/en/latest/canonical.html
+    -->
+    <link rel="canonical" href="https://wdv4758h-notes.readthedocs.io/zh_TW/latest/cli-tui/busybox.html" />
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": "", "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": "https://wdv4758h-notes.readthedocs.io/zh_TW/latest/", "docroot": "/./", "features": {"docsearch_disabled": false}, "global_analytics_code": "", "language": "en", "page": "cli-tui/busybox", "programming_language": "", "project": "wdv4758h-notes", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": ""}</script>
 
-<!-- Add page-specific data, which must exist in the page js, not global -->
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = "cli-tui/busybox"
-READTHEDOCS_DATA['source_suffix'] = ".rst"
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
 </script>
 
-<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js" async="async"></script>
 
 <!-- end RTD <extrahead> -->
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../index.html" class="icon icon-home"> wdv4758h-notes
           
-
-          
+          <a href="../index.html" class="icon icon-home">
+            wdv4758h-notes
           </a>
-
-          
-            
-            
-            
               <div class="version">
                 latest
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/README.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/adt.html">ADT (Abstract Data Type)</a></li>
@@ -118,13 +79,18 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/cache.html">Cache</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/cache-friendly.html">Cache Friendly Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/dict.html">Dict</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/float-to-string.html">Float to String</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/heap.html">Heap （堆）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/introduction.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/inverse-square-root.html">Inverse Square Root</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/lock.html">Lock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/meta-algorithm.html">Meta Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/random-number-generator.html">Random Number Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/resource.html">演算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/sorting.html">Sorting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/string-to-float.html">String to Float</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/substring-searching.html">Substring Searching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/README.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/android-emulator.html">Android Emulator</a></li>
@@ -200,7 +166,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../blog/openmp.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#tutorial">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#id5">額外紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#id4">額外紀錄</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/python-benchmark.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/python-benchmark.html#hello-world">Hello World</a></li>
@@ -227,7 +193,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../blog/qemu-first-step.html#qemu-with-kvm">QEMU with KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html">Syntax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closure">Closure 和外部變數</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#move-closures">「move」 closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#move-closures">“move” closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closure-implementation">Closure implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closures-as-arguments">closures as arguments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#returning-closures">returning closures</a></li>
@@ -414,6 +380,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/ci.html">Continuous Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/concourse.html">Concourse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/drone.html">Drone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../continuous-integration/github-actions.html">Github Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/jenkins.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/travis-ci.html">Travis CI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/workflow-pipeline.html">Workflow Pipeline</a></li>
@@ -423,7 +390,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../cpp/array.html">std::array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/assembly.html">C++ &amp; Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/bit-field.html">C++ Bit Field</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cpp/c++17.html">C++17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/c%2B%2B17.html">C++17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/concepts.html">C++ Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/const.html">C++ const</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/copy-elision.html">Copy Elision</a></li>
@@ -476,13 +443,16 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../database/README.html">資料庫 (Database)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/cockroachdb.html">CockroachDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/consensus-algorithm.html">Raft Consensus Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/graph.html">Graph Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/leveldb.html">LevelDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/materialized-views.html">Materialized Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mongodb.html">MongoDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/rocksdb.html">RocksDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sql.html">SQL (Structured Query Language)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/tidb.html">TiDB</a></li>
@@ -555,7 +525,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/math-on-web.html">Math on Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/misc.html">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../memory/W^X.html">W^X (Write XOR Execute)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../memory/W%5EX.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/kernel-memory-management.html">Kernel Memory Management</a></li>
@@ -813,74 +783,34 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../wiki/resource.html">Wiki</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">wdv4758h-notes</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-      <li>BusyBox - 人人都該備一個在身邊的執行檔</li>
-    
-    
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">BusyBox - 人人都該備一個在身邊的執行檔</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/wdv4758h/notes/blob/master/./cli-tui/busybox.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="busybox">
-<h1><a class="toc-backref" href="#id3">BusyBox - 人人都該備一個在身邊的執行檔</a><a class="headerlink" href="#busybox" title="本標題的永久連結">¶</a></h1>
-<div class="contents topic" id="id1">
-<p class="topic-title first">目錄</p>
+             
+  <section id="busybox">
+<h1><a class="toc-backref" href="#id3" role="doc-backlink">BusyBox - 人人都該備一個在身邊的執行檔</a><a class="headerlink" href="#busybox" title="Permalink to this heading"></a></h1>
+<nav class="contents" id="id1">
+<p class="topic-title">目錄</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#busybox" id="id3">BusyBox - 人人都該備一個在身邊的執行檔</a></p>
 <ul>
@@ -891,9 +821,9 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="introduction">
-<h2><a class="toc-backref" href="#id4">Introduction</a><a class="headerlink" href="#introduction" title="本標題的永久連結">¶</a></h2>
+</nav>
+<section id="introduction">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
 <p>BusyBox 這專案首次釋出於 1999 年 11 月 4 日，
 目標是要為嵌入式環境提供一個迷你、單一的靜態連結執行檔，
 程式撰寫的時候也一直會考量到資源的限制，
@@ -916,90 +846,90 @@ Multicall Binary 指的是一個 binary 檔同時包含好幾隻不同的程式�
 <span class="n">lrwxrwxrwx</span> <span class="mi">1</span> <span class="n">root</span> <span class="n">root</span>      <span class="mi">7</span> <span class="n">Aug</span>  <span class="mi">9</span> <span class="mi">13</span><span class="p">:</span><span class="mi">20</span> <span class="n">pwd</span> <span class="o">-&gt;</span> <span class="n">busybox</span><span class="o">*</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id2">
-<h2><a class="toc-backref" href="#id5">安裝 &amp; 使用</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo pacman -S busybox
-resolving dependencies...
-looking <span class="k">for</span> conflicting packages...
+</section>
+<section id="id2">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">安裝 &amp; 使用</a><a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>busybox
+resolving<span class="w"> </span>dependencies...
+looking<span class="w"> </span><span class="k">for</span><span class="w"> </span>conflicting<span class="w"> </span>packages...
 
-Package <span class="o">(</span><span class="m">1</span><span class="o">)</span>        New Version  Net Change
+Package<span class="w"> </span><span class="o">(</span><span class="m">1</span><span class="o">)</span><span class="w">        </span>New<span class="w"> </span>Version<span class="w">  </span>Net<span class="w"> </span>Change
 
-community/busybox  <span class="m">1</span>.23.2-1       <span class="m">0</span>.90 MiB
+community/busybox<span class="w">  </span><span class="m">1</span>.23.2-1<span class="w">       </span><span class="m">0</span>.90<span class="w"> </span>MiB
 
-Total Installed Size:  <span class="m">0</span>.90 MiB
+Total<span class="w"> </span>Installed<span class="w"> </span>Size:<span class="w">  </span><span class="m">0</span>.90<span class="w"> </span>MiB
 
-:: Proceed with installation? <span class="o">[</span>Y/n<span class="o">]</span>
-<span class="o">(</span><span class="m">1</span>/1<span class="o">)</span> checking keys in keyring                       <span class="o">[</span><span class="c1">##########################################] 100%</span>
-<span class="o">(</span><span class="m">1</span>/1<span class="o">)</span> checking package integrity                     <span class="o">[</span><span class="c1">##########################################] 100%</span>
-<span class="o">(</span><span class="m">1</span>/1<span class="o">)</span> loading package files                          <span class="o">[</span><span class="c1">##########################################] 100%</span>
-<span class="o">(</span><span class="m">1</span>/1<span class="o">)</span> checking <span class="k">for</span> file conflicts                    <span class="o">[</span><span class="c1">##########################################] 100%</span>
-<span class="o">(</span><span class="m">1</span>/1<span class="o">)</span> checking available disk space                  <span class="o">[</span><span class="c1">##########################################] 100%</span>
-<span class="o">(</span><span class="m">1</span>/1<span class="o">)</span> installing busybox                             <span class="o">[</span><span class="c1">##########################################] 100%</span>
-You may want to <span class="k">do</span> setuid on /usr/bin/busybox
-chmod <span class="m">4555</span> /usr/bin/busybox
-$ pacman -Ql busybox
-busybox /usr/
-busybox /usr/bin/
-busybox /usr/bin/busybox
-$ ls -l /usr/bin/busybox
--rwxr-xr-x <span class="m">1</span> root root <span class="m">931664</span> Mar <span class="m">23</span> <span class="m">17</span>:43 /usr/bin/busybox
-$ file /usr/bin/busybox
-/usr/bin/busybox: ELF <span class="m">64</span>-bit LSB executable, x86-64, version <span class="m">1</span> <span class="o">(</span>SYSV<span class="o">)</span>, statically linked, stripped
+::<span class="w"> </span>Proceed<span class="w"> </span>with<span class="w"> </span>installation?<span class="w"> </span><span class="o">[</span>Y/n<span class="o">]</span>
+<span class="o">(</span><span class="m">1</span>/1<span class="o">)</span><span class="w"> </span>checking<span class="w"> </span>keys<span class="w"> </span><span class="k">in</span><span class="w"> </span>keyring<span class="w">                       </span><span class="o">[</span><span class="c1">##########################################] 100%</span>
+<span class="o">(</span><span class="m">1</span>/1<span class="o">)</span><span class="w"> </span>checking<span class="w"> </span>package<span class="w"> </span>integrity<span class="w">                     </span><span class="o">[</span><span class="c1">##########################################] 100%</span>
+<span class="o">(</span><span class="m">1</span>/1<span class="o">)</span><span class="w"> </span>loading<span class="w"> </span>package<span class="w"> </span>files<span class="w">                          </span><span class="o">[</span><span class="c1">##########################################] 100%</span>
+<span class="o">(</span><span class="m">1</span>/1<span class="o">)</span><span class="w"> </span>checking<span class="w"> </span><span class="k">for</span><span class="w"> </span>file<span class="w"> </span>conflicts<span class="w">                    </span><span class="o">[</span><span class="c1">##########################################] 100%</span>
+<span class="o">(</span><span class="m">1</span>/1<span class="o">)</span><span class="w"> </span>checking<span class="w"> </span>available<span class="w"> </span>disk<span class="w"> </span>space<span class="w">                  </span><span class="o">[</span><span class="c1">##########################################] 100%</span>
+<span class="o">(</span><span class="m">1</span>/1<span class="o">)</span><span class="w"> </span>installing<span class="w"> </span>busybox<span class="w">                             </span><span class="o">[</span><span class="c1">##########################################] 100%</span>
+You<span class="w"> </span>may<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span><span class="k">do</span><span class="w"> </span>setuid<span class="w"> </span>on<span class="w"> </span>/usr/bin/busybox
+chmod<span class="w"> </span><span class="m">4555</span><span class="w"> </span>/usr/bin/busybox
+$<span class="w"> </span>pacman<span class="w"> </span>-Ql<span class="w"> </span>busybox
+busybox<span class="w"> </span>/usr/
+busybox<span class="w"> </span>/usr/bin/
+busybox<span class="w"> </span>/usr/bin/busybox
+$<span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span>/usr/bin/busybox
+-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">931664</span><span class="w"> </span>Mar<span class="w"> </span><span class="m">23</span><span class="w"> </span><span class="m">17</span>:43<span class="w"> </span>/usr/bin/busybox
+$<span class="w"> </span>file<span class="w"> </span>/usr/bin/busybox
+/usr/bin/busybox:<span class="w"> </span>ELF<span class="w"> </span><span class="m">64</span>-bit<span class="w"> </span>LSB<span class="w"> </span>executable,<span class="w"> </span>x86-64,<span class="w"> </span>version<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>SYSV<span class="o">)</span>,<span class="w"> </span>statically<span class="w"> </span>linked,<span class="w"> </span>stripped
 </pre></div>
 </div>
 <p>裝起來就這麼個執行檔，靜態連結，沒有其他 dependency，
 總共 931664 bytes (不到 1 MB)，
 裡面卻包含了眾多系統常見的基本功能：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ busybox
-BusyBox v1.23.2 <span class="o">(</span><span class="m">2015</span>-03-23 <span class="m">12</span>:42:42 MSK<span class="o">)</span> multi-call binary.
-BusyBox is copyrighted by many authors between <span class="m">1998</span>-2012.
-Licensed under GPLv2. See <span class="nb">source</span> distribution <span class="k">for</span> detailed
-copyright notices.
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>busybox
+BusyBox<span class="w"> </span>v1.23.2<span class="w"> </span><span class="o">(</span><span class="m">2015</span>-03-23<span class="w"> </span><span class="m">12</span>:42:42<span class="w"> </span>MSK<span class="o">)</span><span class="w"> </span>multi-call<span class="w"> </span>binary.
+BusyBox<span class="w"> </span>is<span class="w"> </span>copyrighted<span class="w"> </span>by<span class="w"> </span>many<span class="w"> </span>authors<span class="w"> </span>between<span class="w"> </span><span class="m">1998</span>-2012.
+Licensed<span class="w"> </span>under<span class="w"> </span>GPLv2.<span class="w"> </span>See<span class="w"> </span><span class="nb">source</span><span class="w"> </span>distribution<span class="w"> </span><span class="k">for</span><span class="w"> </span>detailed
+copyright<span class="w"> </span>notices.
 
-Usage: busybox <span class="o">[</span><span class="k">function</span> <span class="o">[</span>arguments<span class="o">]</span>...<span class="o">]</span>
-or: busybox --list<span class="o">[</span>-full<span class="o">]</span>
-or: busybox --install <span class="o">[</span>-s<span class="o">]</span> <span class="o">[</span>DIR<span class="o">]</span>
-or: <span class="k">function</span> <span class="o">[</span>arguments<span class="o">]</span>...
+Usage:<span class="w"> </span>busybox<span class="w"> </span><span class="o">[</span><span class="k">function</span><span class="w"> </span><span class="o">[</span>arguments<span class="o">]</span>...<span class="o">]</span>
+or:<span class="w"> </span>busybox<span class="w"> </span>--list<span class="o">[</span>-full<span class="o">]</span>
+or:<span class="w"> </span>busybox<span class="w"> </span>--install<span class="w"> </span><span class="o">[</span>-s<span class="o">]</span><span class="w"> </span><span class="o">[</span>DIR<span class="o">]</span>
+or:<span class="w"> </span><span class="k">function</span><span class="w"> </span><span class="o">[</span>arguments<span class="o">]</span>...
 
-    BusyBox is a multi-call binary that combines many common Unix
-    utilities into a single executable.  Most people will create a
-    link to busybox <span class="k">for</span> each <span class="k">function</span> they wish to use and BusyBox
-    will act like whatever it was invoked as.
+<span class="w">    </span>BusyBox<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>multi-call<span class="w"> </span>binary<span class="w"> </span>that<span class="w"> </span>combines<span class="w"> </span>many<span class="w"> </span>common<span class="w"> </span>Unix
+<span class="w">    </span>utilities<span class="w"> </span>into<span class="w"> </span>a<span class="w"> </span>single<span class="w"> </span>executable.<span class="w">  </span>Most<span class="w"> </span>people<span class="w"> </span>will<span class="w"> </span>create<span class="w"> </span>a
+<span class="w">    </span>link<span class="w"> </span>to<span class="w"> </span>busybox<span class="w"> </span><span class="k">for</span><span class="w"> </span>each<span class="w"> </span><span class="k">function</span><span class="w"> </span>they<span class="w"> </span>wish<span class="w"> </span>to<span class="w"> </span>use<span class="w"> </span>and<span class="w"> </span>BusyBox
+<span class="w">    </span>will<span class="w"> </span>act<span class="w"> </span>like<span class="w"> </span>whatever<span class="w"> </span>it<span class="w"> </span>was<span class="w"> </span>invoked<span class="w"> </span>as.
 
-Currently defined functions:
-    <span class="o">[</span>, <span class="o">[[</span>, acpid, addgroup, adduser, adjtimex, ar, arp, arping, ash, awk, base64, basename,
-    bbconfig, beep, blkid, blockdev, bootchartd, brctl, bunzip2, bzcat, bzip2, cal, cat, catv,
-    chat, chattr, chgrp, chmod, chown, chpasswd, chpst, chroot, chrt, chvt, cksum, clear, cmp,
-    comm, cp, cpio, crond, crontab, cryptpw, cttyhack, cut, date, dc, dd, deallocvt, delgroup,
-    deluser, depmod, df, dhcprelay, diff, dirname, dmesg, dnsd, dnsdomainname, dos2unix, du,
-    dumpkmap, dumpleases, echo, ed, egrep, eject, env, envdir, envuidgid, ether-wake, expand,
-    expr, fakeidentd, false, fatattr, fbset, fbsplash, fdflush, fdformat, fdisk, fgconsole,
-    fgrep, find, findfs, flock, fold, free, freeramdisk, fsck, fsck.minix, fstrim, fsync,
-    ftpd, ftpget, ftpput, fuser, getopt, getty, grep, groups, gunzip, gzip, halt, hd, hdparm,
-    head, hexdump, hostid, hostname, httpd, hwclock, id, ifconfig, ifdown, ifenslave, ifplugd,
-    ifup, inetd, init, inotifyd, insmod, install, ionice, iostat, ip, ipaddr, ipcalc, ipcrm,
-    ipcs, iplink, iproute, iprule, iptunnel, kbd_mode, kill, killall, killall5, klogd, last,
-    less, linux32, linux64, linuxrc, ln, loadfont, loadkmap, logger, login, logname, logread,
-    losetup, lpd, lpq, lpr, ls, lsattr, lsmod, lsof, lspci, lsusb, lzcat, lzma, makedevs,
-    makemime, man, md5sum, mdev, mesg, microcom, mkdir, mkdosfs, mke2fs, mkfifo, mkfs.ext2,
-    mkfs.minix, mkfs.vfat, mknod, mkpasswd, mkswap, mktemp, modinfo, modprobe, more, mount,
-    mountpoint, mpstat, mt, mv, nameif, nbd-client, nc, netstat, nice, nmeter, nohup,
-    nslookup, ntpd, od, openvt, passwd, patch, pgrep, pidof, ping, ping6, pipe_progress,
-    pivot_root, pkill, pmap, popmaildir, poweroff, powertop, printenv, printf, ps, pscan,
-    pstree, pwd, pwdx, raidautorun, rdate, rdev, readahead, readlink, readprofile, realpath,
-    reboot, reformime, renice, reset, resize, rev, rfkill, rm, rmdir, rmmod, route, rpm2cpio,
-    rtcwake, run-parts, runlevel, runsv, runsvdir, rx, script, scriptreplay, sed, sendmail,
-    seq, setarch, setconsole, setfont, setkeycodes, setlogcons, setserial, setsid, setuidgid,
-    sh, sha1sum, sha256sum, sha3sum, sha512sum, showkey, shuf, slattach, sleep, smemcap,
-    softlimit, sort, split, start-stop-daemon, stat, strings, stty, su, sulogin, sum, sv,
-    svlogd, swapoff, swapon, switch_root, sync, sysctl, syslogd, tac, tail, tar, taskset,
-    tcpsvd, tee, telnet, telnetd, test, tftp, tftpd, time, timeout, top, touch, tr,
-    traceroute, traceroute6, true, tty, ttysize, tunctl, tune2fs, ubiattach, ubidetach,
-    ubimkvol, ubirmvol, ubirsvol, ubiupdatevol, udhcpc, udhcpc6, udhcpd, udpsvd, umount,
-    uname, uncompress, unexpand, uniq, unix2dos, unlink, unlzma, unxz, unzip, uptime, users,
-    usleep, uudecode, uuencode, vconfig, vi, vlock, volname, wall, watch, watchdog, wc, wget,
-    which, who, whoami, whois, xargs, xz, xzcat, yes, zcat, zcip
+Currently<span class="w"> </span>defined<span class="w"> </span>functions:
+<span class="w">    </span><span class="o">[</span>,<span class="w"> </span><span class="o">[[</span>,<span class="w"> </span>acpid,<span class="w"> </span>addgroup,<span class="w"> </span>adduser,<span class="w"> </span>adjtimex,<span class="w"> </span>ar,<span class="w"> </span>arp,<span class="w"> </span>arping,<span class="w"> </span>ash,<span class="w"> </span>awk,<span class="w"> </span>base64,<span class="w"> </span>basename,
+<span class="w">    </span>bbconfig,<span class="w"> </span>beep,<span class="w"> </span>blkid,<span class="w"> </span>blockdev,<span class="w"> </span>bootchartd,<span class="w"> </span>brctl,<span class="w"> </span>bunzip2,<span class="w"> </span>bzcat,<span class="w"> </span>bzip2,<span class="w"> </span>cal,<span class="w"> </span>cat,<span class="w"> </span>catv,
+<span class="w">    </span>chat,<span class="w"> </span>chattr,<span class="w"> </span>chgrp,<span class="w"> </span>chmod,<span class="w"> </span>chown,<span class="w"> </span>chpasswd,<span class="w"> </span>chpst,<span class="w"> </span>chroot,<span class="w"> </span>chrt,<span class="w"> </span>chvt,<span class="w"> </span>cksum,<span class="w"> </span>clear,<span class="w"> </span>cmp,
+<span class="w">    </span>comm,<span class="w"> </span>cp,<span class="w"> </span>cpio,<span class="w"> </span>crond,<span class="w"> </span>crontab,<span class="w"> </span>cryptpw,<span class="w"> </span>cttyhack,<span class="w"> </span>cut,<span class="w"> </span>date,<span class="w"> </span>dc,<span class="w"> </span>dd,<span class="w"> </span>deallocvt,<span class="w"> </span>delgroup,
+<span class="w">    </span>deluser,<span class="w"> </span>depmod,<span class="w"> </span>df,<span class="w"> </span>dhcprelay,<span class="w"> </span>diff,<span class="w"> </span>dirname,<span class="w"> </span>dmesg,<span class="w"> </span>dnsd,<span class="w"> </span>dnsdomainname,<span class="w"> </span>dos2unix,<span class="w"> </span>du,
+<span class="w">    </span>dumpkmap,<span class="w"> </span>dumpleases,<span class="w"> </span>echo,<span class="w"> </span>ed,<span class="w"> </span>egrep,<span class="w"> </span>eject,<span class="w"> </span>env,<span class="w"> </span>envdir,<span class="w"> </span>envuidgid,<span class="w"> </span>ether-wake,<span class="w"> </span>expand,
+<span class="w">    </span>expr,<span class="w"> </span>fakeidentd,<span class="w"> </span>false,<span class="w"> </span>fatattr,<span class="w"> </span>fbset,<span class="w"> </span>fbsplash,<span class="w"> </span>fdflush,<span class="w"> </span>fdformat,<span class="w"> </span>fdisk,<span class="w"> </span>fgconsole,
+<span class="w">    </span>fgrep,<span class="w"> </span>find,<span class="w"> </span>findfs,<span class="w"> </span>flock,<span class="w"> </span>fold,<span class="w"> </span>free,<span class="w"> </span>freeramdisk,<span class="w"> </span>fsck,<span class="w"> </span>fsck.minix,<span class="w"> </span>fstrim,<span class="w"> </span>fsync,
+<span class="w">    </span>ftpd,<span class="w"> </span>ftpget,<span class="w"> </span>ftpput,<span class="w"> </span>fuser,<span class="w"> </span>getopt,<span class="w"> </span>getty,<span class="w"> </span>grep,<span class="w"> </span>groups,<span class="w"> </span>gunzip,<span class="w"> </span>gzip,<span class="w"> </span>halt,<span class="w"> </span>hd,<span class="w"> </span>hdparm,
+<span class="w">    </span>head,<span class="w"> </span>hexdump,<span class="w"> </span>hostid,<span class="w"> </span>hostname,<span class="w"> </span>httpd,<span class="w"> </span>hwclock,<span class="w"> </span>id,<span class="w"> </span>ifconfig,<span class="w"> </span>ifdown,<span class="w"> </span>ifenslave,<span class="w"> </span>ifplugd,
+<span class="w">    </span>ifup,<span class="w"> </span>inetd,<span class="w"> </span>init,<span class="w"> </span>inotifyd,<span class="w"> </span>insmod,<span class="w"> </span>install,<span class="w"> </span>ionice,<span class="w"> </span>iostat,<span class="w"> </span>ip,<span class="w"> </span>ipaddr,<span class="w"> </span>ipcalc,<span class="w"> </span>ipcrm,
+<span class="w">    </span>ipcs,<span class="w"> </span>iplink,<span class="w"> </span>iproute,<span class="w"> </span>iprule,<span class="w"> </span>iptunnel,<span class="w"> </span>kbd_mode,<span class="w"> </span>kill,<span class="w"> </span>killall,<span class="w"> </span>killall5,<span class="w"> </span>klogd,<span class="w"> </span>last,
+<span class="w">    </span>less,<span class="w"> </span>linux32,<span class="w"> </span>linux64,<span class="w"> </span>linuxrc,<span class="w"> </span>ln,<span class="w"> </span>loadfont,<span class="w"> </span>loadkmap,<span class="w"> </span>logger,<span class="w"> </span>login,<span class="w"> </span>logname,<span class="w"> </span>logread,
+<span class="w">    </span>losetup,<span class="w"> </span>lpd,<span class="w"> </span>lpq,<span class="w"> </span>lpr,<span class="w"> </span>ls,<span class="w"> </span>lsattr,<span class="w"> </span>lsmod,<span class="w"> </span>lsof,<span class="w"> </span>lspci,<span class="w"> </span>lsusb,<span class="w"> </span>lzcat,<span class="w"> </span>lzma,<span class="w"> </span>makedevs,
+<span class="w">    </span>makemime,<span class="w"> </span>man,<span class="w"> </span>md5sum,<span class="w"> </span>mdev,<span class="w"> </span>mesg,<span class="w"> </span>microcom,<span class="w"> </span>mkdir,<span class="w"> </span>mkdosfs,<span class="w"> </span>mke2fs,<span class="w"> </span>mkfifo,<span class="w"> </span>mkfs.ext2,
+<span class="w">    </span>mkfs.minix,<span class="w"> </span>mkfs.vfat,<span class="w"> </span>mknod,<span class="w"> </span>mkpasswd,<span class="w"> </span>mkswap,<span class="w"> </span>mktemp,<span class="w"> </span>modinfo,<span class="w"> </span>modprobe,<span class="w"> </span>more,<span class="w"> </span>mount,
+<span class="w">    </span>mountpoint,<span class="w"> </span>mpstat,<span class="w"> </span>mt,<span class="w"> </span>mv,<span class="w"> </span>nameif,<span class="w"> </span>nbd-client,<span class="w"> </span>nc,<span class="w"> </span>netstat,<span class="w"> </span>nice,<span class="w"> </span>nmeter,<span class="w"> </span>nohup,
+<span class="w">    </span>nslookup,<span class="w"> </span>ntpd,<span class="w"> </span>od,<span class="w"> </span>openvt,<span class="w"> </span>passwd,<span class="w"> </span>patch,<span class="w"> </span>pgrep,<span class="w"> </span>pidof,<span class="w"> </span>ping,<span class="w"> </span>ping6,<span class="w"> </span>pipe_progress,
+<span class="w">    </span>pivot_root,<span class="w"> </span>pkill,<span class="w"> </span>pmap,<span class="w"> </span>popmaildir,<span class="w"> </span>poweroff,<span class="w"> </span>powertop,<span class="w"> </span>printenv,<span class="w"> </span>printf,<span class="w"> </span>ps,<span class="w"> </span>pscan,
+<span class="w">    </span>pstree,<span class="w"> </span>pwd,<span class="w"> </span>pwdx,<span class="w"> </span>raidautorun,<span class="w"> </span>rdate,<span class="w"> </span>rdev,<span class="w"> </span>readahead,<span class="w"> </span>readlink,<span class="w"> </span>readprofile,<span class="w"> </span>realpath,
+<span class="w">    </span>reboot,<span class="w"> </span>reformime,<span class="w"> </span>renice,<span class="w"> </span>reset,<span class="w"> </span>resize,<span class="w"> </span>rev,<span class="w"> </span>rfkill,<span class="w"> </span>rm,<span class="w"> </span>rmdir,<span class="w"> </span>rmmod,<span class="w"> </span>route,<span class="w"> </span>rpm2cpio,
+<span class="w">    </span>rtcwake,<span class="w"> </span>run-parts,<span class="w"> </span>runlevel,<span class="w"> </span>runsv,<span class="w"> </span>runsvdir,<span class="w"> </span>rx,<span class="w"> </span>script,<span class="w"> </span>scriptreplay,<span class="w"> </span>sed,<span class="w"> </span>sendmail,
+<span class="w">    </span>seq,<span class="w"> </span>setarch,<span class="w"> </span>setconsole,<span class="w"> </span>setfont,<span class="w"> </span>setkeycodes,<span class="w"> </span>setlogcons,<span class="w"> </span>setserial,<span class="w"> </span>setsid,<span class="w"> </span>setuidgid,
+<span class="w">    </span>sh,<span class="w"> </span>sha1sum,<span class="w"> </span>sha256sum,<span class="w"> </span>sha3sum,<span class="w"> </span>sha512sum,<span class="w"> </span>showkey,<span class="w"> </span>shuf,<span class="w"> </span>slattach,<span class="w"> </span>sleep,<span class="w"> </span>smemcap,
+<span class="w">    </span>softlimit,<span class="w"> </span>sort,<span class="w"> </span>split,<span class="w"> </span>start-stop-daemon,<span class="w"> </span>stat,<span class="w"> </span>strings,<span class="w"> </span>stty,<span class="w"> </span>su,<span class="w"> </span>sulogin,<span class="w"> </span>sum,<span class="w"> </span>sv,
+<span class="w">    </span>svlogd,<span class="w"> </span>swapoff,<span class="w"> </span>swapon,<span class="w"> </span>switch_root,<span class="w"> </span>sync,<span class="w"> </span>sysctl,<span class="w"> </span>syslogd,<span class="w"> </span>tac,<span class="w"> </span>tail,<span class="w"> </span>tar,<span class="w"> </span>taskset,
+<span class="w">    </span>tcpsvd,<span class="w"> </span>tee,<span class="w"> </span>telnet,<span class="w"> </span>telnetd,<span class="w"> </span>test,<span class="w"> </span>tftp,<span class="w"> </span>tftpd,<span class="w"> </span>time,<span class="w"> </span>timeout,<span class="w"> </span>top,<span class="w"> </span>touch,<span class="w"> </span>tr,
+<span class="w">    </span>traceroute,<span class="w"> </span>traceroute6,<span class="w"> </span>true,<span class="w"> </span>tty,<span class="w"> </span>ttysize,<span class="w"> </span>tunctl,<span class="w"> </span>tune2fs,<span class="w"> </span>ubiattach,<span class="w"> </span>ubidetach,
+<span class="w">    </span>ubimkvol,<span class="w"> </span>ubirmvol,<span class="w"> </span>ubirsvol,<span class="w"> </span>ubiupdatevol,<span class="w"> </span>udhcpc,<span class="w"> </span>udhcpc6,<span class="w"> </span>udhcpd,<span class="w"> </span>udpsvd,<span class="w"> </span>umount,
+<span class="w">    </span>uname,<span class="w"> </span>uncompress,<span class="w"> </span>unexpand,<span class="w"> </span>uniq,<span class="w"> </span>unix2dos,<span class="w"> </span>unlink,<span class="w"> </span>unlzma,<span class="w"> </span>unxz,<span class="w"> </span>unzip,<span class="w"> </span>uptime,<span class="w"> </span>users,
+<span class="w">    </span>usleep,<span class="w"> </span>uudecode,<span class="w"> </span>uuencode,<span class="w"> </span>vconfig,<span class="w"> </span>vi,<span class="w"> </span>vlock,<span class="w"> </span>volname,<span class="w"> </span>wall,<span class="w"> </span>watch,<span class="w"> </span>watchdog,<span class="w"> </span>wc,<span class="w"> </span>wget,
+<span class="w">    </span>which,<span class="w"> </span>who,<span class="w"> </span>whoami,<span class="w"> </span>whois,<span class="w"> </span>xargs,<span class="w"> </span>xz,<span class="w"> </span>xzcat,<span class="w"> </span>yes,<span class="w"> </span>zcat,<span class="w"> </span>zcip
 </pre></div>
 </div>
 <p>這麼多功能，這樣的檔案大小，當然不是像 GNU coreutils 那樣有一大堆的 options 支援，
@@ -1010,20 +940,20 @@ Currently defined functions:
 可以這麼做的原因是 BusyBox 會根據 <code class="docutils literal notranslate"><span class="pre">argv[0]</span></code> 來判斷要執行的 command，
 如果 <code class="docutils literal notranslate"><span class="pre">argv[0]</span></code> 是 <code class="docutils literal notranslate"><span class="pre">busybox</span></code> 的話就吃 <code class="docutils literal notranslate"><span class="pre">argv[1]</span></code> 來決定 command，
 不然就直接用 <code class="docutils literal notranslate"><span class="pre">argv[0]</span></code> 來決定 command。</p>
-</div>
-<div class="section" id="build-from-source">
-<h2><a class="toc-backref" href="#id6">Build From Source</a><a class="headerlink" href="#build-from-source" title="本標題的永久連結">¶</a></h2>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ git clone git://git.busybox.net/busybox
-$ <span class="nb">cd</span> busybox
-$ make menuconfig   <span class="c1"># 或 oldconfig/defconfig，可以選擇要編進去的功能</span>
-$ make -j4
-$ ls -l busybox
--rwxr-xr-x <span class="m">1</span> dv users <span class="m">831440</span> Aug  <span class="m">9</span> <span class="m">12</span>:34 busybox
+</section>
+<section id="build-from-source">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Build From Source</a><a class="headerlink" href="#build-from-source" title="Permalink to this heading"></a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>git://git.busybox.net/busybox
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>busybox
+$<span class="w"> </span>make<span class="w"> </span>menuconfig<span class="w">   </span><span class="c1"># 或 oldconfig/defconfig，可以選擇要編進去的功能</span>
+$<span class="w"> </span>make<span class="w"> </span>-j4
+$<span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span>busybox
+-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>dv<span class="w"> </span>users<span class="w"> </span><span class="m">831440</span><span class="w"> </span>Aug<span class="w">  </span><span class="m">9</span><span class="w"> </span><span class="m">12</span>:34<span class="w"> </span>busybox
 </pre></div>
 </div>
-</div>
-<div class="section" id="reference">
-<h2><a class="toc-backref" href="#id7">Reference</a><a class="headerlink" href="#reference" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="reference">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Reference</a><a class="headerlink" href="#reference" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="http://www.busybox.net/">BusyBox: The Swiss Army Knife of Embedded Linux</a></p></li>
 <li><p><a class="reference external" href="http://git.busybox.net/busybox/">BusyBox - Source Code</a></p></li>
@@ -1032,46 +962,36 @@ $ ls -l busybox
 <li><p><a class="reference external" href="http://www.redbooks.ibm.com/abstracts/tips0092.html">Creating a Multi-Call Linux Binary</a></p></li>
 <li><p><a class="reference external" href="https://github.com/extemporalgenome/multicall-example">[GitHub] extemporalgenome/multicall-example - Hybrid multi-call/single-call binaries in Go</a></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="card-reader.html" class="btn btn-neutral float-right" title="晶片讀卡機" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="basic-system-utils.html" class="btn btn-neutral float-left" title="Basic System Utils" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="basic-system-utils.html" class="btn btn-neutral float-left" title="Basic System Utils" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="card-reader.html" class="btn btn-neutral float-right" title="晶片讀卡機" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016
-
-    </p>
+    <p>&#169; Copyright 2023.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
   
 
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       <span class="fa fa-book"> Read the Docs</span>
       v: latest
@@ -1081,7 +1001,7 @@ $ ls -l busybox
       <dl>
         <dt>Versions</dt>
         
-          <dd><a href="/zh_TW/latest/">latest</a></dd>
+          <dd><a href="https://wdv4758h.github.io/notes/">latest</a></dd>
         
       </dl>
       <dl>
@@ -1091,6 +1011,7 @@ $ ls -l busybox
         
       </dl>
       <dl>
+        
         <dt>On Read the Docs</dt>
           <dd>
             <a href="//readthedocs.org/projects/wdv4758h-notes/?fromdocs=wdv4758h-notes">Project Home</a>
@@ -1099,22 +1020,13 @@ $ ls -l busybox
             <a href="//readthedocs.org/builds/wdv4758h-notes/?fromdocs=wdv4758h-notes">Builds</a>
           </dd>
       </dl>
-      <hr/>
-      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
-
     </div>
   </div>
-
-
-
-  <script type="text/javascript">
+<script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-   
+  </script> 
 
 </body>
 </html>

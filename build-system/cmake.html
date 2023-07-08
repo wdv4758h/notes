@@ -1,114 +1,75 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-TW" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-TW" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>CMake &mdash; wdv4758h-notes latest 說明文件</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CMake &mdash; wdv4758h-notes latest documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="搜尋" href="../search.html" />
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="GYP" href="gyp.html" />
     <link rel="prev" title="Build System" href="README.html" /> 
 
 <!-- RTD Extra Head -->
 
-<!-- 
-Always link to the latest version, as canonical.
-http://docs.readthedocs.org/en/latest/canonical.html
--->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/build-system/cmake.html" />
+    <!--
+    Always link to the latest version, as canonical.
+    http://docs.readthedocs.org/en/latest/canonical.html
+    -->
+    <link rel="canonical" href="https://wdv4758h-notes.readthedocs.io/zh_TW/latest/build-system/cmake.html" />
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": "", "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": "https://wdv4758h-notes.readthedocs.io/zh_TW/latest/", "docroot": "/./", "features": {"docsearch_disabled": false}, "global_analytics_code": "", "language": "en", "page": "build-system/cmake", "programming_language": "", "project": "wdv4758h-notes", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": ""}</script>
 
-<!-- Add page-specific data, which must exist in the page js, not global -->
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = "build-system/cmake"
-READTHEDOCS_DATA['source_suffix'] = ".rst"
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
 </script>
 
-<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js" async="async"></script>
 
 <!-- end RTD <extrahead> -->
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../index.html" class="icon icon-home"> wdv4758h-notes
           
-
-          
+          <a href="../index.html" class="icon icon-home">
+            wdv4758h-notes
           </a>
-
-          
-            
-            
-            
               <div class="version">
                 latest
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/README.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/adt.html">ADT (Abstract Data Type)</a></li>
@@ -118,13 +79,18 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/cache.html">Cache</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/cache-friendly.html">Cache Friendly Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/dict.html">Dict</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/float-to-string.html">Float to String</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/heap.html">Heap （堆）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/introduction.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/inverse-square-root.html">Inverse Square Root</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/lock.html">Lock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/meta-algorithm.html">Meta Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/random-number-generator.html">Random Number Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/resource.html">演算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/sorting.html">Sorting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/string-to-float.html">String to Float</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/substring-searching.html">Substring Searching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/README.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/android-emulator.html">Android Emulator</a></li>
@@ -200,7 +166,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../blog/openmp.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#tutorial">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#id5">額外紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#id4">額外紀錄</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/python-benchmark.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/python-benchmark.html#hello-world">Hello World</a></li>
@@ -227,7 +193,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../blog/qemu-first-step.html#qemu-with-kvm">QEMU with KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html">Syntax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closure">Closure 和外部變數</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#move-closures">「move」 closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#move-closures">“move” closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closure-implementation">Closure implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closures-as-arguments">closures as arguments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#returning-closures">returning closures</a></li>
@@ -420,6 +386,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/ci.html">Continuous Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/concourse.html">Concourse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/drone.html">Drone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../continuous-integration/github-actions.html">Github Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/jenkins.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/travis-ci.html">Travis CI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/workflow-pipeline.html">Workflow Pipeline</a></li>
@@ -429,7 +396,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../cpp/array.html">std::array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/assembly.html">C++ &amp; Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/bit-field.html">C++ Bit Field</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cpp/c++17.html">C++17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/c%2B%2B17.html">C++17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/concepts.html">C++ Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/const.html">C++ const</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/copy-elision.html">Copy Elision</a></li>
@@ -482,13 +449,16 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../database/README.html">資料庫 (Database)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/cockroachdb.html">CockroachDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/consensus-algorithm.html">Raft Consensus Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/graph.html">Graph Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/leveldb.html">LevelDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/materialized-views.html">Materialized Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mongodb.html">MongoDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/rocksdb.html">RocksDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sql.html">SQL (Structured Query Language)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/tidb.html">TiDB</a></li>
@@ -561,7 +531,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/math-on-web.html">Math on Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/misc.html">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../memory/W^X.html">W^X (Write XOR Execute)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../memory/W%5EX.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/kernel-memory-management.html">Kernel Memory Management</a></li>
@@ -819,74 +789,34 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../wiki/resource.html">Wiki</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">wdv4758h-notes</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-      <li>CMake</li>
-    
-    
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">CMake</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/wdv4758h/notes/blob/master/./build-system/cmake.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="cmake">
-<h1><a class="toc-backref" href="#id4">CMake</a><a class="headerlink" href="#cmake" title="本標題的永久連結">¶</a></h1>
-<div class="contents topic" id="id1">
-<p class="topic-title first">目錄</p>
+             
+  <section id="cmake">
+<h1><a class="toc-backref" href="#id4" role="doc-backlink">CMake</a><a class="headerlink" href="#cmake" title="Permalink to this heading"></a></h1>
+<nav class="contents" id="id1">
+<p class="topic-title">目錄</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#cmake" id="id4">CMake</a></p>
 <ul>
@@ -904,186 +834,186 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="example-1">
-<h2><a class="toc-backref" href="#id5">Example 1</a><a class="headerlink" href="#example-1" title="本標題的永久連結">¶</a></h2>
+</nav>
+<section id="example-1">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Example 1</a><a class="headerlink" href="#example-1" title="Permalink to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>./hello.c</p></li>
 </ol>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &lt;stdio.h&gt;</span>
 
-int main <span class="o">()</span> <span class="o">{</span>
-  printf<span class="o">(</span><span class="s2">&quot;Hello World!\n&quot;</span><span class="o">)</span><span class="p">;</span>
-  <span class="k">return</span> <span class="m">0</span><span class="p">;</span>
+int<span class="w"> </span>main<span class="w"> </span><span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span>printf<span class="o">(</span><span class="s2">&quot;Hello World!\n&quot;</span><span class="o">)</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
 <span class="o">}</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
 <li><p>./CMakeLists.txt</p></li>
 </ol>
-<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">PROJECT</span> <span class="p">(</span><span class="s">HELLO</span><span class="p">)</span>
-<span class="nb">SET</span> <span class="p">(</span><span class="s">HELLO_SRCS</span> <span class="s">hello.c</span><span class="p">)</span>
-<span class="nb">ADD_EXECUTABLE</span> <span class="p">(</span><span class="s">hello</span> <span class="o">${</span><span class="nv">HELLO_SRCS</span><span class="o">}</span><span class="p">)</span>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">PROJECT</span><span class="w"> </span><span class="p">(</span><span class="s">HELLO</span><span class="p">)</span>
+<span class="nb">SET</span><span class="w"> </span><span class="p">(</span><span class="s">HELLO_SRCS</span><span class="w"> </span><span class="s">hello.c</span><span class="p">)</span>
+<span class="nb">ADD_EXECUTABLE</span><span class="w"> </span><span class="p">(</span><span class="s">hello</span><span class="w"> </span><span class="o">${</span><span class="nv">HELLO_SRCS</span><span class="o">}</span><span class="p">)</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
 <li><p>編譯並執行</p></li>
 </ol>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ cmake .
--- The C compiler identification is GNU <span class="m">5</span>.1.0
--- The CXX compiler identification is GNU <span class="m">5</span>.1.0
--- Check <span class="k">for</span> working C compiler: /usr/bin/cc
--- Check <span class="k">for</span> working C compiler: /usr/bin/cc -- works
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - <span class="k">done</span>
--- Detecting C compile features
--- Detecting C compile features - <span class="k">done</span>
--- Check <span class="k">for</span> working CXX compiler: /usr/bin/c++
--- Check <span class="k">for</span> working CXX compiler: /usr/bin/c++ -- works
--- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - <span class="k">done</span>
--- Detecting CXX compile features
--- Detecting CXX compile features - <span class="k">done</span>
--- Configuring <span class="k">done</span>
--- Generating <span class="k">done</span>
--- Build files have been written to: /tmp/cmake
-$ make
-Scanning dependencies of target hello
-<span class="o">[</span><span class="m">100</span>%<span class="o">]</span> Building C object CMakeFiles/hello.dir/hello.c.o
-Linking C executable hello
-<span class="o">[</span><span class="m">100</span>%<span class="o">]</span> Built target hello
-$ ./hello
-Hello World!
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>cmake<span class="w"> </span>.
+--<span class="w"> </span>The<span class="w"> </span>C<span class="w"> </span>compiler<span class="w"> </span>identification<span class="w"> </span>is<span class="w"> </span>GNU<span class="w"> </span><span class="m">5</span>.1.0
+--<span class="w"> </span>The<span class="w"> </span>CXX<span class="w"> </span>compiler<span class="w"> </span>identification<span class="w"> </span>is<span class="w"> </span>GNU<span class="w"> </span><span class="m">5</span>.1.0
+--<span class="w"> </span>Check<span class="w"> </span><span class="k">for</span><span class="w"> </span>working<span class="w"> </span>C<span class="w"> </span>compiler:<span class="w"> </span>/usr/bin/cc
+--<span class="w"> </span>Check<span class="w"> </span><span class="k">for</span><span class="w"> </span>working<span class="w"> </span>C<span class="w"> </span>compiler:<span class="w"> </span>/usr/bin/cc<span class="w"> </span>--<span class="w"> </span>works
+--<span class="w"> </span>Detecting<span class="w"> </span>C<span class="w"> </span>compiler<span class="w"> </span>ABI<span class="w"> </span>info
+--<span class="w"> </span>Detecting<span class="w"> </span>C<span class="w"> </span>compiler<span class="w"> </span>ABI<span class="w"> </span>info<span class="w"> </span>-<span class="w"> </span><span class="k">done</span>
+--<span class="w"> </span>Detecting<span class="w"> </span>C<span class="w"> </span>compile<span class="w"> </span>features
+--<span class="w"> </span>Detecting<span class="w"> </span>C<span class="w"> </span>compile<span class="w"> </span>features<span class="w"> </span>-<span class="w"> </span><span class="k">done</span>
+--<span class="w"> </span>Check<span class="w"> </span><span class="k">for</span><span class="w"> </span>working<span class="w"> </span>CXX<span class="w"> </span>compiler:<span class="w"> </span>/usr/bin/c++
+--<span class="w"> </span>Check<span class="w"> </span><span class="k">for</span><span class="w"> </span>working<span class="w"> </span>CXX<span class="w"> </span>compiler:<span class="w"> </span>/usr/bin/c++<span class="w"> </span>--<span class="w"> </span>works
+--<span class="w"> </span>Detecting<span class="w"> </span>CXX<span class="w"> </span>compiler<span class="w"> </span>ABI<span class="w"> </span>info
+--<span class="w"> </span>Detecting<span class="w"> </span>CXX<span class="w"> </span>compiler<span class="w"> </span>ABI<span class="w"> </span>info<span class="w"> </span>-<span class="w"> </span><span class="k">done</span>
+--<span class="w"> </span>Detecting<span class="w"> </span>CXX<span class="w"> </span>compile<span class="w"> </span>features
+--<span class="w"> </span>Detecting<span class="w"> </span>CXX<span class="w"> </span>compile<span class="w"> </span>features<span class="w"> </span>-<span class="w"> </span><span class="k">done</span>
+--<span class="w"> </span>Configuring<span class="w"> </span><span class="k">done</span>
+--<span class="w"> </span>Generating<span class="w"> </span><span class="k">done</span>
+--<span class="w"> </span>Build<span class="w"> </span>files<span class="w"> </span>have<span class="w"> </span>been<span class="w"> </span>written<span class="w"> </span>to:<span class="w"> </span>/tmp/cmake
+$<span class="w"> </span>make
+Scanning<span class="w"> </span>dependencies<span class="w"> </span>of<span class="w"> </span>target<span class="w"> </span>hello
+<span class="o">[</span><span class="m">100</span>%<span class="o">]</span><span class="w"> </span>Building<span class="w"> </span>C<span class="w"> </span>object<span class="w"> </span>CMakeFiles/hello.dir/hello.c.o
+Linking<span class="w"> </span>C<span class="w"> </span>executable<span class="w"> </span>hello
+<span class="o">[</span><span class="m">100</span>%<span class="o">]</span><span class="w"> </span>Built<span class="w"> </span>target<span class="w"> </span>hello
+$<span class="w"> </span>./hello
+Hello<span class="w"> </span>World!
 </pre></div>
 </div>
-</div>
-<div class="section" id="example-2">
-<h2><a class="toc-backref" href="#id6">Example 2</a><a class="headerlink" href="#example-2" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="example-2">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Example 2</a><a class="headerlink" href="#example-2" title="Permalink to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>./lib/hello.c</p></li>
 </ol>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 
-<span class="kt">void</span> <span class="nf">hello</span> <span class="p">(){</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello World!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">hello</span><span class="w"> </span><span class="p">(){</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello World!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
 <li><p>./lib/hello.h</p></li>
 </ol>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">hello</span> <span class="p">();</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">hello</span><span class="w"> </span><span class="p">();</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
 <li><p>./src/main.c</p></li>
 </ol>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;hello.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hello.h&gt;</span>
 
-<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="n">hello</span><span class="p">();</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">hello</span><span class="p">();</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="4">
 <li><p>./lib/CMakeLists.txt</p></li>
 </ol>
-<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">ADD_LIBRARY</span> <span class="p">(</span><span class="s">hello</span> <span class="s">hello.c</span><span class="p">)</span>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">ADD_LIBRARY</span><span class="w"> </span><span class="p">(</span><span class="s">hello</span><span class="w"> </span><span class="s">hello.c</span><span class="p">)</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="5">
 <li><p>./src/CMakeLists.txt</p></li>
 </ol>
-<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">INCLUDE_DIRECTORIES</span> <span class="p">(</span><span class="o">${</span><span class="nv">HELLO_SOURCE_DIR</span><span class="o">}</span><span class="s">/lib</span><span class="p">)</span>
-<span class="nb">LINK_DIRECTORIES</span> <span class="p">(</span><span class="o">${</span><span class="nv">HELLO_BINARY_DIR</span><span class="o">}</span><span class="s">/lib</span><span class="p">)</span>
-<span class="nb">ADD_EXECUTABLE</span> <span class="p">(</span><span class="s">main</span> <span class="s">main.c</span><span class="p">)</span>
-<span class="nb">TARGET_LINK_LIBRARIES</span> <span class="p">(</span><span class="s">main</span> <span class="s">hello</span><span class="p">)</span>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">INCLUDE_DIRECTORIES</span><span class="w"> </span><span class="p">(</span><span class="o">${</span><span class="nv">HELLO_SOURCE_DIR</span><span class="o">}</span><span class="s">/lib</span><span class="p">)</span>
+<span class="nb">LINK_DIRECTORIES</span><span class="w"> </span><span class="p">(</span><span class="o">${</span><span class="nv">HELLO_BINARY_DIR</span><span class="o">}</span><span class="s">/lib</span><span class="p">)</span>
+<span class="nb">ADD_EXECUTABLE</span><span class="w"> </span><span class="p">(</span><span class="s">main</span><span class="w"> </span><span class="s">main.c</span><span class="p">)</span>
+<span class="nb">TARGET_LINK_LIBRARIES</span><span class="w"> </span><span class="p">(</span><span class="s">main</span><span class="w"> </span><span class="s">hello</span><span class="p">)</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="6">
 <li><p>./CMakeLists.txt</p></li>
 </ol>
-<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">PROJECT</span> <span class="p">(</span><span class="s">HELLO</span><span class="p">)</span>
-<span class="nb">ADD_SUBDIRECTORY</span> <span class="p">(</span><span class="s">lib</span><span class="p">)</span>
-<span class="nb">ADD_SUBDIRECTORY</span> <span class="p">(</span><span class="s">src</span><span class="p">)</span>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">PROJECT</span><span class="w"> </span><span class="p">(</span><span class="s">HELLO</span><span class="p">)</span>
+<span class="nb">ADD_SUBDIRECTORY</span><span class="w"> </span><span class="p">(</span><span class="s">lib</span><span class="p">)</span>
+<span class="nb">ADD_SUBDIRECTORY</span><span class="w"> </span><span class="p">(</span><span class="s">src</span><span class="p">)</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="7">
 <li><p>編譯並執行</p></li>
 </ol>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ cmake .
--- The C compiler identification is GNU <span class="m">5</span>.1.0
--- The CXX compiler identification is GNU <span class="m">5</span>.1.0
--- Check <span class="k">for</span> working C compiler: /usr/bin/cc
--- Check <span class="k">for</span> working C compiler: /usr/bin/cc -- works
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - <span class="k">done</span>
--- Detecting C compile features
--- Detecting C compile features - <span class="k">done</span>
--- Check <span class="k">for</span> working CXX compiler: /usr/bin/c++
--- Check <span class="k">for</span> working CXX compiler: /usr/bin/c++ -- works
--- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - <span class="k">done</span>
--- Detecting CXX compile features
--- Detecting CXX compile features - <span class="k">done</span>
--- Configuring <span class="k">done</span>
--- Generating <span class="k">done</span>
--- Build files have been written to: /home/dv/cmake_zone
-$ make
-Scanning dependencies of target hello
-<span class="o">[</span> <span class="m">50</span>%<span class="o">]</span> Building C object lib/CMakeFiles/hello.dir/hello.o
-Linking C static library libhello.a
-<span class="o">[</span> <span class="m">50</span>%<span class="o">]</span> Built target hello
-Scanning dependencies of target main
-<span class="o">[</span><span class="m">100</span>%<span class="o">]</span> Building C object src/CMakeFiles/main.dir/main.o
-Linking C executable main
-<span class="o">[</span><span class="m">100</span>%<span class="o">]</span> Built target main
-$ src/main
-Hello World!
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>cmake<span class="w"> </span>.
+--<span class="w"> </span>The<span class="w"> </span>C<span class="w"> </span>compiler<span class="w"> </span>identification<span class="w"> </span>is<span class="w"> </span>GNU<span class="w"> </span><span class="m">5</span>.1.0
+--<span class="w"> </span>The<span class="w"> </span>CXX<span class="w"> </span>compiler<span class="w"> </span>identification<span class="w"> </span>is<span class="w"> </span>GNU<span class="w"> </span><span class="m">5</span>.1.0
+--<span class="w"> </span>Check<span class="w"> </span><span class="k">for</span><span class="w"> </span>working<span class="w"> </span>C<span class="w"> </span>compiler:<span class="w"> </span>/usr/bin/cc
+--<span class="w"> </span>Check<span class="w"> </span><span class="k">for</span><span class="w"> </span>working<span class="w"> </span>C<span class="w"> </span>compiler:<span class="w"> </span>/usr/bin/cc<span class="w"> </span>--<span class="w"> </span>works
+--<span class="w"> </span>Detecting<span class="w"> </span>C<span class="w"> </span>compiler<span class="w"> </span>ABI<span class="w"> </span>info
+--<span class="w"> </span>Detecting<span class="w"> </span>C<span class="w"> </span>compiler<span class="w"> </span>ABI<span class="w"> </span>info<span class="w"> </span>-<span class="w"> </span><span class="k">done</span>
+--<span class="w"> </span>Detecting<span class="w"> </span>C<span class="w"> </span>compile<span class="w"> </span>features
+--<span class="w"> </span>Detecting<span class="w"> </span>C<span class="w"> </span>compile<span class="w"> </span>features<span class="w"> </span>-<span class="w"> </span><span class="k">done</span>
+--<span class="w"> </span>Check<span class="w"> </span><span class="k">for</span><span class="w"> </span>working<span class="w"> </span>CXX<span class="w"> </span>compiler:<span class="w"> </span>/usr/bin/c++
+--<span class="w"> </span>Check<span class="w"> </span><span class="k">for</span><span class="w"> </span>working<span class="w"> </span>CXX<span class="w"> </span>compiler:<span class="w"> </span>/usr/bin/c++<span class="w"> </span>--<span class="w"> </span>works
+--<span class="w"> </span>Detecting<span class="w"> </span>CXX<span class="w"> </span>compiler<span class="w"> </span>ABI<span class="w"> </span>info
+--<span class="w"> </span>Detecting<span class="w"> </span>CXX<span class="w"> </span>compiler<span class="w"> </span>ABI<span class="w"> </span>info<span class="w"> </span>-<span class="w"> </span><span class="k">done</span>
+--<span class="w"> </span>Detecting<span class="w"> </span>CXX<span class="w"> </span>compile<span class="w"> </span>features
+--<span class="w"> </span>Detecting<span class="w"> </span>CXX<span class="w"> </span>compile<span class="w"> </span>features<span class="w"> </span>-<span class="w"> </span><span class="k">done</span>
+--<span class="w"> </span>Configuring<span class="w"> </span><span class="k">done</span>
+--<span class="w"> </span>Generating<span class="w"> </span><span class="k">done</span>
+--<span class="w"> </span>Build<span class="w"> </span>files<span class="w"> </span>have<span class="w"> </span>been<span class="w"> </span>written<span class="w"> </span>to:<span class="w"> </span>/home/dv/cmake_zone
+$<span class="w"> </span>make
+Scanning<span class="w"> </span>dependencies<span class="w"> </span>of<span class="w"> </span>target<span class="w"> </span>hello
+<span class="o">[</span><span class="w"> </span><span class="m">50</span>%<span class="o">]</span><span class="w"> </span>Building<span class="w"> </span>C<span class="w"> </span>object<span class="w"> </span>lib/CMakeFiles/hello.dir/hello.o
+Linking<span class="w"> </span>C<span class="w"> </span>static<span class="w"> </span>library<span class="w"> </span>libhello.a
+<span class="o">[</span><span class="w"> </span><span class="m">50</span>%<span class="o">]</span><span class="w"> </span>Built<span class="w"> </span>target<span class="w"> </span>hello
+Scanning<span class="w"> </span>dependencies<span class="w"> </span>of<span class="w"> </span>target<span class="w"> </span>main
+<span class="o">[</span><span class="m">100</span>%<span class="o">]</span><span class="w"> </span>Building<span class="w"> </span>C<span class="w"> </span>object<span class="w"> </span>src/CMakeFiles/main.dir/main.o
+Linking<span class="w"> </span>C<span class="w"> </span>executable<span class="w"> </span>main
+<span class="o">[</span><span class="m">100</span>%<span class="o">]</span><span class="w"> </span>Built<span class="w"> </span>target<span class="w"> </span>main
+$<span class="w"> </span>src/main
+Hello<span class="w"> </span>World!
 </pre></div>
 </div>
-</div>
-<div class="section" id="more-options">
-<h2><a class="toc-backref" href="#id7">More Options</a><a class="headerlink" href="#more-options" title="本標題的永久連結">¶</a></h2>
-<div class="section" id="id2">
-<h3><a class="toc-backref" href="#id8">指定安裝路徑</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="more-options">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">More Options</a><a class="headerlink" href="#more-options" title="Permalink to this heading"></a></h2>
+<section id="id2">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">指定安裝路徑</a><a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
 <p>把原本的</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ cmake .
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>cmake<span class="w"> </span>.
 </pre></div>
 </div>
 <p>換成</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ cmake -DCMAKE_INSTALL_PREFIX:PATH<span class="o">=</span>/your/install/path .
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>cmake<span class="w"> </span>-DCMAKE_INSTALL_PREFIX:PATH<span class="o">=</span>/your/install/path<span class="w"> </span>.
 </pre></div>
 </div>
-</div>
-<div class="section" id="source-code">
-<h3><a class="toc-backref" href="#id9">指定產生檔案的資料夾 (不要混在 source code 裡)</a><a class="headerlink" href="#source-code" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="source-code">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">指定產生檔案的資料夾 (不要混在 source code 裡)</a><a class="headerlink" href="#source-code" title="Permalink to this heading"></a></h3>
 <p>直接在想要放的 folder 下 cmake (接 source code 資料夾)</p>
 <p>例如：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ mkdir build
-$ <span class="nb">cd</span> build
-$ cmake ../
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mkdir<span class="w"> </span>build
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
+$<span class="w"> </span>cmake<span class="w"> </span>../
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="linker">
-<h2><a class="toc-backref" href="#id10">換 Linker</a><a class="headerlink" href="#linker" title="本標題的永久連結">¶</a></h2>
+</section>
+</section>
+<section id="linker">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">換 Linker</a><a class="headerlink" href="#linker" title="Permalink to this heading"></a></h2>
 <p>預設狀況下，
 Linker 會去找 Compiler 來用，
 例如 C++ 的會設成這樣 :</p>
-<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">if</span><span class="p">(</span><span class="s">NOT</span> <span class="s">CMAKE_CXX_LINK_EXECUTABLE</span><span class="p">)</span>
-  <span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_CXX_LINK_EXECUTABLE</span>
-      <span class="s2">&quot;&lt;CMAKE_CXX_COMPILER&gt;  &lt;FLAGS&gt; &lt;CMAKE_CXX_LINK_FLAGS&gt; &lt;LINK_FLAGS&gt; &lt;OBJECTS&gt;  -o &lt;TARGET&gt; &lt;LINK_LIBRARIES&gt;&quot;</span><span class="p">)</span>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">if</span><span class="p">(</span><span class="s">NOT</span><span class="w"> </span><span class="s">CMAKE_CXX_LINK_EXECUTABLE</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_CXX_LINK_EXECUTABLE</span>
+<span class="w">      </span><span class="s2">&quot;&lt;CMAKE_CXX_COMPILER&gt;  &lt;FLAGS&gt; &lt;CMAKE_CXX_LINK_FLAGS&gt; &lt;LINK_FLAGS&gt; &lt;OBJECTS&gt;  -o &lt;TARGET&gt; &lt;LINK_LIBRARIES&gt;&quot;</span><span class="p">)</span>
 <span class="nb">endif</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>也就是說會去找 C++ Compiler 來用，
 如果自己要換 Linker 的話就要把這個值蓋掉，
 例如在下 <code class="docutils literal notranslate"><span class="pre">cmake</span></code> 指令時加上參數 :</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ cmake <span class="se">\</span>
--DCMAKE_LINKER<span class="o">=</span><span class="sb">`</span>which my_linker<span class="sb">`</span> <span class="se">\</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>cmake<span class="w"> </span><span class="se">\</span>
+-DCMAKE_LINKER<span class="o">=</span><span class="sb">`</span>which<span class="w"> </span>my_linker<span class="sb">`</span><span class="w"> </span><span class="se">\</span>
 -DCMAKE_CXX_LINK_EXECUTABLE<span class="o">=</span><span class="s1">&#39;&lt;CMAKE_LINKER&gt; &lt;FLAGS&gt; &lt;CMAKE_CXX_LINK_FLAGS&gt; &lt;LINK_FLAGS&gt; &lt;OBJECTS&gt; -o &lt;TARGET&gt; &lt;LINK_LIBRARIES&gt;&#39;</span>
 </pre></div>
 </div>
@@ -1091,51 +1021,51 @@ Linker 會去找 Compiler 來用，
 <li><p><a class="reference external" href="http://www.cmake.org/pipermail/cmake/2014-August/058271.html">[CMake] how to really change CMake linker</a></p></li>
 <li><p><a class="reference external" href="https://github.com/Kitware/CMake/blob/master/Modules/CMakeCXXInformation.cmake">CMake - CMAKE_CXX_LINK_EXECUTABLE</a></p></li>
 </ul>
-</div>
-<div class="section" id="compiler-options">
-<h2><a class="toc-backref" href="#id11">偵測 Compiler Options</a><a class="headerlink" href="#compiler-options" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="compiler-options">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">偵測 Compiler Options</a><a class="headerlink" href="#compiler-options" title="Permalink to this heading"></a></h2>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">include</span><span class="p">(</span><span class="s">CheckCCompilerFlag</span><span class="p">)</span>
 
-<span class="nb">check_c_compiler_flag</span><span class="p">(</span><span class="s">-fno-sanitize-recover=all</span> <span class="s">SANITIZE_RECOVER_ALL</span><span class="p">)</span>
+<span class="nb">check_c_compiler_flag</span><span class="p">(</span><span class="s">-fno-sanitize-recover=all</span><span class="w"> </span><span class="s">SANITIZE_RECOVER_ALL</span><span class="p">)</span>
 
 <span class="nb">if</span><span class="p">(</span><span class="s">SANITIZE_RECOVER_ALL</span><span class="p">)</span>
-    <span class="nb">set</span><span class="p">(</span><span class="s">SANITIZE_RECOVER</span> <span class="s">-fno-sanitize-recover=all</span><span class="p">)</span>     <span class="c"># Clang 3.6+</span>
+<span class="w">    </span><span class="nb">set</span><span class="p">(</span><span class="s">SANITIZE_RECOVER</span><span class="w"> </span><span class="s">-fno-sanitize-recover=all</span><span class="p">)</span><span class="w">     </span><span class="c"># Clang 3.6+</span>
 <span class="nb">else</span><span class="p">()</span>
-    <span class="nb">set</span><span class="p">(</span><span class="s">SANITIZE_RECOVER</span> <span class="s">-fno-sanitize-recover</span><span class="p">)</span>         <span class="c"># Clang 3.5-</span>
+<span class="w">    </span><span class="nb">set</span><span class="p">(</span><span class="s">SANITIZE_RECOVER</span><span class="w"> </span><span class="s">-fno-sanitize-recover</span><span class="p">)</span><span class="w">         </span><span class="c"># Clang 3.5-</span>
 <span class="nb">endif</span><span class="p">()</span>
 
-<span class="nb">message</span><span class="p">(</span><span class="s2">&quot;Result : &quot;</span> <span class="o">${</span><span class="nv">SANITIZE_RECOVER</span><span class="o">}</span><span class="p">)</span>
+<span class="nb">message</span><span class="p">(</span><span class="s2">&quot;Result : &quot;</span><span class="w"> </span><span class="o">${</span><span class="nv">SANITIZE_RECOVER</span><span class="o">}</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ls CMakeLists.txt
-$ mkdir build
-$ <span class="nb">cd</span> build
-$ <span class="nv">CC</span><span class="o">=</span>clang cmake ../
--- The C compiler identification is Clang <span class="m">3</span>.7.0
--- The CXX compiler identification is GNU <span class="m">5</span>.2.0
--- Check <span class="k">for</span> working C compiler: /usr/bin/clang
--- Check <span class="k">for</span> working C compiler: /usr/bin/clang -- works
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - <span class="k">done</span>
--- Detecting C compile features
--- Detecting C compile features - <span class="k">done</span>
--- Check <span class="k">for</span> working CXX compiler: /usr/bin/c++
--- Check <span class="k">for</span> working CXX compiler: /usr/bin/c++ -- works
--- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - <span class="k">done</span>
--- Detecting CXX compile features
--- Detecting CXX compile features - <span class="k">done</span>
--- Performing Test SANITIZE_RECOVER_ALL
--- Performing Test SANITIZE_RECOVER_ALL - Success
-Result : -fno-sanitize-recover<span class="o">=</span>all
--- Configuring <span class="k">done</span>
--- Generating <span class="k">done</span>
--- Build files have been written to: /tmp/build
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls<span class="w"> </span>CMakeLists.txt
+$<span class="w"> </span>mkdir<span class="w"> </span>build
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
+$<span class="w"> </span><span class="nv">CC</span><span class="o">=</span>clang<span class="w"> </span>cmake<span class="w"> </span>../
+--<span class="w"> </span>The<span class="w"> </span>C<span class="w"> </span>compiler<span class="w"> </span>identification<span class="w"> </span>is<span class="w"> </span>Clang<span class="w"> </span><span class="m">3</span>.7.0
+--<span class="w"> </span>The<span class="w"> </span>CXX<span class="w"> </span>compiler<span class="w"> </span>identification<span class="w"> </span>is<span class="w"> </span>GNU<span class="w"> </span><span class="m">5</span>.2.0
+--<span class="w"> </span>Check<span class="w"> </span><span class="k">for</span><span class="w"> </span>working<span class="w"> </span>C<span class="w"> </span>compiler:<span class="w"> </span>/usr/bin/clang
+--<span class="w"> </span>Check<span class="w"> </span><span class="k">for</span><span class="w"> </span>working<span class="w"> </span>C<span class="w"> </span>compiler:<span class="w"> </span>/usr/bin/clang<span class="w"> </span>--<span class="w"> </span>works
+--<span class="w"> </span>Detecting<span class="w"> </span>C<span class="w"> </span>compiler<span class="w"> </span>ABI<span class="w"> </span>info
+--<span class="w"> </span>Detecting<span class="w"> </span>C<span class="w"> </span>compiler<span class="w"> </span>ABI<span class="w"> </span>info<span class="w"> </span>-<span class="w"> </span><span class="k">done</span>
+--<span class="w"> </span>Detecting<span class="w"> </span>C<span class="w"> </span>compile<span class="w"> </span>features
+--<span class="w"> </span>Detecting<span class="w"> </span>C<span class="w"> </span>compile<span class="w"> </span>features<span class="w"> </span>-<span class="w"> </span><span class="k">done</span>
+--<span class="w"> </span>Check<span class="w"> </span><span class="k">for</span><span class="w"> </span>working<span class="w"> </span>CXX<span class="w"> </span>compiler:<span class="w"> </span>/usr/bin/c++
+--<span class="w"> </span>Check<span class="w"> </span><span class="k">for</span><span class="w"> </span>working<span class="w"> </span>CXX<span class="w"> </span>compiler:<span class="w"> </span>/usr/bin/c++<span class="w"> </span>--<span class="w"> </span>works
+--<span class="w"> </span>Detecting<span class="w"> </span>CXX<span class="w"> </span>compiler<span class="w"> </span>ABI<span class="w"> </span>info
+--<span class="w"> </span>Detecting<span class="w"> </span>CXX<span class="w"> </span>compiler<span class="w"> </span>ABI<span class="w"> </span>info<span class="w"> </span>-<span class="w"> </span><span class="k">done</span>
+--<span class="w"> </span>Detecting<span class="w"> </span>CXX<span class="w"> </span>compile<span class="w"> </span>features
+--<span class="w"> </span>Detecting<span class="w"> </span>CXX<span class="w"> </span>compile<span class="w"> </span>features<span class="w"> </span>-<span class="w"> </span><span class="k">done</span>
+--<span class="w"> </span>Performing<span class="w"> </span>Test<span class="w"> </span>SANITIZE_RECOVER_ALL
+--<span class="w"> </span>Performing<span class="w"> </span>Test<span class="w"> </span>SANITIZE_RECOVER_ALL<span class="w"> </span>-<span class="w"> </span>Success
+Result<span class="w"> </span>:<span class="w"> </span>-fno-sanitize-recover<span class="o">=</span>all
+--<span class="w"> </span>Configuring<span class="w"> </span><span class="k">done</span>
+--<span class="w"> </span>Generating<span class="w"> </span><span class="k">done</span>
+--<span class="w"> </span>Build<span class="w"> </span>files<span class="w"> </span>have<span class="w"> </span>been<span class="w"> </span>written<span class="w"> </span>to:<span class="w"> </span>/tmp/build
 </pre></div>
 </div>
-</div>
-<div class="section" id="id3">
-<h2><a class="toc-backref" href="#id12">參考</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="id3">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">參考</a><a class="headerlink" href="#id3" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/onqtam/awesome-cmake">Awesome CMake</a></p></li>
 <li><p><a class="reference external" href="https://github.com/dockcross/dockcross/">Cross compiling toolchains in Docker images</a></p></li>
@@ -1146,46 +1076,36 @@ Result : -fno-sanitize-recover<span class="o">=</span>all
 <li><p><a class="reference external" href="https://github.com/Akagi201/learning-cmake">Learning CMake</a></p></li>
 <li><p><a class="reference external" href="https://llvm.org/docs/CMakePrimer.html">LLVM - CMake Primer</a></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="gyp.html" class="btn btn-neutral float-right" title="GYP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="README.html" class="btn btn-neutral float-left" title="Build System" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="README.html" class="btn btn-neutral float-left" title="Build System" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="gyp.html" class="btn btn-neutral float-right" title="GYP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016
-
-    </p>
+    <p>&#169; Copyright 2023.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
   
 
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       <span class="fa fa-book"> Read the Docs</span>
       v: latest
@@ -1195,7 +1115,7 @@ Result : -fno-sanitize-recover<span class="o">=</span>all
       <dl>
         <dt>Versions</dt>
         
-          <dd><a href="/zh_TW/latest/">latest</a></dd>
+          <dd><a href="https://wdv4758h.github.io/notes/">latest</a></dd>
         
       </dl>
       <dl>
@@ -1205,6 +1125,7 @@ Result : -fno-sanitize-recover<span class="o">=</span>all
         
       </dl>
       <dl>
+        
         <dt>On Read the Docs</dt>
           <dd>
             <a href="//readthedocs.org/projects/wdv4758h-notes/?fromdocs=wdv4758h-notes">Project Home</a>
@@ -1213,22 +1134,13 @@ Result : -fno-sanitize-recover<span class="o">=</span>all
             <a href="//readthedocs.org/builds/wdv4758h-notes/?fromdocs=wdv4758h-notes">Builds</a>
           </dd>
       </dl>
-      <hr/>
-      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
-
     </div>
   </div>
-
-
-
-  <script type="text/javascript">
+<script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-   
+  </script> 
 
 </body>
 </html>

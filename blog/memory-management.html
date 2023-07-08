@@ -1,114 +1,75 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-TW" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-TW" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Stack &amp; Heap &mdash; wdv4758h-notes latest 說明文件</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stack &amp; Heap &mdash; wdv4758h-notes latest documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="搜尋" href="../search.html" />
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="&lt;no title&gt;" href="nctu-github.html" />
     <link rel="prev" title="Linux Standard Base (LSB)" href="linux-standard-base.html" /> 
 
 <!-- RTD Extra Head -->
 
-<!-- 
-Always link to the latest version, as canonical.
-http://docs.readthedocs.org/en/latest/canonical.html
--->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/blog/memory-management.html" />
+    <!--
+    Always link to the latest version, as canonical.
+    http://docs.readthedocs.org/en/latest/canonical.html
+    -->
+    <link rel="canonical" href="https://wdv4758h-notes.readthedocs.io/zh_TW/latest/blog/memory-management.html" />
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": "", "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": "https://wdv4758h-notes.readthedocs.io/zh_TW/latest/", "docroot": "/./", "features": {"docsearch_disabled": false}, "global_analytics_code": "", "language": "en", "page": "blog/memory-management", "programming_language": "", "project": "wdv4758h-notes", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": ""}</script>
 
-<!-- Add page-specific data, which must exist in the page js, not global -->
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = "blog/memory-management"
-READTHEDOCS_DATA['source_suffix'] = ".rst"
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
 </script>
 
-<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js" async="async"></script>
 
 <!-- end RTD <extrahead> -->
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../index.html" class="icon icon-home"> wdv4758h-notes
           
-
-          
+          <a href="../index.html" class="icon icon-home">
+            wdv4758h-notes
           </a>
-
-          
-            
-            
-            
               <div class="version">
                 latest
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/README.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/adt.html">ADT (Abstract Data Type)</a></li>
@@ -118,13 +79,18 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/cache.html">Cache</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/cache-friendly.html">Cache Friendly Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/dict.html">Dict</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/float-to-string.html">Float to String</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/heap.html">Heap （堆）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/introduction.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/inverse-square-root.html">Inverse Square Root</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/lock.html">Lock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/meta-algorithm.html">Meta Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/random-number-generator.html">Random Number Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/resource.html">演算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/sorting.html">Sorting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/string-to-float.html">String to Float</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/substring-searching.html">Substring Searching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/README.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/android-emulator.html">Android Emulator</a></li>
@@ -241,7 +207,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="openmp.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pypy-brainfuck.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pypy-brainfuck.html#tutorial">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pypy-brainfuck.html#id5">額外紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pypy-brainfuck.html#id4">額外紀錄</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pypy-brainfuck.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python-benchmark.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python-benchmark.html#hello-world">Hello World</a></li>
@@ -268,7 +234,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="qemu-first-step.html#qemu-with-kvm">QEMU with KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust-closure.html">Syntax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust-closure.html#closure">Closure 和外部變數</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rust-closure.html#move-closures">「move」 closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rust-closure.html#move-closures">“move” closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust-closure.html#closure-implementation">Closure implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust-closure.html#closures-as-arguments">closures as arguments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust-closure.html#returning-closures">returning closures</a></li>
@@ -449,6 +415,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/ci.html">Continuous Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/concourse.html">Concourse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/drone.html">Drone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../continuous-integration/github-actions.html">Github Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/jenkins.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/travis-ci.html">Travis CI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/workflow-pipeline.html">Workflow Pipeline</a></li>
@@ -458,7 +425,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../cpp/array.html">std::array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/assembly.html">C++ &amp; Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/bit-field.html">C++ Bit Field</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cpp/c++17.html">C++17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/c%2B%2B17.html">C++17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/concepts.html">C++ Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/const.html">C++ const</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/copy-elision.html">Copy Elision</a></li>
@@ -511,13 +478,16 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../database/README.html">資料庫 (Database)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/cockroachdb.html">CockroachDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/consensus-algorithm.html">Raft Consensus Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/graph.html">Graph Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/leveldb.html">LevelDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/materialized-views.html">Materialized Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mongodb.html">MongoDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/rocksdb.html">RocksDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sql.html">SQL (Structured Query Language)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/tidb.html">TiDB</a></li>
@@ -590,7 +560,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/math-on-web.html">Math on Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/misc.html">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../memory/W^X.html">W^X (Write XOR Execute)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../memory/W%5EX.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/kernel-memory-management.html">Kernel Memory Management</a></li>
@@ -848,72 +818,32 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../wiki/resource.html">Wiki</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">wdv4758h-notes</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-      <li>Stack &amp; Heap</li>
-    
-    
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Stack &amp; Heap</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/wdv4758h/notes/blob/master/./blog/memory-management.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="contents topic" id="table-of-contents">
-<p class="topic-title first">Table of Contents</p>
+             
+  <nav class="contents" id="table-of-contents" role="doc-toc">
+<p class="topic-title">Table of Contents</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#stack-heap" id="id10">Stack &amp; Heap</a></p></li>
 <li><p><a class="reference internal" href="#common-memory-problem" id="id11">Common Memory Problem</a></p>
@@ -975,7 +905,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </ul>
 </li>
 </ul>
-</div>
+</nav>
 <hr class="docutils" />
 <p>這篇主要放在 <a class="reference external" href="https://github.com/wdv4758h/notes/blob/master/memory-management.rst">https://github.com/wdv4758h/notes/blob/master/memory-management.rst</a>
 那邊才保證是最新的 :P</p>
@@ -995,7 +925,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 想像一下，假如在沒有區隔開的情況下，我寫了一個 C 程式，
 不小心沒寫好，裡面的 pointer 可能指向別的程式的資料，
 然後還不小心改到，這是多麼可怕的事。
-這樣的區隔機制稱為 「Virtual Memory」，
+這樣的區隔機制稱為 “Virtual Memory”，
 其中的 Virtual 指的意思是分給程式的記憶體空間不是真的實體記憶體，
 而是做了一層控管，在存取時中間會把 Virtual Address 轉換成實際的 Physical Address，
 而各程式看到的都是同樣的一大塊空間，但其實底下對應到的是不同實體記憶體。
@@ -1003,8 +933,8 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <p>在 Virtual Memory 之上，每隻程式看到的記憶體又會依照不同的使用而分區塊，
 其中在程式執行時，變數常存在的地方為 Stack 和 Heap，
 接下來就來看看裡面在幹嘛。</p>
-<div class="section" id="stack-heap">
-<h1><a class="toc-backref" href="#id10">Stack &amp; Heap</a><a class="headerlink" href="#stack-heap" title="本標題的永久連結">¶</a></h1>
+<section id="stack-heap">
+<h1><a class="toc-backref" href="#id10" role="doc-backlink">Stack &amp; Heap</a><a class="headerlink" href="#stack-heap" title="Permalink to this heading"></a></h1>
 <p>在講記憶體管理的一開始，我們先來看看資料在記憶體中是如何被放置的。</p>
 <p>Linux process :</p>
 <img alt="Linux Address Layout" src="../_images/Linux-Address-Layout.png" />
@@ -1024,94 +954,94 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <p>example :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// C</span>
 
-<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;     // malloc, free, atoi</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="c1">     // malloc, free, atoi</span>
 
-<span class="kt">int</span> <span class="nf">main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
 
-    <span class="kt">int</span> <span class="o">*</span><span class="n">dynamic_array</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">dynamic_array</span><span class="p">;</span>
 
-    <span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Please give a number</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Please give a number</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
 
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
 
-        <span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
 
-        <span class="n">dynamic_array</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span> <span class="n">malloc</span> <span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="o">*</span> <span class="n">size</span><span class="p">);</span>
+<span class="w">        </span><span class="n">dynamic_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">malloc</span><span class="w"> </span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
 
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">dynamic_array</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-        <span class="p">}</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dynamic_array</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="w">        </span><span class="p">}</span>
 
-        <span class="n">free</span><span class="p">(</span><span class="n">dynamic_array</span><span class="p">);</span>
+<span class="w">        </span><span class="n">free</span><span class="p">(</span><span class="n">dynamic_array</span><span class="p">);</span>
 
-    <span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>more example (新 malloc 的記憶體真的是新的嗎？) :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// C</span>
 
-<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;     // malloc, free, atoi</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="c1">     // malloc, free, atoi</span>
 
-<span class="kt">int</span> <span class="nf">main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
 
-    <span class="kt">int</span> <span class="o">*</span><span class="n">dynamic_array</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">dynamic_array</span><span class="p">;</span>
 
-    <span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 
-        <span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
-
-
-
-        <span class="n">dynamic_array</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span> <span class="n">malloc</span> <span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="o">*</span> <span class="n">size</span><span class="p">);</span>
-
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;first time</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">dynamic_array</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-        <span class="p">}</span>
-
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-            <span class="c1">// modify</span>
-            <span class="n">dynamic_array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">i</span><span class="p">;</span>
-        <span class="p">}</span>
-
-        <span class="n">free</span><span class="p">(</span><span class="n">dynamic_array</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
 
 
 
-        <span class="c1">// get some new memory</span>
-        <span class="n">dynamic_array</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span> <span class="n">malloc</span> <span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="o">*</span> <span class="n">size</span><span class="p">);</span>
+<span class="w">        </span><span class="n">dynamic_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">malloc</span><span class="w"> </span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
 
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;second time</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;first time</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
 
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">dynamic_array</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-        <span class="p">}</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dynamic_array</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="w">        </span><span class="p">}</span>
 
-        <span class="n">free</span><span class="p">(</span><span class="n">dynamic_array</span><span class="p">);</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// modify</span>
+<span class="w">            </span><span class="n">dynamic_array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">free</span><span class="p">(</span><span class="n">dynamic_array</span><span class="p">);</span>
 
 
 
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="w">        </span><span class="c1">// get some new memory</span>
+<span class="w">        </span><span class="n">dynamic_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">malloc</span><span class="w"> </span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
 
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Please give a number</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;second time</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
 
-    <span class="p">}</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dynamic_array</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="w">        </span><span class="p">}</span>
 
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="n">free</span><span class="p">(</span><span class="n">dynamic_array</span><span class="p">);</span>
+
+
+
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Please give a number</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="common-memory-problem">
-<h1><a class="toc-backref" href="#id11">Common Memory Problem</a><a class="headerlink" href="#common-memory-problem" title="本標題的永久連結">¶</a></h1>
+</section>
+<section id="common-memory-problem">
+<h1><a class="toc-backref" href="#id11" role="doc-backlink">Common Memory Problem</a><a class="headerlink" href="#common-memory-problem" title="Permalink to this heading"></a></h1>
 <p>管理</p>
 <ul class="simple">
 <li><p>double free (清多次)</p></li>
@@ -1126,27 +1056,27 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li><p>buffer over-read (讀超過)</p></li>
 <li><p>stack overflow (用太多)</p></li>
 </ul>
-<div class="section" id="double-free">
-<h2><a class="toc-backref" href="#id12">double free</a><a class="headerlink" href="#double-free" title="本標題的永久連結">¶</a></h2>
+<section id="double-free">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">double free</a><a class="headerlink" href="#double-free" title="Permalink to this heading"></a></h2>
 <p>source code :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// C</span>
 
-<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;     // malloc, free</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="c1">     // malloc, free</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="o">*</span><span class="n">x</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;origin : %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">x</span><span class="p">);</span>
-    <span class="o">*</span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;assign : %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">x</span><span class="p">);</span>
-    <span class="n">free</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
-    <span class="n">free</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;origin : %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">);</span>
+<span class="w">    </span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;assign : %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">);</span>
+<span class="w">    </span><span class="n">free</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="w">    </span><span class="n">free</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>compile :</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ gcc -Wall -std<span class="o">=</span>c11 -g double-free.c -o double-free
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gcc<span class="w"> </span>-Wall<span class="w"> </span>-std<span class="o">=</span>c11<span class="w"> </span>-g<span class="w"> </span>double-free.c<span class="w"> </span>-o<span class="w"> </span>double-free
 </pre></div>
 </div>
 <p>執行</p>
@@ -1185,148 +1115,148 @@ ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsysca
 Aborted (core dumped)
 </pre></div>
 </div>
-</div>
-<div class="section" id="memory-leak">
-<h2><a class="toc-backref" href="#id13">memory leak</a><a class="headerlink" href="#memory-leak" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="memory-leak">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">memory leak</a><a class="headerlink" href="#memory-leak" title="Permalink to this heading"></a></h2>
 <p>source code :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// C</span>
 
-<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;     // malloc</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;     // getpid</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="c1">     // malloc</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span><span class="c1">     // getpid</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kt">long</span> <span class="kt">long</span> <span class="o">*</span><span class="n">x</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">;</span>
 
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;pid : %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">getpid</span><span class="p">());</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;per size %lu</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">long</span> <span class="kt">long</span><span class="p">));</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;pid : %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">getpid</span><span class="p">());</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;per size %lu</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="p">));</span>
 
-    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">// malloc, no free</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">long</span> <span class="kt">long</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">);</span>
-        <span class="n">getchar</span><span class="p">();</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// malloc, no free</span>
+<span class="w">        </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="p">);</span>
+<span class="w">        </span><span class="n">getchar</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>compile :</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ gcc -Wall -std<span class="o">=</span>c11 -g memory-leak.c -o memory-leak
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gcc<span class="w"> </span>-Wall<span class="w"> </span>-std<span class="o">=</span>c11<span class="w"> </span>-g<span class="w"> </span>memory-leak.c<span class="w"> </span>-o<span class="w"> </span>memory-leak
 </pre></div>
 </div>
 <p>觀看 Memory 使用：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pmap -x <span class="nv">$pid</span>
-<span class="m">30593</span>:   ./a.out
-Address           Kbytes     RSS   Dirty Mode  Mapping
-<span class="m">0000000000400000</span>       <span class="m">4</span>       <span class="m">4</span>       <span class="m">0</span> r-x-- a.out
-<span class="m">0000000000600000</span>       <span class="m">4</span>       <span class="m">4</span>       <span class="m">4</span> rw--- a.out
-<span class="m">0000000002572000</span>     <span class="m">136</span>       <span class="m">8</span>       <span class="m">8</span> rw---   <span class="o">[</span> anon <span class="o">]</span>
-00007fe14389b000    <span class="m">1636</span>    <span class="m">1044</span>       <span class="m">0</span> r-x-- libc-2.21.so
-00007fe143a34000    <span class="m">2044</span>       <span class="m">0</span>       <span class="m">0</span> ----- libc-2.21.so
-00007fe143c33000      <span class="m">16</span>      <span class="m">16</span>      <span class="m">16</span> r---- libc-2.21.so
-00007fe143c37000       <span class="m">8</span>       <span class="m">8</span>       <span class="m">8</span> rw--- libc-2.21.so
-00007fe143c39000      <span class="m">16</span>       <span class="m">8</span>       <span class="m">8</span> rw---   <span class="o">[</span> anon <span class="o">]</span>
-00007fe143c3d000     <span class="m">136</span>     <span class="m">136</span>       <span class="m">0</span> r-x-- ld-2.21.so
-00007fe143e1b000      <span class="m">12</span>      <span class="m">12</span>      <span class="m">12</span> rw---   <span class="o">[</span> anon <span class="o">]</span>
-00007fe143e5c000       <span class="m">8</span>       <span class="m">4</span>       <span class="m">4</span> rw---   <span class="o">[</span> anon <span class="o">]</span>
-00007fe143e5e000       <span class="m">4</span>       <span class="m">4</span>       <span class="m">4</span> r---- ld-2.21.so
-00007fe143e5f000       <span class="m">4</span>       <span class="m">4</span>       <span class="m">4</span> rw--- ld-2.21.so
-00007fe143e60000       <span class="m">4</span>       <span class="m">4</span>       <span class="m">4</span> rw---   <span class="o">[</span> anon <span class="o">]</span>
-00007fff33951000     <span class="m">132</span>       <span class="m">8</span>       <span class="m">8</span> rw---   <span class="o">[</span> stack <span class="o">]</span>
-00007fff3397a000       <span class="m">8</span>       <span class="m">0</span>       <span class="m">0</span> r----   <span class="o">[</span> anon <span class="o">]</span>
-00007fff3397c000       <span class="m">8</span>       <span class="m">4</span>       <span class="m">0</span> r-x--   <span class="o">[</span> anon <span class="o">]</span>
-ffffffffff600000       <span class="m">4</span>       <span class="m">0</span>       <span class="m">0</span> r-x--   <span class="o">[</span> anon <span class="o">]</span>
----------------- ------- ------- -------
-total kB            <span class="m">4184</span>    <span class="m">1268</span>      <span class="m">80</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>pmap<span class="w"> </span>-x<span class="w"> </span><span class="nv">$pid</span>
+<span class="m">30593</span>:<span class="w">   </span>./a.out
+Address<span class="w">           </span>Kbytes<span class="w">     </span>RSS<span class="w">   </span>Dirty<span class="w"> </span>Mode<span class="w">  </span>Mapping
+<span class="m">0000000000400000</span><span class="w">       </span><span class="m">4</span><span class="w">       </span><span class="m">4</span><span class="w">       </span><span class="m">0</span><span class="w"> </span>r-x--<span class="w"> </span>a.out
+<span class="m">0000000000600000</span><span class="w">       </span><span class="m">4</span><span class="w">       </span><span class="m">4</span><span class="w">       </span><span class="m">4</span><span class="w"> </span>rw---<span class="w"> </span>a.out
+<span class="m">0000000002572000</span><span class="w">     </span><span class="m">136</span><span class="w">       </span><span class="m">8</span><span class="w">       </span><span class="m">8</span><span class="w"> </span>rw---<span class="w">   </span><span class="o">[</span><span class="w"> </span>anon<span class="w"> </span><span class="o">]</span>
+00007fe14389b000<span class="w">    </span><span class="m">1636</span><span class="w">    </span><span class="m">1044</span><span class="w">       </span><span class="m">0</span><span class="w"> </span>r-x--<span class="w"> </span>libc-2.21.so
+00007fe143a34000<span class="w">    </span><span class="m">2044</span><span class="w">       </span><span class="m">0</span><span class="w">       </span><span class="m">0</span><span class="w"> </span>-----<span class="w"> </span>libc-2.21.so
+00007fe143c33000<span class="w">      </span><span class="m">16</span><span class="w">      </span><span class="m">16</span><span class="w">      </span><span class="m">16</span><span class="w"> </span>r----<span class="w"> </span>libc-2.21.so
+00007fe143c37000<span class="w">       </span><span class="m">8</span><span class="w">       </span><span class="m">8</span><span class="w">       </span><span class="m">8</span><span class="w"> </span>rw---<span class="w"> </span>libc-2.21.so
+00007fe143c39000<span class="w">      </span><span class="m">16</span><span class="w">       </span><span class="m">8</span><span class="w">       </span><span class="m">8</span><span class="w"> </span>rw---<span class="w">   </span><span class="o">[</span><span class="w"> </span>anon<span class="w"> </span><span class="o">]</span>
+00007fe143c3d000<span class="w">     </span><span class="m">136</span><span class="w">     </span><span class="m">136</span><span class="w">       </span><span class="m">0</span><span class="w"> </span>r-x--<span class="w"> </span>ld-2.21.so
+00007fe143e1b000<span class="w">      </span><span class="m">12</span><span class="w">      </span><span class="m">12</span><span class="w">      </span><span class="m">12</span><span class="w"> </span>rw---<span class="w">   </span><span class="o">[</span><span class="w"> </span>anon<span class="w"> </span><span class="o">]</span>
+00007fe143e5c000<span class="w">       </span><span class="m">8</span><span class="w">       </span><span class="m">4</span><span class="w">       </span><span class="m">4</span><span class="w"> </span>rw---<span class="w">   </span><span class="o">[</span><span class="w"> </span>anon<span class="w"> </span><span class="o">]</span>
+00007fe143e5e000<span class="w">       </span><span class="m">4</span><span class="w">       </span><span class="m">4</span><span class="w">       </span><span class="m">4</span><span class="w"> </span>r----<span class="w"> </span>ld-2.21.so
+00007fe143e5f000<span class="w">       </span><span class="m">4</span><span class="w">       </span><span class="m">4</span><span class="w">       </span><span class="m">4</span><span class="w"> </span>rw---<span class="w"> </span>ld-2.21.so
+00007fe143e60000<span class="w">       </span><span class="m">4</span><span class="w">       </span><span class="m">4</span><span class="w">       </span><span class="m">4</span><span class="w"> </span>rw---<span class="w">   </span><span class="o">[</span><span class="w"> </span>anon<span class="w"> </span><span class="o">]</span>
+00007fff33951000<span class="w">     </span><span class="m">132</span><span class="w">       </span><span class="m">8</span><span class="w">       </span><span class="m">8</span><span class="w"> </span>rw---<span class="w">   </span><span class="o">[</span><span class="w"> </span>stack<span class="w"> </span><span class="o">]</span>
+00007fff3397a000<span class="w">       </span><span class="m">8</span><span class="w">       </span><span class="m">0</span><span class="w">       </span><span class="m">0</span><span class="w"> </span>r----<span class="w">   </span><span class="o">[</span><span class="w"> </span>anon<span class="w"> </span><span class="o">]</span>
+00007fff3397c000<span class="w">       </span><span class="m">8</span><span class="w">       </span><span class="m">4</span><span class="w">       </span><span class="m">0</span><span class="w"> </span>r-x--<span class="w">   </span><span class="o">[</span><span class="w"> </span>anon<span class="w"> </span><span class="o">]</span>
+ffffffffff600000<span class="w">       </span><span class="m">4</span><span class="w">       </span><span class="m">0</span><span class="w">       </span><span class="m">0</span><span class="w"> </span>r-x--<span class="w">   </span><span class="o">[</span><span class="w"> </span>anon<span class="w"> </span><span class="o">]</span>
+----------------<span class="w"> </span>-------<span class="w"> </span>-------<span class="w"> </span>-------
+total<span class="w"> </span>kB<span class="w">            </span><span class="m">4184</span><span class="w">    </span><span class="m">1268</span><span class="w">      </span><span class="m">80</span>
 </pre></div>
 </div>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ cat /proc/<span class="nv">$pid</span>/smaps <span class="p">|</span> grep -A <span class="m">15</span> heap
-<span class="m">02572000</span>-02594000 rw-p <span class="m">00000000</span> <span class="m">00</span>:00 <span class="m">0</span>                                  <span class="o">[</span>heap<span class="o">]</span>
-Size:                <span class="m">136</span> kB
-Rss:                   <span class="m">8</span> kB
-Pss:                   <span class="m">8</span> kB
-Shared_Clean:          <span class="m">0</span> kB
-Shared_Dirty:          <span class="m">0</span> kB
-Private_Clean:         <span class="m">0</span> kB
-Private_Dirty:         <span class="m">8</span> kB
-Referenced:            <span class="m">8</span> kB
-Anonymous:             <span class="m">8</span> kB
-AnonHugePages:         <span class="m">0</span> kB
-Swap:                  <span class="m">0</span> kB
-KernelPageSize:        <span class="m">4</span> kB
-MMUPageSize:           <span class="m">4</span> kB
-Locked:                <span class="m">0</span> kB
-VmFlags: rd wr mr mw me ac
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>cat<span class="w"> </span>/proc/<span class="nv">$pid</span>/smaps<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-A<span class="w"> </span><span class="m">15</span><span class="w"> </span>heap
+<span class="m">02572000</span>-02594000<span class="w"> </span>rw-p<span class="w"> </span><span class="m">00000000</span><span class="w"> </span><span class="m">00</span>:00<span class="w"> </span><span class="m">0</span><span class="w">                                  </span><span class="o">[</span>heap<span class="o">]</span>
+Size:<span class="w">                </span><span class="m">136</span><span class="w"> </span>kB
+Rss:<span class="w">                   </span><span class="m">8</span><span class="w"> </span>kB
+Pss:<span class="w">                   </span><span class="m">8</span><span class="w"> </span>kB
+Shared_Clean:<span class="w">          </span><span class="m">0</span><span class="w"> </span>kB
+Shared_Dirty:<span class="w">          </span><span class="m">0</span><span class="w"> </span>kB
+Private_Clean:<span class="w">         </span><span class="m">0</span><span class="w"> </span>kB
+Private_Dirty:<span class="w">         </span><span class="m">8</span><span class="w"> </span>kB
+Referenced:<span class="w">            </span><span class="m">8</span><span class="w"> </span>kB
+Anonymous:<span class="w">             </span><span class="m">8</span><span class="w"> </span>kB
+AnonHugePages:<span class="w">         </span><span class="m">0</span><span class="w"> </span>kB
+Swap:<span class="w">                  </span><span class="m">0</span><span class="w"> </span>kB
+KernelPageSize:<span class="w">        </span><span class="m">4</span><span class="w"> </span>kB
+MMUPageSize:<span class="w">           </span><span class="m">4</span><span class="w"> </span>kB
+Locked:<span class="w">                </span><span class="m">0</span><span class="w"> </span>kB
+VmFlags:<span class="w"> </span>rd<span class="w"> </span>wr<span class="w"> </span>mr<span class="w"> </span>mw<span class="w"> </span>me<span class="w"> </span>ac
 </pre></div>
 </div>
-</div>
-<div class="section" id="use-after-free">
-<h2><a class="toc-backref" href="#id14">use after free</a><a class="headerlink" href="#use-after-free" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="use-after-free">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">use after free</a><a class="headerlink" href="#use-after-free" title="Permalink to this heading"></a></h2>
 <p>source code :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// C</span>
 
-<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;     // malloc</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="c1">     // malloc</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="o">*</span><span class="n">x</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">;</span>
 
-    <span class="n">x</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
-    <span class="o">*</span><span class="n">x</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+<span class="w">    </span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span><span class="p">;</span>
 
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;use before free : %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">x</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;use before free : %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">);</span>
 
-    <span class="n">free</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="w">    </span><span class="n">free</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
 
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;use after free : %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">x</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;use after free : %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">);</span>
 
-    <span class="kt">int</span> <span class="o">*</span><span class="n">y</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
-    <span class="o">*</span><span class="n">y</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+<span class="w">    </span><span class="o">*</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;use after free : %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">x</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;use after free : %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">);</span>
 
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>compile :</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ gcc -Wall -std<span class="o">=</span>c11 -g use-after-free.c -o use-after-free
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gcc<span class="w"> </span>-Wall<span class="w"> </span>-std<span class="o">=</span>c11<span class="w"> </span>-g<span class="w"> </span>use-after-free.c<span class="w"> </span>-o<span class="w"> </span>use-after-free
 </pre></div>
 </div>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ./use-after-free
-use before free : <span class="m">9</span>
-use after free : <span class="m">0</span>
-use after free : <span class="m">10</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./use-after-free
+use<span class="w"> </span>before<span class="w"> </span>free<span class="w"> </span>:<span class="w"> </span><span class="m">9</span>
+use<span class="w"> </span>after<span class="w"> </span>free<span class="w"> </span>:<span class="w"> </span><span class="m">0</span>
+use<span class="w"> </span>after<span class="w"> </span>free<span class="w"> </span>:<span class="w"> </span><span class="m">10</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="heap-overflow">
-<h2><a class="toc-backref" href="#id15">heap overflow</a><a class="headerlink" href="#heap-overflow" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="heap-overflow">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">heap overflow</a><a class="headerlink" href="#heap-overflow" title="Permalink to this heading"></a></h2>
 <p>source code :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// C</span>
 
-<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;     // malloc, free</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;     // strlen</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="c1">     // malloc, free</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span><span class="c1">     // strlen</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 
-    <span class="k">const</span> <span class="kt">char</span> <span class="n">s1</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;This is a test.&quot;</span><span class="p">;</span>
-    <span class="k">const</span> <span class="kt">char</span> <span class="n">s2</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;This is a test. This is a test.&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">s1</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;This is a test.&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">s2</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;This is a test. This is a test.&quot;</span><span class="p">;</span>
 
-    <span class="kt">char</span> <span class="o">*</span><span class="n">x</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">)</span> <span class="o">*</span> <span class="n">strlen</span><span class="p">(</span><span class="n">s1</span><span class="p">));</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">s1</span><span class="p">));</span>
 
-    <span class="n">strcpy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">s2</span><span class="p">);</span>
+<span class="w">    </span><span class="n">strcpy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">s2</span><span class="p">);</span>
 
-    <span class="n">free</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="w">    </span><span class="n">free</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
 
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>compile :</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ gcc -Wall -std<span class="o">=</span>c11 -g heap-overflow.c -o heap-overflow
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gcc<span class="w"> </span>-Wall<span class="w"> </span>-std<span class="o">=</span>c11<span class="w"> </span>-g<span class="w"> </span>heap-overflow.c<span class="w"> </span>-o<span class="w"> </span>heap-overflow
 </pre></div>
 </div>
 <p>執行：</p>
@@ -1364,112 +1294,112 @@ ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsysca
 Aborted (core dumped)
 </pre></div>
 </div>
-</div>
-<div class="section" id="stack-buffer-overflow">
-<h2><a class="toc-backref" href="#id16">stack buffer overflow</a><a class="headerlink" href="#stack-buffer-overflow" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="stack-buffer-overflow">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">stack buffer overflow</a><a class="headerlink" href="#stack-buffer-overflow" title="Permalink to this heading"></a></h2>
 <p>source code:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// C</span>
 
-<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="kt">char</span> <span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;x : %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;x : %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;x : %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;x : %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>compile :</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ gcc -Wall -std<span class="o">=</span>c11 -g stack-buffer-overflow.c -o stack-buffer-overflow
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gcc<span class="w"> </span>-Wall<span class="w"> </span>-std<span class="o">=</span>c11<span class="w"> </span>-g<span class="w"> </span>stack-buffer-overflow.c<span class="w"> </span>-o<span class="w"> </span>stack-buffer-overflow
 </pre></div>
 </div>
 <p>執行：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ./stack-buffer-overflow
-x : <span class="m">0</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./stack-buffer-overflow
+x<span class="w"> </span>:<span class="w"> </span><span class="m">0</span>
 <span class="nb">test</span>
-x : <span class="m">7631717</span>
+x<span class="w"> </span>:<span class="w"> </span><span class="m">7631717</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="buffer-over-read">
-<h2><a class="toc-backref" href="#id17">buffer over-read</a><a class="headerlink" href="#buffer-over-read" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="buffer-over-read">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">buffer over-read</a><a class="headerlink" href="#buffer-over-read" title="Permalink to this heading"></a></h2>
 <p>source code :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// C</span>
 
-<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 
-    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="sc">&#39;z&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;z&#39;</span><span class="p">;</span>
 
-    <span class="kt">char</span> <span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
-    <span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;a&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+<span class="w">    </span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">;</span>
 
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;c[0] : %c</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;c[1] : %c</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>    <span class="c1">// read x</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;c[0] : %c</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;c[1] : %c</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span><span class="w">    </span><span class="c1">// read x</span>
 
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>compile :</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ gcc -Wall -std<span class="o">=</span>c11 -g buffer-over-read.c -o buffer-over-read
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gcc<span class="w"> </span>-Wall<span class="w"> </span>-std<span class="o">=</span>c11<span class="w"> </span>-g<span class="w"> </span>buffer-over-read.c<span class="w"> </span>-o<span class="w"> </span>buffer-over-read
 </pre></div>
 </div>
 <p>執行：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ./buffer-over-read
-c<span class="o">[</span><span class="m">0</span><span class="o">]</span> : a
-c<span class="o">[</span><span class="m">1</span><span class="o">]</span> : z
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./buffer-over-read
+c<span class="o">[</span><span class="m">0</span><span class="o">]</span><span class="w"> </span>:<span class="w"> </span>a
+c<span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w"> </span>:<span class="w"> </span>z
 </pre></div>
 </div>
-</div>
-<div class="section" id="stack-overflow">
-<h2><a class="toc-backref" href="#id18">stack overflow</a><a class="headerlink" href="#stack-overflow" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="stack-overflow">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">stack overflow</a><a class="headerlink" href="#stack-overflow" title="Permalink to this heading"></a></h2>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// C</span>
 
-<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 
-<span class="kt">void</span> <span class="nf">stack_overflow</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">static</span> <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">stack_overflow</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 
-    <span class="n">count</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
 
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;count : %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">count</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;count : %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">count</span><span class="p">);</span>
 
-    <span class="n">stack_overflow</span><span class="p">();</span>
+<span class="w">    </span><span class="n">stack_overflow</span><span class="p">();</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">stack_overflow</span><span class="p">();</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">stack_overflow</span><span class="p">();</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ gcc -Wall -O0 -std<span class="o">=</span>c11 -g stack-overflow.c -o stack-overflow     <span class="c1"># avoid optimization</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gcc<span class="w"> </span>-Wall<span class="w"> </span>-O0<span class="w"> </span>-std<span class="o">=</span>c11<span class="w"> </span>-g<span class="w"> </span>stack-overflow.c<span class="w"> </span>-o<span class="w"> </span>stack-overflow<span class="w">     </span><span class="c1"># avoid optimization</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="debugger">
-<h1><a class="toc-backref" href="#id19">Debugger</a><a class="headerlink" href="#debugger" title="本標題的永久連結">¶</a></h1>
+</section>
+</section>
+<section id="debugger">
+<h1><a class="toc-backref" href="#id19" role="doc-backlink">Debugger</a><a class="headerlink" href="#debugger" title="Permalink to this heading"></a></h1>
 <ul class="simple">
 <li><p>Valgrind</p></li>
 </ul>
-<div class="section" id="valgrind">
-<h2><a class="toc-backref" href="#id20">Valgrind</a><a class="headerlink" href="#valgrind" title="本標題的永久連結">¶</a></h2>
-<div class="section" id="id1">
-<h3><a class="toc-backref" href="#id21">double free</a><a class="headerlink" href="#id1" title="本標題的永久連結">¶</a></h3>
+<section id="valgrind">
+<h2><a class="toc-backref" href="#id20" role="doc-backlink">Valgrind</a><a class="headerlink" href="#valgrind" title="Permalink to this heading"></a></h2>
+<section id="id1">
+<h3><a class="toc-backref" href="#id21" role="doc-backlink">double free</a><a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
 <p>執行：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ valgrind ./double-free
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>valgrind<span class="w"> </span>./double-free
 </pre></div>
 </div>
 <p>Valgrind output</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">==</span><span class="mi">22811</span><span class="o">==</span> <span class="n">Memcheck</span><span class="p">,</span> <span class="n">a</span> <span class="n">memory</span> <span class="n">error</span> <span class="n">detector</span>
 <span class="o">==</span><span class="mi">22811</span><span class="o">==</span> <span class="n">Copyright</span> <span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="mi">2002</span><span class="o">-</span><span class="mi">2013</span><span class="p">,</span> <span class="ow">and</span> <span class="n">GNU</span> <span class="n">GPL</span><span class="s1">&#39;d, by Julian Seward et al.</span>
-<span class="o">==</span><span class="mi">22811</span><span class="o">==</span> <span class="n">Using</span> <span class="n">Valgrind</span><span class="o">-</span><span class="mf">3.10</span><span class="o">.</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">LibVEX</span><span class="p">;</span> <span class="n">rerun</span> <span class="k">with</span> <span class="o">-</span><span class="n">h</span> <span class="k">for</span> <span class="n">copyright</span> <span class="n">info</span>
+<span class="o">==</span><span class="mi">22811</span><span class="o">==</span> <span class="n">Using</span> <span class="n">Valgrind</span><span class="o">-</span><span class="mf">3.10.1</span> <span class="ow">and</span> <span class="n">LibVEX</span><span class="p">;</span> <span class="n">rerun</span> <span class="k">with</span> <span class="o">-</span><span class="n">h</span> <span class="k">for</span> <span class="n">copyright</span> <span class="n">info</span>
 <span class="o">==</span><span class="mi">22811</span><span class="o">==</span> <span class="n">Command</span><span class="p">:</span> <span class="o">./</span><span class="n">double</span><span class="o">-</span><span class="n">free</span>
 <span class="o">==</span><span class="mi">22811</span><span class="o">==</span>
 <span class="o">==</span><span class="mi">22811</span><span class="o">==</span> <span class="n">Conditional</span> <span class="n">jump</span> <span class="ow">or</span> <span class="n">move</span> <span class="n">depends</span> <span class="n">on</span> <span class="n">uninitialised</span> <span class="n">value</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
@@ -1533,17 +1463,17 @@ c<span class="o">[</span><span class="m">1</span><span class="o">]</span> : z
 <span class="o">==</span><span class="mi">22811</span><span class="o">==</span> <span class="n">ERROR</span> <span class="n">SUMMARY</span><span class="p">:</span> <span class="mi">9</span> <span class="n">errors</span> <span class="kn">from</span> <span class="mi">9</span> <span class="n">contexts</span> <span class="p">(</span><span class="n">suppressed</span><span class="p">:</span> <span class="mi">0</span> <span class="kn">from</span> <span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id2">
-<h3><a class="toc-backref" href="#id22">memory leak</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="id2">
+<h3><a class="toc-backref" href="#id22" role="doc-backlink">memory leak</a><a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
 <p>執行：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ valgrind --leak-check<span class="o">=</span>full --show-leak-kinds<span class="o">=</span>all ./memory-leak
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>valgrind<span class="w"> </span>--leak-check<span class="o">=</span>full<span class="w"> </span>--show-leak-kinds<span class="o">=</span>all<span class="w"> </span>./memory-leak
 </pre></div>
 </div>
 <p>Valgrind output</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">==</span><span class="mi">27173</span><span class="o">==</span> <span class="n">Memcheck</span><span class="p">,</span> <span class="n">a</span> <span class="n">memory</span> <span class="n">error</span> <span class="n">detector</span>
 <span class="o">==</span><span class="mi">27173</span><span class="o">==</span> <span class="n">Copyright</span> <span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="mi">2002</span><span class="o">-</span><span class="mi">2013</span><span class="p">,</span> <span class="ow">and</span> <span class="n">GNU</span> <span class="n">GPL</span><span class="s1">&#39;d, by Julian Seward et al.</span>
-<span class="o">==</span><span class="mi">27173</span><span class="o">==</span> <span class="n">Using</span> <span class="n">Valgrind</span><span class="o">-</span><span class="mf">3.10</span><span class="o">.</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">LibVEX</span><span class="p">;</span> <span class="n">rerun</span> <span class="k">with</span> <span class="o">-</span><span class="n">h</span> <span class="k">for</span> <span class="n">copyright</span> <span class="n">info</span>
+<span class="o">==</span><span class="mi">27173</span><span class="o">==</span> <span class="n">Using</span> <span class="n">Valgrind</span><span class="o">-</span><span class="mf">3.10.1</span> <span class="ow">and</span> <span class="n">LibVEX</span><span class="p">;</span> <span class="n">rerun</span> <span class="k">with</span> <span class="o">-</span><span class="n">h</span> <span class="k">for</span> <span class="n">copyright</span> <span class="n">info</span>
 <span class="o">==</span><span class="mi">27173</span><span class="o">==</span> <span class="n">Command</span><span class="p">:</span> <span class="o">./</span><span class="n">memory</span><span class="o">-</span><span class="n">leak</span>
 <span class="o">==</span><span class="mi">27173</span><span class="o">==</span>
 <span class="o">==</span><span class="mi">27173</span><span class="o">==</span>
@@ -1570,17 +1500,17 @@ c<span class="o">[</span><span class="m">1</span><span class="o">]</span> : z
 <span class="o">==</span><span class="mi">27173</span><span class="o">==</span> <span class="n">ERROR</span> <span class="n">SUMMARY</span><span class="p">:</span> <span class="mi">1</span> <span class="n">errors</span> <span class="kn">from</span> <span class="mi">1</span> <span class="n">contexts</span> <span class="p">(</span><span class="n">suppressed</span><span class="p">:</span> <span class="mi">0</span> <span class="kn">from</span> <span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id3">
-<h3><a class="toc-backref" href="#id23">use after free</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="id3">
+<h3><a class="toc-backref" href="#id23" role="doc-backlink">use after free</a><a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
 <p>執行：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ valgrind ./use-after-free
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>valgrind<span class="w"> </span>./use-after-free
 </pre></div>
 </div>
 <p>Valgrind output</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">==</span><span class="mi">32017</span><span class="o">==</span> <span class="n">Memcheck</span><span class="p">,</span> <span class="n">a</span> <span class="n">memory</span> <span class="n">error</span> <span class="n">detector</span>
 <span class="o">==</span><span class="mi">32017</span><span class="o">==</span> <span class="n">Copyright</span> <span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="mi">2002</span><span class="o">-</span><span class="mi">2013</span><span class="p">,</span> <span class="ow">and</span> <span class="n">GNU</span> <span class="n">GPL</span><span class="s1">&#39;d, by Julian Seward et al.</span>
-<span class="o">==</span><span class="mi">32017</span><span class="o">==</span> <span class="n">Using</span> <span class="n">Valgrind</span><span class="o">-</span><span class="mf">3.10</span><span class="o">.</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">LibVEX</span><span class="p">;</span> <span class="n">rerun</span> <span class="k">with</span> <span class="o">-</span><span class="n">h</span> <span class="k">for</span> <span class="n">copyright</span> <span class="n">info</span>
+<span class="o">==</span><span class="mi">32017</span><span class="o">==</span> <span class="n">Using</span> <span class="n">Valgrind</span><span class="o">-</span><span class="mf">3.10.1</span> <span class="ow">and</span> <span class="n">LibVEX</span><span class="p">;</span> <span class="n">rerun</span> <span class="k">with</span> <span class="o">-</span><span class="n">h</span> <span class="k">for</span> <span class="n">copyright</span> <span class="n">info</span>
 <span class="o">==</span><span class="mi">32017</span><span class="o">==</span> <span class="n">Command</span><span class="p">:</span> <span class="o">./</span><span class="n">use</span><span class="o">-</span><span class="n">after</span><span class="o">-</span><span class="n">free</span>
 <span class="o">==</span><span class="mi">32017</span><span class="o">==</span>
 <span class="o">==</span><span class="mi">32017</span><span class="o">==</span> <span class="n">Invalid</span> <span class="n">read</span> <span class="n">of</span> <span class="n">size</span> <span class="mi">4</span>
@@ -1612,17 +1542,17 @@ c<span class="o">[</span><span class="m">1</span><span class="o">]</span> : z
 <span class="o">==</span><span class="mi">32017</span><span class="o">==</span> <span class="n">ERROR</span> <span class="n">SUMMARY</span><span class="p">:</span> <span class="mi">2</span> <span class="n">errors</span> <span class="kn">from</span> <span class="mi">2</span> <span class="n">contexts</span> <span class="p">(</span><span class="n">suppressed</span><span class="p">:</span> <span class="mi">0</span> <span class="kn">from</span> <span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id4">
-<h3><a class="toc-backref" href="#id24">heap overflow</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="id4">
+<h3><a class="toc-backref" href="#id24" role="doc-backlink">heap overflow</a><a class="headerlink" href="#id4" title="Permalink to this heading"></a></h3>
 <p>執行：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ valgrind ./stack-overflow
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>valgrind<span class="w"> </span>./stack-overflow
 </pre></div>
 </div>
 <p>Valgrind output</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">==</span><span class="mi">31005</span><span class="o">==</span> <span class="n">Memcheck</span><span class="p">,</span> <span class="n">a</span> <span class="n">memory</span> <span class="n">error</span> <span class="n">detector</span>
 <span class="o">==</span><span class="mi">31005</span><span class="o">==</span> <span class="n">Copyright</span> <span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="mi">2002</span><span class="o">-</span><span class="mi">2013</span><span class="p">,</span> <span class="ow">and</span> <span class="n">GNU</span> <span class="n">GPL</span><span class="s1">&#39;d, by Julian Seward et al.</span>
-<span class="o">==</span><span class="mi">31005</span><span class="o">==</span> <span class="n">Using</span> <span class="n">Valgrind</span><span class="o">-</span><span class="mf">3.10</span><span class="o">.</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">LibVEX</span><span class="p">;</span> <span class="n">rerun</span> <span class="k">with</span> <span class="o">-</span><span class="n">h</span> <span class="k">for</span> <span class="n">copyright</span> <span class="n">info</span>
+<span class="o">==</span><span class="mi">31005</span><span class="o">==</span> <span class="n">Using</span> <span class="n">Valgrind</span><span class="o">-</span><span class="mf">3.10.1</span> <span class="ow">and</span> <span class="n">LibVEX</span><span class="p">;</span> <span class="n">rerun</span> <span class="k">with</span> <span class="o">-</span><span class="n">h</span> <span class="k">for</span> <span class="n">copyright</span> <span class="n">info</span>
 <span class="o">==</span><span class="mi">31005</span><span class="o">==</span> <span class="n">Command</span><span class="p">:</span> <span class="o">./</span><span class="n">heap</span><span class="o">-</span><span class="n">overflow</span>
 <span class="o">==</span><span class="mi">31005</span><span class="o">==</span>
 <span class="o">==</span><span class="mi">31005</span><span class="o">==</span> <span class="n">Invalid</span> <span class="n">write</span> <span class="n">of</span> <span class="n">size</span> <span class="mi">1</span>
@@ -1650,23 +1580,23 @@ c<span class="o">[</span><span class="m">1</span><span class="o">]</span> : z
 <span class="o">==</span><span class="mi">31005</span><span class="o">==</span> <span class="n">ERROR</span> <span class="n">SUMMARY</span><span class="p">:</span> <span class="mi">17</span> <span class="n">errors</span> <span class="kn">from</span> <span class="mi">2</span> <span class="n">contexts</span> <span class="p">(</span><span class="n">suppressed</span><span class="p">:</span> <span class="mi">0</span> <span class="kn">from</span> <span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id5">
-<h3><a class="toc-backref" href="#id25">stack buffer overflow</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="id5">
+<h3><a class="toc-backref" href="#id25" role="doc-backlink">stack buffer overflow</a><a class="headerlink" href="#id5" title="Permalink to this heading"></a></h3>
 <p>Valgrind 的 Memcheck 目前沒有針對 global / stack array 的 bounds checking，
-但是有另外一個實驗的工具叫 「SGcheck」 可以偵測這類問題</p>
+但是有另外一個實驗的工具叫 “SGcheck” 可以偵測這類問題</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://valgrind.org/docs/manual/faq.html#faq.overruns">Why doesn’t Memcheck find the array overruns in this program?</a></p></li>
 </ul>
 <p>執行：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ valgrind --tool<span class="o">=</span>exp-sgcheck ./stack-buffer-overflow
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>valgrind<span class="w"> </span>--tool<span class="o">=</span>exp-sgcheck<span class="w"> </span>./stack-buffer-overflow
 </pre></div>
 </div>
 <p>Valgrind output</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">==</span><span class="mi">6617</span><span class="o">==</span> <span class="n">exp</span><span class="o">-</span><span class="n">sgcheck</span><span class="p">,</span> <span class="n">a</span> <span class="n">stack</span> <span class="ow">and</span> <span class="k">global</span> <span class="n">array</span> <span class="n">overrun</span> <span class="n">detector</span>
 <span class="o">==</span><span class="mi">6617</span><span class="o">==</span> <span class="n">NOTE</span><span class="p">:</span> <span class="n">This</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">Experimental</span><span class="o">-</span><span class="n">Class</span> <span class="n">Valgrind</span> <span class="n">Tool</span>
 <span class="o">==</span><span class="mi">6617</span><span class="o">==</span> <span class="n">Copyright</span> <span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="mi">2003</span><span class="o">-</span><span class="mi">2013</span><span class="p">,</span> <span class="ow">and</span> <span class="n">GNU</span> <span class="n">GPL</span><span class="s1">&#39;d, by OpenWorks Ltd et al.</span>
-<span class="o">==</span><span class="mi">6617</span><span class="o">==</span> <span class="n">Using</span> <span class="n">Valgrind</span><span class="o">-</span><span class="mf">3.10</span><span class="o">.</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">LibVEX</span><span class="p">;</span> <span class="n">rerun</span> <span class="k">with</span> <span class="o">-</span><span class="n">h</span> <span class="k">for</span> <span class="n">copyright</span> <span class="n">info</span>
+<span class="o">==</span><span class="mi">6617</span><span class="o">==</span> <span class="n">Using</span> <span class="n">Valgrind</span><span class="o">-</span><span class="mf">3.10.1</span> <span class="ow">and</span> <span class="n">LibVEX</span><span class="p">;</span> <span class="n">rerun</span> <span class="k">with</span> <span class="o">-</span><span class="n">h</span> <span class="k">for</span> <span class="n">copyright</span> <span class="n">info</span>
 <span class="o">==</span><span class="mi">6617</span><span class="o">==</span> <span class="n">Command</span><span class="p">:</span> <span class="o">./</span><span class="n">stack</span><span class="o">-</span><span class="n">buffer</span><span class="o">-</span><span class="n">overflow</span>
 <span class="o">==</span><span class="mi">6617</span><span class="o">==</span>
 <span class="o">==</span><span class="mi">6617</span><span class="o">==</span> <span class="n">Invalid</span> <span class="n">write</span> <span class="n">of</span> <span class="n">size</span> <span class="mi">1</span>
@@ -1682,17 +1612,17 @@ c<span class="o">[</span><span class="m">1</span><span class="o">]</span> : z
 <span class="o">==</span><span class="mi">6617</span><span class="o">==</span> <span class="n">ERROR</span> <span class="n">SUMMARY</span><span class="p">:</span> <span class="mi">1</span> <span class="n">errors</span> <span class="kn">from</span> <span class="mi">1</span> <span class="n">contexts</span> <span class="p">(</span><span class="n">suppressed</span><span class="p">:</span> <span class="mi">0</span> <span class="kn">from</span> <span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id6">
-<h3><a class="toc-backref" href="#id26">buffer over-read</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="id6">
+<h3><a class="toc-backref" href="#id26" role="doc-backlink">buffer over-read</a><a class="headerlink" href="#id6" title="Permalink to this heading"></a></h3>
 <p>暫時沒看到 Valgrind 上的解法 …</p>
 <p>GCC 的話可以在 compile 時，加上 <code class="docutils literal notranslate"><span class="pre">-fsanitize=address</span></code> 參數來 check</p>
 <p>compile :</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ gcc -Wall -std<span class="o">=</span>c11 -fsanitize<span class="o">=</span>address -g buffer-over-read.c -o buffer-over-read
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gcc<span class="w"> </span>-Wall<span class="w"> </span>-std<span class="o">=</span>c11<span class="w"> </span>-fsanitize<span class="o">=</span>address<span class="w"> </span>-g<span class="w"> </span>buffer-over-read.c<span class="w"> </span>-o<span class="w"> </span>buffer-over-read
 </pre></div>
 </div>
 <p>執行 :</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ./buffer-over-read
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./buffer-over-read
 </pre></div>
 </div>
 <p>output (terminal 上有上色)</p>
@@ -1745,24 +1675,24 @@ c<span class="o">[</span><span class="m">1</span><span class="o">]</span> : z
 <span class="o">==</span><span class="mi">10965</span><span class="o">==</span><span class="n">ABORTING</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id7">
-<h3><a class="toc-backref" href="#id27">stack overflow</a><a class="headerlink" href="#id7" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="id7">
+<h3><a class="toc-backref" href="#id27" role="doc-backlink">stack overflow</a><a class="headerlink" href="#id7" title="Permalink to this heading"></a></h3>
 <p>執行：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ valgrind ./stack-overflow
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>valgrind<span class="w"> </span>./stack-overflow
 </pre></div>
 </div>
 <p>Valgrind output</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">==</span><span class="mi">12380</span><span class="o">==</span> <span class="n">Memcheck</span><span class="p">,</span> <span class="n">a</span> <span class="n">memory</span> <span class="n">error</span> <span class="n">detector</span>
 <span class="o">==</span><span class="mi">12380</span><span class="o">==</span> <span class="n">Copyright</span> <span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="mi">2002</span><span class="o">-</span><span class="mi">2013</span><span class="p">,</span> <span class="ow">and</span> <span class="n">GNU</span> <span class="n">GPL</span><span class="s1">&#39;d, by Julian Seward et al.</span>
-<span class="o">==</span><span class="mi">12380</span><span class="o">==</span> <span class="n">Using</span> <span class="n">Valgrind</span><span class="o">-</span><span class="mf">3.10</span><span class="o">.</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">LibVEX</span><span class="p">;</span> <span class="n">rerun</span> <span class="k">with</span> <span class="o">-</span><span class="n">h</span> <span class="k">for</span> <span class="n">copyright</span> <span class="n">info</span>
+<span class="o">==</span><span class="mi">12380</span><span class="o">==</span> <span class="n">Using</span> <span class="n">Valgrind</span><span class="o">-</span><span class="mf">3.10.1</span> <span class="ow">and</span> <span class="n">LibVEX</span><span class="p">;</span> <span class="n">rerun</span> <span class="k">with</span> <span class="o">-</span><span class="n">h</span> <span class="k">for</span> <span class="n">copyright</span> <span class="n">info</span>
 <span class="o">==</span><span class="mi">12380</span><span class="o">==</span> <span class="n">Command</span><span class="p">:</span> <span class="o">./</span><span class="n">stack</span><span class="o">-</span><span class="n">overflow</span>
 <span class="o">==</span><span class="mi">12380</span><span class="o">==</span>
 <span class="o">==</span><span class="mi">12380</span><span class="o">==</span> <span class="n">Stack</span> <span class="n">overflow</span> <span class="ow">in</span> <span class="n">thread</span> <span class="mi">1</span><span class="p">:</span> <span class="n">can</span><span class="s1">&#39;t grow stack to 0xffe801ff8</span>
 <span class="o">==</span><span class="mi">12380</span><span class="o">==</span>
 <span class="o">==</span><span class="mi">12380</span><span class="o">==</span> <span class="n">Process</span> <span class="n">terminating</span> <span class="k">with</span> <span class="n">default</span> <span class="n">action</span> <span class="n">of</span> <span class="n">signal</span> <span class="mi">11</span> <span class="p">(</span><span class="n">SIGSEGV</span><span class="p">)</span>
 <span class="o">==</span><span class="mi">12380</span><span class="o">==</span>  <span class="n">Access</span> <span class="ow">not</span> <span class="n">within</span> <span class="n">mapped</span> <span class="n">region</span> <span class="n">at</span> <span class="n">address</span> <span class="mh">0xFFE801FF8</span>
-<span class="o">==</span><span class="mi">12380</span><span class="o">==</span>    <span class="n">at</span> <span class="mh">0x4EA8E8A</span><span class="p">:</span> <span class="n">_IO_file_write</span><span class="o">@</span><span class="nd">@GLIBC_2</span><span class="o">.</span><span class="mf">2.5</span> <span class="p">(</span><span class="ow">in</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">libc</span><span class="o">-</span><span class="mf">2.21</span><span class="o">.</span><span class="n">so</span><span class="p">)</span>
+<span class="o">==</span><span class="mi">12380</span><span class="o">==</span>    <span class="n">at</span> <span class="mh">0x4EA8E8A</span><span class="p">:</span> <span class="n">_IO_file_write</span><span class="o">@</span><span class="nd">@GLIBC_2</span><span class="mf">.2.5</span> <span class="p">(</span><span class="ow">in</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">libc</span><span class="o">-</span><span class="mf">2.21</span><span class="o">.</span><span class="n">so</span><span class="p">)</span>
 <span class="o">==</span><span class="mi">12380</span><span class="o">==</span>  <span class="n">If</span> <span class="n">you</span> <span class="n">believe</span> <span class="n">this</span> <span class="n">happened</span> <span class="k">as</span> <span class="n">a</span> <span class="n">result</span> <span class="n">of</span> <span class="n">a</span> <span class="n">stack</span>
 <span class="o">==</span><span class="mi">12380</span><span class="o">==</span>  <span class="n">overflow</span> <span class="ow">in</span> <span class="n">your</span> <span class="n">program</span><span class="s1">&#39;s main thread (unlikely but</span>
 <span class="o">==</span><span class="mi">12380</span><span class="o">==</span>  <span class="n">possible</span><span class="p">),</span> <span class="n">you</span> <span class="n">can</span> <span class="k">try</span> <span class="n">to</span> <span class="n">increase</span> <span class="n">the</span> <span class="n">size</span> <span class="n">of</span> <span class="n">the</span>
@@ -1789,11 +1719,11 @@ c<span class="o">[</span><span class="m">1</span><span class="o">]</span> : z
 <span class="o">==</span><span class="mi">12380</span><span class="o">==</span> <span class="n">ERROR</span> <span class="n">SUMMARY</span><span class="p">:</span> <span class="mi">0</span> <span class="n">errors</span> <span class="kn">from</span> <span class="mi">0</span> <span class="n">contexts</span> <span class="p">(</span><span class="n">suppressed</span><span class="p">:</span> <span class="mi">0</span> <span class="kn">from</span> <span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="raii-resource-acquisition-is-initialization">
-<h1><a class="toc-backref" href="#id28">RAII (Resource Acquisition Is Initialization)</a><a class="headerlink" href="#raii-resource-acquisition-is-initialization" title="本標題的永久連結">¶</a></h1>
+</section>
+</section>
+</section>
+<section id="raii-resource-acquisition-is-initialization">
+<h1><a class="toc-backref" href="#id28" role="doc-backlink">RAII (Resource Acquisition Is Initialization)</a><a class="headerlink" href="#raii-resource-acquisition-is-initialization" title="Permalink to this heading"></a></h1>
 <p>RAII 為在數個 OO 語言中使用的 programming idiom，
 為 C++ 於 1984 到 1989 年間發展出來，主要由 Bjarne Stroustrup 和 Andrew Koenig 來完成，
 後來也用於 D、Ada、Vala、Rust 等語言。</p>
@@ -1801,15 +1731,15 @@ c<span class="o">[</span><span class="m">1</span><span class="o">]</span> : z
 當物件由 constructor 建立時，就做 resource allocation，
 當物件由 destructor 拆掉時，就做 resource deallocation，
 如此一來只要物件正常的拆掉，就不會有 resource leak 發生。</p>
-</div>
-<div class="section" id="ownership">
-<h1><a class="toc-backref" href="#id29">Ownership</a><a class="headerlink" href="#ownership" title="本標題的永久連結">¶</a></h1>
+</section>
+<section id="ownership">
+<h1><a class="toc-backref" href="#id29" role="doc-backlink">Ownership</a><a class="headerlink" href="#ownership" title="Permalink to this heading"></a></h1>
 <p>Pointer Ownership Model 會把 pointer 分成好幾個種類來區分出哪些資源需要被回收，
 而這件事情會在編譯時期做處理，利用靜態分析來得知這些訊息，
 但是這個靜態分析需要程式設計師在程式中提供一些訊息，
 藉此才能提供強大的安全保證。</p>
-<div class="section" id="c-smart-pointer">
-<h2><a class="toc-backref" href="#id30">C++ Smart Pointer</a><a class="headerlink" href="#c-smart-pointer" title="本標題的永久連結">¶</a></h2>
+<section id="c-smart-pointer">
+<h2><a class="toc-backref" href="#id30" role="doc-backlink">C++ Smart Pointer</a><a class="headerlink" href="#c-smart-pointer" title="Permalink to this heading"></a></h2>
 <p>在 <code class="docutils literal notranslate"><span class="pre">&lt;memory&gt;</span></code> 裡有以下幾種 pointer：</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -1848,10 +1778,10 @@ c<span class="o">[</span><span class="m">1</span><span class="o">]</span> : z
 當大家都不用時才清掉，
 <strong>weak_ptr</strong> 則是和 shared_ptr 類似，
 但是沒有清除的權利，也不會被算進資源的使用者裡，當 shared_ptr 要清掉時，不用理 weak_ptr</p>
-</div>
-</div>
-<div class="section" id="garbage-collection">
-<h1><a class="toc-backref" href="#id31">Garbage Collection</a><a class="headerlink" href="#garbage-collection" title="本標題的永久連結">¶</a></h1>
+</section>
+</section>
+<section id="garbage-collection">
+<h1><a class="toc-backref" href="#id31" role="doc-backlink">Garbage Collection</a><a class="headerlink" href="#garbage-collection" title="Permalink to this heading"></a></h1>
 <p>和前面提到自己管理記憶體的狀況相反的是自動管理記憶體，
 這邊所要提的 Gabrage Collection 就是自動管理的一個方式。
 Garbage Collection 不自己寫說要在什麼時候把記憶體回收，
@@ -1867,8 +1797,8 @@ Garbage Collection 不自己寫說要在什麼時候把記憶體回收，
 <li><p>reference counting</p></li>
 <li><p>tracing garbage collectors</p></li>
 </ul>
-<div class="section" id="reference-counting">
-<h2><a class="toc-backref" href="#id32">Reference Counting</a><a class="headerlink" href="#reference-counting" title="本標題的永久連結">¶</a></h2>
+<section id="reference-counting">
+<h2><a class="toc-backref" href="#id32" role="doc-backlink">Reference Counting</a><a class="headerlink" href="#reference-counting" title="Permalink to this heading"></a></h2>
 <p>reference counting 就是在每個 object 後附上一個計數器，
 有人用到就加一，不用了就減一，
 當變成 0 時就代表沒有人在用了，
@@ -1878,15 +1808,15 @@ Garbage Collection 不自己寫說要在什麼時候把記憶體回收，
 另外如果有人互相使用的話就會形成 cycle，
 此時計數器就永遠不會變成 0，
 因此會需要額外的 cycle 偵測的演算法來處理。</p>
-</div>
-<div class="section" id="tracing-garbage-collectors">
-<h2><a class="toc-backref" href="#id33">Tracing Garbage Collectors</a><a class="headerlink" href="#tracing-garbage-collectors" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="tracing-garbage-collectors">
+<h2><a class="toc-backref" href="#id33" role="doc-backlink">Tracing Garbage Collectors</a><a class="headerlink" href="#tracing-garbage-collectors" title="Permalink to this heading"></a></h2>
 <p>tracing garbage collectors 的概念則是一段時間後去爬那些給出去的記憶體，
 看看有誰沒在用，沒在用的就清掉。</p>
 <p>tracing garbage collectors 有很多種實作方式，
 不同實作方式會有不同的優缺點以及適合的狀況。</p>
-<div class="section" id="basic-algorithm">
-<h3><a class="toc-backref" href="#id34">Basic Algorithm</a><a class="headerlink" href="#basic-algorithm" title="本標題的永久連結">¶</a></h3>
+<section id="basic-algorithm">
+<h3><a class="toc-backref" href="#id34" role="doc-backlink">Basic Algorithm</a><a class="headerlink" href="#basic-algorithm" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>mark-and-sweep</p></li>
 </ul>
@@ -1894,9 +1824,9 @@ Garbage Collection 不自己寫說要在什麼時候把記憶體回收，
 爬過使用清單上的 object 做標記，
 最後沒做到標記的 object 就是沒在用的，
 此時就可以清掉。</p>
-</div>
-<div class="section" id="strategies">
-<h3><a class="toc-backref" href="#id35">Strategies</a><a class="headerlink" href="#strategies" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="strategies">
+<h3><a class="toc-backref" href="#id35" role="doc-backlink">Strategies</a><a class="headerlink" href="#strategies" title="Permalink to this heading"></a></h3>
 <p>由於 tracing garbage collectors 這邊依照實作的方式不同，
 結果會有極大的差異，
 所以當中又可以列出幾個實作的策略方向。</p>
@@ -1904,11 +1834,11 @@ Garbage Collection 不自己寫說要在什麼時候把記憶體回收，
 <li><p>Generational</p></li>
 <li><p>Incremental</p></li>
 </ul>
-</div>
-</div>
-</div>
-<div class="section" id="cases">
-<h1><a class="toc-backref" href="#id36">Cases</a><a class="headerlink" href="#cases" title="本標題的永久連結">¶</a></h1>
+</section>
+</section>
+</section>
+<section id="cases">
+<h1><a class="toc-backref" href="#id36" role="doc-backlink">Cases</a><a class="headerlink" href="#cases" title="Permalink to this heading"></a></h1>
 <ul class="simple">
 <li><dl class="simple">
 <dt>Python</dt><dd><ul>
@@ -1919,9 +1849,9 @@ Garbage Collection 不自己寫說要在什麼時候把記憶體回收，
 </dl>
 </li>
 </ul>
-</div>
-<div class="section" id="allocator-implementations">
-<h1><a class="toc-backref" href="#id37">Allocator Implementations</a><a class="headerlink" href="#allocator-implementations" title="本標題的永久連結">¶</a></h1>
+</section>
+<section id="allocator-implementations">
+<h1><a class="toc-backref" href="#id37" role="doc-backlink">Allocator Implementations</a><a class="headerlink" href="#allocator-implementations" title="Permalink to this heading"></a></h1>
 <ul class="simple">
 <li><dl class="simple">
 <dt>dlmalloc</dt><dd><ul>
@@ -1966,44 +1896,44 @@ Garbage Collection 不自己寫說要在什麼時候把記憶體回收，
 </ul>
 <p>ptmalloc2 是在 2006 年從 dlmalloc fork 出去，並且加上 multithreading 支援的版本，
 後來取代 dlmalloc 成為 linux 上內建的 memory allocator。</p>
-<div class="section" id="ptmalloc">
-<h2><a class="toc-backref" href="#id38">ptmalloc</a><a class="headerlink" href="#ptmalloc" title="本標題的永久連結">¶</a></h2>
+<section id="ptmalloc">
+<h2><a class="toc-backref" href="#id38" role="doc-backlink">ptmalloc</a><a class="headerlink" href="#ptmalloc" title="Permalink to this heading"></a></h2>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// C</span>
 
-<span class="k">struct</span> <span class="n">malloc_chunk</span> <span class="p">{</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">malloc_chunk</span><span class="w"> </span><span class="p">{</span>
 
-    <span class="n">INTERNAL_SIZE_T</span>      <span class="n">prev_size</span><span class="p">;</span>  <span class="cm">/* Size of previous chunk (if free).  */</span>
-    <span class="n">INTERNAL_SIZE_T</span>      <span class="n">size</span><span class="p">;</span>       <span class="cm">/* Size in bytes, including overhead. */</span>
+<span class="w">    </span><span class="n">INTERNAL_SIZE_T</span><span class="w">      </span><span class="n">prev_size</span><span class="p">;</span><span class="w">  </span><span class="cm">/* Size of previous chunk (if free).  */</span>
+<span class="w">    </span><span class="n">INTERNAL_SIZE_T</span><span class="w">      </span><span class="n">size</span><span class="p">;</span><span class="w">       </span><span class="cm">/* Size in bytes, including overhead. */</span>
 
-    <span class="k">struct</span> <span class="n">malloc_chunk</span><span class="o">*</span> <span class="n">fd</span><span class="p">;</span>         <span class="cm">/* double links -- used only if free. */</span>
-    <span class="k">struct</span> <span class="n">malloc_chunk</span><span class="o">*</span> <span class="n">bk</span><span class="p">;</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">malloc_chunk</span><span class="o">*</span><span class="w"> </span><span class="n">fd</span><span class="p">;</span><span class="w">         </span><span class="cm">/* double links -- used only if free. */</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">malloc_chunk</span><span class="o">*</span><span class="w"> </span><span class="n">bk</span><span class="p">;</span>
 
-    <span class="cm">/* Only used for large blocks: pointer to next larger size.  */</span>
-    <span class="k">struct</span> <span class="n">malloc_chunk</span><span class="o">*</span> <span class="n">fd_nextsize</span><span class="p">;</span> <span class="cm">/* double links -- used only if free. */</span>
-    <span class="k">struct</span> <span class="n">malloc_chunk</span><span class="o">*</span> <span class="n">bk_nextsize</span><span class="p">;</span>
+<span class="w">    </span><span class="cm">/* Only used for large blocks: pointer to next larger size.  */</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">malloc_chunk</span><span class="o">*</span><span class="w"> </span><span class="n">fd_nextsize</span><span class="p">;</span><span class="w"> </span><span class="cm">/* double links -- used only if free. */</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">malloc_chunk</span><span class="o">*</span><span class="w"> </span><span class="n">bk_nextsize</span><span class="p">;</span>
 <span class="p">};</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="debugging-data-format">
-<h1><a class="toc-backref" href="#id39">Debugging Data Format</a><a class="headerlink" href="#debugging-data-format" title="本標題的永久連結">¶</a></h1>
-</div>
-<div class="section" id="reference">
-<h1><a class="toc-backref" href="#id40">Reference</a><a class="headerlink" href="#reference" title="本標題的永久連結">¶</a></h1>
+</section>
+</section>
+<section id="debugging-data-format">
+<h1><a class="toc-backref" href="#id39" role="doc-backlink">Debugging Data Format</a><a class="headerlink" href="#debugging-data-format" title="Permalink to this heading"></a></h1>
+</section>
+<section id="reference">
+<h1><a class="toc-backref" href="#id40" role="doc-backlink">Reference</a><a class="headerlink" href="#reference" title="Permalink to this heading"></a></h1>
 <ul class="simple">
 <li><p><a class="reference external" href="http://duartes.org/gustavo/blog/post/anatomy-of-a-program-in-memory/">[2009] Anatomy of a Program in Memory</a></p></li>
 <li><p><a class="reference external" href="http://blog.sei.cmu.edu/post.cfm/using-the-pointer-ownership-model-to-secure-memory-management-in-c-and-c">[2013] Using the Pointer Ownership Model to Secure Memory Management in C and C++</a></p></li>
 </ul>
-<div class="section" id="id8">
-<h2><a class="toc-backref" href="#id41">Ownership</a><a class="headerlink" href="#id8" title="本標題的永久連結">¶</a></h2>
+<section id="id8">
+<h2><a class="toc-backref" href="#id41" role="doc-backlink">Ownership</a><a class="headerlink" href="#id8" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://kheresy.wordpress.com/2012/03/03/c11_smartpointer_p1/">[2012] 避免 memory leak：C++11 Smart Pointer（上）</a></p></li>
 <li><p><a class="reference external" href="https://kheresy.wordpress.com/2012/03/05/c11_smartpointer_p2/">[2012] 避免 memory leak：C++11 Smart Pointer（下）</a></p></li>
 </ul>
-</div>
-<div class="section" id="allocators">
-<h2><a class="toc-backref" href="#id42">Allocators</a><a class="headerlink" href="#allocators" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="allocators">
+<h2><a class="toc-backref" href="#id42" role="doc-backlink">Allocators</a><a class="headerlink" href="#allocators" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://sploitfun.wordpress.com/2015/02/10/understanding-glibc-malloc/">[2015] Understanding glibc malloc</a></p></li>
 <li><p><a class="reference external" href="https://github.com/emeryberger/Malloc-Implementations">[GitHub] emeryberger/Malloc-Implementations</a></p></li>
@@ -2036,9 +1966,9 @@ Garbage Collection 不自己寫說要在什麼時候把記憶體回收，
 <li><p><a class="reference external" href="http://g.oswego.edu/dl/html/malloc.html">dlmalloc - A Memory Allocator</a></p></li>
 <li><p><a class="reference external" href="http://www.citi.umich.edu/projects/citi-netscape/reports/malloc.html">Projects: Linux scalability: malloc() performance report</a></p></li>
 </ul>
-</div>
-<div class="section" id="dwarf">
-<h2><a class="toc-backref" href="#id43">DWARF</a><a class="headerlink" href="#dwarf" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="dwarf">
+<h2><a class="toc-backref" href="#id43" role="doc-backlink">DWARF</a><a class="headerlink" href="#dwarf" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="http://eli.thegreenplace.net/2011/01/23/how-debuggers-work-part-1">How debuggers work: Part 1 - Basics</a></p></li>
 <li><p><a class="reference external" href="http://eli.thegreenplace.net/2011/01/27/how-debuggers-work-part-2-breakpoints">How debuggers work: Part 2 - Breakpoints</a></p></li>
@@ -2046,9 +1976,9 @@ Garbage Collection 不自己寫說要在什麼時候把記憶體回收，
 <li><p><a class="reference external" href="http://eli.thegreenplace.net/2011/09/29/an-interesting-tree-serialization-algorithm-from-dwarf">An interesting tree serialization algorithm from DWARF</a></p></li>
 <li><p><a class="reference external" href="http://eli.thegreenplace.net/2011/12/26/the-contents-of-dwarf-sections">The contents of DWARF sections</a></p></li>
 </ul>
-</div>
-<div class="section" id="wikipedia">
-<h2><a class="toc-backref" href="#id44">Wikipedia</a><a class="headerlink" href="#wikipedia" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="wikipedia">
+<h2><a class="toc-backref" href="#id44" role="doc-backlink">Wikipedia</a><a class="headerlink" href="#wikipedia" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/C_dynamic_memory_allocation">Wikipedia - C dynamic memory allocation</a></p></li>
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Memory_management_unit">Wikipedia - Memory management unit</a></p></li>
@@ -2061,46 +1991,36 @@ Garbage Collection 不自己寫說要在什麼時候把記憶體回收，
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Smart_pointer">Wikipedia - Smart pointer</a></p></li>
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/DWARF">Wikipedia - DWARF</a></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="nctu-github.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="linux-standard-base.html" class="btn btn-neutral float-left" title="Linux Standard Base (LSB)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="linux-standard-base.html" class="btn btn-neutral float-left" title="Linux Standard Base (LSB)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="nctu-github.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016
-
-    </p>
+    <p>&#169; Copyright 2023.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
   
 
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       <span class="fa fa-book"> Read the Docs</span>
       v: latest
@@ -2110,7 +2030,7 @@ Garbage Collection 不自己寫說要在什麼時候把記憶體回收，
       <dl>
         <dt>Versions</dt>
         
-          <dd><a href="/zh_TW/latest/">latest</a></dd>
+          <dd><a href="https://wdv4758h.github.io/notes/">latest</a></dd>
         
       </dl>
       <dl>
@@ -2120,6 +2040,7 @@ Garbage Collection 不自己寫說要在什麼時候把記憶體回收，
         
       </dl>
       <dl>
+        
         <dt>On Read the Docs</dt>
           <dd>
             <a href="//readthedocs.org/projects/wdv4758h-notes/?fromdocs=wdv4758h-notes">Project Home</a>
@@ -2128,22 +2049,13 @@ Garbage Collection 不自己寫說要在什麼時候把記憶體回收，
             <a href="//readthedocs.org/builds/wdv4758h-notes/?fromdocs=wdv4758h-notes">Builds</a>
           </dd>
       </dl>
-      <hr/>
-      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
-
     </div>
   </div>
-
-
-
-  <script type="text/javascript">
+<script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-   
+  </script> 
 
 </body>
 </html>

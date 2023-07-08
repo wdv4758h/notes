@@ -1,112 +1,73 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-TW" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-TW" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Design Pattern &mdash; wdv4758h-notes latest 說明文件</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design Pattern &mdash; wdv4758h-notes latest documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../../_static/translations.js"></script>
-        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
-    
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="index" title="索引" href="../../../genindex.html" />
-    <link rel="search" title="搜尋" href="../../../search.html" /> 
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
 
 <!-- RTD Extra Head -->
 
-<!-- 
-Always link to the latest version, as canonical.
-http://docs.readthedocs.org/en/latest/canonical.html
--->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/programming-language/cases/cpp/design-pattern.html" />
+    <!--
+    Always link to the latest version, as canonical.
+    http://docs.readthedocs.org/en/latest/canonical.html
+    -->
+    <link rel="canonical" href="https://wdv4758h-notes.readthedocs.io/zh_TW/latest/programming-language/cases/cpp/design-pattern.html" />
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../../../_static/readthedocs-data.js"></script>
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": "", "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": "https://wdv4758h-notes.readthedocs.io/zh_TW/latest/", "docroot": "/./", "features": {"docsearch_disabled": false}, "global_analytics_code": "", "language": "en", "page": "programming-language/cases/cpp/design-pattern", "programming_language": "", "project": "wdv4758h-notes", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": ""}</script>
 
-<!-- Add page-specific data, which must exist in the page js, not global -->
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = "programming-language/cases/cpp/design-pattern"
-READTHEDOCS_DATA['source_suffix'] = ".rst"
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
 </script>
 
-<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js" async="async"></script>
 
 <!-- end RTD <extrahead> -->
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../../index.html" class="icon icon-home"> wdv4758h-notes
           
-
-          
+          <a href="../../../index.html" class="icon icon-home">
+            wdv4758h-notes
           </a>
-
-          
-            
-            
-            
               <div class="version">
                 latest
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/README.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/adt.html">ADT (Abstract Data Type)</a></li>
@@ -116,13 +77,18 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/cache.html">Cache</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/cache-friendly.html">Cache Friendly Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/dict.html">Dict</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/float-to-string.html">Float to String</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/heap.html">Heap （堆）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/introduction.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/inverse-square-root.html">Inverse Square Root</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/lock.html">Lock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/meta-algorithm.html">Meta Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/random-number-generator.html">Random Number Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/resource.html">演算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/sorting.html">Sorting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../algorithm/string-to-float.html">String to Float</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../algorithm/substring-searching.html">Substring Searching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../android/README.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../android/android-emulator.html">Android Emulator</a></li>
@@ -198,7 +164,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/openmp.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/pypy-brainfuck.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/pypy-brainfuck.html#tutorial">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../blog/pypy-brainfuck.html#id5">額外紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/pypy-brainfuck.html#id4">額外紀錄</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/pypy-brainfuck.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/python-benchmark.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/python-benchmark.html#hello-world">Hello World</a></li>
@@ -225,7 +191,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/qemu-first-step.html#qemu-with-kvm">QEMU with KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html">Syntax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#closure">Closure 和外部變數</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#move-closures">「move」 closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#move-closures">“move” closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#closure-implementation">Closure implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#closures-as-arguments">closures as arguments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../blog/rust-closure.html#returning-closures">returning closures</a></li>
@@ -406,6 +372,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/ci.html">Continuous Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/concourse.html">Concourse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/drone.html">Drone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/github-actions.html">Github Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/jenkins.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/travis-ci.html">Travis CI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../continuous-integration/workflow-pipeline.html">Workflow Pipeline</a></li>
@@ -415,7 +382,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/array.html">std::array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/assembly.html">C++ &amp; Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/bit-field.html">C++ Bit Field</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../cpp/c++17.html">C++17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cpp/c%2B%2B17.html">C++17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/concepts.html">C++ Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/const.html">C++ const</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cpp/copy-elision.html">Copy Elision</a></li>
@@ -468,13 +435,16 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../database/README.html">資料庫 (Database)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/cockroachdb.html">CockroachDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/consensus-algorithm.html">Raft Consensus Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../database/graph.html">Graph Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/leveldb.html">LevelDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../database/materialized-views.html">Materialized Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/mongodb.html">MongoDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../database/rocksdb.html">RocksDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/sql.html">SQL (Structured Query Language)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../database/tidb.html">TiDB</a></li>
@@ -547,7 +517,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../math/math-on-web.html">Math on Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../math/misc.html">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../memory/W^X.html">W^X (Write XOR Execute)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../memory/W%5EX.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../memory/allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../memory/kernel-memory-management.html">Kernel Memory Management</a></li>
@@ -805,74 +775,34 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../../wiki/resource.html">Wiki</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">wdv4758h-notes</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../../index.html">Docs</a> &raquo;</li>
-        
-      <li>Design Pattern</li>
-    
-    
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Design Pattern</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/wdv4758h/notes/blob/master/./programming-language/cases/cpp/design-pattern.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="design-pattern">
-<h1><a class="toc-backref" href="#id3">Design Pattern</a><a class="headerlink" href="#design-pattern" title="本標題的永久連結">¶</a></h1>
-<div class="contents topic" id="id1">
-<p class="topic-title first">目錄</p>
+             
+  <section id="design-pattern">
+<h1><a class="toc-backref" href="#id3" role="doc-backlink">Design Pattern</a><a class="headerlink" href="#design-pattern" title="Permalink to this heading"></a></h1>
+<nav class="contents" id="id1">
+<p class="topic-title">目錄</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#design-pattern" id="id3">Design Pattern</a></p>
 <ul>
@@ -918,14 +848,14 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="creational">
-<h2><a class="toc-backref" href="#id4">Creational</a><a class="headerlink" href="#creational" title="本標題的永久連結">¶</a></h2>
+</nav>
+<section id="creational">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Creational</a><a class="headerlink" href="#creational" title="Permalink to this heading"></a></h2>
 <p>Creational Design Pattern 顧名思義就是與物件建立相關，
 可能是提供比較方便的建立方式，
 或者是對物件的建立設定一些限制。</p>
-<div class="section" id="simple-factory">
-<h3><a class="toc-backref" href="#id5">Simple Factory</a><a class="headerlink" href="#simple-factory" title="本標題的永久連結">¶</a></h3>
+<section id="simple-factory">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Simple Factory</a><a class="headerlink" href="#simple-factory" title="Permalink to this heading"></a></h3>
 <p>「目標是把物件建立的複雜性抽象化掉，
 提供一個簡單的物件建立方式」</p>
 <p>Simple Factory 就是一個函式或物件，
@@ -933,98 +863,98 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 可以把比較麻煩的物件建立流程包裝起來，
 可能是以一般 Function 或 Static Member Function 的形式。</p>
 <p>Rust 範例：</p>
-<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">trait</span><span class="w"> </span><span class="n">Door</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">fn</span> <span class="nf">description</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">trait</span><span class="w"> </span><span class="n">Door</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">description</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">);</span>
+<span class="p">}</span>
 
 <span class="c1">////////////////////////////////////////</span>
 
-<span class="cp">#[derive(Default)]</span><span class="w"></span>
-<span class="k">struct</span> <span class="nc">WoodenDoor</span><span class="p">;</span><span class="w"></span>
+<span class="cp">#[derive(Default)]</span>
+<span class="k">struct</span> <span class="nc">WoodenDoor</span><span class="p">;</span>
 
-<span class="cp">#[derive(Default)]</span><span class="w"></span>
-<span class="k">struct</span> <span class="nc">IronDoor</span><span class="p">;</span><span class="w"></span>
+<span class="cp">#[derive(Default)]</span>
+<span class="k">struct</span> <span class="nc">IronDoor</span><span class="p">;</span>
 
-<span class="k">impl</span><span class="w"> </span><span class="n">Door</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">WoodenDoor</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">fn</span> <span class="nf">description</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;A wooden door!&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="k">impl</span><span class="w"> </span><span class="n">Door</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">WoodenDoor</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">description</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;A wooden door!&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
 
-<span class="k">impl</span><span class="w"> </span><span class="n">Door</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">IronDoor</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">fn</span> <span class="nf">description</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;A iron door!&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="k">impl</span><span class="w"> </span><span class="n">Door</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">IronDoor</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">description</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;A iron door!&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
 
 <span class="c1">////////////////////////////////////////</span>
 
-<span class="k">fn</span> <span class="nf">door_factory</span><span class="p">(</span><span class="n">material</span>: <span class="kp">&amp;</span><span class="kt">str</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nb">Option</span><span class="o">&lt;</span><span class="nb">Box</span><span class="o">&lt;</span><span class="n">Door</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">match</span><span class="w"> </span><span class="n">material</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="s">&quot;wood&quot;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="nb">Box</span>::<span class="n">new</span><span class="p">(</span><span class="n">WoodenDoor</span><span class="p">{})),</span><span class="w"></span>
-<span class="w">        </span><span class="s">&quot;iron&quot;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="nb">Box</span>::<span class="n">new</span><span class="p">(</span><span class="n">IronDoor</span><span class="p">{})),</span><span class="w"></span>
-<span class="w">        </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">None</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="k">fn</span> <span class="nf">door_factory</span><span class="p">(</span><span class="n">material</span>: <span class="kp">&amp;</span><span class="kt">str</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nb">Option</span><span class="o">&lt;</span><span class="nb">Box</span><span class="o">&lt;</span><span class="n">Door</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">match</span><span class="w"> </span><span class="n">material</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s">&quot;wood&quot;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="nb">Box</span>::<span class="n">new</span><span class="p">(</span><span class="n">WoodenDoor</span><span class="p">{})),</span>
+<span class="w">        </span><span class="s">&quot;iron&quot;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="nb">Box</span>::<span class="n">new</span><span class="p">(</span><span class="n">IronDoor</span><span class="p">{})),</span>
+<span class="w">        </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">None</span><span class="p">,</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 
-<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">door</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">door_factory</span><span class="p">(</span><span class="s">&quot;wood&quot;</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="n">door</span><span class="p">.</span><span class="n">description</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">door</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">door_factory</span><span class="p">(</span><span class="s">&quot;iron&quot;</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="n">door</span><span class="p">.</span><span class="n">description</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">door</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">door_factory</span><span class="p">(</span><span class="s">&quot;wood&quot;</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span>
+<span class="w">        </span><span class="n">door</span><span class="p">.</span><span class="n">description</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">door</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">door_factory</span><span class="p">(</span><span class="s">&quot;iron&quot;</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span>
+<span class="w">        </span><span class="n">door</span><span class="p">.</span><span class="n">description</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>C++ 範例：</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;memory&gt;</span><span class="cp"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;memory&gt;</span>
 
 <span class="c1">////////////////////////////////////////</span>
 
-<span class="k">class</span> <span class="nc">Door</span> <span class="p">{</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Door</span><span class="w"> </span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-    <span class="k">virtual</span> <span class="kt">void</span> <span class="n">description</span><span class="p">()</span> <span class="p">{};</span>
-    <span class="o">~</span><span class="n">Door</span><span class="p">()</span> <span class="p">{}</span>
-<span class="p">};</span>
-
-<span class="c1">////////////////////////////////////////</span>
-
-<span class="k">class</span> <span class="nc">WoodenDoor</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Door</span> <span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-    <span class="kt">void</span> <span class="n">description</span><span class="p">()</span> <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;A wooden door!&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span> <span class="p">}</span>
-    <span class="o">~</span><span class="n">WoodenDoor</span><span class="p">()</span> <span class="p">{}</span>
-<span class="p">};</span>
-
-<span class="k">class</span> <span class="nc">IronDoor</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Door</span> <span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-    <span class="kt">void</span> <span class="n">description</span><span class="p">()</span> <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;A iron door!&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span> <span class="p">}</span>
-    <span class="o">~</span><span class="n">IronDoor</span><span class="p">()</span> <span class="p">{}</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">description</span><span class="p">()</span><span class="w"> </span><span class="p">{};</span>
+<span class="w">    </span><span class="o">~</span><span class="n">Door</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
 <span class="p">};</span>
 
 <span class="c1">////////////////////////////////////////</span>
 
-<span class="k">class</span> <span class="nc">DoorFactory</span> <span class="p">{</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">WoodenDoor</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Door</span><span class="w"> </span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-    <span class="k">static</span> <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">Door</span><span class="o">&gt;</span> <span class="n">make_door</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">material</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">material</span> <span class="o">==</span> <span class="s">&quot;wood&quot;</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">WoodenDoor</span><span class="o">&gt;</span><span class="p">();</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">material</span> <span class="o">==</span> <span class="s">&quot;iron&quot;</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">IronDoor</span><span class="o">&gt;</span><span class="p">();</span>
-        <span class="p">}</span>
-        <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">WoodenDoor</span><span class="o">&gt;</span><span class="p">();</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">description</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;A wooden door!&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="o">~</span><span class="n">WoodenDoor</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
 <span class="p">};</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="p">{</span>
-        <span class="k">auto</span> <span class="n">door</span> <span class="o">=</span> <span class="n">DoorFactory</span><span class="o">::</span><span class="n">make_door</span><span class="p">(</span><span class="s">&quot;wood&quot;</span><span class="p">);</span>
-        <span class="n">door</span><span class="o">-&gt;</span><span class="n">description</span><span class="p">();</span>
-    <span class="p">}</span>
-    <span class="p">{</span>
-        <span class="k">auto</span> <span class="n">door</span> <span class="o">=</span> <span class="n">DoorFactory</span><span class="o">::</span><span class="n">make_door</span><span class="p">(</span><span class="s">&quot;iron&quot;</span><span class="p">);</span>
-        <span class="n">door</span><span class="o">-&gt;</span><span class="n">description</span><span class="p">();</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">IronDoor</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Door</span><span class="w"> </span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">description</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;A iron door!&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="o">~</span><span class="n">IronDoor</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+<span class="p">};</span>
+
+<span class="c1">////////////////////////////////////////</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">DoorFactory</span><span class="w"> </span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">Door</span><span class="o">&gt;</span><span class="w"> </span><span class="n">make_door</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">material</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">material</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;wood&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">WoodenDoor</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">material</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;iron&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">IronDoor</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">WoodenDoor</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">door</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DoorFactory</span><span class="o">::</span><span class="n">make_door</span><span class="p">(</span><span class="s">&quot;wood&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">door</span><span class="o">-&gt;</span><span class="n">description</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">door</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DoorFactory</span><span class="o">::</span><span class="n">make_door</span><span class="p">(</span><span class="s">&quot;iron&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">door</span><span class="o">-&gt;</span><span class="n">description</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -1032,15 +962,15 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="factory-method">
-<h3><a class="toc-backref" href="#id6">Factory Method</a><a class="headerlink" href="#factory-method" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="factory-method">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Factory Method</a><a class="headerlink" href="#factory-method" title="Permalink to this heading"></a></h3>
 <p>「目標是把物件建立的複雜性交由 class 自己處理，
 使用者只要使用提供好的操作界面即可，
 專住在真正的行為操作」</p>
-</div>
-<div class="section" id="abstract-factory">
-<h3><a class="toc-backref" href="#id7">Abstract Factory</a><a class="headerlink" href="#abstract-factory" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="abstract-factory">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Abstract Factory</a><a class="headerlink" href="#abstract-factory" title="Permalink to this heading"></a></h3>
 <p>「工廠們的工廠，
 把數個相關或有依賴性的工廠綁在一起」</p>
 <p>Abstract Factory 實際上就是 Factories 的 Factory，
@@ -1050,169 +980,169 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 但是使用者只要透過統一的界面來操作即可，
 不需要知道底下在使用的類別究竟是哪一個。</p>
 <p>Rust 範例：</p>
-<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">trait</span><span class="w"> </span><span class="n">Door</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">fn</span> <span class="nf">description</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">trait</span><span class="w"> </span><span class="n">Door</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">description</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">);</span>
+<span class="p">}</span>
 
-<span class="k">trait</span><span class="w"> </span><span class="n">DoorFittingExpert</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">fn</span> <span class="nf">description</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="k">trait</span><span class="w"> </span><span class="n">DoorFittingExpert</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">description</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">);</span>
+<span class="p">}</span>
 
-<span class="k">trait</span><span class="w"> </span><span class="n">DoorAbstractFactory</span><span class="o">&lt;</span><span class="n">D</span>: <span class="nc">Door</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">Default</span><span class="p">,</span><span class="w"> </span><span class="n">E</span>: <span class="nc">DoorFittingExpert</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">Default</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">fn</span> <span class="nf">new_door</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">D</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">Default</span>::<span class="n">default</span><span class="p">()</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="k">fn</span> <span class="nf">new_expert</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">E</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">Default</span>::<span class="n">default</span><span class="p">()</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-<span class="c1">////////////////////////////////////////</span>
-
-<span class="cp">#[derive(Default)]</span><span class="w"></span>
-<span class="k">struct</span> <span class="nc">WoodenDoor</span><span class="p">;</span><span class="w"></span>
-
-<span class="cp">#[derive(Default)]</span><span class="w"></span>
-<span class="k">struct</span> <span class="nc">IronDoor</span><span class="p">;</span><span class="w"></span>
-
-<span class="k">impl</span><span class="w"> </span><span class="n">Door</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">WoodenDoor</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">fn</span> <span class="nf">description</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;A wooden door!&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-<span class="k">impl</span><span class="w"> </span><span class="n">Door</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">IronDoor</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">fn</span> <span class="nf">description</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;A iron door!&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="k">trait</span><span class="w"> </span><span class="n">DoorAbstractFactory</span><span class="o">&lt;</span><span class="n">D</span>: <span class="nc">Door</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">Default</span><span class="p">,</span><span class="w"> </span><span class="n">E</span>: <span class="nc">DoorFittingExpert</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">Default</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">new_door</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">D</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">Default</span>::<span class="n">default</span><span class="p">()</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">new_expert</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">E</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">Default</span>::<span class="n">default</span><span class="p">()</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
 
 <span class="c1">////////////////////////////////////////</span>
 
-<span class="cp">#[derive(Default)]</span><span class="w"></span>
-<span class="k">struct</span> <span class="nc">Carpenter</span><span class="p">;</span><span class="w"></span>
+<span class="cp">#[derive(Default)]</span>
+<span class="k">struct</span> <span class="nc">WoodenDoor</span><span class="p">;</span>
 
-<span class="cp">#[derive(Default)]</span><span class="w"></span>
-<span class="k">struct</span> <span class="nc">Welder</span><span class="p">;</span><span class="w"></span>
+<span class="cp">#[derive(Default)]</span>
+<span class="k">struct</span> <span class="nc">IronDoor</span><span class="p">;</span>
 
-<span class="k">impl</span><span class="w"> </span><span class="n">DoorFittingExpert</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Carpenter</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">fn</span> <span class="nf">description</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;I can only fit wooden door!&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="k">impl</span><span class="w"> </span><span class="n">Door</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">WoodenDoor</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">description</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;A wooden door!&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
 
-<span class="k">impl</span><span class="w"> </span><span class="n">DoorFittingExpert</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Welder</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">fn</span> <span class="nf">description</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;I can only fit iron door!&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="k">impl</span><span class="w"> </span><span class="n">Door</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">IronDoor</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">description</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;A iron door!&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
 
 <span class="c1">////////////////////////////////////////</span>
 
-<span class="k">struct</span> <span class="nc">WoodenDoorFactory</span><span class="p">;</span><span class="w"></span>
-<span class="k">struct</span> <span class="nc">IronDoorFactory</span><span class="p">;</span><span class="w"></span>
+<span class="cp">#[derive(Default)]</span>
+<span class="k">struct</span> <span class="nc">Carpenter</span><span class="p">;</span>
 
-<span class="k">impl</span><span class="w"> </span><span class="n">DoorAbstractFactory</span><span class="o">&lt;</span><span class="n">WoodenDoor</span><span class="p">,</span><span class="w"> </span><span class="n">Carpenter</span><span class="o">&gt;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">WoodenDoorFactory</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
-<span class="k">impl</span><span class="w"> </span><span class="n">DoorAbstractFactory</span><span class="o">&lt;</span><span class="n">IronDoor</span><span class="p">,</span><span class="w"> </span><span class="n">Welder</span><span class="o">&gt;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">IronDoorFactory</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+<span class="cp">#[derive(Default)]</span>
+<span class="k">struct</span> <span class="nc">Welder</span><span class="p">;</span>
 
-<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">factory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">WoodenDoorFactory</span><span class="p">{};</span><span class="w"></span>
-<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">door</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">factory</span><span class="p">.</span><span class="n">new_door</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">expert</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">factory</span><span class="p">.</span><span class="n">new_expert</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="n">door</span><span class="p">.</span><span class="n">description</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="n">expert</span><span class="p">.</span><span class="n">description</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">factory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IronDoorFactory</span><span class="p">{};</span><span class="w"></span>
-<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">door</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">factory</span><span class="p">.</span><span class="n">new_door</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">expert</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">factory</span><span class="p">.</span><span class="n">new_expert</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="n">door</span><span class="p">.</span><span class="n">description</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="n">expert</span><span class="p">.</span><span class="n">description</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="k">impl</span><span class="w"> </span><span class="n">DoorFittingExpert</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Carpenter</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">description</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;I can only fit wooden door!&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">impl</span><span class="w"> </span><span class="n">DoorFittingExpert</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Welder</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">description</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;I can only fit iron door!&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">////////////////////////////////////////</span>
+
+<span class="k">struct</span> <span class="nc">WoodenDoorFactory</span><span class="p">;</span>
+<span class="k">struct</span> <span class="nc">IronDoorFactory</span><span class="p">;</span>
+
+<span class="k">impl</span><span class="w"> </span><span class="n">DoorAbstractFactory</span><span class="o">&lt;</span><span class="n">WoodenDoor</span><span class="p">,</span><span class="w"> </span><span class="n">Carpenter</span><span class="o">&gt;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">WoodenDoorFactory</span><span class="w"> </span><span class="p">{}</span>
+<span class="k">impl</span><span class="w"> </span><span class="n">DoorAbstractFactory</span><span class="o">&lt;</span><span class="n">IronDoor</span><span class="p">,</span><span class="w"> </span><span class="n">Welder</span><span class="o">&gt;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">IronDoorFactory</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">factory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">WoodenDoorFactory</span><span class="p">{};</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">door</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">factory</span><span class="p">.</span><span class="n">new_door</span><span class="p">();</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">expert</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">factory</span><span class="p">.</span><span class="n">new_expert</span><span class="p">();</span>
+<span class="w">        </span><span class="n">door</span><span class="p">.</span><span class="n">description</span><span class="p">();</span>
+<span class="w">        </span><span class="n">expert</span><span class="p">.</span><span class="n">description</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">factory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IronDoorFactory</span><span class="p">{};</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">door</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">factory</span><span class="p">.</span><span class="n">new_door</span><span class="p">();</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">expert</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">factory</span><span class="p">.</span><span class="n">new_expert</span><span class="p">();</span>
+<span class="w">        </span><span class="n">door</span><span class="p">.</span><span class="n">description</span><span class="p">();</span>
+<span class="w">        </span><span class="n">expert</span><span class="p">.</span><span class="n">description</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>C++ 範例：</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 
 <span class="c1">////////////////////////////////////////</span>
 
-<span class="k">class</span> <span class="nc">Door</span> <span class="p">{</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Door</span><span class="w"> </span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-    <span class="k">virtual</span> <span class="kt">void</span> <span class="n">description</span><span class="p">();</span>
-    <span class="o">~</span><span class="n">Door</span><span class="p">()</span> <span class="p">{}</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">description</span><span class="p">();</span>
+<span class="w">    </span><span class="o">~</span><span class="n">Door</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
 <span class="p">};</span>
 
-<span class="k">class</span> <span class="nc">DoorFittingExpert</span> <span class="p">{</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">DoorFittingExpert</span><span class="w"> </span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-    <span class="k">virtual</span> <span class="kt">void</span> <span class="n">description</span><span class="p">();</span>
-    <span class="o">~</span><span class="n">DoorFittingExpert</span><span class="p">()</span> <span class="p">{}</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">description</span><span class="p">();</span>
+<span class="w">    </span><span class="o">~</span><span class="n">DoorFittingExpert</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
 <span class="p">};</span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">Door</span><span class="p">,</span> <span class="k">typename</span> <span class="n">Expert</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">DoorAbstractFactory</span> <span class="p">{</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Door</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">Expert</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">DoorAbstractFactory</span><span class="w"> </span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-    <span class="n">Door</span> <span class="n">new_door</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">Door</span> <span class="p">{};</span> <span class="p">}</span>
-    <span class="n">Expert</span> <span class="n">new_expert</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">Expert</span> <span class="p">{};</span> <span class="p">}</span>
-<span class="p">};</span>
-
-<span class="c1">////////////////////////////////////////</span>
-
-<span class="k">class</span> <span class="nc">WoodenDoor</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Door</span> <span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-    <span class="kt">void</span> <span class="n">description</span><span class="p">()</span> <span class="k">override</span> <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;A wooden door!&quot;</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span> <span class="p">}</span>
-    <span class="o">~</span><span class="n">WoodenDoor</span><span class="p">()</span> <span class="p">{}</span>
-<span class="p">};</span>
-
-<span class="k">class</span> <span class="nc">IronDoor</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Door</span> <span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-    <span class="kt">void</span> <span class="n">description</span><span class="p">()</span> <span class="k">override</span> <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;A iron door!&quot;</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span> <span class="p">}</span>
-    <span class="o">~</span><span class="n">IronDoor</span><span class="p">()</span> <span class="p">{}</span>
+<span class="w">    </span><span class="n">Door</span><span class="w"> </span><span class="n">new_door</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Door</span><span class="w"> </span><span class="p">{};</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">Expert</span><span class="w"> </span><span class="n">new_expert</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Expert</span><span class="w"> </span><span class="p">{};</span><span class="w"> </span><span class="p">}</span>
 <span class="p">};</span>
 
 <span class="c1">////////////////////////////////////////</span>
 
-<span class="k">class</span> <span class="nc">Carpenter</span> <span class="o">:</span> <span class="k">public</span> <span class="n">DoorFittingExpert</span> <span class="p">{</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">WoodenDoor</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Door</span><span class="w"> </span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-    <span class="kt">void</span> <span class="n">description</span><span class="p">()</span> <span class="k">override</span> <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;I can only fit wooden door!&quot;</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span> <span class="p">}</span>
-    <span class="o">~</span><span class="n">Carpenter</span><span class="p">()</span> <span class="p">{}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">description</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;A wooden door!&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="o">~</span><span class="n">WoodenDoor</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
 <span class="p">};</span>
 
-<span class="k">class</span> <span class="nc">Welder</span> <span class="o">:</span> <span class="k">public</span> <span class="n">DoorFittingExpert</span> <span class="p">{</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">IronDoor</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Door</span><span class="w"> </span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-    <span class="kt">void</span> <span class="n">description</span><span class="p">()</span> <span class="k">override</span> <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;I can only fit iron door!&quot;</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span> <span class="p">}</span>
-    <span class="o">~</span><span class="n">Welder</span><span class="p">()</span> <span class="p">{}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">description</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;A iron door!&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="o">~</span><span class="n">IronDoor</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
 <span class="p">};</span>
 
 <span class="c1">////////////////////////////////////////</span>
 
-<span class="k">using</span> <span class="n">WoodenDoorFactory</span> <span class="o">=</span> <span class="n">DoorAbstractFactory</span><span class="o">&lt;</span><span class="n">WoodenDoor</span><span class="p">,</span> <span class="n">Carpenter</span><span class="o">&gt;</span><span class="p">;</span>
-<span class="k">using</span> <span class="n">IronDoorFactory</span> <span class="o">=</span> <span class="n">DoorAbstractFactory</span><span class="o">&lt;</span><span class="n">IronDoor</span><span class="p">,</span> <span class="n">Welder</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Carpenter</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">DoorFittingExpert</span><span class="w"> </span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">description</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;I can only fit wooden door!&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="o">~</span><span class="n">Carpenter</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+<span class="p">};</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Welder</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">DoorFittingExpert</span><span class="w"> </span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">description</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;I can only fit iron door!&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="o">~</span><span class="n">Welder</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+<span class="p">};</span>
+
+<span class="c1">////////////////////////////////////////</span>
+
+<span class="k">using</span><span class="w"> </span><span class="n">WoodenDoorFactory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DoorAbstractFactory</span><span class="o">&lt;</span><span class="n">WoodenDoor</span><span class="p">,</span><span class="w"> </span><span class="n">Carpenter</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">IronDoorFactory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DoorAbstractFactory</span><span class="o">&lt;</span><span class="n">IronDoor</span><span class="p">,</span><span class="w"> </span><span class="n">Welder</span><span class="o">&gt;</span><span class="p">;</span>
 
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="p">{</span>
-        <span class="k">auto</span> <span class="n">factory</span> <span class="o">=</span> <span class="n">WoodenDoorFactory</span><span class="p">();</span>
-        <span class="k">auto</span> <span class="n">door</span> <span class="o">=</span> <span class="n">factory</span><span class="p">.</span><span class="n">new_door</span><span class="p">();</span>
-        <span class="k">auto</span> <span class="n">expert</span> <span class="o">=</span> <span class="n">factory</span><span class="p">.</span><span class="n">new_expert</span><span class="p">();</span>
-        <span class="n">door</span><span class="p">.</span><span class="n">description</span><span class="p">();</span>
-        <span class="n">expert</span><span class="p">.</span><span class="n">description</span><span class="p">();</span>
-    <span class="p">}</span>
-    <span class="p">{</span>
-        <span class="k">auto</span> <span class="n">factory</span> <span class="o">=</span> <span class="n">IronDoorFactory</span><span class="p">();</span>
-        <span class="k">auto</span> <span class="n">door</span> <span class="o">=</span> <span class="n">factory</span><span class="p">.</span><span class="n">new_door</span><span class="p">();</span>
-        <span class="k">auto</span> <span class="n">expert</span> <span class="o">=</span> <span class="n">factory</span><span class="p">.</span><span class="n">new_expert</span><span class="p">();</span>
-        <span class="n">door</span><span class="p">.</span><span class="n">description</span><span class="p">();</span>
-        <span class="n">expert</span><span class="p">.</span><span class="n">description</span><span class="p">();</span>
-    <span class="p">}</span>
-    <span class="p">{</span>
-        <span class="k">auto</span> <span class="n">factory</span> <span class="o">=</span> <span class="n">WoodenDoorFactory</span><span class="p">();</span>
-        <span class="k">auto</span> <span class="n">door</span>   <span class="o">=</span> <span class="n">factory</span><span class="p">.</span><span class="n">new_door</span><span class="p">();</span>
-        <span class="k">auto</span> <span class="n">expert</span> <span class="o">=</span> <span class="n">factory</span><span class="p">.</span><span class="n">new_expert</span><span class="p">();</span>
-        <span class="k">auto</span> <span class="n">pdoor</span>   <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">Door</span><span class="o">*&gt;</span>             <span class="p">(</span><span class="o">&amp;</span><span class="n">door</span><span class="p">);</span>
-        <span class="k">auto</span> <span class="n">pexpert</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">DoorFittingExpert</span><span class="o">*&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">expert</span><span class="p">);</span>
-        <span class="n">pdoor</span><span class="o">-&gt;</span><span class="n">description</span><span class="p">();</span>
-        <span class="n">pexpert</span><span class="o">-&gt;</span><span class="n">description</span><span class="p">();</span>
-    <span class="p">}</span>
-    <span class="p">{</span>
-        <span class="k">auto</span> <span class="n">factory</span> <span class="o">=</span> <span class="n">IronDoorFactory</span><span class="p">();</span>
-        <span class="k">auto</span> <span class="n">door</span>   <span class="o">=</span> <span class="n">factory</span><span class="p">.</span><span class="n">new_door</span><span class="p">();</span>
-        <span class="k">auto</span> <span class="n">expert</span> <span class="o">=</span> <span class="n">factory</span><span class="p">.</span><span class="n">new_expert</span><span class="p">();</span>
-        <span class="k">auto</span> <span class="n">pdoor</span>   <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">Door</span><span class="o">*&gt;</span>             <span class="p">(</span><span class="o">&amp;</span><span class="n">door</span><span class="p">);</span>
-        <span class="k">auto</span> <span class="n">pexpert</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">DoorFittingExpert</span><span class="o">*&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">expert</span><span class="p">);</span>
-        <span class="n">pdoor</span><span class="o">-&gt;</span><span class="n">description</span><span class="p">();</span>
-        <span class="n">pexpert</span><span class="o">-&gt;</span><span class="n">description</span><span class="p">();</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">factory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">WoodenDoorFactory</span><span class="p">();</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">door</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">factory</span><span class="p">.</span><span class="n">new_door</span><span class="p">();</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">expert</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">factory</span><span class="p">.</span><span class="n">new_expert</span><span class="p">();</span>
+<span class="w">        </span><span class="n">door</span><span class="p">.</span><span class="n">description</span><span class="p">();</span>
+<span class="w">        </span><span class="n">expert</span><span class="p">.</span><span class="n">description</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">factory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IronDoorFactory</span><span class="p">();</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">door</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">factory</span><span class="p">.</span><span class="n">new_door</span><span class="p">();</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">expert</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">factory</span><span class="p">.</span><span class="n">new_expert</span><span class="p">();</span>
+<span class="w">        </span><span class="n">door</span><span class="p">.</span><span class="n">description</span><span class="p">();</span>
+<span class="w">        </span><span class="n">expert</span><span class="p">.</span><span class="n">description</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">factory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">WoodenDoorFactory</span><span class="p">();</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">door</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">factory</span><span class="p">.</span><span class="n">new_door</span><span class="p">();</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">expert</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">factory</span><span class="p">.</span><span class="n">new_expert</span><span class="p">();</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">pdoor</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">Door</span><span class="o">*&gt;</span><span class="w">             </span><span class="p">(</span><span class="o">&amp;</span><span class="n">door</span><span class="p">);</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">pexpert</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">DoorFittingExpert</span><span class="o">*&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">expert</span><span class="p">);</span>
+<span class="w">        </span><span class="n">pdoor</span><span class="o">-&gt;</span><span class="n">description</span><span class="p">();</span>
+<span class="w">        </span><span class="n">pexpert</span><span class="o">-&gt;</span><span class="n">description</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">factory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IronDoorFactory</span><span class="p">();</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">door</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">factory</span><span class="p">.</span><span class="n">new_door</span><span class="p">();</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">expert</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">factory</span><span class="p">.</span><span class="n">new_expert</span><span class="p">();</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">pdoor</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">Door</span><span class="o">*&gt;</span><span class="w">             </span><span class="p">(</span><span class="o">&amp;</span><span class="n">door</span><span class="p">);</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">pexpert</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">DoorFittingExpert</span><span class="o">*&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">expert</span><span class="p">);</span>
+<span class="w">        </span><span class="n">pdoor</span><span class="o">-&gt;</span><span class="n">description</span><span class="p">();</span>
+<span class="w">        </span><span class="n">pexpert</span><span class="o">-&gt;</span><span class="n">description</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -1220,81 +1150,81 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="builder">
-<h3><a class="toc-backref" href="#id8">Builder</a><a class="headerlink" href="#builder" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="builder">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Builder</a><a class="headerlink" href="#builder" title="Permalink to this heading"></a></h3>
 <p>「目標是提供客製化物件的方式，
 但是又要避免讓物件建立複雜化，
 所以提供額外的特製 method 來操作」</p>
 <p>使用上看起來會是建立一個基本的物件後，
 再利用 method 來調整相關屬性。</p>
 <p>Rust 範例：</p>
-<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">matches</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">App</span>::<span class="n">new</span><span class="p">(</span><span class="s">&quot;MyApp&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">                  </span><span class="p">.</span><span class="n">version</span><span class="p">(</span><span class="s">&quot;1.0&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">                  </span><span class="p">.</span><span class="n">author</span><span class="p">(</span><span class="s">&quot;Kevin K. &lt;kbknapp@gmail.com&gt;&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">                  </span><span class="p">.</span><span class="n">about</span><span class="p">(</span><span class="s">&quot;Does awesome things&quot;</span><span class="p">)</span><span class="w"></span>
+<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">matches</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">App</span>::<span class="n">new</span><span class="p">(</span><span class="s">&quot;MyApp&quot;</span><span class="p">)</span>
+<span class="w">                  </span><span class="p">.</span><span class="n">version</span><span class="p">(</span><span class="s">&quot;1.0&quot;</span><span class="p">)</span>
+<span class="w">                  </span><span class="p">.</span><span class="n">author</span><span class="p">(</span><span class="s">&quot;Kevin K. &lt;kbknapp@gmail.com&gt;&quot;</span><span class="p">)</span>
+<span class="w">                  </span><span class="p">.</span><span class="n">about</span><span class="p">(</span><span class="s">&quot;Does awesome things&quot;</span><span class="p">)</span>
 <span class="w">                  </span><span class="p">.</span><span class="n">args_from_usage</span><span class="p">(</span><span class="s">&quot;-c, --config=[FILE] &#39;Sets a custom config file&#39;</span>
 <span class="s">                                   &lt;output&gt; &#39;Sets an optional output file&#39;</span>
-<span class="s">                                   -d... &#39;Turn debugging information on&#39;&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">                  </span><span class="p">.</span><span class="n">subcommand</span><span class="p">(</span><span class="n">SubCommand</span>::<span class="n">with_name</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">                                         </span><span class="p">.</span><span class="n">about</span><span class="p">(</span><span class="s">&quot;does testing things&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">                                         </span><span class="p">.</span><span class="n">arg_from_usage</span><span class="p">(</span><span class="s">&quot;-l, --list &#39;lists test values&#39;&quot;</span><span class="p">))</span><span class="w"></span>
-<span class="w">                  </span><span class="p">.</span><span class="n">get_matches</span><span class="p">();</span><span class="w"></span>
+<span class="s">                                   -d... &#39;Turn debugging information on&#39;&quot;</span><span class="p">)</span>
+<span class="w">                  </span><span class="p">.</span><span class="n">subcommand</span><span class="p">(</span><span class="n">SubCommand</span>::<span class="n">with_name</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">)</span>
+<span class="w">                                         </span><span class="p">.</span><span class="n">about</span><span class="p">(</span><span class="s">&quot;does testing things&quot;</span><span class="p">)</span>
+<span class="w">                                         </span><span class="p">.</span><span class="n">arg_from_usage</span><span class="p">(</span><span class="s">&quot;-l, --list &#39;lists test values&#39;&quot;</span><span class="p">))</span>
+<span class="w">                  </span><span class="p">.</span><span class="n">get_matches</span><span class="p">();</span>
 </pre></div>
 </div>
 <p>實際使用案例：</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/kbknapp/clap-rs/blob/master/examples/01a_quick_example.rs">clap-rs</a></p></li>
 </ul>
-</div>
-<div class="section" id="prototype">
-<h3><a class="toc-backref" href="#id9">Prototype</a><a class="headerlink" href="#prototype" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="prototype">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Prototype</a><a class="headerlink" href="#prototype" title="Permalink to this heading"></a></h3>
 <p>「目標是複製另外一個物件來建立物件」</p>
-</div>
-<div class="section" id="singleton">
-<h3><a class="toc-backref" href="#id10">Singleton</a><a class="headerlink" href="#singleton" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="singleton">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Singleton</a><a class="headerlink" href="#singleton" title="Permalink to this heading"></a></h3>
 <p>「目標是確保某個 class 只會有一個 instance 存在」</p>
-</div>
-</div>
-<div class="section" id="structural">
-<h2><a class="toc-backref" href="#id11">Structural</a><a class="headerlink" href="#structural" title="本標題的永久連結">¶</a></h2>
-<div class="section" id="adapter">
-<h3><a class="toc-backref" href="#id12">Adapter</a><a class="headerlink" href="#adapter" title="本標題的永久連結">¶</a></h3>
+</section>
+</section>
+<section id="structural">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Structural</a><a class="headerlink" href="#structural" title="Permalink to this heading"></a></h2>
+<section id="adapter">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Adapter</a><a class="headerlink" href="#adapter" title="Permalink to this heading"></a></h3>
 <p>「目標是包裝現有的物件來讓他符合另外一個界面」</p>
-</div>
-<div class="section" id="bridge">
-<h3><a class="toc-backref" href="#id13">Bridge</a><a class="headerlink" href="#bridge" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="bridge">
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Bridge</a><a class="headerlink" href="#bridge" title="Permalink to this heading"></a></h3>
 <p>「目標是把實做細節拆分到另外的物件身上」</p>
-</div>
-<div class="section" id="composite">
-<h3><a class="toc-backref" href="#id14">Composite</a><a class="headerlink" href="#composite" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="composite">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Composite</a><a class="headerlink" href="#composite" title="Permalink to this heading"></a></h3>
 <p>「目標是讓操作多個物件跟操作單一個物件一樣方便」</p>
-</div>
-<div class="section" id="decorator">
-<h3><a class="toc-backref" href="#id15">Decorator</a><a class="headerlink" href="#decorator" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="decorator">
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">Decorator</a><a class="headerlink" href="#decorator" title="Permalink to this heading"></a></h3>
 <p>「藉由額外的包裝來動態地改變物件的行為，提供一個擴充過的界面」</p>
-</div>
-<div class="section" id="facade">
-<h3><a class="toc-backref" href="#id16">Facade</a><a class="headerlink" href="#facade" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="facade">
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">Facade</a><a class="headerlink" href="#facade" title="Permalink to this heading"></a></h3>
 <p>「目標是為複雜的系統提供比較簡單的包裝以便於操作」</p>
-</div>
-<div class="section" id="flyweight">
-<h3><a class="toc-backref" href="#id17">Flyweight</a><a class="headerlink" href="#flyweight" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="flyweight">
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">Flyweight</a><a class="headerlink" href="#flyweight" title="Permalink to this heading"></a></h3>
 <p>「目標是藉由共享相似的物件來減少計算的使用和計算的消耗」</p>
-</div>
-<div class="section" id="proxy">
-<h3><a class="toc-backref" href="#id18">Proxy</a><a class="headerlink" href="#proxy" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="proxy">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">Proxy</a><a class="headerlink" href="#proxy" title="Permalink to this heading"></a></h3>
 <p>「目標是藉由包裝來做額外的控制，提供外觀相似但內部有額外邏輯的界面」</p>
-</div>
-</div>
-<div class="section" id="behavioral">
-<h2><a class="toc-backref" href="#id19">Behavioral</a><a class="headerlink" href="#behavioral" title="本標題的永久連結">¶</a></h2>
-<div class="section" id="chain-of-responsibility">
-<h3><a class="toc-backref" href="#id20">Chain of Responsibility</a><a class="headerlink" href="#chain-of-responsibility" title="本標題的永久連結">¶</a></h3>
+</section>
+</section>
+<section id="behavioral">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">Behavioral</a><a class="headerlink" href="#behavioral" title="Permalink to this heading"></a></h2>
+<section id="chain-of-responsibility">
+<h3><a class="toc-backref" href="#id20" role="doc-backlink">Chain of Responsibility</a><a class="headerlink" href="#chain-of-responsibility" title="Permalink to this heading"></a></h3>
 <p>「把一連串可能可以處理的物件串起來，依序嘗試操作，直到找到可行的方案」</p>
-</div>
-<div class="section" id="command">
-<h3><a class="toc-backref" href="#id21">Command</a><a class="headerlink" href="#command" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="command">
+<h3><a class="toc-backref" href="#id21" role="doc-backlink">Command</a><a class="headerlink" href="#command" title="Permalink to this heading"></a></h3>
 <p>「目標是把物件的操作包裝起來，
 以便讓使用者可以不用知道太多訊息，
 讓內部邏輯跟操作可以完全分開」</p>
@@ -1302,52 +1232,52 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 藉此可以把 client 和處理的 reciver 分開，
 讓使用者可以透過統一的界面來執行需要的行為，
 也可以拿來實做 transaction 的系統。</p>
-</div>
-<div class="section" id="interpreter">
-<h3><a class="toc-backref" href="#id22">Interpreter</a><a class="headerlink" href="#interpreter" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="interpreter">
+<h3><a class="toc-backref" href="#id22" role="doc-backlink">Interpreter</a><a class="headerlink" href="#interpreter" title="Permalink to this heading"></a></h3>
 <p>「」</p>
-</div>
-<div class="section" id="iterator">
-<h3><a class="toc-backref" href="#id23">Iterator</a><a class="headerlink" href="#iterator" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="iterator">
+<h3><a class="toc-backref" href="#id23" role="doc-backlink">Iterator</a><a class="headerlink" href="#iterator" title="Permalink to this heading"></a></h3>
 <p>「目標是在不用知道資料結構細節的狀況下，遍歷容器內的所有物件」</p>
-</div>
-<div class="section" id="mediator">
-<h3><a class="toc-backref" href="#id24">Mediator</a><a class="headerlink" href="#mediator" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="mediator">
+<h3><a class="toc-backref" href="#id24" role="doc-backlink">Mediator</a><a class="headerlink" href="#mediator" title="Permalink to this heading"></a></h3>
 <p>「」</p>
-</div>
-<div class="section" id="memento">
-<h3><a class="toc-backref" href="#id25">Memento</a><a class="headerlink" href="#memento" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="memento">
+<h3><a class="toc-backref" href="#id25" role="doc-backlink">Memento</a><a class="headerlink" href="#memento" title="Permalink to this heading"></a></h3>
 <p>「」</p>
-</div>
-<div class="section" id="observer">
-<h3><a class="toc-backref" href="#id26">Observer</a><a class="headerlink" href="#observer" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="observer">
+<h3><a class="toc-backref" href="#id26" role="doc-backlink">Observer</a><a class="headerlink" href="#observer" title="Permalink to this heading"></a></h3>
 <p>「」</p>
-</div>
-<div class="section" id="state">
-<h3><a class="toc-backref" href="#id27">State</a><a class="headerlink" href="#state" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="state">
+<h3><a class="toc-backref" href="#id27" role="doc-backlink">State</a><a class="headerlink" href="#state" title="Permalink to this heading"></a></h3>
 <p>「」</p>
-</div>
-<div class="section" id="strategy">
-<h3><a class="toc-backref" href="#id28">Strategy</a><a class="headerlink" href="#strategy" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="strategy">
+<h3><a class="toc-backref" href="#id28" role="doc-backlink">Strategy</a><a class="headerlink" href="#strategy" title="Permalink to this heading"></a></h3>
 <p>「」</p>
-</div>
-<div class="section" id="template-method">
-<h3><a class="toc-backref" href="#id29">Template Method</a><a class="headerlink" href="#template-method" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="template-method">
+<h3><a class="toc-backref" href="#id29" role="doc-backlink">Template Method</a><a class="headerlink" href="#template-method" title="Permalink to this heading"></a></h3>
 <p>「」</p>
-</div>
-<div class="section" id="visitor">
-<h3><a class="toc-backref" href="#id30">Visitor</a><a class="headerlink" href="#visitor" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="visitor">
+<h3><a class="toc-backref" href="#id30" role="doc-backlink">Visitor</a><a class="headerlink" href="#visitor" title="Permalink to this heading"></a></h3>
 <p>「」</p>
-</div>
-</div>
-<div class="section" id="concurrency">
-<h2><a class="toc-backref" href="#id31">Concurrency</a><a class="headerlink" href="#concurrency" title="本標題的永久連結">¶</a></h2>
-</div>
-<div class="section" id="architectural">
-<h2><a class="toc-backref" href="#id32">Architectural</a><a class="headerlink" href="#architectural" title="本標題的永久連結">¶</a></h2>
-</div>
-<div class="section" id="id2">
-<h2><a class="toc-backref" href="#id33">參考</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+</section>
+</section>
+<section id="concurrency">
+<h2><a class="toc-backref" href="#id31" role="doc-backlink">Concurrency</a><a class="headerlink" href="#concurrency" title="Permalink to this heading"></a></h2>
+</section>
+<section id="architectural">
+<h2><a class="toc-backref" href="#id32" role="doc-backlink">Architectural</a><a class="headerlink" href="#architectural" title="Permalink to this heading"></a></h2>
+</section>
+<section id="id2">
+<h2><a class="toc-backref" href="#id33" role="doc-backlink">參考</a><a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>[GitHub] <a class="reference external" href="https://github.com/kamranahmedse/design-patterns-for-humans">Design Patterns for Humans™ - An ultra-simplified explanation</a></p></li>
 <li><p>[GitHub] <a class="reference external" href="https://github.com/faif/python-patterns">python-patterns - A collection of design patterns/idioms in Python</a></p></li>
@@ -1359,37 +1289,33 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li><p><a class="reference external" href="http://wiki.c2.com/?CategoryPattern">Category Pattern</a></p></li>
 <li><p><a class="reference external" href="http://wiki.c2.com/?AntiPatternsCatalog">Anti Patterns Catalog</a></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016
-
-    </p>
+    <p>&#169; Copyright 2023.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
   
 
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       <span class="fa fa-book"> Read the Docs</span>
       v: latest
@@ -1399,7 +1325,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
       <dl>
         <dt>Versions</dt>
         
-          <dd><a href="/zh_TW/latest/">latest</a></dd>
+          <dd><a href="https://wdv4758h.github.io/notes/">latest</a></dd>
         
       </dl>
       <dl>
@@ -1409,6 +1335,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
         
       </dl>
       <dl>
+        
         <dt>On Read the Docs</dt>
           <dd>
             <a href="//readthedocs.org/projects/wdv4758h-notes/?fromdocs=wdv4758h-notes">Project Home</a>
@@ -1417,22 +1344,13 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
             <a href="//readthedocs.org/builds/wdv4758h-notes/?fromdocs=wdv4758h-notes">Builds</a>
           </dd>
       </dl>
-      <hr/>
-      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
-
     </div>
   </div>
-
-
-
-  <script type="text/javascript">
+<script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-   
+  </script> 
 
 </body>
 </html>

@@ -1,114 +1,75 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-TW" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-TW" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Bash &mdash; wdv4758h-notes latest 說明文件</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bash &mdash; wdv4758h-notes latest documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="搜尋" href="../search.html" />
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Basic System Utils" href="basic-system-utils.html" />
     <link rel="prev" title="autossh" href="autossh.html" /> 
 
 <!-- RTD Extra Head -->
 
-<!-- 
-Always link to the latest version, as canonical.
-http://docs.readthedocs.org/en/latest/canonical.html
--->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/cli-tui/bash.html" />
+    <!--
+    Always link to the latest version, as canonical.
+    http://docs.readthedocs.org/en/latest/canonical.html
+    -->
+    <link rel="canonical" href="https://wdv4758h-notes.readthedocs.io/zh_TW/latest/cli-tui/bash.html" />
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": "", "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": "https://wdv4758h-notes.readthedocs.io/zh_TW/latest/", "docroot": "/./", "features": {"docsearch_disabled": false}, "global_analytics_code": "", "language": "en", "page": "cli-tui/bash", "programming_language": "", "project": "wdv4758h-notes", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": ""}</script>
 
-<!-- Add page-specific data, which must exist in the page js, not global -->
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = "cli-tui/bash"
-READTHEDOCS_DATA['source_suffix'] = ".rst"
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
 </script>
 
-<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js" async="async"></script>
 
 <!-- end RTD <extrahead> -->
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../index.html" class="icon icon-home"> wdv4758h-notes
           
-
-          
+          <a href="../index.html" class="icon icon-home">
+            wdv4758h-notes
           </a>
-
-          
-            
-            
-            
               <div class="version">
                 latest
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/README.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/adt.html">ADT (Abstract Data Type)</a></li>
@@ -118,13 +79,18 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/cache.html">Cache</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/cache-friendly.html">Cache Friendly Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/dict.html">Dict</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/float-to-string.html">Float to String</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/heap.html">Heap （堆）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/introduction.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/inverse-square-root.html">Inverse Square Root</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/lock.html">Lock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/meta-algorithm.html">Meta Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/random-number-generator.html">Random Number Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/resource.html">演算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/sorting.html">Sorting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/string-to-float.html">String to Float</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/substring-searching.html">Substring Searching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/README.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/android-emulator.html">Android Emulator</a></li>
@@ -200,7 +166,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../blog/openmp.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#tutorial">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#id5">額外紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#id4">額外紀錄</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/python-benchmark.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/python-benchmark.html#hello-world">Hello World</a></li>
@@ -227,7 +193,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../blog/qemu-first-step.html#qemu-with-kvm">QEMU with KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html">Syntax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closure">Closure 和外部變數</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#move-closures">「move」 closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#move-closures">“move” closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closure-implementation">Closure implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closures-as-arguments">closures as arguments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#returning-closures">returning closures</a></li>
@@ -310,6 +276,11 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="README.html">CLI/TUI 工具</a></li>
 <li class="toctree-l1"><a class="reference internal" href="autossh.html">autossh</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Bash</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#tips">Tips</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fail-fast">Fail Fast</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cleanup">Cleanup</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#job-control">Job Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id2">文件</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#style">Style</a></li>
@@ -424,6 +395,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/ci.html">Continuous Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/concourse.html">Concourse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/drone.html">Drone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../continuous-integration/github-actions.html">Github Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/jenkins.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/travis-ci.html">Travis CI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/workflow-pipeline.html">Workflow Pipeline</a></li>
@@ -433,7 +405,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../cpp/array.html">std::array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/assembly.html">C++ &amp; Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/bit-field.html">C++ Bit Field</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cpp/c++17.html">C++17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/c%2B%2B17.html">C++17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/concepts.html">C++ Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/const.html">C++ const</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/copy-elision.html">Copy Elision</a></li>
@@ -486,13 +458,16 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../database/README.html">資料庫 (Database)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/cockroachdb.html">CockroachDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/consensus-algorithm.html">Raft Consensus Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/graph.html">Graph Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/leveldb.html">LevelDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/materialized-views.html">Materialized Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mongodb.html">MongoDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/rocksdb.html">RocksDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sql.html">SQL (Structured Query Language)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/tidb.html">TiDB</a></li>
@@ -565,7 +540,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/math-on-web.html">Math on Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/misc.html">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../memory/W^X.html">W^X (Write XOR Execute)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../memory/W%5EX.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/kernel-memory-management.html">Kernel Memory Management</a></li>
@@ -823,105 +798,91 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../wiki/resource.html">Wiki</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">wdv4758h-notes</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-      <li>Bash</li>
-    
-    
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Bash</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/wdv4758h/notes/blob/master/./cli-tui/bash.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="bash">
-<h1><a class="toc-backref" href="#id8">Bash</a><a class="headerlink" href="#bash" title="本標題的永久連結">¶</a></h1>
-<div class="contents topic" id="id1">
-<p class="topic-title first">目錄</p>
+             
+  <section id="bash">
+<h1><a class="toc-backref" href="#id8" role="doc-backlink">Bash</a><a class="headerlink" href="#bash" title="Permalink to this heading"></a></h1>
+<nav class="contents" id="id1">
+<p class="topic-title">目錄</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#bash" id="id8">Bash</a></p>
 <ul>
-<li><p><a class="reference internal" href="#job-control" id="id9">Job Control</a></p></li>
-<li><p><a class="reference internal" href="#id2" id="id10">文件</a></p></li>
-<li><p><a class="reference internal" href="#style" id="id11">Style</a></p></li>
-<li><p><a class="reference internal" href="#id3" id="id12">範例</a></p></li>
-<li><p><a class="reference internal" href="#id4" id="id13">更多應用</a></p>
+<li><p><a class="reference internal" href="#tips" id="id9">Tips</a></p>
 <ul>
-<li><p><a class="reference internal" href="#supervisor" id="id14">簡易 supervisor</a></p></li>
-<li><p><a class="reference internal" href="#id5" id="id15">取得目前程式碼路徑</a></p></li>
-<li><p><a class="reference internal" href="#id6" id="id16">等待網路通到外面</a></p></li>
-<li><p><a class="reference internal" href="#script" id="id17">利用函式來讓 Script 更容易讀</a></p></li>
-<li><p><a class="reference internal" href="#block" id="id18">避免程式 block 住</a></p></li>
-<li><p><a class="reference internal" href="#logging" id="id19">Logging</a></p></li>
+<li><p><a class="reference internal" href="#fail-fast" id="id10">Fail Fast</a></p></li>
+<li><p><a class="reference internal" href="#cleanup" id="id11">Cleanup</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#id7" id="id20">參考</a></p></li>
+<li><p><a class="reference internal" href="#job-control" id="id12">Job Control</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id13">文件</a></p></li>
+<li><p><a class="reference internal" href="#style" id="id14">Style</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id15">範例</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id16">更多應用</a></p>
+<ul>
+<li><p><a class="reference internal" href="#supervisor" id="id17">簡易 supervisor</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id18">取得目前程式碼路徑</a></p></li>
+<li><p><a class="reference internal" href="#id6" id="id19">等待網路通到外面</a></p></li>
+<li><p><a class="reference internal" href="#script" id="id20">利用函式來讓 Script 更容易讀</a></p></li>
+<li><p><a class="reference internal" href="#block" id="id21">避免程式 block 住</a></p></li>
+<li><p><a class="reference internal" href="#logging" id="id22">Logging</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id7" id="id23">參考</a></p></li>
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="job-control">
-<h2><a class="toc-backref" href="#id9">Job Control</a><a class="headerlink" href="#job-control" title="本標題的永久連結">¶</a></h2>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">set</span> -o monitor  <span class="c1"># enable script job control</span>
-$ <span class="nb">trap</span> <span class="s1">&#39;echo &quot;child died&quot;&#39;</span> CHLD   <span class="c1"># get notification when a child exits</span>
+</nav>
+<section id="tips">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Tips</a><a class="headerlink" href="#tips" title="Permalink to this heading"></a></h2>
+<section id="fail-fast">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Fail Fast</a><a class="headerlink" href="#fail-fast" title="Permalink to this heading"></a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="w"> </span>-Eeuo<span class="w"> </span>pipefail
 </pre></div>
 </div>
+</section>
+<section id="cleanup">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Cleanup</a><a class="headerlink" href="#cleanup" title="Permalink to this heading"></a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">trap</span><span class="w"> </span>cleanup<span class="w"> </span>SIGINT<span class="w"> </span>SIGTERM<span class="w"> </span>ERR<span class="w"> </span>EXIT
+
+cleanup<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span><span class="nb">trap</span><span class="w"> </span>-<span class="w"> </span>SIGINT<span class="w"> </span>SIGTERM<span class="w"> </span>ERR<span class="w"> </span>EXIT
+<span class="w">  </span><span class="c1"># script cleanup here</span>
+<span class="o">}</span>
+</pre></div>
 </div>
-<div class="section" id="id2">
-<h2><a class="toc-backref" href="#id10">文件</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
+</section>
+</section>
+<section id="job-control">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Job Control</a><a class="headerlink" href="#job-control" title="Permalink to this heading"></a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">set</span><span class="w"> </span>-o<span class="w"> </span>monitor<span class="w">  </span><span class="c1"># enable script job control</span>
+$<span class="w"> </span><span class="nb">trap</span><span class="w"> </span><span class="s1">&#39;echo &quot;child died&quot;&#39;</span><span class="w"> </span>CHLD<span class="w">   </span><span class="c1"># get notification when a child exits</span>
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">文件</a><a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/zdharma/zshelldoc">zshelldoc</a></p></li>
 <li><dl class="simple">
@@ -933,17 +894,17 @@ $ <span class="nb">trap</span> <span class="s1">&#39;echo &quot;child died&quot;
 </li>
 <li><p><a class="reference external" href="https://github.com/rtomayko/shocco">shocco</a></p></li>
 </ul>
-</div>
-<div class="section" id="style">
-<h2><a class="toc-backref" href="#id11">Style</a><a class="headerlink" href="#style" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="style">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">Style</a><a class="headerlink" href="#style" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://google.github.io/styleguide/shell.xml">Google Shell Style Guide</a></p></li>
 </ul>
-</div>
-<div class="section" id="id3">
-<h2><a class="toc-backref" href="#id12">範例</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="id3">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">範例</a><a class="headerlink" href="#id3" title="Permalink to this heading"></a></h2>
 <p>取得目前檔案的資料夾：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="k">$(</span>dirname <span class="nv">$0</span><span class="k">)</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="k">$(</span>dirname<span class="w"> </span><span class="nv">$0</span><span class="k">)</span>
 </pre></div>
 </div>
 <p>如果有值 A 就使用值 A，不然使用值 B：</p>
@@ -953,88 +914,90 @@ $ <span class="nb">trap</span> <span class="s1">&#39;echo &quot;child died&quot;
 <span class="nv">VAR1</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">VAR2</span><span class="k">:-</span><span class="nv">default</span><span class="p"> value</span><span class="si">}</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id4">
-<h2><a class="toc-backref" href="#id13">更多應用</a><a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h2>
-<div class="section" id="supervisor">
-<h3><a class="toc-backref" href="#id14">簡易 supervisor</a><a class="headerlink" href="#supervisor" title="本標題的永久連結">¶</a></h3>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> true<span class="p">;</span> <span class="k">do</span>
-    <span class="o">(</span>ps aux <span class="p">|</span> grep MYPROG &gt; /dev/null<span class="o">)</span> <span class="o">||</span> <span class="se">\</span>
-        MYPROG --start
-    sleep <span class="m">1</span>
+</section>
+<section id="id4">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">更多應用</a><a class="headerlink" href="#id4" title="Permalink to this heading"></a></h2>
+<section id="supervisor">
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">簡易 supervisor</a><a class="headerlink" href="#supervisor" title="Permalink to this heading"></a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span>true<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="o">(</span>ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>MYPROG<span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="o">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>MYPROG<span class="w"> </span>--start
+<span class="w">    </span>sleep<span class="w"> </span><span class="m">1</span>
 <span class="k">done</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id5">
-<h3><a class="toc-backref" href="#id15">取得目前程式碼路徑</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h3>
-</div>
-<div class="section" id="id6">
-<h3><a class="toc-backref" href="#id16">等待網路通到外面</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h3>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="k">until</span> ping -c <span class="m">1</span> <span class="m">8</span>.8.8.8<span class="p">;</span> <span class="k">do</span>
-    <span class="nb">echo</span> <span class="s2">&quot;Network is not good, waiting&quot;</span>
-    sleep <span class="m">1</span>
+</section>
+<section id="id5">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">取得目前程式碼路徑</a><a class="headerlink" href="#id5" title="Permalink to this heading"></a></h3>
+</section>
+<section id="id6">
+<h3><a class="toc-backref" href="#id19" role="doc-backlink">等待網路通到外面</a><a class="headerlink" href="#id6" title="Permalink to this heading"></a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="k">until</span><span class="w"> </span>ping<span class="w"> </span>-c<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">8</span>.8.8.8<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Network is not good, waiting&quot;</span>
+<span class="w">    </span>sleep<span class="w"> </span><span class="m">1</span>
 <span class="k">done</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="script">
-<h3><a class="toc-backref" href="#id17">利用函式來讓 Script 更容易讀</a><a class="headerlink" href="#script" title="本標題的永久連結">¶</a></h3>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>has_myprog<span class="o">()</span> <span class="o">{</span>
-    ps aux <span class="p">|</span> grep myprog
+</section>
+<section id="script">
+<h3><a class="toc-backref" href="#id20" role="doc-backlink">利用函式來讓 Script 更容易讀</a><a class="headerlink" href="#script" title="Permalink to this heading"></a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>has_myprog<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>myprog
 <span class="o">}</span>
 
-init_myprog<span class="o">()</span> <span class="o">{</span>
-    myprog --daemon
+init_myprog<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>myprog<span class="w"> </span>--daemon
 <span class="o">}</span>
 
 <span class="c1"># if myprog is not running, init one</span>
-has_myprog <span class="o">||</span> init_myprog
+has_myprog<span class="w"> </span><span class="o">||</span><span class="w"> </span>init_myprog
 </pre></div>
 </div>
-</div>
-<div class="section" id="block">
-<h3><a class="toc-backref" href="#id18">避免程式 block 住</a><a class="headerlink" href="#block" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="block">
+<h3><a class="toc-backref" href="#id21" role="doc-backlink">避免程式 block 住</a><a class="headerlink" href="#block" title="Permalink to this heading"></a></h3>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nv">CMD</span><span class="o">=</span><span class="s2">&quot;sleep 10&quot;</span>
-timeout 3s <span class="si">${</span><span class="nv">CMD</span><span class="si">}</span>
+timeout<span class="w"> </span>3s<span class="w"> </span><span class="si">${</span><span class="nv">CMD</span><span class="si">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="logging">
-<h3><a class="toc-backref" href="#id19">Logging</a><a class="headerlink" href="#logging" title="本標題的永久連結">¶</a></h3>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>log<span class="o">()</span> <span class="o">{</span>
-    <span class="c1"># style 1:</span>
-    <span class="c1"># echo $1</span>
+</section>
+<section id="logging">
+<h3><a class="toc-backref" href="#id22" role="doc-backlink">Logging</a><a class="headerlink" href="#logging" title="Permalink to this heading"></a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>log<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="c1"># style 1:</span>
+<span class="w">    </span><span class="c1"># echo $1</span>
 
-    <span class="c1"># style 2:</span>
-    <span class="nv">TIME</span><span class="o">=</span><span class="k">$(</span>date -u +<span class="s2">&quot;%Y-%m-%d|%H:%M:%S|%N&quot;</span><span class="k">)</span>
-    <span class="nb">echo</span> <span class="s2">&quot;[</span><span class="si">${</span><span class="nv">TIME</span><span class="si">}</span><span class="s2">]</span><span class="nv">$1</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="c1"># style 2:</span>
+<span class="w">    </span><span class="nv">TIME</span><span class="o">=</span><span class="k">$(</span>date<span class="w"> </span>-u<span class="w"> </span>+<span class="s2">&quot;%Y-%m-%d|%H:%M:%S|%N&quot;</span><span class="k">)</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[</span><span class="si">${</span><span class="nv">TIME</span><span class="si">}</span><span class="s2">]</span><span class="nv">$1</span><span class="s2">&quot;</span>
 <span class="o">}</span>
 
-debug<span class="o">()</span> <span class="o">{</span>
-    log <span class="s2">&quot;[  DEBUG] </span><span class="nv">$1</span><span class="s2">&quot;</span>
+debug<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>log<span class="w"> </span><span class="s2">&quot;[  DEBUG] </span><span class="nv">$1</span><span class="s2">&quot;</span>
 <span class="o">}</span>
 
-info<span class="o">()</span> <span class="o">{</span>
-    log <span class="s2">&quot;[   INFO] </span><span class="nv">$1</span><span class="s2">&quot;</span>
+info<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>log<span class="w"> </span><span class="s2">&quot;[   INFO] </span><span class="nv">$1</span><span class="s2">&quot;</span>
 <span class="o">}</span>
 
-warning<span class="o">()</span> <span class="o">{</span>
-    log <span class="s2">&quot;[WARNING] </span><span class="nv">$1</span><span class="s2">&quot;</span>
+warning<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>log<span class="w"> </span><span class="s2">&quot;[WARNING] </span><span class="nv">$1</span><span class="s2">&quot;</span>
 <span class="o">}</span>
 
-error<span class="o">()</span> <span class="o">{</span>
-    log <span class="s2">&quot;[  ERROR] </span><span class="nv">$1</span><span class="s2">&quot;</span>
+error<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>log<span class="w"> </span><span class="s2">&quot;[  ERROR] </span><span class="nv">$1</span><span class="s2">&quot;</span>
 <span class="o">}</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="id7">
-<h2><a class="toc-backref" href="#id20">參考</a><a class="headerlink" href="#id7" title="本標題的永久連結">¶</a></h2>
+</section>
+</section>
+<section id="id7">
+<h2><a class="toc-backref" href="#id23" role="doc-backlink">參考</a><a class="headerlink" href="#id7" title="Permalink to this heading"></a></h2>
 <ul class="simple">
+<li><p><a class="reference external" href="https://github.com/progrium/bashstyle">Let’s do Bash right!</a></p></li>
 <li><p><a class="reference external" href="http://wiki.bash-hackers.org/start">The Bash Hackers Wiki</a></p></li>
-<li><p><a class="reference external" href="https://unix.stackexchange.com/questions/122845/using-a-b-for-variable-assignment-in-scripts">Using 「${a:-b}」 for variable assignment in scripts</a></p></li>
+<li><p><a class="reference external" href="https://github.com/dylanaraps/pure-bash-bible">pure bash bible</a></p></li>
+<li><p><a class="reference external" href="https://unix.stackexchange.com/questions/122845/using-a-b-for-variable-assignment-in-scripts">Using “${a:-b}” for variable assignment in scripts</a></p></li>
 <li><p><a class="reference external" href="https://stackoverflow.com/questions/307503/whats-a-concise-way-to-check-that-environment-variables-are-set-in-a-unix-shell">bash - What’s a concise way to check that environment variables are set in a Unix shell script?</a></p></li>
 <li><p><a class="reference external" href="https://mywiki.wooledge.org/BashPitfalls">Bash Pitfalls</a></p></li>
 <li><p><a class="reference external" href="https://github.com/mbland/go-script-bash">Framework for writing modular, discoverable, testable Bash scripts</a></p></li>
@@ -1044,47 +1007,39 @@ error<span class="o">()</span> <span class="o">{</span>
 <li><p><a class="reference external" href="https://github.com/alphabetum/bash-boilerplate">Bash Boilerplate</a></p></li>
 <li><p><a class="reference external" href="https://github.com/ralish/bash-script-template">A best practices Bash script template with several useful functions</a></p></li>
 <li><p><a class="reference external" href="https://github.com/epety/100-shell-script-examples">100 shell script examples</a></p></li>
+<li><p><a class="reference external" href="https://zwischenzugs.com/2018/10/09/learn-bash-debugging-techniques-the-hard-way/">Learn Bash Debugging Techniques the Hard Way</a></p></li>
+<li><p><a class="reference external" href="https://betterdev.blog/minimal-safe-bash-script-template/">Minimal safe Bash script template | Better Dev</a></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="basic-system-utils.html" class="btn btn-neutral float-right" title="Basic System Utils" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="autossh.html" class="btn btn-neutral float-left" title="autossh" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="autossh.html" class="btn btn-neutral float-left" title="autossh" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="basic-system-utils.html" class="btn btn-neutral float-right" title="Basic System Utils" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016
-
-    </p>
+    <p>&#169; Copyright 2023.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
   
 
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       <span class="fa fa-book"> Read the Docs</span>
       v: latest
@@ -1094,7 +1049,7 @@ error<span class="o">()</span> <span class="o">{</span>
       <dl>
         <dt>Versions</dt>
         
-          <dd><a href="/zh_TW/latest/">latest</a></dd>
+          <dd><a href="https://wdv4758h.github.io/notes/">latest</a></dd>
         
       </dl>
       <dl>
@@ -1104,6 +1059,7 @@ error<span class="o">()</span> <span class="o">{</span>
         
       </dl>
       <dl>
+        
         <dt>On Read the Docs</dt>
           <dd>
             <a href="//readthedocs.org/projects/wdv4758h-notes/?fromdocs=wdv4758h-notes">Project Home</a>
@@ -1112,22 +1068,13 @@ error<span class="o">()</span> <span class="o">{</span>
             <a href="//readthedocs.org/builds/wdv4758h-notes/?fromdocs=wdv4758h-notes">Builds</a>
           </dd>
       </dl>
-      <hr/>
-      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
-
     </div>
   </div>
-
-
-
-  <script type="text/javascript">
+<script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-   
+  </script> 
 
 </body>
 </html>

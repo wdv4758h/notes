@@ -1,114 +1,75 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-TW" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-TW" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>ArrayFire &mdash; wdv4758h-notes latest 說明文件</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ArrayFire &mdash; wdv4758h-notes latest documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="搜尋" href="../search.html" />
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Boost.Compute" href="boost.html" />
     <link rel="prev" title="Windows Game on Linux" href="../games/windows-game-on-linux.html" /> 
 
 <!-- RTD Extra Head -->
 
-<!-- 
-Always link to the latest version, as canonical.
-http://docs.readthedocs.org/en/latest/canonical.html
--->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/gpgpu/arrayfire.html" />
+    <!--
+    Always link to the latest version, as canonical.
+    http://docs.readthedocs.org/en/latest/canonical.html
+    -->
+    <link rel="canonical" href="https://wdv4758h-notes.readthedocs.io/zh_TW/latest/gpgpu/arrayfire.html" />
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": "", "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": "https://wdv4758h-notes.readthedocs.io/zh_TW/latest/", "docroot": "/./", "features": {"docsearch_disabled": false}, "global_analytics_code": "", "language": "en", "page": "gpgpu/arrayfire", "programming_language": "", "project": "wdv4758h-notes", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": ""}</script>
 
-<!-- Add page-specific data, which must exist in the page js, not global -->
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = "gpgpu/arrayfire"
-READTHEDOCS_DATA['source_suffix'] = ".rst"
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
 </script>
 
-<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js" async="async"></script>
 
 <!-- end RTD <extrahead> -->
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../index.html" class="icon icon-home"> wdv4758h-notes
           
-
-          
+          <a href="../index.html" class="icon icon-home">
+            wdv4758h-notes
           </a>
-
-          
-            
-            
-            
               <div class="version">
                 latest
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/README.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/adt.html">ADT (Abstract Data Type)</a></li>
@@ -118,13 +79,18 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/cache.html">Cache</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/cache-friendly.html">Cache Friendly Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/dict.html">Dict</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/float-to-string.html">Float to String</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/heap.html">Heap （堆）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/introduction.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/inverse-square-root.html">Inverse Square Root</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/lock.html">Lock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/meta-algorithm.html">Meta Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/random-number-generator.html">Random Number Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/resource.html">演算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/sorting.html">Sorting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/string-to-float.html">String to Float</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/substring-searching.html">Substring Searching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/README.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/android-emulator.html">Android Emulator</a></li>
@@ -200,7 +166,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../blog/openmp.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#tutorial">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#id5">額外紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#id4">額外紀錄</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/python-benchmark.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/python-benchmark.html#hello-world">Hello World</a></li>
@@ -227,7 +193,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../blog/qemu-first-step.html#qemu-with-kvm">QEMU with KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html">Syntax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closure">Closure 和外部變數</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#move-closures">「move」 closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#move-closures">“move” closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closure-implementation">Closure implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closures-as-arguments">closures as arguments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#returning-closures">returning closures</a></li>
@@ -408,6 +374,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/ci.html">Continuous Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/concourse.html">Concourse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/drone.html">Drone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../continuous-integration/github-actions.html">Github Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/jenkins.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/travis-ci.html">Travis CI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/workflow-pipeline.html">Workflow Pipeline</a></li>
@@ -417,7 +384,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../cpp/array.html">std::array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/assembly.html">C++ &amp; Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/bit-field.html">C++ Bit Field</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cpp/c++17.html">C++17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/c%2B%2B17.html">C++17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/concepts.html">C++ Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/const.html">C++ const</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/copy-elision.html">Copy Elision</a></li>
@@ -470,13 +437,16 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../database/README.html">資料庫 (Database)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/cockroachdb.html">CockroachDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/consensus-algorithm.html">Raft Consensus Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/graph.html">Graph Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/leveldb.html">LevelDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/materialized-views.html">Materialized Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mongodb.html">MongoDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/rocksdb.html">RocksDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sql.html">SQL (Structured Query Language)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/tidb.html">TiDB</a></li>
@@ -555,7 +525,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/math-on-web.html">Math on Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/misc.html">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../memory/W^X.html">W^X (Write XOR Execute)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../memory/W%5EX.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/kernel-memory-management.html">Kernel Memory Management</a></li>
@@ -813,128 +783,88 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../wiki/resource.html">Wiki</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">wdv4758h-notes</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-      <li>ArrayFire</li>
-    
-    
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ArrayFire</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/wdv4758h/notes/blob/master/./gpgpu/arrayfire.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="arrayfire">
-<h1>ArrayFire<a class="headerlink" href="#arrayfire" title="本標題的永久連結">¶</a></h1>
-<div class="section" id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="本標題的永久連結">¶</a></h2>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo pacman -S arrayfire
+             
+  <section id="arrayfire">
+<h1>ArrayFire<a class="headerlink" href="#arrayfire" title="Permalink to this heading"></a></h1>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>arrayfire
 </pre></div>
 </div>
 <p>Python Binding :</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pip install arrayfire
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>arrayfire
 </pre></div>
 </div>
-</div>
-<div class="section" id="prepare">
-<h2>Prepare<a class="headerlink" href="#prepare" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="prepare">
+<h2>Prepare<a class="headerlink" href="#prepare" title="Permalink to this heading"></a></h2>
 <p>要執行需要 OpenCL 的程式：</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Intel</span>
 
-$ sudo yaourt -S intel-opencl-runtime   <span class="c1"># official</span>
-$ sudo yaourt -S beignet                <span class="c1"># for integrated graphics hardware</span>
+$<span class="w"> </span>sudo<span class="w"> </span>yaourt<span class="w"> </span>-S<span class="w"> </span>intel-opencl-runtime<span class="w">   </span><span class="c1"># official</span>
+$<span class="w"> </span>sudo<span class="w"> </span>yaourt<span class="w"> </span>-S<span class="w"> </span>beignet<span class="w">                </span><span class="c1"># for integrated graphics hardware</span>
 
 <span class="c1"># NVIDIA</span>
 
-$ sudo pacman -S opencl-nvidia      <span class="c1"># official</span>
+$<span class="w"> </span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>opencl-nvidia<span class="w">      </span><span class="c1"># official</span>
 
 <span class="c1"># AMD</span>
 
-$ sudo yaourt -S opencl-catalyst    <span class="c1"># official</span>
-$ sudo pacman -S opencl-mesa        <span class="c1"># mesa driver</span>
+$<span class="w"> </span>sudo<span class="w"> </span>yaourt<span class="w"> </span>-S<span class="w"> </span>opencl-catalyst<span class="w">    </span><span class="c1"># official</span>
+$<span class="w"> </span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>opencl-mesa<span class="w">        </span><span class="c1"># mesa driver</span>
 </pre></div>
 </div>
 <p>OpenCL 開發：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo pacman -S ocl-icd opencl-headers
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>ocl-icd<span class="w"> </span>opencl-headers
 </pre></div>
 </div>
 <p>Check :</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Intel</span>
 
-$ cat /etc/OpenCL/vendors/intel.icd
+$<span class="w"> </span>cat<span class="w"> </span>/etc/OpenCL/vendors/intel.icd
 /opt/intel/opencl-sdk/lib64/libintelocl.so
 
-$ cat /etc/OpenCL/vendors/intel-beignet.icd
+$<span class="w"> </span>cat<span class="w"> </span>/etc/OpenCL/vendors/intel-beignet.icd
 /usr/lib/beignet/libcl.so
 
 <span class="c1"># NVIDIA</span>
 
-$ cat /etc/OpenCL/vendors/nvidia.icd
+$<span class="w"> </span>cat<span class="w"> </span>/etc/OpenCL/vendors/nvidia.icd
 /usr/lib/libnvidia-opencl.so
 
 <span class="c1"># AMD</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="本標題的永久連結">¶</a></h2>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ cat hello.py
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this heading"></a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>cat<span class="w"> </span>hello.py
 <span class="c1">#!/usr/bin/python</span>
 
-import arrayfire as af
+import<span class="w"> </span>arrayfire<span class="w"> </span>as<span class="w"> </span>af
 
 <span class="c1"># Display backend information</span>
 
@@ -960,98 +890,88 @@ af.info<span class="o">()</span>
 print<span class="o">(</span><span class="s2">&quot;=&quot;</span>*20<span class="o">)</span>
 
 <span class="c1"># Generate a uniform random array with a size of 5 elements</span>
-<span class="nv">a</span> <span class="o">=</span> af.randu<span class="o">(</span><span class="m">5</span>, <span class="m">1</span><span class="o">)</span>
+<span class="nv">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>af.randu<span class="o">(</span><span class="m">5</span>,<span class="w"> </span><span class="m">1</span><span class="o">)</span>
 
 <span class="c1"># Print a and its minimum value</span>
 print<span class="o">(</span>a<span class="o">)</span>
 
 <span class="c1"># Print min and max values of a</span>
-print<span class="o">(</span><span class="s2">&quot;Minimum, Maximum: &quot;</span>, af.min<span class="o">(</span>a<span class="o">)</span>, af.max<span class="o">(</span>a<span class="o">))</span>
+print<span class="o">(</span><span class="s2">&quot;Minimum, Maximum: &quot;</span>,<span class="w"> </span>af.min<span class="o">(</span>a<span class="o">)</span>,<span class="w"> </span>af.max<span class="o">(</span>a<span class="o">))</span>
 
-$ <span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$LD_LIBRARY_PATH</span>:/opt/cuda/lib64:/opt/cuda/nvvm/lib64
-$ python hello.py   <span class="c1"># https://github.com/arrayfire/arrayfire-python/wiki#setting-the-environment-variables</span>
+$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$LD_LIBRARY_PATH</span>:/opt/cuda/lib64:/opt/cuda/nvvm/lib64
+$<span class="w"> </span>python<span class="w"> </span>hello.py<span class="w">   </span><span class="c1"># https://github.com/arrayfire/arrayfire-python/wiki#setting-the-environment-variables</span>
 <span class="o">====================</span>
-ArrayFire v3.2.0 <span class="o">(</span>CUDA, <span class="m">64</span>-bit Linux, build <span class="o">)</span>
-Platform: CUDA Toolkit <span class="m">7</span>.5, Driver: <span class="m">358</span>.16
-<span class="o">[</span><span class="m">0</span><span class="o">]</span> GeForce GT 630M, <span class="m">2048</span> MB, CUDA Compute <span class="m">2</span>.1
+ArrayFire<span class="w"> </span>v3.2.0<span class="w"> </span><span class="o">(</span>CUDA,<span class="w"> </span><span class="m">64</span>-bit<span class="w"> </span>Linux,<span class="w"> </span>build<span class="w"> </span><span class="o">)</span>
+Platform:<span class="w"> </span>CUDA<span class="w"> </span>Toolkit<span class="w"> </span><span class="m">7</span>.5,<span class="w"> </span>Driver:<span class="w"> </span><span class="m">358</span>.16
+<span class="o">[</span><span class="m">0</span><span class="o">]</span><span class="w"> </span>GeForce<span class="w"> </span>GT<span class="w"> </span>630M,<span class="w"> </span><span class="m">2048</span><span class="w"> </span>MB,<span class="w"> </span>CUDA<span class="w"> </span>Compute<span class="w"> </span><span class="m">2</span>.1
 <span class="o">====================</span>
-ArrayFire v3.2.0 <span class="o">(</span>CPU, <span class="m">64</span>-bit Linux, build <span class="o">)</span>
-<span class="o">[</span><span class="m">0</span><span class="o">]</span> Intel:        Intel<span class="o">(</span>R<span class="o">)</span> Core<span class="o">(</span>TM<span class="o">)</span> i5-3210M CPU @ <span class="m">2</span>.50GHz Max threads<span class="o">(</span><span class="m">4</span><span class="o">)</span>
+ArrayFire<span class="w"> </span>v3.2.0<span class="w"> </span><span class="o">(</span>CPU,<span class="w"> </span><span class="m">64</span>-bit<span class="w"> </span>Linux,<span class="w"> </span>build<span class="w"> </span><span class="o">)</span>
+<span class="o">[</span><span class="m">0</span><span class="o">]</span><span class="w"> </span>Intel:<span class="w">        </span>Intel<span class="o">(</span>R<span class="o">)</span><span class="w"> </span>Core<span class="o">(</span>TM<span class="o">)</span><span class="w"> </span>i5-3210M<span class="w"> </span>CPU<span class="w"> </span>@<span class="w"> </span><span class="m">2</span>.50GHz<span class="w"> </span>Max<span class="w"> </span>threads<span class="o">(</span><span class="m">4</span><span class="o">)</span>
 <span class="o">====================</span>
-Failed to release <span class="nb">test</span> userptr object! <span class="o">(</span><span class="m">9</span><span class="o">)</span> i915 kernel driver may not be sane!
-Failed to release <span class="nb">test</span> userptr object! <span class="o">(</span><span class="m">9</span><span class="o">)</span> i915 kernel driver may not be sane!
-Failed to release <span class="nb">test</span> userptr object! <span class="o">(</span><span class="m">9</span><span class="o">)</span> i915 kernel driver may not be sane!
-Failed to release <span class="nb">test</span> userptr object! <span class="o">(</span><span class="m">9</span><span class="o">)</span> i915 kernel driver may not be sane!
-Device<span class="o">[</span><span class="m">0</span><span class="o">]</span> has no support <span class="k">for</span> OpenGL Interoperation
-Device<span class="o">[</span><span class="m">2</span><span class="o">]</span> has no support <span class="k">for</span> OpenGL Interoperation
-ArrayFire v3.2.0 <span class="o">(</span>OpenCL, <span class="m">64</span>-bit Linux, build <span class="o">)</span>
-<span class="o">[</span><span class="m">0</span><span class="o">]</span> BEIGNET : Intel<span class="o">(</span>R<span class="o">)</span> HD Graphics IvyBridge M GT2
--1- NVIDIA  : GeForce GT 630M
--2- INTEL   : Intel<span class="o">(</span>R<span class="o">)</span> Core<span class="o">(</span>TM<span class="o">)</span> i5-3210M CPU @ <span class="m">2</span>.50GHz
+Failed<span class="w"> </span>to<span class="w"> </span>release<span class="w"> </span><span class="nb">test</span><span class="w"> </span>userptr<span class="w"> </span>object!<span class="w"> </span><span class="o">(</span><span class="m">9</span><span class="o">)</span><span class="w"> </span>i915<span class="w"> </span>kernel<span class="w"> </span>driver<span class="w"> </span>may<span class="w"> </span>not<span class="w"> </span>be<span class="w"> </span>sane!
+Failed<span class="w"> </span>to<span class="w"> </span>release<span class="w"> </span><span class="nb">test</span><span class="w"> </span>userptr<span class="w"> </span>object!<span class="w"> </span><span class="o">(</span><span class="m">9</span><span class="o">)</span><span class="w"> </span>i915<span class="w"> </span>kernel<span class="w"> </span>driver<span class="w"> </span>may<span class="w"> </span>not<span class="w"> </span>be<span class="w"> </span>sane!
+Failed<span class="w"> </span>to<span class="w"> </span>release<span class="w"> </span><span class="nb">test</span><span class="w"> </span>userptr<span class="w"> </span>object!<span class="w"> </span><span class="o">(</span><span class="m">9</span><span class="o">)</span><span class="w"> </span>i915<span class="w"> </span>kernel<span class="w"> </span>driver<span class="w"> </span>may<span class="w"> </span>not<span class="w"> </span>be<span class="w"> </span>sane!
+Failed<span class="w"> </span>to<span class="w"> </span>release<span class="w"> </span><span class="nb">test</span><span class="w"> </span>userptr<span class="w"> </span>object!<span class="w"> </span><span class="o">(</span><span class="m">9</span><span class="o">)</span><span class="w"> </span>i915<span class="w"> </span>kernel<span class="w"> </span>driver<span class="w"> </span>may<span class="w"> </span>not<span class="w"> </span>be<span class="w"> </span>sane!
+Device<span class="o">[</span><span class="m">0</span><span class="o">]</span><span class="w"> </span>has<span class="w"> </span>no<span class="w"> </span>support<span class="w"> </span><span class="k">for</span><span class="w"> </span>OpenGL<span class="w"> </span>Interoperation
+Device<span class="o">[</span><span class="m">2</span><span class="o">]</span><span class="w"> </span>has<span class="w"> </span>no<span class="w"> </span>support<span class="w"> </span><span class="k">for</span><span class="w"> </span>OpenGL<span class="w"> </span>Interoperation
+ArrayFire<span class="w"> </span>v3.2.0<span class="w"> </span><span class="o">(</span>OpenCL,<span class="w"> </span><span class="m">64</span>-bit<span class="w"> </span>Linux,<span class="w"> </span>build<span class="w"> </span><span class="o">)</span>
+<span class="o">[</span><span class="m">0</span><span class="o">]</span><span class="w"> </span>BEIGNET<span class="w"> </span>:<span class="w"> </span>Intel<span class="o">(</span>R<span class="o">)</span><span class="w"> </span>HD<span class="w"> </span>Graphics<span class="w"> </span>IvyBridge<span class="w"> </span>M<span class="w"> </span>GT2
+-1-<span class="w"> </span>NVIDIA<span class="w">  </span>:<span class="w"> </span>GeForce<span class="w"> </span>GT<span class="w"> </span>630M
+-2-<span class="w"> </span>INTEL<span class="w">   </span>:<span class="w"> </span>Intel<span class="o">(</span>R<span class="o">)</span><span class="w"> </span>Core<span class="o">(</span>TM<span class="o">)</span><span class="w"> </span>i5-3210M<span class="w"> </span>CPU<span class="w"> </span>@<span class="w"> </span><span class="m">2</span>.50GHz
 <span class="o">====================</span>
-ArrayFire v3.2.0 <span class="o">(</span>CUDA, <span class="m">64</span>-bit Linux, build <span class="o">)</span>
-Platform: CUDA Toolkit <span class="m">7</span>.5, Driver: <span class="m">358</span>.16
-<span class="o">[</span><span class="m">0</span><span class="o">]</span> GeForce GT 630M, <span class="m">2048</span> MB, CUDA Compute <span class="m">2</span>.1
+ArrayFire<span class="w"> </span>v3.2.0<span class="w"> </span><span class="o">(</span>CUDA,<span class="w"> </span><span class="m">64</span>-bit<span class="w"> </span>Linux,<span class="w"> </span>build<span class="w"> </span><span class="o">)</span>
+Platform:<span class="w"> </span>CUDA<span class="w"> </span>Toolkit<span class="w"> </span><span class="m">7</span>.5,<span class="w"> </span>Driver:<span class="w"> </span><span class="m">358</span>.16
+<span class="o">[</span><span class="m">0</span><span class="o">]</span><span class="w"> </span>GeForce<span class="w"> </span>GT<span class="w"> </span>630M,<span class="w"> </span><span class="m">2048</span><span class="w"> </span>MB,<span class="w"> </span>CUDA<span class="w"> </span>Compute<span class="w"> </span><span class="m">2</span>.1
 <span class="o">====================</span>
 arrayfire.Array<span class="o">()</span>
-Type: float
-<span class="o">[</span><span class="m">5</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span><span class="o">]</span>
-    <span class="m">0</span>.7402
-    <span class="m">0</span>.9210
-    <span class="m">0</span>.0390
-    <span class="m">0</span>.9690
-    <span class="m">0</span>.9251
+Type:<span class="w"> </span>float
+<span class="o">[</span><span class="m">5</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="o">]</span>
+<span class="w">    </span><span class="m">0</span>.7402
+<span class="w">    </span><span class="m">0</span>.9210
+<span class="w">    </span><span class="m">0</span>.0390
+<span class="w">    </span><span class="m">0</span>.9690
+<span class="w">    </span><span class="m">0</span>.9251
 
 
-Minimum, Maximum:  <span class="m">0</span>.039020489901304245 <span class="m">0</span>.9689629077911377
+Minimum,<span class="w"> </span>Maximum:<span class="w">  </span><span class="m">0</span>.039020489901304245<span class="w"> </span><span class="m">0</span>.9689629077911377
 </pre></div>
 </div>
-</div>
-<div class="section" id="reference">
-<h2>Reference<a class="headerlink" href="#reference" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://wiki.archlinux.org/index.php/GPGPU">Arch Wiki - GPGPU</a></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="boost.html" class="btn btn-neutral float-right" title="Boost.Compute" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../games/windows-game-on-linux.html" class="btn btn-neutral float-left" title="Windows Game on Linux" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../games/windows-game-on-linux.html" class="btn btn-neutral float-left" title="Windows Game on Linux" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="boost.html" class="btn btn-neutral float-right" title="Boost.Compute" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016
-
-    </p>
+    <p>&#169; Copyright 2023.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
   
 
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       <span class="fa fa-book"> Read the Docs</span>
       v: latest
@@ -1061,7 +981,7 @@ Minimum, Maximum:  <span class="m">0</span>.039020489901304245 <span class="m">0
       <dl>
         <dt>Versions</dt>
         
-          <dd><a href="/zh_TW/latest/">latest</a></dd>
+          <dd><a href="https://wdv4758h.github.io/notes/">latest</a></dd>
         
       </dl>
       <dl>
@@ -1071,6 +991,7 @@ Minimum, Maximum:  <span class="m">0</span>.039020489901304245 <span class="m">0
         
       </dl>
       <dl>
+        
         <dt>On Read the Docs</dt>
           <dd>
             <a href="//readthedocs.org/projects/wdv4758h-notes/?fromdocs=wdv4758h-notes">Project Home</a>
@@ -1079,22 +1000,13 @@ Minimum, Maximum:  <span class="m">0</span>.039020489901304245 <span class="m">0
             <a href="//readthedocs.org/builds/wdv4758h-notes/?fromdocs=wdv4758h-notes">Builds</a>
           </dd>
       </dl>
-      <hr/>
-      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
-
     </div>
   </div>
-
-
-
-  <script type="text/javascript">
+<script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-   
+  </script> 
 
 </body>
 </html>

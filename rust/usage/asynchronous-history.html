@@ -1,112 +1,73 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-TW" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-TW" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Asynchronous History &mdash; wdv4758h-notes latest 說明文件</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asynchronous History &mdash; wdv4758h-notes latest documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/translations.js"></script>
-        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="index" title="索引" href="../../genindex.html" />
-    <link rel="search" title="搜尋" href="../../search.html" /> 
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
 
 <!-- RTD Extra Head -->
 
-<!-- 
-Always link to the latest version, as canonical.
-http://docs.readthedocs.org/en/latest/canonical.html
--->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/rust/usage/asynchronous-history.html" />
+    <!--
+    Always link to the latest version, as canonical.
+    http://docs.readthedocs.org/en/latest/canonical.html
+    -->
+    <link rel="canonical" href="https://wdv4758h-notes.readthedocs.io/zh_TW/latest/rust/usage/asynchronous-history.html" />
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../../_static/readthedocs-data.js"></script>
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": "", "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": "https://wdv4758h-notes.readthedocs.io/zh_TW/latest/", "docroot": "/./", "features": {"docsearch_disabled": false}, "global_analytics_code": "", "language": "en", "page": "rust/usage/asynchronous-history", "programming_language": "", "project": "wdv4758h-notes", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": ""}</script>
 
-<!-- Add page-specific data, which must exist in the page js, not global -->
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = "rust/usage/asynchronous-history"
-READTHEDOCS_DATA['source_suffix'] = ".rst"
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
 </script>
 
-<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js" async="async"></script>
 
 <!-- end RTD <extrahead> -->
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../index.html" class="icon icon-home"> wdv4758h-notes
           
-
-          
+          <a href="../../index.html" class="icon icon-home">
+            wdv4758h-notes
           </a>
-
-          
-            
-            
-            
               <div class="version">
                 latest
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/README.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/adt.html">ADT (Abstract Data Type)</a></li>
@@ -116,13 +77,18 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/cache.html">Cache</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/cache-friendly.html">Cache Friendly Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/dict.html">Dict</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/float-to-string.html">Float to String</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/heap.html">Heap （堆）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/introduction.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/inverse-square-root.html">Inverse Square Root</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/lock.html">Lock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/meta-algorithm.html">Meta Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/random-number-generator.html">Random Number Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/resource.html">演算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/sorting.html">Sorting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/string-to-float.html">String to Float</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../algorithm/substring-searching.html">Substring Searching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../android/README.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../android/android-emulator.html">Android Emulator</a></li>
@@ -198,7 +164,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../blog/openmp.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/pypy-brainfuck.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/pypy-brainfuck.html#tutorial">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../blog/pypy-brainfuck.html#id5">額外紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../blog/pypy-brainfuck.html#id4">額外紀錄</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/pypy-brainfuck.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/python-benchmark.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/python-benchmark.html#hello-world">Hello World</a></li>
@@ -225,7 +191,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../blog/qemu-first-step.html#qemu-with-kvm">QEMU with KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html">Syntax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#closure">Closure 和外部變數</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#move-closures">「move」 closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#move-closures">“move” closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#closure-implementation">Closure implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#closures-as-arguments">closures as arguments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../blog/rust-closure.html#returning-closures">returning closures</a></li>
@@ -406,6 +372,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/ci.html">Continuous Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/concourse.html">Concourse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/drone.html">Drone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/github-actions.html">Github Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/jenkins.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/travis-ci.html">Travis CI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../continuous-integration/workflow-pipeline.html">Workflow Pipeline</a></li>
@@ -415,7 +382,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/array.html">std::array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/assembly.html">C++ &amp; Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/bit-field.html">C++ Bit Field</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../cpp/c++17.html">C++17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cpp/c%2B%2B17.html">C++17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/concepts.html">C++ Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/const.html">C++ const</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cpp/copy-elision.html">Copy Elision</a></li>
@@ -468,13 +435,16 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../database/README.html">資料庫 (Database)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/cockroachdb.html">CockroachDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/consensus-algorithm.html">Raft Consensus Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../database/graph.html">Graph Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/leveldb.html">LevelDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../database/materialized-views.html">Materialized Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/mongodb.html">MongoDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../database/rocksdb.html">RocksDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/sql.html">SQL (Structured Query Language)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/tidb.html">TiDB</a></li>
@@ -547,7 +517,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../math/math-on-web.html">Math on Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../math/misc.html">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../memory/W^X.html">W^X (Write XOR Execute)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../memory/W%5EX.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../memory/allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../memory/kernel-memory-management.html">Kernel Memory Management</a></li>
@@ -805,74 +775,34 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../wiki/resource.html">Wiki</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">wdv4758h-notes</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
-      <li>Asynchronous History</li>
-    
-    
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Asynchronous History</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/wdv4758h/notes/blob/master/./rust/usage/asynchronous-history.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="asynchronous-history">
-<h1><a class="toc-backref" href="#id2">Asynchronous History</a><a class="headerlink" href="#asynchronous-history" title="本標題的永久連結">¶</a></h1>
-<div class="contents topic" id="id1">
-<p class="topic-title first">目錄</p>
+             
+  <section id="asynchronous-history">
+<h1><a class="toc-backref" href="#id2" role="doc-backlink">Asynchronous History</a><a class="headerlink" href="#asynchronous-history" title="Permalink to this heading"></a></h1>
+<nav class="contents" id="id1">
+<p class="topic-title">目錄</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#asynchronous-history" id="id2">Asynchronous History</a></p>
 <ul>
@@ -880,11 +810,11 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="qcon-2019-rust-s-journey-to-async-await">
-<h2><a class="toc-backref" href="#id3">QCon 2019 - Rust’s Journey to Async/Await</a><a class="headerlink" href="#qcon-2019-rust-s-journey-to-async-await" title="本標題的永久連結">¶</a></h2>
+</nav>
+<section id="qcon-2019-rust-s-journey-to-async-await">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">QCon 2019 - Rust’s Journey to Async/Await</a><a class="headerlink" href="#qcon-2019-rust-s-journey-to-async-await" title="Permalink to this heading"></a></h2>
 <dl class="field-list simple">
-<dt class="field-odd">Video</dt>
+<dt class="field-odd">Video<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://www.infoq.com/presentations/rust-2019/">https://www.infoq.com/presentations/rust-2019/</a></p>
 </dd>
 </dl>
@@ -970,11 +900,6 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <hr class="docutils" />
 <p>Synchronous/Asynchronous &amp; Blocking/Non-blocking：</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 23%" />
-<col style="width: 45%" />
-<col style="width: 32%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"></th>
 <th class="head"><p>Synchronous</p></th>
@@ -1002,7 +927,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </ul>
 <hr class="docutils" />
 <p>問題：「一個不讓你直接使用作業系統 threads 的系統程式語言！？」</p>
-<p>A 「systems programming language」 that doesn’t let you use the system threads!?</p>
+<p>A “systems programming language” that doesn’t let you use the system threads!?</p>
 <p>Rust 本來只提供 Green Threads，
 後來也提供 Native Threads 讓人自己選，
 底下透過 librustrt 這個 runtime 來處理。
@@ -1069,7 +994,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 因為這年頭撰寫系統程式很難不碰到 C 程式碼（光是底下作業系統就有了）。</p>
 <hr class="docutils" />
 <p>問題：「一個呼叫 C 程式有額外成本的系統程式語言！？」</p>
-<p>A 「system programming language」 that has overhead when calling into C code!?</p>
+<p>A “system programming language” that has overhead when calling into C code!?</p>
 <p>幸運的，
 Rust 除了 Green Threads 以外還有其他選擇，
 那就是 Event Loop。</p>
@@ -1084,7 +1009,7 @@ Rust 除了 Green Threads 以外還有其他選擇，
 <li><dl class="simple">
 <dt>Futures：像似 Promises，跟 Promises 有相同的想法，但是有不同的 API，在這之上可以加語法糖 async/await 來輔助</dt><dd><ul>
 <li><p>例如 Scala</p></li>
-<li><p>參考：」Your Server as a Function」</p></li>
+<li><p>參考：”Your Server as a Function”</p></li>
 </ul>
 </dd>
 </dl>
@@ -1092,12 +1017,12 @@ Rust 除了 Green Threads 以外還有其他選擇，
 </ul>
 <hr class="docutils" />
 <p>Rust Futures 0.1：</p>
-<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">trait</span><span class="w"> </span><span class="n">Future</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">type</span> <span class="nc">Item</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">type</span> <span class="nc">Error</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">trait</span><span class="w"> </span><span class="n">Future</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">type</span> <span class="nc">Item</span><span class="p">;</span>
+<span class="w">    </span><span class="k">type</span> <span class="nc">Error</span><span class="p">;</span>
 
-<span class="w">    </span><span class="k">fn</span> <span class="nf">poll</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">Poll</span><span class="o">&lt;</span><span class="n">Self</span>::<span class="n">Item</span><span class="p">,</span><span class="w"> </span><span class="n">Self</span>::<span class="n">Error</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">poll</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">Poll</span><span class="o">&lt;</span><span class="bp">Self</span>::<span class="n">Item</span><span class="p">,</span><span class="w"> </span><span class="bp">Self</span>::<span class="n">Error</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>JavaScript Promises v.s. Rust Futures：</p>
@@ -1117,7 +1042,7 @@ Rust 除了 Green Threads 以外還有其他選擇，
 <li><p>並沒有深入地做進 Rust</p></li>
 <li><p>Rust 沒有 runtime</p></li>
 <li><p>一定要把 Futures 送進 Executors 才會開始執行</p></li>
-<li><p>Futures 並不會做任何處理（惰性）直到 「poll」 函式被 Executors 呼叫</p></li>
+<li><p>Futures 並不會做任何處理（惰性）直到 “poll” 函式被 Executors 呼叫</p></li>
 <li><p>使用上稍微更複雜，但是非常有效率</p></li>
 <li><p>每個 Task 的建立只會有一次計算好大小的記憶體分配</p></li>
 <li><p>可以編成狀態機</p></li>
@@ -1131,12 +1056,12 @@ Rust 除了 Green Threads 以外還有其他選擇，
 <p>為了知道 Rust Future 0.1 夠不夠好，
 於是開始在這之上建立各式各樣的東西。</p>
 <p>Future 0.2：</p>
-<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">trait</span><span class="w"> </span><span class="n">Future</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">type</span> <span class="nc">Item</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">type</span> <span class="nc">Error</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">trait</span><span class="w"> </span><span class="n">Future</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">type</span> <span class="nc">Item</span><span class="p">;</span>
+<span class="w">    </span><span class="k">type</span> <span class="nc">Error</span><span class="p">;</span>
 
-<span class="w">    </span><span class="k">fn</span> <span class="nf">poll</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">cx</span>: <span class="nc">task</span>::<span class="n">Context</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">Poll</span><span class="o">&lt;</span><span class="n">Self</span>::<span class="n">Item</span><span class="p">,</span><span class="w"> </span><span class="n">Self</span>::<span class="n">Error</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">poll</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">cx</span>: <span class="nc">task</span>::<span class="n">Context</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">Poll</span><span class="o">&lt;</span><span class="bp">Self</span>::<span class="n">Item</span><span class="p">,</span><span class="w"> </span><span class="bp">Self</span>::<span class="n">Error</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>Future 0.2 跟 Future 0.1 的差異：</p>
@@ -1176,11 +1101,11 @@ borrow checker 並不了解這類 Asynchronous 程式碼，
 <hr class="docutils" />
 <p>Rust Future 0.3：並不是所有 Futures 都會有 Erorr</p>
 <p><code class="docutils literal notranslate"><span class="pre">std::future</span></code> :</p>
-<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">pub</span><span class="w"> </span><span class="k">trait</span><span class="w"> </span><span class="n">Future</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">type</span> <span class="nc">Output</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">pub</span><span class="w"> </span><span class="k">trait</span><span class="w"> </span><span class="n">Future</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">type</span> <span class="nc">Output</span><span class="p">;</span>
 
-<span class="w">    </span><span class="k">fn</span> <span class="nf">poll</span><span class="p">(</span><span class="bp">self</span>: <span class="nc">Pin</span><span class="o">&lt;&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">Self</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">cx</span>: <span class="kp">&amp;</span><span class="nc">mut</span><span class="w"> </span><span class="n">Context</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">Poll</span><span class="o">&lt;</span><span class="n">Self</span>::<span class="n">Output</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">poll</span><span class="p">(</span><span class="bp">self</span>: <span class="nc">Pin</span><span class="o">&lt;&amp;</span><span class="k">mut</span><span class="w"> </span><span class="bp">Self</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">cx</span>: <span class="kp">&amp;</span><span class="nc">mut</span><span class="w"> </span><span class="n">Context</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">Poll</span><span class="o">&lt;</span><span class="bp">Self</span>::<span class="n">Output</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -1216,10 +1141,10 @@ await (value?)      // 但是語法看起來比較像這個
 還是要趕快決定語法，
 最後決定了 <code class="docutils literal notranslate"><span class="pre">.await</span></code> 和 <code class="docutils literal notranslate"><span class="pre">.await?</span></code></p>
 <div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="c1">// no errors</span>
-<span class="n">future</span><span class="p">.</span><span class="k">await</span><span class="w"></span>
+<span class="n">future</span><span class="p">.</span><span class="k">await</span>
 
 <span class="c1">// with errors</span>
-<span class="n">future</span><span class="p">.</span><span class="k">await</span><span class="o">?</span><span class="w"></span>
+<span class="n">future</span><span class="p">.</span><span class="k">await</span><span class="o">?</span>
 </pre></div>
 </div>
 <hr class="docutils" />
@@ -1245,37 +1170,33 @@ await (value?)      // 但是語法看起來比較像這個
 <li><p>系統程式語言 -&gt; 呼叫 C 程式不能有額外成本 -&gt; non-blocking 不能使用 green threads</p></li>
 <li><p>non-blocking 採用 event loop -&gt; asynchronous -&gt; future &amp; callback -&gt; 編譯器對記憶體檢查炸裂 -&gt; 程式碼變太複雜 -&gt; 用 async/await 教編譯器理解</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016
-
-    </p>
+    <p>&#169; Copyright 2023.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
   
 
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       <span class="fa fa-book"> Read the Docs</span>
       v: latest
@@ -1285,7 +1206,7 @@ await (value?)      // 但是語法看起來比較像這個
       <dl>
         <dt>Versions</dt>
         
-          <dd><a href="/zh_TW/latest/">latest</a></dd>
+          <dd><a href="https://wdv4758h.github.io/notes/">latest</a></dd>
         
       </dl>
       <dl>
@@ -1295,6 +1216,7 @@ await (value?)      // 但是語法看起來比較像這個
         
       </dl>
       <dl>
+        
         <dt>On Read the Docs</dt>
           <dd>
             <a href="//readthedocs.org/projects/wdv4758h-notes/?fromdocs=wdv4758h-notes">Project Home</a>
@@ -1303,22 +1225,13 @@ await (value?)      // 但是語法看起來比較像這個
             <a href="//readthedocs.org/builds/wdv4758h-notes/?fromdocs=wdv4758h-notes">Builds</a>
           </dd>
       </dl>
-      <hr/>
-      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
-
     </div>
   </div>
-
-
-
-  <script type="text/javascript">
+<script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-   
+  </script> 
 
 </body>
 </html>

@@ -1,114 +1,75 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-TW" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-TW" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Linux Sound System &mdash; wdv4758h-notes latest 說明文件</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linux Sound System &mdash; wdv4758h-notes latest documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="搜尋" href="../search.html" />
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Media Container" href="media-container.html" />
     <link rel="prev" title="Kodi - Open Source Home Theater Software" href="kodi.html" /> 
 
 <!-- RTD Extra Head -->
 
-<!-- 
-Always link to the latest version, as canonical.
-http://docs.readthedocs.org/en/latest/canonical.html
--->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/multimedia/linux-sound-system.html" />
+    <!--
+    Always link to the latest version, as canonical.
+    http://docs.readthedocs.org/en/latest/canonical.html
+    -->
+    <link rel="canonical" href="https://wdv4758h-notes.readthedocs.io/zh_TW/latest/multimedia/linux-sound-system.html" />
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": "", "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": "https://wdv4758h-notes.readthedocs.io/zh_TW/latest/", "docroot": "/./", "features": {"docsearch_disabled": false}, "global_analytics_code": "", "language": "en", "page": "multimedia/linux-sound-system", "programming_language": "", "project": "wdv4758h-notes", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": ""}</script>
 
-<!-- Add page-specific data, which must exist in the page js, not global -->
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = "multimedia/linux-sound-system"
-READTHEDOCS_DATA['source_suffix'] = ".rst"
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
 </script>
 
-<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js" async="async"></script>
 
 <!-- end RTD <extrahead> -->
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../index.html" class="icon icon-home"> wdv4758h-notes
           
-
-          
+          <a href="../index.html" class="icon icon-home">
+            wdv4758h-notes
           </a>
-
-          
-            
-            
-            
               <div class="version">
                 latest
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/README.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/adt.html">ADT (Abstract Data Type)</a></li>
@@ -118,13 +79,18 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/cache.html">Cache</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/cache-friendly.html">Cache Friendly Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/dict.html">Dict</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/float-to-string.html">Float to String</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/heap.html">Heap （堆）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/introduction.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/inverse-square-root.html">Inverse Square Root</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/lock.html">Lock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/meta-algorithm.html">Meta Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/random-number-generator.html">Random Number Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/resource.html">演算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/sorting.html">Sorting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/string-to-float.html">String to Float</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/substring-searching.html">Substring Searching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/README.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/android-emulator.html">Android Emulator</a></li>
@@ -200,7 +166,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../blog/openmp.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#tutorial">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#id5">額外紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#id4">額外紀錄</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/python-benchmark.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/python-benchmark.html#hello-world">Hello World</a></li>
@@ -227,7 +193,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../blog/qemu-first-step.html#qemu-with-kvm">QEMU with KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html">Syntax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closure">Closure 和外部變數</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#move-closures">「move」 closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#move-closures">“move” closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closure-implementation">Closure implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closures-as-arguments">closures as arguments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#returning-closures">returning closures</a></li>
@@ -408,6 +374,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/ci.html">Continuous Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/concourse.html">Concourse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/drone.html">Drone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../continuous-integration/github-actions.html">Github Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/jenkins.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/travis-ci.html">Travis CI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/workflow-pipeline.html">Workflow Pipeline</a></li>
@@ -417,7 +384,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../cpp/array.html">std::array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/assembly.html">C++ &amp; Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/bit-field.html">C++ Bit Field</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cpp/c++17.html">C++17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/c%2B%2B17.html">C++17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/concepts.html">C++ Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/const.html">C++ const</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/copy-elision.html">Copy Elision</a></li>
@@ -470,13 +437,16 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../database/README.html">資料庫 (Database)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/cockroachdb.html">CockroachDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/consensus-algorithm.html">Raft Consensus Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/graph.html">Graph Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/leveldb.html">LevelDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/materialized-views.html">Materialized Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mongodb.html">MongoDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/rocksdb.html">RocksDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sql.html">SQL (Structured Query Language)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/tidb.html">TiDB</a></li>
@@ -549,7 +519,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/math-on-web.html">Math on Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/misc.html">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../memory/W^X.html">W^X (Write XOR Execute)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../memory/W%5EX.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/kernel-memory-management.html">Kernel Memory Management</a></li>
@@ -647,11 +617,9 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="gstreamer.html">GStreamer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="kodi.html">Kodi - Open Source Home Theater Software</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Linux Sound System</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2">介紹</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#pulseaudio">PulseAudio</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#jack">JACK</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#sndio">sndio</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">參考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">概覽</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">其他</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">參考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="media-container.html">Media Container</a></li>
@@ -814,119 +782,113 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../wiki/resource.html">Wiki</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">wdv4758h-notes</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-      <li>Linux Sound System</li>
-    
-    
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Linux Sound System</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/wdv4758h/notes/blob/master/./multimedia/linux-sound-system.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="linux-sound-system">
-<h1><a class="toc-backref" href="#id4">Linux Sound System</a><a class="headerlink" href="#linux-sound-system" title="本標題的永久連結">¶</a></h1>
-<div class="contents topic" id="id1">
-<p class="topic-title first">目錄</p>
+             
+  <section id="linux-sound-system">
+<h1><a class="toc-backref" href="#id5" role="doc-backlink">Linux Sound System</a><a class="headerlink" href="#linux-sound-system" title="Permalink to this heading"></a></h1>
+<nav class="contents" id="id1">
+<p class="topic-title">目錄</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#linux-sound-system" id="id4">Linux Sound System</a></p>
+<li><p><a class="reference internal" href="#linux-sound-system" id="id5">Linux Sound System</a></p>
 <ul>
-<li><p><a class="reference internal" href="#id2" id="id5">介紹</a></p></li>
-<li><p><a class="reference internal" href="#pulseaudio" id="id6">PulseAudio</a></p></li>
-<li><p><a class="reference internal" href="#jack" id="id7">JACK</a></p></li>
-<li><p><a class="reference internal" href="#sndio" id="id8">sndio</a></p></li>
-<li><p><a class="reference internal" href="#id3" id="id9">參考</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id6">概覽</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id7">其他</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id8">參考</a></p></li>
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="id2">
-<h2><a class="toc-backref" href="#id5">介紹</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h2>
-<p>Sound System 分成好幾個層級：</p>
+</nav>
+<section id="id2">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">概覽</a><a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
+<p>Linux 聲音生態系中的東西可以分成：</p>
 <ul class="simple">
-<li><p>硬體支援和控制（需要 Driver &amp; Interface）</p></li>
-<li><p>Usermode Library 提供應用程式需要的功能</p></li>
-<li><p>[Optional] Usermode Sound Server</p></li>
-<li><p>[Optional] Sound Framework</p></li>
+<li><p>硬體層（Hardware Layer）：硬體裝置，輸入和輸出</p></li>
+<li><p>核心層（Kernel Layer）：溝通和管理各個硬體的介面（OSS、ALSA）</p></li>
+<li><p>Libraries：操控影音的介面與產生串流（GStreamer、Libcanberra、libpulse、libalsa、…），標準的格式（LADSPA）</p></li>
+<li><dl class="simple">
+<dt>聲音伺服器（Sound Server）：讓使用者操控起來更簡單（sndio、ESD、aRts、PulseAudio、PipeWire）</dt><dd><ul>
+<li><p>Sound Server 的存在是因為音效卡的存取通常是獨占的，造成只有一個應用程式可以使用音效卡</p></li>
+<li><p>因此引入了一個中間層（也就是 Sound Server）處理</p></li>
+<li><p>Sound Server 負責跟音效卡溝通，其他程式則透過 Sound Server 提供的 IPC 機制來存取</p></li>
 </ul>
-<p>Linux 裝起來後通常會內建 ALSA 這個 kernel sound system
-（以前是內建 Open Sound System （OSS））。</p>
-<p>Sound Server 則有比較多的選擇，
-但是無論選擇哪個 Sound Server，
-最底下還是 ALSA：</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>簡易發展史：</p>
 <ul class="simple">
-<li><p>PulseAudio： Linux 上常用的 Sound Server，使用比較簡單，但是不是針對 low-latency 設計的</p></li>
-<li><p>JACK： 針對 low-latency 設計的 Sound Server（例如 5 ms），使用 C 實做</p></li>
-<li><p>JACK2： JACK 的 C++ 實做，支援的 Protocol 一樣，但是後來因為社群和開發者因素沒有完整取代掉 JACK</p></li>
-<li><p>JACK2 with D-BUS： JACK2 使用不同啟動架構的版本，可以和其他非 JACK 的應用程式一起使用，像是 PulseAudio</p></li>
+<li><p>古早的 Linux 音訊支援是 OSS (Open Sound System)，而且是 Linux 2.4 以前唯一的音訊 API，基於 open/close/read/write/ioctl</p></li>
+<li><p>2002 年，Linux 2.5 用 ALSA (Advanced Linux Sound Architecture) 取代了 OSS</p></li>
+<li><p>OSS 和 ALSA 都有同時只能有一個應用程式能使用特定裝置的限制</p></li>
+<li><p>後來 ALSA 實作了軟體混音器插件（Dmix），但是有很多缺陷，使用也不夠有彈性</p></li>
+<li><dl class="simple">
+<dt>EsounD (ESD) 爲早期的 sound server 之一，使用 socket 來接收許多音訊，在送出去之前先混合，使用 TCP，而且不支援低延遲</dt><dd><ul>
+<li><p>全名爲 Enlightened Sound Daemon</p></li>
+<li><p>當時使用於 Enlightenment 和 GNOME</p></li>
 </ul>
-<p>Sound Server 的存在是因為音效卡的存取通常是獨占的，
-這會造成只有一個應用程式可以使用音效卡，
-因此引入了一個中間層（也就是 Sound Server）處理，
-Sound Server 負責跟音效卡溝通，
-其他程式則透過 Sound Server 提供的 IPC 機制來存取。</p>
-<p>Linux 上常見的 Sound Server 分別是 PulseAudio 和 JACK，
-他們都是用 <code class="docutils literal notranslate"><span class="pre">mmap</span></code> 來存取，
-因此會 block 住音效卡 driver。
-但是 PulseAudio 的開發重點著重在提昇桌面環境的使用經驗，
-例如網路來的音效、省電、每個應用程式的混合等級等。
-而 JACK 則 著重在即時的處理，
-強調 low-latency 的操作和 clients 間的緊密同步，
-比較適合專業級的應用。</p>
+</dd>
+</dl>
+</li>
+<li><p>aRts 爲 KDE 社群開發出來的 sound server，支援模擬類比合成器，現今已經被淘汰</p></li>
+<li><p>BSD 有另一套簡單的音訊 API 叫 sndio，這 API 也支援 midi，它用 Unix pipe 來傳送音訊，而且也不支援低延遲</p></li>
+<li><dl class="simple">
+<dt>2002 年，Paul Davis 基於 Ardour 內的音訊引擎實作了 JACK，提供及時、低延遲的應用給音訊和 midi</dt><dd><ul>
+<li><p>JACK 內維護一個應用程式的流線圖，各個點之間用 port 連接，使用 device interrupt 來叫醒程式去處理資料</p></li>
+<li><p>JACK 雖然支援低延遲（例如 5 ms，硬體夠好搭配正確的設定的話，有機會達到 1ms），但是缺少一些桌面應用需要的功能，例如 format support/power saving/dynamic devices/volume control/security/…</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>2004 年，PulseAudio 釋出，是模組化的現代音訊伺服器</dt><dd><ul>
+<li><p>和先前的實作相比，可以支援自動且動態地建立和配送給多裝置</p></li>
+<li><p>PulseAudio 雖然支援省電應用，但是需要花費較多 CPU 來叫醒程式（因爲採用 timer based）</p></li>
+<li><p>設計上專注在桌面應用</p></li>
+<li><p>有非常模組化的設計，可以支援各式各樣的應用</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>2017 年，PipeWire 基於先前的經驗，提供改善和相容</dt><dd><ul>
+<li><p>由 Wim Taymans 建立（GStreamer 的共同創造者）</p></li>
+<li><p>一開始叫 PulseVideo，但後來加入音訊支援</p></li>
+<li><p>起源於要在 sandbox 環境內使用影音硬體，但是後來設計上又有了更多改進</p></li>
+<li><p>有相容層給 JACK 和 PulseAudio，既有的應用程式不需要改動就能使用</p></li>
+<li><p>架構中一個重要的角色是 session manager，管理裝置的設定和控制策略</p></li>
+<li><p>應用程式和音訊伺服器的協定本身爲非同步</p></li>
+<li><p>格式溝通採用和 GStreamer 一樣的格式描述，可以在兩端點間取交集找到合適的溝通格式</p></li>
+<li><p><a class="reference external" href="https://blogs.gnome.org/uraeus/2017/09/19/launching-pipewire/">Launching Pipewire</a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="id3">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">其他</a><a class="headerlink" href="#id3" title="Permalink to this heading"></a></h2>
 <p>在討論延遲的時候要考慮到物理限制，
 例如聲音在空氣中的傳播速度約為 330 ~ 350 公尺/秒，
 如果喇叭在聽眾 5 公尺外的地方，
@@ -936,33 +898,22 @@ Sound Server 負責跟音效卡溝通，
 光速大約是 300000 公里/秒，
 假如傳輸距離是 12000 公里，
 那物理限制就是至少會有 40 毫秒的延遲。</p>
-</div>
-<div class="section" id="pulseaudio">
-<h2><a class="toc-backref" href="#id6">PulseAudio</a><a class="headerlink" href="#pulseaudio" title="本標題的永久連結">¶</a></h2>
-<dl class="field-list simple">
-<dt class="field-odd">Site</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://www.freedesktop.org/wiki/Software/PulseAudio/">https://www.freedesktop.org/wiki/Software/PulseAudio/</a></p>
-</dd>
-</dl>
-</div>
-<div class="section" id="jack">
-<h2><a class="toc-backref" href="#id7">JACK</a><a class="headerlink" href="#jack" title="本標題的永久連結">¶</a></h2>
-</div>
-<div class="section" id="sndio">
-<h2><a class="toc-backref" href="#id8">sndio</a><a class="headerlink" href="#sndio" title="本標題的永久連結">¶</a></h2>
-<dl class="field-list simple">
-<dt class="field-odd">Site</dt>
-<dd class="field-odd"><p><a class="reference external" href="http://www.sndio.org/">http://www.sndio.org/</a></p>
-</dd>
-</dl>
-</div>
-<div class="section" id="id3">
-<h2><a class="toc-backref" href="#id9">參考</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="id4">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">參考</a><a class="headerlink" href="#id4" title="Permalink to this heading"></a></h2>
 <ul class="simple">
+<li><dl class="simple">
+<dt>[2021] <a class="reference external" href="https://venam.nixers.net/blog/unix/2021/02/07/audio-stack.html">Making Sense of The Audio Stack On Unix</a></dt><dd><ul>
+<li><p>非常值得一讀的文章</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 <li><p><a class="reference external" href="https://wiki.archlinux.org/index.php/Sound_system">Arch Wiki - Sound System</a></p></li>
 <li><p><a class="reference external" href="https://wiki.archlinux.org/index.php/Professional_audio">Arch Wiki - Professional Audio</a></p></li>
 <li><p><a class="reference external" href="https://wiki.archlinux.org/index.php/Advanced_Linux_Sound_Architecture">Arch Wiki - Advanced Linux Sound Architecture</a></p></li>
 <li><p><a class="reference external" href="https://wiki.archlinux.org/index.php/JACK_Audio_Connection_Kit">Arch Wiki - JACK Audio Connection Kit</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Sound_server">Wikipedia - Sound Server</a></p></li>
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Advanced_Linux_Sound_Architecture">Wikipedia - Advanced Linux Sound Architecture</a></p></li>
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/PulseAudio">Wikipedia - PulseAudio</a></p></li>
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/JACK_Audio_Connection_Kit">Wikipedia - JACK Audio Connection Kit</a></p></li>
@@ -970,6 +921,7 @@ Sound Server 負責跟音效卡溝通，
 <li><p><a class="reference external" href="https://github.com/jackaudio/jackaudio.github.com/wiki">JACK Wiki</a></p></li>
 <li><p><a class="reference external" href="https://unix.stackexchange.com/a/181625/98379">Jack vs Pulseaudio – how is it faster? - Unix &amp; Linux Stack Exchange</a></p></li>
 <li><p><a class="reference external" href="https://wiki.archlinux.org/index.php/PulseAudio/Configuration">Linux Kernel - Sound Subsystem</a></p></li>
+<li><p><a class="reference external" href="https://wiki.linuxaudio.org/wiki/jack_latency_tests">JACK Latency tests</a></p></li>
 <li><dl class="simple">
 <dt><a class="reference external" href="https://retis.sssup.it/sites/default/files/realtime_low_latency_audio_on_linux.pdf">Design and Development of a mechanism for low-latency real-time audio processing on Linux</a></dt><dd><ul>
 <li><p>一份資訊很多的介紹，值得一看</p></li>
@@ -979,46 +931,36 @@ Sound Server 負責跟音效卡溝通，
 </li>
 <li><p><a class="reference external" href="https://gavv.github.io/blog/pulseaudio-under-the-hood/">PulseAudio under the hood</a></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="media-container.html" class="btn btn-neutral float-right" title="Media Container" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="kodi.html" class="btn btn-neutral float-left" title="Kodi - Open Source Home Theater Software" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="kodi.html" class="btn btn-neutral float-left" title="Kodi - Open Source Home Theater Software" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="media-container.html" class="btn btn-neutral float-right" title="Media Container" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016
-
-    </p>
+    <p>&#169; Copyright 2023.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
   
 
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       <span class="fa fa-book"> Read the Docs</span>
       v: latest
@@ -1028,7 +970,7 @@ Sound Server 負責跟音效卡溝通，
       <dl>
         <dt>Versions</dt>
         
-          <dd><a href="/zh_TW/latest/">latest</a></dd>
+          <dd><a href="https://wdv4758h.github.io/notes/">latest</a></dd>
         
       </dl>
       <dl>
@@ -1038,6 +980,7 @@ Sound Server 負責跟音效卡溝通，
         
       </dl>
       <dl>
+        
         <dt>On Read the Docs</dt>
           <dd>
             <a href="//readthedocs.org/projects/wdv4758h-notes/?fromdocs=wdv4758h-notes">Project Home</a>
@@ -1046,22 +989,13 @@ Sound Server 負責跟音效卡溝通，
             <a href="//readthedocs.org/builds/wdv4758h-notes/?fromdocs=wdv4758h-notes">Builds</a>
           </dd>
       </dl>
-      <hr/>
-      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
-
     </div>
   </div>
-
-
-
-  <script type="text/javascript">
+<script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-   
+  </script> 
 
 </body>
 </html>

@@ -1,114 +1,75 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-TW" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-TW" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Python Testing &mdash; wdv4758h-notes latest 說明文件</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python Testing &mdash; wdv4758h-notes latest documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="搜尋" href="../search.html" />
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Python Tips" href="tips.html" />
     <link rel="prev" title="SymPy" href="sympy.html" /> 
 
 <!-- RTD Extra Head -->
 
-<!-- 
-Always link to the latest version, as canonical.
-http://docs.readthedocs.org/en/latest/canonical.html
--->
-<link rel="canonical" href="http://wdv4758h-notes.readthedocs.io/zh_TW/latest/python/testing.html" />
+    <!--
+    Always link to the latest version, as canonical.
+    http://docs.readthedocs.org/en/latest/canonical.html
+    -->
+    <link rel="canonical" href="https://wdv4758h-notes.readthedocs.io/zh_TW/latest/python/testing.html" />
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": "", "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": "https://wdv4758h-notes.readthedocs.io/zh_TW/latest/", "docroot": "/./", "features": {"docsearch_disabled": false}, "global_analytics_code": "", "language": "en", "page": "python/testing", "programming_language": "", "project": "wdv4758h-notes", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": ""}</script>
 
-<!-- Add page-specific data, which must exist in the page js, not global -->
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
 <script type="text/javascript">
-READTHEDOCS_DATA['page'] = "python/testing"
-READTHEDOCS_DATA['source_suffix'] = ".rst"
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
 </script>
 
-<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js" async="async"></script>
 
 <!-- end RTD <extrahead> -->
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../index.html" class="icon icon-home"> wdv4758h-notes
           
-
-          
+          <a href="../index.html" class="icon icon-home">
+            wdv4758h-notes
           </a>
-
-          
-            
-            
-            
               <div class="version">
                 latest
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/README.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/adt.html">ADT (Abstract Data Type)</a></li>
@@ -118,13 +79,18 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/cache.html">Cache</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/cache-friendly.html">Cache Friendly Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/dict.html">Dict</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/float-to-string.html">Float to String</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/heap.html">Heap （堆）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/introduction.html">演算法與資料結構</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/inverse-square-root.html">Inverse Square Root</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/lock.html">Lock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/meta-algorithm.html">Meta Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/misc.html">Misc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/probabilistic-data-structure.html">Probabilistic Data Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/random-number-generator.html">Random Number Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/resource.html">演算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/sorting.html">Sorting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/string-to-float.html">String to Float</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithm/substring-searching.html">Substring Searching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/README.html">Android</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../android/android-emulator.html">Android Emulator</a></li>
@@ -200,7 +166,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../blog/openmp.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#tutorial">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#id5">額外紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#id4">額外紀錄</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/pypy-brainfuck.html#reference">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/python-benchmark.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/python-benchmark.html#hello-world">Hello World</a></li>
@@ -227,7 +193,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../blog/qemu-first-step.html#qemu-with-kvm">QEMU with KVM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html">Syntax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closure">Closure 和外部變數</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#move-closures">「move」 closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#move-closures">“move” closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closure-implementation">Closure implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#closures-as-arguments">closures as arguments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blog/rust-closure.html#returning-closures">returning closures</a></li>
@@ -408,6 +374,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/ci.html">Continuous Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/concourse.html">Concourse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/drone.html">Drone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../continuous-integration/github-actions.html">Github Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/jenkins.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/travis-ci.html">Travis CI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../continuous-integration/workflow-pipeline.html">Workflow Pipeline</a></li>
@@ -417,7 +384,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../cpp/array.html">std::array</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/assembly.html">C++ &amp; Assembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/bit-field.html">C++ Bit Field</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cpp/c++17.html">C++17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/c%2B%2B17.html">C++17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/concepts.html">C++ Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/const.html">C++ const</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/copy-elision.html">Copy Elision</a></li>
@@ -470,13 +437,16 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../database/README.html">資料庫 (Database)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/cockroachdb.html">CockroachDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/consensus-algorithm.html">Raft Consensus Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/graph.html">Graph Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/leveldb.html">LevelDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mariadb.html">MariaDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/materialized-views.html">Materialized Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mongodb.html">MongoDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/postgresql.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/redis.html">Redis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/resource.html">Database (資料庫)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database/rocksdb.html">RocksDB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sql.html">SQL (Structured Query Language)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/sqlite.html">SQLite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../database/tidb.html">TiDB</a></li>
@@ -549,7 +519,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../math/linear-algebra.html">線性代數 （Linear Algebra）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/math-on-web.html">Math on Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/misc.html">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../memory/W^X.html">W^X (Write XOR Execute)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../memory/W%5EX.html">W^X (Write XOR Execute)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/allocator.html">Allocator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/asan-algo.html">AddressSanitizer Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../memory/kernel-memory-management.html">Kernel Memory Management</a></li>
@@ -846,74 +816,34 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../wiki/resource.html">Wiki</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">wdv4758h-notes</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-      <li>Python Testing</li>
-    
-    
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Python Testing</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/wdv4758h/notes/blob/master/./python/testing.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="python-testing">
-<h1><a class="toc-backref" href="#id16">Python Testing</a><a class="headerlink" href="#python-testing" title="本標題的永久連結">¶</a></h1>
-<div class="contents topic" id="id1">
-<p class="topic-title first">目錄</p>
+             
+  <section id="python-testing">
+<h1><a class="toc-backref" href="#id16" role="doc-backlink">Python Testing</a><a class="headerlink" href="#python-testing" title="Permalink to this heading"></a></h1>
+<nav class="contents" id="id1">
+<p class="topic-title">目錄</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#python-testing" id="id16">Python Testing</a></p>
 <ul>
@@ -962,9 +892,9 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="tl-dr">
-<h2><a class="toc-backref" href="#id17">TL;DR</a><a class="headerlink" href="#tl-dr" title="本標題的永久連結">¶</a></h2>
+</nav>
+<section id="tl-dr">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">TL;DR</a><a class="headerlink" href="#tl-dr" title="Permalink to this heading"></a></h2>
 <p>用 <code class="docutils literal notranslate"><span class="pre">pytest</span></code></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pytest</span>
 <span class="n">pytest</span><span class="o">-</span><span class="n">sugar</span>          <span class="c1"># show better test result</span>
@@ -1004,9 +934,9 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <span class="n">pytest</span><span class="o">-</span><span class="n">selenium</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="doctest">
-<h2><a class="toc-backref" href="#id18">doctest</a><a class="headerlink" href="#doctest" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="doctest">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">doctest</a><a class="headerlink" href="#doctest" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.python.org/3/library/doctest.html">Python - doctest</a></p></li>
 <li><p><a class="reference external" href="https://www.python.org/dev/peps/pep-0257/">PEP 257 - Docstring Conventions</a></p></li>
@@ -1022,7 +952,7 @@ docstring 包含 module 最一開始的匿名字串和 function 下最開始的�
 <li><p>regression testing</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    &gt;&gt;&gt; f(123)</span>
 <span class="sd">    123</span>
 <span class="sd">    &#39;&#39;&#39;</span>
@@ -1034,9 +964,9 @@ docstring 包含 module 最一開始的匿名字串和 function 下最開始的�
 </pre></div>
 </div>
 <p>或是 CLI 直接下 <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">doctest</span> <span class="pre">-v</span> <span class="pre">xxx.py</span></code></p>
-</div>
-<div class="section" id="unittest-pyunit">
-<h2><a class="toc-backref" href="#id19">unittest (PyUnit)</a><a class="headerlink" href="#unittest-pyunit" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="unittest-pyunit">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">unittest (PyUnit)</a><a class="headerlink" href="#unittest-pyunit" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.python.org/3/library/unittest.html">Python - unittest</a></p></li>
 </ul>
@@ -1058,15 +988,15 @@ docstring 包含 module 最一開始的匿名字串和 function 下最開始的�
 </div>
 <p>執行測試：</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># 直接執行</span>
-$ python mytest.py
+$<span class="w"> </span>python<span class="w"> </span>mytest.py
 
 <span class="c1"># 指定</span>
-$ python -m unittest mytest
-$ python -m unittest mytest.TestStringMethods
-$ python -m unittest mytest.TestStringMethods.test_upper
+$<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>unittest<span class="w"> </span>mytest
+$<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>unittest<span class="w"> </span>mytest.TestStringMethods
+$<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>unittest<span class="w"> </span>mytest.TestStringMethods.test_upper
 
 <span class="c1"># 自動尋找</span>
-$ python -m unittest discover -v
+$<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>unittest<span class="w"> </span>discover<span class="w"> </span>-v
 </pre></div>
 </div>
 <p>為測試事前準備、事後回收：</p>
@@ -1105,7 +1035,7 @@ $ python -m unittest discover -v
                      <span class="s2">&quot;not supported in this library version&quot;</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">test_fstring</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">name</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{name}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
 
     <span class="nd">@unittest</span><span class="o">.</span><span class="n">skipUnless</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">platform</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;linux&quot;</span><span class="p">),</span> <span class="s2">&quot;requires Linux&quot;</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">test_linux</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1141,9 +1071,9 @@ $ python -m unittest discover -v
     <span class="k">return</span> <span class="n">unittest</span><span class="o">.</span><span class="n">skip</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{!r}</span><span class="s2"> doesn&#39;t have </span><span class="si">{!r}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">attr</span><span class="p">))</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="pytest">
-<h2><a class="toc-backref" href="#id20">pytest</a><a class="headerlink" href="#pytest" title="本標題的永久連結">¶</a></h2>
+</section>
+<section id="pytest">
+<h2><a class="toc-backref" href="#id20" role="doc-backlink">pytest</a><a class="headerlink" href="#pytest" title="Permalink to this heading"></a></h2>
 <p>Python Standard Library 雖然有內建 <code class="docutils literal notranslate"><span class="pre">unittest</span></code> ，
 但是使用上的方便性還是不夠高，
 第三方套件中個人覺得 <code class="docutils literal notranslate"><span class="pre">pytest</span></code> 非常好用，
@@ -1175,23 +1105,23 @@ $ python -m unittest discover -v
 <p>相關範例可以參考 <a class="reference external" href="https://github.com/wdv4758h/notes/tree/master/programming-language/cases/python/examples/py.test">examples 資料夾</a></p>
 <p>pytest 雖然自己提供了直接定義函式並使用 <code class="docutils literal notranslate"><span class="pre">assert</span></code> 的方法來撰寫測試，
 但是原本使用 <code class="docutils literal notranslate"><span class="pre">unittest</span></code> 的方反撰寫的測試也仍然支援。</p>
-<div class="section" id="id2">
-<h3><a class="toc-backref" href="#id21">安裝</a><a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h3>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip install pytest
+<section id="id2">
+<h3><a class="toc-backref" href="#id21" role="doc-backlink">安裝</a><a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>pytest
 </pre></div>
 </div>
-</div>
-<div class="section" id="id3">
-<h3><a class="toc-backref" href="#id22">使用</a><a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="id3">
+<h3><a class="toc-backref" href="#id22" role="doc-backlink">使用</a><a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># --doctest-modules: 跑 doctest</span>
 <span class="c1"># -v: verbose</span>
 <span class="c1"># --strict: 把 warning 當 error</span>
-pytest --doctest-modules -v --strict
+pytest<span class="w"> </span>--doctest-modules<span class="w"> </span>-v<span class="w"> </span>--strict
 </pre></div>
 </div>
-</div>
-<div class="section" id="pytest-fixture">
-<h3><a class="toc-backref" href="#id23">pytest fixture</a><a class="headerlink" href="#pytest-fixture" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="pytest-fixture">
+<h3><a class="toc-backref" href="#id23" role="doc-backlink">pytest fixture</a><a class="headerlink" href="#pytest-fixture" title="Permalink to this heading"></a></h3>
 <p>pytest 的 fixture 是接在函式參數寫上對應的名稱即可，
 例如需要暫時的資料夾就寫 <code class="docutils literal notranslate"><span class="pre">tempdir</span></code> ：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_needsfiles</span><span class="p">(</span><span class="n">tmpdir</span><span class="p">):</span>
@@ -1200,75 +1130,75 @@ pytest --doctest-modules -v --strict
 </pre></div>
 </div>
 <p>列出支援的 fixture：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pytest --fixtures
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>pytest<span class="w"> </span>--fixtures
 ...
-cache -- /tmp/venv/lib/python3.6/site-packages/_pytest/cacheprovider.py:190
-    Return a cache object that can persist state between testing sessions.
+cache<span class="w"> </span>--<span class="w"> </span>/tmp/venv/lib/python3.6/site-packages/_pytest/cacheprovider.py:190
+<span class="w">    </span>Return<span class="w"> </span>a<span class="w"> </span>cache<span class="w"> </span>object<span class="w"> </span>that<span class="w"> </span>can<span class="w"> </span>persist<span class="w"> </span>state<span class="w"> </span>between<span class="w"> </span>testing<span class="w"> </span>sessions.
 
-    cache.get<span class="o">(</span>key, default<span class="o">)</span>
-    cache.set<span class="o">(</span>key, value<span class="o">)</span>
+<span class="w">    </span>cache.get<span class="o">(</span>key,<span class="w"> </span>default<span class="o">)</span>
+<span class="w">    </span>cache.set<span class="o">(</span>key,<span class="w"> </span>value<span class="o">)</span>
 
-    Keys must be a <span class="sb">``</span>/<span class="sb">``</span> separated value, where the first part is usually the
-    name of your plugin or application to avoid clashes with other cache users.
+<span class="w">    </span>Keys<span class="w"> </span>must<span class="w"> </span>be<span class="w"> </span>a<span class="w"> </span><span class="sb">``</span>/<span class="sb">``</span><span class="w"> </span>separated<span class="w"> </span>value,<span class="w"> </span>where<span class="w"> </span>the<span class="w"> </span>first<span class="w"> </span>part<span class="w"> </span>is<span class="w"> </span>usually<span class="w"> </span>the
+<span class="w">    </span>name<span class="w"> </span>of<span class="w"> </span>your<span class="w"> </span>plugin<span class="w"> </span>or<span class="w"> </span>application<span class="w"> </span>to<span class="w"> </span>avoid<span class="w"> </span>clashes<span class="w"> </span>with<span class="w"> </span>other<span class="w"> </span>cache<span class="w"> </span>users.
 
-    Values can be any object handled by the json stdlib module.
-capsys -- /tmp/venv/lib/python3.6/site-packages/_pytest/capture.py:160
-    Enable capturing of writes to sys.stdout/sys.stderr and make
-    captured output available via <span class="sb">``</span>capsys.readouterr<span class="o">()</span><span class="sb">``</span> method calls
-    which <span class="k">return</span> a <span class="sb">``</span><span class="o">(</span>out, err<span class="o">)</span><span class="sb">``</span> tuple.
+<span class="w">    </span>Values<span class="w"> </span>can<span class="w"> </span>be<span class="w"> </span>any<span class="w"> </span>object<span class="w"> </span>handled<span class="w"> </span>by<span class="w"> </span>the<span class="w"> </span>json<span class="w"> </span>stdlib<span class="w"> </span>module.
+capsys<span class="w"> </span>--<span class="w"> </span>/tmp/venv/lib/python3.6/site-packages/_pytest/capture.py:160
+<span class="w">    </span>Enable<span class="w"> </span>capturing<span class="w"> </span>of<span class="w"> </span>writes<span class="w"> </span>to<span class="w"> </span>sys.stdout/sys.stderr<span class="w"> </span>and<span class="w"> </span>make
+<span class="w">    </span>captured<span class="w"> </span>output<span class="w"> </span>available<span class="w"> </span>via<span class="w"> </span><span class="sb">``</span>capsys.readouterr<span class="o">()</span><span class="sb">``</span><span class="w"> </span>method<span class="w"> </span>calls
+<span class="w">    </span>which<span class="w"> </span><span class="k">return</span><span class="w"> </span>a<span class="w"> </span><span class="sb">``</span><span class="o">(</span>out,<span class="w"> </span>err<span class="o">)</span><span class="sb">``</span><span class="w"> </span>tuple.
 ...
 </pre></div>
 </div>
 <p>如果 fixture 不夠用可以安裝第三方套件或是自行撰寫，
 安裝完後一樣可以在列表中看到：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pytest --fixtures
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>pytest<span class="w"> </span>--fixtures
 ...
 
--------------------------------- fixtures defined from pytest_django.fixtures --------------------------------
-db -- /tmp/venv/lib/python3.6/site-packages/pytest_django/fixtures.py:142
-    Require a django <span class="nb">test</span> database
+--------------------------------<span class="w"> </span>fixtures<span class="w"> </span>defined<span class="w"> </span>from<span class="w"> </span>pytest_django.fixtures<span class="w"> </span>--------------------------------
+db<span class="w"> </span>--<span class="w"> </span>/tmp/venv/lib/python3.6/site-packages/pytest_django/fixtures.py:142
+<span class="w">    </span>Require<span class="w"> </span>a<span class="w"> </span>django<span class="w"> </span><span class="nb">test</span><span class="w"> </span>database
 
-    This database will be setup with the default fixtures and will have
-    the transaction management disabled. At the end of the <span class="nb">test</span> the outer
-    transaction that wraps the <span class="nb">test</span> itself will be rolled back to undo any
-    changes to the database <span class="o">(</span>in <span class="k">case</span> the backend supports transactions<span class="o">)</span>.
-    This is more limited than the <span class="sb">``</span>transactional_db<span class="sb">``</span> resource but
-    faster.
+<span class="w">    </span>This<span class="w"> </span>database<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>setup<span class="w"> </span>with<span class="w"> </span>the<span class="w"> </span>default<span class="w"> </span>fixtures<span class="w"> </span>and<span class="w"> </span>will<span class="w"> </span>have
+<span class="w">    </span>the<span class="w"> </span>transaction<span class="w"> </span>management<span class="w"> </span>disabled.<span class="w"> </span>At<span class="w"> </span>the<span class="w"> </span>end<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span><span class="nb">test</span><span class="w"> </span>the<span class="w"> </span>outer
+<span class="w">    </span>transaction<span class="w"> </span>that<span class="w"> </span>wraps<span class="w"> </span>the<span class="w"> </span><span class="nb">test</span><span class="w"> </span>itself<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>rolled<span class="w"> </span>back<span class="w"> </span>to<span class="w"> </span>undo<span class="w"> </span>any
+<span class="w">    </span>changes<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>database<span class="w"> </span><span class="o">(</span><span class="k">in</span><span class="w"> </span><span class="k">case</span><span class="w"> </span>the<span class="w"> </span>backend<span class="w"> </span>supports<span class="w"> </span>transactions<span class="o">)</span>.
+<span class="w">    </span>This<span class="w"> </span>is<span class="w"> </span>more<span class="w"> </span>limited<span class="w"> </span>than<span class="w"> </span>the<span class="w"> </span><span class="sb">``</span>transactional_db<span class="sb">``</span><span class="w"> </span>resource<span class="w"> </span>but
+<span class="w">    </span>faster.
 
-    If both this and <span class="sb">``</span>transactional_db<span class="sb">``</span> are requested <span class="k">then</span> the
-    database setup will behave as only <span class="sb">``</span>transactional_db<span class="sb">``</span> was
-    requested.
-    transactional_db -- /tmp/venv/lib/python3.6/site-packages/pytest_django/fixtures.py:164
-    Require a django <span class="nb">test</span> database with transaction support
+<span class="w">    </span>If<span class="w"> </span>both<span class="w"> </span>this<span class="w"> </span>and<span class="w"> </span><span class="sb">``</span>transactional_db<span class="sb">``</span><span class="w"> </span>are<span class="w"> </span>requested<span class="w"> </span><span class="k">then</span><span class="w"> </span>the
+<span class="w">    </span>database<span class="w"> </span>setup<span class="w"> </span>will<span class="w"> </span>behave<span class="w"> </span>as<span class="w"> </span>only<span class="w"> </span><span class="sb">``</span>transactional_db<span class="sb">``</span><span class="w"> </span>was
+<span class="w">    </span>requested.
+<span class="w">    </span>transactional_db<span class="w"> </span>--<span class="w"> </span>/tmp/venv/lib/python3.6/site-packages/pytest_django/fixtures.py:164
+<span class="w">    </span>Require<span class="w"> </span>a<span class="w"> </span>django<span class="w"> </span><span class="nb">test</span><span class="w"> </span>database<span class="w"> </span>with<span class="w"> </span>transaction<span class="w"> </span>support
 
-    This will re-initialise the django database <span class="k">for</span> each <span class="nb">test</span> and is
-    thus slower than the normal <span class="sb">``</span>db<span class="sb">``</span> fixture.
+<span class="w">    </span>This<span class="w"> </span>will<span class="w"> </span>re-initialise<span class="w"> </span>the<span class="w"> </span>django<span class="w"> </span>database<span class="w"> </span><span class="k">for</span><span class="w"> </span>each<span class="w"> </span><span class="nb">test</span><span class="w"> </span>and<span class="w"> </span>is
+<span class="w">    </span>thus<span class="w"> </span>slower<span class="w"> </span>than<span class="w"> </span>the<span class="w"> </span>normal<span class="w"> </span><span class="sb">``</span>db<span class="sb">``</span><span class="w"> </span>fixture.
 
-    If you want to use the database with transactions you must request
-    this resource.  If both this and <span class="sb">``</span>db<span class="sb">``</span> are requested <span class="k">then</span> the
-    database setup will behave as only <span class="sb">``</span>transactional_db<span class="sb">``</span> was
-    requested.
+<span class="w">    </span>If<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>use<span class="w"> </span>the<span class="w"> </span>database<span class="w"> </span>with<span class="w"> </span>transactions<span class="w"> </span>you<span class="w"> </span>must<span class="w"> </span>request
+<span class="w">    </span>this<span class="w"> </span>resource.<span class="w">  </span>If<span class="w"> </span>both<span class="w"> </span>this<span class="w"> </span>and<span class="w"> </span><span class="sb">``</span>db<span class="sb">``</span><span class="w"> </span>are<span class="w"> </span>requested<span class="w"> </span><span class="k">then</span><span class="w"> </span>the
+<span class="w">    </span>database<span class="w"> </span>setup<span class="w"> </span>will<span class="w"> </span>behave<span class="w"> </span>as<span class="w"> </span>only<span class="w"> </span><span class="sb">``</span>transactional_db<span class="sb">``</span><span class="w"> </span>was
+<span class="w">    </span>requested.
 ...
 </pre></div>
 </div>
 <p>另外這邊有各 pytest plugins 跟 Python 版本的相容狀況 <a class="reference external" href="http://plugincompat.herokuapp.com/">網站</a></p>
-</div>
-<div class="section" id="id5">
-<h3><a class="toc-backref" href="#id24">pytest 設定檔</a><a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="id5">
+<h3><a class="toc-backref" href="#id24" role="doc-backlink">pytest 設定檔</a><a class="headerlink" href="#id5" title="Permalink to this heading"></a></h3>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="c1"># pytest.ini</span>
 <span class="k">[pytest]</span>
-<span class="na">addopts</span> <span class="o">=</span> <span class="s">--doctest-modules -v --strict -n8</span>
+<span class="na">addopts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">--doctest-modules -v --strict -n8</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="fixture-plugin">
-<h3><a class="toc-backref" href="#id25">自製 fixture 和 plugin</a><a class="headerlink" href="#fixture-plugin" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="fixture-plugin">
+<h3><a class="toc-backref" href="#id25" role="doc-backlink">自製 fixture 和 plugin</a><a class="headerlink" href="#fixture-plugin" title="Permalink to this heading"></a></h3>
 <p>檢查哪些 plugins 是目前會使用到的：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pytest --trace-config
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>pytest<span class="w"> </span>--trace-config
 </pre></div>
 </div>
 <p>不使用特定 plugin：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pytest -p no:NAME
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>pytest<span class="w"> </span>-p<span class="w"> </span>no:NAME
 </pre></div>
 </div>
 <p>在每個測試程式碼的資料夾都可以放 <code class="docutils literal notranslate"><span class="pre">conftest.py</span></code> 來擴充 pytest，
@@ -1310,9 +1240,9 @@ db -- /tmp/venv/lib/python3.6/site-packages/pytest_django/fixtures.py:142
     <span class="k">assert</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">0</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id6">
-<h3><a class="toc-backref" href="#id26">客製化測試失敗時的輸出</a><a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="id6">
+<h3><a class="toc-backref" href="#id26" role="doc-backlink">客製化測試失敗時的輸出</a><a class="headerlink" href="#id6" title="Permalink to this heading"></a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># conftest.py</span>
 
 <span class="kn">from</span> <span class="nn">mymodule</span> <span class="kn">import</span> <span class="n">Foo</span>
@@ -1323,50 +1253,50 @@ db -- /tmp/venv/lib/python3.6/site-packages/pytest_django/fixtures.py:142
                 <span class="s1">&#39;   vals: </span><span class="si">%s</span><span class="s1"> != </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">left</span><span class="o">.</span><span class="n">val</span><span class="p">,</span> <span class="n">right</span><span class="o">.</span><span class="n">val</span><span class="p">)]</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="pytest-xdist">
-<h3><a class="toc-backref" href="#id27">pytest-xdist - 同時執行多項測試</a><a class="headerlink" href="#pytest-xdist" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="pytest-xdist">
+<h3><a class="toc-backref" href="#id27" role="doc-backlink">pytest-xdist - 同時執行多項測試</a><a class="headerlink" href="#pytest-xdist" title="Permalink to this heading"></a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">URL</dt>
+<dt class="field-odd">URL<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://github.com/pytest-dev/pytest-xdist">https://github.com/pytest-dev/pytest-xdist</a></p>
 </dd>
 </dl>
 <p><code class="docutils literal notranslate"><span class="pre">pytest-xdist</span></code> 是一個 <code class="docutils literal notranslate"><span class="pre">pytest</span></code> 的 plugin，
 可以使用多顆 CPU 或是多台機器來同時執行測試，
 以加速所需要花費的時間。</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pytest -n auto tests/
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>pytest<span class="w"> </span>-n<span class="w"> </span>auto<span class="w"> </span>tests/
 </pre></div>
 </div>
-</div>
-<div class="section" id="pytest-cov">
-<h3><a class="toc-backref" href="#id28">pytest-cov - 測試涵蓋率</a><a class="headerlink" href="#pytest-cov" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="pytest-cov">
+<h3><a class="toc-backref" href="#id28" role="doc-backlink">pytest-cov - 測試涵蓋率</a><a class="headerlink" href="#pytest-cov" title="Permalink to this heading"></a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">URL</dt>
+<dt class="field-odd">URL<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://github.com/pytest-dev/pytest-cov">https://github.com/pytest-dev/pytest-cov</a></p>
 </dd>
 </dl>
 <p>可以產生出多種格式的 Report，
 例如直接在終端機顯示、HTML、XML 等。</p>
-</div>
-<div class="section" id="pytest-icdiff">
-<h3><a class="toc-backref" href="#id29">pytest-icdiff</a><a class="headerlink" href="#pytest-icdiff" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="pytest-icdiff">
+<h3><a class="toc-backref" href="#id29" role="doc-backlink">pytest-icdiff</a><a class="headerlink" href="#pytest-icdiff" title="Permalink to this heading"></a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">repo</dt>
+<dt class="field-odd">repo<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://github.com/hjwp/pytest-icdiff">https://github.com/hjwp/pytest-icdiff</a></p>
 </dd>
 </dl>
 <p>利用 <a class="reference external" href="https://www.jefftk.com/icdiff">ICDiff</a> 改善比較的結果</p>
-</div>
-<div class="section" id="id7">
-<h3><a class="toc-backref" href="#id30">範例</a><a class="headerlink" href="#id7" title="本標題的永久連結">¶</a></h3>
-<div class="section" id="socket">
-<h4><a class="toc-backref" href="#id31">socket</a><a class="headerlink" href="#socket" title="本標題的永久連結">¶</a></h4>
+</section>
+<section id="id7">
+<h3><a class="toc-backref" href="#id30" role="doc-backlink">範例</a><a class="headerlink" href="#id7" title="Permalink to this heading"></a></h3>
+<section id="socket">
+<h4><a class="toc-backref" href="#id31" role="doc-backlink">socket</a><a class="headerlink" href="#socket" title="Permalink to this heading"></a></h4>
 <p><a class="reference external" href="https://pypi.python.org/pypi/pytest-socket">https://pypi.python.org/pypi/pytest-socket</a></p>
-</div>
-</div>
-</div>
-<div class="section" id="hypothesis">
-<h2><a class="toc-backref" href="#id32">Hypothesis</a><a class="headerlink" href="#hypothesis" title="本標題的永久連結">¶</a></h2>
+</section>
+</section>
+</section>
+<section id="hypothesis">
+<h2><a class="toc-backref" href="#id32" role="doc-backlink">Hypothesis</a><a class="headerlink" href="#hypothesis" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://github.com/HypothesisWorks/hypothesis">Hypothesis</a>
 支援「property-based testing」，
 藉由定義可接受的資料來產生測試程式，
@@ -1391,26 +1321,26 @@ Hypothesis 的 infer 模式來自動選出需要的 strategy，
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/fpinscala/fpinscala/wiki/Chapter-8:-Property-based-testing">Brief Introduction to Haskell - Chapter 8: Property based testing</a></p></li>
 </ul>
-</div>
-<div class="section" id="nose">
-<h2><a class="toc-backref" href="#id33">nose</a><a class="headerlink" href="#nose" title="本標題的永久連結">¶</a></h2>
-<div class="section" id="id9">
-<h3><a class="toc-backref" href="#id34">安裝</a><a class="headerlink" href="#id9" title="本標題的永久連結">¶</a></h3>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip install nose
+</section>
+<section id="nose">
+<h2><a class="toc-backref" href="#id33" role="doc-backlink">nose</a><a class="headerlink" href="#nose" title="Permalink to this heading"></a></h2>
+<section id="id9">
+<h3><a class="toc-backref" href="#id34" role="doc-backlink">安裝</a><a class="headerlink" href="#id9" title="Permalink to this heading"></a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>nose
 </pre></div>
 </div>
-</div>
-<div class="section" id="id10">
-<h3><a class="toc-backref" href="#id35">使用</a><a class="headerlink" href="#id10" title="本標題的永久連結">¶</a></h3>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>nosetests --with-doctest -v
+</section>
+<section id="id10">
+<h3><a class="toc-backref" href="#id35" role="doc-backlink">使用</a><a class="headerlink" href="#id10" title="Permalink to this heading"></a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>nosetests<span class="w"> </span>--with-doctest<span class="w"> </span>-v
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="robot-framework">
-<h2><a class="toc-backref" href="#id36">Robot Framework</a><a class="headerlink" href="#robot-framework" title="本標題的永久連結">¶</a></h2>
+</section>
+</section>
+<section id="robot-framework">
+<h2><a class="toc-backref" href="#id36" role="doc-backlink">Robot Framework</a><a class="headerlink" href="#robot-framework" title="Permalink to this heading"></a></h2>
 <dl class="field-list simple">
-<dt class="field-odd">URL</dt>
+<dt class="field-odd">URL<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="http://robotframework.org/">http://robotframework.org/</a></p>
 </dd>
 </dl>
@@ -1423,23 +1353,23 @@ Hypothesis 的 infer 模式來自動選出需要的 strategy，
 藉由 Keyword 的方式可以讓他們能夠撰寫測試。</p>
 <p>Robot Framework 的 Report 是一大強項，
 可以產生完整詳細的測試 Report。</p>
-<div class="section" id="id11">
-<h3><a class="toc-backref" href="#id37">安裝</a><a class="headerlink" href="#id11" title="本標題的永久連結">¶</a></h3>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pip install robotframework
-$ robot --version
-Robot Framework <span class="m">3</span>.0.2 <span class="o">(</span>Python <span class="m">3</span>.6.0 on linux<span class="o">)</span>
+<section id="id11">
+<h3><a class="toc-backref" href="#id37" role="doc-backlink">安裝</a><a class="headerlink" href="#id11" title="Permalink to this heading"></a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>robotframework
+$<span class="w"> </span>robot<span class="w"> </span>--version
+Robot<span class="w"> </span>Framework<span class="w"> </span><span class="m">3</span>.0.2<span class="w"> </span><span class="o">(</span>Python<span class="w"> </span><span class="m">3</span>.6.0<span class="w"> </span>on<span class="w"> </span>linux<span class="o">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id12">
-<h3><a class="toc-backref" href="#id38">使用</a><a class="headerlink" href="#id12" title="本標題的永久連結">¶</a></h3>
+</section>
+<section id="id12">
+<h3><a class="toc-backref" href="#id38" role="doc-backlink">使用</a><a class="headerlink" href="#id12" title="Permalink to this heading"></a></h3>
 <p>Robot Framework 提供了兩個 Stript 來輔助使用：</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">rebot</span></code> 來執行測試（例如 <code class="docutils literal notranslate"><span class="pre">rebot</span> <span class="pre">tests.robot</span></code> ）</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">rebot</span></code> 來處理產生的資料（例如 <code class="docutils literal notranslate"><span class="pre">rebot</span> <span class="pre">output.xml</span></code> ）</p></li>
 </ul>
-<div class="section" id="id13">
-<h4><a class="toc-backref" href="#id39">範例一 - 架構輪廓</a><a class="headerlink" href="#id13" title="本標題的永久連結">¶</a></h4>
+<section id="id13">
+<h4><a class="toc-backref" href="#id39" role="doc-backlink">範例一 - 架構輪廓</a><a class="headerlink" href="#id13" title="Permalink to this heading"></a></h4>
 <p>Robot Framework 支援用好幾個不同的格式來撰寫測試，
 包含：</p>
 <ul class="simple">
@@ -1448,202 +1378,192 @@ Robot Framework <span class="m">3</span>.0.2 <span class="o">(</span>Python <spa
 <li><p>reStructuredText</p></li>
 </ul>
 <p><code class="docutils literal notranslate"><span class="pre">mytests.robot</span></code> ：</p>
-<div class="highlight-robotframework notranslate"><div class="highlight"><pre><span></span><span class="gh">*** Settings ***</span><span class="p"></span>
-<span class="kn">Documentation</span><span class="p">     </span><span class="s">A simple test example</span><span class="p"></span>
+<div class="highlight-robotframework notranslate"><div class="highlight"><pre><span></span><span class="gh">*** Settings ***</span>
+<span class="kn">Documentation</span><span class="p">     </span><span class="s">A simple test example</span>
 <span class="p">...</span>
-<span class="p">...               </span><span class="s">This is just a really simple one.</span><span class="p"></span>
+<span class="p">...               </span><span class="s">This is just a really simple one.</span>
 
-<span class="gh">*** Test Cases ***</span><span class="p"></span>
-<span class="gu">Test Robot Framework Logging</span><span class="p"></span>
-<span class="p">    </span><span class="nf">Log</span><span class="p">   </span><span class="s">&quot;Test Logging&quot;</span><span class="p"></span>
+<span class="gh">*** Test Cases ***</span>
+<span class="gu">Test Robot Framework Logging</span>
+<span class="p">    </span><span class="nf">Log</span><span class="p">   </span><span class="s">&quot;Test Logging&quot;</span>
 </pre></div>
 </div>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># 執行測試</span>
-$ robot mytests.robot
+$<span class="w"> </span>robot<span class="w"> </span>mytests.robot
 <span class="o">==============================================================================</span>
-Mytests :: A simple <span class="nb">test</span> <span class="nv">example</span>
+Mytests<span class="w"> </span>::<span class="w"> </span>A<span class="w"> </span>simple<span class="w"> </span><span class="nb">test</span><span class="w"> </span><span class="nv">example</span>
 <span class="o">==============================================================================</span>
-Test Robot Framework Logging                                          <span class="p">|</span> PASS <span class="p">|</span>
+Test<span class="w"> </span>Robot<span class="w"> </span>Framework<span class="w"> </span>Logging<span class="w">                                          </span><span class="p">|</span><span class="w"> </span>PASS<span class="w"> </span><span class="p">|</span>
 ------------------------------------------------------------------------------
-Mytests :: A simple <span class="nb">test</span> example                                      <span class="p">|</span> PASS <span class="p">|</span>
-<span class="m">1</span> critical test, <span class="m">1</span> passed, <span class="m">0</span> failed
-<span class="m">1</span> <span class="nb">test</span> total, <span class="m">1</span> passed, <span class="m">0</span> <span class="nv">failed</span>
+Mytests<span class="w"> </span>::<span class="w"> </span>A<span class="w"> </span>simple<span class="w"> </span><span class="nb">test</span><span class="w"> </span>example<span class="w">                                      </span><span class="p">|</span><span class="w"> </span>PASS<span class="w"> </span><span class="p">|</span>
+<span class="m">1</span><span class="w"> </span>critical<span class="w"> </span>test,<span class="w"> </span><span class="m">1</span><span class="w"> </span>passed,<span class="w"> </span><span class="m">0</span><span class="w"> </span>failed
+<span class="m">1</span><span class="w"> </span><span class="nb">test</span><span class="w"> </span>total,<span class="w"> </span><span class="m">1</span><span class="w"> </span>passed,<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="nv">failed</span>
 <span class="o">==============================================================================</span>
-Output:  /tmp/myproj/output.xml
-Log:     /tmp/myproj/log.html
-Report:  /tmp/myproj/report.html
+Output:<span class="w">  </span>/tmp/myproj/output.xml
+Log:<span class="w">     </span>/tmp/myproj/log.html
+Report:<span class="w">  </span>/tmp/myproj/report.html
 
 <span class="c1"># 跑完測試會產生 report.html，可以在瀏覽器中看整體的狀況</span>
-$ python -m http.server
+$<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>http.server
 </pre></div>
 </div>
-</div>
-<div class="section" id="library">
-<h4><a class="toc-backref" href="#id40">範例二 - 使用內建 Library</a><a class="headerlink" href="#library" title="本標題的永久連結">¶</a></h4>
+</section>
+<section id="library">
+<h4><a class="toc-backref" href="#id40" role="doc-backlink">範例二 - 使用內建 Library</a><a class="headerlink" href="#library" title="Permalink to this heading"></a></h4>
 <p>以下嘗試使用 Robot Framework 內建的 Library 來輔助撰寫測試，
 這邊使用了 <code class="docutils literal notranslate"><span class="pre">String</span></code> 內的 <code class="docutils literal notranslate"><span class="pre">Generate</span> <span class="pre">Random</span> <span class="pre">String</span></code> 。</p>
-<div class="highlight-robotframework notranslate"><div class="highlight"><pre><span></span><span class="gh">*** Settings ***</span><span class="p"></span>
-<span class="kn">Documentation</span><span class="p">     </span><span class="s">A simple test example</span><span class="p"></span>
+<div class="highlight-robotframework notranslate"><div class="highlight"><pre><span></span><span class="gh">*** Settings ***</span>
+<span class="kn">Documentation</span><span class="p">     </span><span class="s">A simple test example</span>
 <span class="p">...</span>
-<span class="p">...               </span><span class="s">This is just a really simple one.</span><span class="p"></span>
+<span class="p">...               </span><span class="s">This is just a really simple one.</span>
 
-<span class="kn">Library</span><span class="p">    </span><span class="nn">String</span><span class="p"></span>
+<span class="kn">Library</span><span class="p">    </span><span class="nn">String</span>
 
 
-<span class="gh">*** Test Cases ***</span><span class="p"></span>
-<span class="gu">Test Robot Framework Logging</span><span class="p"></span>
-<span class="p">    </span><span class="nf">Log</span><span class="p">   </span><span class="s">&quot;Test Logging&quot;</span><span class="p"></span>
-<span class="p">    </span><span class="nf">Log Many</span><span class="p">  </span><span class="s">First Entry</span><span class="p">  </span><span class="s">Second Entry</span><span class="p"></span>
-<span class="p">    </span><span class="nf">Log To Console</span><span class="p">  </span><span class="s">still running</span><span class="p"></span>
+<span class="gh">*** Test Cases ***</span>
+<span class="gu">Test Robot Framework Logging</span>
+<span class="p">    </span><span class="nf">Log</span><span class="p">   </span><span class="s">&quot;Test Logging&quot;</span>
+<span class="p">    </span><span class="nf">Log Many</span><span class="p">  </span><span class="s">First Entry</span><span class="p">  </span><span class="s">Second Entry</span>
+<span class="p">    </span><span class="nf">Log To Console</span><span class="p">  </span><span class="s">still running</span>
 
-<span class="gu">Test For Loop</span><span class="p"></span>
-<span class="p">    : FOR    ${</span><span class="nv">INDEX</span><span class="p">}    IN RANGE    </span><span class="s">1</span><span class="p">    </span><span class="s">3</span><span class="p"></span>
+<span class="gu">Test For Loop</span>
+<span class="p">    : FOR    ${</span><span class="nv">INDEX</span><span class="p">}    IN RANGE    </span><span class="s">1</span><span class="p">    </span><span class="s">3</span>
 <span class="p">    \    </span><span class="nf">Log</span><span class="p">    ${</span><span class="nv">INDEX</span><span class="p">}</span>
 <span class="p">    \    ${</span><span class="nv">RANDOM_STRING</span><span class="p">}=    </span><span class="nf">Generate Random String</span><span class="p">    ${</span><span class="nv">INDEX</span><span class="p">}</span>
 <span class="p">    \    </span><span class="nf">Log</span><span class="p">    ${</span><span class="nv">RANDOM_STRING</span><span class="p">}</span>
 </pre></div>
 </div>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ robot mytests.robot
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>robot<span class="w"> </span>mytests.robot
 <span class="o">==============================================================================</span>
-Mytests :: A simple <span class="nb">test</span> <span class="nv">example</span>
+Mytests<span class="w"> </span>::<span class="w"> </span>A<span class="w"> </span>simple<span class="w"> </span><span class="nb">test</span><span class="w"> </span><span class="nv">example</span>
 <span class="o">==============================================================================</span>
-Test Robot Framework Logging                                          ..still running
-Test Robot Framework Logging                                          <span class="p">|</span> PASS <span class="p">|</span>
+Test<span class="w"> </span>Robot<span class="w"> </span>Framework<span class="w"> </span>Logging<span class="w">                                          </span>..still<span class="w"> </span>running
+Test<span class="w"> </span>Robot<span class="w"> </span>Framework<span class="w"> </span>Logging<span class="w">                                          </span><span class="p">|</span><span class="w"> </span>PASS<span class="w"> </span><span class="p">|</span>
 ------------------------------------------------------------------------------
-Test For Loop                                                         <span class="p">|</span> PASS <span class="p">|</span>
+Test<span class="w"> </span>For<span class="w"> </span>Loop<span class="w">                                                         </span><span class="p">|</span><span class="w"> </span>PASS<span class="w"> </span><span class="p">|</span>
 ------------------------------------------------------------------------------
-Mytests :: A simple <span class="nb">test</span> example                                      <span class="p">|</span> PASS <span class="p">|</span>
-<span class="m">2</span> critical tests, <span class="m">2</span> passed, <span class="m">0</span> failed
-<span class="m">2</span> tests total, <span class="m">2</span> passed, <span class="m">0</span> <span class="nv">failed</span>
+Mytests<span class="w"> </span>::<span class="w"> </span>A<span class="w"> </span>simple<span class="w"> </span><span class="nb">test</span><span class="w"> </span>example<span class="w">                                      </span><span class="p">|</span><span class="w"> </span>PASS<span class="w"> </span><span class="p">|</span>
+<span class="m">2</span><span class="w"> </span>critical<span class="w"> </span>tests,<span class="w"> </span><span class="m">2</span><span class="w"> </span>passed,<span class="w"> </span><span class="m">0</span><span class="w"> </span>failed
+<span class="m">2</span><span class="w"> </span>tests<span class="w"> </span>total,<span class="w"> </span><span class="m">2</span><span class="w"> </span>passed,<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="nv">failed</span>
 <span class="o">==============================================================================</span>
-Output:  /tmp/myproj/output.xml
-Log:     /tmp/myproj/log.html
-Report:  /tmp/myproj/report.html
+Output:<span class="w">  </span>/tmp/myproj/output.xml
+Log:<span class="w">     </span>/tmp/myproj/log.html
+Report:<span class="w">  </span>/tmp/myproj/report.html
 </pre></div>
 </div>
-</div>
-<div class="section" id="keyword">
-<h4><a class="toc-backref" href="#id41">範例三 - 自己撰寫 Keyword</a><a class="headerlink" href="#keyword" title="本標題的永久連結">¶</a></h4>
-<div class="highlight-robotframework notranslate"><div class="highlight"><pre><span></span><span class="gh">*** Settings ***</span><span class="p"></span>
+</section>
+<section id="keyword">
+<h4><a class="toc-backref" href="#id41" role="doc-backlink">範例三 - 自己撰寫 Keyword</a><a class="headerlink" href="#keyword" title="Permalink to this heading"></a></h4>
+<div class="highlight-robotframework notranslate"><div class="highlight"><pre><span></span><span class="gh">*** Settings ***</span>
 
-<span class="gh">*** Test Cases ***</span><span class="p"></span>
-<span class="gu">Test Robot Framework Logging</span><span class="p"></span>
-<span class="p">    </span><span class="nf">Log</span><span class="p">    </span><span class="s">Test Logging</span><span class="p"></span>
+<span class="gh">*** Test Cases ***</span>
+<span class="gu">Test Robot Framework Logging</span>
+<span class="p">    </span><span class="nf">Log</span><span class="p">    </span><span class="s">Test Logging</span>
 
-<span class="gu">Test My Robot Framework Logging</span><span class="p"></span>
-<span class="p">    </span><span class="nf">My Logging</span><span class="p">    </span><span class="s">My Message</span><span class="p">    </span><span class="s">WARN</span><span class="p"></span>
+<span class="gu">Test My Robot Framework Logging</span>
+<span class="p">    </span><span class="nf">My Logging</span><span class="p">    </span><span class="s">My Message</span><span class="p">    </span><span class="s">WARN</span>
 
-<span class="gh">*** Keywords ***</span><span class="p"></span>
-<span class="gu">My Logging</span><span class="p"></span>
+<span class="gh">*** Keywords ***</span>
+<span class="gu">My Logging</span>
 <span class="p">    [</span><span class="kn">Arguments</span><span class="p">]    ${</span><span class="nv">msg</span><span class="p">}    ${</span><span class="nv">level</span><span class="p">}       </span><span class="c"># 兩個參數</span>
 <span class="p">    </span><span class="nf">Log</span><span class="p">    ${</span><span class="nv">msg</span><span class="p">}    ${</span><span class="nv">level</span><span class="p">}</span>
 </pre></div>
 </div>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ robot mytests.robot
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>robot<span class="w"> </span>mytests.robot
 <span class="o">==============================================================================</span>
 <span class="nv">Mytests</span>
 <span class="o">==============================================================================</span>
-Test Robot Framework Logging                                          <span class="p">|</span> PASS <span class="p">|</span>
+Test<span class="w"> </span>Robot<span class="w"> </span>Framework<span class="w"> </span>Logging<span class="w">                                          </span><span class="p">|</span><span class="w"> </span>PASS<span class="w"> </span><span class="p">|</span>
 ------------------------------------------------------------------------------
-<span class="o">[</span> WARN <span class="o">]</span> My Message
-Test My Robot Framework Logging                                       <span class="p">|</span> PASS <span class="p">|</span>
+<span class="o">[</span><span class="w"> </span>WARN<span class="w"> </span><span class="o">]</span><span class="w"> </span>My<span class="w"> </span>Message
+Test<span class="w"> </span>My<span class="w"> </span>Robot<span class="w"> </span>Framework<span class="w"> </span>Logging<span class="w">                                       </span><span class="p">|</span><span class="w"> </span>PASS<span class="w"> </span><span class="p">|</span>
 ------------------------------------------------------------------------------
-Mytests                                                               <span class="p">|</span> PASS <span class="p">|</span>
-<span class="m">2</span> critical tests, <span class="m">2</span> passed, <span class="m">0</span> failed
-<span class="m">2</span> tests total, <span class="m">2</span> passed, <span class="m">0</span> <span class="nv">failed</span>
+Mytests<span class="w">                                                               </span><span class="p">|</span><span class="w"> </span>PASS<span class="w"> </span><span class="p">|</span>
+<span class="m">2</span><span class="w"> </span>critical<span class="w"> </span>tests,<span class="w"> </span><span class="m">2</span><span class="w"> </span>passed,<span class="w"> </span><span class="m">0</span><span class="w"> </span>failed
+<span class="m">2</span><span class="w"> </span>tests<span class="w"> </span>total,<span class="w"> </span><span class="m">2</span><span class="w"> </span>passed,<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="nv">failed</span>
 <span class="o">==============================================================================</span>
-Output:  /tmp/myproj/output.xml
-Log:     /tmp/myproj/log.html
-Report:  /tmp/myproj/report.html
+Output:<span class="w">  </span>/tmp/myproj/output.xml
+Log:<span class="w">     </span>/tmp/myproj/log.html
+Report:<span class="w">  </span>/tmp/myproj/report.html
 </pre></div>
 </div>
-</div>
-<div class="section" id="id14">
-<h4><a class="toc-backref" href="#id42">範例四 - 把 Keyword 獨立出來以便共用</a><a class="headerlink" href="#id14" title="本標題的永久連結">¶</a></h4>
+</section>
+<section id="id14">
+<h4><a class="toc-backref" href="#id42" role="doc-backlink">範例四 - 把 Keyword 獨立出來以便共用</a><a class="headerlink" href="#id14" title="Permalink to this heading"></a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">myresource.robot</span></code> ：</p>
-<div class="highlight-robotframework notranslate"><div class="highlight"><pre><span></span><span class="gh">*** Keywords ***</span><span class="p"></span>
-<span class="gu">My Logging</span><span class="p"></span>
+<div class="highlight-robotframework notranslate"><div class="highlight"><pre><span></span><span class="gh">*** Keywords ***</span>
+<span class="gu">My Logging</span>
 <span class="p">    [</span><span class="kn">Arguments</span><span class="p">]    @{</span><span class="nv">arg</span><span class="p">}</span>
 <span class="p">    </span><span class="nf">Log Many</span><span class="p">    @{</span><span class="nv">arg</span><span class="p">}</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">mytests.robot</span></code> ：</p>
-<div class="highlight-robotframework notranslate"><div class="highlight"><pre><span></span><span class="gh">*** Settings ***</span><span class="p"></span>
-<span class="kn">Resource</span><span class="p">        </span><span class="nn">myresource.robot</span><span class="p"></span>
+<div class="highlight-robotframework notranslate"><div class="highlight"><pre><span></span><span class="gh">*** Settings ***</span>
+<span class="kn">Resource</span><span class="p">        </span><span class="nn">myresource.robot</span>
 
-<span class="gh">*** Test Cases ***</span><span class="p"></span>
-<span class="gu">Test Robot Framework Logging</span><span class="p"></span>
-<span class="p">    </span><span class="nf">Log</span><span class="p">    </span><span class="s">&quot;Test Logging&quot;</span><span class="p"></span>
+<span class="gh">*** Test Cases ***</span>
+<span class="gu">Test Robot Framework Logging</span>
+<span class="p">    </span><span class="nf">Log</span><span class="p">    </span><span class="s">&quot;Test Logging&quot;</span>
 
-<span class="gu">Test My Logging</span><span class="p"></span>
-<span class="p">    </span><span class="nf">My Logging</span><span class="p">   </span><span class="s">&quot;Test My Logging 1&quot;</span><span class="p">   </span><span class="s">&quot;Test My Logging 2&quot;</span><span class="p"></span>
+<span class="gu">Test My Logging</span>
+<span class="p">    </span><span class="nf">My Logging</span><span class="p">   </span><span class="s">&quot;Test My Logging 1&quot;</span><span class="p">   </span><span class="s">&quot;Test My Logging 2&quot;</span>
 </pre></div>
 </div>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ robot mytests.robot
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>robot<span class="w"> </span>mytests.robot
 <span class="o">==============================================================================</span>
 <span class="nv">Mytests</span>
 <span class="o">==============================================================================</span>
-Test Robot Framework Logging                                          <span class="p">|</span> PASS <span class="p">|</span>
+Test<span class="w"> </span>Robot<span class="w"> </span>Framework<span class="w"> </span>Logging<span class="w">                                          </span><span class="p">|</span><span class="w"> </span>PASS<span class="w"> </span><span class="p">|</span>
 ------------------------------------------------------------------------------
-Test My Logging                                                       <span class="p">|</span> PASS <span class="p">|</span>
+Test<span class="w"> </span>My<span class="w"> </span>Logging<span class="w">                                                       </span><span class="p">|</span><span class="w"> </span>PASS<span class="w"> </span><span class="p">|</span>
 ------------------------------------------------------------------------------
-Mytests                                                               <span class="p">|</span> PASS <span class="p">|</span>
-<span class="m">2</span> critical tests, <span class="m">2</span> passed, <span class="m">0</span> failed
-<span class="m">2</span> tests total, <span class="m">2</span> passed, <span class="m">0</span> <span class="nv">failed</span>
+Mytests<span class="w">                                                               </span><span class="p">|</span><span class="w"> </span>PASS<span class="w"> </span><span class="p">|</span>
+<span class="m">2</span><span class="w"> </span>critical<span class="w"> </span>tests,<span class="w"> </span><span class="m">2</span><span class="w"> </span>passed,<span class="w"> </span><span class="m">0</span><span class="w"> </span>failed
+<span class="m">2</span><span class="w"> </span>tests<span class="w"> </span>total,<span class="w"> </span><span class="m">2</span><span class="w"> </span>passed,<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="nv">failed</span>
 <span class="o">==============================================================================</span>
-Output:  /tmp/myproj/output.xml
-Log:     /tmp/myproj/log.html
-Report:  /tmp/myproj/report.html
+Output:<span class="w">  </span>/tmp/myproj/output.xml
+Log:<span class="w">     </span>/tmp/myproj/log.html
+Report:<span class="w">  </span>/tmp/myproj/report.html
 </pre></div>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="id15">
-<h2><a class="toc-backref" href="#id43">參考</a><a class="headerlink" href="#id15" title="本標題的永久連結">¶</a></h2>
+</section>
+</section>
+</section>
+<section id="id15">
+<h2><a class="toc-backref" href="#id43" role="doc-backlink">參考</a><a class="headerlink" href="#id15" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="http://stackoverflow.com/a/34520971/3880958">In py.test, what is the use of conftest.py files?</a></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="tips.html" class="btn btn-neutral float-right" title="Python Tips" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="sympy.html" class="btn btn-neutral float-left" title="SymPy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sympy.html" class="btn btn-neutral float-left" title="SymPy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tips.html" class="btn btn-neutral float-right" title="Python Tips" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2016
-
-    </p>
+    <p>&#169; Copyright 2023.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
   
 
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       <span class="fa fa-book"> Read the Docs</span>
       v: latest
@@ -1653,7 +1573,7 @@ Report:  /tmp/myproj/report.html
       <dl>
         <dt>Versions</dt>
         
-          <dd><a href="/zh_TW/latest/">latest</a></dd>
+          <dd><a href="https://wdv4758h.github.io/notes/">latest</a></dd>
         
       </dl>
       <dl>
@@ -1663,6 +1583,7 @@ Report:  /tmp/myproj/report.html
         
       </dl>
       <dl>
+        
         <dt>On Read the Docs</dt>
           <dd>
             <a href="//readthedocs.org/projects/wdv4758h-notes/?fromdocs=wdv4758h-notes">Project Home</a>
@@ -1671,22 +1592,13 @@ Report:  /tmp/myproj/report.html
             <a href="//readthedocs.org/builds/wdv4758h-notes/?fromdocs=wdv4758h-notes">Builds</a>
           </dd>
       </dl>
-      <hr/>
-      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
-
     </div>
   </div>
-
-
-
-  <script type="text/javascript">
+<script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-   
+  </script> 
 
 </body>
 </html>
