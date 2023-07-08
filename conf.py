@@ -11,7 +11,8 @@ source_suffix = ['.rst']
 # source_parsers = { '.md': CommonMarkParser, }
 master_doc = 'index'
 project = u'wdv4758h-notes'
-copyright = u'2016'
+copyright = u'2023'
+language = 'en'
 version = 'latest'
 release = 'latest'
 exclude_patterns = ['_build']
@@ -105,7 +106,7 @@ context = {
     'MEDIA_URL': "https://media.readthedocs.org/",
     'PRODUCTION_DOMAIN': "readthedocs.org",
     'versions': [
-    ("latest", "/zh_TW/latest/"),
+    ("latest", "https://wdv4758h.github.io/notes/"),
     ],
     'downloads': [
     ("htmlzip", "//readthedocs.org/projects/wdv4758h-notes/downloads/htmlzip/latest/"),
@@ -114,8 +115,8 @@ context = {
     ],
     'slug': 'wdv4758h-notes',
     'name': u'wdv4758h-notes',
-    'rtd_language': u'zh_TW',
-    'canonical_url': 'http://wdv4758h-notes.readthedocs.io/zh_TW/latest/',
+    'rtd_language': u'en',
+    'canonical_url': 'https://wdv4758h-notes.readthedocs.io/zh_TW/latest/',
     'analytics_code': '',
     'single_version': False,
     'conf_py_path': '/./',

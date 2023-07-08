@@ -11,7 +11,7 @@ sphinx:
 	mv README.rst index.rst
 
 	# 用 Sphinx 編出網頁
-	sphinx-build -T -E -b readthedocs -d _build/doctrees-readthedocs -D language=zh_TW . _build/html
+	sphinx-build -j auto -T -E -b readthedocs -d _build/doctrees-readthedocs -D language=en . _build/html
 
 push:
 	# 為 Travis CI 設定 git 的 user.name 和 user.email
